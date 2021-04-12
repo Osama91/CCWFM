@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Dyeing/DyeingService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.Dyeing" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DyeingService_GetDyeingOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetDyeingOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_GetDyeingOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetDyeingOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_SearchDyeingOrderInvoice_InputMessage">
+    <wsdl:part name="parameters" element="SearchDyeingOrderInvoice" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_SearchDyeingOrderInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="SearchDyeingOrderInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_UpdateOrInsertDyeingOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_UpdateOrInsertDyeingOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_DeleteDyeingOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_DeleteDyeingOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_GetDyeingOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetDyeingOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_GetDyeingOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetDyeingOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_UpdateOrInsertDyeingOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_UpdateOrInsertDyeingOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_DeleteDyeingOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_DeleteDyeingOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_PostDyeingOrderInvoice_InputMessage">
+    <wsdl:part name="parameters" element="PostDyeingOrderInvoice" />
+  </wsdl:message>
+  <wsdl:message name="DyeingService_PostDyeingOrderInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="PostDyeingOrderInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DyeingService">
+    <wsdl:operation name="GetDyeingOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:DyeingService/GetDyeingOrderInvoiceHeader" message="DyeingService_GetDyeingOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/GetDyeingOrderInvoiceHeaderResponse" message="DyeingService_GetDyeingOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDyeingOrderInvoice">
+      <wsdl:input wsaw:Action="urn:DyeingService/SearchDyeingOrderInvoice" message="DyeingService_SearchDyeingOrderInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/SearchDyeingOrderInvoiceResponse" message="DyeingService_SearchDyeingOrderInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertDyeingOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:DyeingService/UpdateOrInsertDyeingOrderInvoiceHeader" message="DyeingService_UpdateOrInsertDyeingOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/UpdateOrInsertDyeingOrderInvoiceHeaderResponse" message="DyeingService_UpdateOrInsertDyeingOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDyeingOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:DyeingService/DeleteDyeingOrderInvoiceHeader" message="DyeingService_DeleteDyeingOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/DeleteDyeingOrderInvoiceHeaderResponse" message="DyeingService_DeleteDyeingOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDyeingOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:DyeingService/GetDyeingOrderInvoiceDetail" message="DyeingService_GetDyeingOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/GetDyeingOrderInvoiceDetailResponse" message="DyeingService_GetDyeingOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertDyeingOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:DyeingService/UpdateOrInsertDyeingOrderInvoiceDetail" message="DyeingService_UpdateOrInsertDyeingOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/UpdateOrInsertDyeingOrderInvoiceDetailResponse" message="DyeingService_UpdateOrInsertDyeingOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDyeingOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:DyeingService/DeleteDyeingOrderInvoiceDetail" message="DyeingService_DeleteDyeingOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/DeleteDyeingOrderInvoiceDetailResponse" message="DyeingService_DeleteDyeingOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostDyeingOrderInvoice">
+      <wsdl:input wsaw:Action="urn:DyeingService/PostDyeingOrderInvoice" message="DyeingService_PostDyeingOrderInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DyeingService/PostDyeingOrderInvoiceResponse" message="DyeingService_PostDyeingOrderInvoice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

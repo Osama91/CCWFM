@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="18f0c985-5578-4240-9c40-1c2e1021d377" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/Production/ProductionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductionService.wsdl" MetadataType="Wsdl" ID="c53843aa-e27d-4678-8b59-7a91161e9d96" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?wsdl" />
+    <MetadataFile FileName="ProductionService.xsd" MetadataType="Schema" ID="851b2750-a7d9-4e7f-b097-021adb1ea0db" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductionService4.xsd" MetadataType="Schema" ID="cf5224c8-4631-440e-8c89-939cab72b738" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ProductionService2.xsd" MetadataType="Schema" ID="07689a60-c5d7-4aaa-be9b-cb64106e94d9" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProductionService1.wsdl" MetadataType="Wsdl" ID="02e20a56-4a9a-46d3-9b57-dfad6d17d8b2" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ProductionService3.xsd" MetadataType="Schema" ID="9acb7ba3-76b9-4285-b5fc-53d76d508e8e" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProductionService1.xsd" MetadataType="Schema" ID="328e4989-451a-488d-8648-66da75a9a79f" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProductionService5.xsd" MetadataType="Schema" ID="76f1a652-e048-4d6f-a892-254c91c43251" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ProductionService7.xsd" MetadataType="Schema" ID="c0e2e719-1882-4781-995e-3111e8085fc6" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="ProductionService6.xsd" MetadataType="Schema" ID="a4fa5cc0-cef5-4013-bbbc-0c546eb468fd" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProductionService.disco" MetadataType="Disco" ID="cf4c4bc4-a418-406e-adf2-f18e88a9b375" SourceId="1" SourceUrl="http://localhost:18559/Service/Production/ProductionService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

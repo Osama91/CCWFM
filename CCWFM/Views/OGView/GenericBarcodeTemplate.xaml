@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="CCWFM.Views.OGView.GenericBarcodeTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Name="GenericBarcideTemplate"
+    d:DesignHeight="300" d:DesignWidth="400"
+              xmlns:Converts="clr-namespace:CCWFM.Helpers.Converters"
+                xmlns:res="clr-namespace:CCWFM.Helpers.LocalizationHelpers"
+            Canvas.Left="{Binding CanvasLeftPropperty,Mode=TwoWay}" Canvas.Top="{Binding CanvasTopPropperty,Mode=TwoWay}">
+    <UserControl.Resources>
+        <Converts:BoldConverter x:Key="Conboldprop"></Converts:BoldConverter>
+        <Converts:ItalicConverter x:Key="ConitalicProp"></Converts:ItalicConverter>
+        <Converts:FontFamilyConverter x:Key="FontFamilyConverter"></Converts:FontFamilyConverter>
+        <Converts:ReversedBoolConverter x:Key="ReversedConverted"></Converts:ReversedBoolConverter>
+        <res:strings x:Key="LocalizedStrings"></res:strings>
+    </UserControl.Resources>
+    <Canvas>
+        <Grid x:Name="LayoutRoot"  GotFocus="GenericBarcideTemplate_GotFocus" LostFocus="GenericBarcideTemplate_LostFocus"    Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>           
+            <TextBox MinWidth="50"
+                      TextChanged="PropertyName_TextChanged"
+                     IsReadOnly="{Binding Path=BarcodePropertiesIserial}"
+            Grid.Row="2"   FontFamily="{Binding FontFamilyProp,Mode=TwoWay,Converter={StaticResource FontFamilyConverter}}"
+            FontSize="{Binding FontSizeProp,Mode=TwoWay}"
+            FontWeight="{Binding BoldProperty,Mode=TwoWay, Converter={StaticResource Conboldprop}}"
+            FontStyle="{Binding Converter={StaticResource ConitalicProp},
+            Path=ItalicProperty,Mode=TwoWay}"
+                 Text="{Binding PropertyName,Mode=TwoWay}" Grid.ColumnSpan="3" />
+        </Grid>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,279 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"				 
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" xmlns:syncfusion="http://schemas.syncfusion.com/silverlight"  x:Class="CCWFM.Views.OGView.UserJobs"
+           xmlns:Syncfusion="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.Silverlight"
+		   mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="480"
+		   Title="UserJobs">
+    <Grid x:Name="LayoutRoot">
+        <sdk:TabControl Margin="5" Grid.Row="1">
+            <sdk:TabItem Header="{Binding UserJobs, Source={StaticResource LocalizedStrings}}">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Add A new Row" Style="{StaticResource AddNew-Button}" Background="{StaticResource PrimaryColor-Brush}" Margin="5" x:Name="BtnAddNewRow"  Click="BtnAddNewRow_Click" Width="22" />
+                        <Button Content="{Binding Save, Source={StaticResource LocalizedStrings}}" IsEnabled="{Binding Items.Count, ElementName=lbData, Mode=OneWay}" Margin="5" x:Name="BtnSave" Click="BtnSave_Click" Width="50" />
+                        <Button Content="{Binding Delete, Source={StaticResource LocalizedStrings}}" IsEnabled="{Binding IsEnabled, ElementName=BtnSave, Mode=OneWay}" Margin="5" x:Name="BtnDelete" Click="BtnDelete_Click" Width="50" />
+                    </StackPanel>
+                    <dataGrid:OsGrid Grid.Row="1" ItemsSource="{Binding MainRowList, Mode=TwoWay}" FilteredItemsSource="{Binding MainRowList, Mode=TwoWay}" AutoGenerateColumns="False"
+				Margin="5" x:Name="MainGrid" KeyUp="MainGrid_KeyUp" LoadingRow="MainGrid_LoadingRow"
+				SelectedItem="{Binding SelectedMainRow, Mode=TwoWay}" RowEditEnded="MainGrid_RowEditEnded" OnFilter="MainGrid_OnFilter" VerticalAlignment="Stretch">
+                        <dataGrid:OsGrid.Columns>
+                            <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Binding="{Binding Code, Mode=TwoWay}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Aname, Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Ename, Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding UserName, Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding UserName, Source={StaticResource LocalizedStrings}}"/>
+                            <sdk:DataGridTemplateColumn SortMemberPath="UserPassword" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Password, Source={StaticResource LocalizedStrings}}">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <PasswordBox Password="{Binding UserPassword, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <!--<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Position, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblLkpColorGroup">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding PositionPerRow.Ename,Mode=TwoWay}">
+								</TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang}, ConverterParameter=Ename;Aname}" SelectedValuePath="Iserial" SelectedValue="{Binding TblPosition,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding PositionPerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.PositionList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+									<ComboBox.ItemsPanel>
+										<ItemsPanelTemplate>
+											<VirtualizingStackPanel />
+										</ItemsPanelTemplate>
+									</ComboBox.ItemsPanel>
+								</ComboBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>-->
+                            <sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Company, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblCompany1.Ename">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding CompanyPerRow.Ename, Mode=TwoWay}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox DisplayMemberPath="{Binding ConverterParameter=Ename;Aname, Converter={StaticResource DisplaypathByLang}}" SelectedValuePath="Iserial" SelectedValue="{Binding TblCompany, Mode=TwoWay}"
+										 SelectedItem="{Binding CompanyPerRow, Mode=TwoWay}"
+									  ItemsSource="{Binding DataContext.CompanyList, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType=navigation:Page}}"    										
+									  Margin="5">
+                                            <ComboBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <VirtualizingStackPanel />
+                                                </ItemsPanelTemplate>
+                                            </ComboBox.ItemsPanel>
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SecondaryCompany, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblCompany2.Ename">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SecondaryCompanyPerRow.Ename, Mode=TwoWay}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox DisplayMemberPath="{Binding ConverterParameter=Ename;Aname, Converter={StaticResource DisplaypathByLang}}" SelectedValuePath="Iserial" SelectedValue="{Binding TblCompanySecondary, Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding SecondaryCompanyPerRow, Mode=TwoWay}"
+									  ItemsSource="{Binding DataContext.CompanyList, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType=navigation:Page}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+                                            <ComboBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <VirtualizingStackPanel />
+                                                </ItemsPanelTemplate>
+                                            </ComboBox.ItemsPanel>
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <!--<sdk:DataGridTextColumn Binding="{Binding Tel1,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Tel1, Source={StaticResource LocalizedStrings}}"/>
+					<sdk:DataGridTextColumn Binding="{Binding Tel2,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Tel2, Source={StaticResource LocalizedStrings}}"/>
+					<sdk:DataGridTextColumn Binding="{Binding Address,Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Address, Source={StaticResource LocalizedStrings}}"/>
+					<sdk:DataGridTextColumn Binding="{Binding Comment,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Comment, Source={StaticResource LocalizedStrings}}"/>-->
+                            <sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Jobs, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblAuthJob.Ename">
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding DataContext.Jobs, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+										  Width="150" HorizontalAlignment="Left" Height="20"
+										  SelectedValue="{Binding TblJob, Mode=TwoWay}" SelectedItem="{Binding JobPerRow, Mode=TwoWay}"
+										  DisplayMemberPath="{Binding ConverterParameter=Ename;Aname, Converter={StaticResource DisplaypathByLang}}" SelectedValuePath="Iserial"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding JobPerRow.Ename, Mode=TwoWay}"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Language, Source={StaticResource LocalizedStrings}}" SortMemberPath="CurrLang">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding DataContext.Language, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+										  Width="150" HorizontalAlignment="Left" Height="20"
+										  SelectedValue="{Binding CurrLang, Mode=TwoWay}"
+										 DisplayMemberPath="Lang" SelectedValuePath="CurrLan"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BarcodeSettings, Source={StaticResource LocalizedStrings}}" SortMemberPath="BarcodeDisplaySettingsHeader.Code">
+                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding DataContext.BarcodeList, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+										  Width="150" HorizontalAlignment="Left" Height="20"
+										  SelectedValue="{Binding PrintingCode, Mode=TwoWay}"
+										  SelectedItem="{Binding BarcodePerRow, Mode=TwoWay}"
+										 DisplayMemberPath="PrintingCode" SelectedValuePath="Iserial"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding BarcodePerRow.PrintingCode}" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn CanUserSort="False" SortMemberPath="Iserial" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding AllowedStores, Source={StaticResource LocalizedStrings}}">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="BtnAllowedStores" Content="{Binding AllowedStores, Source={StaticResource LocalizedStrings}}" Click="BtnAllowedStores_OnClick"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn CanUserSort="False" SortMemberPath="Iserial" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CheckListGroup, Source={StaticResource LocalizedStrings}}">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="BtnAllowedStores" Content="{Binding CheckListGroup, Source={StaticResource LocalizedStrings}}" Click="BtnCheckList_OnClick"/>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTextColumn Binding="{Binding User_Domain, Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding User_Domain, Source={StaticResource LocalizedStrings}}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding User_Win_Login, Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding User_Win_Login, Source={StaticResource LocalizedStrings}}"/>
+                        </dataGrid:OsGrid.Columns>
+                    </dataGrid:OsGrid>
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="{Binding Permissions, Source={StaticResource LocalizedStrings}}">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <sdk:Label Content="{Binding UserName,Source={StaticResource LocalizedStrings}}" Margin="5,0"/>
+                        <sdk:Label Content="{Binding SelectedMainRow.Ename}" Margin="5,0"/>
+                        <Border Width="1" Background="Black"/>
+                        <sdk:Label Content="{Binding WareHouse,Source={StaticResource LocalizedStrings}}" Margin="5,0"/>
+                    </StackPanel>
+                    <ComboBox Margin="5" ItemsSource="{Binding PermissionTypes, Mode=TwoWay}" SelectedValuePath="Iserial" DisplayMemberPath="EName"
+                               SelectedItem="{Binding SelectedPermissionType, Mode=TwoWay}" Grid.Column="1"/>
+                    <ListBox Margin="5" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ItemsSource="{Binding WarehouseAuths, Mode=TwoWay}" Grid.ColumnSpan="2">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Syncfusion:WrapPanel></Syncfusion:WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Top" Margin="5" Width="200">
+                                    <CheckBox Width="25" IsChecked="{Binding IsGranted, Mode=TwoWay}" Margin="5,0"/>
+                                    <sdk:Label Content="{Binding WarehouseCode, Mode=TwoWay}" Margin="5,0"/>
+                                    <sdk:Label Content="{Binding WarehoseEname, Mode=TwoWay}" Margin="5,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Content="{Binding Save, Source={StaticResource LocalizedStrings}}"
+                            Width="75" HorizontalAlignment="Right" Margin="5" Grid.Row="2"
+                            Command="{Binding SavePermissions}" Grid.Column="1" Height="30"/>                 
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="AX">
+                <dataGrid:OsGrid Grid.Row="1" ItemsSource="{Binding MainRowList, Mode=TwoWay}" FilteredItemsSource="{Binding MainRowList, Mode=TwoWay}" AutoGenerateColumns="False"
+				Margin="5" KeyUp="MainGrid_KeyUp" LoadingRow="MainGrid_LoadingRow"
+				SelectedItem="{Binding SelectedMainRow, Mode=TwoWay}" RowEditEnded="MainGrid_RowEditEnded" OnFilter="MainGrid_OnFilter" VerticalAlignment="Stretch">
+                    <dataGrid:OsGrid.Columns>
+
+                        <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Binding="{Binding Code, Mode=TwoWay}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding Aname, Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding Ename, Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding UserName, Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding UserName, Source={StaticResource LocalizedStrings}}"/>
+                        <sdk:DataGridTemplateColumn CanUserSort="False" SortMemberPath="Iserial" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ImportUserFromAx, Source={StaticResource LocalizedStrings}}">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="BtnImportFromAx" Content="{Binding ImportUserFromAx, Source={StaticResource LocalizedStrings}}" Click="ImportFromAx_Click"/>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn CanUserSort="False" SortMemberPath="Iserial" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ImportEmployeeFromAx, Source={StaticResource LocalizedStrings}}">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="BtnImportEmployeeFromAx" Content="{Binding ImportEmployeeFromAx, Source={StaticResource LocalizedStrings}}" Click="BtnImportEmployeeFromAx_OnClick"/>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn Binding="{Binding AxId, Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding AxId, Source={StaticResource LocalizedStrings}}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding AxName, Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding AxName, Source={StaticResource LocalizedStrings}}"/>
+                    </dataGrid:OsGrid.Columns>
+                </dataGrid:OsGrid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="{Binding Journal, Source={StaticResource LocalizedStrings}}">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <sdk:Label Content="{Binding UserName,Source={StaticResource LocalizedStrings}}" Margin="5,0"/>
+                        <sdk:Label Content="{Binding SelectedMainRow.Ename}" Margin="5,0"/>
+                        <Border Width="1" Background="Black"/>
+                    </StackPanel>
+                    <ListBox Margin="5" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ItemsSource="{Binding JournalAuth, Mode=TwoWay}" Grid.ColumnSpan="2">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Syncfusion:WrapPanel></Syncfusion:WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Top" Margin="5" Width="200">
+                                    <CheckBox Width="25" IsChecked="{Binding IsGranted, Mode=TwoWay}" Margin="5,0"/>
+                                    <sdk:Label Content="{Binding WarehouseCode, Mode=TwoWay}" Margin="5,0"/>
+                                    <sdk:Label Content="{Binding WarehoseEname, Mode=TwoWay}" Margin="5,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Content="{Binding Save, Source={StaticResource LocalizedStrings}}"
+                            Width="75" HorizontalAlignment="Right" Margin="5" Grid.Row="2"
+                            Command="{Binding SaveJournalAuth}" Grid.Column="1" Height="30"/>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+
+</navigation:Page>

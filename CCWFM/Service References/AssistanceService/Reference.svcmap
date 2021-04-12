@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1376c866-df3e-479e-912c-c2c6de3bf4a8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="CCWFM.Models" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AssistanceService2.xsd" MetadataType="Schema" ID="22ff476d-3866-471c-9fbc-da0ff3116734" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AssistanceService21.xsd" MetadataType="Schema" ID="09ade497-e77d-44d9-92c7-95a8e12a4412" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AssistanceService22.xsd" MetadataType="Schema" ID="87c9d7cf-8fb4-43de-8542-751955f6602d" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AssistanceService23.xsd" MetadataType="Schema" ID="d76a0402-7e9a-47bb-be94-2475e0b24d90" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AssistanceService1.xsd" MetadataType="Schema" ID="2eb3c226-3461-443c-b5a7-daac7c9f42b1" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AssistanceService.xsd" MetadataType="Schema" ID="57b96271-74df-434e-8621-132ae893543a" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AssistanceService1.wsdl" MetadataType="Wsdl" ID="fc77955d-e72d-4aac-b8f3-25e8b05a9728" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?wsdl" />
+    <MetadataFile FileName="AssistanceService.wsdl" MetadataType="Wsdl" ID="c2453901-a75e-460a-9879-377556c06a3f" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AssistanceService.disco" MetadataType="Disco" ID="736c3329-523b-46e5-8957-a833d6de01d2" SourceId="1" SourceUrl="http://localhost:18559/Service/AssistanceOp/AssistanceService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

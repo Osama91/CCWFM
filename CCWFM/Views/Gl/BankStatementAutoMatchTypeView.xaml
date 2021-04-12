@@ -1,0 +1,36 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:Grid="clr-namespace:Syncfusion.UI.Xaml.Grid;assembly=Syncfusion.SfGrid.Silverlight"  
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Tools.Silverlight"  
+    xmlns:DataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.Gl"
+    xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+    xmlns:Views="clr-namespace:CCWFM.Views"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+    xmlns:Layout="clr-namespace:Syncfusion.Tools.Controls.Layout;assembly=Syncfusion.SfAccordion.Silverlight"
+    x:Class="CCWFM.Views.Gl.BankStatementAutoMatchTypeView"
+    mc:Ignorable="d" Title="Select Bank Statement Auto Matching Type"
+    Width="350" Height="200"
+    d:DesignHeight="300" d:DesignWidth="350">
+    <controlsOverride:ChildWindowsOverride.Resources>
+        <!--<viewModel:BankStatementMatchViewModel x:Key="ViewModel"/>-->
+    </controlsOverride:ChildWindowsOverride.Resources>
+
+    <Grid Background="White" Margin="5">
+        <StackPanel Margin="5">
+            <CheckBox x:Name="TransactionType" Content="{Binding Source={StaticResource LocalizedStrings}, Path=TransactionType}" Margin="5" HorizontalContentAlignment="Left" FlowDirection="LeftToRight" Visibility="Collapsed"/>
+            <CheckBox x:Name="ChequeNo" Content="{Binding Source={StaticResource LocalizedStrings}, Path=ChequeNo}" Margin="5" />
+            <CheckBox x:Name="DepositNo" Content="{Binding Source={StaticResource LocalizedStrings}, Path=DepositNo}" Margin="5" />
+            <CheckBox x:Name="Amount" Content="{Binding Source={StaticResource LocalizedStrings}, Path=Amount}" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Ok" Width="100" Margin="5" Click="Ok_Click"/>
+                <Button Content="Cancel" Width="100" Margin="5" Click="Cancel_Click"/>
+            </StackPanel>           
+        </StackPanel>     
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

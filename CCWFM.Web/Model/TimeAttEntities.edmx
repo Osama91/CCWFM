@@ -1,0 +1,2496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimeAttModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.ActiveOrganizationUnit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ActiveOrganizationUnit">
+          <Key>
+            <PropertyRef Name="OrganizationName" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.AttendanceDeviceIp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AttendanceDeviceIp">
+          <Key>
+            <PropertyRef Name="OrganizationIP" />
+            <PropertyRef Name="OrganizationPort" />
+          </Key>
+          <Property Name="OrganizationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrganizationPort" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="15" />
+          <Property Name="fpVersion" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="AttendanceLog">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="verifyMode" Type="int" />
+          <Property Name="InoutMode" Type="int" />
+          <Property Name="ADate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpLeavingTransaction">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TransDate" Type="datetime" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Store" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreationBy" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeeInfo">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Empname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="FromDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="toDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromTime" Type="time" Precision="4" />
+          <Property Name="ToTime" Type="time" Precision="4" />
+          <Property Name="Approval" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManagerEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerGuid" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeGuid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Intime" Type="nvarchar" MaxLength="50" />
+          <Property Name="outtime" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExcuseType" Type="nvarchar" MaxLength="50" />
+          <Property Name="MissionType" Type="nvarchar" MaxLength="50" />
+          <Property Name="VacationType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FingerPrintTransaction">
+          <Key>
+            <PropertyRef Name="GlSerial" />
+          </Key>
+          <Property Name="GlSerial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Sender" Type="int" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.RealtimeLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RealtimeLog">
+          <Key>
+            <PropertyRef Name="EnrollNumber" />
+            <PropertyRef Name="Adate" />
+          </Key>
+          <Property Name="EnrollNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adate" Type="datetime" Nullable="false" />
+          <Property Name="hostip" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblAttendanceFile">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromTime" Type="int" />
+          <Property Name="ToTime" Type="int" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="OrginalFromTime" Type="int" />
+          <Property Name="OrginalInTime" Type="int" />
+          <Property Name="TblAttendanceFileReason" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblAttendanceFileReason">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblEmployeeBehalf">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AttOperatorId" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TblEmployeeShift">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TblStore" Type="int" Nullable="false" />
+          <Property Name="Week" Type="int" Nullable="false" />
+          <Property Name="Day" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="TblEmployeeShiftLookup" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblEmployeeShiftLookup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shift" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CalendarId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblEmployeeShiftStore">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblEmployeeShiftLookup" Type="int" Nullable="false" />
+          <Property Name="TblStore" Type="int" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmpWeeklyDayOff">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp" Type="nvarchar" MaxLength="50" />
+          <Property Name="DayOff" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="date" />
+          <Property Name="CreationBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TblExcuse">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CSPEXCUSEID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.TblExcuseDeleted' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblExcuseDeleted">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Iserial" Type="int" Nullable="false" />
+          <Property Name="CSPEXCUSEID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblExcuseRule">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExcuseId" Type="nvarchar" MaxLength="25" />
+          <Property Name="PeriodId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CounterPerPeriodLine" Type="int" />
+          <Property Name="DefaultFromTime" Type="int" />
+          <Property Name="DefaultToTime" Type="int" />
+        </EntityType>
+        <EntityType Name="TblExtraPeriod">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Period" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Emp" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblMission">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CSPMISSIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.TblMissionDeleted' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblMissionDeleted">
+          <Key>
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CSPMISSIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Iserial" Type="int" Nullable="false" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblPeriodExcuseLimit">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblPeriod" Type="nvarchar" MaxLength="15" />
+          <Property Name="MaxExcuseMinLimit" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TblPeriodLock">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CspPeriodID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CspPeriodLineID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClosingDate" Type="date" />
+        </EntityType>
+        <EntityType Name="TblSalaryTerm">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblVacation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAYS" Type="int" Nullable="false" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="ExpiryDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.TblVacationDeleted' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblVacationDeleted">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="DAYS" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Iserial" Type="int" Nullable="false" />
+          <Property Name="DAYS" Type="int" Nullable="false" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblVacationDetails">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VACATIONDAYS" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="PREVBALANCE" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="CONSUMED" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="REMAINING" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="PERIODVACATIONDAYS" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="PERIODS" Type="int" Nullable="false" />
+          <Property Name="PERIODUNIT" Type="int" Nullable="false" />
+          <Property Name="EMPLNAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" />
+          <Property Name="RECID" Type="bigint" />
+          <Property Name="VACATIONDAYS1" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="ExpiryDate" Type="date" />
+          <Property Name="TblVacationType" Type="int" />
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblVactionGroup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="250" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="250" />
+          <Property Name="DefaultValue" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="HasExpiry" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblVariableTermManual">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TermId" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Days" Type="float" Nullable="false" />
+          <Property Name="Hours" Type="float" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.AttendanceInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AttendanceInfo">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="OrganizationUnitId" />
+          </Key>
+          <Property Name="Adate" Type="varchar" MaxLength="10" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fromTime" Type="varchar" MaxLength="19" />
+          <Property Name="toTime" Type="varchar" MaxLength="19" />
+          <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="OrganizationUnitId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="INtime" Type="varchar" MaxLength="7" />
+          <Property Name="OUTtime" Type="varchar" MaxLength="7" />
+          <Property Name="MISSION" Type="nvarchar" MaxLength="80" />
+          <Property Name="Excuse" Type="nvarchar" MaxLength="76" />
+          <Property Name="vacation" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.AttendanceNotExisitinax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AttendanceNotExisitinax">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Store" />
+          </Key>
+          <Property Name="Iserial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FromTime" Type="int" />
+          <Property Name="ToTime" Type="int" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="OrginalFromTime" Type="int" />
+          <Property Name="OrginalInTime" Type="int" />
+          <Property Name="TblAttendanceFileReason" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="Store" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.AxaptaData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AxaptaData">
+          <Key>
+            <PropertyRef Name="count" />
+            <PropertyRef Name="enrollnumber" />
+          </Key>
+          <Property Name="count" Type="int" Nullable="false" />
+          <Property Name="enrollnumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="time" Type="int" />
+          <Property Name="Adate" Type="date" />
+          <Property Name="RecCount" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.axExcuses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="axExcuses">
+          <Key>
+            <PropertyRef Name="CSPEXCUSEID" />
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="TOTIME" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="CSPPERIODID" />
+          </Key>
+          <Property Name="CSPEXCUSEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FROMTIME" Type="int" Nullable="false" />
+          <Property Name="TOTIME" Type="int" Nullable="false" />
+          <Property Name="TRANSDATE" Type="datetime" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CSPPERIODID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.axMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="axMission">
+          <Key>
+            <PropertyRef Name="From Date" />
+            <PropertyRef Name="To Date" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+          </Key>
+          <Property Name="From Date" Type="datetime" Nullable="false" />
+          <Property Name="To Date" Type="datetime" Nullable="false" />
+          <Property Name="EmplId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="CSPMISSIONID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.axVacationS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="axVacationS">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="DAYS" />
+            <PropertyRef Name="CSPPERIODID" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FROMDATE" Type="datetime" Nullable="false" />
+          <Property Name="TODATE" Type="datetime" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="DAYS" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="CSPPERIODID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.BehalfFiltered' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BehalfFiltered">
+          <Key>
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ManagerId" />
+          </Key>
+          <Property Name="Emplid" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.EmployeesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmployeesView">
+          <Key>
+            <PropertyRef Name="Emplid" />
+          </Key>
+          <Property Name="Emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="JOBID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransportationLine" Type="nvarchar" MaxLength="50" />
+          <Property Name="Store" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaxdayOffPerWeek" Type="int" />
+          <Property Name="DayOff" Type="nvarchar" MaxLength="50" />
+          <Property Name="Period" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoAttendance" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.EmpVacationsAxapta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmpVacationsAxapta">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="VACATIONDAYS" />
+            <PropertyRef Name="CONSUMED" />
+            <PropertyRef Name="REMAINING" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VACATIONDAYS" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="CONSUMED" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+          <Property Name="REMAINING" Type="numeric" Precision="28" Scale="12" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.ExcuseType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ExcuseType">
+          <Key>
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="CSPEXCUSEID" />
+          </Key>
+          <Property Name="NAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="CSPEXCUSEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.LatestExcuses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LatestExcuses">
+          <Key>
+            <PropertyRef Name="cspexcuseid" />
+            <PropertyRef Name="fromtime" />
+            <PropertyRef Name="totime" />
+            <PropertyRef Name="transdate" />
+            <PropertyRef Name="emplid" />
+          </Key>
+          <Property Name="cspexcuseid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fromtime" Type="int" Nullable="false" />
+          <Property Name="totime" Type="int" Nullable="false" />
+          <Property Name="transdate" Type="datetime" Nullable="false" />
+          <Property Name="emplid" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.LatestMission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LatestMission">
+          <Key>
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+          </Key>
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="EmplId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="CSPMISSIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.LatestVacation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LatestVacation">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmplId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.MissionType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MissionType">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CSPMISSIONID" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="CSPMISSIONID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.ShiftNotinAx' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ShiftNotinAx">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Store" />
+            <PropertyRef Name="JOBID" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="EmpId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Store" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="JOBID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CalendarId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Iserial" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.test123Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="test123Info">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="OrganizationUnitId" />
+          </Key>
+          <Property Name="Adate" Type="varchar" MaxLength="10" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="OrganizationUnitId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="INtime" Type="varchar" MaxLength="7" />
+          <Property Name="OUTtime" Type="varchar" MaxLength="7" />
+          <Property Name="MISSION" Type="nvarchar" MaxLength="80" />
+          <Property Name="Excuse" Type="nvarchar" MaxLength="76" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TimeAtt.dbo.VacationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VacationType">
+          <Key>
+            <PropertyRef Name="VactionIserial" />
+          </Key>
+          <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="CSPVACATIONID" Type="nvarchar" MaxLength="500" />
+          <Property Name="CSPPERIODID" Type="nvarchar" MaxLength="100" />
+          <Property Name="INCLUDEOFFICIALVACATIONS" Type="int" />
+          <Property Name="DEDUCTIONDAYS" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="VACATIONDAYS" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="HIDDEN" Type="int" />
+          <Property Name="VactionIserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TblAttendanceFile_TblAttendanceFileReason">
+          <End Role="TblAttendanceFileReason" Type="Self.TblAttendanceFileReason" Multiplicity="0..1" />
+          <End Role="TblAttendanceFile" Type="Self.TblAttendanceFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAttendanceFileReason">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAttendanceFile">
+              <PropertyRef Name="TblAttendanceFileReason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendar_TblCalendar">
+          <End Role="TblEmployeeShiftLookup" Type="Self.TblEmployeeShiftLookup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeShift" Type="Self.TblEmployeeShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeeShiftLookup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeShift">
+              <PropertyRef Name="TblEmployeeShiftLookup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeShiftStore_TblEmployeeShiftLookup">
+          <End Role="TblEmployeeShiftLookup" Type="Self.TblEmployeeShiftLookup" Multiplicity="1" />
+          <End Role="TblEmployeeShiftStore" Type="Self.TblEmployeeShiftStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeeShiftLookup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeShiftStore">
+              <PropertyRef Name="TblEmployeeShiftLookup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblSalaryTerm">
+          <End Role="TblSalaryTerm" Type="Self.TblSalaryTerm" Multiplicity="1" />
+          <End Role="TblVariableTermManual" Type="Self.TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TermId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeAttModelStoreContainer">
+          <EntitySet Name="AttendanceLog" EntityType="Self.AttendanceLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpLeavingTransaction" EntityType="Self.EmpLeavingTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeInfo" EntityType="Self.EmployeeInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FingerPrintTransaction" EntityType="Self.FingerPrintTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAttendanceFile" EntityType="Self.TblAttendanceFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAttendanceFileReason" EntityType="Self.TblAttendanceFileReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeBehalf" EntityType="Self.TblEmployeeBehalf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeShift" EntityType="Self.TblEmployeeShift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeShiftLookup" EntityType="Self.TblEmployeeShiftLookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeShiftStore" EntityType="Self.TblEmployeeShiftStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmpWeeklyDayOff" EntityType="Self.TblEmpWeeklyDayOff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExcuse" EntityType="Self.TblExcuse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExcuseRule" EntityType="Self.TblExcuseRule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExtraPeriod" EntityType="Self.TblExtraPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMission" EntityType="Self.TblMission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPeriodExcuseLimit" EntityType="Self.TblPeriodExcuseLimit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPeriodLock" EntityType="Self.TblPeriodLock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSalaryTerm" EntityType="Self.TblSalaryTerm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVacation" EntityType="Self.TblVacation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVacationDetails" EntityType="Self.TblVacationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVactionGroup" EntityType="Self.TblVactionGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVariableTermManual" EntityType="Self.TblVariableTermManual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActiveOrganizationUnit" EntityType="Self.ActiveOrganizationUnit" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ActiveOrganizationUnit].[OrganizationName] AS [OrganizationName], 
+[ActiveOrganizationUnit].[Active] AS [Active]
+FROM [dbo].[ActiveOrganizationUnit] AS [ActiveOrganizationUnit]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AttendanceDeviceIp" EntityType="Self.AttendanceDeviceIp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AttendanceDeviceIp].[OrganizationIP] AS [OrganizationIP], 
+[AttendanceDeviceIp].[OrganizationPort] AS [OrganizationPort], 
+[AttendanceDeviceIp].[Description] AS [Description], 
+[AttendanceDeviceIp].[Organization] AS [Organization], 
+[AttendanceDeviceIp].[fpVersion] AS [fpVersion]
+FROM [dbo].[AttendanceDeviceIp] AS [AttendanceDeviceIp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RealtimeLog" EntityType="Self.RealtimeLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[RealtimeLog].[EnrollNumber] AS [EnrollNumber], 
+[RealtimeLog].[Adate] AS [Adate], 
+[RealtimeLog].[hostip] AS [hostip]
+FROM [dbo].[RealtimeLog] AS [RealtimeLog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblExcuseDeleted" EntityType="Self.TblExcuseDeleted" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblExcuseDeleted].[Iserial] AS [Iserial], 
+[TblExcuseDeleted].[CSPEXCUSEID] AS [CSPEXCUSEID], 
+[TblExcuseDeleted].[FromTime] AS [FromTime], 
+[TblExcuseDeleted].[ToTime] AS [ToTime], 
+[TblExcuseDeleted].[TransDate] AS [TransDate], 
+[TblExcuseDeleted].[Emplid] AS [Emplid], 
+[TblExcuseDeleted].[Status] AS [Status], 
+[TblExcuseDeleted].[Description] AS [Description], 
+[TblExcuseDeleted].[ApprovedBy] AS [ApprovedBy], 
+[TblExcuseDeleted].[CreatedBy] AS [CreatedBy], 
+[TblExcuseDeleted].[CreationDate] AS [CreationDate], 
+[TblExcuseDeleted].[ApprovedDate] AS [ApprovedDate]
+FROM [dbo].[TblExcuseDeleted] AS [TblExcuseDeleted]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblMissionDeleted" EntityType="Self.TblMissionDeleted" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblMissionDeleted].[FromDate] AS [FromDate], 
+[TblMissionDeleted].[ToDate] AS [ToDate], 
+[TblMissionDeleted].[Emplid] AS [Emplid], 
+[TblMissionDeleted].[Description] AS [Description], 
+[TblMissionDeleted].[CSPMISSIONID] AS [CSPMISSIONID], 
+[TblMissionDeleted].[FromTime] AS [FromTime], 
+[TblMissionDeleted].[ToTime] AS [ToTime], 
+[TblMissionDeleted].[Status] AS [Status], 
+[TblMissionDeleted].[Iserial] AS [Iserial], 
+[TblMissionDeleted].[ApprovedBy] AS [ApprovedBy], 
+[TblMissionDeleted].[CreatedBy] AS [CreatedBy], 
+[TblMissionDeleted].[CreationDate] AS [CreationDate], 
+[TblMissionDeleted].[ApprovedDate] AS [ApprovedDate]
+FROM [dbo].[TblMissionDeleted] AS [TblMissionDeleted]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblVacationDeleted" EntityType="Self.TblVacationDeleted" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblVacationDeleted].[CSPVACATIONID] AS [CSPVACATIONID], 
+[TblVacationDeleted].[Emplid] AS [Emplid], 
+[TblVacationDeleted].[FromDate] AS [FromDate], 
+[TblVacationDeleted].[ToDate] AS [ToDate], 
+[TblVacationDeleted].[Description] AS [Description], 
+[TblVacationDeleted].[Status] AS [Status], 
+[TblVacationDeleted].[Iserial] AS [Iserial], 
+[TblVacationDeleted].[DAYS] AS [DAYS], 
+[TblVacationDeleted].[ApprovedBy] AS [ApprovedBy], 
+[TblVacationDeleted].[CreatedBy] AS [CreatedBy], 
+[TblVacationDeleted].[CreationDate] AS [CreationDate], 
+[TblVacationDeleted].[ApprovedDate] AS [ApprovedDate]
+FROM [dbo].[TblVacationDeleted] AS [TblVacationDeleted]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AttendanceInfo" EntityType="Self.AttendanceInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AttendanceInfo].[Adate] AS [Adate], 
+[AttendanceInfo].[EMPLID] AS [EMPLID], 
+[AttendanceInfo].[fromTime] AS [fromTime], 
+[AttendanceInfo].[toTime] AS [toTime], 
+[AttendanceInfo].[name] AS [name], 
+[AttendanceInfo].[Email] AS [Email], 
+[AttendanceInfo].[OrganizationUnitId] AS [OrganizationUnitId], 
+[AttendanceInfo].[INtime] AS [INtime], 
+[AttendanceInfo].[OUTtime] AS [OUTtime], 
+[AttendanceInfo].[MISSION] AS [MISSION], 
+[AttendanceInfo].[Excuse] AS [Excuse], 
+[AttendanceInfo].[vacation] AS [vacation]
+FROM [dbo].[AttendanceInfo] AS [AttendanceInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AttendanceNotExisitinax" EntityType="Self.AttendanceNotExisitinax" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AttendanceNotExisitinax].[Iserial] AS [Iserial], 
+[AttendanceNotExisitinax].[FromTime] AS [FromTime], 
+[AttendanceNotExisitinax].[ToTime] AS [ToTime], 
+[AttendanceNotExisitinax].[TransDate] AS [TransDate], 
+[AttendanceNotExisitinax].[Emplid] AS [Emplid], 
+[AttendanceNotExisitinax].[Status] AS [Status], 
+[AttendanceNotExisitinax].[OrginalFromTime] AS [OrginalFromTime], 
+[AttendanceNotExisitinax].[OrginalInTime] AS [OrginalInTime], 
+[AttendanceNotExisitinax].[TblAttendanceFileReason] AS [TblAttendanceFileReason], 
+[AttendanceNotExisitinax].[Description] AS [Description], 
+[AttendanceNotExisitinax].[ApprovedBy] AS [ApprovedBy], 
+[AttendanceNotExisitinax].[CreatedBy] AS [CreatedBy], 
+[AttendanceNotExisitinax].[CreationDate] AS [CreationDate], 
+[AttendanceNotExisitinax].[ApprovedDate] AS [ApprovedDate], 
+[AttendanceNotExisitinax].[Store] AS [Store]
+FROM [dbo].[AttendanceNotExisitinax] AS [AttendanceNotExisitinax]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AxaptaData" EntityType="Self.AxaptaData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AxaptaData].[count] AS [count], 
+[AxaptaData].[enrollnumber] AS [enrollnumber], 
+[AxaptaData].[time] AS [time], 
+[AxaptaData].[Adate] AS [Adate], 
+[AxaptaData].[RecCount] AS [RecCount]
+FROM [dbo].[AxaptaData] AS [AxaptaData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="axExcuses" EntityType="Self.axExcuses" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[axExcuses].[CSPEXCUSEID] AS [CSPEXCUSEID], 
+[axExcuses].[FROMTIME] AS [FROMTIME], 
+[axExcuses].[TOTIME] AS [TOTIME], 
+[axExcuses].[TRANSDATE] AS [TRANSDATE], 
+[axExcuses].[EMPLID] AS [EMPLID], 
+[axExcuses].[CSPPERIODID] AS [CSPPERIODID]
+FROM [dbo].[axExcuses] AS [axExcuses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="axMission" EntityType="Self.axMission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[axMission].[From Date] AS [From Date], 
+[axMission].[To Date] AS [To Date], 
+[axMission].[EmplId] AS [EmplId], 
+[axMission].[DESCRIPTION] AS [DESCRIPTION], 
+[axMission].[CSPMISSIONID] AS [CSPMISSIONID], 
+[axMission].[FromTime] AS [FromTime], 
+[axMission].[ToTime] AS [ToTime]
+FROM [dbo].[axMission] AS [axMission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="axVacationS" EntityType="Self.axVacationS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[axVacationS].[CSPVACATIONID] AS [CSPVACATIONID], 
+[axVacationS].[EMPLID] AS [EMPLID], 
+[axVacationS].[FROMDATE] AS [FROMDATE], 
+[axVacationS].[TODATE] AS [TODATE], 
+[axVacationS].[DESCRIPTION] AS [DESCRIPTION], 
+[axVacationS].[DAYS] AS [DAYS], 
+[axVacationS].[CSPPERIODID] AS [CSPPERIODID]
+FROM [dbo].[axVacationS] AS [axVacationS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BehalfFiltered" EntityType="Self.BehalfFiltered" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[BehalfFiltered].[Emplid] AS [Emplid], 
+[BehalfFiltered].[Name] AS [Name], 
+[BehalfFiltered].[ManagerId] AS [ManagerId]
+FROM [dbo].[BehalfFiltered] AS [BehalfFiltered]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmployeesView" EntityType="Self.EmployeesView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[EmployeesView].[Emplid] AS [Emplid], 
+[EmployeesView].[Organization] AS [Organization], 
+[EmployeesView].[Name] AS [Name], 
+[EmployeesView].[JOBID] AS [JOBID], 
+[EmployeesView].[Position] AS [Position], 
+[EmployeesView].[Company] AS [Company], 
+[EmployeesView].[TransportationLine] AS [TransportationLine], 
+[EmployeesView].[Store] AS [Store], 
+[EmployeesView].[MaxdayOffPerWeek] AS [MaxdayOffPerWeek], 
+[EmployeesView].[DayOff] AS [DayOff], 
+[EmployeesView].[Period] AS [Period], 
+[EmployeesView].[NoAttendance] AS [NoAttendance]
+FROM [dbo].[EmployeesView] AS [EmployeesView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmpVacationsAxapta" EntityType="Self.EmpVacationsAxapta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[EmpVacationsAxapta].[CSPVACATIONID] AS [CSPVACATIONID], 
+[EmpVacationsAxapta].[EMPLID] AS [EMPLID], 
+[EmpVacationsAxapta].[VACATIONDAYS] AS [VACATIONDAYS], 
+[EmpVacationsAxapta].[CONSUMED] AS [CONSUMED], 
+[EmpVacationsAxapta].[REMAINING] AS [REMAINING]
+FROM [dbo].[EmpVacationsAxapta] AS [EmpVacationsAxapta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ExcuseType" EntityType="Self.ExcuseType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ExcuseType].[NAME] AS [NAME], 
+[ExcuseType].[CSPEXCUSEID] AS [CSPEXCUSEID]
+FROM [dbo].[ExcuseType] AS [ExcuseType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LatestExcuses" EntityType="Self.LatestExcuses" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[LatestExcuses].[cspexcuseid] AS [cspexcuseid], 
+[LatestExcuses].[fromtime] AS [fromtime], 
+[LatestExcuses].[totime] AS [totime], 
+[LatestExcuses].[transdate] AS [transdate], 
+[LatestExcuses].[emplid] AS [emplid]
+FROM [dbo].[LatestExcuses] AS [LatestExcuses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LatestMission" EntityType="Self.LatestMission" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[LatestMission].[FromDate] AS [FromDate], 
+[LatestMission].[ToDate] AS [ToDate], 
+[LatestMission].[EmplId] AS [EmplId], 
+[LatestMission].[DESCRIPTION] AS [DESCRIPTION], 
+[LatestMission].[CSPMISSIONID] AS [CSPMISSIONID], 
+[LatestMission].[FromTime] AS [FromTime], 
+[LatestMission].[ToTime] AS [ToTime]
+FROM [dbo].[LatestMission] AS [LatestMission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LatestVacation" EntityType="Self.LatestVacation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[LatestVacation].[CSPVACATIONID] AS [CSPVACATIONID], 
+[LatestVacation].[EmplId] AS [EmplId], 
+[LatestVacation].[FromDate] AS [FromDate], 
+[LatestVacation].[ToDate] AS [ToDate], 
+[LatestVacation].[Description] AS [Description]
+FROM [dbo].[LatestVacation] AS [LatestVacation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MissionType" EntityType="Self.MissionType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MissionType].[Name] AS [Name], 
+[MissionType].[CSPMISSIONID] AS [CSPMISSIONID]
+FROM [dbo].[MissionType] AS [MissionType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ShiftNotinAx" EntityType="Self.ShiftNotinAx" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ShiftNotinAx].[EmpId] AS [EmpId], 
+[ShiftNotinAx].[TransDate] AS [TransDate], 
+[ShiftNotinAx].[Store] AS [Store], 
+[ShiftNotinAx].[JOBID] AS [JOBID], 
+[ShiftNotinAx].[CalendarId] AS [CalendarId], 
+[ShiftNotinAx].[Status] AS [Status], 
+[ShiftNotinAx].[Iserial] AS [Iserial]
+FROM [dbo].[ShiftNotinAx] AS [ShiftNotinAx]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="test123Info" EntityType="Self.test123Info" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[test123Info].[Adate] AS [Adate], 
+[test123Info].[EMPLID] AS [EMPLID], 
+[test123Info].[name] AS [name], 
+[test123Info].[Email] AS [Email], 
+[test123Info].[OrganizationUnitId] AS [OrganizationUnitId], 
+[test123Info].[INtime] AS [INtime], 
+[test123Info].[OUTtime] AS [OUTtime], 
+[test123Info].[MISSION] AS [MISSION], 
+[test123Info].[Excuse] AS [Excuse]
+FROM [dbo].[test123Info] AS [test123Info]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VacationType" EntityType="Self.VacationType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VacationType].[NAME] AS [NAME], 
+[VacationType].[CSPVACATIONID] AS [CSPVACATIONID], 
+[VacationType].[CSPPERIODID] AS [CSPPERIODID], 
+[VacationType].[INCLUDEOFFICIALVACATIONS] AS [INCLUDEOFFICIALVACATIONS], 
+[VacationType].[DEDUCTIONDAYS] AS [DEDUCTIONDAYS], 
+[VacationType].[VACATIONDAYS] AS [VACATIONDAYS], 
+[VacationType].[HIDDEN] AS [HIDDEN], 
+[VacationType].[VactionIserial] AS [VactionIserial]
+FROM [dbo].[VacationType] AS [VacationType]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TblAttendanceFile_TblAttendanceFileReason" Association="Self.FK_TblAttendanceFile_TblAttendanceFileReason">
+            <End Role="TblAttendanceFileReason" EntitySet="TblAttendanceFileReason" />
+            <End Role="TblAttendanceFile" EntitySet="TblAttendanceFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblCalendar" Association="Self.FK_TblEmployeeCalendar_TblCalendar">
+            <End Role="TblEmployeeShiftLookup" EntitySet="TblEmployeeShiftLookup" />
+            <End Role="TblEmployeeShift" EntitySet="TblEmployeeShift" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeShiftStore_TblEmployeeShiftLookup" Association="Self.FK_TblEmployeeShiftStore_TblEmployeeShiftLookup">
+            <End Role="TblEmployeeShiftLookup" EntitySet="TblEmployeeShiftLookup" />
+            <End Role="TblEmployeeShiftStore" EntitySet="TblEmployeeShiftStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblSalaryTerm" Association="Self.FK_TblVariableTermManual_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="TblSalaryTerm" />
+            <End Role="TblVariableTermManual" EntitySet="TblVariableTermManual" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeAttModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TimeAttEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="ActiveOrganizationUnits" EntityType="TimeAttModel.ActiveOrganizationUnit" />
+          <EntitySet Name="AttendanceDeviceIps" EntityType="TimeAttModel.AttendanceDeviceIp" />
+          <EntitySet Name="AttendanceLogs" EntityType="TimeAttModel.AttendanceLog" />
+          <EntitySet Name="EmployeeInfoes" EntityType="TimeAttModel.EmployeeInfo" />
+          <EntitySet Name="RealtimeLogs" EntityType="TimeAttModel.RealtimeLog" />
+          <EntitySet Name="TblAttendanceFileReasons" EntityType="TimeAttModel.TblAttendanceFileReason" />
+          <EntitySet Name="TblEmployeeBehalves" EntityType="TimeAttModel.TblEmployeeBehalf" />
+          <EntitySet Name="TblExcuses" EntityType="TimeAttModel.TblExcuse" />
+          <EntitySet Name="TblExcuseDeleteds" EntityType="TimeAttModel.TblExcuseDeleted" />
+          <EntitySet Name="TblMissions" EntityType="TimeAttModel.TblMission" />
+          <EntitySet Name="TblMissionDeleteds" EntityType="TimeAttModel.TblMissionDeleted" />
+          <EntitySet Name="TblVacations" EntityType="TimeAttModel.TblVacation" />
+          <EntitySet Name="TblVacationDeleteds" EntityType="TimeAttModel.TblVacationDeleted" />
+          <EntitySet Name="AttendanceInfoes" EntityType="TimeAttModel.AttendanceInfo" />
+          <EntitySet Name="AttendanceNotExisitinaxes" EntityType="TimeAttModel.AttendanceNotExisitinax" />
+          <EntitySet Name="AxaptaDatas" EntityType="TimeAttModel.AxaptaData" />
+          <EntitySet Name="axExcuses" EntityType="TimeAttModel.axExcus" />
+          <EntitySet Name="axMissions" EntityType="TimeAttModel.axMission" />
+          <EntitySet Name="axVacationS" EntityType="TimeAttModel.axVacation" />
+          <EntitySet Name="EmpVacationsAxaptas" EntityType="TimeAttModel.EmpVacationsAxapta" />
+          <EntitySet Name="ExcuseTypes" EntityType="TimeAttModel.ExcuseType" />
+          <EntitySet Name="LatestExcuses" EntityType="TimeAttModel.LatestExcus" />
+          <EntitySet Name="LatestMissions" EntityType="TimeAttModel.LatestMission" />
+          <EntitySet Name="LatestVacations" EntityType="TimeAttModel.LatestVacation" />
+          <EntitySet Name="MissionTypes" EntityType="TimeAttModel.MissionType" />
+          <EntitySet Name="ShiftNotinAxes" EntityType="TimeAttModel.ShiftNotinAx" />
+          <EntitySet Name="test123Info" EntityType="TimeAttModel.test123Info" />
+          <EntitySet Name="FingerPrintTransactions" EntityType="TimeAttModel.FingerPrintTransaction" />
+          <EntitySet Name="TblEmployeeShiftLookups" EntityType="TimeAttModel.TblEmployeeShiftLookup" />
+          <EntitySet Name="TblExtraPeriods" EntityType="TimeAttModel.TblExtraPeriod" />
+          <EntitySet Name="TblSalaryTerms" EntityType="TimeAttModel.TblSalaryTerm" />
+          <EntitySet Name="EmpLeavingTransactions" EntityType="TimeAttModel.EmpLeavingTransaction" />
+          <EntitySet Name="TblEmpWeeklyDayOffs" EntityType="TimeAttModel.TblEmpWeeklyDayOff" />
+          <EntitySet Name="TblAttendanceFiles" EntityType="TimeAttModel.TblAttendanceFile" />
+          <AssociationSet Name="FK_TblAttendanceFile_TblAttendanceFileReason" Association="TimeAttModel.FK_TblAttendanceFile_TblAttendanceFileReason">
+            <End Role="TblAttendanceFileReason" EntitySet="TblAttendanceFileReasons" />
+            <End Role="TblAttendanceFile" EntitySet="TblAttendanceFiles" />
+          </AssociationSet>
+          <EntitySet Name="BehalfFiltereds" EntityType="TimeAttModel.BehalfFiltered" />
+          <EntitySet Name="TblExcuseRules" EntityType="TimeAttModel.TblExcuseRule" />
+          <EntitySet Name="TblVariableTermManuals" EntityType="TimeAttModel.TblVariableTermManual" />
+          <AssociationSet Name="FK_TblVariableTermManual_TblSalaryTerm" Association="TimeAttModel.FK_TblVariableTermManual_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="TblSalaryTerms" />
+            <End Role="TblVariableTermManual" EntitySet="TblVariableTermManuals" />
+          </AssociationSet>
+          <EntitySet Name="TblEmployeeShifts" EntityType="TimeAttModel.TblEmployeeShift" />
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblCalendar" Association="TimeAttModel.FK_TblEmployeeCalendar_TblCalendar">
+            <End Role="TblEmployeeShiftLookup" EntitySet="TblEmployeeShiftLookups" />
+            <End Role="TblEmployeeShift" EntitySet="TblEmployeeShifts" />
+          </AssociationSet>
+          <EntitySet Name="TblPeriodLocks" EntityType="TimeAttModel.TblPeriodLock" />
+          <EntitySet Name="TblEmployeeShiftStores" EntityType="TimeAttModel.TblEmployeeShiftStore" />
+          <AssociationSet Name="FK_TblEmployeeShiftStore_TblEmployeeShiftLookup" Association="TimeAttModel.FK_TblEmployeeShiftStore_TblEmployeeShiftLookup">
+            <End Role="TblEmployeeShiftLookup" EntitySet="TblEmployeeShiftLookups" />
+            <End Role="TblEmployeeShiftStore" EntitySet="TblEmployeeShiftStores" />
+          </AssociationSet>
+          <EntitySet Name="TblPeriodExcuseLimits" EntityType="TimeAttModel.TblPeriodExcuseLimit" />
+          <EntitySet Name="TblVactionGroups" EntityType="TimeAttModel.TblVactionGroup" />
+          <EntitySet Name="EmployeesViews" EntityType="TimeAttModel.EmployeesView" />
+          <EntitySet Name="TblVacationDetails" EntityType="TimeAttModel.TblVacationDetail" />
+          <EntitySet Name="VacationTypes" EntityType="TimeAttModel.VacationType" />
+          </EntityContainer>
+        <EntityType Name="ActiveOrganizationUnit">
+          <Key>
+            <PropertyRef Name="OrganizationName" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Type="String" Name="OrganizationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Active" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AttendanceDeviceIp">
+          <Key>
+            <PropertyRef Name="OrganizationIP" />
+            <PropertyRef Name="OrganizationPort" />
+          </Key>
+          <Property Type="String" Name="OrganizationIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrganizationPort" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Organization" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="fpVersion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AttendanceLog">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Type="Int32" Name="Count" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EnrollNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="verifyMode" />
+          <Property Type="Int32" Name="InoutMode" />
+          <Property Type="DateTime" Name="ADate" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="EmployeeInfo">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EnrollNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Empname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Adate" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FromDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="toDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Time" Name="FromTime" Precision="4" />
+          <Property Type="Time" Name="ToTime" Precision="4" />
+          <Property Type="String" Name="Approval" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManagerEmail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManagerGuid" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeGuid" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Intime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="outtime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExcuseType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MissionType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VacationType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RealtimeLog">
+          <Key>
+            <PropertyRef Name="EnrollNumber" />
+            <PropertyRef Name="Adate" />
+          </Key>
+          <Property Type="String" Name="EnrollNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Adate" Nullable="false" Precision="3" />
+          <Property Name="hostip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblAttendanceFileReason">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblAttendanceFiles" Relationship="TimeAttModel.FK_TblAttendanceFile_TblAttendanceFileReason" FromRole="TblAttendanceFileReason" ToRole="TblAttendanceFile" />
+        </EntityType>
+        <EntityType Name="TblEmployeeBehalf">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManagerId" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AttOperatorId" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblExcuse">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CSPEXCUSEID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblExcuseDeleted">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" />
+          <Property Type="String" Name="CSPEXCUSEID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblMission">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPMISSIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblMissionDeleted">
+          <Key>
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPMISSIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Iserial" Nullable="false" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblVacation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DAYS" Nullable="false" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TblVacationDeleted">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="DAYS" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Iserial" Nullable="false" />
+          <Property Type="Int32" Name="DAYS" Nullable="false" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="AttendanceInfo">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="OrganizationUnitId" />
+          </Key>
+          <Property Type="String" Name="Adate" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fromTime" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="toTime" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrganizationUnitId" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INtime" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OUTtime" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MISSION" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Excuse" MaxLength="76" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vacation" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AttendanceNotExisitinax">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Store" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FromTime" />
+          <Property Type="Int32" Name="ToTime" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="OrginalFromTime" />
+          <Property Type="Int32" Name="OrginalInTime" />
+          <Property Type="Int32" Name="TblAttendanceFileReason" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+          <Property Type="String" Name="Store" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AxaptaData">
+          <Key>
+            <PropertyRef Name="count" />
+            <PropertyRef Name="enrollnumber" />
+          </Key>
+          <Property Type="Int32" Name="count" Nullable="false" />
+          <Property Type="String" Name="enrollnumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="time" />
+          <Property Type="DateTime" Name="Adate" Precision="0" />
+          <Property Type="Int32" Name="RecCount" />
+        </EntityType>
+        <EntityType Name="axExcus">
+          <Key>
+            <PropertyRef Name="CSPEXCUSEID" />
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="TOTIME" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="CSPPERIODID" />
+          </Key>
+          <Property Type="String" Name="CSPEXCUSEID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FROMTIME" Nullable="false" />
+          <Property Type="Int32" Name="TOTIME" Nullable="false" />
+          <Property Type="DateTime" Name="TRANSDATE" Nullable="false" Precision="3" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="axMission">
+          <Key>
+            <PropertyRef Name="From_Date" />
+            <PropertyRef Name="To_Date" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+          </Key>
+          <Property Type="DateTime" Name="From_Date" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="To_Date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="EmplId" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPTION" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPMISSIONID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="axVacation">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="DAYS" />
+            <PropertyRef Name="CSPPERIODID" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FROMDATE" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="TODATE" Nullable="false" Precision="3" />
+          <Property Type="String" Name="DESCRIPTION" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="DAYS" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="String" Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EmpVacationsAxapta">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="VACATIONDAYS" />
+            <PropertyRef Name="CONSUMED" />
+            <PropertyRef Name="REMAINING" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="VACATIONDAYS" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="CONSUMED" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="REMAINING" Nullable="false" Precision="28" Scale="12" />
+        </EntityType>
+        <EntityType Name="ExcuseType">
+          <Key>
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="CSPEXCUSEID" />
+          </Key>
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPEXCUSEID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LatestExcus">
+          <Key>
+            <PropertyRef Name="cspexcuseid" />
+            <PropertyRef Name="fromtime" />
+            <PropertyRef Name="totime" />
+            <PropertyRef Name="transdate" />
+            <PropertyRef Name="emplid" />
+          </Key>
+          <Property Type="String" Name="cspexcuseid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="fromtime" Nullable="false" />
+          <Property Type="Int32" Name="totime" Nullable="false" />
+          <Property Type="DateTime" Name="transdate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LatestMission">
+          <Key>
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="CSPMISSIONID" />
+            <PropertyRef Name="FromTime" />
+            <PropertyRef Name="ToTime" />
+          </Key>
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="EmplId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DESCRIPTION" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPMISSIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FromTime" Nullable="false" />
+          <Property Type="Int32" Name="ToTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LatestVacation">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EmplId" />
+            <PropertyRef Name="FromDate" />
+            <PropertyRef Name="ToDate" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmplId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MissionType">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CSPMISSIONID" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPMISSIONID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ShiftNotinAx">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="TransDate" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Store" />
+            <PropertyRef Name="JOBID" />
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="String" Name="EmpId" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="CalendarId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Store" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="JOBID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Iserial" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test123Info">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="OrganizationUnitId" />
+          </Key>
+          <Property Type="String" Name="Adate" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrganizationUnitId" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INtime" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OUTtime" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MISSION" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Excuse" MaxLength="76" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FingerPrintTransaction">
+          <Key>
+            <PropertyRef Name="GlSerial" />
+          </Key>
+          <Property Type="Int32" Name="GlSerial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StoreCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="Sender" Nullable="false" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblEmployeeShiftLookup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Shift" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CalendarId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblEmployeeShifts" Relationship="TimeAttModel.FK_TblEmployeeCalendar_TblCalendar" FromRole="TblEmployeeShiftLookup" ToRole="TblEmployeeShift" />
+          <NavigationProperty Name="TblEmployeeShiftStores" Relationship="TimeAttModel.FK_TblEmployeeShiftStore_TblEmployeeShiftLookup" FromRole="TblEmployeeShiftLookup" ToRole="TblEmployeeShiftStore" />
+        </EntityType>
+        <EntityType Name="TblExtraPeriod">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="String" Name="Period" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Emp" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblSalaryTerm">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblVariableTermManuals" Relationship="TimeAttModel.FK_TblVariableTermManual_TblSalaryTerm" FromRole="TblSalaryTerm" ToRole="TblVariableTermManual" />
+        </EntityType>
+        <EntityType Name="EmpLeavingTransaction">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Emp" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Reason" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Store" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="Int32" Name="CreationBy" />
+        </EntityType>
+        <EntityType Name="TblEmpWeeklyDayOff">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Emp" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DayOff" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Precision="0" />
+          <Property Type="Int32" Name="CreationBy" />
+        </EntityType>
+        <EntityType Name="TblAttendanceFile">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FromTime" />
+          <Property Type="Int32" Name="ToTime" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="OrginalFromTime" />
+          <Property Type="Int32" Name="OrginalInTime" />
+          <Property Type="Int32" Name="TblAttendanceFileReason" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ApprovedBy" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreationDate" Precision="3" />
+          <Property Type="DateTime" Name="ApprovedDate" Precision="3" />
+          <NavigationProperty Name="TblAttendanceFileReason1" Relationship="TimeAttModel.FK_TblAttendanceFile_TblAttendanceFileReason" FromRole="TblAttendanceFile" ToRole="TblAttendanceFileReason" />
+        </EntityType>
+        <Association Name="FK_TblAttendanceFile_TblAttendanceFileReason">
+          <End Type="TimeAttModel.TblAttendanceFileReason" Role="TblAttendanceFileReason" Multiplicity="0..1" />
+          <End Type="TimeAttModel.TblAttendanceFile" Role="TblAttendanceFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAttendanceFileReason">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAttendanceFile">
+              <PropertyRef Name="TblAttendanceFileReason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BehalfFiltered">
+          <Key>
+            <PropertyRef Name="Emplid" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ManagerId" />
+          </Key>
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ManagerId" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblExcuseRule">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ExcuseId" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PeriodId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CounterPerPeriodLine" />
+          <Property Type="Int32" Name="DefaultFromTime" />
+          <Property Type="Int32" Name="DefaultToTime" />
+        </EntityType>
+        <EntityType Name="TblVariableTermManual">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Type="Int32" Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Emplid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TermId" Nullable="false" />
+          <Property Type="DateTime" Name="TransDate" Nullable="false" Precision="0" />
+          <Property Type="Double" Name="Days" Nullable="false" />
+          <Property Type="Double" Name="Hours" />
+          <Property Type="Int32" Name="status" Nullable="false" />
+          <NavigationProperty Name="TblSalaryTerm" Relationship="TimeAttModel.FK_TblVariableTermManual_TblSalaryTerm" FromRole="TblVariableTermManual" ToRole="TblSalaryTerm" />
+        </EntityType>
+        <Association Name="FK_TblVariableTermManual_TblSalaryTerm">
+          <End Type="TimeAttModel.TblSalaryTerm" Role="TblSalaryTerm" Multiplicity="1" />
+          <End Type="TimeAttModel.TblVariableTermManual" Role="TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TermId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblEmployeeShift">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TblStore" Type="Int32" Nullable="false" />
+          <Property Name="Week" Type="Int32" Nullable="false" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TblEmployeeShiftLookup" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblEmployeeShiftLookup1" Relationship="TimeAttModel.FK_TblEmployeeCalendar_TblCalendar" FromRole="TblEmployeeShift" ToRole="TblEmployeeShiftLookup" />
+        </EntityType>
+        <Association Name="FK_TblEmployeeCalendar_TblCalendar">
+          <End Type="TimeAttModel.TblEmployeeShiftLookup" Role="TblEmployeeShiftLookup" Multiplicity="1" />
+          <End Type="TimeAttModel.TblEmployeeShift" Role="TblEmployeeShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeeShiftLookup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeShift">
+              <PropertyRef Name="TblEmployeeShiftLookup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblPeriodLock">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CspPeriodID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CspPeriodLineID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TblEmployeeShiftStore">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblEmployeeShiftLookup" Type="Int32" Nullable="false" />
+          <Property Name="TblStore" Type="Int32" Nullable="false" />
+          <Property Name="Company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblEmployeeShiftLookup1" Relationship="TimeAttModel.FK_TblEmployeeShiftStore_TblEmployeeShiftLookup" FromRole="TblEmployeeShiftStore" ToRole="TblEmployeeShiftLookup" />
+        </EntityType>
+        <Association Name="FK_TblEmployeeShiftStore_TblEmployeeShiftLookup">
+          <End Type="TimeAttModel.TblEmployeeShiftLookup" Role="TblEmployeeShiftLookup" Multiplicity="1" />
+          <End Type="TimeAttModel.TblEmployeeShiftStore" Role="TblEmployeeShiftStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeeShiftLookup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeShiftStore">
+              <PropertyRef Name="TblEmployeeShiftLookup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblPeriodExcuseLimit">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblPeriod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MaxExcuseMinLimit" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TblVactionGroup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultValue" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="HasExpiry" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EmployeesView">
+          <Key>
+            <PropertyRef Name="Emplid" />
+          </Key>
+          <Property Name="Emplid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JOBID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransportationLine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Store" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaxdayOffPerWeek" Type="Int32" />
+          <Property Name="DayOff" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoAttendance" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblVacationDetail">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EMPLID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VACATIONDAYS" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PREVBALANCE" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="CONSUMED" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="REMAINING" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PERIODVACATIONDAYS" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PERIODS" Type="Int32" Nullable="false" />
+          <Property Name="PERIODUNIT" Type="Int32" Nullable="false" />
+          <Property Name="EMPLNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DATAAREAID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="RECVERSION" Type="Int32" />
+          <Property Name="RECID" Type="Int64" />
+          <Property Name="VACATIONDAYS1" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="TblVacationType" Type="Int32" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="VacationType">
+          <Key>
+            <PropertyRef Name="VactionIserial" />
+          </Key>
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CSPVACATIONID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CSPPERIODID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INCLUDEOFFICIALVACATIONS" Type="Int32" />
+          <Property Name="DEDUCTIONDAYS" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="VACATIONDAYS" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="HIDDEN" Type="Int32" />
+          <Property Name="VactionIserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeAttModelStoreContainer" CdmEntityContainer="TimeAttEntities">
+          <EntitySetMapping Name="ActiveOrganizationUnits">
+            <EntityTypeMapping TypeName="TimeAttModel.ActiveOrganizationUnit">
+              <MappingFragment StoreEntitySet="ActiveOrganizationUnit">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceDeviceIps">
+            <EntityTypeMapping TypeName="TimeAttModel.AttendanceDeviceIp">
+              <MappingFragment StoreEntitySet="AttendanceDeviceIp">
+                <ScalarProperty Name="fpVersion" ColumnName="fpVersion" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrganizationPort" ColumnName="OrganizationPort" />
+                <ScalarProperty Name="OrganizationIP" ColumnName="OrganizationIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceLogs">
+            <EntityTypeMapping TypeName="TimeAttModel.AttendanceLog">
+              <MappingFragment StoreEntitySet="AttendanceLog">
+                <ScalarProperty Name="ADate" ColumnName="ADate" />
+                <ScalarProperty Name="InoutMode" ColumnName="InoutMode" />
+                <ScalarProperty Name="verifyMode" ColumnName="verifyMode" />
+                <ScalarProperty Name="EnrollNumber" ColumnName="EnrollNumber" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeInfoes">
+            <EntityTypeMapping TypeName="TimeAttModel.EmployeeInfo">
+              <MappingFragment StoreEntitySet="EmployeeInfo">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="VacationType" ColumnName="VacationType" />
+                <ScalarProperty Name="MissionType" ColumnName="MissionType" />
+                <ScalarProperty Name="ExcuseType" ColumnName="ExcuseType" />
+                <ScalarProperty Name="outtime" ColumnName="outtime" />
+                <ScalarProperty Name="Intime" ColumnName="Intime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmployeeGuid" ColumnName="EmployeeGuid" />
+                <ScalarProperty Name="ManagerGuid" ColumnName="ManagerGuid" />
+                <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="toDate" ColumnName="toDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Adate" ColumnName="Adate" />
+                <ScalarProperty Name="Empname" ColumnName="Empname" />
+                <ScalarProperty Name="EnrollNumber" ColumnName="EnrollNumber" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RealtimeLogs">
+            <EntityTypeMapping TypeName="TimeAttModel.RealtimeLog">
+              <MappingFragment StoreEntitySet="RealtimeLog">
+                <ScalarProperty Name="hostip" ColumnName="hostip" />
+                <ScalarProperty Name="Adate" ColumnName="Adate" />
+                <ScalarProperty Name="EnrollNumber" ColumnName="EnrollNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAttendanceFileReasons">
+            <EntityTypeMapping TypeName="TimeAttModel.TblAttendanceFileReason">
+              <MappingFragment StoreEntitySet="TblAttendanceFileReason">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeBehalves">
+            <EntityTypeMapping TypeName="TimeAttModel.TblEmployeeBehalf">
+              <MappingFragment StoreEntitySet="TblEmployeeBehalf">
+                <ScalarProperty Name="AttOperatorId" ColumnName="AttOperatorId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExcuses">
+            <EntityTypeMapping TypeName="TimeAttModel.TblExcuse">
+              <MappingFragment StoreEntitySet="TblExcuse">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPEXCUSEID" ColumnName="CSPEXCUSEID" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExcuseDeleteds">
+            <EntityTypeMapping TypeName="TimeAttModel.TblExcuseDeleted">
+              <MappingFragment StoreEntitySet="TblExcuseDeleted">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPEXCUSEID" ColumnName="CSPEXCUSEID" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMissions">
+            <EntityTypeMapping TypeName="TimeAttModel.TblMission">
+              <MappingFragment StoreEntitySet="TblMission">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPMISSIONID" ColumnName="CSPMISSIONID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMissionDeleteds">
+            <EntityTypeMapping TypeName="TimeAttModel.TblMissionDeleted">
+              <MappingFragment StoreEntitySet="TblMissionDeleted">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPMISSIONID" ColumnName="CSPMISSIONID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVacations">
+            <EntityTypeMapping TypeName="TimeAttModel.TblVacation">
+              <MappingFragment StoreEntitySet="TblVacation">
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="DAYS" ColumnName="DAYS" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVacationDeleteds">
+            <EntityTypeMapping TypeName="TimeAttModel.TblVacationDeleted">
+              <MappingFragment StoreEntitySet="TblVacationDeleted">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="DAYS" ColumnName="DAYS" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceInfoes">
+            <EntityTypeMapping TypeName="TimeAttModel.AttendanceInfo">
+              <MappingFragment StoreEntitySet="AttendanceInfo">
+                <ScalarProperty Name="vacation" ColumnName="vacation" />
+                <ScalarProperty Name="Excuse" ColumnName="Excuse" />
+                <ScalarProperty Name="MISSION" ColumnName="MISSION" />
+                <ScalarProperty Name="OUTtime" ColumnName="OUTtime" />
+                <ScalarProperty Name="INtime" ColumnName="INtime" />
+                <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="toTime" ColumnName="toTime" />
+                <ScalarProperty Name="fromTime" ColumnName="fromTime" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="Adate" ColumnName="Adate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceNotExisitinaxes">
+            <EntityTypeMapping TypeName="TimeAttModel.AttendanceNotExisitinax">
+              <MappingFragment StoreEntitySet="AttendanceNotExisitinax">
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TblAttendanceFileReason" ColumnName="TblAttendanceFileReason" />
+                <ScalarProperty Name="OrginalInTime" ColumnName="OrginalInTime" />
+                <ScalarProperty Name="OrginalFromTime" ColumnName="OrginalFromTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AxaptaDatas">
+            <EntityTypeMapping TypeName="TimeAttModel.AxaptaData">
+              <MappingFragment StoreEntitySet="AxaptaData">
+                <ScalarProperty Name="RecCount" ColumnName="RecCount" />
+                <ScalarProperty Name="Adate" ColumnName="Adate" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="enrollnumber" ColumnName="enrollnumber" />
+                <ScalarProperty Name="count" ColumnName="count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="axExcuses">
+            <EntityTypeMapping TypeName="TimeAttModel.axExcus">
+              <MappingFragment StoreEntitySet="axExcuses">
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="TRANSDATE" ColumnName="TRANSDATE" />
+                <ScalarProperty Name="TOTIME" ColumnName="TOTIME" />
+                <ScalarProperty Name="FROMTIME" ColumnName="FROMTIME" />
+                <ScalarProperty Name="CSPEXCUSEID" ColumnName="CSPEXCUSEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="axMissions">
+            <EntityTypeMapping TypeName="TimeAttModel.axMission">
+              <MappingFragment StoreEntitySet="axMission">
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPMISSIONID" ColumnName="CSPMISSIONID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EmplId" ColumnName="EmplId" />
+                <ScalarProperty Name="To_Date" ColumnName="To Date" />
+                <ScalarProperty Name="From_Date" ColumnName="From Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="axVacationS">
+            <EntityTypeMapping TypeName="TimeAttModel.axVacation">
+              <MappingFragment StoreEntitySet="axVacationS">
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="DAYS" ColumnName="DAYS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TODATE" ColumnName="TODATE" />
+                <ScalarProperty Name="FROMDATE" ColumnName="FROMDATE" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpVacationsAxaptas">
+            <EntityTypeMapping TypeName="TimeAttModel.EmpVacationsAxapta">
+              <MappingFragment StoreEntitySet="EmpVacationsAxapta">
+                <ScalarProperty Name="REMAINING" ColumnName="REMAINING" />
+                <ScalarProperty Name="CONSUMED" ColumnName="CONSUMED" />
+                <ScalarProperty Name="VACATIONDAYS" ColumnName="VACATIONDAYS" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExcuseTypes">
+            <EntityTypeMapping TypeName="TimeAttModel.ExcuseType">
+              <MappingFragment StoreEntitySet="ExcuseType">
+                <ScalarProperty Name="CSPEXCUSEID" ColumnName="CSPEXCUSEID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LatestExcuses">
+            <EntityTypeMapping TypeName="TimeAttModel.LatestExcus">
+              <MappingFragment StoreEntitySet="LatestExcuses">
+                <ScalarProperty Name="emplid" ColumnName="emplid" />
+                <ScalarProperty Name="transdate" ColumnName="transdate" />
+                <ScalarProperty Name="totime" ColumnName="totime" />
+                <ScalarProperty Name="fromtime" ColumnName="fromtime" />
+                <ScalarProperty Name="cspexcuseid" ColumnName="cspexcuseid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LatestMissions">
+            <EntityTypeMapping TypeName="TimeAttModel.LatestMission">
+              <MappingFragment StoreEntitySet="LatestMission">
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="CSPMISSIONID" ColumnName="CSPMISSIONID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EmplId" ColumnName="EmplId" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LatestVacations">
+            <EntityTypeMapping TypeName="TimeAttModel.LatestVacation">
+              <MappingFragment StoreEntitySet="LatestVacation">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="EmplId" ColumnName="EmplId" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MissionTypes">
+            <EntityTypeMapping TypeName="TimeAttModel.MissionType">
+              <MappingFragment StoreEntitySet="MissionType">
+                <ScalarProperty Name="CSPMISSIONID" ColumnName="CSPMISSIONID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiftNotinAxes">
+            <EntityTypeMapping TypeName="TimeAttModel.ShiftNotinAx">
+              <MappingFragment StoreEntitySet="ShiftNotinAx">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="JOBID" ColumnName="JOBID" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CalendarId" ColumnName="CalendarId" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test123Info">
+            <EntityTypeMapping TypeName="TimeAttModel.test123Info">
+              <MappingFragment StoreEntitySet="test123Info">
+                <ScalarProperty Name="Excuse" ColumnName="Excuse" />
+                <ScalarProperty Name="MISSION" ColumnName="MISSION" />
+                <ScalarProperty Name="OUTtime" ColumnName="OUTtime" />
+                <ScalarProperty Name="INtime" ColumnName="INtime" />
+                <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="Adate" ColumnName="Adate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FingerPrintTransactions">
+            <EntityTypeMapping TypeName="TimeAttModel.FingerPrintTransaction">
+              <MappingFragment StoreEntitySet="FingerPrintTransaction">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="GlSerial" ColumnName="GlSerial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeShiftLookups">
+            <EntityTypeMapping TypeName="TimeAttModel.TblEmployeeShiftLookup">
+              <MappingFragment StoreEntitySet="TblEmployeeShiftLookup">
+                <ScalarProperty Name="CalendarId" ColumnName="CalendarId" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExtraPeriods">
+            <EntityTypeMapping TypeName="TimeAttModel.TblExtraPeriod">
+              <MappingFragment StoreEntitySet="TblExtraPeriod">
+                <ScalarProperty Name="Emp" ColumnName="Emp" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSalaryTerms">
+            <EntityTypeMapping TypeName="TimeAttModel.TblSalaryTerm">
+              <MappingFragment StoreEntitySet="TblSalaryTerm">
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpLeavingTransactions">
+            <EntityTypeMapping TypeName="TimeAttModel.EmpLeavingTransaction">
+              <MappingFragment StoreEntitySet="EmpLeavingTransaction">
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="Emp" ColumnName="Emp" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmpWeeklyDayOffs">
+            <EntityTypeMapping TypeName="TimeAttModel.TblEmpWeeklyDayOff">
+              <MappingFragment StoreEntitySet="TblEmpWeeklyDayOff">
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="DayOff" ColumnName="DayOff" />
+                <ScalarProperty Name="Emp" ColumnName="Emp" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAttendanceFiles">
+            <EntityTypeMapping TypeName="TimeAttModel.TblAttendanceFile">
+              <MappingFragment StoreEntitySet="TblAttendanceFile">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TblAttendanceFileReason" ColumnName="TblAttendanceFileReason" />
+                <ScalarProperty Name="OrginalInTime" ColumnName="OrginalInTime" />
+                <ScalarProperty Name="OrginalFromTime" ColumnName="OrginalFromTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BehalfFiltereds">
+            <EntityTypeMapping TypeName="TimeAttModel.BehalfFiltered">
+              <MappingFragment StoreEntitySet="BehalfFiltered">
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExcuseRules">
+            <EntityTypeMapping TypeName="TimeAttModel.TblExcuseRule">
+              <MappingFragment StoreEntitySet="TblExcuseRule">
+                <ScalarProperty Name="DefaultToTime" ColumnName="DefaultToTime" />
+                <ScalarProperty Name="DefaultFromTime" ColumnName="DefaultFromTime" />
+                <ScalarProperty Name="CounterPerPeriodLine" ColumnName="CounterPerPeriodLine" />
+                <ScalarProperty Name="PeriodId" ColumnName="PeriodId" />
+                <ScalarProperty Name="ExcuseId" ColumnName="ExcuseId" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVariableTermManuals">
+            <EntityTypeMapping TypeName="TimeAttModel.TblVariableTermManual">
+              <MappingFragment StoreEntitySet="TblVariableTermManual">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="TermId" ColumnName="TermId" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeShifts">
+            <EntityTypeMapping TypeName="TimeAttModel.TblEmployeeShift">
+              <MappingFragment StoreEntitySet="TblEmployeeShift">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TblEmployeeShiftLookup" ColumnName="TblEmployeeShiftLookup" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Week" ColumnName="Week" />
+                <ScalarProperty Name="TblStore" ColumnName="TblStore" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPeriodLocks">
+            <EntityTypeMapping TypeName="TimeAttModel.TblPeriodLock">
+              <MappingFragment StoreEntitySet="TblPeriodLock">
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="CspPeriodLineID" ColumnName="CspPeriodLineID" />
+                <ScalarProperty Name="CspPeriodID" ColumnName="CspPeriodID" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeShiftStores">
+            <EntityTypeMapping TypeName="TimeAttModel.TblEmployeeShiftStore">
+              <MappingFragment StoreEntitySet="TblEmployeeShiftStore">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TblStore" ColumnName="TblStore" />
+                <ScalarProperty Name="TblEmployeeShiftLookup" ColumnName="TblEmployeeShiftLookup" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPeriodExcuseLimits">
+            <EntityTypeMapping TypeName="TimeAttModel.TblPeriodExcuseLimit">
+              <MappingFragment StoreEntitySet="TblPeriodExcuseLimit">
+                <ScalarProperty Name="MaxExcuseMinLimit" ColumnName="MaxExcuseMinLimit" />
+                <ScalarProperty Name="TblPeriod" ColumnName="TblPeriod" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVactionGroups">
+            <EntityTypeMapping TypeName="TimeAttModel.TblVactionGroup">
+              <MappingFragment StoreEntitySet="TblVactionGroup">
+                <ScalarProperty Name="HasExpiry" ColumnName="HasExpiry" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeesViews">
+            <EntityTypeMapping TypeName="TimeAttModel.EmployeesView">
+              <MappingFragment StoreEntitySet="EmployeesView">
+                <ScalarProperty Name="NoAttendance" ColumnName="NoAttendance" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="DayOff" ColumnName="DayOff" />
+                <ScalarProperty Name="MaxdayOffPerWeek" ColumnName="MaxdayOffPerWeek" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="TransportationLine" ColumnName="TransportationLine" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="JOBID" ColumnName="JOBID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="Emplid" ColumnName="Emplid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVacationDetails">
+            <EntityTypeMapping TypeName="TimeAttModel.TblVacationDetail">
+              <MappingFragment StoreEntitySet="TblVacationDetails">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="TblVacationType" ColumnName="TblVacationType" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="VACATIONDAYS1" ColumnName="VACATIONDAYS1" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="PERIODUNIT" ColumnName="PERIODUNIT" />
+                <ScalarProperty Name="PERIODS" ColumnName="PERIODS" />
+                <ScalarProperty Name="PERIODVACATIONDAYS" ColumnName="PERIODVACATIONDAYS" />
+                <ScalarProperty Name="REMAINING" ColumnName="REMAINING" />
+                <ScalarProperty Name="CONSUMED" ColumnName="CONSUMED" />
+                <ScalarProperty Name="PREVBALANCE" ColumnName="PREVBALANCE" />
+                <ScalarProperty Name="VACATIONDAYS" ColumnName="VACATIONDAYS" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VacationTypes">
+            <EntityTypeMapping TypeName="TimeAttModel.VacationType">
+              <MappingFragment StoreEntitySet="VacationType">
+                <ScalarProperty Name="VactionIserial" ColumnName="VactionIserial" />
+                <ScalarProperty Name="HIDDEN" ColumnName="HIDDEN" />
+                <ScalarProperty Name="VACATIONDAYS" ColumnName="VACATIONDAYS" />
+                <ScalarProperty Name="DEDUCTIONDAYS" ColumnName="DEDUCTIONDAYS" />
+                <ScalarProperty Name="INCLUDEOFFICIALVACATIONS" ColumnName="INCLUDEOFFICIALVACATIONS" />
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TimeAttEntities" ZoomLevel="64">
+        <EntityTypeShape EntityType="TimeAttModel.ActiveOrganizationUnit" Width="1.5" PointX="5.75" PointY="0.75" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="TimeAttModel.AttendanceDeviceIp" Width="1.5" PointX="5.75" PointY="3.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="TimeAttModel.AttendanceLog" Width="1.5" PointX="5.75" PointY="6.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.EmployeeInfo" Width="1.5" PointX="7.75" PointY="0.75" Height="4.2218636067708246" />
+        <EntityTypeShape EntityType="TimeAttModel.RealtimeLog" Width="1.5" PointX="7.75" PointY="5.75" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="TimeAttModel.TblAttendanceFileReason" Width="1.5" PointX="0.75" PointY="5.5" Height="1.756653645833353" />
+        <EntityTypeShape EntityType="TimeAttModel.TblEmployeeBehalf" Width="1.5" PointX="0.75" PointY="8.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblExcuse" Width="1.5" PointX="2.75" PointY="8.75" Height="2.9070849609374818" />
+        <EntityTypeShape EntityType="TimeAttModel.TblExcuseDeleted" Width="1.5" PointX="7.75" PointY="8.75" Height="2.9070849609374818" />
+        <EntityTypeShape EntityType="TimeAttModel.TblMission" Width="1.5" PointX="9.75" PointY="3.75" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblMissionDeleted" Width="1.5" PointX="4.75" PointY="9.75" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblVacation" Width="1.5" PointX="9.75" PointY="7.75" Height="2.9070849609374818" />
+        <EntityTypeShape EntityType="TimeAttModel.TblVacationDeleted" Width="1.5" PointX="11.75" PointY="0.75" Height="2.9070849609374818" />
+        <EntityTypeShape EntityType="TimeAttModel.AttendanceInfo" Width="1.5" PointX="11.75" PointY="7.75" Height="2.7427376302083246" />
+        <EntityTypeShape EntityType="TimeAttModel.AttendanceNotExisitinax" Width="1.5" PointX="11.75" PointY="11.75" Height="2.2496956380208246" />
+        <EntityTypeShape EntityType="TimeAttModel.AxaptaData" Width="1.5" PointX="0.75" PointY="12.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.axExcus" Width="1.5" PointX="6.75" PointY="12.75" Height="1.9210009765624818" />
+        <EntityTypeShape EntityType="TimeAttModel.axMission" Width="1.5" PointX="13.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="TimeAttModel.axVacation" Width="1.5" PointX="2.75" PointY="13.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="TimeAttModel.EmpVacationsAxapta" Width="1.5" PointX="13.75" PointY="6.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.ExcuseType" Width="1.5" PointX="11.75" PointY="14.75" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="TimeAttModel.LatestExcus" Width="1.5" PointX="13.75" PointY="14.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.LatestMission" Width="1.5" PointX="15.75" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="TimeAttModel.LatestVacation" Width="1.5" PointX="15.75" PointY="3.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.MissionType" Width="1.5" PointX="15.75" PointY="6.75" Height="1.2636116536458246" />
+        <EntityTypeShape EntityType="TimeAttModel.ShiftNotinAx" Width="1.5" PointX="6.75" PointY="15.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="TimeAttModel.test123Info" Width="1.5" PointX="8.75" PointY="15.75" Height="2.4140429687499818" />
+        <EntityTypeShape EntityType="TimeAttModel.FingerPrintTransaction" Width="1.5" PointX="0.75" PointY="16.75" Height="1.9210009765625102" />
+        <EntityTypeShape EntityType="TimeAttModel.TblEmployeeShiftLookup" Width="1.5" PointX="0.75" PointY="1.5" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblExtraPeriod" Width="1.5" PointX="14.375" PointY="9.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblSalaryTerm" Width="1.5" PointX="16.375" PointY="10.125" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.EmpLeavingTransaction" Width="1.5" PointX="3.375" PointY="16.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="TimeAttModel.TblEmpWeeklyDayOff" Width="1.5" PointX="13.375" PointY="17.75" Height="1.7566536458333246" />
+        <EntityTypeShape EntityType="TimeAttModel.TblAttendanceFile" Width="1.5" PointX="3" PointY="19.625" Height="3.400126953124996" />
+        <AssociationConnector Association="TimeAttModel.FK_TblAttendanceFile_TblAttendanceFileReason" >
+          <ConnectorPoint PointX="1.5" PointY="7.2566536458333335" />
+          <ConnectorPoint PointX="1.5" PointY="8.5" />
+          <ConnectorPoint PointX="2.5" PointY="8.5" />
+          <ConnectorPoint PointX="2.5" PointY="21.325063476562498" />
+          <ConnectorPoint PointX="3" PointY="21.325063476562498" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeAttModel.BehalfFiltered" Width="1.5" PointX="17.375" PointY="17.75" Height="1.4279589843750102" />
+        <EntityTypeShape EntityType="TimeAttModel.TblExcuseRule" Width="1.5" PointX="18.375" PointY="0.75" Height="1.9210009765625102" />
+        <EntityTypeShape EntityType="TimeAttModel.TblVariableTermManual" Width="1.5" PointX="18.625" PointY="9.875" Height="2.2496956380208246" />
+        <AssociationConnector Association="TimeAttModel.FK_TblVariableTermManual_TblSalaryTerm" >
+          <ConnectorPoint PointX="17.875" PointY="11.003326822916666" />
+          <ConnectorPoint PointX="18.625" PointY="11.003326822916666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TimeAttModel.TblEmployeeShift" Width="1.5" PointX="3" PointY="4.25" />
+        <AssociationConnector Association="TimeAttModel.FK_TblEmployeeCalendar_TblCalendar" />
+        <EntityTypeShape EntityType="TimeAttModel.TblPeriodLock" Width="1.5" PointX="18.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TimeAttModel.TblEmployeeShiftStore" Width="1.5" PointX="3" PointY="1.5" />
+        <AssociationConnector Association="TimeAttModel.FK_TblEmployeeShiftStore_TblEmployeeShiftLookup" />
+        <EntityTypeShape EntityType="TimeAttModel.TblPeriodExcuseLimit" Width="1.5" PointX="5.375" PointY="18.75" />
+        <EntityTypeShape EntityType="TimeAttModel.TblVactionGroup" Width="1.5" PointX="18.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TimeAttModel.EmployeesView" Width="1.5" PointX="18.375" PointY="13.75" />
+        <EntityTypeShape EntityType="TimeAttModel.TblVacationDetail" Width="1.5" PointX="7.375" PointY="19.75" />
+        <EntityTypeShape EntityType="TimeAttModel.VacationType" Width="1.5" PointX="9.375" PointY="19.75" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

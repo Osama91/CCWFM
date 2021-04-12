@@ -1,0 +1,125 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.BankDepositApproval"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="Bank Deposit Approval Page">
+	<navigation:Page.Resources>
+		<viewModel:BankDepositViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+
+			<RowDefinition Height="40" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+	
+		</StackPanel>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition  />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<TextBlock VerticalAlignment="Center" Text="{Binding Store,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+			<search:SearchStores VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" SearchPerRow="{Binding StorePerRow,Mode=TwoWay}" MinHeight="30"   Margin="5" />
+
+			<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}" Grid.ColumnSpan="4"
+				   Grid.Row="1" Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   >
+				<sdk:DataGrid.Columns>
+					<sdk:DataGridTextColumn IsReadOnly="True"    Binding="{Binding Path=Amount}" Header="Amount" Width="SizeToHeader" />
+					<sdk:DataGridTextColumn  IsReadOnly="True" x:Name="descriptionColumn" Binding="{Binding Path=Description}" Header="Description" Width="SizeToHeader" />
+					<sdk:DataGridTemplateColumn IsReadOnly="True" x:Name="docdateColumn" Header="Docdate" Width="SizeToHeader">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<sdk:DatePicker SelectedDate="{Binding Path=Docdate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Path=Docdate, StringFormat=\{0:d\}}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn IsReadOnly="True" x:Name="fromDateColumn" Header="From Date" Width="SizeToHeader">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<sdk:DatePicker SelectedDate="{Binding Path=FromDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Path=FromDate, StringFormat=\{0:d\}}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn IsReadOnly="True" x:Name="toDateColumn" Header="To Date" Width="SizeToHeader">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<sdk:DatePicker SelectedDate="{Binding Path=ToDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Path=ToDate, StringFormat=\{0:d\}}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+
+
+
+					<sdk:DataGridTemplateColumn  Width="*" >
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<CheckBox x:Name="BrandSectionCheckBox" IsChecked="{Binding StatusBool,Mode=TwoWay}"
+				 Click="BrandSection_Click" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding Status, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTemplateColumn.HeaderStyle>
+					</sdk:DataGridTemplateColumn>
+
+			
+				</sdk:DataGrid.Columns>
+
+			</dataGrid:OsGrid>
+		</Grid>
+	</Grid>
+</navigation:Page>

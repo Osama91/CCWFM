@@ -1,0 +1,2 @@
+2018-02-21 18:15:27.0727|INFO|Info|User Iserial:5
+2018-02-21 18:15:27.0998|ERROR|Info|{"Message":"Object reference not set to an instance of an object.","Data":{},"InnerException":null,"StackTrace":"   at CCWFM.Views.Login.LoginChildWindow._client_AuthenticateCompleted(Object sender, AuthenticateCompletedEventArgs e)\r\n   at CCWFM.CRUDManagerService.CRUD_ManagerServiceClient.OnAuthenticateCompleted(Object state)"}

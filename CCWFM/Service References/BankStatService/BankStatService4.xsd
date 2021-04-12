@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Models.Excel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Excel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCellModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CellModel" nillable="true" type="tns:CellModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCellModel" nillable="true" type="tns:ArrayOfCellModel" />
+  <xs:complexType name="CellModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Column" type="xs:int" />
+      <xs:element minOccurs="0" name="Day" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mounth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Row" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CellModel" nillable="true" type="tns:CellModel" />
+</xs:schema>

@@ -1,0 +1,188 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.StylePages.SMLRowEditor"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="450" Height="250" 
+           mc:Ignorable="d" 
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <sdk:Label Content="Style Code:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <sdk:Label Content="Description:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Right" Margin="3" Name="descriptionTextBox" Text="{Binding Path=Description, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="120" />
+
+            <sdk:Label Content="Brand Code:" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <sdk:AutoCompleteBox
+                Grid.Column="3"
+                Grid.Row="1"
+                Height="23" 
+                HorizontalAlignment="Right"
+                Margin="3" 
+                ItemsSource="{Binding Brands}"
+                ValueMemberPath="Brand_Code"
+                Name="brandCodeTextBox"
+                Text="{Binding Path=BrandCode, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}"
+                VerticalAlignment="Center" 
+                Width="120" >
+                <sdk:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Brand_Code}"></TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Brand_Ename}"></TextBlock>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </sdk:AutoCompleteBox.ItemTemplate>
+            </sdk:AutoCompleteBox>
+
+            <sdk:Label Content="Color Code:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <sdk:AutoCompleteBox
+                Grid.Column="1" 
+                Grid.Row="2" 
+                Height="23" 
+                HorizontalAlignment="Right" 
+                Margin="3" 
+                Populating="ColorCodeTextBox_OnPopulating"
+                Name="colorCodeTextBox" 
+                Text="{Binding Path=ColorCode, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                ItemsSource="{Binding ColorList}"
+                ValueMemberPath="Color_Code"
+                VerticalAlignment="Center" 
+                Width="120" >
+                <sdk:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Color_Code}"></TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Color_Name}"></TextBlock>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </sdk:AutoCompleteBox.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Populating">
+                        <i:InvokeCommandAction Command="{Binding FilterColorsCommand}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </sdk:AutoCompleteBox>
+            
+            <sdk:Label Content="Delivary Date:" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <controls:DatePicker Grid.Column="3" Grid.Row="2" Height="25" HorizontalAlignment="Right" Margin="3" Name="delivaryDateDatePicker" SelectedDate="{Binding Path=DeliveryDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="120" />
+
+            <sdk:Label Content="Season Code:" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <sdk:AutoCompleteBox 
+                Grid.Column="3"
+                Grid.Row="0"
+                Height="23"
+                HorizontalAlignment="Right"
+                Margin="3"
+                ItemsSource="{Binding Seasons}"
+                ValueMemberPath="Season_SeasonCode"
+                Name="seasonCodeTextBox" 
+                Text="{Binding Path=SeasonCode, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                VerticalAlignment="Center" 
+                Width="120" >
+                <sdk:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Season_SeasonCode}"></TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Season_Name}"></TextBlock>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </sdk:AutoCompleteBox.ItemTemplate>
+                </sdk:AutoCompleteBox>
+            
+            <sdk:Label Content="Size Range:" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="7" Height="23" HorizontalAlignment="Right" Margin="3" Name="sizeRangeTextBox" Text="{Binding Path=SizeRange, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="120" />
+            <sdk:AutoCompleteBox
+                SelectedItem="{Binding SelectedStyle,Mode=TwoWay}"
+                VerticalAlignment="Center" 
+                ItemsSource="{Binding Styles,Mode=TwoWay}"
+                Name="styleCodeTextBox" 
+                ValueMemberPath="StyleCode" 
+                Grid.Column="1"
+                Grid.Row="0" 
+                Text="{Binding Path=StyleCode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                MinimumPrefixLength="2" 
+                Populating="StyleCodeTextBox_OnPopulating">
+                <sdk:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding StyleCode}"></TextBlock>
+                            </Border>
+                            <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Desc}"></TextBlock>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </sdk:AutoCompleteBox.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Populating">
+                        <i:InvokeCommandAction Command="{Binding FilterStyleCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </sdk:AutoCompleteBox>
+
+            <sdk:Label Content="Qty:" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <TextBox Text="{Binding Qty,Mode=TwoWay}" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Stretch" Margin="3" VerticalAlignment="Stretch"/>
+
+            <sdk:Label Content="Status:" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Margin="3" VerticalAlignment="Center" />
+            <ComboBox DisplayMemberPath="EnglishName" ItemsSource="{Binding StatusList}" SelectedItem="{Binding SelectedStatus,Mode=TwoWay}" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Stretch" Margin="3" VerticalAlignment="Stretch"/>
+            <!--StatusList-->
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

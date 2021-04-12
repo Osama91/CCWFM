@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" />
+      <xsd:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EmployeePayrollService_InsertEmpVacation_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpVacation" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpVacation_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpVacation_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpVacation" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpVacation_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertVariableTerm_InputMessage">
+    <wsdl:part name="parameters" element="InsertVariableTerm" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertVariableTerm_OutputMessage">
+    <wsdl:part name="parameters" element="InsertVariableTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteVariableTerm_InputMessage">
+    <wsdl:part name="parameters" element="DeleteVariableTerm" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteVariableTerm_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteVariableTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpExcuse_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpExcuse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpExcuse_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpExcuseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpExcuse_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpExcuse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpExcuse_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpExcuseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpMission_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpMission" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpMission_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpMission_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpMission" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpMission_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteAttFile_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAttFile" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteAttFile_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAttFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertAttFile_InputMessage">
+    <wsdl:part name="parameters" element="InsertAttFile" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertAttFile_OutputMessage">
+    <wsdl:part name="parameters" element="InsertAttFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpCalendarDeviationNoExist_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpCalendarDeviationNoExist" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpCalendarDeviationNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpCalendarDeviationNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpMissionNoExist_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpMissionNoExist" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpMissionNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpMissionNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpAttNoExist_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpAttNoExist" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpAttNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpAttNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpExcuseNoExist_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpExcuseNoExist" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpExcuseNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpExcuseNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpVacationNoExist_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpVacationNoExist" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpVacationNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpVacationNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpCalendarDeviation_InputMessage">
+    <wsdl:part name="parameters" element="InsertEmpCalendarDeviation" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_InsertEmpCalendarDeviation_OutputMessage">
+    <wsdl:part name="parameters" element="InsertEmpCalendarDeviationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpCalendarDeviation_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpCalendarDeviation" />
+  </wsdl:message>
+  <wsdl:message name="EmployeePayrollService_DeleteEmpCalendarDeviation_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpCalendarDeviationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmployeePayrollService">
+    <wsdl:operation name="InsertEmpVacation">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpVacation" message="EmployeePayrollService_InsertEmpVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpVacationResponse" message="EmployeePayrollService_InsertEmpVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpVacation">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteEmpVacation" message="EmployeePayrollService_DeleteEmpVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteEmpVacationResponse" message="EmployeePayrollService_DeleteEmpVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVariableTerm">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertVariableTerm" message="EmployeePayrollService_InsertVariableTerm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertVariableTermResponse" message="EmployeePayrollService_InsertVariableTerm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVariableTerm">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteVariableTerm" message="EmployeePayrollService_DeleteVariableTerm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteVariableTermResponse" message="EmployeePayrollService_DeleteVariableTerm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpExcuse">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteEmpExcuse" message="EmployeePayrollService_DeleteEmpExcuse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteEmpExcuseResponse" message="EmployeePayrollService_DeleteEmpExcuse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpExcuse">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpExcuse" message="EmployeePayrollService_InsertEmpExcuse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpExcuseResponse" message="EmployeePayrollService_InsertEmpExcuse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpMission">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteEmpMission" message="EmployeePayrollService_DeleteEmpMission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteEmpMissionResponse" message="EmployeePayrollService_DeleteEmpMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpMission">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpMission" message="EmployeePayrollService_InsertEmpMission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpMissionResponse" message="EmployeePayrollService_InsertEmpMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttFile">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteAttFile" message="EmployeePayrollService_DeleteAttFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteAttFileResponse" message="EmployeePayrollService_DeleteAttFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAttFile">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertAttFile" message="EmployeePayrollService_InsertAttFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertAttFileResponse" message="EmployeePayrollService_InsertAttFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpCalendarDeviationNoExist">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpCalendarDeviationNoExist" message="EmployeePayrollService_InsertEmpCalendarDeviationNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpCalendarDeviationNoExistResponse" message="EmployeePayrollService_InsertEmpCalendarDeviationNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpMissionNoExist">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpMissionNoExist" message="EmployeePayrollService_InsertEmpMissionNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpMissionNoExistResponse" message="EmployeePayrollService_InsertEmpMissionNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpAttNoExist">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpAttNoExist" message="EmployeePayrollService_InsertEmpAttNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpAttNoExistResponse" message="EmployeePayrollService_InsertEmpAttNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpExcuseNoExist">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpExcuseNoExist" message="EmployeePayrollService_InsertEmpExcuseNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpExcuseNoExistResponse" message="EmployeePayrollService_InsertEmpExcuseNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpVacationNoExist">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpVacationNoExist" message="EmployeePayrollService_InsertEmpVacationNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpVacationNoExistResponse" message="EmployeePayrollService_InsertEmpVacationNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpCalendarDeviation">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/InsertEmpCalendarDeviation" message="EmployeePayrollService_InsertEmpCalendarDeviation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/InsertEmpCalendarDeviationResponse" message="EmployeePayrollService_InsertEmpCalendarDeviation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpCalendarDeviation">
+      <wsdl:input wsaw:Action="urn:EmployeePayrollService/DeleteEmpCalendarDeviation" message="EmployeePayrollService_DeleteEmpCalendarDeviation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:EmployeePayrollService/DeleteEmpCalendarDeviationResponse" message="EmployeePayrollService_DeleteEmpCalendarDeviation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

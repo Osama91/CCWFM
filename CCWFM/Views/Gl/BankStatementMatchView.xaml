@@ -1,0 +1,176 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:Grid="clr-namespace:Syncfusion.UI.Xaml.Grid;assembly=Syncfusion.SfGrid.Silverlight"  
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Tools.Silverlight"  
+    xmlns:DataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.Gl"
+    xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+    xmlns:Views="clr-namespace:CCWFM.Views"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+    xmlns:Layout="clr-namespace:Syncfusion.Tools.Controls.Layout;assembly=Syncfusion.SfAccordion.Silverlight" x:Name="childWindowsOverride"
+    x:Class="CCWFM.Views.Gl.BankStatementMatchView"
+    mc:Ignorable="d" Title="Bank Statement Matching"
+    d:DesignHeight="500" d:DesignWidth="800">
+    <controlsOverride:ChildWindowsOverride.Resources>
+        <!--<viewModel:BankStatementMatchViewModel x:Key="ViewModel" />-->
+        <!--<Style x:Key="filterControlStyle" TargetType="Grid:GridFilterControl">
+            <Setter Property="FilterMode" Value="AdvancedFilter" />
+        </Style>-->
+    </controlsOverride:ChildWindowsOverride.Resources>
+
+    <Grid Background="White" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Content="Match Selected" Width="150" HorizontalAlignment="Left" Margin="5" 
+                    IsEnabled="{Binding Path=HeaderRow.MatchApproved, Mode=TwoWay, Converter={StaticResource ReversedConverter}}" 
+                    Command="{Binding MatchSelected}"/>
+            <Button Content="Auto match" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding AutoMatch}"
+                    IsEnabled="{Binding Path=HeaderRow.MatchApproved, Mode=TwoWay, Converter={StaticResource ReversedConverter}}" />
+        </StackPanel>
+        <sdk:TabControl Grid.Row="1" Margin="5">
+            <sdk:TabItem Header="Statement Transactions">
+                <Grid Background="#FFE5E5E5">
+                    <sdk:DataGrid ItemsSource="{Binding BankStatDetailList, Mode=TwoWay}"
+                          ColumnWidth="*" AutoGenerateColumns="False"
+                          Margin="5">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding SelectionChanged, Mode=TwoWay}" PassEventArgsToCommand="True"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridCheckBoxColumn Binding="{Binding IsChecked, Mode=TwoWay}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DocDate, Mode=TwoWay}" Header="Doc Date"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Description, Mode=TwoWay}" Header="Description"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Amount, Mode=TwoWay}" Header="Amount"/>
+                            <sdk:DataGridTextColumn Binding="{Binding ChequeNo, Mode=TwoWay}" Header="Cheque No"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DepositNo, Mode=TwoWay}" Header="Deposit No"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+        <sdk:TabControl Grid.Row="1" Margin="5" Grid.Column="1">
+            <sdk:TabItem Header="Account Transactions">
+                <Grid Background="#FFE5E5E5">
+                    <sdk:DataGrid ItemsSource="{Binding LedgerDetailList, Mode=TwoWay}"
+                          ColumnWidth="*" AutoGenerateColumns="False" Margin="5">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding SelectionChanged}" PassEventArgsToCommand="True"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridCheckBoxColumn Binding="{Binding IsChecked, Mode=TwoWay}"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DocDate, Mode=TwoWay}" Header="Doc Date"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Description, Mode=TwoWay}" Header="Description"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Amount, Mode=TwoWay}" Header="Amount"/>
+                            <sdk:DataGridTextColumn Binding="{Binding ChequeNo, Mode=TwoWay}" Header="Cheque No"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DepositNo, Mode=TwoWay}" Header="Deposit No"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Content="{Binding Source={StaticResource LocalizedStrings}, Path=UnMatchSelected}"
+                    Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding UnMatchSelected}"
+                    IsEnabled="{Binding Path=HeaderRow.MatchApproved, Mode=TwoWay, Converter={StaticResource ReversedConverter}}" />
+            <Button Content="{Binding Source={StaticResource LocalizedStrings}, Path=UnMatchAll}" 
+                    Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding UnMatchAll}"
+                    IsEnabled="{Binding Path=HeaderRow.MatchApproved, Mode=TwoWay, Converter={StaticResource ReversedConverter}}" />
+            <Button Content="{Binding Source={StaticResource LocalizedStrings}, Path=ApproveAsMatched}"
+                    Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ApproveAsMatched}"
+                    IsEnabled="{Binding Path=HeaderRow.MatchApproved, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"/>
+        </StackPanel>
+        <sdk:TabControl Grid.Row="3" Margin="5">
+            <sdk:TabItem Header="Statement Transactions">
+                <Grid Background="#FFE5E5E5">
+                    <sdk:DataGrid ItemsSource="{Binding BankStatDetailMatchedList, Mode=TwoWay}"
+                          AutoGenerateColumns="False" Margin="5" ColumnWidth="*">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding SelectionChanged, Mode=TwoWay}" PassEventArgsToCommand="True"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="Checked">
+                                                    <cmd:EventToCommand Command="{Binding Path=DataContext.BankStatChecked, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}" PassEventArgsToCommand="True"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="Unchecked">
+                                                    <cmd:EventToCommand Command="{Binding Path=DataContext.BankStatUnchecked, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}" PassEventArgsToCommand="True"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTextColumn Binding="{Binding DocDate, Mode=TwoWay}" Header="Doc Date"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Description, Mode=TwoWay}" Header="Description"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Amount, Mode=TwoWay}" Header="Amount"/>
+                            <sdk:DataGridTextColumn Binding="{Binding ChequeNo, Mode=TwoWay}" Header="Cheque No"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DepositNo, Mode=TwoWay}" Header="Deposit No"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+        <sdk:TabControl Grid.Row="3" Margin="5" Grid.Column="1">
+            <sdk:TabItem Header="Account Transactions">
+                <Grid Background="#FFE5E5E5">
+                    <sdk:DataGrid ItemsSource="{Binding LedgerDetailMatchedList, Mode=TwoWay}"
+                          AutoGenerateColumns="False" Margin="5" ColumnWidth="*">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding SelectionChanged, Mode=TwoWay}" PassEventArgsToCommand="True"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn>
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="Checked">
+                                                    <cmd:EventToCommand Command="{Binding Path=DataContext.LedgerMainDetailChecked, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}" PassEventArgsToCommand="True"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="Unchecked">
+                                                    <cmd:EventToCommand Command="{Binding Path=DataContext.LedgerMainDetailUnchecked, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}" PassEventArgsToCommand="True"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTextColumn Binding="{Binding DocDate, Mode=TwoWay}" Header="Doc Date"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Description, Mode=TwoWay}" Header="Description"/>
+                            <sdk:DataGridTextColumn Binding="{Binding Amount, Mode=TwoWay}" Header="Amount"/>
+                            <sdk:DataGridTextColumn Binding="{Binding ChequeNo, Mode=TwoWay}" Header="Cheque No"/>
+                            <sdk:DataGridTextColumn Binding="{Binding DepositNo, Mode=TwoWay}" Header="Deposit No"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

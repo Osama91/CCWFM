@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d6aacfe6-b8c9-40a7-a377-cd80f8b9b000" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erpts.ccasual.loc:555/EmployeePayrollService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EmployeePayrollService.xsd" MetadataType="Schema" ID="2bd1434f-2276-4763-acdd-b20d51f52e0c" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EmployeePayrollService1.xsd" MetadataType="Schema" ID="f7e4b7ff-2230-4603-9c3a-b47fa2dc548e" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmployeePayrollService2.xsd" MetadataType="Schema" ID="809af017-5f7c-49c3-9420-e0aefc9b6503" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmployeePayrollService3.xsd" MetadataType="Schema" ID="11222b3b-3e13-4aa0-9716-303c63235996" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd4" />
+    <MetadataFile FileName="EmployeePayrollService.disco" MetadataType="Disco" ID="59d9b614-02fb-4ad2-951d-592998bd1122" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?disco" />
+    <MetadataFile FileName="EmployeePayrollService4.xsd" MetadataType="Schema" ID="8f71c526-9f5c-49d1-b377-9f1baf1dae39" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmployeePayrollService.wsdl" MetadataType="Wsdl" ID="8b414de4-d483-4e44-9aa6-17a1be0047cc" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?wsdl" />
+    <MetadataFile FileName="EmployeePayrollService1.wsdl" MetadataType="Wsdl" ID="345dc857-f864-4b7f-9cd0-3ccfd2726cbf" SourceId="1" SourceUrl="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8bafd1f1-131a-46b6-9ea8-38b4b3beac89" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service2.wsdl" MetadataType="Wsdl" ID="fc438620-c355-45d1-866a-4e28825da9d0" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="service21.wsdl" MetadataType="Wsdl" ID="7d8733b7-dec0-4886-9c31-79f53c717c4b" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="8dc5172f-2cda-41bc-b00b-8887833e23e8" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="9d27ae3a-5ad7-4a55-b985-e14f345d08a0" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.Model1.xsd" MetadataType="Schema" ID="931517df-9ed1-43b6-99a3-89be41fd6bfe" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses1.xsd" MetadataType="Schema" ID="08ea481e-da5f-4887-a7ae-b79476587c52" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="System.Data1.xsd" MetadataType="Schema" ID="fba09c47-eccd-43ab-9208-9da0b21cc4cb" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="60917de3-aedb-4670-97b1-aecc8e1c6a6c" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.DataLayer1.xsd" MetadataType="Schema" ID="62e80ede-24b9-427c-9e92-fdfb4cb5cbfb" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.Service1.xsd" MetadataType="Schema" ID="c5bd8fd5-3b1b-41be-88c5-9ccd55f57c1f" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="System1.xsd" MetadataType="Schema" ID="141029d7-42d7-48ea-858d-d1e0b3af5bdc" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.Service.Dto_s1.xsd" MetadataType="Schema" ID="7f2546cc-8781-4182-8f2c-d3e6072c2eb2" SourceId="1" SourceUrl="http://localhost:18559/Service/CRUD_ManagerService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

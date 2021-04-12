@@ -1,0 +1,527 @@
+﻿<navigation:Page x:Class="CCWFM.Views.StylePages.NewRFQPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:dataprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+                 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                 xmlns:fw="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+                 xmlns:helpers="clr-namespace:CCWFM.Helpers.Converters"
+                 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:res="clr-namespace:CCWFM.Helpers.LocalizationHelpers"
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                 xmlns:vm="clr-namespace:CCWFM.ViewModel.SMLViewModels"
+                 xmlns:wp="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+                 Title="RFQPage Page"
+                 d:DesignHeight="768"
+                 d:DesignWidth="1024"
+                 mc:Ignorable="d">
+    <navigation:Page.Resources>
+        <vm:NewRFQViewModel x:Key="VMO" />
+        <res:strings x:Key="LocalizedStrings" />
+        <helpers:BoolToBrushConverter x:Key="GridBGConverter" />
+        <helpers:ByteToImageConverter x:Name="binaryConverter" />
+        <helpers:SelectedItemToIsEnabledConverter x:Key="NullToBoolConverted" />
+        <helpers:VisibilityConverter x:Key="VisibilityConverter" />
+        <helpers:DisplayItemPathByLang x:Key="DisplaypathByLang" />
+        <helpers:TrueToRedColorConverter x:Key="TrueToRowbackcolor" />
+        <helpers:TrueToFontStyleConverter x:Key="TrueToFontStyle" />
+        <DataTemplate x:Key="SizeTextTemplate">
+            <TextBlock Width="49"
+                       HorizontalAlignment="Stretch"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Text="{Binding SizeCode,
+                                      Mode=TwoWay}"
+                       TextAlignment="Center" />
+        </DataTemplate>
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot"
+          Margin="0,0,0,10"
+          Background="White"
+          DataContext="{StaticResource VMO}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="3"
+                    MaxHeight="35"
+                    Orientation="Horizontal">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+                    <GradientStop Color="#FFC6ECFE" />
+                    <GradientStop Offset=".01" Color="#ff5292bd" />
+                    <GradientStop Offset="0.3" Color="#ff02fdce" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel DataContext="{Binding ObjStatus}" Orientation="Horizontal" />
+            <Button Name="BtnAddNewRfq" Command="{Binding NewRFQCommand, Mode=TwoWay}">
+                <Image Source="/CCWFM;component/Images/1371054818_New_File.png" Stretch="Uniform" />
+            </Button>
+            <Button x:Name="BtnSave"
+                    Command="{Binding SaveRFQCommand,
+                                      Mode=TwoWay}"
+                    Cursor="Hand"
+                    ToolTipService.ToolTip="{Binding Save,
+                                                     Source={StaticResource LocalizedStrings}}">
+                <Image Source="/CCWFM;component/Images/Save-icon.png" Stretch="Uniform" />
+            </Button>
+            <Button x:Name="BtnSearch"
+                    Command="{Binding ToggleSearchCommand}"
+                    Cursor="Hand"
+                    ToolTipService.ToolTip="{Binding Search,
+                                                     Source={StaticResource LocalizedStrings}}">
+                <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform" />
+            </Button>
+            <sdk:Label Margin="0"
+                       HorizontalAlignment="Center"
+                       Background="White"
+                       Content="Existing Fabric:"
+                       Padding="5,0"
+                       Visibility="Collapsed" />
+            <Button Name="BtnPrintPreview"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Command="{Binding ViewReportCommand,
+                                      Mode=OneWay}"
+                    ToolTipService.ToolTip="Print">
+                <Image HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Source="/CCWFM;component/Images/1372257722_MB__print.png"
+                       Stretch="Uniform" />
+            </Button>
+            <Button Name="BtnDeleteRfq"
+                    Command="{Binding DeleteRFQCommand,
+                                      Mode=TwoWay}"
+                    IsEnabled="True"
+                    ToolTipService.ToolTip="Delete">
+                <Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform" />
+            </Button>
+
+            <Button x:Name="BtnCancel"
+                    BorderBrush="#FFA8091A"
+                    Command="{Binding CancelCommand,
+                                      Mode=TwoWay}"
+                    Content="{Binding Cancel,
+                                      Source={StaticResource LocalizedStrings}}"
+                    FontWeight="Bold"
+                    ToolTipService.ToolTip="Cancel"
+                    Visibility="Visible">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#ffa8091a" />
+                        <Setter Property="Cursor" Value="Hand" />
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ProgressBar Name="LgnProgress"
+                         Width="300"
+                         Height="Auto"
+                         HorizontalAlignment="Stretch"
+                         BorderBrush="Green"
+                         BorderThickness="2"
+                         Foreground="White"
+                         IsIndeterminate="True"
+                         IsTabStop="False"
+                         Padding="5"
+                         Visibility="{Binding IsLoading,
+                                              Converter={StaticResource VisibilityConverter},
+                                              Mode=TwoWay}" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Height="40" Visibility="Visible" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock 
+                    VerticalAlignment="Center" 
+                    Padding="5" 
+                    Text="Doc Number" ></TextBlock>
+                <TextBox Name="DocNumTextBox" Text="{Binding DocNumber,Mode=TwoWay 
+                    ,UpdateSourceTrigger=PropertyChanged}" 
+                         IsEnabled="{Binding IsSearchingMode,Mode=TwoWay}"
+                    VerticalAlignment="Center" Padding="5" Width="40" >
+                    <i:Interaction.Triggers>
+                        <ei:KeyTrigger Key="Enter"
+                                                               FiredOn="KeyDown"
+                                                               SourceName="DocNumTextBox"
+                                                               SourceObject="{Binding ElementName=DocNumTextBox}">
+                            <i:InvokeCommandAction Command="{Binding LoadNewRFQCommand, Mode=TwoWay}" />
+                        </ei:KeyTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <wp:Separator></wp:Separator>
+                <TextBlock VerticalAlignment="Center" Padding="5" Text="Style: "></TextBlock>
+                <TextBox Width="120" Text="{Binding StyleCodeSearchTerm,Mode=TwoWay
+                    ,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center">
+                </TextBox>
+                <wp:Separator></wp:Separator>
+                <TextBlock 
+                    VerticalAlignment="Center" 
+                    Padding="5" 
+                    Text="Brand" ></TextBlock>
+                <sdk:AutoCompleteBox
+                    VerticalAlignment="Center" 
+                    ValueMemberPath="Brand_Code"
+                    ItemsSource="{Binding Brands}" 
+                    MinimumPrefixLength="1"
+                    Text="{Binding BrandCode,Mode=TwoWay}">
+                    <sdk:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="150" />
+                                </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" BorderBrush="Black">
+                                    <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Brand_Code}"></TextBlock>
+                                </Border>
+                                <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                    <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Brand_Ename}"></TextBlock>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:AutoCompleteBox.ItemTemplate>
+                </sdk:AutoCompleteBox>
+                <wp:Separator></wp:Separator>
+                <TextBlock 
+                    VerticalAlignment="Center" 
+                    Padding="5" 
+                    Text="Season" ></TextBlock>
+                <sdk:AutoCompleteBox MinimumPrefixLength="1"
+                                     ItemsSource="{Binding Seasons}"
+                                     Text="{Binding SeasonCode,Mode=TwoWay}"
+                    VerticalAlignment="Center" IsTextCompletionEnabled="True" ValueMemberPath="Season_SeasonCode">
+                    <sdk:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="150" />
+                                </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" BorderBrush="Black">
+                                    <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Season_SeasonCode}"></TextBlock>
+                                </Border>
+                                <Border Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                    <TextBlock FontSize="10" TextAlignment="Center" Padding="5" Text="{Binding Season_Name}"></TextBlock>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:AutoCompleteBox.ItemTemplate>
+                </sdk:AutoCompleteBox>
+                <wp:Separator></wp:Separator>
+                <TextBlock 
+                    VerticalAlignment="Center" 
+                    Padding="5" 
+                    Text="Vendor" ></TextBlock>
+                <sdk:AutoCompleteBox ItemsSource="{Binding Vendros}" VerticalAlignment="Center"
+                                     Name="VendAutoComplete" ValueMemberPath="vendor_code" 
+                                     Text="{Binding Path=VendorSearchTerm,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                     MinimumPrefixLength="1" Populating="AutoCompleteBox_Populating">
+                    <sdk:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" BorderBrush="Black">
+                                    <TextBlock TextAlignment="Center" Padding="5" Text="{Binding vendor_code}"></TextBlock>
+                                </Border>
+                                <Border  Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                    <TextBlock TextAlignment="Center" Padding="5" Text="{Binding vendor_Ename}"></TextBlock>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:AutoCompleteBox.ItemTemplate>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Populating">
+                            <i:InvokeCommandAction Command="{Binding FilterVendorsCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    </sdk:AutoCompleteBox>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                            Height="20"
+                            Margin="5,0,5,5"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Command="{Binding AddNewSubHeaderCommand,
+                                              Mode=TwoWay}"
+                            Cursor="Hand"
+                            Padding="0"
+                            Style="{StaticResource PlusSignButton}" />
+            <sdk:DataGrid SelectionChanged="DataGrid_OnSelectionChanged"
+                                              Grid.Column="1"
+                                              HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Stretch"
+                                              AutoGenerateColumns="False"
+                                              ItemsSource="{Binding tblNewRFQDetails,
+                                                                    Mode=TwoWay}"
+                                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                              SelectedItem="{Binding SelectedDetail,
+                                                                     Mode=TwoWay}"
+                                              TabNavigation="Cycle" AlternatingRowBackground="White" RowBackground="White" SelectionMode="Single" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Black">
+                <sdk:DataGrid.Columns>
+                        <sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontSize="11"
+                                                                           FontWeight="Normal"
+                                                                           Text="{Binding Style,
+                                                                                          Source={StaticResource LocalizedStrings}}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridTemplateColumn.HeaderStyle>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Padding="5" Text="{Binding StyleCode, Mode=TwoWay}" ></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <sdk:AutoCompleteBox ItemsSource="{Binding SMLStyles}" 
+                                                         VerticalAlignment="Center"
+                                     x:Name="StyleAutoComplete" ValueMemberPath="StyleCode" 
+                                     Text="{Binding Path=StyleSearchTerm,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                     MinimumPrefixLength="2" SelectedItem="{Binding SelectedSmldto,Mode=TwoWay}"
+                                                         Populating="AutoCompleteBox_Populating">
+                                        <sdk:AutoCompleteBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Border BorderThickness="1" BorderBrush="Black">
+                                                        <TextBlock TextAlignment="Center" Padding="5" Text="{Binding StyleCode}"></TextBlock>
+                                                    </Border>
+                                                    <Border  Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                                        <TextBlock TextAlignment="Center" Padding="5" Text="{Binding ColorCode}"></TextBlock>
+                                                    </Border>
+                                                    <Border  Grid.Column="2" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                                        <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Qty}"></TextBlock>
+                                                    </Border>
+                                                    <Border  Grid.Column="3" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                                        <TextBlock TextAlignment="Center" Padding="5" Text="{Binding SampleRequested}"></TextBlock>
+                                                    </Border>
+                                                    <Border  Grid.Column="4" BorderThickness="0,1,1,1" BorderBrush="Black">
+                                                        <TextBlock TextAlignment="Center" Padding="5" Text="{Binding DevliveryDate}"></TextBlock>
+                                                    </Border>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </sdk:AutoCompleteBox.ItemTemplate>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Populating">
+                                                <i:InvokeCommandAction Command="{Binding FilterStyleCommand}"
+                                                                       CommandParameter="{Binding ElementName=StyleAutoComplete}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </sdk:AutoCompleteBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn IsReadOnly="True">
+                        <sdk:DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontSize="11"
+                                                                           FontWeight="Normal"
+                                                                           Text="{Binding Color,
+                                                                                          Source={StaticResource LocalizedStrings}}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridTemplateColumn.HeaderStyle>
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <TextBlock Width="50" Text="{Binding ColorCode, Mode=TwoWay}" />
+                                </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding RawCost,Mode=TwoWay}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding ExchangeRate,Mode=TwoWay}"/>
+                        <sdk:DataGridTextColumn IsReadOnly="True" Binding="{Binding Cost,Mode=TwoWay}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding LandedCost,Mode=TwoWay}"/>
+                        <sdk:DataGridTextColumn Binding="{Binding Qty, Mode=TwoWay}" IsReadOnly="False">
+                        <sdk:DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontSize="11"
+                                                                           FontWeight="Normal"
+                                                                           Text="{Binding Qty,
+                                                                                          Source={StaticResource LocalizedStrings}}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridTextColumn.HeaderStyle>
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding IsSampleRequested,Mode=TwoWay}" IsReadOnly="True"></sdk:DataGridTextColumn>
+                    <sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="Foreground" Value="#FF000000" />
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                                <Setter Property="IsTabStop" Value="False" />
+                                <Setter Property="SeparatorBrush" Value="Black" />
+                                <Setter Property="Padding" Value="4" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                                <ItemsControl Name="IcSizes" 
+                                                              ItemsSource="{Binding SelectedDetail.tblNewRFQSizeDetails}"
+                                                              HorizontalAlignment="Stretch">
+                                                <ItemsControl.Background>
+                                                    <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                        <GradientStop Color="#FF8DB5BB" Offset="0" />
+                                                        <GradientStop Color="#FF6FCAD6" Offset="1" />
+                                                        <GradientStop Color="#FF246488" Offset="0.542" />
+                                                    </LinearGradientBrush>
+                                                </ItemsControl.Background>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition />
+                                                                <RowDefinition />
+                                                            </Grid.RowDefinitions>
+                                                            <TextBox Grid.Row="0" IsReadOnly="True"
+                                                                                         Width="49"
+                                                                                         HorizontalAlignment="Stretch"
+                                                                                         FontSize="11"
+                                                                                         FontWeight="Normal"
+                                                                                         Tag="{Binding SizeCode,
+                                                                                                       Mode=TwoWay}"
+                                                                                         Text="{Binding SizeRatio,
+                                                                                                        Mode=TwoWay,
+                                                                                                        NotifyOnValidationError=True,
+                                                                                                        ValidatesOnExceptions=True,
+                                                                                                        FallbackValue=0}"
+                                                                                         TextAlignment="Center">
+                                                                <TextBox.Background>
+                                                                    <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                                        <GradientStop Color="#FF8DB5BB" Offset="0" />
+                                                                        <GradientStop Color="#FF6FCAD6" Offset="1" />
+                                                                        <GradientStop Color="#9F447B9A" Offset="0.542" />
+                                                                    </LinearGradientBrush>
+                                                                </TextBox.Background>
+                                                            </TextBox>
+                                                            <TextBlock Grid.Row="1" OpacityMask="White"
+                                                                                           Width="49"
+                                                                                           HorizontalAlignment="Stretch"
+                                                                                           FontSize="11"
+                                                                                           FontWeight="Normal"
+                                                                                           Text="{Binding SizeCode,
+                                                                                                          Mode=TwoWay}"
+                                                                                           TextAlignment="Center">
+                                                            </TextBlock>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridTemplateColumn.HeaderStyle>
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <ItemsControl
+                                                            Width="Auto"
+                                                                      ItemsSource="{Binding tblNewRFQSizeDetails,
+                                                                                            Mode=OneWay}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBox Width="49"
+                                                                             IsReadOnly="False"
+                                                                             HorizontalAlignment="Center"
+                                                                             Tag="{Binding SizeCode,
+                                                                                           Mode=TwoWay}"
+                                                                             Text="{Binding Qty,
+                                                                                            Mode=TwoWay,
+                                                                                            NotifyOnValidationError=True,
+                                                                                            ValidatesOnExceptions=True,
+                                                                                            FallbackValue=0}"
+                                                                             TextAlignment="Center"
+                                                                             ToolTipService.Placement="Bottom"
+                                                                             ToolTipService.ToolTip="{Binding SizeCode}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontSize="11"
+                                                                           FontWeight="Normal"
+                                                                           Text="{Binding DeliveryDate,
+                                                                                          Source={StaticResource LocalizedStrings}}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridTemplateColumn.HeaderStyle>
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <sdk:DatePicker HorizontalAlignment="Stretch"
+                                                                    SelectedDate="{Binding DeliveryDate,
+                                                                                           Mode=TwoWay}" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Command="{Binding DeleteLineCommand,
+                                                                              Mode=OneWay}"
+                                                            Content="X"
+                                                            Cursor="Hand" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</navigation:Page>

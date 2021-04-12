@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/ContractOp/ContractService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ContractService_GetContractHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetContractHeader" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetContractHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_UpdateOrInsertContractHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertContractHeader" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_UpdateOrInsertContractHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertContractHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContractHeader" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContractHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetContractDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetContractDetail" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetContractDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContractDetail" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContractDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetContractPaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetContractPaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetContractPaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractPaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractPaymentDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContractPaymentDetail" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_DeleteContractPaymentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContractPaymentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetStyles_InputMessage">
+    <wsdl:part name="parameters" element="GetStyles" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetStyles_OutputMessage">
+    <wsdl:part name="parameters" element="GetStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetSinleStyle_InputMessage">
+    <wsdl:part name="parameters" element="GetSinleStyle" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetSinleStyle_OutputMessage">
+    <wsdl:part name="parameters" element="GetSinleStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetBrandContractReports_InputMessage">
+    <wsdl:part name="parameters" element="GetBrandContractReports" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetBrandContractReports_OutputMessage">
+    <wsdl:part name="parameters" element="GetBrandContractReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetLookUpCurrency_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCurrency" />
+  </wsdl:message>
+  <wsdl:message name="ContractService_GetLookUpCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ContractService">
+    <wsdl:operation name="GetContractHeader">
+      <wsdl:input wsaw:Action="urn:ContractService/GetContractHeader" message="ContractService_GetContractHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetContractHeaderResponse" message="ContractService_GetContractHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertContractHeader">
+      <wsdl:input wsaw:Action="urn:ContractService/UpdateOrInsertContractHeader" message="ContractService_UpdateOrInsertContractHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/UpdateOrInsertContractHeaderResponse" message="ContractService_UpdateOrInsertContractHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContractHeader">
+      <wsdl:input wsaw:Action="urn:ContractService/DeleteContractHeader" message="ContractService_DeleteContractHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/DeleteContractHeaderResponse" message="ContractService_DeleteContractHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractDetail">
+      <wsdl:input wsaw:Action="urn:ContractService/GetContractDetail" message="ContractService_GetContractDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetContractDetailResponse" message="ContractService_GetContractDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContractDetail">
+      <wsdl:input wsaw:Action="urn:ContractService/DeleteContractDetail" message="ContractService_DeleteContractDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/DeleteContractDetailResponse" message="ContractService_DeleteContractDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractPaymentDetail">
+      <wsdl:input wsaw:Action="urn:ContractService/GetContractPaymentDetail" message="ContractService_GetContractPaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetContractPaymentDetailResponse" message="ContractService_GetContractPaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContractPaymentDetail">
+      <wsdl:input wsaw:Action="urn:ContractService/DeleteContractPaymentDetail" message="ContractService_DeleteContractPaymentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/DeleteContractPaymentDetailResponse" message="ContractService_DeleteContractPaymentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStyles">
+      <wsdl:input wsaw:Action="urn:ContractService/GetStyles" message="ContractService_GetStyles_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetStylesResponse" message="ContractService_GetStyles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSinleStyle">
+      <wsdl:input wsaw:Action="urn:ContractService/GetSinleStyle" message="ContractService_GetSinleStyle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetSinleStyleResponse" message="ContractService_GetSinleStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandContractReports">
+      <wsdl:input wsaw:Action="urn:ContractService/GetBrandContractReports" message="ContractService_GetBrandContractReports_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetBrandContractReportsResponse" message="ContractService_GetBrandContractReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpCurrency">
+      <wsdl:input wsaw:Action="urn:ContractService/GetLookUpCurrency" message="ContractService_GetLookUpCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ContractService/GetLookUpCurrencyResponse" message="ContractService_GetLookUpCurrency_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

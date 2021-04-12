@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:complexType name="ArrayOfGlPosting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GlPosting" nillable="true" type="tns:GlPosting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGlPosting" nillable="true" type="tns:ArrayOfGlPosting" />
+  <xs:complexType name="GlPosting">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AccountPerRow" nillable="true" type="q1:TblAccount" />
+      <xs:element minOccurs="0" name="AccountTemp" type="xs:int" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostCenterAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CrAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CustIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GroupIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="NetSales" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentMethod" type="xs:int" />
+      <xs:element minOccurs="0" name="StoreIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlPosting" nillable="true" type="tns:GlPosting" />
+  <xs:complexType name="ArrayOfGenericTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenericTable" nillable="true" type="tns:GenericTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenericTable" nillable="true" type="tns:ArrayOfGenericTable" />
+  <xs:complexType name="GenericTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenericTable" nillable="true" type="tns:GenericTable" />
+</xs:schema>

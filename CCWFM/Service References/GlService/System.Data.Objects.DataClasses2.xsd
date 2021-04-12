@@ -1,0 +1,3388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EntityObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:StructuralObject">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q1:EntityKey" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityObject" nillable="true" type="tns:EntityObject" />
+  <xs:complexType name="StructuralObject">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
+  <xs:complexType name="EntityReferenceOfTblAccounto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAccount" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAccounto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAccounto0bgEGGO" />
+  <xs:complexType name="EntityReference">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RelatedEnd">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q2:EntityKey" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReference" nillable="true" type="tns:EntityReference" />
+  <xs:complexType name="RelatedEnd">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
+  <xs:complexType name="EntityReferenceOfTblAccountTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAccountType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAccountTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAccountTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAssetGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAssetGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAssetGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAssetGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankStatDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankStatDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankStatDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankStatDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLedgerMainDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLedgerMainDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLedgerMainDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankAccountTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankAccountType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankAccountTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankAccountTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBanko0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBank" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBanko0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBanko0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankChequeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankCheque" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankChequeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankChequeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostCentero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostCenter" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostCentero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostCentero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostCenterOptiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostCenterOption" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostCenterOptiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostCenterOptiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostAllocationMethodo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostAllocationMethod" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostAllocationMethodo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostAllocationMethodo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostCenterTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostCenterType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostCenterTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostCenterTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlRuleMainDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlRuleMainDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlRuleMainDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlRuleMainDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCashDepositHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCashDepositHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCashDepositHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCashDepositHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblColorTesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblColorTest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblColorTesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblColorTesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBrandStoreTargetHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStoreo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStore" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStoreo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStoreo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblItemDownLoadDefo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblItemDownLoadDef" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblItemDownLoadDefo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblShopAcco0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblShopAcc" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblShopAcco0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblShopAcco0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblShopReqHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblShopReqHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblShopReqHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblShopCommento0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblShopComment" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblShopCommento0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblShopCommento0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSizeRetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSizeRetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSizeRetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSizeRetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTBLITEMpriceo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TBLITEMprice" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTBLITEMpriceo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTBLsuppliero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TBLsupplier" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTBLsuppliero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTBLsuppliero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCurrencyTesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCurrencyTest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCurrencyTesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDepreciationMethodo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDepreciationMethod" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDepreciationMethodo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDepreciationMethodo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDepreciationTransactionHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDepreciationTransactionHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDepreciationTransactionHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDepreciationTransactionHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlCashTransactionDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlCashTransactionDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlCashTransactionDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlCashTransactionDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlCashTransactionHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlCashTransactionHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlCashTransactionHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlCashTransactionHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblJournalAccountTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblJournalAccountType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblJournalAccountTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlChequeTransactionDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlChequeTransactionDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlChequeTransactionDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlChequeTransactionDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlChequeStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlChequeStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlChequeStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlChequeStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlChequeTransactionHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlChequeTransactionHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlChequeTransactionHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlChequeTransactionHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlChequeTypeSettingo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlChequeTypeSetting" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlChequeTypeSettingo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlChequeTypeSettingo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblJournalo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblJournal" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblJournalo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblJournalo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCashDepositTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCashDepositType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCashDepositTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCashDepositTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblTenderTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblTenderType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblTenderTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblTenderTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSequenceo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSequence" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSequenceo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSequenceo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLedgerHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLedgerHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLedgerHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLedgerHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblJournalSettingo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblJournalSetting" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblJournalSettingo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblJournalSettingo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblJournalTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblJournalType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblJournalTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblJournalTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlCashTypeSettingo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlCashTypeSetting" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlCashTypeSettingo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlCashTypeSettingo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRecInvHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRecInvHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRecInvHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRecInvHeaderType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMarkupGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMarkupGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMarkupGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMarkupGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMarkupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMarkup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMarkupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMarkupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPOHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPOHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPOHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPOHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblUsero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblUser" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblUsero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblUsero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPO1Headero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPO1Header" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPO1Headero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPO1Headero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPO1MainDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPO1MainDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPO1MainDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPO1MainDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPositionRouteHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPositionRouteHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPositionRouteHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPositionRouteHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TBLEVENTUALHEADER" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPromoCriteriao0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPromoCriteria" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPromoCriteriao0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPromoCriteriao0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPromoHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPromoHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPromoHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPromoHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalaryApprovalHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalaryTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalaryType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalaryTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalaryTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStoreCommissiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStoreCommission" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStoreCommissiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStoreCommissiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblVisaMachineo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblVisaMachine" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblVisaMachineo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblVisaMachineo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostDimHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostDimHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostDimHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostDimHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCostDimSetupHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCostDimSetupHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCostDimSetupHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCostDimSetupHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlGenEntityGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlGenEntityGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlGenEntityGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlGenEntityGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankTransactionTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankTransactionType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankTransactionTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankTransactionTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPostingProfileHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPostingProfileHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPostingProfileHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPostingProfileHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlRuleHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlRuleHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlRuleHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlRuleHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankStatHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankStatHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankStatHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankStatHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBankTransactionTypeGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblInventAccountTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblInventAccountType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblInventAccountTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblInventAccountTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMethodOfPaymento0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMethodOfPayment" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMethodOfPaymento0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMethodOfPaymento0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblIncomeStatmentDesignHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblIncomeStatmentDesignHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblIncomeStatmentDesignHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblIncomeStatmentDesignHeadero0bgEGGO" />
+  <xs:complexType name="ComplexObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:StructuralObject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ComplexObject" nillable="true" type="tns:ComplexObject" />
+  <xs:complexType name="EntityReferenceOfBarcodeDisplaySettingsHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BarcodeDisplaySettingsHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBarcodeDisplaySettingsHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfBarcodeDisplaySettingsHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfRouteCardHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="RouteCardHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfRouteCardHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfRouteCardHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblColoro0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblColor" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblColoro0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblColoro0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfBOM_CalcMethodo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BOM_CalcMethod" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBOM_CalcMethodo0bgEGGO" nillable="true" type="tns:EntityReferenceOfBOM_CalcMethodo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfBOMo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BOM" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBOMo0bgEGGO" nillable="true" type="tns:EntityReferenceOfBOMo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRouteGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRouteGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRouteGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRouteGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingOrderInvoiceHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingOrderInvoiceHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingOrderInvoiceHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingOrderInvoiceHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="RouteCardInvoiceHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrdero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrder" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrdero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrdero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMarkupProdo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMarkupProd" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMarkupProdo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMarkupProdo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMarkupGroupProdo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMarkupGroupProd" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMarkupGroupProdo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMarkupGroupProdo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRecInvHeaderProdo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRecInvHeaderProd" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRecInvHeaderProdo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRecInvHeaderProdo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblInventTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblInventType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblInventTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblInventTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAdjustmentHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAdjustmentHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAdjustmentHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAdjustmentHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblItemDimo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblItemDim" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblItemDimo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblItemDimo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAuthUsero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAuthUser" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAuthUsero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAuthUsero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAuthWarehousePermissionTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAuthWarehousePermissionType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAuthWarehousePermissionTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAuthWarehousePermissionTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblWarehouseo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblWarehouse" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblWarehouseo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblWarehouseo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblProductionOrderHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblProductionOrderHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblProductionOrderHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblProductionOrderHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblProductionOrderInvoiceHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblProductionOrderInvoiceHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblProductionOrderInvoiceHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblProductionOrderInvoiceHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblProductionOrderTransactiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblProductionOrderTransaction" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblProductionOrderTransactiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblProductionOrderTransactiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblServiceo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblService" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblServiceo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblServiceo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblProductionOrderTransactionType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlano0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlan" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlano0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlano0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlanHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlanHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlanHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlanHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingSummaryo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingSummary" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingSummaryo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingSummaryo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlanLotsMastero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlanLotsMaster" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlanLotsMastero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlanLotsMastero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGeneratePurchaseHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBrandBudgetHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBrandBudgetHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBrandBudgetHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBrandBudgetHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblFactoryGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblFactoryGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblFactoryGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblFactoryGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLkpBrandSectiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLkpBrandSection" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLkpBrandSectiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLkpBrandSectiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLkpSeasono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLkpSeason" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLkpSeasono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLkpSeasono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblContractHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblContractHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblContractHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblContractHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderColorTheme" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSeasonalMasterListo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSeasonalMasterList" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSeasonalMasterListo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSeasonalMasterListo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblFamilyo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblFamily" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblFamilyo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblFamilyo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSubFamilyo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSubFamily" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSubFamilyo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSubFamilyo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGenericFabrico0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGenericFabric" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGenericFabrico0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGenericFabrico0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLkpDirectiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLkpDirection" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLkpDirectiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLkpDirectiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSizeGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSizeGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSizeGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSizeGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyle" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleCategoryo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleCategory" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleCategoryo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleCategoryo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleFabricCompositiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleFabricComposition" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleFabricCompositiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleFabricCompositiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleSpecTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleSpecType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleSpecTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleSpecTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleSpecDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleSpecDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleSpecDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleSpecDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRetailOrderProductionType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleTNAHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleTNAHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleTNAHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleTNAHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleTNAo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleTNA" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleTNAo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleTNAo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleTNADetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleTNADetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleTNADetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleTNADetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleTNARouteStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStyleTNAStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStyleTNAStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStyleTNAStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStyleTNAStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSupplierFabrico0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSupplierFabric" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSupplierFabrico0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSupplierFabrico0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTBLTechPackStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TBLTechPackStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTBLTechPackStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTBLTechPackStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftblTechPackHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tblTechPackHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftblTechPackHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOftblTechPackHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftblTechPackDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tblTechPackDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftblTechPackDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOftblTechPackDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftblTechPackParto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tblTechPackPart" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftblTechPackParto0bgEGGO" nillable="true" type="tns:EntityReferenceOftblTechPackParto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_FabricAttriputeso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_FabricAttriputes" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_FabricAttriputeso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_FabricAttriputeso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_FabricCategorieso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_FabricCategories" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_FabricCategorieso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_FabricCategorieso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_FabricCodingConfigurations" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_Contentso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_Contents" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_Contentso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_Contentso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_FabricDesignes" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_FabricFinish" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_FabricMaterials" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_FabricStructureo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_FabricStructure" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_FabricStructureo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_FabricStructureo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_FabricTypeso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_FabricTypes" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_FabricTypeso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_FabricTypeso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_Gaugeso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_Gauges" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_Gaugeso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_Gaugeso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_Incho0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_Inch" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_Incho0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_Incho0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_ThreadNumberso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_ThreadNumbers" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_ThreadNumberso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_ThreadNumberso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_AccessoryGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_AccessoryGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_AccessoryGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_AccessoryGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_ItemGroupTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_ItemGroupType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_ItemGroupTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_ItemGroupTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_AccessoriesSubGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_AccessoriesSubGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_AccessoriesSubGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_AccessoriesSubGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_AccessoryAttributesHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_AccessoryAttributesHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_AccessoryAttributesHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_AccessoryAttributesHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_UoMo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_UoM" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_UoMo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_UoMo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_YarnCounto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_YarnCount" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_YarnCounto0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_YarnCounto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_YarnFinish" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_YarnSource" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_lkp_YarnStatus" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderColoro0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderColor" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderColoro0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderColoro0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSubContractoro0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSubContractor" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSubContractoro0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSubContractoro0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlanACCo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlanACC" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlanACCo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlanACCo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlanHeaderAcc" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingPlanLotsMasterAcco0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingPlanLotsMasterAcc" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingPlanLotsMasterAcco0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingPlanLotsMasterAcco0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblDyeingSummaryAcco0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblDyeingSummaryAcc" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblDyeingSummaryAcco0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblDyeingSummaryAcco0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBudgetTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBudgetType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBudgetTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBudgetTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBudgetItemo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBudgetItem" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBudgetItemo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBudgetItemo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlobalRetailBusinessBudgeto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlobalRetailBusinessBudget" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlobalRetailBusinessBudgeto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlobalRetailBusinessBudgeto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGlobalRetailBusinessBudgetMainDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGlobalRetailBusinessBudgetMainDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGlobalRetailBusinessBudgetMainDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGlobalRetailBusinessBudgetMainDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseBudgetHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseBudgetHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseBudgetHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseBudgetHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSeasonTrackTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSeasonTrackType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSeasonTrackTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSeasonTrackTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblComplexityGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblComplexityGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblComplexityGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblComplexityGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblStandardBomHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblStandardBomHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblStandardBomHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblStandardBomHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfBOMEstimatedo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BOMEstimated" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBOMEstimatedo0bgEGGO" nillable="true" type="tns:EntityReferenceOfBOMEstimatedo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblTradeAgreementDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblTradeAgreementDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblTradeAgreementDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblTradeAgreementDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblTradeAgreementTransactiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblTradeAgreementTransaction" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblTradeAgreementTransactiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblTradeAgreementTransactiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblTradeAgreementHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblTradeAgreementHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblTradeAgreementHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblTradeAgreementHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblVendorPurchaseGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblVendorPurchaseGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblVendorPurchaseGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblVendorPurchaseGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMasterStyleListo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMasterStyleList" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMasterStyleListo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMasterStyleListo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRequestForSampleStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRequestForSampleStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRequestForSampleStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRequestForSampleStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRequestForSampleo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRequestForSample" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRequestForSampleo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRequestForSampleo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAuthPermissiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAuthPermission" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAuthPermissiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAuthPermissiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblUserBrandSectiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblUserBrandSection" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblUserBrandSectiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblUserBrandSectiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblFactoryDeliveryo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblFactoryDelivery" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblFactoryDeliveryo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblFactoryDeliveryo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPlanTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPlanType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPlanTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPlanTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseHeaderType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBOMSizeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBOMSize" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBOMSizeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBOMSizeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblBOMStyleColoro0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblBOMStyleColor" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblBOMStyleColoro0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblBOMStyleColoro0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseOrderDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseOrderHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseOrderHeaderRequest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseOrderDetailRequest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseReceiveHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPurchaseTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPurchaseType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPurchaseTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPurchaseTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPaymentScheduleo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPaymentSchedule" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPaymentScheduleo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPaymentScheduleo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPaymentScheduleSetting" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesIssueHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesIssueHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesIssueHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesIssueHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderHeaderRequesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderHeaderRequest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderHeaderRequesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderHeaderRequesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderRequestInvoiceHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderRequestInvoiceHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderRequestInvoiceHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderRequestInvoiceHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesPersono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesPerson" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesPersono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesPersono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderDetailRequesto0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderDetailRequest" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderDetailRequesto0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderDetailRequesto0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSiteo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSite" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSiteo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSiteo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblTransferHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblTransferHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblTransferHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblTransferHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRecInvHeaderTypeProdo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRecInvHeaderTypeProd" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRecInvHeaderTypeProdo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRecInvHeaderTypeProdo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCurrencyo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCurrency" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCurrencyo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCurrencyo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblMarkerTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblMarkerType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblMarkerTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblMarkerTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRouteo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRoute" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRouteo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRouteo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_MarkerDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_MarkerDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_MarkerDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_MarkerDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOftbl_MarkerTransactionHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="tbl_MarkerTransactionHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOftbl_MarkerTransactionHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOftbl_MarkerTransactionHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderOperationo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderOperation" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderOperationo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderOperationo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfBOM_FabricTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BOM_FabricType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBOM_FabricTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfBOM_FabricTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTechPackBOMo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TechPackBOM" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTechPackBOMo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTechPackBOMo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfBomCostEstimatedo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BomCostEstimated" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfBomCostEstimatedo0bgEGGO" nillable="true" type="tns:EntityReferenceOfBomCostEstimatedo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblApprovalStatuo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblApprovalStatu" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblApprovalStatuo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblApprovalStatuo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblApprovalTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblApprovalType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblApprovalTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblApprovalTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblSalesOrderNotesTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblSalesOrderNotesType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblSalesOrderNotesTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblSalesOrderNotesTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblIssueJournalHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblIssueJournalHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblIssueJournalHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblIssueJournalHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblIssueJournalDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblIssueJournalDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblIssueJournalDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblIssueJournalDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblIssueJournalReceiveDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblIssueJournalReceiveDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblIssueJournalReceiveDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblIssueJournalReceiveDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblIssueJournalReceiveHeadero0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblIssueJournalReceiveHeader" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblIssueJournalReceiveHeadero0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblIssueJournalReceiveHeadero0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblLkpColorGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblLkpColorGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblLkpColorGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblLkpColorGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfRouteCardDetailActualCostTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="RouteCardDetailActualCostType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfRouteCardDetailActualCostTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfRouteCardDetailActualCostTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfRouteCardDetailo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="RouteCardDetail" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfRouteCardDetailo0bgEGGO" nillable="true" type="tns:EntityReferenceOfRouteCardDetailo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblRouteDirectiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblRouteDirection" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblRouteDirectiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblRouteDirectiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTbl_TransactionTypeo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Tbl_TransactionType" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTbl_TransactionTypeo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTbl_TransactionTypeo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblAuthJobo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblAuthJob" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblAuthJobo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblAuthJobo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCheckListDesignGroupHeader1o0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCheckListDesignGroupHeader1" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCheckListDesignGroupHeader1o0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCheckListDesignGroupHeader1o0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCheckListDesignGroupHeader2o0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCheckListDesignGroupHeader2" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCheckListDesignGroupHeader2o0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCheckListDesignGroupHeader2o0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCheckListGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCheckListGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCheckListGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCheckListGroupo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCheckListItemo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCheckListItem" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCheckListItemo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCheckListItemo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblCompanyo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblCompany" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblCompanyo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblCompanyo0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblPositiono0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblPosition" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblPositiono0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblPositiono0bgEGGO" />
+  <xs:complexType name="EntityReferenceOfTblGLExpensisGroupo0bgEGGO">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TblGLExpensisGroup" Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfTblGLExpensisGroupo0bgEGGO" nillable="true" type="tns:EntityReferenceOfTblGLExpensisGroupo0bgEGGO" />
+</xs:schema>

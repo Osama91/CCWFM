@@ -1,0 +1,58 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.ConfirmNewUserRequest" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           Title="ConfirmNewUserRequest Page" Height="470.5" Width="1227.5">
+    <Grid x:Name="LayoutRoot" Margin="10,0,-306,-30" HorizontalAlignment="Left" Width="1524">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="508*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>-->
+        <dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" Margin="-72,30,257,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" Height="428" RenderTransformOrigin="0.493,0.834">
+            <dataGrid:OsGrid.Columns>
+                <!--<sdk:DataGridCheckBoxColumn Binding="{Binding IsSalesPerson,Mode=TwoWay}" IsReadOnly="True" ch Header="Sales Person"  Width="100" />-->
+                <sdk:DataGridTextColumn Binding="{Binding NewUserID,Mode=TwoWay}" Header="NewUserID" Visibility="Collapsed" Width="100" />
+                <sdk:DataGridTextColumn Binding="{Binding UserName,Mode=TwoWay}" Header="User Name" Width="180" />
+                <sdk:DataGridTextColumn Binding="{Binding NewUserCompanyID,Mode=TwoWay}" Header="NewUserCompanyID" Visibility="Collapsed" Width="100" />
+                <sdk:DataGridTextColumn Binding="{Binding NewUserCompanyName,Mode=TwoWay}" Header="Code" Width="150" />
+                <sdk:DataGridTextColumn Binding="{Binding UserCreateRequestName,Mode=TwoWay}" Header="Requested By" Width="180" />
+                <sdk:DataGridTextColumn Binding="{Binding LikeUserName,Mode=TwoWay}" Header="Perm Like" Width="130" />
+                <sdk:DataGridTextColumn Binding="{Binding RequestDate,Mode=TwoWay}" Header="Requested Date" Width="150" />
+                <sdk:DataGridTextColumn Binding="{Binding Comment,Mode=TwoWay}" Header="Reason" Width="150" />
+                <sdk:DataGridTemplateColumn CanUserSort="False" Header="Confirm User" Width="150">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnConfirmUser" 
+                                    Content="Confirm"
+                                    Click="BtnConfirmUser_Click"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn CanUserSort="False" Header="Reject User" Width="150">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnRejectUser" 
+                                    Content="Reject"
+                                    Click="BtnRejectUser_Click"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+            </dataGrid:OsGrid.Columns>
+        </dataGrid:OsGrid>
+        <!--<Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="103" HorizontalAlignment="Right" Margin="0,401,118,72" RenderTransformOrigin="0.162,5.801" />
+        <Button x:Name="ConfimUser" Content="Confirm"
+                IsEnabled="{Binding ElementName=MainGrid,Path=SelectedItem
+            ,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+                Click="ConfimUser_Click" Width="98" HorizontalAlignment="Right"
+                Margin="0,401,226,72" />-->
+    </Grid>
+</navigation:Page>
+    

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+  <xs:element name="Authenticate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_USerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_USerPassrword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AuthenticateResult" nillable="true" type="q1:TblAuthUser" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="store" nillable="true" type="q2:TblStore" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLoginUsersData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLoginUsersDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAllLoginUsersDataResult" nillable="true" type="q3:ArrayOfTblAuthUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ItemName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetItemsPermissionsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsPermissionsByParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ParentCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsPermissionsByParentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetItemsPermissionsByParentResult" nillable="true" type="q4:ArrayOfTblAuthPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="_UserName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJobResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserJobResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJobPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userJob" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJobPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetUserJobPermissionsResult" nillable="true" type="q5:ArrayOfTblAuthJobPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMenuesPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userJob" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMenuesPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetUserMenuesPermissionsResult" nillable="true" type="q6:ArrayOfTblAuthPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLoginUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLoginUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAllLoginUsersResult" nillable="true" type="q7:ArrayOfTblAuthUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewUserRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_NewUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_NewUserCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_LikeUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_LikeUserCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_IsSalesPerson" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_IsRetailPerson" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_Comment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_UserCreateRequestID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewUserRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveNewUserRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNewUsersRequest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNewUsersRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" minOccurs="0" name="GetAllNewUsersRequestResult" nillable="true" type="q8:ArrayOfNewUserRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewUsersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" minOccurs="0" name="UserRequest" nillable="true" type="q9:NewUserRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewUsersRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateNewUsersRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateLoginExpiration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_USerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_USerPassrword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_UserCompany" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateLoginExpirationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuthenticateLoginExpirationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

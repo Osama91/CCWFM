@@ -1,0 +1,141 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.PeriodsGl"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                 	xmlns:userControls="clr-namespace:CCWFM.UserControls"
+                 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                 d:DesignWidth="640" d:DesignHeight="480"
+                 Title="Periods">
+  
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC6ECFE" />
+                    <GradientStop Color="#FF003FFF" Offset=".01" />
+                    <GradientStop Color="#ff02fdce" Offset="0.3" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+                <Image   Source="/CCWFM;component/Images/1371054818_New_File.png"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       Stretch="Uniform" />
+            </Button>
+            <Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click" ToolTipService.ToolTip="Delete">
+                <Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform" />
+            </Button>
+            <Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+            <Button Content="Generate Period" Name="BtnGeneratePeriod" Click="BtnGeneratePeriod_OnClick" />
+        </StackPanel>
+
+        <dataGrid:OsGrid Name="MainGrid"
+                         FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+                         ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+                         Grid.Row="1" Margin="10,38,10,203" HorizontalContentAlignment="Stretch"
+                         VerticalContentAlignment="Stretch" AllowDrop="True"
+                         MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+                         LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter"
+                         KeyUp="MainGrid_KeyUp" RowEditEnded="MainGrid_RowEditEnded" Grid.RowSpan="2">
+            <dataGrid:OsGrid.Columns>
+
+                <sdk:DataGridTextColumn Binding="{Binding Path=Code,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+                <sdk:DataGridTextColumn Binding="{Binding Path=Aname,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Aname, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+                <sdk:DataGridTextColumn Binding="{Binding Path=Ename,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Ename, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+            
+                <sdk:DataGridTemplateColumn SortMemberPath="PeriodUnit"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PeriodUnit, Source={StaticResource LocalizedStrings}}"
+                                            Width="*">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedIndex="{Binding PeriodUnit,Mode=TwoWay}">
+                                <ComboBoxItem>Day</ComboBoxItem>
+                                <ComboBoxItem>Month</ComboBoxItem>
+                                <ComboBoxItem>Year</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox IsEnabled="False" SelectedIndex="{Binding PeriodUnit,Mode=TwoWay}">
+                                <ComboBoxItem>Day</ComboBoxItem>
+                                <ComboBoxItem>Month</ComboBoxItem>
+                                <ComboBoxItem>Year</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn SortMemberPath="Closed"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Close, Source={StaticResource LocalizedStrings}}"
+                                            Width="*">
+                    
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Close"
+                                    Name="BtnClose" Click="BtnClose_OnClick" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridCheckBoxColumn Width="SizeToHeader"
+                                            Binding="{Binding Path=Closed,
+                                                          Mode=TwoWay}"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Closed,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="ClosedDate"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ClosedDate,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=ClosedDate, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn SortMemberPath="PeriodUnit" CanUserSort="False"
+                                            Width="*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Show Period lines"
+                                    Name="BtnShowPeriodLines" Click="BtnShowPeriodLines_OnClick" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn SortMemberPath="TblAccount1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Account, Source={StaticResource LocalizedStrings}}"
+											Width="180">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <userControls:SearchAccountUserControl ChildOnlyPerRow="True" SearchPerRow="{Binding AccountPerRow,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding AccountPerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </dataGrid:OsGrid.Columns>
+
+        </dataGrid:OsGrid>
+    </Grid>
+</navigation:Page>

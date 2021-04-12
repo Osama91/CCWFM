@@ -1,0 +1,182 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.RouteCoding"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		   xmlns:datagridExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="Route Coding Page">
+	<navigation:Page.Resources>
+		<viewModel:RouteCodingViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+		</StackPanel>
+		<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}" GotFocus="MainGrid_OnGotFocus"
+				   Grid.Row="1" Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   Height="250" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter"
+				   SelectionChanged="MainGrid_SelectionChanged" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">
+			<dataGrid:OsGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding service, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblService" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding ServicePerRow.Ename}">
+							</TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang}, ConverterParameter=Ename;Aname}" SelectedValuePath="Iserial" SelectedValue="{Binding TblService,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding ServicePerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.ServiceList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" Width="120">
+								<ComboBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<VirtualizingStackPanel />
+									</ItemsPanelTemplate>
+								</ComboBox.ItemsPanel>
+							</ComboBox>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn Header="AXRout Link Code" SortMemberPath="AXRoutLinkCode" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding RouteGroupPerRow.WRKCTRGROUPID,Mode=TwoWay}">
+							</TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="WRKCTRGROUPID" SelectedValuePath="WRKCTRGROUPID" SelectedValue="{Binding AXRoutLinkCode,Mode=TwoWay}"
+									  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding RouteGroupPerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.AxRouteGroupList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    																		                                    
+									  Margin="3"  VerticalAlignment="Center" Width="120">
+								<ComboBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<VirtualizingStackPanel />
+									</ItemsPanelTemplate>
+								</ComboBox.ItemsPanel>
+							</ComboBox>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+
+			</dataGrid:OsGrid.Columns>
+
+		</dataGrid:OsGrid>
+		<dataGrid:OsGrid AutoGenerateColumns="False"   HorizontalAlignment="Left" SelectionMode="Extended"
+				   x:Name="DetailGrid" GotFocus="MainGrid_OnGotFocus"
+				   Grid.Row="2" Height="200" FilteredItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+				   ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}" Margin="10,36,10,0"
+				   KeyUp="DetailGrid_KeyUp" OnFilter="DetailGrid_OnFilter"
+				   SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" LoadingRow="DetailGrid_LoadingRow"
+				   RowEditEnded="DetailGrid_RowEditEnded">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTemplateColumn SortMemberPath="VendorSerial" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path= VendorPerRow.vendor_code}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<search:SearchVendor x:Name="cmbVendor" SearchPerRow="{Binding VendorPerRow,Mode=TwoWay}"></search:SearchVendor>
+						
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn Header="AXRout Link Code" SortMemberPath="AXRoutLinkCode" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding RoutePerRow.NAME}">
+							</TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="WRKCTRID" SelectedValuePath="WRKCTRID" SelectedValue="{Binding AXRoutLinkCode,Mode=TwoWay}"
+									  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding RoutePerRow,Mode=TwoWay}" 
+									  ItemsSource="{Binding AxRoutesList,Mode=TwoWay}"
+									  Margin="3"  VerticalAlignment="Center" Width="120">
+								<ComboBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<VirtualizingStackPanel />
+									</ItemsPanelTemplate>
+								</ComboBox.ItemsPanel>
+							</ComboBox>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding service, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblService" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding ServicePerRow.Ename}">
+							</TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang}, ConverterParameter=Ename;Aname}" SelectedValuePath="Iserial" SelectedValue="{Binding TblService,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Left" SelectedItem="{Binding ServicePerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.ServiceList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" Width="120">
+								<ComboBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<VirtualizingStackPanel />
+									</ItemsPanelTemplate>
+								</ComboBox.ItemsPanel>
+							</ComboBox>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn Binding="{Binding Path=RouteCapacity,Mode=TwoWay}" Header="Route Capacity" Width="*" />
+				<sdk:DataGridTextColumn  Binding="{Binding Path=TimePerCapacity,Mode=TwoWay}" Header="TimePerCapacity" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Path=TimeUnit,Mode=TwoWay}" Header="Time Unit" Width="*" />
+			</sdk:DataGrid.Columns>
+			<i:Interaction.Behaviors>
+				<datagridExtenders:ScrollIntoViewBehavior />
+			</i:Interaction.Behaviors>
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

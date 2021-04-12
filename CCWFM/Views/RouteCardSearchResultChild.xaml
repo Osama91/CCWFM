@@ -1,0 +1,51 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.RouteCardSearchResultChild" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                       Title="Search Results" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                                        xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                                       xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                                       xmlns:globalExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders"
+                                       xmlns:search="clr-namespace:CCWFM.UserControls.Search">
+    
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+<StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal">
+            <search:SearchSalesOrder  SearchPerRow="{Binding SalesOrderPerRow,Mode=TwoWay}"></search:SearchSalesOrder>
+                <search:SearchColor  SearchPerRow="{Binding ColorPerRow,Mode=TwoWay}"></search:SearchColor>
+                <Button Content="Search" Name="btnSearch" Click="BtnSearch_OnClick"></Button>
+            </StackPanel>
+            <dataGrid:OsGrid IsReadOnly="True"  FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}" OnFilter="MainGrid_OnOnFilter" Height="400" LoadingRow="MainGrid_LoadingRow"
+                         ItemsSource="{Binding MainRowList,Mode=TwoWay}" Name="MainGrid" AutoGenerateColumns="False" TabNavigation="Cycle" ClipboardCopyMode="IncludeHeader" SelectionMode="Single">
+            <sdk:DataGrid.Columns>
+
+                    <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransactionType, Source={StaticResource LocalizedStrings}}" Binding="{Binding Tbl_TransactionType.Aname}" />
+                    <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransID, Source={StaticResource LocalizedStrings}}" Binding="{Binding TransID}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Binding="{Binding Vendor}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding RouteGroup, Source={StaticResource LocalizedStrings}}"  Binding="{Binding TblRouteGroup.Aname}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Route, Source={StaticResource LocalizedStrings}}"  Binding="{Binding TblRoute.Aname}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DocDate, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=DocDate, StringFormat=\{0:d\}}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=DeliveryDate, StringFormat=\{0:d\}}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Direction, Source={StaticResource LocalizedStrings}}" SortMemberPath="TblRouteDirection.Ename" Binding="{Binding Path=TblRouteDirection.Ename,Mode=TwoWay}" />
+
+                    <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Notes, Source={StaticResource LocalizedStrings}}" SortMemberPath="Notes" Binding="{Binding Path=Notes,Mode=TwoWay}" />
+
+
+                    
+                    <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PickingList, Source={StaticResource LocalizedStrings}}" Binding="{Binding AxRouteCardFabricsJournalId}" />
+                <sdk:DataGridTextColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding RouteCard, Source={StaticResource LocalizedStrings}}" Binding="{Binding AxRouteCardJournalId}" />
+            </sdk:DataGrid.Columns>
+            <i:Interaction.Behaviors>
+                <globalExtenders:DoubleClickBehavior DoubleClick="DoubleClickBehavior_DoubleClick" />
+            </i:Interaction.Behaviors>
+        </dataGrid:OsGrid>
+        </StackPanel>
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding ElementName=DGridRouteCardResult,Path=SelectedItem
+            ,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+                Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right"
+                Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

@@ -1,0 +1,483 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="CCWFM.Views.OGView.FabricDefects"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d" xmlns:converts="clr-namespace:CCWFM.Helpers.Converters"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   d:DesignWidth="1000" d:DesignHeight="520"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 Title="FabricDefects Page">
+	<UserControl.Resources>
+
+		<converts:DefectsDisplayByLang x:Key="DefectsDisplayByLang" />
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<ToggleButton Checked="btnAddNewOrder_Checked"
+								  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					 Name="BtnAddNewOrder" ToolTipService.ToolTip="Add" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png"
+							   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							   Stretch="Uniform"></Image>
+			</ToggleButton>
+			<ToggleButton  Checked="btnEditOrder_Checked" Name="BtnEditOrder" Visibility="Collapsed"
+
+					 ToolTipService.ToolTip="Edit" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054625_27-Edit%20Text.png" Stretch="Uniform"></Image>
+			</ToggleButton>
+			<!--Visibility="{Binding ElementName=BtnAddNewOrder,Path=IsEnabled,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"-->
+
+			<Button Name="BtnSearchOrder" Click="btnSearchOrder_Click"
+							  ToolTipService.ToolTip="Search" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+			</Button>
+			<Button Name="BtnDeleteOrder" Click="btnDeleteOrder_Click" IsEnabled="False" Visibility="Collapsed" ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform">
+				</Image>
+			</Button>
+			<Button Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9"
+							Click="btnSaveOrder_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="Transparent"
+							ToolTipService.ToolTip="Save"
+							Name="BtnSaveOrder"  Foreground="Transparent">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Assets/Images/1370886069_save.png" Stretch="Uniform" OpacityMask="#FFF8F8F9" Margin="0" ></Image>
+			</Button>
+			<Button  Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9"
+							Click="btnSaveOrderTemp_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="Transparent"
+							ToolTipService.ToolTip="Save"
+							Name="BtnSaveOrderTemp"  Foreground="Transparent">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"
+							Source="/CCWFM;component/Assets/Images/1370886069_save.png" Stretch="Uniform" OpacityMask="#FFF8F8F9" Margin="0" ></Image>
+			</Button>
+			<Button Content="Cancel" Name="BtnCancelOrder" ToolTipService.ToolTip="Cancel" Click="btnCancelOrder_Click" BorderBrush="#FFA8091A" FontWeight="Bold">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Background" Value="#ffa8091a" />
+						<Setter Property="Cursor" Value="Hand" />
+					</Style>
+				</Button.Style>
+			</Button>
+			<Button Name="BtnPrintPreviewOrder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ToolTipService.ToolTip="Print" Visibility="{Binding TransactionHeader.Iserial,Converter={StaticResource VisibilityConverter}}"  Click="btnPrintPreviewOrder_Click">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Images/1372257722_MB__print.png" Stretch="Uniform"></Image>
+			</Button>
+
+			<Button Visibility="{Binding TransactionHeader.Iserial,Converter={StaticResource VisibilityConverter}}" Content="{Binding Path=PrintBarcode, Source={StaticResource LocalizedStrings}}"  Name="BtnPrintBarcode" Width="121" HorizontalAlignment="Left" IsEnabled="{Binding TransactionHeader.PostedToAx}"  Click="btnPrintBarcode_Click" />
+			<Button Visibility="Collapsed" Content="Post"      Width="121" HorizontalAlignment="Left"   Click="btnPostToAx_Click" />
+		</StackPanel>
+		<Grid Grid.Row="1" Margin="0,20,0,0" DataContext="{Binding TransactionHeader,Mode=TwoWay}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=TransactionType, Source={StaticResource LocalizedStrings}}" Grid.Row="0" />
+			<ComboBox   HorizontalAlignment="Stretch" Name="CmbType" ItemsSource="{Binding Path=DataContext.Types, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+						SelectedValue="{Binding TransactionType,Mode=TwoWay}" IsEnabled="{Binding Enabled}" SelectedItem="{Binding TypePerRow,Mode=TwoWay}"
+						SelectedValuePath="TransactionId" DisplayMemberPath="TransactionName"
+						Grid.Row="0" Grid.Column="1" />
+
+			<TextBlock Visibility="{Binding PurVis}" TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=Journal, Source={StaticResource LocalizedStrings}}"  Grid.Row="1"
+					   Grid.Column="0" />
+			<ComboBox Visibility="{Binding PurVis}"  MinHeight="30" MaxDropDownHeight="200" IsEnabled="{Binding Enabled}"
+					   ItemsSource="{Binding PurchaseOrderJournalList}" SelectedValuePath="JournalId"  x:Name="PurchaseOrderAc"
+					  Grid.Column="1" HorizontalAlignment="Stretch" SelectedValue="{Binding TransactionHeader.Order,Mode=TwoWay}"
+					  Grid.Row="1"   IsDropDownOpen="True" SelectionChanged="PurchaseOrderAC_SelectionChanged">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Border BorderThickness="1" BorderBrush="Silver">
+								<TextBlock Style="{StaticResource TextBlockCode}" Text="{Binding JournalId}"></TextBlock>
+							</Border>
+
+							<Border  Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Silver">
+								<TextBlock Style="{StaticResource TextBlockName}" Text="{Binding VendorCode}" TextAlignment="Right"></TextBlock>
+							</Border>
+							<Border  Grid.Column="2" BorderThickness="0,1,1,1" BorderBrush="Silver">
+								<TextBlock Style="{StaticResource TextBlockName}" Text="{Binding VendorName}" TextAlignment="Right"></TextBlock>
+							</Border>
+							<Border  Grid.Column="3" BorderThickness="0,1,1,1" BorderBrush="Silver">
+								<TextBlock Style="{StaticResource TextBlockName}" Text="{Binding CreatedDate, StringFormat=\{0:d\}}" TextAlignment="Right"></TextBlock>
+							</Border>
+						</Grid>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<search:SearchPurchaseOrders Grid.Row="1" Grid.Column="1" SearchPerRow="{Binding JournalPerRow,Mode=TwoWay}"  JournalType="{Binding TypePerRow,Mode=TwoWay }"	 Visibility="{Binding PurVis}" IsEnabled="{Binding Enabled}" ></search:SearchPurchaseOrders>
+
+			<TextBlock  MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Name="TxtBlockTransDate" Text="{Binding Path=TransDate, Source={StaticResource LocalizedStrings}}" Grid.Column="2"   Grid.Row="0" />
+			<sdk:DatePicker MinHeight="30"    HorizontalAlignment="Stretch" Name="DpTransDate" IsEnabled="{Binding Enabled}"
+						   Grid.Column="3" SelectedDate="{Binding  TransDate,Mode=TwoWay}"
+							Grid.Row="0" />
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"   Text="{Binding Path=Iserial, Source={StaticResource LocalizedStrings}}"  Grid.Row="1"
+					   Grid.Column="2" />
+			<TextBlock Name="TxtIserial" Text="{Binding Iserial,Mode=TwoWay}"
+					 HorizontalAlignment="Stretch" MinHeight="30" Grid.Column="3"  Grid.Row="1" />
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"   Text="{Binding Path=Total, Source={StaticResource LocalizedStrings}}"  Grid.Row="2"
+					   Grid.Column="2" />
+			<TextBlock  Text="{Binding TotalQty,Mode=TwoWay}"
+					 HorizontalAlignment="Stretch" MinHeight="30" Grid.Column="3"  Grid.Row="2" />
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"   Text="{Binding Path=VendorSubtraction, Source={StaticResource LocalizedStrings}}"  Grid.Row="2"
+					   Grid.Column="0" />
+			<CheckBox   IsChecked="{Binding VendorSubtraction,Mode=TwoWay}"
+					 HorizontalAlignment="Stretch" MinHeight="30" Grid.Column="1"  Grid.Row="2" />
+
+            <TextBlock  MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Notes, Source={StaticResource LocalizedStrings}}" Grid.Column="4"   Grid.Row="0" />
+            <TextBox  MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding  Notes,Mode=TwoWay}" Grid.RowSpan="3" Grid.Column="5"   Grid.Row="0" />
+
+        </Grid>
+
+		<StackPanel Orientation="Vertical" Margin="5" Grid.Row="2"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+			<Button Click="btnAddNewMainOrderDetails_Clicked"
+								  HorizontalAlignment="Left" VerticalAlignment="Stretch"
+					 Name="BtntnAddNewMainOrderDetails" ToolTipService.ToolTip="Add" Cursor="Hand">
+				<Image Width="32" Source="/CCWFM;component/Assets/Images/1370885545_add-notes.png" Stretch="Uniform"></Image>
+			</Button>
+			<dataGrid:OsGrid Height="250" Margin="0,36,10,0"  VerticalAlignment="Top" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding TransactionDetails,Mode=TwoWay}">
+				<sdk:DataGrid.Columns>
+					<sdk:DataGridTextColumn Binding="{Binding Fabric_Code}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding Fabric, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding ColorCode}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding FabricColor, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding BatchNo}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding BatchNo, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding RollNo}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding RollNo, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding Unit}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding Unit, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding ConsPerPC}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding ConsPc, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding NoofPCs}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding NoOfPc,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding StoreRollQty}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding StoreRollQty,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding M2WeightGm}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding M2WeightGm,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding RollWMT}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding RollWMT,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding NetRollWMT}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding NetRollWMT,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTemplateColumn Header="DegreesList">
+						<sdk:DataGridTemplateColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding Degree, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTemplateColumn.HeaderStyle>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ComboBox Padding="5" ItemsSource="{Binding Path=DataContext.DegreesList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+										  Width="100" SelectedValuePath="DegreeNum" SelectedValue="{Binding Degree,Mode=TwoWay}" DisplayMemberPath="DegreEname" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn Visibility="Collapsed" Header="WareHouseList">
+						<sdk:DataGridTemplateColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding WareHouse, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTemplateColumn.HeaderStyle>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<sdk:AutoCompleteBox Padding="5" FilterMode="StartsWith" ItemsSource="{Binding Path=DataContext.WareHouseList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}" Width="100"
+								 Text="{Binding FinishedWarehouse,Mode=TwoWay}"  HorizontalAlignment="Stretch" IsTextCompletionEnabled="True" MinimumPrefixLength="0" ValueMemberPath="INVENTLOCATIONID"  IsDropDownOpen="True">
+									<sdk:AutoCompleteBox.ItemTemplate>
+										<DataTemplate>
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="*" />
+													<ColumnDefinition Width="*" />
+												</Grid.ColumnDefinitions>
+												<Border BorderThickness="1" BorderBrush="Silver">
+													<TextBlock Style="{StaticResource TextBlockCode}" Text="{Binding INVENTLOCATIONID}"></TextBlock>
+												</Border>
+												<Border  Grid.Column="1" BorderThickness="0,1,1,1" BorderBrush="Silver">
+													<TextBlock Style="{StaticResource TextBlockName}" Text="{Binding NAME}" TextAlignment="Right"></TextBlock>
+												</Border>
+											</Grid>
+										</DataTemplate>
+									</sdk:AutoCompleteBox.ItemTemplate>
+								</sdk:AutoCompleteBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+                    <sdk:DataGridCheckBoxColumn Binding="{Binding IsOpen,Mode=TwoWay}" Header="Is Open" SortMemberPath="IsOpen">
+                        <sdk:DataGridCheckBoxColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock Text="Is Open" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </sdk:DataGridCheckBoxColumn.HeaderStyle>
+
+                    </sdk:DataGridCheckBoxColumn>
+					<sdk:DataGridTextColumn Binding="{Binding FinishedWarehouse,Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding WareHouse,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTextColumn Binding="{Binding UnitPrice,Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True">
+						<sdk:DataGridTextColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding UnitPrice,  Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTextColumn.HeaderStyle>
+					</sdk:DataGridTextColumn>
+					<sdk:DataGridTemplateColumn Header="Defects">
+						<sdk:DataGridTemplateColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<ItemsControl Name="IcDefects" Visibility="{Binding TransactionHeader.IncludDefects}"
+															  ItemsSource="{Binding Mode=TwoWay, Path=DataContext.DefectsList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}" HorizontalAlignment="Stretch">
+												<ItemsControl.ItemsPanel>
+													<ItemsPanelTemplate>
+														<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal"></StackPanel>
+													</ItemsPanelTemplate>
+												</ItemsControl.ItemsPanel>
+												<ItemsControl.ItemTemplate>
+													<DataTemplate>
+														<TextBlock TextAlignment="Center" HorizontalAlignment="Stretch"
+										   Padding="5" FontWeight="Bold"  Width="100"  Text="{Binding Converter={StaticResource DefectsDisplayByLang}}" />
+													</DataTemplate>
+												</ItemsControl.ItemTemplate>
+											</ItemsControl>
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTemplateColumn.HeaderStyle>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ItemsControl Visibility="{Binding Path=DataContext.TransactionHeader.IncludDefects, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+											  ItemsSource="{Binding DetailsViewModel,Mode=TwoWay}">
+									<ItemsControl.ItemsPanel>
+										<ItemsPanelTemplate>
+											<StackPanel
+												HorizontalAlignment="Stretch" Orientation="Horizontal" />
+										</ItemsPanelTemplate>
+									</ItemsControl.ItemsPanel>
+									<ItemsControl.ItemTemplate>
+										<DataTemplate>
+											<TextBox Width="100" Padding="5" x:Name="txtDefect" GotFocus="TxtDefect_OnGotFocus"  TextAlignment="Center" Text="{Binding DefectValue,Mode=TwoWay}" />
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn Header="Delete">
+						<sdk:DataGridTemplateColumn.HeaderStyle>
+							<Style TargetType="sdk:DataGridColumnHeader">
+								<Setter Property="ContentTemplate">
+									<Setter.Value>
+										<DataTemplate>
+											<TextBlock Text="{Binding Delete, Source={StaticResource LocalizedStrings}}" />
+										</DataTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</sdk:DataGridTemplateColumn.HeaderStyle>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<Button Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9" Visibility="{Binding Iserial
+					,Converter={StaticResource VisibilityConverter},ConverterParameter=true}"
+								Click="BtnDeleteInspectionRowClick" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								Background="Transparent" ToolTipService.ToolTip="Delete!"
+								Name="btnSaveOrder"  Foreground="Transparent">
+									<Image Cursor="Hand"
+										   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+										   Stretch="Uniform" />
+								</Button>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+				</sdk:DataGrid.Columns>
+			</dataGrid:OsGrid>
+		</StackPanel>
+	</Grid>
+</navigation:Page>

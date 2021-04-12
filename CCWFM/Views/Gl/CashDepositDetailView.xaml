@@ -1,0 +1,163 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:UserControls="clr-namespace:CCWFM.UserControls" 
+                                       x:Class="CCWFM.Views.Gl.CashDepositDetailView"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Tools.Silverlight"  
+    xmlns:DataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.Gl"
+    xmlns:Views="clr-namespace:CCWFM.Views"
+    xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+    xmlns:iex="clr-namespace:Microsoft.Expression.Interactivity.Input;assembly=Microsoft.Expression.Interactions"
+    mc:Ignorable="d" Title="Cash Deposit Detail"
+    d:DesignHeight="300" d:DesignWidth="800">
+    <controlsOverride:ChildWindowsOverride.Resources>
+        <!--<viewModel:CashDepositViewModel x:Key="ViewModel" />-->
+    </controlsOverride:ChildWindowsOverride.Resources>
+    <!--DataContext="{Binding Source={StaticResource ViewModel}}"-->
+    <Grid Background="White" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox Margin="5" Content="{Binding Source={StaticResource LocalizedStrings}, Path=AutoIncrement}" IsChecked="{Binding AutoIncrement, Mode=TwoWay}"/>
+            <CheckBox Margin="5" Content="{Binding Source={StaticResource LocalizedStrings}, Path=CloseAfterSave}" IsChecked="{Binding CloseAfterSave, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <sdk:DataGrid VerticalAlignment="Stretch" ColumnWidth="*" Grid.ColumnSpan="3"
+                      ItemsSource="{Binding SelectedMainRow.TblCashDepositDetails, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedDetailRow, Mode=TwoWay}" Grid.Row="1" 
+                      AutoGenerateColumns="False"
+                      IsReadOnly="{Binding CanEditDetail, Converter={StaticResource ReversedConverter}}" Loaded="DataGrid_Loaded" KeyUp="DataGrid_KeyUp">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="KeyDown">
+                    <cmd:EventToCommand Command="{Binding DeleteCashDepositDetail}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="KeyUp">
+                    <cmd:EventToCommand Command="{Binding NewDetail}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <!--<i:EventTrigger EventName="LoadingRow">
+                    <cmd:EventToCommand Command="{Binding LoadingDetailRows}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>-->
+            </i:Interaction.Triggers>
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn x:Name="MachineId" Binding="{Binding MachineId, Mode=TwoWay}" Header="Machine Id" SortMemberPath="MachineId" Visibility="Collapsed"/>
+                <sdk:DataGridTemplateColumn x:Name="BankAccount" Header="Bank Account" SortMemberPath="TblBank">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox Margin="5" TextSearch.TextPath="Code"
+                                      ItemsSource="{Binding Path=DataContext.BankList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                                          IsEnabled="False"
+                                          SelectedValue="{Binding TblBank, Mode=TwoWay}"
+                                          DisplayMemberPath="Ename" SelectedValuePath="Iserial">
+
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Margin="5" TextSearch.TextPath="Code"
+                                      ItemsSource="{Binding Path=DataContext.BankList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                      IsEnabled="{Binding Path=DataContext.SelectedMainRow.Approved, Converter={StaticResource ReversedConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                      SelectedValue="{Binding TblBank, Mode=TwoWay}"
+                      SelectedItem="{Binding TblBank1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      DisplayMemberPath="Ename" SelectedValuePath="Iserial">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <cmd:EventToCommand PassEventArgsToCommand="True"
+                                            Command="{Binding Path=DataContext.BankChanged, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn x:Name="EntityType" Header="Entity Type" SortMemberPath="TblJournalAccountType">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="5" TextSearch.TextPath="Code"                                      
+                      Text="{Binding JournalAccountTypePerRow.Ename, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Margin="5" TextSearch.TextPath="Code"
+                                      ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                      IsEnabled="{Binding Path=DataContext.SelectedMainRow.Approved, Converter={StaticResource ReversedConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                      SelectedValue="{Binding TblJournalAccountType, Mode=TwoWay}"
+                      SelectedItem="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+                      DisplayMemberPath="Ename" SelectedValuePath="Iserial"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn x:Name="EntityAccount" Header="Entity Account" SortMemberPath="EntityAccount">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="5"
+                      Text="{Binding EntityPerRow.Ename, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <UserControls:SearchEntityUserControl Margin="5"
+                      IsEnabled="{Binding Path=DataContext.SelectedMainRow.Approved, Converter={StaticResource ReversedConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+                      SearchPerRow="{Binding EntityPerRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTextColumn Binding="{Binding BatchNo, Mode=TwoWay}" Header="Batch No" SortMemberPath="BatchNo"/>
+                <sdk:DataGridTextColumn Binding="{Binding Amount, Mode=TwoWay}" Header="Amount" SortMemberPath="Amount"/>
+                <sdk:DataGridTemplateColumn Header="Batch Date" SortMemberPath="BatchDate">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=BatchDate, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding BatchDate, Mode=TwoWay}"
+                                            IsEnabled="{Binding Path=DataContext.SelectedMainRow.Approved, Converter={StaticResource ReversedConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTextColumn x:Name="ChequeNo" Binding="{Binding ChequeNo, Mode=TwoWay}" Header="ChequeNo" SortMemberPath="ChequeNo" Visibility="Collapsed"/>
+                <sdk:DataGridTemplateColumn x:Name="DueDate" Header="Due Date" SortMemberPath="DueDate" Visibility="Collapsed">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=BatchDate, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay}"
+                                            IsEnabled="{Binding Path=DataContext.SelectedMainRow.Approved, Converter={StaticResource ReversedConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn x:Name="Notes" Binding="{Binding Notes, Mode=TwoWay}" Header="Notes" SortMemberPath="Notes" Visibility="Collapsed"/>
+                <sdk:DataGridTextColumn x:Name="PayTo" Binding="{Binding PayTo, Mode=TwoWay}" Header="PayTo" SortMemberPath="PayTo" Visibility="Collapsed"/>
+
+                <sdk:DataGridTextColumn x:Name="LedgerDescription" Binding="{Binding LedgerDescription, Mode=TwoWay}" Header="Description" SortMemberPath="LedgerDescription"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Content="Save" Margin="5" Command="{Binding SaveDetails}" Width="50"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5,5,60,5" HorizontalAlignment="Right">
+            <sdk:Label Grid.Row="2" HorizontalAlignment="Right" Margin="5" Content="Total" Width="30"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Margin="5" Text="{Binding Total, Mode=TwoWay}" Width="100"/>
+            <sdk:Label Grid.Row="2" HorizontalAlignment="Right" Margin="5" Content="Amount Total"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Margin="5" Text="{Binding AmountTotal, Mode=TwoWay}" Width="100"/>
+            <sdk:Label Grid.Row="2" HorizontalAlignment="Right" Margin="5" Content="Difference"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Margin="5" Text="{Binding TotalDifference, Mode=TwoWay}" Width="100"/>
+        </StackPanel>
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

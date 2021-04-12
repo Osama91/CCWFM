@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Items" />
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+  <xs:element name="GetLookUpWarehouseForAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseForAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpWarehouseForAdjustmentResult" nillable="true" type="q1:ArrayOfTblWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q2:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="openningBalance" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAdjustmentResult" nillable="true" type="q3:ArrayOfTblAdjustmentHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAsignedWarehousesForAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAsignedWarehousesForAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetUserAsignedWarehousesForAdjustmentResult" nillable="true" type="q4:ArrayOfTblAuthWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q5:TblAdjustmentHeader" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertAdjustmentHeaderResult" nillable="true" type="q6:TblAdjustmentHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q7:TblAdjustmentHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAdjustmentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAdjustmentDetailResult" nillable="true" type="q8:ArrayOfTblAdjustmentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q9:TblAdjustmentDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertAdjustmentDetailResult" nillable="true" type="q10:TblAdjustmentDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q11:TblAdjustmentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="DeleteAdjustmentDetailResult" nillable="true" type="q12:TblAdjustmentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsOrCreate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="itemsList" nillable="true" type="q13:ArrayOfItemDimensionAdjustmentSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsOrCreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemDimensionsOrCreateResult" nillable="true" type="q14:ArrayOfItemDimensionAdjustmentSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsQuantitiesByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemIserial" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="colorIserial" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="size" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rollBatch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="docDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsQuantitiesByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemDimensionsQuantitiesByDateResult" nillable="true" type="q15:ArrayOfItemDimensionAdjustmentSearchModel" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionQuantitiesByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemDimIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="docDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionQuantitiesByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemDimensionQuantitiesByDateResult" nillable="true" type="q16:ItemDimensionAdjustmentSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertImportedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="header" nillable="true" type="q17:TblAdjustmentHeader" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CCWFM.Models.Items" minOccurs="0" name="importedList" nillable="true" type="q18:ArrayOfImportedItemDimensionModel" />
+        <xs:element minOccurs="0" name="Counting" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertImportedItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertImportedItemsResult" type="xs:int" />
+        <xs:element minOccurs="0" name="IsCounting" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRemainingImportedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CCWFM.Models.Items" minOccurs="0" name="importedList" nillable="true" type="q19:ArrayOfImportedItemDimensionModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRemainingImportedItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InsertRemainingImportedItemsResult" nillable="true" type="q20:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentByIserial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="CountingHeaderIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentByIserialResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveAdjustmentByIserial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="CountingHeaderIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveAdjustmentByIserialResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentTempDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="searchRow" nillable="true" type="q21:TblAdjustmentTempDetailSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentTempDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAdjustmentTempDetailsResult" nillable="true" type="q22:ArrayOfTblAdjustmentTempDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentTempDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="ItemDimIserail" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustmentTempDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAdjustmentTempDetailResult" nillable="true" type="q23:TblAdjustmentTempDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentTempDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q24:TblAdjustmentTempDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertAdjustmentTempDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertAdjustmentTempDetailResult" nillable="true" type="q25:TblAdjustmentTempDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentTempDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q26:TblAdjustmentTempDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdjustmentTempDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="DeleteAdjustmentTempDetailResult" nillable="true" type="q27:TblAdjustmentTempDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveAdjustmentTempDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserail" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveAdjustmentTempDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApproveAdjustmentTempDetailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsOrCreteForTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="itemsList" nillable="true" type="q28:ArrayOfItemDimensionSearchModel" />
+        <xs:element minOccurs="0" name="WarehouseToCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionsOrCreteForTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemDimensionsOrCreteForTransferResult" nillable="true" type="q29:ArrayOfItemDimensionSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q30:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetItemDimensionResult" nillable="true" type="q31:ArrayOfTblItemDim" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertItemDimension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q32:TblItemDim" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertItemDimensionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertItemDimensionResult" nillable="true" type="q33:TblItemDim" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemGroup">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetItemGroupResult" nillable="true" type="q34:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferByWarehouseTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="WarehouseTo" type="xs:int" />
+        <xs:element minOccurs="0" name="item" type="xs:int" />
+        <xs:element minOccurs="0" name="ItemType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferByWarehouseToResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTransferByWarehouseToResult" nillable="true" type="q35:ArrayOfTblTransferHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderHeaderRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q36:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderHeaderRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderHeaderRequestResult" nillable="true" type="q37:ArrayOfTblSalesOrderHeaderRequest" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="entityList" nillable="true" type="q38:ArrayOfEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderHeaderRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q39:TblSalesOrderHeaderRequest" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderHeaderRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesOrderHeaderRequestResult" nillable="true" type="q40:TblSalesOrderHeaderRequest" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderHeaderRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q41:TblSalesOrderHeaderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderHeaderRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesOrderHeaderRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderDetailRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q42:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderDetailRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderDetailRequestResult" nillable="true" type="q43:ArrayOfTblSalesOrderDetailRequest" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderDetailRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q44:TblSalesOrderDetailRequest" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderDetailRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesOrderDetailRequestResult" nillable="true" type="q45:TblSalesOrderDetailRequest" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderDetailRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q46:TblSalesOrderDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderDetailRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesOrderDetailRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesIssueHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="journalaccounttype" type="xs:int" />
+        <xs:element minOccurs="0" name="EntityAccount" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q47:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesIssueHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesIssueHeaderResult" nillable="true" type="q48:ArrayOfTblSalesIssueHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesIssueDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q49:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesIssueDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesIssueDetailResult" nillable="true" type="q50:ArrayOfTblSalesIssueDetail" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesIssueHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q51:TblSalesIssueHeader" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesIssueHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesIssueHeaderResult" nillable="true" type="q52:TblSalesIssueHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesIssueHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q53:TblSalesIssueHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesIssueHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesIssueHeaderResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesIssueDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q54:TblSalesIssueDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesIssueDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesIssueDetailResult" nillable="true" type="q55:TblSalesIssueDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesIssueDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q56:TblSalesIssueDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesIssueDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesIssueDetailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="TblSalesOrderHeaderRequest" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q57:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderRequestInvoiceHeaderResult" nillable="true" type="q58:ArrayOfTblSalesOrderRequestInvoiceHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="entityList" nillable="true" type="q59:ArrayOfEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q60:TblSalesOrderRequestInvoiceHeader" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesOrderRequestInvoiceHeaderResult" nillable="true" type="q61:TblSalesOrderRequestInvoiceHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q62:TblSalesOrderRequestInvoiceHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesOrderRequestInvoiceHeaderResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q63:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderRequestInvoiceDetailResult" nillable="true" type="q64:ArrayOfTblSalesOrderRequestInvoiceDetail" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" minOccurs="0" name="itemsList" nillable="true" type="q65:ArrayOfItemsDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q66:TblSalesOrderRequestInvoiceDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesOrderRequestInvoiceDetailResult" nillable="true" type="q67:TblSalesOrderRequestInvoiceDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q68:TblSalesOrderRequestInvoiceDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesOrderRequestInvoiceDetailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesIssueHeaderPending">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="JournalAccountType" type="xs:int" />
+        <xs:element minOccurs="0" name="EntityAccount" type="xs:int" />
+        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesIssueHeaderPendingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetSalesIssueHeaderPendingResult" nillable="true" type="q69:ArrayOfTblSalesIssueHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchSalesOrderRequestInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newrow" nillable="true" type="q70:TblSalesOrderRequestInvoiceHeader" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element xmlns:q71="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SalesIssueHeaderList" nillable="true" type="q71:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchSalesOrderRequestInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="SearchSalesOrderRequestInvoiceResult" nillable="true" type="q72:TblSalesOrderRequestInvoiceHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceMarkupTransProd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+        <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceHeader" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTblSalesOrderRequestInvoiceMarkupTransProdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderRequestInvoiceMarkupTransProdResult" nillable="true" type="q73:ArrayOfTblSalesOrderRequestInvoiceHeaderMarkupTransProd" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="entityList" nillable="true" type="q74:ArrayOfEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q75:TblSalesOrderRequestInvoiceHeaderMarkupTransProd" />
+        <xs:element minOccurs="0" name="save" type="xs:boolean" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProdsResult" nillable="true" type="q76:TblSalesOrderRequestInvoiceHeaderMarkupTransProd" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceMarkupTransProds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q77:TblSalesOrderRequestInvoiceHeaderMarkupTransProd" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblSalesOrderRequestInvoiceMarkupTransProdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblSalesOrderRequestInvoiceMarkupTransProdsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostTblSalesOrderRequestInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q78:TblSalesOrderRequestInvoiceHeader" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostTblSalesOrderRequestInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="PostTblSalesOrderRequestInvoiceHeaderResult" nillable="true" type="q79:TblSalesOrderRequestInvoiceHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q80:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTransferResult" nillable="true" type="q81:ArrayOfTblTransferHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAsignedWarehousesForTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAsignedWarehousesForTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetUserAsignedWarehousesForTransferResult" nillable="true" type="q82:ArrayOfTblAuthWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseForTransferFrom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseForTransferFromResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpWarehouseForTransferFromResult" nillable="true" type="q83:ArrayOfTblWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseForTransferTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseForTransferToResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpWarehouseForTransferToResult" nillable="true" type="q84:ArrayOfTblWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTransferHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q85:TblTransferHeader" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTransferHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTransferHeaderResult" nillable="true" type="q86:TblTransferHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q87:TblTransferHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTransferResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTransferDetailResult" nillable="true" type="q88:ArrayOfTblTransferDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTransferDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q89:TblTransferDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTransferDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTransferDetailResult" nillable="true" type="q90:TblTransferDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransferDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q91:TblTransferDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransferDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="DeleteTransferDetailResult" nillable="true" type="q92:TblTransferDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionQuantities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseFromCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouseToCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemDimIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemDimensionQuantitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemDimensionQuantitiesResult" nillable="true" type="q93:ItemDimensionSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemToQuantities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="item" nillable="true" type="q94:ItemDimensionSearchModel" />
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemToQuantitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetItemToQuantitiesResult" nillable="true" type="q95:ItemDimensionSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehouseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpWarehouseResult" nillable="true" type="q96:ArrayOfTblWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblWarehouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q97:TblWarehouse" />
+        <xs:element minOccurs="0" name="save" type="xs:boolean" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertTblWarehouseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblWarehouseResult" nillable="true" type="q98:TblWarehouse" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblWarehouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q99:TblWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTblWarehouseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTblWarehouseResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccWarehouseRows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemIserial" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="colorIserial" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="size" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rollBatch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccWarehouseRowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetAccWarehouseRowsResult" nillable="true" type="q100:ArrayOfItemDimensionAdjustmentSearchModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInspectionWarehouseRows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="colorCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="size" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rollBatch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInspectionWarehouseRowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" minOccurs="0" name="GetInspectionWarehouseRowsResult" nillable="true" type="q101:ArrayOfItemDimensionSearchModel" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

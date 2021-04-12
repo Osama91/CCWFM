@@ -1,0 +1,343 @@
+﻿<controlsOverride1:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.MarkupTransProdChildWindow"
+									xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+									xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									Title="Markup Trans" mc:Ignorable="d"
+									xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+									xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+									xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+									xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"                                   
+									xmlns:controlsOverride1="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                                        	xmlns:userControls="clr-namespace:CCWFM.UserControls"
+									xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+									xmlns:search="clr-namespace:CCWFM.UserControls.Search">
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<dataGrid:OsGrid Grid.Row="0" Grid.RowSpan="2" Height="200" AutoGenerateColumns="False"
+						 Name="HeaderGrid" SelectedItem="{Binding SelectedMarkupRow,Mode=TwoWay}"
+						 FilteredItemsSource="{Binding SelectedMainRow.MarkUpTransList,Mode=TwoWay}"
+						 HorizontalAlignment="Left" ItemsSource="{Binding SelectedMainRow.MarkUpTransList,Mode=TwoWay}"
+					   VerticalAlignment="Top" RowEditEnded="DetailGrid_OnRowEditEnded" SelectionChanged="DetailGrid_OnSelectionChanged"
+						 KeyUp="HeaderGrid_KeyUp">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblMarkupProd1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Markup, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MarkupList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblMarkupProd,Mode=TwoWay}"
+									  SelectedItem="{Binding TblMarkupProd1,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding TblMarkupProd1.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn SortMemberPath="MiscValueType"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValueType, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial" IsEnabled="False"
+									  ItemsSource="{Binding Path=DataContext.MiscValueTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding MiscValueType,Mode=TwoWay}"
+									   />
+
+						</DataTemplate>
+
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MiscValueTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding MiscValueType,Mode=TwoWay}"
+									   />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn Width="*" Binding="{Binding Path=MiscValue,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValue,Source={StaticResource LocalizedStrings}}" />
+
+			 
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCurrency"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.CurrencyList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblCurrency,Mode=TwoWay}"
+									  SelectedItem="{Binding CurrencyPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CurrencyPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				
+		
+				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="TblSupplier"
+															utilities:GlobalMethods.PathForExport="SupplierPerRow.Ename"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Supplier,
+																												  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<search:SearchSupplier SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<search:SearchSupplier IsEnabled="False" SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+
+           
+
+                <sdk:DataGridCheckBoxColumn Width="*" Binding="{Binding Path=VendorEffect,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding VendorEffect,Source={StaticResource LocalizedStrings}}" />
+			 
+			</sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>
+
+		<dataGrid:OsGrid Grid.Row="0" Grid.RowSpan="2" Height="400" AutoGenerateColumns="False"
+						Name="HeaderGrid1" SelectedItem="{Binding SelectedMarkupRow,Mode=TwoWay}"
+						 FilteredItemsSource="{Binding SelectedMainRow.MarkUpTransList,Mode=TwoWay}"
+						 HorizontalAlignment="Left" ItemsSource="{Binding SelectedMainRow.MarkUpTransList,Mode=TwoWay}"
+					   VerticalAlignment="Top" RowEditEnded="DetailGrid_OnRowEditEnded" SelectionChanged="DetailGrid_OnSelectionChanged"
+						 KeyUp="HeaderGrid_KeyUp">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblMarkupProd1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Markup, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MarkupList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblMarkupProd,Mode=TwoWay}"
+									  SelectedItem="{Binding TblMarkupProd1,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding TblMarkupProd1.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn SortMemberPath="MiscValueType" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValueType, Source={StaticResource LocalizedStrings}}" Width="*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+                            <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial" IsEnabled="False"
+									  ItemsSource="{Binding Path=DataContext.MiscValueTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding MiscValueType,Mode=TwoWay}" />
+                        </DataTemplate>
+
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MiscValueTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding MiscValueType,Mode=TwoWay}"
+									   />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn Width="*" Binding="{Binding Path=MiscValue,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValue,Source={StaticResource LocalizedStrings}}" />
+
+
+			
+
+
+				<!--<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="TblSupplier"
+															utilities:GlobalMethods.PathForExport="SupplierPerRow.Ename"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Supplier,
+																												  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<search:SearchSupplier SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<search:SearchSupplier IsEnabled="False" SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>-->
+
+
+                <sdk:DataGridTemplateColumn SortMemberPath="TblJournalAccountType1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding JournalAccountType, Source={StaticResource LocalizedStrings}}"
+													utilities:GlobalMethods.PathForExport="JournalAccountTypePerRow.Ename"
+											Width="80">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblJournalAccountType,Mode=TwoWay}"
+									  SelectedItem="{Binding JournalAccountTypePerRow,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding JournalAccountTypePerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn SortMemberPath="EntityAccount"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Entity, Source={StaticResource LocalizedStrings}}" utilities:GlobalMethods.PathForExport="EntityPerRow.Ename"
+											Width="180">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <userControls:SearchEntityUserControl 
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+								SearchPerRow="{Binding EntityPerRow,Mode=TwoWay}"  />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EntityPerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridCheckBoxColumn Width="*" Binding="{Binding Path=VendorEffect,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding VendorEffect,Source={StaticResource LocalizedStrings}}" />
+
+                <sdk:DataGridTemplateColumn SortMemberPath="TblCurrency"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.CurrencyList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblCurrency,Mode=TwoWay}"
+									  SelectedItem="{Binding CurrencyPerRow,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CurrencyPerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+
+                <sdk:DataGridTextColumn Width="*" Binding="{Binding Path=ExchangeRate,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ExchangeRate,Source={StaticResource LocalizedStrings}}" />
+
+            </sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>
+
+		<Image Name="ImgClose" Width="40" Height="40" Grid.Row="1" Source="/CCWFM;component/Images/Exit.jpg"  HorizontalAlignment="Right" VerticalAlignment="Bottom" MouseLeftButtonDown="ImgClose_OnMouseLeftButtonDown"></Image>
+		<!--<dataGrid:OsGrid Grid.Row="0" Grid.RowSpan="2" MaxHeight="300" AutoGenerateColumns="False"
+						 Name="DetailGrid" SelectedItem="{Binding SelectedMarkupRow,Mode=TwoWay}"
+						 FilteredItemsSource="{Binding SelectedDetailRow.MarkUpTransList,Mode=TwoWay}"
+						 HorizontalAlignment="Left" ItemsSource="{Binding SelectedDetailRow.MarkUpTransList,Mode=TwoWay}"
+					   VerticalAlignment="Top" RowEditEnded="DetailGrid_OnRowEditEnded"
+						 KeyUp="DetailGrid_KeyUp">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Width="*" Binding="{Binding Path=MiscValue,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValue,Source={StaticResource LocalizedStrings}}" />
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCurrency"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.CurrencyList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblCurrency,Mode=TwoWay}"
+									  SelectedItem="{Binding CurrencyPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CurrencyPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblMarkupProd1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Markup, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MarkupList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblMarkup,Mode=TwoWay}"
+									  SelectedItem="{Binding MarkupPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding TblMarkupProd1.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn SortMemberPath="MiscValueType"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValueType, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding MiscValueType,Mode=TwoWay}"></TextBlock>
+
+						</DataTemplate>
+
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.MiscValueTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding MiscValueType,Mode=TwoWay}"
+									   />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridCheckBoxColumn Width="*" Binding="{Binding Path=VendorEffect,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding VendorEffect,Source={StaticResource LocalizedStrings}}" />
+				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="TblSupplier"
+															utilities:GlobalMethods.PathForExport="SupplierPerRow.Ename"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Supplier,
+																												  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<search:SearchSupplier SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<search:SearchSupplier IsEnabled="False" SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+			</sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>-->
+	</Grid>
+</controlsOverride1:ChildWindowsOverride>

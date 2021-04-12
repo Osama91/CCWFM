@@ -1,0 +1,104 @@
+﻿<controls:ChildWindow xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.RequestForQutation.RFQSearchChild"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:Converters="clr-namespace:CCWFM.Helpers.Converters"
+                      xmlns:vm="clr-namespace:CCWFM.ViewModel.RFQViewModels"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="820" Height="409">
+    <controls:ChildWindow.Resources>
+        <!--<vm:RFQSearchViewModel x:Key="VMO"/>-->
+    </controls:ChildWindow.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2" DataContext="{StaticResource VMO}">
+        <Grid.Resources>
+            <Converters:SelectedItemToIsEnabledConverter x:Key="SelectionToBoolConverter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1.1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Doc Number" HorizontalAlignment="Right" Padding="5" VerticalAlignment="Center"></TextBlock>
+                <TextBox Text="{Binding DocNum,Mode=TwoWay}" Grid.Column="1" Margin="0,5"></TextBox>
+
+                <TextBlock Text="Season" Grid.Row="1" HorizontalAlignment="Right" Padding="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox SelectedValue="{Binding SeasonCode,Mode=TwoWay}"
+                            DisplayMemberPath="Season_Name" 
+                                  ItemsSource="{Binding Seasons,Mode=TwoWay}"
+                            SelectedItem="{Binding SeasonProp,Mode=TwoWay}" 
+                          Grid.Row="1" Grid.Column="1" ></ComboBox>
+
+                <TextBlock Text="Brand" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Padding="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Grid.Row="0" Grid.Column="3" ></ComboBox>
+
+                <TextBlock Text="Brand" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Padding="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox SelectedValue="{Binding BrandCode,Mode=TwoWay}"
+                            DisplayMemberPath="Brand_Ename" 
+                            ItemsSource="{Binding Brands,Mode=TwoWay}"  Grid.Row="0" Grid.Column="3" ></ComboBox>
+
+                <TextBlock Text="Supplier" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Padding="5" VerticalAlignment="Center"></TextBlock>
+                <Button Name="btnSearch" Click="btnSearch_Click" Cursor="Hand" ToolTipService.ToolTip="Search!" Grid.Row="0" Grid.Column="4" Grid.RowSpan="2" Margin="5">
+                    <Image Height="46" Stretch="Uniform" Source="/CCWFM;component/Images/1371054443_Preview%20Docment.png"></Image>
+                </Button>
+                <TextBox Grid.Column="3" Grid.Row="1">
+                    <TextBox.Template>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Width="200"></TextBox>
+                                <Button Padding="0">
+                                    <Image Source="/CCWFM;component/Images/1371054443_Preview%20Docment.png" Stretch="Uniform" Width="22"></Image>
+                                </Button>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
+            </Grid>
+            <sdk:DataGrid Grid.Row="1" IsReadOnly="True" Name="SearchResultDataGrid" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTemplateColumn Header="Style" IsReadOnly="True">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5" Text="{Binding Style,Mode=TwoWay}"></TextBlock>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTextColumn Header="Descreption" MinWidth="200" Binding="{Binding Desc,Mode=TwoWay}" IsReadOnly="True" />
+                    <sdk:DataGridTextColumn Header="Qty" IsReadOnly="True" Binding="{Binding Qty,Mode=TwoWay}" />
+                    <sdk:DataGridTextColumn Header="Notes" MinWidth="200" IsReadOnly="True" Binding="{Binding Notes,Mode=TwoWay}" />
+                    <sdk:DataGridTemplateColumn Header="Delivary Date" IsReadOnly="True">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DelivaryDate,Mode=TwoWay}"></TextBlock>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn Header="Image">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="25" Height="25" Margin="1" Stretch="UniformToFill" Source="{Binding HeaderImage,Mode=TwoWay,Converter={StaticResource binaryConverter}}"></Image>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+
+        </Grid>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button IsEnabled="{Binding ElementName=SearchResultDataGrid, Path=ItemsSource,Converter={StaticResource SelectionToBoolConverter},ConverterParameter=True}" x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

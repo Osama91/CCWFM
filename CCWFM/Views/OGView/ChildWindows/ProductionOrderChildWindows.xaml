@@ -1,0 +1,408 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.ChildWindows.ProductionOrderChildWindows"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"	   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                                             xmlns:ext="clr-namespace:CCWFM.Helpers.Extention"
+                                         xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+                                       xmlns:userControls="clr-namespace:CCWFM.UserControls"
+                                       xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+                                        xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+                                       xmlns:dataprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:local="clr-namespace:CCWFM.Views" Closing="ChildWindowsOverride_Closing"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                                        xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                         Title="Production Order">
+
+    <controlsOverride:ChildWindowsOverride.Resources>
+
+        <Style x:Key="DataGridBaseHeaderStyle"    
+           TargetType="dataprimitives:DataGridColumnHeader">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="FromHeaderStyle"   TargetType="dataprimitives:DataGridColumnHeader" BasedOn="{StaticResource DataGridBaseHeaderStyle}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="SeparatorBrush" Value="#FFC9CACA"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="FromRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="#FF1F3B53" Stretch="Fill" Grid.ColumnSpan="2"/>
+                            <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                        <GradientStop Color="#FCFFFFFF" Offset="0.015"/>
+                                        <GradientStop Color="#F7FFFFFF" Offset="0.375"/>
+                                        <GradientStop Color="#E5FFFFFF" Offset="0.6"/>
+                                        <GradientStop Color="#D1FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Row 0 -->
+                                <ContentPresenter Content="From" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="12" />
+                                <!-- Row 1 -->
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="12" />
+                                <!-- Row 2 -->
+                                <ContentPresenter Content="Color Code" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="Size" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="Batch No" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#FFC9CACA"                            
+                                   VerticalAlignment="Stretch" Width="1" Visibility="Visible"                      
+                                   Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToHeaderStyle"   TargetType="dataprimitives:DataGridColumnHeader"     BasedOn="{StaticResource DataGridBaseHeaderStyle}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="SeparatorBrush" Value="#FFC9CACA"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="ToRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="#FF1F3B53" Stretch="Fill" Grid.ColumnSpan="2"/>
+                            <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                        <GradientStop Color="#FCFFFFFF" Offset="0.015"/>
+                                        <GradientStop Color="#F7FFFFFF" Offset="0.375"/>
+                                        <GradientStop Color="#E5FFFFFF" Offset="0.6"/>
+                                        <GradientStop Color="#D1FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Row 0 -->
+                                <ContentPresenter Content="To" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="12" />
+                                <!-- Row 1 -->
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="12" />
+                                <!-- Row 2 -->
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="Size" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="Batch No" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="Available" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
+                                <ContentPresenter Content="Pending" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#FFC9CACA"                            
+                                   VerticalAlignment="Stretch" Width="1" Visibility="Visible"                      
+                                   Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </controlsOverride:ChildWindowsOverride.Resources>
+
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <sdk:TabControl x:Name="TaSalesOrder" >
+            <sdk:TabItem Header="Services">
+                <sdk:DataGrid Name="ProdService" BeginningEdit="ProdTransGrid_BeginningEdit" KeyDown="ProdService_KeyDown" AutoGenerateColumns="False" ItemsSource="{Binding  SelectedDetailRow.TblProductionOrderServices,Mode=TwoWay}">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <sdk:DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="sdk:DataGridColumnHeader">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding service, Source={StaticResource LocalizedStrings}}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </sdk:DataGridTemplateColumn.HeaderStyle>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox       
+                      ItemsSource="{Binding Path=DataContext.ServiceList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"                    
+					  SelectedValuePath="Iserial" DisplayMemberPath="Ename" SelectedItem="{Binding ServicePerRow,Mode=TwoWay}"
+					  SelectedValue="{Binding TblService,Mode=TwoWay}" ></ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ServicePerRow.Ename,Mode=TwoWay}" ></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <sdk:DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="sdk:DataGridColumnHeader">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Color, Source={StaticResource LocalizedStrings}}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </sdk:DataGridTemplateColumn.HeaderStyle>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <search:SearchColor Grid.Column="5" Margin="5"						
+                            SearchPerRow="{Binding ColorPerRow, Mode=TwoWay}"/>
+
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn  Binding="{Binding Qty}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <sdk:DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="sdk:DataGridColumnHeader">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Qty, Source={StaticResource LocalizedStrings}}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </sdk:DataGridTextColumn.HeaderStyle>
+                        </sdk:DataGridTextColumn>
+                        <sdk:DataGridTextColumn  Binding="{Binding Cost}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <sdk:DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="sdk:DataGridColumnHeader">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Cost, Source={StaticResource LocalizedStrings}}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </sdk:DataGridTextColumn.HeaderStyle>
+                        </sdk:DataGridTextColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="TblJournalAccountType1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding JournalAccountType, Source={StaticResource LocalizedStrings}}"
+													    
+											Width="80">
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblJournalAccountType,Mode=TwoWay}"
+									  SelectedItem="{Binding JournalAccountTypePerRow,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding JournalAccountTypePerRow.Ename,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="EntityAccount"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Entity, Source={StaticResource LocalizedStrings}}"
+												    
+											Width="180">
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <userControls:SearchEntityUserControl 
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+								SearchPerRow="{Binding EntityPerRow,Mode=TwoWay}"  />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding EntityPerRow.Ename,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn Binding="{Binding Notes}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <sdk:DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="sdk:DataGridColumnHeader">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Notes, Source={StaticResource LocalizedStrings}}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </sdk:DataGridTextColumn.HeaderStyle>
+                        </sdk:DataGridTextColumn>
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Fabric">
+                <StackPanel Orientation="Vertical">
+                    <Grid MaxHeight="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".7*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width=".7*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width=".7*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width=".7*" />
+                            <ColumnDefinition Width="1.5*" />
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextAlignment="Right"  Margin="0,0,5,0"   Text="{Binding Search, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
+					   Grid.Column="0"  />
+                        <Button ToolTipService.ToolTip="Search"      Grid.Column="1" Cursor="Hand"  IsEnabled="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
+                                    Command="{Binding Path=DataContext.OpenItemSearchDetail,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}">
+                            <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform">
+                            </Image>
+                        </Button>
+
+                        <TextBlock TextAlignment="Right"  Margin="0,0,5,0"   Text="{Binding WareHouse, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
+					   Grid.Column="2"  />
+                        <ComboBox   IsEnabled="{Binding Path=DataContext.SelectedDetailRow,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"                	  
+                      ItemsSource="{Binding Path=DataContext.WareHouseList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"
+                             Grid.Column="3" 
+					  SelectedValuePath="Iserial" DisplayMemberPath="Ename" SelectedItem="{Binding WareHousePerRow,Mode=TwoWay}"
+					  SelectedValue="{Binding TblWarehouse,Mode=TwoWay}" ></ComboBox>
+                    </Grid>
+                    <dataGrid:OsGrid  VerticalAlignment="Stretch" Margin="5" ItemsSource="{Binding SelectedDetailRow.TblProductionOrderFabrics, Mode=TwoWay}" KeyDown="ProductionFabricGrid_KeyDown" BeginningEdit="ProdTransGrid_BeginningEdit" Name="ProductionFabricGrid"
+                         ColumnWidth="*" IsReadOnly="True" SelectedItem="{Binding SelectedProductionOrderFabric, Mode=TwoWay}" >
+                        <dataGrid:OsGrid.Columns>
+                            <sdk:DataGridTemplateColumn  HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" dataGrid:DataGridColumnHelper.HeaderBinding=
+                                            "{Binding WareHouse, Source={StaticResource LocalizedStrings}}" Width="Auto">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding WareHousePerRow.Ename,Mode=TwoWay}">
+                                            </TextBlock>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTextColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" Binding="{Binding Path=ItemTransfer.ItemCode, Mode=TwoWay}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding Code, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader"/>
+                            <sdk:DataGridTextColumn  HeaderStyle="{StaticResource DataGridBaseHeaderStyle}"  Binding="{Binding Path=ItemTransfer.ItemName, Mode=TwoWay}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding ItemName, Source={StaticResource LocalizedStrings}}" Width="*"/>
+                            <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource FromHeaderStyle}" Width="3*">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="50*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="75*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="75*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Text="{Binding Path=ItemTransfer.ColorFromCode, Mode=TwoWay}" IsReadOnly="True"/>
+                                            <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="1" />
+                                            <TextBox Text="{Binding Path=ItemTransfer.ColorFrom.Ename, Mode=TwoWay}" IsReadOnly="True" Grid.Column="2"/>
+                                            <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="3" />
+                                            <TextBox Text="{Binding Path=ItemTransfer.SizeFrom, Mode=TwoWay}" Grid.Column="4" IsReadOnly="True"/>
+                                            <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="5" />
+                                            <TextBox Text="{Binding Path=ItemTransfer.BatchNoFrom, Mode=TwoWay}" Grid.Column="6" IsReadOnly="True"/>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+
+                            <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding Qty, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader" IsReadOnly="False">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Path=Qty, Mode=TwoWay}" 
+                                     IsReadOnly="{Binding DataContext.IsReadOnly, RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}, Mode=TwoWay}"                                     >
+                                        </TextBox>
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+
+                            <sdk:DataGridTextColumn Binding="{Binding Notes}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                                <sdk:DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Notes, Source={StaticResource LocalizedStrings}}" />
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </sdk:DataGridTextColumn.HeaderStyle>
+                            </sdk:DataGridTextColumn>
+
+                        </dataGrid:OsGrid.Columns>
+                    </dataGrid:OsGrid>
+
+                </StackPanel>
+            </sdk:TabItem>
+        </sdk:TabControl>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

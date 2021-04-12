@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.RouteCard" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.RouteCard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRouteCardService.RouteCardInvoiceDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RouteCardService.RouteCardInvoiceDetailDto" nillable="true" type="tns:RouteCardService.RouteCardInvoiceDetailDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRouteCardService.RouteCardInvoiceDetailDto" nillable="true" type="tns:ArrayOfRouteCardService.RouteCardInvoiceDetailDto" />
+  <xs:complexType name="RouteCardService.RouteCardInvoiceDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteCardHeader" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteCardInvoiceHeader" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteGroupString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierInv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TblColor" type="xs:int" />
+      <xs:element minOccurs="0" name="TblSalesOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="TransID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RouteCardService.RouteCardInvoiceDetailDto" nillable="true" type="tns:RouteCardService.RouteCardInvoiceDetailDto" />
+</xs:schema>

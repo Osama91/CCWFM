@@ -1,0 +1,136 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_LoginService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_UserDomains" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="CustomBinding_CRUD_ManagerService" closeTimeout="10:00:00"
+          openTimeout="10:00:00" receiveTimeout="10:00:00" sendTimeout="10:00:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_GlService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_LkpData">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_StyleService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_BankStatService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ProductionService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AuthService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AttService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ContractService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_CRUD_ManagerService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_RouteCardService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_WarehouseService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PurchasePlan">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AssistanceService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_DyeingService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_BankDepositService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <client>
+      <endpoint address="../Service/Operations/GlOperations/GlService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="GlService.GlService" name="CustomBinding_GlService" />
+      <endpoint address="../Service/LoginService.svc" binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_LoginService" contract="LoginService.LoginService"
+        name="BasicHttpBinding_LoginService" />
+      <endpoint address="../Service/StyleService.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_StyleService" contract="StyleService.StyleService"
+        name="CustomBinding_StyleService" />
+      <endpoint address="../Service/BankStatOp/BankStatService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="BankStatService.BankStatService" name="CustomBinding_BankStatService" />
+      <endpoint address="../Service/Production/ProductionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="ProductionService.ProductionService" name="CustomBinding_ProductionService" />
+      <endpoint address="../Service/AuthOp/AuthService.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_CRUD_ManagerService" contract="AuthService.AuthService"
+        name="CustomBinding_AuthService" />
+      <endpoint address="../Service/Att/AttService.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_CRUD_ManagerService" contract="AttService.AttService"
+        name="CustomBinding_AttService" />
+      <endpoint address="../Service/ContractOp/ContractService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="ContractService.ContractService" name="CustomBinding_ContractService" />
+      <endpoint address="../Service/CRUD_ManagerService.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_CRUD_ManagerService1" contract="CRUDManagerService.CRUD_ManagerService"
+        name="CustomBinding_CRUD_ManagerService" />
+      <endpoint address="../Service/RouteCard/RouteCardService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="RouteCardService.RouteCardService" name="CustomBinding_RouteCardService" />
+      <endpoint address="../Service/WarehouseOp/WarehouseService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="WarehouseService.WarehouseService" name="CustomBinding_WarehouseService" />
+      <endpoint address="../Service/AssistanceOp/AssistanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="AssistanceService.AssistanceService" name="CustomBinding_AssistanceService" />
+      <endpoint address="../Service/Dyeing/DyeingService.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_CRUD_ManagerService" contract="DyeingService.DyeingService"
+        name="CustomBinding_DyeingService" />
+      <endpoint address="../Service/LkpData/LkpData.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_CRUD_ManagerService" contract="LkpData.LkpData"
+        name="CustomBinding_LkpData" />
+      <endpoint address="../Service/Operations/PurchasePlan/PurchasePlan.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_CRUD_ManagerService"
+        contract="PurchasePlanService.PurchasePlan" name="CustomBinding_PurchasePlanService" />
+      <endpoint address="../Service/UserDomains.svc" binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_UserDomains" contract="UserDomains.UserDomains"
+        name="BasicHttpBinding_UserDomains" />
+      <endpoint address="../Service/BankDepositOp/BankDepositService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_BankDepositService"
+        contract="BankDepositService.BankDepositService" name="CustomBinding_BankDepositService" />
+    </client>
+  </system.serviceModel>
+</configuration>

@@ -1,0 +1,134 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.GlExpensis"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:gl1="clr-namespace:CCWFM.ViewModel.Gl"
+				 xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+				 Title="GlExpensis"
+				 d:DesignHeight="480"
+				 d:DesignWidth="640"
+				 mc:Ignorable="d">
+	<navigation:Page.Resources>
+		<gl1:GlExpensisViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="BtnAddNewMainRow"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="BtnAddNewMainRow_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Add">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					  Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow"
+					Click="BtnDeleteMainRow_Click"
+					ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/GlExpensiss/Images/1370888613_-trash.png" Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnSave"
+					Click="BtnSave_Onclick"
+					Content="Save" />
+			<Button Name="BtnExportExcel" IsEnabled="{Binding AllowExport,Mode=TwoWay}"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="ExportExcel_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+			</Button>
+
+			<Button Name="BtnGetallData"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="BtnGetallData_OnClick"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Get All Data">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/SearchFull.jpg"
+					   Stretch="Uniform" />
+			</Button>
+		</StackPanel>
+
+		<dataGrid:OsGrid Name="MainGrid"
+						 Grid.Row="1"
+						 MaxHeight="300"
+						 Margin="10,36,10,0"
+						 HorizontalContentAlignment="Stretch"
+						 VerticalContentAlignment="Stretch"
+						 AllowDrop="True"
+						 FilteredItemsSource="{Binding MainRowList,
+													   Mode=TwoWay}"
+						 GotFocus="MainGrid_OnGotFocus"
+						 ItemsSource="{Binding MainRowList,
+											   Mode=TwoWay}"
+						 KeyUp="MainGrid_KeyUp"
+						 LoadingRow="MainGrid_LoadingRow"
+						 OnFilter="MainGrid_OnFilter"
+						 RowEditEnded="MainGrid_RowEditEnded"
+						 SelectedItem="{Binding SelectedMainRow,
+												Mode=TwoWay}" SelectionChanged="MainGrid_OnSelectionChanged">
+			<dataGrid:OsGrid.Columns>
+
+				<sdk:DataGridTextColumn Width="*"
+										Binding="{Binding Path=Code,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code,
+																							  Source={StaticResource LocalizedStrings}}" />
+				<sdk:DataGridTextColumn Width="*"
+										Binding="{Binding Path=Ename,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Ename,
+																							  Source={StaticResource LocalizedStrings}}" />
+				<sdk:DataGridTextColumn Width="*" Binding="{Binding Path=Aname,Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Aname,Source={StaticResource LocalizedStrings}}" />
+			 
+				<sdk:DataGridTemplateColumn SortMemberPath="TblGlExpensisGroup"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding GlExpensisGroup, Source={StaticResource LocalizedStrings}}"
+										  utilities:GlobalMethods.PathForExport="GlExpensisGroupPerRow.Ename"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.GlExpensisGroupList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblGlExpensisGroup,Mode=TwoWay}"
+									  SelectedItem="{Binding GlExpensisGroupPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding GlExpensisGroupPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+			  
+			</dataGrid:OsGrid.Columns>
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

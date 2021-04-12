@@ -1,0 +1,68 @@
+﻿<sdk:Page xmlns:UserControls="clr-namespace:CCWFM.UserControls" x:Name="page" 
+    x:Class="CCWFM.Views.Gl.StoreCommissionView"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Tools.Silverlight"  
+    xmlns:DataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.Gl"
+    xmlns:Views="clr-namespace:CCWFM.Views"
+    xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+    xmlns:iex="clr-namespace:Microsoft.Expression.Interactivity.Input;assembly=Microsoft.Expression.Interactions"
+    mc:Ignorable="d" Title="Cash Deposit Detail"
+    d:DesignHeight="300" d:DesignWidth="800">
+    <sdk:Page.Resources>
+        <viewModel:StoreCommissionViewModel x:Key="ViewModel" />
+    </sdk:Page.Resources>
+    <Grid Background="White" Margin="5" DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Views:WindowHeader DataContext="{Binding Source={StaticResource ViewModel}}" Margin="5"/>
+
+        <DataGrid:OsGrid VerticalAlignment="Stretch" ColumnWidth="*" Grid.ColumnSpan="3"
+                      ItemsSource="{Binding Path=MainRowList, Mode=TwoWay}"
+                      FilteredItemsSource="{Binding Path=MainRowList, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedMainRow, Mode=TwoWay}" Grid.Row="1" 
+                      AutoGenerateColumns="False">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="OnFilter">
+                    <cmd:EventToCommand Command="{Binding FilterCommand}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Binding="{Binding TblStore1.code, Mode=TwoWay}" Header="Store Code" SortMemberPath="code" IsReadOnly="True"/>
+                <sdk:DataGridTextColumn Binding="{Binding TblStore1.ENAME, Mode=TwoWay}" Header="Store" SortMemberPath="ENAME" IsReadOnly="True">
+                    <!--<sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox Margin="5" TextSearch.TextPath="Code"
+                                      ItemsSource="{Binding StoreList, Source={StaticResource ViewModel}}"
+                      SelectedValue="{Binding Tblstore, Mode=TwoWay}"
+                      DisplayMemberPath="ENAME" SelectedValuePath="iserial"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>-->
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn Binding="{Binding SalesManComm, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Sales Man Comm" SortMemberPath="SalesManComm"/>
+                <sdk:DataGridTextColumn Binding="{Binding AssistantComm, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Assistant Comm" SortMemberPath="AssistantComm"/>
+                <sdk:DataGridTextColumn Binding="{Binding ManagerComm, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Manager Comm" SortMemberPath="ManagerComm"/>
+
+                <sdk:DataGridTextColumn Binding="{Binding SalesManTax, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Sales Man Tax" SortMemberPath="SalesManTax"/>
+                <sdk:DataGridTextColumn Binding="{Binding AssistantTax, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Assistant Tax" SortMemberPath="AssistantTax"/>
+                <sdk:DataGridTextColumn Binding="{Binding ManagerTax, Mode=TwoWay, StringFormat=\{0:F4\}}" Header="Manager Tax" SortMemberPath="ManagerTax"/>
+
+                <sdk:DataGridCheckBoxColumn Binding="{Binding IsActive, Mode=TwoWay}" Header="IsActive" SortMemberPath="IsActive"/>
+
+            </sdk:DataGrid.Columns>
+        </DataGrid:OsGrid>
+
+    </Grid>
+</sdk:Page>

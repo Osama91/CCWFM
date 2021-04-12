@@ -1,0 +1,30 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.CopyColors"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                       xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+           Width="400" Height="300" 
+           Title="CopyColors">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" Text="{Binding Brand,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+        <ComboBox VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" ItemsSource="{Binding BrandsList,Mode=TwoWay}" SelectedValue="{Binding BrandCodeCopy,Mode=TwoWay}"    MinHeight="30"  SelectedValuePath="Brand_Code" DisplayMemberPath="Brand_Ename" Margin="5" />
+        <TextBlock VerticalAlignment="Center"  Grid.Row="0" Grid.Column="2" Text="{Binding Season,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+        <ComboBox VerticalAlignment="Center"  Grid.Row="0" Grid.Column="3" ItemsSource="{Binding SeasonList,Mode=TwoWay}" SelectedValue="{Binding SeasonCopy,Mode=TwoWay}"   MinHeight="30"   SelectedValuePath="Iserial" DisplayMemberPath="Ename" Margin="5" />
+        <TextBlock VerticalAlignment="Center"  Grid.Row="1" Grid.Column="0" Text="{Binding BrandSection,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+        <ComboBox VerticalAlignment="Center"  Grid.Row="1" Grid.Column="1" ItemsSource="{Binding BrandSectionListCopy,Mode=TwoWay}"  SelectedValue="{Binding BrandSectionCopy,Mode=TwoWay}"  MinHeight="30"  SelectedValuePath="Iserial" DisplayMemberPath="Ename" Margin="5" />
+        <Button x:Name="CancelButton"  Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="3" Grid.Column="3" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

@@ -1,0 +1,58 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.OGView.SearchChildWindows.SearchAssets"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:ogViewModels="clr-namespace:CCWFM.ViewModel.OGViewModels"
+		   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		   xmlns:globalExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders"
+ Height="400"
+		   Title="Search Assets">
+	<sdk:ChildWindow.Resources>
+		<ogViewModels:SearchAssetsViewModel x:Key="ViewModel" />
+	</sdk:ChildWindow.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			
+			<RowDefinition Height="*" />
+			<RowDefinition Height="40" />
+		</Grid.RowDefinitions>
+		
+
+		<dataGrid:OsGrid IsReadOnly="True" AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}" SelectionMode="Single"
+					Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   Height="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter">
+			<dataGrid:OsGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Ename, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding TechSpec,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TechSpec, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding YearOfProduct,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding YearOfProduct, Source={StaticResource LocalizedStrings}}" Width="*" />
+
+
+				<sdk:DataGridTextColumn Binding="{Binding AssetTypePerRow.Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Assets, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding ProcessorPerRow.Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Processor, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding HardDiskPerRow.Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding HardDisk, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding MemoryPerRow.Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Memory, Source={StaticResource LocalizedStrings}}" Width="*" />
+
+
+				<sdk:DataGridTextColumn Binding="{Binding Notes,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Notes, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding PurchasePrice,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PurchasePrice, Source={StaticResource LocalizedStrings}}" Width="*" />
+                <sdk:DataGridTextColumn Binding="{Binding Pending,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Pending, Source={StaticResource LocalizedStrings}}" Width="*" />
+
+            </dataGrid:OsGrid.Columns>
+            <i:Interaction.Behaviors>
+                <globalExtenders:DoubleClickBehavior DoubleClick="DoubleClickBehavior_DoubleClick" />
+            </i:Interaction.Behaviors>
+        </dataGrid:OsGrid>
+		<Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+				IsEnabled="{Binding ElementName=MainGrid,Path=SelectedItem
+			,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+				Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right"
+				Margin="0,12,79,0" Grid.Row="1" /></Grid>
+
+</controls:ChildWindow>

@@ -1,0 +1,30 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.SearchChildWindows.IssueJournalRecSearch"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                        xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dataGrid:OsGrid IsReadOnly="True" FilteredItemsSource="{Binding SelectedMainRow.SubDetailList,Mode=TwoWay}" ItemsSource="{Binding SelectedMainRow.SubDetailList,Mode=TwoWay}" OnFilter="DgResults_OnOnFilter"  LoadingRow="DgResults_OnLoadingRow"
+                         x:Name="DgResults" AutoGenerateColumns="False" TabNavigation="Cycle" ClipboardCopyMode="IncludeHeader" SelectionMode="Single">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Binding="{Binding Code}" SortMemberPath="Code">
+                </sdk:DataGridTextColumn>           
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Date, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Date, StringFormat=\{0:d\}}">
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Transaction, Source={StaticResource LocalizedStrings}}" Binding="{Binding AxTransaction}">
+                </sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </dataGrid:OsGrid>
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding ElementName=DgResults,Path=SelectedItem
+            ,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+                Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right"
+                Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

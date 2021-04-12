@@ -1,0 +1,46 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.OGView.SearchChildWindows.SearchEventNoChildWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+           xmlns:datagridExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+           xmlns:converters="clr-namespace:CCWFM.Helpers.Converters"
+           Width="750" Height="500" 
+           Title="SearchEventNoChildWindow">
+    <controls:ChildWindow.Resources>
+        <converters:SelectedItemToIsEnabledConverter x:Key="NullToBoolConverted" />
+    </controls:ChildWindow.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dataGrid:OsGrid  Name="MainGrid" IsReadOnly="True"
+                         FilteredItemsSource="{Binding DetailList,Mode=TwoWay}"
+                         ItemsSource="{Binding DetailList,Mode=TwoWay}"
+                          Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+                         VerticalContentAlignment="Stretch" AllowDrop="True"
+                         MaxHeight="300"
+                         LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter" >
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Binding="{Binding Path=EVENTNO}" 
+                                       Header="Code" Width="*" />
+                <sdk:DataGridTextColumn  Binding="{Binding Path=DATEFROM}"
+                                     Header="Fromdate" Width="*" />
+                <sdk:DataGridTextColumn Binding="{Binding Path=DATETO}" 
+                                        Header="ToDate" Width="*" />
+            </sdk:DataGrid.Columns>
+            <i:Interaction.Behaviors>
+                <datagridExtenders:ScrollIntoViewBehavior />
+            </i:Interaction.Behaviors>
+        </dataGrid:OsGrid>
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding ElementName=MainGrid,Path=SelectedItem
+            ,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+                Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right"
+                Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

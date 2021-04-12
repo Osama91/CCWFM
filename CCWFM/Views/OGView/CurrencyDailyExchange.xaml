@@ -1,0 +1,101 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.CurrencyDailyExchange"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 xmlns:ogViewModels="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 Title="Currency Daily Exchange Page"
+				 d:DesignHeight="480"
+				 d:DesignWidth="640"
+				 mc:Ignorable="d">
+	<navigation:Page.Resources>
+		<ogViewModels:CurrencyDailyExchangeViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+			<RowDefinition />
+
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="BtnGenerate"
+						  HorizontalAlignment="Stretch"
+						  VerticalAlignment="Stretch"
+					Click="BtnGenerate_Checked"
+						  
+						  Cursor="Hand"
+					Content="Generate"
+						ToolTipService.ToolTip="Generate"></Button>		   						
+		</StackPanel>
+		<Grid Grid.Row="1" BindingValidationError="FrameworkElement_OnBindingValidationError">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+		
+			</Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding Year,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="0"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"                        
+					                     
+					  Text="{Binding SelectedMainRow.Year, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+					   />
+			<TextBlock Grid.Row="0"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Currency,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="0"
+					 Grid.Column="3"
+					 MinHeight="30"
+					 Margin="5"
+					 VerticalAlignment="Center"						
+					 DisplayMemberPath="Ename"                     					  
+					  ItemsSource="{Binding CurrencyList,Mode=TwoWay}"
+					  SelectedValue="{Binding SelectedMainRow.TblCurrency,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+		</Grid>
+		<sdk:DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" SelectionMode="Extended"
+				   x:Name="DetailGrid" Height="250"	Grid.Row="2"   
+				   ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}" 					  
+				   KeyUp="DetailGrid_KeyUp" RowEditEnded="DetailGrid_OnRowEditEnded"
+				   SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" >
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding DocDate,Mode=TwoWay}" IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Date, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding ExchRate,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ExchRate, Source={StaticResource LocalizedStrings}}" Width="*" />
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+		<sdk:ValidationSummary Grid.Row="3"></sdk:ValidationSummary>
+
+		
+
+	</Grid>
+</navigation:Page>

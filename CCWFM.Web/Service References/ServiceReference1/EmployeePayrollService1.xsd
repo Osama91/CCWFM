@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" />
+  <xs:element name="InsertEmpVacation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="vacations" nillable="true" type="q1:ArrayOfTblVacation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpVacationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpVacation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpVacationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVariableTerm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="row" nillable="true" type="q2:TblVariableTermManual" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="oldRow" nillable="true" type="q3:TblVariableTermManual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVariableTermResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteVariableTerm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteVariableTermResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpExcuse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FromTime" type="xs:int" />
+        <xs:element minOccurs="0" name="ToTime" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpExcuseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpExcuse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="excuses" nillable="true" type="q4:ArrayOfTblExcuse" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="OldExcuses" nillable="true" type="q5:ArrayOfTblExcuse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpExcuseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpMission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FromTime" type="xs:int" />
+        <xs:element minOccurs="0" name="ToTime" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpMissionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpMission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="missions" nillable="true" type="q6:ArrayOfTblMission" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="OldMission" nillable="true" type="q7:ArrayOfTblMission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpMissionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAttFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAttFileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertAttFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="AttendanceFile" nillable="true" type="q8:ArrayOfTblAttendanceFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertAttFileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpCalendarDeviationNoExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpCalendarDeviationNoExistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpMissionNoExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpMissionNoExistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpAttNoExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpAttNoExistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpExcuseNoExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpExcuseNoExistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpVacationNoExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpVacationNoExistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpCalendarDeviation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" minOccurs="0" name="employeeShifts" nillable="true" type="q9:ArrayOfTblEmployeeShift" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertEmpCalendarDeviationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpCalendarDeviation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="calen" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpCalendarDeviationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

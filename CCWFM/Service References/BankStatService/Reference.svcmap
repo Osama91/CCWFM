@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a847dca7-8b07-46b3-a781-f499cebb54c8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="CCWFM.Models" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/BankStatOp/BankStatService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BankStatService.disco" MetadataType="Disco" ID="b752649e-0664-4a53-b7b7-ece8f84f7017" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?disco" />
+    <MetadataFile FileName="BankStatService8.xsd" MetadataType="Schema" ID="03858acf-c2cb-4e58-9cde-583a2cb17474" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd8" />
+    <MetadataFile FileName="BankStatService.wsdl" MetadataType="Wsdl" ID="af5a88be-7535-42de-a295-531ebfe5ae7d" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?wsdl" />
+    <MetadataFile FileName="BankStatService1.wsdl" MetadataType="Wsdl" ID="e72c5cfa-098c-4f87-8829-ef2cc253e0af" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="BankStatService.xsd" MetadataType="Schema" ID="337e68d6-fe3a-44c4-9756-67a88ace38a9" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BankStatService1.xsd" MetadataType="Schema" ID="e951114f-5ec8-4ff4-9bb5-abb21aa73386" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BankStatService2.xsd" MetadataType="Schema" ID="2fceafe8-45f4-4ba4-82c9-249dc25655cd" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BankStatService3.xsd" MetadataType="Schema" ID="06a2911e-f28b-406f-bdae-dd1baeab61dd" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BankStatService4.xsd" MetadataType="Schema" ID="dd1ca321-f19c-4c8a-acb9-a923a3139f8b" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd7" />
+    <MetadataFile FileName="BankStatService5.xsd" MetadataType="Schema" ID="0d7fdec1-8781-4768-9160-b564823f48a9" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd6" />
+    <MetadataFile FileName="BankStatService6.xsd" MetadataType="Schema" ID="5af9760d-c38c-4197-ba3a-0a65939abd3b" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BankStatService7.xsd" MetadataType="Schema" ID="afc61688-eaf3-44d4-b3d4-c7a1c5307f28" SourceId="1" SourceUrl="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

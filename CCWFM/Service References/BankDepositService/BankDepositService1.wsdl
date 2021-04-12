@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.BankDepositOp" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankDepositOp/BankDepositService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BankDepositService_GetCashDepositHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositHeaderByIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositHeaderByIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositHeaderByIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositHeaderByIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_SendApproveMail_InputMessage">
+    <wsdl:part name="parameters" element="SendApproveMail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_SendApproveMail_OutputMessage">
+    <wsdl:part name="parameters" element="SendApproveMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositAmountDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositAmountDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositAmountDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositAmountDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositAmountDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositAmountDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositAmountDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositAmountDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositDetails" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertCashDepositDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCashDepositDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteCashDepositDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteCashDepositDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteCashDepositDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteCashDepositDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetMachineId_InputMessage">
+    <wsdl:part name="parameters" element="GetMachineId" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetMachineId_OutputMessage">
+    <wsdl:part name="parameters" element="GetMachineIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetPremiumBankIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetPremiumBankIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetPremiumBankIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetPremiumBankIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetPremium2030BankIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetPremium2030BankIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetPremium2030BankIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetPremium2030BankIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetTFKDiscountBankIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetTFKDiscountBankIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetTFKDiscountBankIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetTFKDiscountBankIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositSetting" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetCashDepositSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpCashDepositType_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCashDepositType" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpCashDepositType_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCashDepositTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpBank_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBank" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpBank_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpStore_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpStore" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpStore_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpTenderTypes_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpTenderTypes" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetLookUpTenderTypes_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpTenderTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetSalaryApprovalHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryApprovalHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetSalaryApprovalHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryApprovalHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertSalaryApprovalHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertSalaryApprovalHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertSalaryApprovalHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertSalaryApprovalHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetSalaryApprovalDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryApprovalDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetSalaryApprovalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryApprovalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertSalaryApprovalDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertSalaryApprovalDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertSalaryApprovalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertSalaryApprovalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteSalaryApprovalDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSalaryApprovalDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteSalaryApprovalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSalaryApprovalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_ImportSalaryApproval_InputMessage">
+    <wsdl:part name="parameters" element="ImportSalaryApproval" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_ImportSalaryApproval_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSalaryApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetStoreCommission_InputMessage">
+    <wsdl:part name="parameters" element="GetStoreCommission" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetStoreCommission_OutputMessage">
+    <wsdl:part name="parameters" element="GetStoreCommissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertStoreCommission_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertStoreCommission" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertStoreCommission_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertStoreCommissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="GetVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="GetVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_UpdateOrInsertVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="DeleteVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_DeleteVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BankDepositService">
+    <wsdl:operation name="GetCashDepositHeader">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetCashDepositHeader" message="BankDepositService_GetCashDepositHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetCashDepositHeaderResponse" message="BankDepositService_GetCashDepositHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDepositHeaderByIserial">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetCashDepositHeaderByIserial" message="BankDepositService_GetCashDepositHeaderByIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetCashDepositHeaderByIserialResponse" message="BankDepositService_GetCashDepositHeaderByIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertCashDepositHeader">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositHeader" message="BankDepositService_UpdateOrInsertCashDepositHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositHeaderResponse" message="BankDepositService_UpdateOrInsertCashDepositHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendApproveMail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/SendApproveMail" message="BankDepositService_SendApproveMail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/SendApproveMailResponse" message="BankDepositService_SendApproveMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDepositAmountDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetCashDepositAmountDetail" message="BankDepositService_GetCashDepositAmountDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetCashDepositAmountDetailResponse" message="BankDepositService_GetCashDepositAmountDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertCashDepositAmountDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositAmountDetail" message="BankDepositService_UpdateOrInsertCashDepositAmountDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositAmountDetailResponse" message="BankDepositService_UpdateOrInsertCashDepositAmountDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDepositDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetCashDepositDetail" message="BankDepositService_GetCashDepositDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetCashDepositDetailResponse" message="BankDepositService_GetCashDepositDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertCashDepositDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositDetail" message="BankDepositService_UpdateOrInsertCashDepositDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositDetailResponse" message="BankDepositService_UpdateOrInsertCashDepositDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertCashDepositDetails">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositDetails" message="BankDepositService_UpdateOrInsertCashDepositDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertCashDepositDetailsResponse" message="BankDepositService_UpdateOrInsertCashDepositDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashDepositDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/DeleteCashDepositDetail" message="BankDepositService_DeleteCashDepositDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/DeleteCashDepositDetailResponse" message="BankDepositService_DeleteCashDepositDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineId">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetMachineId" message="BankDepositService_GetMachineId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetMachineIdResponse" message="BankDepositService_GetMachineId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPremiumBankIserial">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetPremiumBankIserial" message="BankDepositService_GetPremiumBankIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetPremiumBankIserialResponse" message="BankDepositService_GetPremiumBankIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPremium2030BankIserial">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetPremium2030BankIserial" message="BankDepositService_GetPremium2030BankIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetPremium2030BankIserialResponse" message="BankDepositService_GetPremium2030BankIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTFKDiscountBankIserial">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetTFKDiscountBankIserial" message="BankDepositService_GetTFKDiscountBankIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetTFKDiscountBankIserialResponse" message="BankDepositService_GetTFKDiscountBankIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDepositSetting">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetCashDepositSetting" message="BankDepositService_GetCashDepositSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetCashDepositSettingResponse" message="BankDepositService_GetCashDepositSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:BankDepositService/DoWork" message="BankDepositService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/DoWorkResponse" message="BankDepositService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpCashDepositType">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetLookUpCashDepositType" message="BankDepositService_GetLookUpCashDepositType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetLookUpCashDepositTypeResponse" message="BankDepositService_GetLookUpCashDepositType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpBank">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetLookUpBank" message="BankDepositService_GetLookUpBank_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetLookUpBankResponse" message="BankDepositService_GetLookUpBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpStore">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetLookUpStore" message="BankDepositService_GetLookUpStore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetLookUpStoreResponse" message="BankDepositService_GetLookUpStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpTenderTypes">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetLookUpTenderTypes" message="BankDepositService_GetLookUpTenderTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetLookUpTenderTypesResponse" message="BankDepositService_GetLookUpTenderTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryApprovalHeader">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetSalaryApprovalHeader" message="BankDepositService_GetSalaryApprovalHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetSalaryApprovalHeaderResponse" message="BankDepositService_GetSalaryApprovalHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertSalaryApprovalHeader">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertSalaryApprovalHeader" message="BankDepositService_UpdateOrInsertSalaryApprovalHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertSalaryApprovalHeaderResponse" message="BankDepositService_UpdateOrInsertSalaryApprovalHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryApprovalDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetSalaryApprovalDetail" message="BankDepositService_GetSalaryApprovalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetSalaryApprovalDetailResponse" message="BankDepositService_GetSalaryApprovalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertSalaryApprovalDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertSalaryApprovalDetail" message="BankDepositService_UpdateOrInsertSalaryApprovalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertSalaryApprovalDetailResponse" message="BankDepositService_UpdateOrInsertSalaryApprovalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalaryApprovalDetail">
+      <wsdl:input wsaw:Action="urn:BankDepositService/DeleteSalaryApprovalDetail" message="BankDepositService_DeleteSalaryApprovalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/DeleteSalaryApprovalDetailResponse" message="BankDepositService_DeleteSalaryApprovalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSalaryApproval">
+      <wsdl:input wsaw:Action="urn:BankDepositService/ImportSalaryApproval" message="BankDepositService_ImportSalaryApproval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/ImportSalaryApprovalResponse" message="BankDepositService_ImportSalaryApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreCommission">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetStoreCommission" message="BankDepositService_GetStoreCommission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetStoreCommissionResponse" message="BankDepositService_GetStoreCommission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertStoreCommission">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertStoreCommission" message="BankDepositService_UpdateOrInsertStoreCommission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertStoreCommissionResponse" message="BankDepositService_UpdateOrInsertStoreCommission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisaMachine">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetVisaMachine" message="BankDepositService_GetVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetVisaMachineResponse" message="BankDepositService_GetVisaMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertVisaMachine">
+      <wsdl:input wsaw:Action="urn:BankDepositService/UpdateOrInsertVisaMachine" message="BankDepositService_UpdateOrInsertVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/UpdateOrInsertVisaMachineResponse" message="BankDepositService_UpdateOrInsertVisaMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVisaMachine">
+      <wsdl:input wsaw:Action="urn:BankDepositService/DeleteVisaMachine" message="BankDepositService_DeleteVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/DeleteVisaMachineResponse" message="BankDepositService_DeleteVisaMachine_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

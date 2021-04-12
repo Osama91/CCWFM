@@ -1,0 +1,1123 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.AdvanceSampleRequestChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+									   xmlns:converters="clr-namespace:CCWFM.Helpers.Converters"
+		   xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+		   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		   xmlns:globalExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders"
+		   xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+		   Height="600"
+		   Title="Advanced SampleRequest">
+	<controls:ChildWindow.Resources>
+
+		<converters:IntToEnabledConvertor x:Key="IntToEnabledConvertor" />
+	</controls:ChildWindow.Resources>
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width=".80*" />
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="BtnAddNewMainRow"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="BtnAddNewMainRow_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Add">
+				<Image Width="30"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnSave"
+					Click="BtnSave_Onclick"
+					Content="Save" />
+			<Button Name="BtnExportExcel"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="ExportExcel_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnPrintPreviewOrder"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="btnPrintPreviewOrder_Click"
+					ToolTipService.ToolTip="Print">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1372257722_MB__print.png"
+					   Stretch="Uniform" />
+			</Button>
+		</StackPanel>
+		<sdk:TabControl Name="TabStyle" Grid.Row="1"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Top"
+							SelectionChanged="TabStyle_SelectionChanged">
+
+			<sdk:TabItem Name="TabRfqItem"
+							 Header="{Binding AdvancedSampleRequest,
+											  Source={StaticResource LocalizedStrings}}"
+							 IsEnabled="{Binding SelectedMainRow.Iserial,
+												 Converter={StaticResource IntToEnabledConvertor}}"
+							 Tag="NotStyle">
+				<StackPanel Orientation="Vertical">
+					<dataGrid:OsGrid Name="DetailGrid"
+										 MaxHeight="300"
+										 Margin="10,36,10,0"
+										 HorizontalContentAlignment="Stretch"
+										 VerticalContentAlignment="Stretch"
+										 AutoGenerateColumns="False"
+										 FilteredItemsSource="{Binding SelectedMainRow.DetailsList,
+																	   Mode=TwoWay}"
+										 ItemsSource="{Binding SelectedMainRow.DetailsList,
+															   Mode=TwoWay}"
+										 KeyUp="DetailGrid_OnKeyUp"
+										 LoadingRow="DetailGrid_LoadingRow"
+										 OnFilter="DetailGrid_OnFilter"
+										 RowEditEnded="DetailGrid_OnRowEditEnded"
+										 SelectedItem="{Binding SelectedDetailRow,
+																Mode=TwoWay}"
+										 SelectionMode="Single">
+						<dataGrid:OsGrid.Columns>
+							<sdk:DataGridTextColumn Width="SizeToHeader"
+														Binding="{Binding Path=SalesOrderCode,
+																		  Mode=TwoWay}"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalesOrderCode,
+																											  Source={StaticResource LocalizedStrings}}" />
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="TblSupplier"
+															utilities:GlobalMethods.PathForExport="SupplierPerRow.Ename"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Supplier,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<search:SearchSupplier SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<search:SearchSupplier IsEnabled="False" SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															CanUserSort="False"
+															SortMemberPath="AxTermOfPaymentCode"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TermOfPayment,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding AxTermOfPaymentCode,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMTERMID"
+													  ItemsSource="{Binding Path=DataContext.PaymTerm,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedValue="{Binding AxTermOfPaymentCode,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="PAYMTERMID">
+											<ComboBox.ItemsPanel>
+												<ItemsPanelTemplate>
+													<VirtualizingStackPanel />
+												</ItemsPanelTemplate>
+											</ComboBox.ItemsPanel>
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															CanUserSort="False"
+															SortMemberPath="AxMethodOfPaymentCode"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MethodOfPayment,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding AxMethodOfPaymentCode,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMMODE"
+													  ItemsSource="{Binding Path=DataContext.VendPayModeList,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedValue="{Binding AxMethodOfPaymentCode,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="PAYMMODE">
+											<ComboBox.ItemsPanel>
+												<ItemsPanelTemplate>
+													<VirtualizingStackPanel />
+												</ItemsPanelTemplate>
+											</ComboBox.ItemsPanel>
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="ShippingDate"
+															utilities:GlobalMethods.FormatForExport="Date"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ShippingDate,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Path=ShippingDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<sdk:DatePicker SelectedDate="{Binding Path=ShippingDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="DeliveryDate"
+															utilities:GlobalMethods.FormatForExport="Date"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Path=DeliveryDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<sdk:DatePicker SelectedDate="{Binding Path=DeliveryDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridCheckBoxColumn Width="SizeToHeader"
+															Binding="{Binding Path=IsPlannedOrder,
+																			  Mode=TwoWay,
+																			  UpdateSourceTrigger=PropertyChanged}"
+															SortMemberPath="IsPlannedOrder"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding IsPlannedOrder,
+																												  Source={StaticResource LocalizedStrings}}" />
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															CanUserSort="False"
+															SortMemberPath="DeliveryDate"
+															utilities:GlobalMethods.IsExported="False"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Print,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Image Name="BtnPrintSalesOrder"
+													Visibility="{Binding Iserial,
+																			   Converter={StaticResource VisibilityConverter}}"
+												   HorizontalAlignment="Stretch"
+												   VerticalAlignment="Stretch"
+												   MouseLeftButtonDown="BtnPrintSalesOrder_OnMouseLeftButtonDown"
+												   Source="/CCWFM;component/Images/1372257722_MB__print.png"
+												   Stretch="Uniform" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="Status"
+															utilities:GlobalMethods.IsExported="False"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Status,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  x:Name="CmbStatus"
+													  SelectedIndex="{Binding Status,
+																			  Mode=TwoWay}">
+											<ComboBox.Items>
+												<ComboBoxItem Content="Pending" />
+												<ComboBoxItem Content="Opened" />
+												<ComboBoxItem Content="Closed" />
+											</ComboBox.Items>
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															CanUserSort="False"
+															SortMemberPath="Iserial"
+															utilities:GlobalMethods.IsExported="False"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Colors,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Button x:Name="btnColors"
+													HorizontalAlignment="Stretch"
+													 Visibility="{Binding Iserial,
+																			   Converter={StaticResource VisibilityConverter}}"
+													VerticalAlignment="Stretch"
+													Click="BtnColors_OnClick">
+											<Image Width="30"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/Colors.png"
+					   Stretch="Uniform" />
+										</Button>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															CanUserSort="False"
+															SortMemberPath="DeliveryDate"
+															utilities:GlobalMethods.IsExported="False"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding GenerateSalesOrder,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Button x:Name="btnGenerateSalesOrder" Click="BtnGenerateSalesOrder_OnClick" Content="GenerateSalesOrder" 	Visibility="{Binding Iserial,
+																			   Converter={StaticResource VisibilityConverter}}"></Button>
+										
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+
+
+						</dataGrid:OsGrid.Columns>
+					</dataGrid:OsGrid>
+				</StackPanel>
+			</sdk:TabItem>
+
+			<sdk:TabItem Name="TabSalesOrderOperationsItem"
+							 Header="{Binding Operations,
+											  Source={StaticResource LocalizedStrings}}"
+							 IsEnabled="{Binding SelectedDetailRow.Iserial,
+												 Converter={StaticResource IntToEnabledConvertor}}"
+							 Tag="NotStyle">
+				<StackPanel Orientation="Horizontal">
+					<dataGrid:OsGrid Name="SalesOrderOperationGrid"
+									  Height="300" RowDetailsVisibilityMode="Visible"
+									  Margin="10,36,10,0"
+										 HorizontalScrollBarVisibility="Visible"
+										 VerticalScrollBarVisibility="Visible"
+									  HorizontalContentAlignment="Stretch"
+									  VerticalContentAlignment="Stretch"
+									  AutoGenerateColumns="False"
+									  RowEditEnded="SalesOrderOperationGrid_OnRowEditEnded"
+									  ItemsSource="{Binding SelectedDetailRow.SalesOrderOperationList,
+															Mode=TwoWay}"
+									  KeyUp="SalesOrderOperationGrid_OnKeyUp"
+									  SelectedItem="{Binding SelectedSalesOrderOperation,
+															 Mode=TwoWay}">
+
+						<sdk:DataGrid.RowDetailsTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Vertical">
+									<Button Name="btnAddnewOperationDetail" Height="30"  Width="30"
+					HorizontalAlignment="Left" 
+					VerticalAlignment="Top"
+					Click="BtnAddnewOperationDetail_OnClick"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Add" >
+										<Image Width="30"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+									</Button>
+
+
+									<ItemsControl ItemsSource="{Binding TblSalesOrderOperationDetailList,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+										<ItemsControl.ItemsPanel>
+											<ItemsPanelTemplate>
+												<StackPanel HorizontalAlignment="Stretch" Orientation="Vertical">
+												</StackPanel>
+											</ItemsPanelTemplate>
+										</ItemsControl.ItemsPanel>
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<StackPanel Orientation="Horizontal">
+													<ComboBox Height="23" Width="80" FontSize="8"
+																	  HorizontalAlignment="Stretch" VerticalAlignment="Center"																	  
+																	  DisplayMemberPath="Code"
+																	  ItemsSource="{Binding Path=DataContext.ColorList,UpdateSourceTrigger=PropertyChanged,
+																							RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"
+																	  SelectedValue="{Binding TblColor,Mode=TwoWay}" SelectedItem="{Binding TblColor1,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial" />
+
+													<Image Name="btnDeleteSalesOrderOperationDetail"
+																	   Width="15"
+																	   MouseLeftButtonDown="BtnDeleteSalesOrderOperationDetail_OnMouseLeftButtonDown"
+																	   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+																	   Stretch="Uniform" />
+
+												</StackPanel>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGrid.RowDetailsTemplate>
+						<sdk:DataGrid.Columns>
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="TblOperation"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Operations,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox Width="120"
+													  Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Left"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="Code"
+													  ItemsSource="{Binding Path=DataContext.RouteGroupList,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedItem="{Binding RouteGroupPerRow,
+																			 Mode=TwoWay}"
+													  SelectedValue="{Binding TblOperation,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="Iserial">
+											<ComboBox.ItemsPanel>
+												<ItemsPanelTemplate>
+													<VirtualizingStackPanel />
+												</ItemsPanelTemplate>
+											</ComboBox.ItemsPanel>
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding RouteGroupPerRow.Code, Mode=TwoWay}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTextColumn Width="*"
+														Binding="{Binding Path=OprCost,
+																		  Mode=TwoWay}"
+														Header="Opr Cost" />
+							<sdk:DataGridTextColumn Width="*"
+														Binding="{Binding Path=RowIndex,
+																		  Mode=TwoWay}"
+														Header="RowIndex" />
+						</sdk:DataGrid.Columns>
+					</dataGrid:OsGrid>
+				</StackPanel>
+			</sdk:TabItem>
+			<sdk:TabItem>
+				<sdk:TabItem.HeaderTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding RequestForSampleEvents, Source={StaticResource LocalizedStrings}}" />
+					</DataTemplate>
+				</sdk:TabItem.HeaderTemplate>
+				<dataGrid:OsGrid AutoGenerateColumns="False"   HorizontalAlignment="Left" SelectionMode="Extended" x:Name="SubEventGrid" 
+				   ItemsSource="{Binding SelectedDetailRow.SubEventList,Mode=TwoWay}" Margin="0,0,10,0" 
+				   KeyUp="SubEventGrid_KeyUp"  VerticalAlignment="Stretch" Height="280" 
+				   SelectedItem="{Binding SelectedRequestForSampleEvent,Mode=TwoWay}"  BeginningEdit="SubEventGrid_OnBeginningEdit"
+				   RowEditEnded="SubEventGrid_RowEditEnded">
+					<sdk:DataGrid.Columns>
+						<sdk:DataGridTemplateColumn  SortMemberPath="TblRequestForSampleStatus" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Status, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Path=RequestForSampleStatusPerRow.Ename}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+							<sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<DataTemplate>
+									<ComboBox  SelectedValue="{Binding TblRequestForSampleStatus,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang},ConverterParameter=Ename;Aname}" SelectedItem="{Binding RequestForSampleStatusPerRow,Mode=TwoWay}"
+											Height="23" HorizontalAlignment="Stretch" Margin="3"  VerticalAlignment="Center" SelectedValuePath="Iserial"
+											ItemsSource="{Binding  Path=DataContext.RequestForSampleStatusList, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ChildWindow, AncestorLevel=1}}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn SortMemberPath="TblAuthUser.Ename" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CreatedBy, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock HorizontalAlignment="Stretch" Text="{Binding Path=UserPerRow.Ename}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+							<!--<sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<DataTemplate>
+									<ComboBox  SelectedValue="{Binding ApprovedBy,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang},ConverterParameter=Ename;Aname}" SelectedItem="{Binding UserPerRow,Mode=TwoWay}"
+											Height="23" HorizontalAlignment="Stretch" Margin="3"  VerticalAlignment="Center" SelectedValuePath="Iserial"
+											ItemsSource="{Binding  Path=DataContext.UsersList, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ChildWindow, AncestorLevel=1}}"/>
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellEditingTemplate>-->
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTextColumn   Binding="{Binding Path=Notes,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Notes, Source={StaticResource LocalizedStrings}}" Width="*" />
+						<sdk:DataGridTemplateColumn SortMemberPath="RequestDate" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding RequestDate, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader">
+							<sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<DataTemplate>
+									<controls:DatePicker SelectedDate="{Binding Path=RequestDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Path=RequestDate, StringFormat=\{0:d\}}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn SortMemberPath="DeliveryDate" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader">
+							<sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<DataTemplate>
+									<controls:DatePicker SelectedDate="{Binding Path=DeliveryDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Path=DeliveryDate, StringFormat=\{0:d\}}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn Width="SizeToHeader" Header="Route">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding RoutePerRow.RouteGroupPerRow.Code}"></TextBlock>
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+							<sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<DataTemplate>
+									<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="RouteGroupPerRow.Code"
+													  ItemsSource="{Binding Path=DataContext.SelectedDetailRow.SalesOrderOperationList,
+																			Mode=TwoWay,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedValue="{Binding TblRouteGroup,
+																			  Mode=TwoWay}"
+													  SelectedItem="{Binding RoutePerRow,Mode=TwoWay}"
+													  SelectedValuePath="TblOperation">
+									</ComboBox>
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn SortMemberPath="Iserial"  CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SendMail, Source={StaticResource LocalizedStrings}}">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<Image  Visibility="{Binding Iserial,Converter={StaticResource VisibilityConverter}}" x:Name="BtnSendMailSample" MouseLeftButtonDown="BtnSendMailSample_OnMouseLeftButtonDown" Source="/CCWFM;component/Images/SendMail.png" 
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+
+					</sdk:DataGrid.Columns>
+				</dataGrid:OsGrid>
+			</sdk:TabItem>
+			<sdk:TabItem Name="TabBomItem"
+							 Header="{Binding Bom,
+											  Source={StaticResource LocalizedStrings}}"
+							 IsEnabled="{Binding SelectedDetailRow.Iserial,
+												 Converter={StaticResource IntToEnabledConvertor}}"
+							 Tag="NotStyle">
+				<StackPanel Orientation="Vertical">
+					<sdk:Label Margin="3"
+								   HorizontalAlignment="Left"
+								   VerticalAlignment="Center"
+								   Content="{Binding FactoryGroup,
+													 Source={StaticResource LocalizedStrings}}" />
+					<ComboBox Width="160"
+								  Height="23"
+								  Margin="3"
+								  HorizontalAlignment="Left"
+								  VerticalAlignment="Center"
+								  DisplayMemberPath="Ename"
+								  ItemsSource="{Binding Path=DataContext.FactoryGroupList,
+														RelativeSource={RelativeSource FindAncestor,
+																					   AncestorType=sdk:ChildWindow,
+																					   AncestorLevel=1}}"
+								  SelectedValue="{Binding Path=DataContext.SelectedDetailRow.TblFactoryGroup,
+														  Mode=TwoWay,
+														  RelativeSource={RelativeSource FindAncestor,
+																						 AncestorType=sdk:ChildWindow,
+																						 AncestorLevel=1}}"
+								  SelectedValuePath="Iserial">
+						<ComboBox.ItemsPanel>
+							<ItemsPanelTemplate>
+								<VirtualizingStackPanel />
+							</ItemsPanelTemplate>
+						</ComboBox.ItemsPanel>
+					</ComboBox>
+
+					<Button x:Name="BtnGenerateFromStandard" Width="150" HorizontalAlignment="Left"
+								Click="BtnGenerateFromStandard_OnClick"
+								Content="{Binding GenerateFromStandard,
+												  Source={StaticResource LocalizedStrings}}" />
+					<dataGrid:OsGrid Name="BomGrid" 
+									  Height="300" RowHeight="60"
+									  Margin="10,36,10,0"
+									  HorizontalContentAlignment="Stretch"
+									  VerticalContentAlignment="Stretch"
+										 HorizontalScrollBarVisibility="Visible"
+										 VerticalScrollBarVisibility="Visible"
+									  AutoGenerateColumns="False"
+										 RowEditEnded="BomGrid_OnRowEditEnded"
+									  ItemsSource="{Binding SelectedDetailRow.BomList,
+															Mode=TwoWay}"
+									  KeyUp="BomGrid_OnKeyUp"
+									  SelectedItem="{Binding SelectedBomRow,
+															 Mode=TwoWay}"
+									  SelectionChanged="BomGrid_OnSelectionChanged">
+
+						<sdk:DataGrid.Columns>
+						   
+							<sdk:DataGridTemplateColumn Width="150"
+															Header="Fabric"
+															SortMemberPath="BOM_Fabric">
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+											<CheckBox Content="Local" IsChecked="{Binding Path=BOM_IsLocalProduction,Mode=TwoWay}" />
+
+											<CheckBox Content="Dyed" IsChecked="{Binding Path=Dyed,Mode=TwoWay}" />
+											<CheckBox Content="M Fabric"
+														  IsChecked="{Binding Path=BOM_IsMainFabric,Mode=TwoWay}"
+														  IsEnabled="False"
+														  Visibility="{Binding IsAcc,
+																			   Converter={StaticResource VisibilityConverter},
+																			   ConverterParameter=True}" />
+										</StackPanel>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<TextBlock  Text="{Binding ItemPerRow.Code}" />
+											<CheckBox Content="Local" IsEnabled="False"
+														  IsChecked="{Binding Path=BOM_IsLocalProduction,Mode=TwoWay}" />
+											<CheckBox Content="Dyed"  IsEnabled="False" IsChecked="{Binding Path=Dyed,Mode=TwoWay}" />
+											<CheckBox Content="M Fabric"
+														  IsChecked="{Binding Path=BOM_IsMainFabric,
+																			  Mode=TwoWay}"
+														  IsEnabled="False"
+														  Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter},ConverterParameter=True}" />
+										</StackPanel>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn Width="SizeToHeader" Header="Route">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding RoutePerRow.RouteGroupPerRow.Code}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="RouteGroupPerRow.Code"
+													  ItemsSource="{Binding Path=DataContext.SelectedDetailRow.SalesOrderOperationList,
+																			Mode=TwoWay,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedValue="{Binding BOM_FabricRout,
+																			  Mode=TwoWay}"
+													  SelectedItem="{Binding RoutePerRow,Mode=TwoWay}"
+													  SelectedValuePath="TblOperation">
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTextColumn Width="SizeToHeader" IsReadOnly="True"
+														Binding="{Binding Path=BOM_FabricType,Mode=TwoWay}"
+														Header="Type" />
+							<sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="BOM_Notes"
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Notes,
+																												  Source={StaticResource LocalizedStrings}}">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Path=BOM_Notes, Mode=TwoWay}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<utilities:SafeTextbox Text="{Binding Path=BOM_Notes, Mode=TwoWay}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn Width="SizeToHeader" Header="Calc Method">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding BOM_CalcMethodPerRow.Ename,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox Height="23"
+													  Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="Ename"
+													  SelectedItem="{Binding BOM_CalcMethodPerRow,Mode=TwoWay}"
+													  ItemsSource="{Binding Path=DataContext.BomCalcMethodList,
+																			Mode=TwoWay,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:ChildWindow,
+																										   AncestorLevel=1}}"
+													  SelectedValue="{Binding CalcMethod,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="Iserial">
+											<ComboBox.ItemsPanel>
+												<ItemsPanelTemplate>
+													<VirtualizingStackPanel />
+												</ItemsPanelTemplate>
+											</ComboBox.ItemsPanel>
+										</ComboBox>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTextColumn Width="SizeToHeader" IsReadOnly="True"
+														Binding="{Binding Path=Unit,
+																		  Mode=TwoWay}"
+														Header="Unit" />
+							<sdk:DataGridTemplateColumn SortMemberPath="Colors" Header="Colors">
+								<sdk:DataGridTemplateColumn.HeaderStyle>
+									<Style TargetType="sdk:DataGridColumnHeader">
+										<Setter Property="ContentTemplate">
+											<Setter.Value>
+												<DataTemplate>
+													<ItemsControl HorizontalAlignment="Stretch"
+																	  Background="CornflowerBlue"
+																	  ItemsSource="{Binding Mode=TwoWay,
+																							Path=DataContext.SelectedDetailRow.SalesOrderColorList,
+																							RelativeSource={RelativeSource FindAncestor,
+																														   AncestorType=sdk:ChildWindow,
+																														   AncestorLevel=1}}">
+														<ItemsControl.ItemsPanel>
+															<ItemsPanelTemplate>
+																<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+															</ItemsPanelTemplate>
+														</ItemsControl.ItemsPanel>
+														<ItemsControl.ItemTemplate>
+															<DataTemplate>
+																<TextBlock Width="80"
+																			   HorizontalAlignment="Stretch"
+																			   FontWeight="Bold"
+																			   Padding="5"
+																			   Text="{Binding ColorPerRow.Code}"
+																			   TextAlignment="Center" />
+															</DataTemplate>
+														</ItemsControl.ItemTemplate>
+													</ItemsControl>
+												</DataTemplate>
+											</Setter.Value>
+										</Setter>
+										<Setter Property="Background">
+											<Setter.Value>CornflowerBlue</Setter.Value>
+										</Setter>
+									</Style>
+								</sdk:DataGridTemplateColumn.HeaderStyle>
+
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Vertical">
+
+
+
+											<ItemsControl ItemsSource="{Binding BomStyleColors,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+												<ItemsControl.ItemsPanel>
+													<ItemsPanelTemplate>
+														<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+														</StackPanel>
+													</ItemsPanelTemplate>
+												</ItemsControl.ItemsPanel>
+												<ItemsControl.ItemTemplate>
+													<DataTemplate>
+														<TextBlock Width="100" Height="25" Text="{Binding TblColor.Code,Mode=TwoWay}"></TextBlock>
+													</DataTemplate>
+												</ItemsControl.ItemTemplate>
+											</ItemsControl>
+											<ContentControl Visibility="{Binding Dyed,Converter={StaticResource VisibilityConverter}}">
+												<ItemsControl Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}"  ItemsSource="{Binding BomStyleColors,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+													<ItemsControl.ItemsPanel>
+														<ItemsPanelTemplate>
+															<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+															</StackPanel>
+														</ItemsPanelTemplate>
+													</ItemsControl.ItemsPanel>
+													<ItemsControl.ItemTemplate>
+														<DataTemplate>
+															<TextBlock Width="100" Height="25" Text="{Binding TblColor2.Code,Mode=TwoWay}"></TextBlock>
+														</DataTemplate>
+													</ItemsControl.ItemTemplate>
+												</ItemsControl>
+											</ContentControl>
+										</StackPanel>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Vertical">
+											<ItemsControl Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter},
+																						   ConverterParameter=True}"  ItemsSource="{Binding BomStyleColors,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+												<ItemsControl.ItemsPanel>
+													<ItemsPanelTemplate>
+														<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+														</StackPanel>
+													</ItemsPanelTemplate>
+												</ItemsControl.ItemsPanel>
+												<ItemsControl.ItemTemplate>
+													<DataTemplate>
+														<StackPanel Orientation="Horizontal">
+															<ComboBox Height="23" Width="80" FontSize="8"
+																	  HorizontalAlignment="Stretch" VerticalAlignment="Center"																	  
+																	  DisplayMemberPath="Code" SelectionChanged="Bomcolor_OnSelectionChanged"
+																	  ItemsSource="{Binding Path=DataContext.ColorList,UpdateSourceTrigger=PropertyChanged,
+																							RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"
+																	  SelectedValue="{Binding FabricColor,Mode=TwoWay}" SelectedItem="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial" />
+															<Image Name="btnClearColors"
+																	   Width="15"
+																	   MouseLeftButtonDown="btnClearColors_OnMouseLeftButtonDown"
+																	   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+																	   Stretch="Uniform" />
+														</StackPanel>
+													</DataTemplate>
+												</ItemsControl.ItemTemplate>
+											</ItemsControl>
+
+
+											<ItemsControl Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}"  ItemsSource="{Binding BomStyleColors,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+												<ItemsControl.ItemsPanel>
+													<ItemsPanelTemplate>
+														<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+														</StackPanel>
+													</ItemsPanelTemplate>
+												</ItemsControl.ItemsPanel>
+												<ItemsControl.ItemTemplate>
+													<DataTemplate>
+														<StackPanel Orientation="Horizontal">
+															<ComboBox Height="23" Width="80" FontSize="8"
+																	  HorizontalAlignment="Stretch" VerticalAlignment="Center"																	  
+																	  DisplayMemberPath="Code" SelectionChanged="Bomcolor_OnSelectionChanged"
+																	  ItemsSource="{Binding Path=DataContext.ItemPerRow.AccConfigList,
+																							RelativeSource={RelativeSource FindAncestor,
+																														   AncestorType=ItemsControl,
+																														   AncestorLevel=1}}"
+																				
+																	  SelectedValue="{Binding DummyColor,
+																							  Mode=TwoWay}"
+																		  SelectedItem="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial"
+																	></ComboBox>
+
+															<Image Name="btnClearColors"
+																	   Width="15"
+																	   MouseLeftButtonDown="btnClearColors_OnMouseLeftButtonDown"
+																	   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+																	   Stretch="Uniform" />
+														</StackPanel>
+													</DataTemplate>
+												</ItemsControl.ItemTemplate>
+											</ItemsControl>
+
+											<ContentControl Visibility="{Binding Dyed,Converter={StaticResource VisibilityConverter}}">
+												<ItemsControl  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}"  ItemsSource="{Binding BomStyleColors,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+													<ItemsControl.ItemsPanel>
+														<ItemsPanelTemplate>
+															<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+															</StackPanel>
+														</ItemsPanelTemplate>
+													</ItemsControl.ItemsPanel>
+													<ItemsControl.ItemTemplate>
+														<DataTemplate>
+															<StackPanel Orientation="Horizontal"  >
+																<ComboBox Height="23" Width="80" FontSize="8"
+																	  HorizontalAlignment="Stretch" VerticalAlignment="Center"																	  
+																	  DisplayMemberPath="Code" 
+																	  ItemsSource="{Binding Path=DataContext.ColorList,UpdateSourceTrigger=PropertyChanged,
+																							RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:ChildWindow,AncestorLevel=1}}"
+																	  SelectedValue="{Binding DyedColor,Mode=TwoWay}" SelectedItem="{Binding TblColor2,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial" />
+
+																<Image Name="btnClearColors"
+																	   Width="15"
+																	   MouseLeftButtonDown="btnClearColors_OnMouseLeftButtonDown"
+																	   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+																	   Stretch="Uniform" />
+															</StackPanel>
+														</DataTemplate>
+													</ItemsControl.ItemTemplate>
+												</ItemsControl>
+											</ContentControl>
+										</StackPanel>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn Header="SizeRatios">
+								<sdk:DataGridTemplateColumn.HeaderStyle>
+									<Style TargetType="sdk:DataGridColumnHeader">
+										<Setter Property="ContentTemplate">
+											<Setter.Value>
+												<DataTemplate>
+													<ItemsControl Name="IcSizes"
+																	  HorizontalAlignment="Stretch"
+																	  ItemsSource="{Binding Mode=TwoWay,
+																							Path=DataContext.Sizes,
+																							RelativeSource={RelativeSource FindAncestor,
+																														   AncestorType=sdk:ChildWindow,
+																														   AncestorLevel=1}}">
+														<ItemsControl.ItemsPanel>
+															<ItemsPanelTemplate>
+																<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+															</ItemsPanelTemplate>
+														</ItemsControl.ItemsPanel>
+														<ItemsControl.ItemTemplate>
+															<DataTemplate>
+																<TextBlock Width="100" FontSize="8"
+																			   HorizontalAlignment="Stretch"
+																			   FontWeight="Bold"
+																			   Padding="5"
+																			   Text="{Binding SizeCode}"
+																			   TextAlignment="Center" />
+															</DataTemplate>
+														</ItemsControl.ItemTemplate>
+													</ItemsControl>
+												</DataTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</sdk:DataGridTemplateColumn.HeaderStyle>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ItemsControl ItemsSource="{Binding BomSizes, Mode=TwoWay}">
+											<ItemsControl.ItemsPanel>
+												<ItemsPanelTemplate>
+													<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+												</ItemsPanelTemplate>
+											</ItemsControl.ItemsPanel>
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<StackPanel Orientation="Horizontal">
+														<ComboBox Width="50" FontSize="8"
+																	  Height="23"
+																	  Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Center"
+																	  ItemsSource="{Binding Path=DataContext.ItemPerRow.SizesList,
+																							RelativeSource={RelativeSource FindAncestor,
+																														   AncestorType=ItemsControl,
+																														   AncestorLevel=1}}"
+																	  SelectedValue="{Binding FabricSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}" />
+														<utilities:SafeTextbox  HorizontalAlignment="Stretch" Width="50"
+																	 Padding="5" FontSize="8"
+																					  Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}"
+																	 Text="{Binding MaterialUsage,
+																					UpdateSourceTrigger=PropertyChanged,
+																					Mode=TwoWay}"
+																	 TextAlignment="Center" />
+
+														<utilities:SafeTextbox  HorizontalAlignment="Stretch" Width="100"
+																	 Padding="5" FontSize="8"
+																					  Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},ConverterParameter=true,
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}"
+																	 Text="{Binding MaterialUsage,
+																					UpdateSourceTrigger=PropertyChanged,
+																					Mode=TwoWay}"
+																	 TextAlignment="Center" />
+													</StackPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<ItemsControl ItemsSource="{Binding BomSizes, Mode=TwoWay}">
+											<ItemsControl.ItemsPanel>
+												<ItemsPanelTemplate>
+													<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+												</ItemsPanelTemplate>
+											</ItemsControl.ItemsPanel>
+											<ItemsControl.ItemTemplate>
+												<DataTemplate>
+													<StackPanel Width="100" Orientation="Horizontal">
+														<TextBlock Width="50"
+																	  Text="{Binding FabricSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}" />
+														<TextBlock  Width="50" HorizontalAlignment="Stretch"
+																	 Padding="5"
+																	 Text="{Binding MaterialUsage,
+																					UpdateSourceTrigger=PropertyChanged,
+																					Mode=TwoWay}"   Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}"
+																	 TextAlignment="Center" />
+
+														<TextBlock  Width="100" HorizontalAlignment="Stretch"
+																	 Padding="5"
+																	 Text="{Binding MaterialUsage,
+																					UpdateSourceTrigger=PropertyChanged,
+																					Mode=TwoWay}"   Visibility="{Binding DataContext.IsAcc,
+																						   Converter={StaticResource VisibilityConverter},ConverterParameter=true,
+																						   RelativeSource={RelativeSource FindAncestor,
+																														  AncestorType=ItemsControl,
+																														  AncestorLevel=1}}"
+																	 TextAlignment="Center" />
+													</StackPanel>
+												</DataTemplate>
+											</ItemsControl.ItemTemplate>
+										</ItemsControl>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+						</sdk:DataGrid.Columns>
+					</dataGrid:OsGrid>
+				</StackPanel>
+			</sdk:TabItem>
+		</sdk:TabControl>
+		<Popup x:Name="myPopup" IsOpen="False"  Height="300" VerticalAlignment="Bottom">
+			<Border CornerRadius="10" Background="Silver" BorderThickness="2" BorderBrush="Black">
+				<dataGrid:OsGrid Name="StandardBomGrid"
+									 Height="300"
+									 Margin="10,36,10,0"
+									 HorizontalContentAlignment="Stretch"
+									 VerticalContentAlignment="Stretch"
+									 AutoGenerateColumns="False"
+									 FilteredItemsSource="{Binding StandardBomList,
+																   Mode=TwoWay}"
+									 HorizontalScrollBarVisibility="Visible"
+
+									 ItemsSource="{Binding StandardBomList,
+														   Mode=TwoWay}"
+
+									 LoadingRow="StandardBomGrid_LoadingRow"
+									 OnFilter="StandardBomGrid_OnFilter"
+									 IsReadOnly="True"
+>
+					<dataGrid:OsGrid.Columns>
+						<sdk:DataGridTextColumn Width="120"
+													Binding="{Binding Path=Code,
+																	  Mode=TwoWay}"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code,
+																										  Source={StaticResource LocalizedStrings}}" />
+						<sdk:DataGridTextColumn Width="SizeToHeader"
+													Binding="{Binding Path=Ename,
+																	  Mode=TwoWay}"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Ename,
+																										  Source={StaticResource LocalizedStrings}}" />
+						<sdk:DataGridTextColumn Width="SizeToHeader"
+													Binding="{Binding Path=Aname,
+																	  Mode=TwoWay}"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Aname,
+																										  Source={StaticResource LocalizedStrings}}" />
+						<sdk:DataGridTemplateColumn Width="SizeToHeader"
+													SortMemberPath="Brand"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Brand,
+																										  Source={StaticResource LocalizedStrings}}">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Brand}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn Width="SizeToHeader"
+														SortMemberPath="TblLkpBrandSection1.Ename"
+														utilities:GlobalMethods.PathForExport="SectionPerRow.Ename"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BrandSection,
+																											  Source={StaticResource LocalizedStrings}}">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding SectionPerRow.Ename}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+						<sdk:DataGridTemplateColumn Width="SizeToHeader"
+														SortMemberPath="TblLkpSeason1.Ename"
+														utilities:GlobalMethods.PathForExport="SeasonPerRow.Ename"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Season,
+																											  Source={StaticResource LocalizedStrings}}">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding SeasonPerRow.Ename}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+
+						<sdk:DataGridTemplateColumn Width="SizeToHeader"
+														SortMemberPath="FactoryGroup1.Ename"
+														utilities:GlobalMethods.PathForExport="FactoryGroupPerRow.Ename"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding FactoryGroup,
+																											  Source={StaticResource LocalizedStrings}}">
+							<sdk:DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding FactoryGroupPerRow.Ename}" />
+								</DataTemplate>
+							</sdk:DataGridTemplateColumn.CellTemplate>
+						</sdk:DataGridTemplateColumn>
+					</dataGrid:OsGrid.Columns>
+					<i:Interaction.Behaviors>
+						<globalExtenders:DoubleClickBehavior DoubleClick="GetBomBehavior_DoubleClick" />
+					</i:Interaction.Behaviors>
+				</dataGrid:OsGrid>
+			</Border>
+		</Popup>
+	</Grid>
+</controlsOverride:ChildWindowsOverride>

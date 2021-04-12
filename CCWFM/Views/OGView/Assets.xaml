@@ -1,0 +1,342 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.Assets"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 xmlns:ogViewModels="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 Title="Assets Page"
+				 d:DesignHeight="480"
+				 d:DesignWidth="640"
+				 mc:Ignorable="d">
+	<navigation:Page.Resources>
+		<ogViewModels:AssetsViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<ToggleButton Name="BtnAddNewOrder"
+						  HorizontalAlignment="Stretch"
+						  VerticalAlignment="Stretch"
+						  Checked="btnAddNewOrder_Checked"
+						  Cursor="Hand"
+						  ToolTipService.ToolTip="Add">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</ToggleButton>
+			<ToggleButton Name="BtnEditOrder"
+						  Checked="btnEditOrder_Checked"
+						  Cursor="Hand"
+						  ToolTipService.ToolTip="Edit"
+						  Visibility="Collapsed">
+				<Image Source="/CCWFM;component/Images/1371054625_27-Edit%20Text.png" Stretch="Uniform" />
+			</ToggleButton>
+			<!--  Visibility="{Binding ElementName=BtnAddNewOrder,Path=IsEnabled,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"  -->
+			<ToggleButton Name="BtnShowSearchOrder"
+						  HorizontalAlignment="Stretch"
+						  VerticalAlignment="Stretch"
+						  Checked="btnShowSearchOrder_Checked"
+						  Content="{Binding Search,
+											Source={StaticResource LocalizedStrings}}"
+						  Cursor="Hand"
+						  IsEnabled="{Binding ElementName=BtnAddNewOrder,
+											  Path=IsChecked,
+											  Converter={StaticResource ReversedConverter}}"
+						  ToolTipService.ToolTip="Toggle Search Mode"
+						  Visibility="{Binding ElementName=BtnAddNewOrder,
+											   Path=IsChecked,
+											   Converter={StaticResource VisibilityConverter},
+											   ConverterParameter=True}" />
+			<Button Name="BtnSearchOrder"
+					Click="btnSearchOrder_Click"
+					Cursor="Hand"
+					IsEnabled="{Binding ElementName=BtnEditOrder,
+										Path=IsChecked,
+										Converter={StaticResource ReversedConverter}}"
+					ToolTipService.ToolTip="Search"
+					Visibility="{Binding ElementName=BtnShowSearchOrder,
+										 Path=IsChecked,
+										 Converter={StaticResource VisibilityConverter}}">
+				<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteOrder"
+					Click="btnDeleteOrder_Click"
+						
+					ToolTipService.ToolTip="Delete"
+					Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}">
+				<Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnSaveOrder"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Background="Transparent"
+					BorderThickness="1"
+					Click="btnSaveOrder_Click"
+					Cursor="Hand"
+					Foreground="Transparent"
+					OpacityMask="#FFF9F9F9"
+					ToolTipService.ToolTip="Save">
+				<Image Margin="0"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   OpacityMask="#FFF8F8F9"
+					   Source="/CCWFM;component/Assets/Images/1370886069_save.png"
+					   Stretch="Uniform" />
+			</Button>
+				<Button x:Name="BtnPrint" Click="BtnPrint_OnClick" Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}" >
+			<Image
+												   HorizontalAlignment="Stretch"
+												   VerticalAlignment="Stretch"
+												   
+												   Source="/CCWFM;component/Images/1372257722_MB__print.png"
+												   Stretch="Uniform" /></Button>
+			<Button Name="BtnCopyOrder" Content="Copy" Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}"
+					Click="btnCopyOrder_Click"
+					Cursor="Hand"              
+					ToolTipService.ToolTip="Copy" >
+			</Button>
+			<Button Name="BtnCancelOrder"
+					BorderBrush="#FFA8091A"
+					Click="btnCancelOrder_Click"
+					Content="Cancel"
+					FontWeight="Bold"
+					IsEnabled="False"
+					ToolTipService.ToolTip="Cancel"
+					Visibility="Collapsed">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Background" Value="#ffa8091a" />
+						<Setter Property="Cursor" Value="Hand" />
+					</Style>
+				</Button.Style>
+			</Button>
+		</StackPanel>
+		<Grid Grid.Row="1" BindingValidationError="FrameworkElement_OnBindingValidationError">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<TextBlock VerticalAlignment="Center" Text="{Binding Code, Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="0"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"						
+					  IsEnabled="False"                        
+					  Text="{Binding Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, Path=SelectedMainRow.Code}" />
+			<TextBlock Grid.Row="0"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Ename,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="0"
+					  Grid.Column="3"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"                     
+					  Text="{Binding SelectedMainRow.Ename, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"
+					  />
+			<TextBlock Grid.Row="1"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding Aname,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="1"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"                        
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"                  
+					  Text="{Binding SelectedMainRow.Aname, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"
+					   />
+			<TextBlock Grid.Row="1"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding TechSpec,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="1"
+					 Grid.Column="3"
+					 MinHeight="30"
+					 Margin="5"
+					 VerticalAlignment="Center"
+					 IsEnabled="{Binding SelectedMainRow.Enabled}"
+					 Text="{Binding SelectedMainRow.TechSpec, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" />
+
+			<TextBlock Grid.Row="2"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding YearOfProduct,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="2"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"                        
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"                  
+					  Text="{Binding SelectedMainRow.YearOfProduct, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}"
+					   />
+			<TextBlock Grid.Row="2"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Notes,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="2"
+					 Grid.Column="3"
+					 MinHeight="30"
+					 Margin="5"
+					 VerticalAlignment="Center"
+					 IsEnabled="{Binding SelectedMainRow.Enabled}"
+					 Text="{Binding SelectedMainRow.Notes, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" />
+
+			<TextBlock Grid.Row="3"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding AssetType,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="3"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					   VerticalAlignment="Center"
+					  DisplayMemberPath="Ename"                     
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"
+					  ItemsSource="{Binding AssetsTypeList,Mode=TwoWay}"
+					  SelectedValue="{Binding SelectedMainRow.TblAssetsType,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+			<TextBlock Grid.Row="3"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Processor,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="3"
+					 Grid.Column="3"
+					 MinHeight="30"
+					 Margin="5"
+					 VerticalAlignment="Center"
+						
+					 DisplayMemberPath="Ename"                     
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"
+					  ItemsSource="{Binding ProcessorList,Mode=TwoWay}"
+					  SelectedValue="{Binding SelectedMainRow.TblProcessor,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+
+			<TextBlock Grid.Row="4"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding HardDisk,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="4"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					   VerticalAlignment="Center"
+					  DisplayMemberPath="Ename"                     
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"
+					  ItemsSource="{Binding HardDiskList,Mode=TwoWay}"
+					  SelectedValue="{Binding SelectedMainRow.TblHardDisk,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+			<TextBlock Grid.Row="4"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Memory,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="4"
+					 Grid.Column="3"
+					 MinHeight="30"
+					 Margin="5"
+					 VerticalAlignment="Center"
+						
+					 DisplayMemberPath="Ename"                     
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"
+					  ItemsSource="{Binding MemoryList,Mode=TwoWay}"
+					  SelectedValue="{Binding SelectedMainRow.TblMemory,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+
+
+			<TextBlock Grid.Row="5"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding PurchasePrice,
+									  Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="5"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					  VerticalAlignment="Center"                        
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"                  
+					  Text="{Binding Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, Path=SelectedMainRow.PurchasePrice}"
+					   />
+
+			<TextBlock Grid.Row="5"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Disposable,
+									  Source={StaticResource LocalizedStrings}}" />
+			<CheckBox Grid.Row="5"
+					  Grid.Column="3"
+					  MinHeight="30"
+					  Margin="5"
+					  
+					  VerticalAlignment="Center"                        
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"                  
+					  IsChecked="{Binding SelectedMainRow.Disposable,
+											  Mode=TwoWay}"
+					   />
+
+			<TextBlock Grid.Row="6"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   Text="{Binding Status,
+									  Source={StaticResource LocalizedStrings}}" />
+			<ComboBox Grid.Row="6"
+					  Grid.Column="1"
+					  MinHeight="30"
+					  Margin="5"
+					   VerticalAlignment="Center"
+					  DisplayMemberPath="Ename"                     
+					  IsEnabled="{Binding SelectedMainRow.Enabled}"  
+					  ItemsSource="{Binding  Path=DataContext.AssetsStatusList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"						
+					 SelectedValue="{Binding SelectedMainRow.Status,
+											  Mode=TwoWay}"
+					   SelectedValuePath="Iserial" />
+		</Grid>
+		<sdk:ValidationSummary Grid.Row="2"></sdk:ValidationSummary>
+
+		
+
+	</Grid>
+</navigation:Page>

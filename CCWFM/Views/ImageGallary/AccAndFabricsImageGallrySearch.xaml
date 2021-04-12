@@ -1,0 +1,192 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.ImageGallary.AccAndFabricsImageGallrySearch"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+					  xmlns:converter="clr-namespace:CCWFM.Helpers.Converters"
+	xmlns:wp="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+		   Width="1000" Height="600" Background="White"
+		   Title="AccAndFabricsImageGallrySearch" KeyDown="ChildWindow_KeyDown">
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.Resources>
+			<converter:ByteToImageConverter x:Name="binaryConverter" />
+			<converter:NumericAdditionConverter x:Key="NumAddConverter" />
+		    <converter:ReversedBoolConverter x:Key="ReversedBool"/>
+			<BitmapImage x:Key="DefaultImage" UriSource="..\Images\default.png" />
+			<Style TargetType="ListBox" x:Key="PhotoListBoxStyle">
+				<Setter Property="Foreground" Value="White" />
+				<Setter Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<wp:WrapPanel Margin="5" Orientation="Horizontal"
+						   ItemHeight="{Binding ElementName=ZoomSlider, Path=Value,Converter={StaticResource NumAddConverter}}"
+						   ItemWidth="{Binding ElementName=ZoomSlider, Path=Value,Converter={StaticResource NumAddConverter}}"
+					   VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<!-- Set this attached property to 'Disabled' so that the
+			 ScrollViewer in the ListBox will never show a horizontal
+			 scrollbar, and the WrapPanel it contains will be constrained
+			 to the width of the ScrollViewer's viewable surface. -->
+				<Setter
+			  Property="ScrollViewer.HorizontalScrollBarVisibility"
+			  Value="Disabled" />
+				<Setter
+			  Property="ScrollViewer.VerticalScrollBarVisibility"
+			  Value="Visible" />
+			</Style>
+			<DataTemplate x:Key="ImagesGalaryDataTemplate">
+				<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6">
+					<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000">
+						<Border.RenderTransform>
+							<TranslateTransform X="5" Y="5" />
+						</Border.RenderTransform>
+					</Border>
+					<Border MinHeight="60" MinWidth="60"
+				CornerRadius="4" Padding="4"
+				Background="White" BorderBrush="#22000000"
+				BorderThickness="0" Margin="5">
+						<Grid ToolTipService.ToolTip="{Binding G_ImageDescreption,Mode=TwoWay}">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="3*" />
+								<RowDefinition Height="8*" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Image Source="{Binding G_Image,Converter={StaticResource binaryConverter},Mode=TwoWay}"
+							   Grid.Row="1"
+								Stretch="Fill">
+							</Image>
+							<TextBlock 
+								  Grid.Row="0"
+								  Padding="3"
+								  FontSize="9">
+						<Run Text="Fabric ID: "></Run>
+						<Run Text="{Binding G_FabricId,Mode=TwoWay}"></Run>
+							</TextBlock>
+						</Grid>
+					</Border>
+				</Grid>
+			</DataTemplate>
+		</Grid.Resources>
+		<!--====================================================================================================================-->
+			<Border BorderThickness="0,2">
+				<Border.BorderBrush>
+					<LinearGradientBrush  StartPoint="0,0" EndPoint="1,0">
+						<GradientStop Color="#0f35496a" />
+						<GradientStop Color="#3e35496a" Offset="0.2" />
+						<GradientStop Color="#5d162438" Offset="0.4" />
+						<GradientStop Color="#90162438" Offset="0.6" />
+						<GradientStop Color="#89162438" Offset="0.8" />
+					</LinearGradientBrush>
+				</Border.BorderBrush>
+				<Grid VerticalAlignment="Stretch" Name="SubLayoutRoot" HorizontalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="2*" />
+						<RowDefinition Height="14*" />
+						<RowDefinition Height="1.6*" />
+					</Grid.RowDefinitions>
+					<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Grid.ColumnSpan="5"
+						Height="35"
+					Orientation="Horizontal">
+					<sdk:Label 
+					Name="imgPathLabel"
+					Width="Auto"
+						   Margin="1"
+					Padding="5"
+					MaxWidth="400"
+					Visibility="Visible"
+					Content="Fabric:"
+						   VerticalAlignment="Center"
+						   HorizontalContentAlignment="Right"></sdk:Label>
+					<ComboBox ItemsSource="{Binding FabricAttrCollection}"
+						  SelectedValuePath="FabricID"
+						  SelectedValue="{Binding G_FabricId,Mode=TwoWay}"
+						  Name="cmbFabric"
+						  Visibility="Visible"
+						  Margin="1"
+						  VerticalAlignment="Center" Width="Auto"
+						  IsEnabled="{Binding g_IsBusy,Converter={StaticResource ReversedBool},Mode=TwoWay}"
+						  MinWidth="300" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+						  Grid.Column="1" SelectionChanged="cmbFabric_SelectionChanged">
+						<ComboBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<Border Width="60" BorderThickness="1.5" Opacity="0.9">
+										<Border.BorderBrush>
+											<LinearGradientBrush  StartPoint="0,0" EndPoint="1,0">
+												<GradientStop Color="#0f35496a" />
+												<GradientStop Color="#3e35496a" Offset="0.1" />
+												<GradientStop Color="#90162438" Offset="0.2" />
+												<GradientStop Color="#9f162438" Offset="0.4" />
+												<GradientStop Color="#b5162438" Offset="0.6" />
+												<GradientStop Color="#d8162438" Offset="0.8" />
+												<GradientStop Color="#ff162438" Offset="1" />
+											</LinearGradientBrush>
+										</Border.BorderBrush>
+										<TextBlock Padding="5" Text="{Binding FabricID}" ></TextBlock>
+									</Border>
+									<Border BorderThickness="1.5" Width="450" Opacity="0.9">
+										<Border.BorderBrush>
+											<LinearGradientBrush  StartPoint="0,0" EndPoint="1,0">
+												<GradientStop Color="#0f35496a" />
+												<GradientStop Color="#3e35496a" Offset="0.1" />
+												<GradientStop Color="#90162438" Offset="0.2" />
+												<GradientStop Color="#9f162438" Offset="0.4" />
+												<GradientStop Color="#b5162438" Offset="0.6" />
+												<GradientStop Color="#d8162438" Offset="0.8" />
+												<GradientStop Color="#ff162438" Offset="1" />
+											</LinearGradientBrush>
+										</Border.BorderBrush>
+										<TextBlock Padding="5" Text="{Binding FabricDescription}"></TextBlock>
+									</Border>
+								</StackPanel>
+							</DataTemplate>
+						</ComboBox.ItemTemplate>
+					</ComboBox>
+					<TextBlock Padding="5" Text="{Binding MyProperty,Mode=TwoWay}"></TextBlock>
+					<wp:BusyIndicator 
+					Name="SavingBusyIndicator" 
+					IsBusy="{Binding g_IsBusy,Mode=TwoWay}" 
+					Padding="0" 
+					HorizontalContentAlignment="Center" 
+					VerticalContentAlignment="Center" 
+					BusyContent="Saving...Please do not Navigate Away of the Page"></wp:BusyIndicator>
+				</StackPanel>
+					<ListBox VerticalAlignment="Stretch"
+				 Grid.Row="1"
+				 MaxHeight="500"
+				 ItemsSource="{Binding ImageCollection,Mode=TwoWay}"
+					 ItemTemplate="{StaticResource ImagesGalaryDataTemplate}"
+					 Style="{StaticResource PhotoListBoxStyle}"
+					 HorizontalAlignment="Stretch" Name="lstImageThumbs"
+					 Margin="5">
+					</ListBox>
+					<wp:DockPanel Margin="5"
+				   Grid.Column="0" Grid.Row="2"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" LastChildFill="True">
+						<sdk:Label >Zoom:</sdk:Label>
+						<Slider Name="ZoomSlider"
+				Margin="10,0,0,0"
+				  Orientation="Horizontal"
+				  Minimum="150"
+				  Maximum="300"
+				  Value="150"
+				  SmallChange="5"
+				  LargeChange="20" IsDirectionReversed="False" VerticalContentAlignment="Center" FlowDirection="LeftToRight" HorizontalContentAlignment="Center" wp:DockPanel.Dock="Left" />
+					</wp:DockPanel>
+				</Grid>
+			</Border>
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+		<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+	</Grid>
+</controls:ChildWindow>

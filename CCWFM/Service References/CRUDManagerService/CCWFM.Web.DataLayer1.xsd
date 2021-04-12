@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ItemDimensionSearchModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableQuantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AvailableToQuantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BatchNoFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BatchNoTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorFrom" nillable="true" type="tns:TblColor" />
+      <xs:element minOccurs="0" name="ColorFromCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorFromId" type="xs:int" />
+      <xs:element minOccurs="0" name="ColorPerRow" nillable="true" type="tns:TblColor" />
+      <xs:element minOccurs="0" name="ColorToId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAcc" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemDimFromIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemDimToIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PendingQuantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PendingToQuantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SiteFromIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteToIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="SizeFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferredQuantity" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemDimensionSearchModel" nillable="true" type="tns:ItemDimensionSearchModel" />
+  <xs:complexType name="TblColor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColorItemType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DefaultPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDims" nillable="true" type="tns:ArrayOfTblItemDim" />
+          <xs:element minOccurs="0" name="TblLkpColorGroup" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblTradeAgreementDetails" nillable="true" type="tns:ArrayOfTblTradeAgreementDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblColor" nillable="true" type="tns:TblColor" />
+  <xs:complexType name="PropertiesViewModelBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PropertiesViewModelBase" nillable="true" type="tns:PropertiesViewModelBase" />
+  <xs:complexType name="ArrayOfTblItemDim">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblItemDim" nillable="true" type="tns:TblItemDim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblItemDim" nillable="true" type="tns:ArrayOfTblItemDim" />
+  <xs:complexType name="TblItemDim">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemIserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Size" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblAdjustmentDetails" nillable="true" type="tns:ArrayOfTblAdjustmentDetail" />
+          <xs:element minOccurs="0" name="TblColor" type="xs:int" />
+          <xs:element minOccurs="0" name="TblColor1" nillable="true" type="tns:TblColor" />
+          <xs:element minOccurs="0" name="TblInventTrans" nillable="true" type="tns:ArrayOfTblInventTran" />
+          <xs:element minOccurs="0" name="TblSalesOrderDetailRequests" nillable="true" type="tns:ArrayOfTblSalesOrderDetailRequest" />
+          <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceDetails" nillable="true" type="tns:ArrayOfTblSalesOrderRequestInvoiceDetail" />
+          <xs:element minOccurs="0" name="TblSite" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSite1" nillable="true" type="tns:TblSite" />
+          <xs:element minOccurs="0" name="TblTransferDetails" nillable="true" type="tns:ArrayOfTblTransferDetail" />
+          <xs:element minOccurs="0" name="TblTransferDetails1" nillable="true" type="tns:ArrayOfTblTransferDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblItemDim" nillable="true" type="tns:TblItemDim" />
+  <xs:complexType name="ArrayOfTblAdjustmentDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblAdjustmentDetail" nillable="true" type="tns:TblAdjustmentDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblAdjustmentDetail" nillable="true" type="tns:ArrayOfTblAdjustmentDetail" />
+  <xs:complexType name="TblAdjustmentDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdjustmentHeaderIserial" type="xs:int" />
+          <xs:element minOccurs="0" name="AvailableQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CountedQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DifferenceQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemAdjustment" nillable="true" type="tns:ItemDimensionAdjustmentSearchModel" />
+          <xs:element minOccurs="0" name="ItemDimIserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAdjustmentHeader" nillable="true" type="tns:TblAdjustmentHeader" />
+          <xs:element minOccurs="0" name="TblItemDim" nillable="true" type="tns:TblItemDim" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblAdjustmentDetail" nillable="true" type="tns:TblAdjustmentDetail" />
+  <xs:complexType name="ItemDimensionAdjustmentSearchModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemDimensionSearchModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CountedQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DifferenceQuantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ItemDimensionAdjustmentSearchModel" nillable="true" type="tns:ItemDimensionAdjustmentSearchModel" />
+  <xs:complexType name="TblAdjustmentHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApproveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LastChangeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastChangeUser" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblAdjustmentDetails" nillable="true" type="tns:ArrayOfTblAdjustmentDetail" />
+          <xs:element minOccurs="0" name="TblAuthUser" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblAuthUser1" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblWarehouse" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="WarehouseIserial" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblAdjustmentHeader" nillable="true" type="tns:TblAdjustmentHeader" />
+  <xs:complexType name="TblAuthUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ActiveStore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AllowedStores" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AxId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AxName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrLang" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsEnabled" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="PictureUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrintingCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAdjustmentHeaders" nillable="true" type="tns:ArrayOfTblAdjustmentHeader" />
+          <xs:element minOccurs="0" name="TblAdjustmentHeaders1" nillable="true" type="tns:ArrayOfTblAdjustmentHeader" />
+          <xs:element minOccurs="0" name="TblAuthWarehouses" nillable="true" type="tns:ArrayOfTblAuthWarehouse" />
+          <xs:element minOccurs="0" name="TblCompany" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCompanySecondary" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJob" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblPosition" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblTransferHeaders" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+          <xs:element minOccurs="0" name="TblTransferHeaders1" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+          <xs:element minOccurs="0" name="TblTransferHeaders2" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+          <xs:element minOccurs="0" name="Tel1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tel2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User_Domain" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User_Win_Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WFM_DOMAINID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblAuthUser" nillable="true" type="tns:TblAuthUser" />
+  <xs:complexType name="ArrayOfTblAdjustmentHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblAdjustmentHeader" nillable="true" type="tns:TblAdjustmentHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblAdjustmentHeader" nillable="true" type="tns:ArrayOfTblAdjustmentHeader" />
+  <xs:complexType name="ArrayOfTblAuthWarehouse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblAuthWarehouse" nillable="true" type="tns:TblAuthWarehouse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblAuthWarehouse" nillable="true" type="tns:ArrayOfTblAuthWarehouse" />
+  <xs:complexType name="TblAuthWarehouse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthUserIserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="PermissionType" type="xs:short" />
+          <xs:element minOccurs="0" name="TblAuthUser" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblWarehouse" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="WarehouseIserial" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblAuthWarehouse" nillable="true" type="tns:TblAuthWarehouse" />
+  <xs:complexType name="TblWarehouse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdjustIn" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="AdjustOut" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Po" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Receive" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RetReceive" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RetSales" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RetailCompany" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Sales" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAdjustmentHeaders" nillable="true" type="tns:ArrayOfTblAdjustmentHeader" />
+          <xs:element minOccurs="0" name="TblAuthWarehouses" nillable="true" type="tns:ArrayOfTblAuthWarehouse" />
+          <xs:element minOccurs="0" name="TblInventTrans" nillable="true" type="tns:ArrayOfTblInventTran" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeaders" nillable="true" type="tns:ArrayOfTblSalesIssueHeader" />
+          <xs:element minOccurs="0" name="TblSalesOrderHeaderRequests" nillable="true" type="tns:ArrayOfTblSalesOrderHeaderRequest" />
+          <xs:element minOccurs="0" name="TblSite" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSite1" nillable="true" type="tns:TblSite" />
+          <xs:element minOccurs="0" name="TblTransferHeaders" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+          <xs:element minOccurs="0" name="TblTransferHeaders1" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+          <xs:element minOccurs="0" name="TransferIn" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TransferOut" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblWarehouse" nillable="true" type="tns:TblWarehouse" />
+  <xs:complexType name="ArrayOfTblInventTran">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblInventTran" nillable="true" type="tns:TblInventTran" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblInventTran" nillable="true" type="tns:ArrayOfTblInventTran" />
+  <xs:complexType name="TblInventTran">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvgCost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemCost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LastWarehouseQty" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Qty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TblInventType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblInventType1" nillable="true" type="tns:TblInventType" />
+          <xs:element minOccurs="0" name="TblItemDim" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDim1" nillable="true" type="tns:TblItemDim" />
+          <xs:element minOccurs="0" name="TblWarehouse" type="xs:int" />
+          <xs:element minOccurs="0" name="TblWarehouse1" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="VotGlSerial" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblInventTran" nillable="true" type="tns:TblInventTran" />
+  <xs:complexType name="TblInventType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Nature" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="ShortCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblInventTrans" nillable="true" type="tns:ArrayOfTblInventTran" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeaders" nillable="true" type="tns:ArrayOfTblSalesIssueHeader" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblInventType" nillable="true" type="tns:TblInventType" />
+  <xs:complexType name="ArrayOfTblSalesIssueHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalesIssueHeader" nillable="true" type="tns:TblSalesIssueHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblSalesIssueHeader" nillable="true" type="tns:ArrayOfTblSalesIssueHeader" />
+  <xs:complexType name="TblSalesIssueHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntityAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RefNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblInventType" type="xs:int" />
+          <xs:element minOccurs="0" name="TblInventType1" nillable="true" type="tns:TblInventType" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesIssueDetails" nillable="true" type="tns:ArrayOfTblSalesIssueDetail" />
+          <xs:element minOccurs="0" name="TblSalesOrderHeaderRequest" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesOrderHeaderRequest1" nillable="true" type="tns:TblSalesOrderHeaderRequest" />
+          <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceDetails" nillable="true" type="tns:ArrayOfTblSalesOrderRequestInvoiceDetail" />
+          <xs:element minOccurs="0" name="TblWarehouse" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblWarehouse1" nillable="true" type="tns:TblWarehouse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesIssueHeader" nillable="true" type="tns:TblSalesIssueHeader" />
+  <xs:complexType name="ArrayOfTblSalesIssueDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalesIssueDetail" nillable="true" type="tns:TblSalesIssueDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblSalesIssueDetail" nillable="true" type="tns:ArrayOfTblSalesIssueDetail" />
+  <xs:complexType name="TblSalesIssueDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeader1" nillable="true" type="tns:TblSalesIssueHeader" />
+          <xs:element minOccurs="0" name="TblSalesOrderDetailRequest" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesOrderDetailRequest1" nillable="true" type="tns:TblSalesOrderDetailRequest" />
+          <xs:element minOccurs="0" name="Type" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesIssueDetail" nillable="true" type="tns:TblSalesIssueDetail" />
+  <xs:complexType name="TblSalesOrderDetailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasicPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemTransfer" nillable="true" type="tns:ItemDimensionSearchModel" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReceiveNow" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ShippingDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TblItemDim" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDim1" nillable="true" type="tns:TblItemDim" />
+          <xs:element minOccurs="0" name="TblSalesIssueDetails" nillable="true" type="tns:ArrayOfTblSalesIssueDetail" />
+          <xs:element minOccurs="0" name="TblSalesOrderHeaderRequest" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesOrderHeaderRequest1" nillable="true" type="tns:TblSalesOrderHeaderRequest" />
+          <xs:element minOccurs="0" name="Total" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesOrderDetailRequest" nillable="true" type="tns:TblSalesOrderDetailRequest" />
+  <xs:complexType name="TblSalesOrderHeaderRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AxMethodOfPaymentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AxTermOfPaymentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EntityAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ShippingDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeaders" nillable="true" type="tns:ArrayOfTblSalesIssueHeader" />
+          <xs:element minOccurs="0" name="TblSalesOrderDetailRequests" nillable="true" type="tns:ArrayOfTblSalesOrderDetailRequest" />
+          <xs:element minOccurs="0" name="TblSalesPerson" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblWarehouse" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblWarehouse1" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesOrderHeaderRequest" nillable="true" type="tns:TblSalesOrderHeaderRequest" />
+  <xs:complexType name="ArrayOfTblSalesOrderDetailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalesOrderDetailRequest" nillable="true" type="tns:TblSalesOrderDetailRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblSalesOrderDetailRequest" nillable="true" type="tns:ArrayOfTblSalesOrderDetailRequest" />
+  <xs:complexType name="ArrayOfTblSalesOrderRequestInvoiceDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalesOrderRequestInvoiceDetail" nillable="true" type="tns:TblSalesOrderRequestInvoiceDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblSalesOrderRequestInvoiceDetail" nillable="true" type="tns:ArrayOfTblSalesOrderRequestInvoiceDetail" />
+  <xs:complexType name="TblSalesOrderRequestInvoiceDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RouteCardHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDim" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDim1" nillable="true" type="tns:TblItemDim" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesIssueHeader1" nillable="true" type="tns:TblSalesIssueHeader" />
+          <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceHeader1" nillable="true" type="tns:TblSalesOrderRequestInvoiceHeader" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesOrderRequestInvoiceDetail" nillable="true" type="tns:TblSalesOrderRequestInvoiceDetail" />
+  <xs:complexType name="TblSalesOrderRequestInvoiceHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntityAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="MiscWithoutItemEffect" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SupplierInv" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalesOrderRequestInvoiceDetails" nillable="true" type="tns:ArrayOfTblSalesOrderRequestInvoiceDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalesOrderRequestInvoiceHeader" nillable="true" type="tns:TblSalesOrderRequestInvoiceHeader" />
+  <xs:complexType name="ArrayOfTblSalesOrderHeaderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalesOrderHeaderRequest" nillable="true" type="tns:TblSalesOrderHeaderRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblSalesOrderHeaderRequest" nillable="true" type="tns:ArrayOfTblSalesOrderHeaderRequest" />
+  <xs:complexType name="TblSite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblItemDims" nillable="true" type="tns:ArrayOfTblItemDim" />
+          <xs:element minOccurs="0" name="TblWarehouses" nillable="true" type="tns:ArrayOfTblWarehouse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSite" nillable="true" type="tns:TblSite" />
+  <xs:complexType name="ArrayOfTblWarehouse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblWarehouse" nillable="true" type="tns:TblWarehouse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblWarehouse" nillable="true" type="tns:ArrayOfTblWarehouse" />
+  <xs:complexType name="ArrayOfTblTransferHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblTransferHeader" nillable="true" type="tns:TblTransferHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblTransferHeader" nillable="true" type="tns:ArrayOfTblTransferHeader" />
+  <xs:complexType name="TblTransferHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApproveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CodeFrom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodeTo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LastChangeDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastChangeUser" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblAuthUser" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblAuthUser1" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblAuthUser2" nillable="true" type="tns:TblAuthUser" />
+          <xs:element minOccurs="0" name="TblTransferDetails" nillable="true" type="tns:ArrayOfTblTransferDetail" />
+          <xs:element minOccurs="0" name="TblWarehouseFrom" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="TblWarehouseTo" nillable="true" type="tns:TblWarehouse" />
+          <xs:element minOccurs="0" name="WarehouseFrom" type="xs:int" />
+          <xs:element minOccurs="0" name="WarehouseTo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblTransferHeader" nillable="true" type="tns:TblTransferHeader" />
+  <xs:complexType name="ArrayOfTblTransferDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblTransferDetail" nillable="true" type="tns:TblTransferDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblTransferDetail" nillable="true" type="tns:ArrayOfTblTransferDetail" />
+  <xs:complexType name="TblTransferDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemDimFrom" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemDimTo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemTransfer" nillable="true" type="tns:ItemDimensionSearchModel" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TblItemDim" nillable="true" type="tns:TblItemDim" />
+          <xs:element minOccurs="0" name="TblItemDim1" nillable="true" type="tns:TblItemDim" />
+          <xs:element minOccurs="0" name="TransferHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TransferHeaderRecord" nillable="true" type="tns:TblTransferHeader" />
+          <xs:element minOccurs="0" name="TransferredQuantity" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblTransferDetail" nillable="true" type="tns:TblTransferDetail" />
+  <xs:complexType name="ArrayOfTblTradeAgreementDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblTradeAgreementDetail" nillable="true" type="tns:TblTradeAgreementDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblTradeAgreementDetail" nillable="true" type="tns:ArrayOfTblTradeAgreementDetail" />
+  <xs:complexType name="TblTradeAgreementDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccSize" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomsPercentage" type="xs:double" />
+          <xs:element minOccurs="0" name="Days" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Pantone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:float" />
+          <xs:element minOccurs="0" name="SalesPercentage" type="xs:double" />
+          <xs:element minOccurs="0" name="ShippingPercentage" type="xs:double" />
+          <xs:element minOccurs="0" name="SupplierColorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblColor" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblColor1" nillable="true" type="tns:TblColor" />
+          <xs:element minOccurs="0" name="TblTradeAgreementHeader" type="xs:int" />
+          <xs:element minOccurs="0" name="TblTradeAgreementHeader1" nillable="true" type="tns:TblTradeAgreementHeader" />
+          <xs:element minOccurs="0" name="TblVendorPurchaseGroup" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblTradeAgreementDetail" nillable="true" type="tns:TblTradeAgreementDetail" />
+  <xs:complexType name="TblTradeAgreementHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertiesViewModelBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblTradeAgreementDetails" nillable="true" type="tns:ArrayOfTblTradeAgreementDetail" />
+          <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblTradeAgreementHeader" nillable="true" type="tns:TblTradeAgreementHeader" />
+</xs:schema>

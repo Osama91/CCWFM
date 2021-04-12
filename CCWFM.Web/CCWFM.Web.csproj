@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6399CE87-5B0A-428E-9F34-2B55A8493EE9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CCWFM.Web</RootNamespace>
+    <AssemblyName>CCWFM.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <SilverlightApplicationList>{D927849B-02A7-4D0C-B393-FFA9C981E211}|..\CCWFM\CCWFM.csproj|ClientBin|False</SilverlightApplicationList>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FJ.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCWFM\Bin\Debug\FJ.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.0\lib\35\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.5.6.4\lib\net40\Microsoft.Data.Services.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.BusinessConnectorNet, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <HintPath>..\..\..\..\..\CCWFM\CCWFM.Web\bin\Microsoft.Dynamics.BusinessConnectorNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.9\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter, Version=2.3.3.0, Culture=neutral, PublicKeyToken=c7694541b0ac80e4, processorArchitecture=MSIL" />
+    <Reference Include="Portable.DataAnnotations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.DataAnnotations.1.0.0\lib\net40\Portable.DataAnnotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Linq.Dynamic, Version=2.1.0.0, Culture=neutral, PublicKeyToken=667e828eb982ff2d, processorArchitecture=MSIL">
+      <HintPath>..\..\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Vse.Web.Serialization, Version=1.0.4.0, Culture=neutral, PublicKeyToken=fb838febb49f46b2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vse.Web.Serialization.ControlledSerializationJsonConverter.1.0.4\lib\net40\Vse.Web.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCWFMTestPage.aspx" />
+    <Content Include="CCWFMTestPage.html" />
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="ClientBin\CCWFM.xap" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="Report\GenericReport.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="NLog.config" />
+    <Content Include="BankStatExcelTemplates\AAIB.xlsx" />
+    <EntityDeploy Include="Model\Payroll.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Payroll.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Properties\DataSources\CCWFM.AssistanceService.TupleOfintstring, Service References.AssistanceService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.CSPATTENDANCEFILE.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.CSPPERIOD, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.CSPPERIODLINE, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.EmployeeInfo, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.ExcuseType, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.MissionType, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.PayrollTblAttendanceFile, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblAttendanceFile, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblAttendanceFileReason, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblEmployeeShiftStore, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblExcuse, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblExcuseRule, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblMission, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblPeriodLock, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblVacation, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.TblVacationDetail, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.VacationType, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AttService.WORKCALENDARDATELINE, Service References.AttService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.BarcodeDisplaySettingsDetail.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.BarcodeDisplaySettingsHeader, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.EmployeesView, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.PrintingBarcodeProperty, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.tbl_lkp_BarcodeOperations, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.TblAuthJob, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.TblAuthUser, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.TblAuthWarehousePermissionType, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.AuthService.User, Service References.AuthService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.Entity.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.StoreVisaMachine, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblBank, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblCashDepositAmountDetail, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblCashDepositDetail, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblCashDepositHeader, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblCashDepositSetting, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblCashDepositType, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblEmployee, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblSalaryApprovalDetail, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblSalaryApprovalHeader, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblStore, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblStoreCommission, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblTenderType, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankDepositService.TblVisaMachine, Service References.BankDepositService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.Employee.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblBank, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblBankStatDetail, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblBankStatHeader, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblBankTransactionType, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblCompany, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.BankStatService.TblCurrencyTest, Service References.BankStatService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblBrandContractReport.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblContractDetail, Service References.ContractService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblContractHeader, Service References.ContractService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblContractPaymentByPeriod, Service References.ContractService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblCurrencyTest, Service References.ContractService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ContractService.TblSalesOrderColor, Service References.ContractService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BarcodeDisplaySettingsDetail.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BarcodeDisplaySettingsHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BarCodePrintLayout, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BehalfFiltered, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BOM, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.BomFabricBom, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Brand, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CLEBARCODEBCREATE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CONFIGTABLE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CRUD_ManagerServiceAxItem, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CRUD_ManagerServicePurchaseOrderDetailDto, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CRUD_ManagerServicePurchaseOrderDto, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CRUD_ManagerServiceSalesOrderDto, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.CURRENCY, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DefectsData, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DyeingAxService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DyeingColorQuantitiesRequired_Result, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DyeingOrderDetailsService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DyeingOrderDetailsServicesAcc, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.DyeingSummaryService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.EmpLeavingTransaction, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Employee, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.EmployeesView, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.EstimatedDyedMain_Result, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.EXCHRATE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Fabric_UnitID, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricAccSearch, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricB, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricContentsComposition, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricInventDimDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricInventSumWithBatch, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricsDyedGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricServiceSearch, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FabricStorage_Result, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.FingerPrintTransaction, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.GenericTable, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.GetItemOnhand_Result, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.GlPosting, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Inspection, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.InspectionsFullDimention, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.InspectionsRoute, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.INVENTDIM, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.InventoryReservedJournalsDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.INVENTTABLE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.ItemsDto, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.MarkerSalesOrderDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.PAYMTERM, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.PrintingBarcodeProperty, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.PrintingFabricDefect, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.RouteCardDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.SalesOrderFabric, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.SalesOrderFabricsColor, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.SalesOrderStyle, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.SizesWithGroups, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.SMLDTO, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.StoreForAllCompany, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.StoresForBrand, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_AccessoriesSubGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_AccessoryAttributesDetails, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_AccessoryAttributesHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_FabricAttriputes, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_FabricImage, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_fabricInspectionDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_fabricInspectionHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_AccessoryGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_AccessoryItemType, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_BarcodeOperations, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_CostTypes, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_DyingClassification, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_FabricDesignes, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_FabricStructure, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_lkp_ItemGroupType, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_MarkerDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_MarkerDetailMeterPerSize, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_MarkerTransactionHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_PurchaseOrderHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_ReservationDetails, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_ReservationHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_ReservationMainDetails, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_RFQHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Tbl_Wf_CuttingOrder, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tbl_WF_Defects, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAccSize, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAccSizeGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAccSubGroupSizeLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblApproval, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAsset, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAssetsTransaction, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAuthJob, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAuthJobPermission, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAuthPermission, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblAuthUser, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBankDeposit, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandBudgetDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandBudgetHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandPromoDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandSectionMail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandSectionMailSample, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandSectionPermission, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandStoreTargetDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBrandStoreTargetHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblBudgetItem, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblChainSetting, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tblChainSetup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblCheckListLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblCheckListMail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblCheckListTransaction, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblColor, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblColorLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblCurrency, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tblcurrencydailyexchange, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblCurrencyTest, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingOrdersHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingOrdersHeaderAcc, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingOrdersMainDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingOrdersMainDetailsACC, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingPlan, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingPlanACC, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingPlanHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingPlanHeaderAcc, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingSummary, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblDyeingSummaryAcc, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblEmployeeBehalf, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblEmployeeShift, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblEmployeeShiftLookup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblEmpWeeklyDayOff, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TBLEVENTUALHEADER, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblFabricBom, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblFamilyCategoryLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGeneratePurchaseHeaderCurrency, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGlobalRetailBusinessBudget, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGlobalRetailBusinessBudgetMainDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGROUP1, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGroup4, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGroup6, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGroup7, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblGroup8, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblIssueJournalDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblIssueJournalHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblIssueJournalReceiveDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblIssueJournalReceiveDetailService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblIssueJournalReceiveHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblItemDownLoadDef, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblLkpBrandSectionLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblLkpDirectionLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblLkpSeason, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tblNewRFQDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tblNewRFQMainHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.tblNewRFQSizeDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPaymentSchedule, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPaymentScheduleDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPaymentScheduleSetting, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPromoCriteria, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPromoDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPromoHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPurchaseBudgetDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPurchaseBudgetHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPurchaseOrderDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblPurchaseReceiveHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRecInvDetailProd, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRecInvHeaderProd, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRecInvMainDetailProd, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblReport, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSample, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSampleEvent, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSampleImage, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSampleItem, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSampleService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRequestForSampleStatu, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRFSDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRFSDetailItem, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRFSDetailService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRFSHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRoute, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRouteGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblRouteGroupBomBase, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalaryTerm, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrder, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrderAttachment, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrderColor, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrderColorTheme, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrderNote, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSalesOrderOperation, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSeason, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSeasonalMasterList, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSeasonCurrency, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSeasonTrack, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSequenceProduction, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblService, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblShopReqAcc, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblShopReqComment, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblShopReqHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblShopReqInv, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSize, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSizeGroup, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSizeGroupLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStandardBOM, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStandardBomHeader, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStore, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStoreIntialOrder, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStorePromoDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyle, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleAttachment, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleCategoryLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleFabricComposition, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleImage, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleStatu, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblStyleTNAColorDetail, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSubFamilyCategoryLink, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TBLsupplier, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblSupplierFabric, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblTransferMsg, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblUserBrandSection, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblUserBrandSectionPermission, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblUserCheckList, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblVariableTermManual, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TblWarehouse, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.TechPackBOM, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.User, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.V_AXStyles, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.V_FabAttr, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.V_Warehouse, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.VENDGROUP, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.Vendor, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.VENDPAYMMODETABLE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.viewstyle, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.WareHouseDto, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.WF_FabricContentsComposition, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.WMSLOCATION, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.CRUDManagerService.WRKCTRTABLE, Service References.CRUDManagerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.DyeingService.DyeingServiceDyeingOrderInvoiceDetailDto.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.DyeingService.TblDyeingOrderInvoiceDetail, Service References.DyeingService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.DyeingService.TblDyeingOrderInvoiceHeader, Service References.DyeingService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.DyeingService.Vendor, Service References.DyeingService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.bankchequePrint_Result.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.EmployeesView, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.Entity, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.GenericTable, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.GlInventoryGroup_Result, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.GlPosting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.PayrollOrganizationUnit, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.RecieveView, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.RecInvItem, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.RecInvStyle, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.RecInvStyleColor, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.ReturnRecieveView, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.shoparea, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAccount, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAccountInterval, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAssetGroup, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAssetRetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAuthJob, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblAuthUserJournalSetting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblBank, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblBankCheque, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblBankChequeCostCenter, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblBankTransactionType, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCashDepositHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblChainSetting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.tblChainSetupTest, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblColorTest, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblContractHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostAllocationMethod, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenter, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenterInterval, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenterOrganizationUnit, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenterRouteGroup, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenterShopArea, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostCenterType, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostDimHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostDimSetupDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCostDimSetupHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblCurrencyTest, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblDepreciationTransactionDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblDepreciationTransactionHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlCashTransactionDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlCashTransactionDetailCostCenter, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlCashTransactionHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlCashTypeSetting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlChequeTransactionDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlChequeTransactionHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlChequeTypeSetting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGLExpensi, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlGenEntity, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlGenEntityGroup, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlPeriod, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlPeriodLine, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlRuleDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlRuleHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlRuleJob, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblGlRuleMainDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblIncomeStatmentDesignDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblIncomeStatmentDesignHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblIncomeTax, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblInventAccountType, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblInventPosting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblItemDownLoadDef, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblJournal, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblJournalAccountType, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblJournalSetting, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblJournalSettingCostCenter, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblJournalSettingEntity, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblLedgerDetailCostCenter, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblLedgerHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblLedgerHeaderAttachment, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblLedgerMainDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblMarkup, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblMarkupGroup, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblMarkupTran, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblMethodOfPayment, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblPositionRoute, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblPositionRouteHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblPostingProfileDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblPostingProfileHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblRecInvDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblRecInvHeader, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblRecInvMainDetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblSequence, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblSizeRetail, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.GlService.TblStore, Service References.GlService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblFactoryDelivery.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblFamily, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblFamilyCategoryLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblFamilyLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblFormLayout, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblFormLayoutUser, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblLkpBrandSectionLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblLkpDirection, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblLkpDirectionLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblSalesOrderColor, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblSalesOrderColorTheme, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyle, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleCategory, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleCategoryLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleSpecDetail, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblStyleSpecDetailAttachment, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleSpecType, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleTNA, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleTNADetailAttachment, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleTNARoute, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblStyleTNARouteStatu, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblSubFamily, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblSubFamilyCategoryLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TblSubFamilyLink, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TBLsupplier, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblTechPackBOMComment, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblTechPackDetail, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblTechPackHeader, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.tblTechPackPart, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LkpData.TBLTechPackStatu, Service References.LkpData.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LoginService.NewUserRequests.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LoginService.TblAuthJobPermission, Service References.LoginService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LoginService.TblAuthPermission, Service References.LoginService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LoginService.TblAuthUser, Service References.LoginService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.LoginService.TblStore, Service References.LoginService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Models.Gl.BankStatMatchingModel.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Models.Inv.AuthWarehouseModel.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.Entity.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.ItemsDto, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.StyleTnaCount_Result, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblApprovalStatu, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderFabric, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderHeader, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderInvoiceDetail, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderInvoiceHeader, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderInvoiceHeaderMarkupTransProd, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderService, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblProductionOrderTransaction, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNA, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNAColorDetail, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNADetail, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNAHeader, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNAStatu, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblStyleTNAStatusDetail, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TBLsupplier, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblTradeAgreementDetail, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblTradeAgreementTransaction, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblUsersApprovalStatu, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.TblUsersStyleTNAStatu, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.ProductionService.Vendor, Service References.ProductionService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.Entity.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.RouteCardInvoiceMarkupTransProd, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblDyeingOrderInvoiceMarkupTransProd, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblGeneratePurchaseHeader, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblMarkup, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblMarkupGroupProd, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblMarkupProd, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblMarkupTransProd, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderDetail, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderDetailBreakDown, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderDetailRequest, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderHeader, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderHeaderRequest, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseOrderHeaderRequestPayment, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseReceiveDetail, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseReceiveHeader, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.TblPurchaseRequestLink, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.Vendor, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.PurchasePlanService.ViewPurchaseOrderHeaderRequest, Service References.PurchasePlanService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteBomIssueSP_Result.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardDetail, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardFabric, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardHeader, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardInvoiceDetail, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardInvoiceHeader, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.RouteCardServiceRouteCardInvoiceDetailDto, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.Tbl_TransactionType, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.TblAuthWarehouse1, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.TblRoute, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.TblRouteGroup, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.TblSize, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.RouteCardService.Vendor, Service References.RouteCardService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.UserDomains.Users.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.Entity.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.ItemsDto, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblAdjustmentDetail, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblAdjustmentHeader, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblAdjustmentTempDetail, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblAuthWarehouse, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblItemDim, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesIssueDetail, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesIssueHeader, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesOrderDetailRequest, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesOrderHeaderRequest, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesOrderRequestInvoiceDetail, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesOrderRequestInvoiceHeader, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblSalesOrderRequestInvoiceHeaderMarkupTransProd, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblTransferDetail, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblTransferHeader, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.WarehouseService.TblWarehouse, Service References.WarehouseService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.ItemDimensionAdjustmentSearchModel.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.ItemDimensionSearchModel.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblAdjustmentDetail.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblAdjustmentHeader.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblAuthWarehouse.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblSalesIssueDetail.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblSalesIssueHeader.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblSalesOrderDetailRequest.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblSalesOrderHeaderRequest.datasource" />
+    <Content Include="Properties\DataSources\CCWFM.Web.DataLayer.TblWarehouse.datasource" />
+    <None Include="Properties\PublishProfiles\prof.pubxml" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\EmployeePayrollService.wsdl" />
+    <None Include="Service References\ServiceReference1\EmployeePayrollService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\EmployeePayrollService1.wsdl" />
+    <None Include="Service References\ServiceReference1\EmployeePayrollService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\EmployeePayrollService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\EmployeePayrollService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\EmployeePayrollService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\EmployeePayrollService.disco" />
+    <Content Include="Report\ORMP20TS-030BA.jpg" />
+    <Content Include="Service\AssistanceOp\AssistanceService.svc" />
+    <Content Include="Service\Att\AttService.svc" />
+    <Content Include="Service\AuthOp\AuthService.svc" />
+    <Content Include="Service\BankDepositOp\BankDepositService.svc" />
+    <Content Include="Service\BankStatOp\BankStatService.svc" />
+    <Content Include="Service\ContractOp\ContractService.svc" />
+    <Content Include="Service\CRUD_ManagerService.svc" />
+    <Content Include="Service\Dyeing\DyeingService.svc" />
+    <Content Include="Service\LkpData\LkpData.svc" />
+    <Content Include="Service\LoginService.svc" />
+    <Content Include="Service\Operations\GlOperations\GlService.svc" />
+    <Content Include="Service\Operations\PurchasePlan\PurchasePlan.svc" />
+    <Content Include="Service\Production\ProductionService.svc" />
+    <Content Include="Service\RouteCard\RouteCardService.svc" />
+    <Content Include="Service\StyleService.svc" />
+    <Content Include="Service\UserDomains.svc" />
+    <Content Include="Service\WarehouseOp\WarehouseService.svc" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CCWFMTestPage.aspx.cs">
+      <DependentUpon>CCWFMTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\LoggedUserInfo.cs" />
+    <Compile Include="FileUpload.ashx.cs">
+      <DependentUpon>FileUpload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AxEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AxEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CCNewEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCNewEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CCWMFEntites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCWMFEntites.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ConfigrationsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigrationsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payroll.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payroll.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TimeAttEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeAttEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\GenericReport.aspx.cs">
+      <DependentUpon>GenericReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\GenericReport.aspx.designer.cs">
+      <DependentUpon>GenericReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AssistanceOp\AssistanceService.svc.cs">
+      <DependentUpon>AssistanceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AssistanceOp\Attachment.cs" />
+    <Compile Include="Service\Att\PeriodLock.cs" />
+    <Compile Include="Service\Att\AttService.svc.cs">
+      <DependentUpon>AttService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Att\TblEmployeeShiftStore.cs" />
+    <Compile Include="Service\AuthOp\AuthService.svc.cs">
+      <DependentUpon>AuthService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AuthOp\AuthUserJournalSetting.cs" />
+    <Compile Include="Service\AuthOp\AuthWarehouse.cs" />
+    <Compile Include="Service\AuthOp\BarCodeSettingsOperation.cs" />
+    <Compile Include="Service\AuthOp\Users.cs" />
+    <Compile Include="Service\BankDepositOp\BankDeposit.cs" />
+    <Compile Include="Service\BankDepositOp\BankDepositService.svc.cs">
+      <DependentUpon>BankDepositService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\BankDepositOp\CashDepositeDetailDto.cs" />
+    <Compile Include="Service\BankDepositOp\Lookups.cs" />
+    <Compile Include="Service\BankDepositOp\SalaryApproval.cs" />
+    <Compile Include="Service\BankDepositOp\StoreCommission.cs" />
+    <Compile Include="Service\BankDepositOp\VisaMachines.cs" />
+    <Compile Include="Service\BankStatOp\BankStatement.cs" />
+    <Compile Include="Service\BankStatOp\BankStatementMatching.cs" />
+    <Compile Include="Service\BankStatOp\BankStatService.svc.cs">
+      <DependentUpon>BankStatService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\BankStatOp\Lookups.cs" />
+    <Compile Include="Service\ContractOp\ContractService.svc.cs">
+      <DependentUpon>ContractService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ContractOp\TblContractHeader.cs" />
+    <Compile Include="Service\CRUD_ManagerService.svc.cs">
+      <DependentUpon>CRUD_ManagerService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Dto%27s\EmpApprove.cs" />
+    <Compile Include="Service\Dto%27s\Enums.cs" />
+    <Compile Include="Service\Dto%27s\Image.cs" />
+    <Compile Include="Service\Dto%27s\Items.cs" />
+    <Compile Include="Service\Dto%27s\SalesOrdersQuantity.cs" />
+    <Compile Include="Service\Dto%27s\SMLDTO.cs" />
+    <Compile Include="Service\Dto%27s\WareHouse.cs" />
+    <Compile Include="Service\LkpData\FactoryDelivery.cs" />
+    <Compile Include="Service\LkpData\FamilyCategoryOperations.cs" />
+    <Compile Include="Service\LkpData\StyleImage.cs" />
+    <Compile Include="Service\LkpData\StyleSpec.cs" />
+    <Compile Include="Service\LkpData\TechPack.cs" />
+    <Compile Include="Service\LkpData\UserFormLayout.cs" />
+    <Compile Include="Service\LoginService.svc.cs">
+      <DependentUpon>LoginService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Operations\GlOperations\CashDepositeType.cs" />
+    <Compile Include="Service\Operations\GlOperations\JournalSettingCostCenter.cs" />
+    <Compile Include="Service\Operations\GlOperations\AuthUserJournalSetting.cs" />
+    <Compile Include="Service\Operations\GlOperations\JournalSettingEntity.cs" />
+    <Compile Include="Service\Operations\GlOperations\JournalSetting.cs" />
+    <Compile Include="Service\Operations\GlOperations\ClosingAdvanceVendorPayment.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostCenterOrganizationUnit.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostCenterRouteGroup.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlCashTransactionHeader.cs" />
+    <Compile Include="Service\Operations\GlOperations\PositionRoute.cs" />
+    <Compile Include="Service\Operations\GlOperations\ReverseGLTransactions.cs" />
+    <Compile Include="Service\Operations\GlOperations\SalesCommision.cs" />
+    <Compile Include="Service\Operations\GlOperations\VisaMachines.cs" />
+    <Compile Include="Service\Operations\PurchasePlan\PurchaseOrderHeaderRequestPayment.cs" />
+    <Compile Include="Service\Operations\StyleGridFilter.cs" />
+    <Compile Include="Service\Production\StyleNAColorDetail.cs" />
+    <Compile Include="Service\Production\StyleTNAApproval.cs" />
+    <Compile Include="Service\Production\UsersStyleTNAStatus.cs" />
+    <Compile Include="Service\Production\UsersApprovalStatus.cs" />
+    <Compile Include="Service\Production\StyleNA.cs" />
+    <Compile Include="Service\Production\InheritedModels\TblProductionOrderFabric.cs" />
+    <Compile Include="Service\Production\ProductionOrder.cs" />
+    <Compile Include="Service\Dyeing\DyeingService.svc.cs">
+      <DependentUpon>DyeingService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\LkpData\LkpData.svc.cs">
+      <DependentUpon>LkpData.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Operations\AccessoriesOperations.cs" />
+    <Compile Include="Service\Operations\AccessoryGroupsOperations.cs" />
+    <Compile Include="Service\Operations\AccessoryTypesOperations.cs" />
+    <Compile Include="Service\Operations\AxItemOperation.cs" />
+    <Compile Include="Service\Operations\AxWarehouse.cs" />
+    <Compile Include="Service\Operations\BarCodeSettingsOperation.cs" />
+    <Compile Include="Service\Operations\Budget.cs" />
+    <Compile Include="Service\Operations\ChainSettings.cs" />
+    <Compile Include="Service\Operations\AXPurchaseOrder.cs" />
+    <Compile Include="Service\Dto%27s\PuchaseOrders.cs" />
+    <Compile Include="Service\Operations\ColorLink.cs" />
+    <Compile Include="Service\Operations\BrandOperations.cs" />
+    <Compile Include="Service\Operations\Bom.cs" />
+    <Compile Include="Service\Operations\ColorOperations.cs" />
+    <Compile Include="Service\Operations\AccSizeGroup.cs" />
+    <Compile Include="Service\Operations\BrandSectionPermission.cs" />
+    <Compile Include="Service\Operations\BankDeposit.cs" />
+    <Compile Include="Service\Att\Att.cs" />
+    <Compile Include="Service\Operations\AssetsOperations.cs" />
+    <Compile Include="Service\Att\AttendanceReason.cs" />
+    <Compile Include="Service\Operations\BrandSectionMail.cs" />
+    <Compile Include="Service\Operations\BrandSectionMailSample.cs" />
+    <Compile Include="Service\Operations\CheckListLink.cs" />
+    <Compile Include="Service\Operations\CheckListTransaction.cs" />
+    <Compile Include="Service\Operations\BrandStoreTarget.cs" />
+    <Compile Include="Service\Dyeing\DyeingOrderInvoiceOperations.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostCenterType.cs" />
+    <Compile Include="Service\Operations\GlOperations\ShopArea.cs" />
+    <Compile Include="Service\Operations\PurchasePlan\PurchaseOrderRequest.cs" />
+    <Compile Include="Service\Operations\PurchasePlan\GeneratePurchase.cs" />
+    <Compile Include="Service\Operations\PurchasePlan\PurchasePlan.svc.cs">
+      <DependentUpon>PurchasePlan.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Production\ProductionService.svc.cs">
+      <DependentUpon>ProductionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Production\TradeAgreement.cs" />
+    <Compile Include="Service\RouteCard\RouteCardInvoiceHeaderOperations.cs" />
+    <Compile Include="Service\Operations\PurchaseBudget.cs" />
+    <Compile Include="Service\Operations\GeneratePurchaseHeaderCurrency.cs" />
+    <Compile Include="Service\Operations\PurchasePlan\MarkUp.cs" />
+    <Compile Include="Service\Operations\RecInvProduction.cs" />
+    <Compile Include="Service\Operations\SeasonCurrency.cs" />
+    <Compile Include="Service\Operations\DocumentationFiles.cs" />
+    <Compile Include="Service\Operations\IssueJournal.cs" />
+    <Compile Include="Service\Operations\GlOperations\LedgerAttachment.cs" />
+    <Compile Include="Service\Operations\GlOperations\Depreciation.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlChequeTransactionHeader.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlGenEntity.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlExpenses.cs" />
+    <Compile Include="Service\Operations\GlOperations\RetailStyles.cs" />
+    <Compile Include="Service\Operations\SequenceProduction.cs" />
+    <Compile Include="Service\Operations\SharedOperation.cs" />
+    <Compile Include="Service\Operations\ShopReqHeader.cs" />
+    <Compile Include="Service\Operations\ShopReqInv.cs" />
+    <Compile Include="Service\Operations\ShopReqComments.cs" />
+    <Compile Include="Service\Operations\ShopReqAcc.cs" />
+    <Compile Include="Service\Operations\EmpWeeklyDayOff.cs" />
+    <Compile Include="Service\Operations\EmpLeavingTransaction.cs" />
+    <Compile Include="Service\Operations\GlOperations\Asset.cs" />
+    <Compile Include="Service\Operations\GlOperations\BankTransactionType.cs" />
+    <Compile Include="Service\Operations\GlOperations\Cheque.cs" />
+    <Compile Include="Service\Operations\GlOperations\IncomeStatmentDesign.cs" />
+    <Compile Include="Service\Operations\GlOperations\Currency.cs" />
+    <Compile Include="Service\Operations\GlOperations\MethodOfPayment.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlRuleJob.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostAllocationMethod.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlRule.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostDimSetup.cs" />
+    <Compile Include="Service\Operations\GlOperations\Account.cs" />
+    <Compile Include="Service\Operations\GlOperations\AccountInterval.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostCenterInterval.cs" />
+    <Compile Include="Service\Operations\GlOperations\inventPosting.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlPost.cs" />
+    <Compile Include="Service\Operations\GlOperations\bankOperation.cs" />
+    <Compile Include="Service\Operations\GlOperations\MarkUp.cs" />
+    <Compile Include="Service\Operations\GlOperations\RecInv.cs" />
+    <Compile Include="Service\Operations\GlOperations\CostCenter.cs" />
+    <Compile Include="Service\Operations\GlOperations\Entity.cs" />
+    <Compile Include="Service\Operations\GlOperations\GenericOperation.cs" />
+    <Compile Include="Service\Operations\GlOperations\GlService.svc.cs">
+      <DependentUpon>GlService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Operations\GlOperations\Journal.cs" />
+    <Compile Include="Service\Operations\GlOperations\Ledger.cs" />
+    <Compile Include="Service\Operations\GlOperations\Period.cs" />
+    <Compile Include="Service\Operations\GlOperations\PostingProfile.cs" />
+    <Compile Include="Service\Operations\GlOperations\Sequence.cs" />
+    <Compile Include="Service\Operations\GlOperations\SilverlightFaultBehavior.cs" />
+    <Compile Include="Service\Operations\VariableTermManual.cs" />
+    <Compile Include="Service\Operations\CurrencyOperation.cs" />
+    <Compile Include="Service\Operations\TransferMsg.cs" />
+    <Compile Include="Service\Operations\UserCheckList.cs" />
+    <Compile Include="Service\Att\ExcuseRule.cs" />
+    <Compile Include="Service\Operations\DyeingAccOrder.cs" />
+    <Compile Include="Service\Operations\DyeingPLan.cs" />
+    <Compile Include="Service\Operations\PostStyleToRetail.cs" />
+    <Compile Include="Service\Operations\TblStandardBOM.cs" />
+    <Compile Include="Service\Operations\SalesOrderAttachment.cs" />
+    <Compile Include="Service\Operations\GlobalBudget.cs" />
+    <Compile Include="Service\Operations\CurrencyDailyExchange.cs" />
+    <Compile Include="Service\Operations\FabricStructure.cs" />
+    <Compile Include="Service\Operations\Stores.cs" />
+    <Compile Include="Service\Operations\DashBoard.cs" />
+    <Compile Include="Service\Operations\Promotion.cs" />
+    <Compile Include="Service\Operations\PromotionCriteria.cs" />
+    <Compile Include="Service\Operations\SupplierFabric.cs" />
+    <Compile Include="Service\Operations\StyleStatus.cs" />
+    <Compile Include="Service\Operations\FingerPringTrans.cs" />
+    <Compile Include="Service\Operations\Employee Behaf.cs" />
+    <Compile Include="Service\Operations\CheckListMail.cs" />
+    <Compile Include="Service\Operations\EmployeeShift.cs" />
+    <Compile Include="Service\Operations\RequestForSampleImages.cs" />
+    <Compile Include="Service\Operations\RequestForSampleEvent.cs" />
+    <Compile Include="Service\Operations\RequestForSampleService.cs" />
+    <Compile Include="Service\Operations\RequestForSampleItem.cs" />
+    <Compile Include="Service\Operations\RequestForSample.cs" />
+    <Compile Include="Service\Operations\StyleAttachment.cs" />
+    <Compile Include="Service\Operations\StyleImage.cs" />
+    <Compile Include="Service\Operations\PaymentSchedule.cs" />
+    <Compile Include="Service\Operations\PaymentScheduleSetting.cs" />
+    <Compile Include="Service\Operations\RouteGroupCoding.cs" />
+    <Compile Include="Service\Operations\Service.cs" />
+    <Compile Include="Service\Operations\SalesOrderRoutes.cs" />
+    <Compile Include="Service\Operations\SalesOrderColorTheme.cs" />
+    <Compile Include="Service\LkpData\FamilyLinkOperations.cs" />
+    <Compile Include="Service\LkpData\FamilyOperations.cs" />
+    <Compile Include="Service\Operations\Season.cs" />
+    <Compile Include="Service\Operations\SizeGroup.cs" />
+    <Compile Include="Service\Operations\FabricOperations.cs" />
+    <Compile Include="Service\Operations\NewRFQOperation.cs" />
+    <Compile Include="Service\Operations\RFSOperations.cs" />
+    <Compile Include="Service\Operations\SeasonalMasterList.cs" />
+    <Compile Include="Service\Operations\DyeingOrder.cs" />
+    <Compile Include="Service\Operations\DyeingPLanAcc.cs" />
+    <Compile Include="Service\Operations\FabricAttrubutes.cs" />
+    <Compile Include="Service\Operations\FabricDefectsOperations.cs" />
+    <Compile Include="Service\Operations\LoginOperations.cs" />
+    <Compile Include="Service\Operations\MarkerOperations.cs" />
+    <Compile Include="Service\Operations\PermissionOperations.cs" />
+    <Compile Include="Service\Operations\PostPOTOAx.cs" />
+    <Compile Include="Service\RouteCard\PostRoutCard.cs" />
+    <Compile Include="Service\Operations\PurchaseOrder.cs" />
+    <Compile Include="Service\Operations\GenericItemSearchOperations.cs" />
+    <Compile Include="Service\Operations\FabricImageOperation.cs" />
+    <Compile Include="Service\Operations\GenericOperations.cs" />
+    <Compile Include="Service\Operations\PostFabricAttrOperation.cs" />
+    <Compile Include="Service\Operations\Revervation.cs" />
+    <Compile Include="Service\Operations\RFQOperations.cs" />
+    <Compile Include="Service\RouteCard\RouteCardOperations.cs" />
+    <Compile Include="Service\Operations\SalesOrders.cs" />
+    <Compile Include="Service\Operations\Sizes.cs" />
+    <Compile Include="Service\Operations\StyleApproval.cs" />
+    <Compile Include="Service\Operations\Style.cs" />
+    <Compile Include="Service\Operations\UserBrand.cs" />
+    <Compile Include="Service\Operations\Users.cs" />
+    <Compile Include="Service\Operations\Warehouse.cs" />
+    <Compile Include="Service\RouteCard\RouteCardService.svc.cs">
+      <DependentUpon>RouteCardService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\StyleService.svc.cs">
+      <DependentUpon>StyleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\UserDomains.svc.cs">
+      <DependentUpon>UserDomains.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\WarehouseOp\Adjustment.cs" />
+    <Compile Include="Service\WarehouseOp\InheritedModels\TblAdjustmentDetail.cs" />
+    <Compile Include="Service\WarehouseOp\InheritedModels\TblAdjustmentTempDetail.cs" />
+    <Compile Include="Service\Production\InheritedModels\TblProductionOrderHeader.cs" />
+    <Compile Include="Service\WarehouseOp\InheritedModels\TblSalesOrderDetailRequest.cs" />
+    <Compile Include="Service\WarehouseOp\InheritedModels\TblTransferDetail.cs" />
+    <Compile Include="Service\WarehouseOp\ItemDimension.cs" />
+    <Compile Include="Service\WarehouseOp\SalesOrderRequest.cs" />
+    <Compile Include="Service\WarehouseOp\Transfer.cs" />
+    <Compile Include="Service\WarehouseOp\Warehouse.cs" />
+    <Compile Include="Service\WarehouseOp\WarehouseQuantities.cs" />
+    <Compile Include="Service\WarehouseOp\WarehouseService.svc.cs">
+      <DependentUpon>WarehouseService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\SilverlightFaultBehavior.cs" />
+    <Compile Include="Service\Operations\Vendor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\CCWMFEntites.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CCWMFEntites.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Main.Master" />
+    <EntityDeploy Include="Model\AxEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AxEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\CCNewEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CCNewEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="FileUpload.ashx" />
+    <EntityDeploy Include="Model\ConfigrationsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConfigrationsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\TimeAttEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TimeAttEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CCWFM.Models\CCWFM.Models.csproj">
+      <Project>{9f634ee9-401b-4492-8dbd-10ac43bad7b4}</Project>
+      <Name>CCWFM.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>18559</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:18559/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

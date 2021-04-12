@@ -1,0 +1,187 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.ExcusesChild"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d" xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+									   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+									   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+									   xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+									   xmlns:converters="clr-namespace:CCWFM.Helpers.Converters"
+									   d:DesignWidth="640" d:DesignHeight="480"
+		   Title="Excuses">
+	<sdk:ChildWindow.Resources>
+		<converters:IntToEnabledConvertor x:Key="IntToEnabledConvertor" />
+	</sdk:ChildWindow.Resources>
+	<Grid x:Name="LayoutRoot">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="300" />
+			<RowDefinition Height="50*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Row="0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="AddBttn"
+					Width="75"
+					Height="50"
+					Click="AddBttn_Click"
+					ToolTipService.ToolTip="Add">
+
+				<Image Width="53"
+					   Height="48"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</Button>
+
+			<Button Name="SaveBttn"
+					Width="75"
+					Height="50"
+					Click="SaveBttn_Click"
+					ToolTipService.ToolTip="Save">
+				<Image Width="44"
+					   Height="45"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/Save-icon.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="bttndelete"
+					Width="75"
+					Height="50"
+					Click="bttndelete_Click"
+					ToolTipService.ToolTip="Delete">
+				<Image Width="44"
+					   Height="45"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1369840693_DeleteRed.png"
+					   Stretch="Uniform" />
+			</Button>
+		</StackPanel>
+
+
+		<dataGrid:OsGrid Name="MainGrid"
+						 Grid.Row="1"
+						 MaxHeight="300"
+						 VerticalAlignment="Stretch"
+						 HorizontalContentAlignment="Stretch"
+						 VerticalContentAlignment="Stretch"
+						 AllowDrop="True"
+						 AutoGenerateColumns="False"
+						 FilteredItemsSource="{Binding SelectedMainRow.SelectedExcuses,
+													   Mode=TwoWay}"
+						 ItemsSource="{Binding SelectedMainRow.SelectedExcuses,
+											   Mode=TwoWay}"
+						 KeyDown="MainGrid_KeyUp"                      
+						 RowHeight="50" RowEditEnded="MainGrid_OnRowEditEnded"
+						 SelectedItem="{Binding selectedExcuse,
+												Mode=TwoWay}">
+
+			<dataGrid:OsGrid.Columns>
+				<sdk:DataGridTextColumn Width="SizeToHeader"
+													Binding="{Binding Emplid,
+																	  Mode=TwoWay}"
+													IsReadOnly="True"
+													SortMemberPath="Emplid"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee,
+																										  Source={StaticResource LocalizedStrings}}" />
+		
+				<sdk:DataGridTemplateColumn Width="200"
+											SortMemberPath="CSPEXCUSEID"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ExcuseType,
+																								  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+
+						<DataTemplate>
+							<ComboBox Width="190"
+									  Height="30"
+									  MinHeight="30"
+									  HorizontalAlignment="Stretch"
+									  DisplayMemberPath="CSPEXCUSEID"
+									  ItemsSource="{Binding Path=DataContext.CcExcuse,
+															RelativeSource={RelativeSource FindAncestor,
+																						   AncestorType=sdk:ChildWindow,
+																						   AncestorLevel=1}}"
+									  SelectedValue="{Binding CSPEXCUSEID,
+															  Mode=TwoWay}"
+									  SelectedValuePath="CSPEXCUSEID"  /> 
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn Width="100"
+											SortMemberPath="TransDate"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Date,
+																								  Source={StaticResource LocalizedStrings}}">
+					
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path=TransDate, StringFormat=\{0:d\}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn Width="100"
+											SortMemberPath="FromTime"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding FromTime,
+																								  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<toolkit:TimePicker VerticalAlignment="Stretch" SpinnerStyle="{StaticResource ButtonSpinnerStyle1}" Style="{StaticResource TimePickerStyle1}" IsEnabled="False"
+																					 Value="{Binding Path=FromTime, Mode=TwoWay, Converter={StaticResource TimeConverter}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<toolkit:TimePicker VerticalAlignment="Stretch" SpinnerStyle="{StaticResource ButtonSpinnerStyle1}" Style="{StaticResource TimePickerStyle1}" Value="{Binding Path=FromTime, Mode=TwoWay, Converter={StaticResource TimeConverter}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn Width="100"
+											SortMemberPath="ToTime"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ToTime,
+																								  Source={StaticResource LocalizedStrings}}">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<toolkit:TimePicker IsEnabled="False" SpinnerStyle="{StaticResource ButtonSpinnerStyle1}" VerticalAlignment="Stretch"  Style="{StaticResource TimePickerStyle1}" Value="{Binding Path=ToTime, Mode=TwoWay, Converter={StaticResource TimeConverter}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<toolkit:TimePicker SpinnerStyle="{StaticResource ButtonSpinnerStyle1}"  Style="{StaticResource TimePickerStyle1}" VerticalAlignment="Stretch" Value="{Binding Path=ToTime, Mode=TwoWay, Converter={StaticResource TimeConverter}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+		   
+				<sdk:DataGridTextColumn Width="*"
+										Binding="{Binding Description,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Description,
+																							  Source={StaticResource LocalizedStrings}}" />
+
+				<sdk:DataGridCheckBoxColumn Width="SizeToHeader"
+														Binding="{Binding Status,
+																		  Converter={StaticResource IntToEnabledConvertor},
+																		  Mode=TwoWay}"
+														SortMemberPath="Status"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Status,
+																											  Source={StaticResource LocalizedStrings}}" />
+			</dataGrid:OsGrid.Columns>
+		</dataGrid:OsGrid>
+	</Grid>
+</controlsOverride:ChildWindowsOverride>

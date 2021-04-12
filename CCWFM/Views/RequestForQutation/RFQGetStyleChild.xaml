@@ -1,0 +1,100 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.RequestForQutation.RFQGetStyleChild"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Converters="clr-namespace:CCWFM.Helpers.Converters"
+                      xmlns:bi="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders"
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                      xmlns:fw="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                      xmlns:res="clr-namespace:CCWFM.Helpers.LocalizationHelpers"
+                      Title=""
+                      Width="600"
+                      Height="350">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.Resources>
+            <Converters:SelectedItemToIsEnabledConverter x:Key="SelectionToBoolConverter" />
+            <res:strings x:Key="LocalizedStrings" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.75*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.75*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Padding="5"
+                       Text="{Binding Path=StyleCode, Source={StaticResource LocalizedStrings}}" />
+            <TextBox Name="StyleCodeTextBox"
+                     Grid.Column="1" 
+                     Margin="0,5,0,5"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center" 
+                     KeyDown="StyleCodeTextBox_KeyDown"
+                     Padding="10"
+                     TextChanged="StyleCodeTextBox_TextChanged" />
+            <ProgressBar Name="lgnProgress"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         Width="250"
+                         Height="Auto"
+                         Margin="0,5"
+                         HorizontalAlignment="Stretch"
+                         BorderBrush="Green"
+                         BorderThickness="2"
+                         Foreground="White"
+                         IsIndeterminate="True"
+                         IsTabStop="False"
+                         Padding="5"
+                         Visibility="Collapsed" />
+            <Button Name="btnSearchItems"
+                    Grid.Column="4"
+                    Click="btnSearchItems_Click"
+                    Cursor="Hand"
+                    Padding="5">
+                <Image Height="40"
+                       Source="/CCWFM;component/Images/1371054443_Preview%20Docment.png"
+                       Stretch="Uniform" />
+            </Button>
+        </Grid>
+        <sdk:DataGrid Name="SearchResultDataGrid"
+                      Grid.Row="1"
+                      IsReadOnly="True"
+                      ItemsSource="{Binding StylesList,
+                                            Mode=TwoWay}">
+            <i:Interaction.Behaviors>
+                <bi:DoubleClickBehavior DoubleClick="DoubleClickBehavior_DoubleClick" />
+            </i:Interaction.Behaviors>
+        </sdk:DataGrid>
+
+        <Button x:Name="CancelButton"
+                Grid.Row="2"
+                Width="75"
+                Height="23"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Right"
+                Click="CancelButton_Click"
+               Content="{Binding Path=Cancel, Source={StaticResource LocalizedStrings}}" />
+        <Button x:Name="OKButton"
+                Grid.Row="2"
+                Width="75"
+                Height="23"
+                Margin="0,12,79,0"
+                HorizontalAlignment="Right"
+                Click="OKButton_Click"
+                Content="{Binding Path=Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding ElementName=SearchResultDataGrid,
+                                    Path=SelectedItem,
+                                    Converter={StaticResource SelectionToBoolConverter},
+                                    ConverterParameter=True}" />
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EmployeesPayrollWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erpts.ccasual.loc:555/EmployeePayrollService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfTblVacation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblVacation" nillable="true" type="tns:TblVacation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblVacation" nillable="true" type="tns:ArrayOfTblVacation" />
+  <xs:complexType name="TblVacation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSPVACATIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DAYS" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Emplid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblVacation" nillable="true" type="tns:TblVacation" />
+  <xs:complexType name="TblVariableTermManual">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Days" type="xs:double" />
+          <xs:element minOccurs="0" name="Emplid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Hours" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSalaryTerm" nillable="true" type="tns:TblSalaryTerm" />
+          <xs:element minOccurs="0" name="TblSalaryTermReference" nillable="true" type="q2:EntityReferenceOfTblSalaryTermNP6_SsJrD" />
+          <xs:element minOccurs="0" name="TermId" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="status" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblVariableTermManual" nillable="true" type="tns:TblVariableTermManual" />
+  <xs:complexType name="TblSalaryTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblVariableTermManuals" nillable="true" type="tns:ArrayOfTblVariableTermManual" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblSalaryTerm" nillable="true" type="tns:TblSalaryTerm" />
+  <xs:complexType name="ArrayOfTblVariableTermManual">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblVariableTermManual" nillable="true" type="tns:TblVariableTermManual" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblVariableTermManual" nillable="true" type="tns:ArrayOfTblVariableTermManual" />
+  <xs:complexType name="ArrayOfTblExcuse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblExcuse" nillable="true" type="tns:TblExcuse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblExcuse" nillable="true" type="tns:ArrayOfTblExcuse" />
+  <xs:complexType name="TblExcuse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSPEXCUSEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Emplid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromTime" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="ToTime" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblExcuse" nillable="true" type="tns:TblExcuse" />
+  <xs:complexType name="ArrayOfTblMission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblMission" nillable="true" type="tns:TblMission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblMission" nillable="true" type="tns:ArrayOfTblMission" />
+  <xs:complexType name="TblMission">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSPMISSIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Emplid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FromTime" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ToTime" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblMission" nillable="true" type="tns:TblMission" />
+  <xs:complexType name="ArrayOfTblAttendanceFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblAttendanceFile" nillable="true" type="tns:TblAttendanceFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblAttendanceFile" nillable="true" type="tns:ArrayOfTblAttendanceFile" />
+  <xs:complexType name="TblAttendanceFile">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Emplid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="OrginalFromTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OrginalInTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAttendanceFileReason" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ToTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblAttendanceFile" nillable="true" type="tns:TblAttendanceFile" />
+  <xs:complexType name="ArrayOfTblEmployeeShift">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblEmployeeShift" nillable="true" type="tns:TblEmployeeShift" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblEmployeeShift" nillable="true" type="tns:ArrayOfTblEmployeeShift" />
+  <xs:complexType name="TblEmployeeShift">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Day" type="xs:int" />
+          <xs:element minOccurs="0" name="EmpId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="TblEmployeeShiftLookup" type="xs:int" />
+          <xs:element minOccurs="0" name="TblEmployeeShiftLookup1" nillable="true" type="tns:TblEmployeeShiftLookup" />
+          <xs:element minOccurs="0" name="TblEmployeeShiftLookup1Reference" nillable="true" type="q7:EntityReferenceOfTblEmployeeShiftLookupNP6_SsJrD" />
+          <xs:element minOccurs="0" name="TblStore" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Week" type="xs:int" />
+          <xs:element minOccurs="0" name="Year" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblEmployeeShift" nillable="true" type="tns:TblEmployeeShift" />
+  <xs:complexType name="TblEmployeeShiftLookup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalendarId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Shift" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblEmployeeShifts" nillable="true" type="tns:ArrayOfTblEmployeeShift" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblEmployeeShiftLookup" nillable="true" type="tns:TblEmployeeShiftLookup" />
+</xs:schema>

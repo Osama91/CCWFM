@@ -1,0 +1,2978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Approvals" xml:space="preserve">
+    <value>Approvals</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="BatchNo" xml:space="preserve">
+    <value>Batch No</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="CloretteCmPerPc" xml:space="preserve">
+    <value>Clorette CM/PC</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="Colors" xml:space="preserve">
+    <value>Colors</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ConsPerPCMT" xml:space="preserve">
+    <value>Cons. /PC MT</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>Contents</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="CuttingSelection" xml:space="preserve">
+    <value>Cutting Selection</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="DataSettings" xml:space="preserve">
+    <value>Data Settings</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Common</comment>
+  </data>
+  <data name="DyeingPlanReport" xml:space="preserve">
+    <value>Dyeing Plan Report</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="DyeingReport" xml:space="preserve">
+    <value>Dyeing Report</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedDyedFabricPlan" xml:space="preserve">
+    <value>Estimated Dyed Fabric Plan</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedProductGroupPlan" xml:space="preserve">
+    <value>Estimated Product Group Plan</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedPurchasePlan" xml:space="preserve">
+    <value>Estimated Purchase Plan</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Fabric" xml:space="preserve">
+    <value>Fabric</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricAttributes" xml:space="preserve">
+    <value>Fabric Attributes</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricCode" xml:space="preserve">
+    <value>Fabric Code</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricColor" xml:space="preserve">
+    <value>Fabric Color</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricDesigns" xml:space="preserve">
+    <value>Fabric Designs</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricFinishes" xml:space="preserve">
+    <value>Fabric Finishes</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricInspection" xml:space="preserve">
+    <value>Fabric Inspection</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricMaterials" xml:space="preserve">
+    <value>Fabric Materials</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricPreparations" xml:space="preserve">
+    <value>Fabric Preparations</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricStructures" xml:space="preserve">
+    <value>Fabric Structures</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricTypes" xml:space="preserve">
+    <value>Fabric Types</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FinishedProductAttributes" xml:space="preserve">
+    <value>Finished Product Attributes(FPA)</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="Gauges" xml:space="preserve">
+    <value>Gauges</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Lookups" xml:space="preserve">
+    <value>Lookups</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="MarkerDetails" xml:space="preserve">
+    <value>Marker Details</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="MarkerL" xml:space="preserve">
+    <value>Marker L.</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MarkerNo" xml:space="preserve">
+    <value>Marker No</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MarkerW" xml:space="preserve">
+    <value>Marker W.</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MeasurementChart" xml:space="preserve">
+    <value>Measurement Chart</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>Operations</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Planning" xml:space="preserve">
+    <value>Planning</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ProductGroup" xml:space="preserve">
+    <value>Product Group</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="RollAssignedQty" xml:space="preserve">
+    <value>Roll Assigned Qty</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RollNo" xml:space="preserve">
+    <value>Roll No</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RollUnit" xml:space="preserve">
+    <value>Roll Unit</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RouteCard" xml:space="preserve">
+    <value>Route Card</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="SalesOrder" xml:space="preserve">
+    <value>Sales Order</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Seasons" xml:space="preserve">
+    <value>Seasons</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SharedAttributes" xml:space="preserve">
+    <value>Shared Attributes</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="Sizes" xml:space="preserve">
+    <value>Sizes</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Statuses" xml:space="preserve">
+    <value>Statuses</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Style</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleList" xml:space="preserve">
+    <value>Style List</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleApproval" xml:space="preserve">
+    <value>Style Approval</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="StyleCode" xml:space="preserve">
+    <value>Style Code</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleColor" xml:space="preserve">
+    <value>Style Color</value>
+    <comment>Common</comment>
+  </data>
+  <data name="SubFamily" xml:space="preserve">
+    <value>Sub Family</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ThreadNumbers" xml:space="preserve">
+    <value>Thread Numbers</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="TransactionManagement" xml:space="preserve">
+    <value>Transaction Management</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="TransDate" xml:space="preserve">
+    <value>Trans Date</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TransIserial" xml:space="preserve">
+    <value>TransIserial</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UoMs" xml:space="preserve">
+    <value>UoMs</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value> Vendor</value>
+    <comment>Common</comment>
+  </data>
+  <data name="YarnAttributes" xml:space="preserve">
+    <value>Yarn Attributes</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="YarnCounts" xml:space="preserve">
+    <value>Yarn Counts</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="YarnFinishes" xml:space="preserve">
+    <value>Yarn Finishes</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ChoiceType" xml:space="preserve">
+    <value>Choice Type</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="ConsPc" xml:space="preserve">
+    <value>Cons/pc</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Iserial" xml:space="preserve">
+    <value>Iserial</value>
+    <comment>Common</comment>
+  </data>
+  <data name="M2WeightGm" xml:space="preserve">
+    <value>M2 Weight Gm</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="NetRollWMT" xml:space="preserve">
+    <value>Net Roll WMT</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="NoOfPc" xml:space="preserve">
+    <value>No Of Pc</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="ProductCat" xml:space="preserve">
+    <value>Product. Cat.</value>
+    <comment>Fabric Defects</comment>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Purchase Order</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="RollWMT" xml:space="preserve">
+    <value>Roll W MT</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>Season</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StoreRollQty" xml:space="preserve">
+    <value>Store Roll Qty</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Supplier</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricSetups" xml:space="preserve">
+    <value>Fabric Setups</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="NewOrder" xml:space="preserve">
+    <value>New Order</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="DocPlan" xml:space="preserve">
+    <value>Doc Plan #</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="DyeingClass" xml:space="preserve">
+    <value>Dyeing Class</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="DyeingPlan" xml:space="preserve">
+    <value>Dyeing Plan</value>
+    <comment>Page</comment>
+  </data>
+  <data name="FabricName" xml:space="preserve">
+    <value>Fabric Name</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>ToDate</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Tolerance" xml:space="preserve">
+    <value>Tolerance</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Aname" xml:space="preserve">
+    <value>Arabic Name</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Ename" xml:space="preserve">
+    <value>English Name</value>
+    <comment>Common</comment>
+  </data>
+  <data name="OnOrder" xml:space="preserve">
+    <value>On Order</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Po" xml:space="preserve">
+    <value>Po</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="RemainingQty" xml:space="preserve">
+    <value>Remaining Qty</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="StorageQty" xml:space="preserve">
+    <value>Storage Qty</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+    <comment>Common</comment>
+  </data>
+  <data name="PartsOfMeasurement" xml:space="preserve">
+    <value>Parts Of Measurement</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="StyleImage" xml:space="preserve">
+    <value>Gallery</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>Degree</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Delivery Date</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DocDate" xml:space="preserve">
+    <value>Doc Date</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="GrandTotal" xml:space="preserve">
+    <value>Grand Total:</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>Common</comment>
+  </data>
+  <data name="OutDate" xml:space="preserve">
+    <value>Out Date</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Route" xml:space="preserve">
+    <value>Workstation</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="RouteGroup" xml:space="preserve">
+    <value>Operation</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="SalesOrderColor" xml:space="preserve">
+    <value>Sales Order Color</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TotalQuantity" xml:space="preserve">
+    <value>Total Quantity</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TransID" xml:space="preserve">
+    <value>Trans ID</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DocumentDate" xml:space="preserve">
+    <value>Document Date</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="ReportTitle" xml:space="preserve">
+    <value>Report Title</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TransactionID" xml:space="preserve">
+    <value>Transaction ID</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="AddContent" xml:space="preserve">
+    <value>Add Content</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AfterWashing" xml:space="preserve">
+    <value>After Washing</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="BeforeWashing" xml:space="preserve">
+    <value>Before Washing</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Design" xml:space="preserve">
+    <value>Design</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Pattern" xml:space="preserve">
+    <value>Pattern</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyedFabricWidth" xml:space="preserve">
+    <value>Dyed Fabric Width</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyingClassification" xml:space="preserve">
+    <value>Dyeing Classification </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="ExistingFabric" xml:space="preserve">
+    <value>Existing Fabric</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="ExpectedDyingLossMargin" xml:space="preserve">
+    <value>Expected Dyeing Loss Margin</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="FabricCategories" xml:space="preserve">
+    <value>Fabric Categories</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="FabricDescription" xml:space="preserve">
+    <value>Fabric Description</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finish </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Guag" xml:space="preserve">
+    <value>Gauge</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="HorizontalShrinkage" xml:space="preserve">
+    <value>Horizontal Shrinkage</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Materials" xml:space="preserve">
+    <value>Materials</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Measurments" xml:space="preserve">
+    <value>Measurments</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PostToAxapta" xml:space="preserve">
+    <value>Post To Axapta</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Structure" xml:space="preserve">
+    <value>Structure </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Twist" xml:space="preserve">
+    <value>Twist</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="UnitOfMeasurment" xml:space="preserve">
+    <value>Unit Of Measurment</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="VerticalShrinkage" xml:space="preserve">
+    <value>Vertical Shrinkage</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="WeightM2" xml:space="preserve">
+    <value>Weight/M2</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Width</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="YarnFinish" xml:space="preserve">
+    <value>Yarn Finish</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Pom" xml:space="preserve">
+    <value>Pom</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Barcode" xml:space="preserve">
+    <value>Barcode</value>
+    <comment>Fabric Defects</comment>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="UserJobs" xml:space="preserve">
+    <value>User Jobs</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Jobs" xml:space="preserve">
+    <value>Jobs</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Tel1" xml:space="preserve">
+    <value>Tel1</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Tel2" xml:space="preserve">
+    <value>Tel2</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="User_Domain" xml:space="preserve">
+    <value>User_Domain</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="User_Win_Login" xml:space="preserve">
+    <value>User_Win_Login</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="AxId" xml:space="preserve">
+    <value>Ax Id</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="AxName" xml:space="preserve">
+    <value>Ax Name</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="FabImg" xml:space="preserve">
+    <value>Fabric Image</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="LoadFabric" xml:space="preserve">
+    <value>Load Fabric</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="AccGroupstr" xml:space="preserve">
+    <value>Accessory Group</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SuppRef" xml:space="preserve">
+    <value>Supplier Ref.</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccGroup" xml:space="preserve">
+    <value>Accessory Group</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccsSize" xml:space="preserve">
+    <value>Size</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccsConfig" xml:space="preserve">
+    <value>Config.</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="YarnSourceTxt" xml:space="preserve">
+    <value>Yarn Source</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="InshesTxt" xml:space="preserve">
+    <value>Inch</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PrintBarcode" xml:space="preserve">
+    <value>Print Barcode</value>
+    <comment>Fabric Defects</comment>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Report</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="BottomMargin" xml:space="preserve">
+    <value>Bottom Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="LabelFontSize" xml:space="preserve">
+    <value>Label Font Size</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="LeftMargin" xml:space="preserve">
+    <value>Left Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="RightMargin" xml:space="preserve">
+    <value>Right Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="UpperMargin" xml:space="preserve">
+    <value>Upper Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="ValuesFontSize" xml:space="preserve">
+    <value>Values Font Size</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PrintingCode" xml:space="preserve">
+    <value>Printing Code</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="BarcodeSettings" xml:space="preserve">
+    <value>Barcode Settings</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="Defects" xml:space="preserve">
+    <value>Defects</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="BarcodeHeight" xml:space="preserve">
+    <value>Barcode Height</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="BarcodeOperation" xml:space="preserve">
+    <value>Barcode Operation</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="BarcodeWidth" xml:space="preserve">
+    <value>Barcode Width</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="PrintingBarcodeFormate" xml:space="preserve">
+    <value>Printing Barcode Formate</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="PageHeight" xml:space="preserve">
+    <value>Page Height</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PageSizeUnit" xml:space="preserve">
+    <value>Page Size Unit</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PageWidth" xml:space="preserve">
+    <value>Page Width</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="RollQty" xml:space="preserve">
+    <value>Roll Qty</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="AccType" xml:space="preserve">
+    <value>Type</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="BoxNum" xml:space="preserve">
+    <value>Box Number</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Style Description 2</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="DetailsStngs" xml:space="preserve">
+    <value>Details</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="FailSavingMessage" xml:space="preserve">
+    <value>Data was not Saved</value>
+    <comment>MessageResponses</comment>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="HeaderStngs" xml:space="preserve">
+    <value>Header Settings</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="ItemID" xml:space="preserve">
+    <value>Item ID</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="SavedMessage" xml:space="preserve">
+    <value>Data is saved successfully</value>
+    <comment>MessageResponses</comment>
+  </data>
+  <data name="SubGroup" xml:space="preserve">
+    <value>Sup-Group</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="AccessorySetups" xml:space="preserve">
+    <value>Accessory Setups</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SameFabricConfirmationMessage" xml:space="preserve">
+    <value>The item compination you are trying to save already exists...Save with a new Code ?!</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PartialDetails" xml:space="preserve">
+    <value>Partial Details</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyedFabric" xml:space="preserve">
+    <value>Dyed Fabric</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>Dyeing Services</comment>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+    <comment>Dyeing Services</comment>
+  </data>
+  <data name="WareHouse" xml:space="preserve">
+    <value>Warehouse</value>
+    <comment>Common</comment>
+  </data>
+  <data name="img" xml:space="preserve">
+    <value>Image</value>
+    <comment>Common</comment>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>Services</value>
+    <comment>Common</comment>
+  </data>
+  <data name="RFQItems" xml:space="preserve">
+    <value>RFQ Items</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQServices" xml:space="preserve">
+    <value>RFQ Services</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Available</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="AvaliableQuantity" xml:space="preserve">
+    <value>Avaliable Quantity</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="ColorName" xml:space="preserve">
+    <value>Color Name</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Config</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>Dyeing PLan</comment>
+  </data>
+  <data name="DyedOrder" xml:space="preserve">
+    <value>Dyed Order</value>
+    <comment>Dyeing Orders</comment>
+  </data>
+  <data name="EstimatedDeliveryDate" xml:space="preserve">
+    <value>Estimated Delivery Date</value>
+    <comment>Dyed Order</comment>
+  </data>
+  <data name="FabricLot" xml:space="preserve">
+    <value>Fabric Lot</value>
+    <comment>Dyeing Order</comment>
+  </data>
+  <data name="FabricLotDetails" xml:space="preserve">
+    <value>Fabric Lot Details</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="GenerateDyeingOrder" xml:space="preserve">
+    <value>Generate Dyeing Order</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="NoOfRolls" xml:space="preserve">
+    <value>No O fRolls</value>
+    <comment>Fabric defects</comment>
+  </data>
+  <data name="Journal" xml:space="preserve">
+    <value>Journal</value>
+    <comment>Fabric Inspection</comment>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>ItemType</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="ItemMainGroup" xml:space="preserve">
+    <value>Item Main Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="ItemSubGroup" xml:space="preserve">
+    <value>Item Sub Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this entry ?</value>
+    <comment>Messages</comment>
+  </data>
+  <data name="Acc" xml:space="preserve">
+    <value>Accessory</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="ItemGroup" xml:space="preserve">
+    <value>Item Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>Site</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="CreateRoute" xml:space="preserve">
+    <value>Create Route</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RouteType" xml:space="preserve">
+    <value>RouteType</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>Qty</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Total Price</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+    <comment>Common</comment>
+  </data>
+  <data name="DocNo" xml:space="preserve">
+    <value>Doc No.</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Items</value>
+    <comment>Common</comment>
+  </data>
+  <data name="RFQ" xml:space="preserve">
+    <value>Request for quotation</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQActualCosting" xml:space="preserve">
+    <value>Actual Costing Date</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQActualDeliveryDate" xml:space="preserve">
+    <value>Actual Delivary Date</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQCosting" xml:space="preserve">
+    <value>Costing</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQEstimatedCosting" xml:space="preserve">
+    <value>Estimated Costing Date</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQEstimatedDeliveryDate" xml:space="preserve">
+    <value>Estimated Delivery Date</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQFabInfo" xml:space="preserve">
+    <value>Fabric Info</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQMainFabDesc" xml:space="preserve">
+    <value>Main Fabric Descreption</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQPurch" xml:space="preserve">
+    <value>Purchase Order</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSampleAtt" xml:space="preserve">
+    <value>Sample Attached</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSampling" xml:space="preserve">
+    <value>Sampling</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSubFabDesc" xml:space="preserve">
+    <value>Sub Fabric Descreption</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQTech" xml:space="preserve">
+    <value>Technical Specs.</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="SampleImage" xml:space="preserve">
+    <value>Sample Image</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ExchRate" xml:space="preserve">
+    <value>Rate</value>
+    <comment>Common</comment>
+  </data>
+  <data name="localCost" xml:space="preserve">
+    <value>Local Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="AdditionalCost" xml:space="preserve">
+    <value>Add. Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="LocalAdditionalUnitCost" xml:space="preserve">
+    <value>Local Additional Unit Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="LocalUnitCost" xml:space="preserve">
+    <value>Local Unit Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UnitCost" xml:space="preserve">
+    <value>Unit Cost</value>
+    <comment>Common</comment>
+  </data>
+  <data name="CostType" xml:space="preserve">
+    <value>Cost Type</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TotalQty" xml:space="preserve">
+    <value>Total Quantity</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UserBrands" xml:space="preserve">
+    <value>UserBrands</value>
+    <comment>Menu item</comment>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>ItemID</value>
+    <comment>TradeAgreement</comment>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Reservation</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TradeAgreement" xml:space="preserve">
+    <value>TradeAgreement</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="TubularWidth" xml:space="preserve">
+    <value>Tubular Width</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Colored" xml:space="preserve">
+    <value>Colored</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="SubCode" xml:space="preserve">
+    <value>Sub Code</value>
+    <comment>Acc Group</comment>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="SizeRange" xml:space="preserve">
+    <value>Size Range</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>Ratio</value>
+  </data>
+  <data name="RFSNo" xml:space="preserve">
+    <value>RFS Number</value>
+  </data>
+  <data name="StylEname" xml:space="preserve">
+    <value>Style Description 1</value>
+    <comment>StyleHeader</comment>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+    <comment>StyleHeader</comment>
+  </data>
+  <data name="StyleDetail" xml:space="preserve">
+    <value>Style Detail</value>
+    <comment>StyleHeader</comment>
+  </data>
+  <data name="SizeGroupCode" xml:space="preserve">
+    <value>Size Group Code</value>
+    <comment>Size Group</comment>
+  </data>
+  <data name="SizeGroupName" xml:space="preserve">
+    <value>Size Group Name</value>
+    <comment>Size Group</comment>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Permissions</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ReqAname" xml:space="preserve">
+    <value>Aname Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqCode" xml:space="preserve">
+    <value>Code Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqEname" xml:space="preserve">
+    <value>Ename Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="BrandSection" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="Chanet" xml:space="preserve">
+    <value>Yarn Status</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Family" xml:space="preserve">
+    <value>Family</value>
+  </data>
+  <data name="FamilyLink" xml:space="preserve">
+    <value>Family Link</value>
+  </data>
+  <data name="SalesOrderColorTheme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SalesOrderCode" xml:space="preserve">
+    <value>Sales Order Code</value>
+  </data>
+  <data name="SalesOrderDetail" xml:space="preserve">
+    <value>Sales Order Detail</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="ColorGroup" xml:space="preserve">
+    <value>ColorGroup</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ColorIdentifier" xml:space="preserve">
+    <value>ColorIdentifier</value>
+  </data>
+  <data name="DirectionLink" xml:space="preserve">
+    <value>DirectionLink</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ManualCalculation" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="ReqColorGroup" xml:space="preserve">
+    <value>Color Group Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqServiceGroup" xml:space="preserve">
+    <value>Service Group Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="BomSettings" xml:space="preserve">
+    <value>Bom Settings</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ServiceCoding" xml:space="preserve">
+    <value>Service Coding</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ServiceCodingGroup" xml:space="preserve">
+    <value>Service Coding Group</value>
+  </data>
+  <data name="Bom" xml:space="preserve">
+    <value>Bom</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="FactoryGroup" xml:space="preserve">
+    <value>Factory Group</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ColorLink" xml:space="preserve">
+    <value>Color Link</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ExternalStyleCode" xml:space="preserve">
+    <value>Style Ref</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqBrand" xml:space="preserve">
+    <value>Brand Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqBrandSection" xml:space="preserve">
+    <value>BrandSection Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDescription" xml:space="preserve">
+    <value>Description Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDesign" xml:space="preserve">
+    <value>Design Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDirection" xml:space="preserve">
+    <value>Direction Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqFamily" xml:space="preserve">
+    <value>Family Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSeason" xml:space="preserve">
+    <value>Season Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSizeGroup" xml:space="preserve">
+    <value>SizeGroup Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqStyleCode" xml:space="preserve">
+    <value>Style Code Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSubFamily" xml:space="preserve">
+    <value>Sub Family Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="AccCoding" xml:space="preserve">
+    <value>Acc Coding</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqSize" xml:space="preserve">
+    <value>Size Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CC" xml:space="preserve">
+    <value>Consolidated Casual</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="CCPo" xml:space="preserve">
+    <value>Purchase</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Retail" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="RetailPo" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="InstallmentCountIncluded" xml:space="preserve">
+    <value>Installment Count Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="InstallmentIntervalIncluded" xml:space="preserve">
+    <value>Installment Interval Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="PercentageIncluded" xml:space="preserve">
+    <value>Percentage Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="StartingDayIncluded" xml:space="preserve">
+    <value>Starting Day Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="MethodOfPayment" xml:space="preserve">
+    <value>Method Of Payment</value>
+    <comment>PaymentSchedule</comment>
+  </data>
+  <data name="InstallmentCount" xml:space="preserve">
+    <value>Installment Count</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="InstallmentInterval" xml:space="preserve">
+    <value>Installment Interval</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Percentage</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="StartingDays" xml:space="preserve">
+    <value>Starting Days</value>
+    <comment>Payment Schedule</comment>
+  </data>
+  <data name="PaymentSchedule" xml:space="preserve">
+    <value>Payment Schedule</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PaymentScheduleSetting" xml:space="preserve">
+    <value>Payment Schedule Setting</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqPaymentSchedule" xml:space="preserve">
+    <value>Payment Schedule Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDeliveryDate" xml:space="preserve">
+    <value>Delivery Date Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqCost" xml:space="preserve">
+    <value>Cost Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="RetailSpecs" xml:space="preserve">
+    <value>Retail Specs</value>
+  </data>
+  <data name="SeasonalMasterList" xml:space="preserve">
+    <value>Seasonal Master List</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SeasonalMasterListStyleCode" xml:space="preserve">
+    <value>Style Detail</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="IsPlannedOrder" xml:space="preserve">
+    <value>Planned</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="IsSupplierMaterial" xml:space="preserve">
+    <value>IsSupplierMaterial</value>
+    <comment>Sales Order</comment>
+  </data>
+  <data name="Financial" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="Technical" xml:space="preserve">
+    <value>Technical</value>
+  </data>
+  <data name="BrandSectionPermission" xml:space="preserve">
+    <value>BrandSectionPermission</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SeasonTrackType" xml:space="preserve">
+    <value>SeasonTrackType</value>
+  </data>
+  <data name="ReqFromDate" xml:space="preserve">
+    <value>From Date Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSeasonTrackType" xml:space="preserve">
+    <value>Season Track Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqToDate" xml:space="preserve">
+    <value>To Date Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqQty" xml:space="preserve">
+    <value>Qty Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqTheme" xml:space="preserve">
+    <value>Theme Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="OrdersToApprove" xml:space="preserve">
+    <value># of Requests</value>
+  </data>
+  <data name="FinancialApproved" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="RetailApproved" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="TechnicalApproved" xml:space="preserve">
+    <value>Technical</value>
+  </data>
+  <data name="RetailWarehouse" xml:space="preserve">
+    <value>Retail Warehouse</value>
+  </data>
+  <data name="RequestForSample" xml:space="preserve">
+    <value>Sample</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ReqColor" xml:space="preserve">
+    <value>Color Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSupplier" xml:space="preserve">
+    <value>Supplier Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqItem" xml:space="preserve">
+    <value>Item Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqService" xml:space="preserve">
+    <value>Service Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="PoDetails" xml:space="preserve">
+    <value>Purchase Details</value>
+  </data>
+  <data name="RequestForSampleEvents" xml:space="preserve">
+    <value>Request For Sample Events</value>
+  </data>
+  <data name="ReqRequestDate" xml:space="preserve">
+    <value>Request Date Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqStatus" xml:space="preserve">
+    <value>Status Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="RfqDetails" xml:space="preserve">
+    <value>RFQ Details</value>
+  </data>
+  <data name="RequestImage" xml:space="preserve">
+    <value>Request Image</value>
+  </data>
+  <data name="FabricCoding" xml:space="preserve">
+    <value>Fabric Coding</value>
+    <comment>Menus</comment>
+  </data>
+  <data name="Production" xml:space="preserve">
+    <value>Production</value>
+    <comment>Production</comment>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+    <comment>Users</comment>
+  </data>
+  <data name="ReqJob" xml:space="preserve">
+    <value>Job Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqUserName" xml:space="preserve">
+    <value>User Name Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqUserPassword" xml:space="preserve">
+    <value>User Password Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ImportEmployeeFromAx" xml:space="preserve">
+    <value>Import Employee From Ax</value>
+    <comment>User</comment>
+  </data>
+  <data name="ImportUserFromAx" xml:space="preserve">
+    <value>Import User From Ax</value>
+    <comment>User</comment>
+  </data>
+  <data name="BankDeposit" xml:space="preserve">
+    <value>Bank Deposit</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="StorEname" xml:space="preserve">
+    <value>StorEname</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Employee</value>
+    <comment>EmployeeShift</comment>
+  </data>
+  <data name="Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="EmployeeShift" xml:space="preserve">
+    <value>Employee Shift</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqDate" xml:space="preserve">
+    <value>Date  Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDays" xml:space="preserve">
+    <value>Days Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqExcuseType" xml:space="preserve">
+    <value>Excuse Type Is Required!</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqFromTime" xml:space="preserve">
+    <value>From Time Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMissionType" xml:space="preserve">
+    <value>Mission Type Is Required!</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqToTime" xml:space="preserve">
+    <value>To Time Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqVacationType" xml:space="preserve">
+    <value>Vacation Type Is Required!</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ExcuseType" xml:space="preserve">
+    <value>ExcuseType</value>
+  </data>
+  <data name="MissionType" xml:space="preserve">
+    <value>MissionType</value>
+  </data>
+  <data name="VacationType" xml:space="preserve">
+    <value>VacationType</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>From Time</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>To Time</value>
+  </data>
+  <data name="Attendace" xml:space="preserve">
+    <value>Attendace</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>Delivery</value>
+    <comment>Retail Po</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+    <comment>Employee Shifts</comment>
+  </data>
+  <data name="EmployeeBehalf" xml:space="preserve">
+    <value>Employee Behalf</value>
+    <comment>Attendance</comment>
+  </data>
+  <data name="Excuse" xml:space="preserve">
+    <value>Excuse</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>Mission</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Vacation" xml:space="preserve">
+    <value>Vacation</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Manager</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Operator" xml:space="preserve">
+    <value>Operator</value>
+    <comment>Att</comment>
+  </data>
+  <data name="AllowAddMsg" xml:space="preserve">
+    <value>You are Not Allowed to Add</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="AllowDeleteMsg" xml:space="preserve">
+    <value>You are Not Allowed to Delete</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="AllowUpdateMsg" xml:space="preserve">
+    <value>You are Not Allowed to Update</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AllowedStores" xml:space="preserve">
+    <value>AllowedStores</value>
+    <comment>User</comment>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="CounterPerPeriodLine" xml:space="preserve">
+    <value>Counter Per Period Line</value>
+  </data>
+  <data name="ReqPeriod" xml:space="preserve">
+    <value>Period Is Required!</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ExcuseRules" xml:space="preserve">
+    <value>Excuse Rules</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqManager" xml:space="preserve">
+    <value>Manager Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="EmployeeInfo" xml:space="preserve">
+    <value>Employee Info</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+    <comment>Employee Shifts</comment>
+  </data>
+  <data name="ForeignFabric" xml:space="preserve">
+    <value>Foreign Fabric</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ForeignFabricDescription" xml:space="preserve">
+    <value>Foreign Fabric Description</value>
+    <comment>Style</comment>
+  </data>
+  <data name="SupplierFabric" xml:space="preserve">
+    <value>SupplierFabric</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="RetailTargetPrice" xml:space="preserve">
+    <value>Retail  Price</value>
+    <comment>Style</comment>
+  </data>
+  <data name="TargetCostPrice" xml:space="preserve">
+    <value>Target Cost Price</value>
+    <comment>Style</comment>
+  </data>
+  <data name="StyleStatus" xml:space="preserve">
+    <value>Style Status</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqCurrency" xml:space="preserve">
+    <value>Currency Is Required !</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqOperation" xml:space="preserve">
+    <value>Operation Is Required !</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqApprovedBy" xml:space="preserve">
+    <value>Approved By Is Required !</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ApprovedBy" xml:space="preserve">
+    <value>ApprovedBy</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="FreeItem" xml:space="preserve">
+    <value>Free Item</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ReqActive" xml:space="preserve">
+    <value>Active Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqFromCode" xml:space="preserve">
+    <value>ReqFromCode</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMessage" xml:space="preserve">
+    <value>ReqMessage</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMobileNo" xml:space="preserve">
+    <value>ReqMobileNo</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqNoOfVisitsFrom" xml:space="preserve">
+    <value>ReqNoOfVisitsFrom</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqNoOfVisitsTo" xml:space="preserve">
+    <value>ReqNoOfVisitsTo</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSalesAmountFrom" xml:space="preserve">
+    <value>Sales Amount From Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSalesAmountTo" xml:space="preserve">
+    <value>Sales Amount To  Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqToCode" xml:space="preserve">
+    <value>ToCode Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+    <comment>Style</comment>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Assets</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="HardDisk" xml:space="preserve">
+    <value>HardDisk</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Memory" xml:space="preserve">
+    <value>Memory</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Processor</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>Purchase Price</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="TechSpec" xml:space="preserve">
+    <value>Tech Specs</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="YearOfProduct" xml:space="preserve">
+    <value>Year Of Production</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="AssetType" xml:space="preserve">
+    <value>Asset Type</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReciveDate" xml:space="preserve">
+    <value>Recive Date</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Return Date</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqAssets" xml:space="preserve">
+    <value>Assets Is Required !</value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="ReqEmployee" xml:space="preserve">
+    <value>Employee Is Required ! </value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>Arabic Name</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>English Name</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="EmpVacation" xml:space="preserve">
+    <value>Emp Vacation</value>
+    <comment>Employee Shifts</comment>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>Times</value>
+    <comment>Times</comment>
+  </data>
+  <data name="ReqAssetType" xml:space="preserve">
+    <value>Asset Type Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqPurchasePrice" xml:space="preserve">
+    <value>Purchase Price Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqTechSpec" xml:space="preserve">
+    <value>Tech Spec Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqYearOfProduction" xml:space="preserve">
+    <value>Year Of Production Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Disposable" xml:space="preserve">
+    <value>Disposable</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqFabricCategory" xml:space="preserve">
+    <value>Fabric Category Is Required !</value>
+    <comment>Fabric</comment>
+  </data>
+  <data name="ReqExchRate" xml:space="preserve">
+    <value>ExchRate Is Required !</value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="SendMail" xml:space="preserve">
+    <value>Send Mail</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="BudgetItem" xml:space="preserve">
+    <value>Budget Item</value>
+    <comment>Global Budget</comment>
+  </data>
+  <data name="ReqBudgetItem" xml:space="preserve">
+    <value>Budget Item Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="BrandFamilyBudget" xml:space="preserve">
+    <value>Brand Family Budget</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="BrandMonthlyBudget" xml:space="preserve">
+    <value>Brand Monthly Budget</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqShippingDate" xml:space="preserve">
+    <value>Shipping Date Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMethodOfPayment" xml:space="preserve">
+    <value>Method Of Payment Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqTermOfPayment" xml:space="preserve">
+    <value>Term Of Payment Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ShippingDate" xml:space="preserve">
+    <value>Shipping Date</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="TermOfPayment" xml:space="preserve">
+    <value>Term Of Payment</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+    <comment>Style</comment>
+  </data>
+  <data name="RequiredQuantity" xml:space="preserve">
+    <value>Required Quantity</value>
+  </data>
+  <data name="ReqFactoryGroup" xml:space="preserve">
+    <value>Factory Group is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="GenerateFromStandard" xml:space="preserve">
+    <value>Generate From Standard</value>
+  </data>
+  <data name="ReqComplexityGroup" xml:space="preserve">
+    <value>Complexity Group is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="OperationDetails" xml:space="preserve">
+    <value>Operation Details</value>
+    <comment>Dyeing</comment>
+  </data>
+  <data name="AdvancedSampleRequest" xml:space="preserve">
+    <value>Advanced Sample Request</value>
+  </data>
+  <data name="RefStyleCode" xml:space="preserve">
+    <value>Ref StyleCode</value>
+  </data>
+  <data name="ReqOrder" xml:space="preserve">
+    <value>Order Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqVendor" xml:space="preserve">
+    <value>Vendor Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqDegree" xml:space="preserve">
+    <value>Degree Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="DyeingService" xml:space="preserve">
+    <value>Dyeing Service</value>
+    <comment>Dyeing</comment>
+  </data>
+  <data name="ReqShortCode" xml:space="preserve">
+    <value>Short Code Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="RetailSeason" xml:space="preserve">
+    <value>Retail Season</value>
+    <comment>Season</comment>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="ReqPrice" xml:space="preserve">
+    <value>Price Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="AttendaceReason" xml:space="preserve">
+    <value>Attendance Reason</value>
+  </data>
+  <data name="GenerateSalesOrder" xml:space="preserve">
+    <value>Generate SalesOrder</value>
+  </data>
+  <data name="CopyBom" xml:space="preserve">
+    <value>Copy Bom</value>
+    <comment>Bom</comment>
+  </data>
+  <data name="VendorTransaction" xml:space="preserve">
+    <value>Vendor Transaction</value>
+    <comment>Dyeing Order</comment>
+  </data>
+  <data name="FabricComposition" xml:space="preserve">
+    <value>Fabric Composition</value>
+  </data>
+  <data name="ReqStore" xml:space="preserve">
+    <value>Store Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqRequestForSampleStatus" xml:space="preserve">
+    <value>Request For Sample Status Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CuttingOrder" xml:space="preserve">
+    <value>Cutting Order</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="SupplierRef" xml:space="preserve">
+    <value>SupplierRef</value>
+  </data>
+  <data name="CheckListGroup" xml:space="preserve">
+    <value>CheckListGroup</value>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>SendTo</value>
+  </data>
+  <data name="CheckListItem" xml:space="preserve">
+    <value>CheckListItem</value>
+  </data>
+  <data name="CheckListDesignGroupHeader1" xml:space="preserve">
+    <value>CheckListDesignGroupHeader1</value>
+  </data>
+  <data name="CheckListDesignGroupHeader2" xml:space="preserve">
+    <value>CheckListDesignGroupHeader2</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="ReqAmount" xml:space="preserve">
+    <value>Amount Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqMonth" xml:space="preserve">
+    <value>Month Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqCheckListGroup" xml:space="preserve">
+    <value>Check List Group Is Required</value>
+    <comment>Req error</comment>
+  </data>
+  <data name="PickingList" xml:space="preserve">
+    <value>PickingList</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="SalaryTerm" xml:space="preserve">
+    <value>SalaryTerm</value>
+  </data>
+  <data name="ReqSalaryTerm" xml:space="preserve">
+    <value>Salary Term Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="PurchaseDetail" xml:space="preserve">
+    <value>Purchase Detail</value>
+  </data>
+  <data name="ShopDeliveryDate" xml:space="preserve">
+    <value>Shop DeliveryDate</value>
+  </data>
+  <data name="DyeingType" xml:space="preserve">
+    <value>Dyeing Type</value>
+  </data>
+  <data name="VendorSubtraction" xml:space="preserve">
+    <value>Vendor Subtraction</value>
+  </data>
+  <data name="IncludeSub" xml:space="preserve">
+    <value>Include Sub</value>
+  </data>
+  <data name="NoOfColors" xml:space="preserve">
+    <value>No Of Colors</value>
+  </data>
+  <data name="NoOfStyles" xml:space="preserve">
+    <value>No Of Styles</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountCursor" xml:space="preserve">
+    <value>Account Cursor</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountMustDrOrCr" xml:space="preserve">
+    <value>AccountMust Dr Or Cr</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>Account Type</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ApproveDate" xml:space="preserve">
+    <value>Approve Date</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BalanceControl" xml:space="preserve">
+    <value>Balance Control</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankGroup" xml:space="preserve">
+    <value>Bank Group</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Bold" xml:space="preserve">
+    <value>Bold</value>
+    <comment>GL</comment>
+  </data>
+  <data name="ClosedBackGroupPost" xml:space="preserve">
+    <value>ClosedBackGroupPost</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ColLevel" xml:space="preserve">
+    <value>ColLevel</value>
+    <comment>GL</comment>
+  </data>
+  <data name="ColNo" xml:space="preserve">
+    <value>Col No</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenter" xml:space="preserve">
+    <value>Cost Center</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CrAmount" xml:space="preserve">
+    <value>Credit</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DetailSequence" xml:space="preserve">
+    <value>Detail Sequence</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DrAmount" xml:space="preserve">
+    <value>Debit</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Entity</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ExchangeRate" xml:space="preserve">
+    <value>Exchange Rate</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Format</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="HeaderSequence" xml:space="preserve">
+    <value>Header Sequence</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Highest" xml:space="preserve">
+    <value>Highest</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="InvertSign" xml:space="preserve">
+    <value>InvertSign</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Italics" xml:space="preserve">
+    <value>Italics</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="JournalAccountType" xml:space="preserve">
+    <value>Journal Account Type</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="JournalType" xml:space="preserve">
+    <value>Journal Type</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LineAbove" xml:space="preserve">
+    <value>Line Above</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LineBelow" xml:space="preserve">
+    <value>Line Below</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Lowest" xml:space="preserve">
+    <value>Lowest</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="NextRec" xml:space="preserve">
+    <value>Next Rec</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OffsetAccountType" xml:space="preserve">
+    <value>Offset Account Type</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OffsetEntityAccount" xml:space="preserve">
+    <value>Offset Entity Account</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OverView" xml:space="preserve">
+    <value>OverView</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PostDate" xml:space="preserve">
+    <value>Post Date</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Posted" xml:space="preserve">
+    <value>Posted</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ProfitAndLoss" xml:space="preserve">
+    <value>Profit And Loss</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqBankGroup" xml:space="preserve">
+    <value>Bank Group Is Required!</value>
+    <comment>Req Error Gl</comment>
+  </data>
+  <data name="ReqCostCenter" xml:space="preserve">
+    <value>Cost Center Is Required !</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqEntity" xml:space="preserve">
+    <value>Entity Is Required !</value>
+    <comment>Req Error Gl</comment>
+  </data>
+  <data name="ReqFormat" xml:space="preserve">
+    <value>Format Is Required</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqGroup" xml:space="preserve">
+    <value>Group Is Required !</value>
+    <comment>Req Error Gl</comment>
+  </data>
+  <data name="ReqJournal" xml:space="preserve">
+    <value>Journal Is Required!</value>
+    <comment>Req Error Gl</comment>
+  </data>
+  <data name="ReqJournalAccountType" xml:space="preserve">
+    <value>Journal Account Type Is Required !</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqJournalType" xml:space="preserve">
+    <value>Journal Type Is Required !</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqSequence" xml:space="preserve">
+    <value>Sequence Is Required !</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="Underline" xml:space="preserve">
+    <value>Underline</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqAccount" xml:space="preserve">
+    <value>Account Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="SupplierInvoice" xml:space="preserve">
+    <value>Supplier Invoice</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Markup" xml:space="preserve">
+    <value>Markup</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MiscValue" xml:space="preserve">
+    <value>Misc Value</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqBankAccountNo" xml:space="preserve">
+    <value>Bank Account Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="BankAccountNo" xml:space="preserve">
+    <value>Bank Account No</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Manual</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="NoOfint" xml:space="preserve">
+    <value>No Of int</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ItemEffect" xml:space="preserve">
+    <value>Item Effect</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="VendorEffect" xml:space="preserve">
+    <value>Vendor Effect</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MiscValueType" xml:space="preserve">
+    <value>MiscValueType</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value>Blocks</value>
+  </data>
+  <data name="NewColor" xml:space="preserve">
+    <value>NewColor</value>
+  </data>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>Profit Margin</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>Post</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PeriodUnit" xml:space="preserve">
+    <value>Period Unit</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="ClosedDate" xml:space="preserve">
+    <value>Closed Date</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Scope" xml:space="preserve">
+    <value>Scope</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Interval" xml:space="preserve">
+    <value>Interval</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="FromRange" xml:space="preserve">
+    <value>FromRange</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ToRange" xml:space="preserve">
+    <value>ToRange</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventory</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="StandardCostVariance" xml:space="preserve">
+    <value>Standard Cost Variance</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Parent</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenterOption" xml:space="preserve">
+    <value>Cost Center Option</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenterType" xml:space="preserve">
+    <value>Cost Center Type</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqCostCenterOption" xml:space="preserve">
+    <value>Cost Center Option Is Required</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqCostCenterType" xml:space="preserve">
+    <value>Cost Center Type IS Required </value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqCostAllocationMethod" xml:space="preserve">
+    <value>Cost Allocation Method Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CostCenterAllocationMethod" xml:space="preserve">
+    <value>CostCenter Allocation Method</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Rule" xml:space="preserve">
+    <value>Rule</value>
+  </data>
+  <data name="Referance" xml:space="preserve">
+    <value>Referance</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqItemType" xml:space="preserve">
+    <value>Item Type Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqUnit" xml:space="preserve">
+    <value>Unit Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqBankTransactionType" xml:space="preserve">
+    <value>Bank Transaction Type Is Required !</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankTransactionType" xml:space="preserve">
+    <value>Bank Transaction Type</value>
+    <comment>GL</comment>
+  </data>
+  <data name="BridgingAccount" xml:space="preserve">
+    <value>Bridging Account</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PaymentRef" xml:space="preserve">
+    <value>PaymentRef</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqMarkupGroup" xml:space="preserve">
+    <value>Markup Group Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="MarkupGroup" xml:space="preserve">
+    <value>Markup Group</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqLocalPrice" xml:space="preserve">
+    <value>Local price is required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqVendorPurchaseGroup" xml:space="preserve">
+    <value>Vendor Purchase Group</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Adjustment" xml:space="preserve">
+    <value>Adjustment</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Sales" xml:space="preserve">
+    <value>Sales</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LastPostedDate" xml:space="preserve">
+    <value>Last Post Date</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqAssetGroup" xml:space="preserve">
+    <value>Asset Group Is Required !</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AssetGroup" xml:space="preserve">
+    <value>Asset Group</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ledger" xml:space="preserve">
+    <value>ledger</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="RecInv" xml:space="preserve">
+    <value>Vendor Invoice</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="GlPosting" xml:space="preserve">
+    <value>Gl Posting</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>Expenses</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ExpensesDate" xml:space="preserve">
+    <value>Expenses Date</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CustomsPercentage" xml:space="preserve">
+    <value>Customs</value>
+  </data>
+  <data name="SalesPercentage" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="ShippingPercentage" xml:space="preserve">
+    <value>Shipping</value>
+  </data>
+  <data name="BankTransactionTypeGroup" xml:space="preserve">
+    <value>Bank Transaction Type Group</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqBankTransactionTypeGroup" xml:space="preserve">
+    <value>Bank Transaction Type Is Required !</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Cheque" xml:space="preserve">
+    <value>Cheque</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CreateCheck" xml:space="preserve">
+    <value>Create Check</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DeleteCheck" xml:space="preserve">
+    <value>Delete Check</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="SupplierColorCode" xml:space="preserve">
+    <value>Supplier Color Code</value>
+  </data>
+  <data name="balanced" xml:space="preserve">
+    <value>balanced</value>
+  </data>
+  <data name="MarkerType" xml:space="preserve">
+    <value>Marker Type</value>
+  </data>
+  <data name="ReqYear" xml:space="preserve">
+    <value>Year Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqGlExpensisGroup" xml:space="preserve">
+    <value>Expenses Group Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="GlExpensisGroup" xml:space="preserve">
+    <value>Expenses Group</value>
+  </data>
+  <data name="BankCollectionDate" xml:space="preserve">
+    <value>Bank Collection Date</value>
+  </data>
+  <data name="PayTo" xml:space="preserve">
+    <value>Pay To</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="UseDateTime" xml:space="preserve">
+    <value>Use DateTime</value>
+  </data>
+  <data name="DepreciationLife" xml:space="preserve">
+    <value>Depreciation Life</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="DepreciationMethod" xml:space="preserve">
+    <value>Depreciation Method Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqDepreciationLife" xml:space="preserve">
+    <value>Depreciation Life Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqSalvageValue" xml:space="preserve">
+    <value>Salvage Value Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="SalvageValue" xml:space="preserve">
+    <value>Salvage Value</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="ReqStartDate" xml:space="preserve">
+    <value>Start Date Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="DepreciationValue" xml:space="preserve">
+    <value>Depreciation Value</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="ReqDepreciationFactor" xml:space="preserve">
+    <value>Req Depreciation Factor !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqDepreciationMethod" xml:space="preserve">
+    <value>Depreciation Method Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqBookValue" xml:space="preserve">
+    <value>Book Value  Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="DepreciationFactor" xml:space="preserve">
+    <value>Depreciation Factor</value>
+  </data>
+  <data name="AccDepreciation" xml:space="preserve">
+    <value>Accumulated Depreciation</value>
+  </data>
+  <data name="DepExpense" xml:space="preserve">
+    <value>Depreciation expenses</value>
+  </data>
+  <data name="EndBookValue" xml:space="preserve">
+    <value>End BookValue</value>
+  </data>
+  <data name="StartBookValue" xml:space="preserve">
+    <value>Start BookValue</value>
+  </data>
+  <data name="Depreciation" xml:space="preserve">
+    <value>Depreciation</value>
+  </data>
+  <data name="SumAccount" xml:space="preserve">
+    <value>Sum Account</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Receive" xml:space="preserve">
+    <value>Receive</value>
+  </data>
+  <data name="NewCost" xml:space="preserve">
+    <value>New Cost</value>
+  </data>
+  <data name="NewLocation" xml:space="preserve">
+    <value>New Location</value>
+  </data>
+  <data name="NewQty" xml:space="preserve">
+    <value>New Qty</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Additional Notes</value>
+  </data>
+  <data name="ReadyProduct" xml:space="preserve">
+    <value>Ready Product</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="ReceiveNow" xml:space="preserve">
+    <value>Receive Now</value>
+  </data>
+  <data name="BasicPrice" xml:space="preserve">
+    <value>Basic Price</value>
+  </data>
+  <data name="SalesPerson" xml:space="preserve">
+    <value>Sales Person</value>
+  </data>
+  <data name="ReceiveDetail" xml:space="preserve">
+    <value>Receive Detail</value>
+  </data>
+  <data name="Sequence" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>No Data Found</value>
+  </data>
+  <data name="PleaseSelectWarehouseFrom" xml:space="preserve">
+    <value>Please select warehouse from</value>
+  </data>
+  <data name="TransferItem" xml:space="preserve">
+    <value>Transfer Item</value>
+    <comment>Transfer</comment>
+  </data>
+  <data name="Transferred" xml:space="preserve">
+    <value>Transferred</value>
+    <comment>Transfer</comment>
+  </data>
+  <data name="TransferredQuantity" xml:space="preserve">
+    <value>Transferred Quantity</value>
+    <comment>Transfer</comment>
+  </data>
+  <data name="WarehouseFrom" xml:space="preserve">
+    <value>Warehouse From</value>
+    <comment>Transfer</comment>
+  </data>
+  <data name="WarehouseTo" xml:space="preserve">
+    <value>WarehouseTo</value>
+    <comment>Transfer</comment>
+  </data>
+  <data name="Counted" xml:space="preserve">
+    <value>Counted</value>
+    <comment>Adjustment</comment>
+  </data>
+  <data name="Difference" xml:space="preserve">
+    <value>Difference</value>
+    <comment>Adjustment</comment>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="ShipNow" xml:space="preserve">
+    <value>Ship Now</value>
+  </data>
+  <data name="Shipped" xml:space="preserve">
+    <value>Shipped</value>
+  </data>
+  <data name="ReqWarehouse" xml:space="preserve">
+    <value>Warehouse Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="SecondaryCompany" xml:space="preserve">
+    <value>Secondary Company</value>
+  </data>
+  <data name="CountReference" xml:space="preserve">
+    <value>Count Reference</value>
+  </data>
+  <data name="CheckQuantities" xml:space="preserve">
+    <value>Check Quantities!!</value>
+  </data>
+  <data name="PleaseSelectWarehouse" xml:space="preserve">
+    <value>Please select warehouse!!</value>
+  </data>
+  <data name="ImportFromExcel" xml:space="preserve">
+    <value>Import From Excel</value>
+  </data>
+  <data name="ReqCountReference" xml:space="preserve">
+    <value>CountReference is required</value>
+    <comment>Adjustment</comment>
+  </data>
+  <data name="OldQuantity" xml:space="preserve">
+    <value>Old Quantity</value>
+  </data>
+  <data name="SubFamilyLink" xml:space="preserve">
+    <value>SubFamilyLink</value>
+  </data>
+  <data name="FromTransfer" xml:space="preserve">
+    <value>From Transfer</value>
+  </data>
+  <data name="PendingInvoice" xml:space="preserve">
+    <value>Pending Invoice</value>
+  </data>
+  <data name="PendingReceive" xml:space="preserve">
+    <value>Pending Receive</value>
+  </data>
+  <data name="ReqTransactionType" xml:space="preserve">
+    <value>TransactionType Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="BankAccount" xml:space="preserve">
+    <value>Bank Account</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="BankStatement" xml:space="preserve">
+    <value>Bank Statement</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="EndingBalance" xml:space="preserve">
+    <value>Ending Balance</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="ReconcileDate" xml:space="preserve">
+    <value>Reconcile Date</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="TotalBalance" xml:space="preserve">
+    <value>Total Balance</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="ChequeNo" xml:space="preserve">
+    <value>Cheque No</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="DepositNo" xml:space="preserve">
+    <value>Deposit No</value>
+    <comment>BankStatement</comment>
+  </data>
+  <data name="ApproveAsMatched" xml:space="preserve">
+    <value>Approve as matched</value>
+    <comment>bank Stat</comment>
+  </data>
+  <data name="UnMatchAll" xml:space="preserve">
+    <value>Un match all</value>
+    <comment>bank Stat</comment>
+  </data>
+  <data name="UnMatchSelected" xml:space="preserve">
+    <value>Un match selected</value>
+    <comment>bank Stat</comment>
+  </data>
+  <data name="ReqCashDepositType" xml:space="preserve">
+    <value>Cash Deposit Type Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="StoreCode" xml:space="preserve">
+    <value>Store Code</value>
+  </data>
+  <data name="StoreEname" xml:space="preserve">
+    <value>Store Ename</value>
+  </data>
+  <data name="ReqChequeNo" xml:space="preserve">
+    <value>ChequeNo Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMachineId" xml:space="preserve">
+    <value>MachineId Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqBatchNo" xml:space="preserve">
+    <value>BatchNo Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="UnApprove" xml:space="preserve">
+    <value>UnApprove</value>
+  </data>
+  <data name="AfterDeliveryPercent" xml:space="preserve">
+    <value>After Delivery Percent</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="ContractingPercent" xml:space="preserve">
+    <value>Contracting Percent</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="DeliveryPercent" xml:space="preserve">
+    <value>Delivery Percent</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>Program Name</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="SubContractor" xml:space="preserve">
+    <value>Sub Contractor</value>
+    <comment>Contract</comment>
+  </data>
+  <data name="NotesType" xml:space="preserve">
+    <value>Notes Type</value>
+  </data>
+  <data name="ReqSalesOrderNotesType" xml:space="preserve">
+    <value>Sales Order Notes Type Is Required !</value>
+  </data>
+  <data name="BankAccountType" xml:space="preserve">
+    <value>BankAccountType</value>
+  </data>
+  <data name="ContractHeader" xml:space="preserve">
+    <value>Contract </value>
+  </data>
+  <data name="SecondClassRatio" xml:space="preserve">
+    <value>Second Class Ratio</value>
+  </data>
+  <data name="AfterDeliveryDays" xml:space="preserve">
+    <value>After Delivery Days</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>Auth</comment>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+    <comment>Auth</comment>
+  </data>
+  <data name="IsSubSafe" xml:space="preserve">
+    <value>Is Sub Safe</value>
+    <comment>Cash Deposit</comment>
+  </data>
+  <data name="PrintAll" xml:space="preserve">
+    <value>Print All</value>
+    <comment>Cash Deposit</comment>
+  </data>
+  <data name="AutoIncrement" xml:space="preserve">
+    <value>Auto Increment</value>
+    <comment>Cash Deposit</comment>
+  </data>
+  <data name="CloseAfterSave" xml:space="preserve">
+    <value>Close After Save</value>
+    <comment>Cash Deposit</comment>
+  </data>
+  <data name="PaymentSetting" xml:space="preserve">
+    <value>Payment Setting</value>
+  </data>
+  <data name="ReqPaymentScheduleSetting" xml:space="preserve">
+    <value>Payment Setting Is Required !</value>
+    <comment>Payment Setting Is Required !</comment>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>Serial</value>
+    <comment>Trade Agreement</comment>
+  </data>
+  <data name="CompanyRepresentative" xml:space="preserve">
+    <value>Company Representative</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="ReqCompanyRepresentative" xml:space="preserve">
+    <value>Company Representative is Required</value>
+    <comment>Contracts</comment>
+  </data>
+  <data name="CanceledDate" xml:space="preserve">
+    <value>Canceled Date</value>
+  </data>
+</root>

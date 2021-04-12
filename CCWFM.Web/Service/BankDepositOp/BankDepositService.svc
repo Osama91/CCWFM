@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CCWFM.Web.Service.BankDepositOp.BankDepositService" CodeBehind="BankDepositService.svc.cs" %>

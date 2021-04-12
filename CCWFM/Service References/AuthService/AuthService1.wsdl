@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAuthJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetAuthJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAuthJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetAuthJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveAuthJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="SaveAuthJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveAuthJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="SaveAuthJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetLookUpAuthWarehouseTypes_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpAuthWarehouseTypes" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetLookUpAuthWarehouseTypes_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpAuthWarehouseTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAuthWarehouses_InputMessage">
+    <wsdl:part name="parameters" element="GetAuthWarehouses" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAuthWarehouses_OutputMessage">
+    <wsdl:part name="parameters" element="GetAuthWarehousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveAuthWarehouses_InputMessage">
+    <wsdl:part name="parameters" element="SaveAuthWarehouses" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveAuthWarehouses_OutputMessage">
+    <wsdl:part name="parameters" element="SaveAuthWarehousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeOperationsLkp_InputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeOperationsLkp" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeOperationsLkp_OutputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeOperationsLkpResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeProperty_InputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeProperty" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeProperty_OutputMessage">
+    <wsdl:part name="parameters" element="GetBarcodePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeDisplaySettingsDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeDisplaySettingsDetail" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeDisplaySettingsDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeDisplaySettingsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_UpdateAndSaveBarcodeDisplaySettingsDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndSaveBarcodeDisplaySettingsDetails" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_UpdateAndSaveBarcodeDisplaySettingsDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndSaveBarcodeDisplaySettingsDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeDisplaySettingsHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeDisplaySettingsHeader" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetBarcodeDisplaySettingsHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetBarcodeDisplaySettingsHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_UpdateAndSaveBarcodeDisplaySettingsHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndSaveBarcodeDisplaySettingsHeader" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_UpdateAndSaveBarcodeDisplaySettingsHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndSaveBarcodeDisplaySettingsHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_DeleteBarcodeDisplaySettingsHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteBarcodeDisplaySettingsHeader" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_DeleteBarcodeDisplaySettingsHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteBarcodeDisplaySettingsHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetEmpTable_InputMessage">
+    <wsdl:part name="parameters" element="GetEmpTable" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetEmpTable_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmpTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveUser_InputMessage">
+    <wsdl:part name="parameters" element="SaveUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_SaveUser_OutputMessage">
+    <wsdl:part name="parameters" element="SaveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAllJobs_InputMessage">
+    <wsdl:part name="parameters" element="GetAllJobs" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAllJobs_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAxUser_InputMessage">
+    <wsdl:part name="parameters" element="GetAxUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthService_GetAxUser_OutputMessage">
+    <wsdl:part name="parameters" element="GetAxUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:AuthService/DoWork" message="AuthService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/DoWorkResponse" message="AuthService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthJournalSetting">
+      <wsdl:input wsaw:Action="urn:AuthService/GetAuthJournalSetting" message="AuthService_GetAuthJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetAuthJournalSettingResponse" message="AuthService_GetAuthJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAuthJournalSetting">
+      <wsdl:input wsaw:Action="urn:AuthService/SaveAuthJournalSetting" message="AuthService_SaveAuthJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/SaveAuthJournalSettingResponse" message="AuthService_SaveAuthJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpAuthWarehouseTypes">
+      <wsdl:input wsaw:Action="urn:AuthService/GetLookUpAuthWarehouseTypes" message="AuthService_GetLookUpAuthWarehouseTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetLookUpAuthWarehouseTypesResponse" message="AuthService_GetLookUpAuthWarehouseTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthWarehouses">
+      <wsdl:input wsaw:Action="urn:AuthService/GetAuthWarehouses" message="AuthService_GetAuthWarehouses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetAuthWarehousesResponse" message="AuthService_GetAuthWarehouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAuthWarehouses">
+      <wsdl:input wsaw:Action="urn:AuthService/SaveAuthWarehouses" message="AuthService_SaveAuthWarehouses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/SaveAuthWarehousesResponse" message="AuthService_SaveAuthWarehouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeOperationsLkp">
+      <wsdl:input wsaw:Action="urn:AuthService/GetBarcodeOperationsLkp" message="AuthService_GetBarcodeOperationsLkp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetBarcodeOperationsLkpResponse" message="AuthService_GetBarcodeOperationsLkp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeProperty">
+      <wsdl:input wsaw:Action="urn:AuthService/GetBarcodeProperty" message="AuthService_GetBarcodeProperty_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetBarcodePropertyResponse" message="AuthService_GetBarcodeProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeDisplaySettingsDetail">
+      <wsdl:input wsaw:Action="urn:AuthService/GetBarcodeDisplaySettingsDetail" message="AuthService_GetBarcodeDisplaySettingsDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetBarcodeDisplaySettingsDetailResponse" message="AuthService_GetBarcodeDisplaySettingsDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndSaveBarcodeDisplaySettingsDetails">
+      <wsdl:input wsaw:Action="urn:AuthService/UpdateAndSaveBarcodeDisplaySettingsDetails" message="AuthService_UpdateAndSaveBarcodeDisplaySettingsDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/UpdateAndSaveBarcodeDisplaySettingsDetailsResponse" message="AuthService_UpdateAndSaveBarcodeDisplaySettingsDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarcodeDisplaySettingsHeader">
+      <wsdl:input wsaw:Action="urn:AuthService/GetBarcodeDisplaySettingsHeader" message="AuthService_GetBarcodeDisplaySettingsHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetBarcodeDisplaySettingsHeaderResponse" message="AuthService_GetBarcodeDisplaySettingsHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndSaveBarcodeDisplaySettingsHeader">
+      <wsdl:input wsaw:Action="urn:AuthService/UpdateAndSaveBarcodeDisplaySettingsHeader" message="AuthService_UpdateAndSaveBarcodeDisplaySettingsHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/UpdateAndSaveBarcodeDisplaySettingsHeaderResponse" message="AuthService_UpdateAndSaveBarcodeDisplaySettingsHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBarcodeDisplaySettingsHeader">
+      <wsdl:input wsaw:Action="urn:AuthService/DeleteBarcodeDisplaySettingsHeader" message="AuthService_DeleteBarcodeDisplaySettingsHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/DeleteBarcodeDisplaySettingsHeaderResponse" message="AuthService_DeleteBarcodeDisplaySettingsHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="urn:AuthService/ChangePassword" message="AuthService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/ChangePasswordResponse" message="AuthService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="urn:AuthService/GetAllUsers" message="AuthService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetAllUsersResponse" message="AuthService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpTable">
+      <wsdl:input wsaw:Action="urn:AuthService/GetEmpTable" message="AuthService_GetEmpTable_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetEmpTableResponse" message="AuthService_GetEmpTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <wsdl:input wsaw:Action="urn:AuthService/SaveUser" message="AuthService_SaveUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/SaveUserResponse" message="AuthService_SaveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="urn:AuthService/DeleteUser" message="AuthService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/DeleteUserResponse" message="AuthService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobs">
+      <wsdl:input wsaw:Action="urn:AuthService/GetAllJobs" message="AuthService_GetAllJobs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetAllJobsResponse" message="AuthService_GetAllJobs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAxUser">
+      <wsdl:input wsaw:Action="urn:AuthService/GetAxUser" message="AuthService_GetAxUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AuthService/GetAxUserResponse" message="AuthService_GetAxUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

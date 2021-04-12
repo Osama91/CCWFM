@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.Att" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AttService_GetTblPeriodLock_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriodLock" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblPeriodLock_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriodLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblPeriodLock_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPeriodLock" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblPeriodLock_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPeriodLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblPeriodLock_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPeriodLock" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblPeriodLock_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPeriodLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblEmployeeShiftStore_InputMessage">
+    <wsdl:part name="parameters" element="GetTblEmployeeShiftStore" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblEmployeeShiftStore_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblEmployeeShiftStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblEmployeeShiftStore_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblEmployeeShiftStore" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblEmployeeShiftStore_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblEmployeeShiftStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblEmployeeShiftStore_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblEmployeeShiftStore" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblEmployeeShiftStore_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblEmployeeShiftStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_FixAtt_InputMessage">
+    <wsdl:part name="parameters" element="FixAtt" />
+  </wsdl:message>
+  <wsdl:message name="AttService_FixAtt_OutputMessage">
+    <wsdl:part name="parameters" element="FixAttResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_SaveFixAtt_InputMessage">
+    <wsdl:part name="parameters" element="SaveFixAtt" />
+  </wsdl:message>
+  <wsdl:message name="AttService_SaveFixAtt_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFixAttResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblEmloyeeInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetTblEmloyeeInfo" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblEmloyeeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblEmloyeeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblAttendanceFileForEmp_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAttendanceFileForEmp" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblAttendanceFileForEmp_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAttendanceFileForEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetCalendarTime_InputMessage">
+    <wsdl:part name="parameters" element="GetCalendarTime" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetCalendarTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetCalendarTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblAttendanceFile_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblAttendanceFile" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblAttendanceFile_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblAttendanceFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblAttendanceFile_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAttendanceFile" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblAttendanceFile_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAttendanceFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AttendanceCount_InputMessage">
+    <wsdl:part name="parameters" element="AttendanceCount" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AttendanceCount_OutputMessage">
+    <wsdl:part name="parameters" element="AttendanceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcuses_InputMessage">
+    <wsdl:part name="parameters" element="GetTblExcuses" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcuses_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblExcusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcusesForStores_InputMessage">
+    <wsdl:part name="parameters" element="GetTblExcusesForStores" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcusesForStores_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblExcusesForStoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_ExcuseType_InputMessage">
+    <wsdl:part name="parameters" element="ExcuseType" />
+  </wsdl:message>
+  <wsdl:message name="AttService_ExcuseType_OutputMessage">
+    <wsdl:part name="parameters" element="ExcuseTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_ExcuseCount_InputMessage">
+    <wsdl:part name="parameters" element="ExcuseCount" />
+  </wsdl:message>
+  <wsdl:message name="AttService_ExcuseCount_OutputMessage">
+    <wsdl:part name="parameters" element="ExcuseCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblExcuse_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblExcuse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblExcuse_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblExcuseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblExcuse_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblExcuse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblExcuse_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblExcuseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetExcuseMaxTimeLimit_InputMessage">
+    <wsdl:part name="parameters" element="GetExcuseMaxTimeLimit" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetExcuseMaxTimeLimit_OutputMessage">
+    <wsdl:part name="parameters" element="GetExcuseMaxTimeLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblMissionForStores_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMissionForStores" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblMissionForStores_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMissionForStoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblMission_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMission" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblMission_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_MissionType_InputMessage">
+    <wsdl:part name="parameters" element="MissionType" />
+  </wsdl:message>
+  <wsdl:message name="AttService_MissionType_OutputMessage">
+    <wsdl:part name="parameters" element="MissionTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblMission_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblMission" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblMission_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblMission_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMission" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblMission_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblVacationForStores_InputMessage">
+    <wsdl:part name="parameters" element="GetTblVacationForStores" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblVacationForStores_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblVacationForStoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblVacation_InputMessage">
+    <wsdl:part name="parameters" element="GetTblVacation" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblVacation_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetEmpVacation_InputMessage">
+    <wsdl:part name="parameters" element="GetEmpVacation" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetEmpVacation_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmpVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_VacationType_InputMessage">
+    <wsdl:part name="parameters" element="VacationType" />
+  </wsdl:message>
+  <wsdl:message name="AttService_VacationType_OutputMessage">
+    <wsdl:part name="parameters" element="VacationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblVacation_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblVacation" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateAndInsertTblVacation_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAndInsertTblVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblVacation_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblVacation" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblVacation_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblVacationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblAttendanceFileReason_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAttendanceFileReason" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblAttendanceFileReason_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAttendanceFileReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblAttendanceFileReason_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAttendanceFileReason" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblAttendanceFileReason_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAttendanceFileReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblAttendanceFileReason_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAttendanceFileReason" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblAttendanceFileReason_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAttendanceFileReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcuseRule_InputMessage">
+    <wsdl:part name="parameters" element="GetTblExcuseRule" />
+  </wsdl:message>
+  <wsdl:message name="AttService_GetTblExcuseRule_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblExcuseRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AxPeriods_InputMessage">
+    <wsdl:part name="parameters" element="AxPeriods" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AxPeriods_OutputMessage">
+    <wsdl:part name="parameters" element="AxPeriodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AxPeriodLines_InputMessage">
+    <wsdl:part name="parameters" element="AxPeriodLines" />
+  </wsdl:message>
+  <wsdl:message name="AttService_AxPeriodLines_OutputMessage">
+    <wsdl:part name="parameters" element="AxPeriodLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblExcuseRule_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblExcuseRule" />
+  </wsdl:message>
+  <wsdl:message name="AttService_UpdateOrInsertTblExcuseRule_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblExcuseRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblExcuseRule_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblExcuseRule" />
+  </wsdl:message>
+  <wsdl:message name="AttService_DeleteTblExcuseRule_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblExcuseRuleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AttService">
+    <wsdl:operation name="GetTblPeriodLock">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblPeriodLock" message="AttService_GetTblPeriodLock_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblPeriodLockResponse" message="AttService_GetTblPeriodLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPeriodLock">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateOrInsertTblPeriodLock" message="AttService_UpdateOrInsertTblPeriodLock_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateOrInsertTblPeriodLockResponse" message="AttService_UpdateOrInsertTblPeriodLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPeriodLock">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblPeriodLock" message="AttService_DeleteTblPeriodLock_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblPeriodLockResponse" message="AttService_DeleteTblPeriodLock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblEmployeeShiftStore">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblEmployeeShiftStore" message="AttService_GetTblEmployeeShiftStore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblEmployeeShiftStoreResponse" message="AttService_GetTblEmployeeShiftStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblEmployeeShiftStore">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateOrInsertTblEmployeeShiftStore" message="AttService_UpdateOrInsertTblEmployeeShiftStore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateOrInsertTblEmployeeShiftStoreResponse" message="AttService_UpdateOrInsertTblEmployeeShiftStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblEmployeeShiftStore">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblEmployeeShiftStore" message="AttService_DeleteTblEmployeeShiftStore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblEmployeeShiftStoreResponse" message="AttService_DeleteTblEmployeeShiftStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FixAtt">
+      <wsdl:input wsaw:Action="urn:AttService/FixAtt" message="AttService_FixAtt_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/FixAttResponse" message="AttService_FixAtt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFixAtt">
+      <wsdl:input wsaw:Action="urn:AttService/SaveFixAtt" message="AttService_SaveFixAtt_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/SaveFixAttResponse" message="AttService_SaveFixAtt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblEmloyeeInfo">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblEmloyeeInfo" message="AttService_GetTblEmloyeeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblEmloyeeInfoResponse" message="AttService_GetTblEmloyeeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAttendanceFileForEmp">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblAttendanceFileForEmp" message="AttService_GetTblAttendanceFileForEmp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblAttendanceFileForEmpResponse" message="AttService_GetTblAttendanceFileForEmp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarTime">
+      <wsdl:input wsaw:Action="urn:AttService/GetCalendarTime" message="AttService_GetCalendarTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetCalendarTimeResponse" message="AttService_GetCalendarTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndInsertTblAttendanceFile">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateAndInsertTblAttendanceFile" message="AttService_UpdateAndInsertTblAttendanceFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateAndInsertTblAttendanceFileResponse" message="AttService_UpdateAndInsertTblAttendanceFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAttendanceFile">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblAttendanceFile" message="AttService_DeleteTblAttendanceFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblAttendanceFileResponse" message="AttService_DeleteTblAttendanceFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttendanceCount">
+      <wsdl:input wsaw:Action="urn:AttService/AttendanceCount" message="AttService_AttendanceCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/AttendanceCountResponse" message="AttService_AttendanceCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblExcuses">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblExcuses" message="AttService_GetTblExcuses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblExcusesResponse" message="AttService_GetTblExcuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblExcusesForStores">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblExcusesForStores" message="AttService_GetTblExcusesForStores_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblExcusesForStoresResponse" message="AttService_GetTblExcusesForStores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcuseType">
+      <wsdl:input wsaw:Action="urn:AttService/ExcuseType" message="AttService_ExcuseType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/ExcuseTypeResponse" message="AttService_ExcuseType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcuseCount">
+      <wsdl:input wsaw:Action="urn:AttService/ExcuseCount" message="AttService_ExcuseCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/ExcuseCountResponse" message="AttService_ExcuseCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndInsertTblExcuse">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateAndInsertTblExcuse" message="AttService_UpdateAndInsertTblExcuse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateAndInsertTblExcuseResponse" message="AttService_UpdateAndInsertTblExcuse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblExcuse">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblExcuse" message="AttService_DeleteTblExcuse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblExcuseResponse" message="AttService_DeleteTblExcuse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExcuseMaxTimeLimit">
+      <wsdl:input wsaw:Action="urn:AttService/GetExcuseMaxTimeLimit" message="AttService_GetExcuseMaxTimeLimit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetExcuseMaxTimeLimitResponse" message="AttService_GetExcuseMaxTimeLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMissionForStores">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblMissionForStores" message="AttService_GetTblMissionForStores_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblMissionForStoresResponse" message="AttService_GetTblMissionForStores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMission">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblMission" message="AttService_GetTblMission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblMissionResponse" message="AttService_GetTblMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MissionType">
+      <wsdl:input wsaw:Action="urn:AttService/MissionType" message="AttService_MissionType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/MissionTypeResponse" message="AttService_MissionType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndInsertTblMission">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateAndInsertTblMission" message="AttService_UpdateAndInsertTblMission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateAndInsertTblMissionResponse" message="AttService_UpdateAndInsertTblMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMission">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblMission" message="AttService_DeleteTblMission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblMissionResponse" message="AttService_DeleteTblMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblVacationForStores">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblVacationForStores" message="AttService_GetTblVacationForStores_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblVacationForStoresResponse" message="AttService_GetTblVacationForStores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblVacation">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblVacation" message="AttService_GetTblVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblVacationResponse" message="AttService_GetTblVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpVacation">
+      <wsdl:input wsaw:Action="urn:AttService/GetEmpVacation" message="AttService_GetEmpVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetEmpVacationResponse" message="AttService_GetEmpVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VacationType">
+      <wsdl:input wsaw:Action="urn:AttService/VacationType" message="AttService_VacationType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/VacationTypeResponse" message="AttService_VacationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndInsertTblVacation">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateAndInsertTblVacation" message="AttService_UpdateAndInsertTblVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateAndInsertTblVacationResponse" message="AttService_UpdateAndInsertTblVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblVacation">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblVacation" message="AttService_DeleteTblVacation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblVacationResponse" message="AttService_DeleteTblVacation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAttendanceFileReason">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblAttendanceFileReason" message="AttService_GetTblAttendanceFileReason_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblAttendanceFileReasonResponse" message="AttService_GetTblAttendanceFileReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAttendanceFileReason">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateOrInsertTblAttendanceFileReason" message="AttService_UpdateOrInsertTblAttendanceFileReason_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateOrInsertTblAttendanceFileReasonResponse" message="AttService_UpdateOrInsertTblAttendanceFileReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAttendanceFileReason">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblAttendanceFileReason" message="AttService_DeleteTblAttendanceFileReason_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblAttendanceFileReasonResponse" message="AttService_DeleteTblAttendanceFileReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblExcuseRule">
+      <wsdl:input wsaw:Action="urn:AttService/GetTblExcuseRule" message="AttService_GetTblExcuseRule_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/GetTblExcuseRuleResponse" message="AttService_GetTblExcuseRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AxPeriods">
+      <wsdl:input wsaw:Action="urn:AttService/AxPeriods" message="AttService_AxPeriods_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/AxPeriodsResponse" message="AttService_AxPeriods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AxPeriodLines">
+      <wsdl:input wsaw:Action="urn:AttService/AxPeriodLines" message="AttService_AxPeriodLines_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/AxPeriodLinesResponse" message="AttService_AxPeriodLines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblExcuseRule">
+      <wsdl:input wsaw:Action="urn:AttService/UpdateOrInsertTblExcuseRule" message="AttService_UpdateOrInsertTblExcuseRule_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/UpdateOrInsertTblExcuseRuleResponse" message="AttService_UpdateOrInsertTblExcuseRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblExcuseRule">
+      <wsdl:input wsaw:Action="urn:AttService/DeleteTblExcuseRule" message="AttService_DeleteTblExcuseRule_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttService/DeleteTblExcuseRuleResponse" message="AttService_DeleteTblExcuseRule_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.RouteCard" />
+  <xs:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" />
+  <xs:element name="GetRouteCardInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteCardInvoiceHeaderResult" nillable="true" type="q2:ArrayOfRouteCardInvoiceHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="Vendors" nillable="true" type="q3:ArrayOfVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRouteCardInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="transId" type="xs:int" />
+        <xs:element minOccurs="0" name="salesOrder" type="xs:int" />
+        <xs:element minOccurs="0" name="supplierInv" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRouteCardInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.RouteCard" minOccurs="0" name="SearchRouteCardInvoiceResult" nillable="true" type="q4:ArrayOfRouteCardService.RouteCardInvoiceDetailDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertRouteCardInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q5:RouteCardInvoiceHeader" />
+        <xs:element minOccurs="0" name="save" type="xs:boolean" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertRouteCardInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertRouteCardInvoiceHeaderResult" nillable="true" type="q6:RouteCardInvoiceHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRouteCardInvoiceHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q7:RouteCardInvoiceHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRouteCardInvoiceHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRouteCardInvoiceHeaderResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q8:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteCardInvoiceDetailResult" nillable="true" type="q9:ArrayOfRouteCardInvoiceDetail" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertRouteCardInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q10:RouteCardInvoiceDetail" />
+        <xs:element minOccurs="0" name="save" type="xs:boolean" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertRouteCardInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertRouteCardInvoiceDetailResult" nillable="true" type="q11:RouteCardInvoiceDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRouteCardInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q12:RouteCardInvoiceDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRouteCardInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRouteCardInvoiceDetailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostRouteCardInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q13:RouteCardInvoiceHeader" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostRouteCardInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="PostRouteCardInvoiceResult" nillable="true" type="q14:RouteCardInvoiceHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostRoutCardToAx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="routeCardHeaderIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="postPostOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostRoutCardToAxResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndPo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transId" type="xs:int" />
+        <xs:element minOccurs="0" name="journalType" type="xs:int" />
+        <xs:element minOccurs="0" name="routeCardHeaderIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="postPostOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="TransactionGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndPoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferRoute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="routeCardHeaderIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="postPostOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferRouteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseRouteServicesToAx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="headerObjToPost" nillable="true" type="q15:RouteCardHeader" />
+        <xs:element minOccurs="0" name="postPostOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseRouteServicesToAxResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseRouteItemByNegativeToAx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="headerObjToPost" nillable="true" type="q16:RouteCardHeader" />
+        <xs:element minOccurs="0" name="postPostOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseRouteItemByNegativeToAxResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAxItemPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fabricCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="color" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inventlocationid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAxItemPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAxItemPriceResult" nillable="true" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTransactionTypesResult" nillable="true" type="q17:ArrayOfTbl_TransactionType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehousePermissionType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserIserial" type="xs:int" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" minOccurs="0" name="TypeList" nillable="true" type="q18:ArrayOfAuthWarehouseType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpWarehousePermissionTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpWarehousePermissionTypeResult" nillable="true" type="q19:ArrayOfTblAuthWarehouse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="take" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="routeGroupId" type="xs:int" />
+        <xs:element minOccurs="0" name="vendorCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRoutesResult" nillable="true" type="q20:ArrayOfTblRoute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="take" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRoutGroupsResult" nillable="true" type="q21:ArrayOfTblRouteGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardHeaders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="tblsalesorder" type="xs:int" />
+        <xs:element minOccurs="0" name="color" type="xs:int" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardHeadersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteCardHeadersResult" nillable="true" type="q22:ArrayOfRouteCardHeader" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="Vendors" nillable="true" type="q23:ArrayOfVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardHeadersBeforeInspection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="tblsalesorder" type="xs:int" />
+        <xs:element minOccurs="0" name="color" type="xs:int" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardHeadersBeforeInspectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteCardHeadersBeforeInspectionResult" nillable="true" type="q24:ArrayOfRouteCardHeader" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="sizes" nillable="true" type="q25:ArrayOfTblSize" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="take" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="cardHeaderId" type="xs:int" />
+        <xs:element minOccurs="0" name="direction" type="xs:int" />
+        <xs:element minOccurs="0" name="routeGroupId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteCardDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteCardDetailsResult" nillable="true" type="q26:ArrayOfRouteCardDetail" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="sizes" nillable="true" type="q27:ArrayOfTblSize" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoutCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="header" nillable="true" type="q28:RouteCardHeader" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="details" nillable="true" type="q29:ArrayOfRouteCardDetail" />
+        <xs:element minOccurs="0" name="postToAx" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoutCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AddRoutCardResult" nillable="true" type="q30:RouteCardHeader" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="savedDetails" nillable="true" type="q31:ArrayOfRouteCardDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemRouteQuantity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="routeGroup" type="xs:int" />
+        <xs:element minOccurs="0" name="route" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionType" type="xs:int" />
+        <xs:element minOccurs="0" name="transId" type="xs:int" />
+        <xs:element minOccurs="0" name="salesorder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fabricCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Skip" type="xs:int" />
+        <xs:element minOccurs="0" name="Take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemRouteQuantityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRemRouteQuantityResult" nillable="true" type="q32:ArrayOfRouteCardFabric" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoutCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="header" nillable="true" type="q33:RouteCardHeader" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="details" nillable="true" type="q34:ArrayOfRouteCardDetail" />
+        <xs:element minOccurs="0" name="postOrNo" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoutCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateRoutCardResult" nillable="true" type="q35:RouteCardHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoutCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="routeHeader" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoutCardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RouteCardFabric">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RouteCardFabricResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxRouteCardTransactionID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="routeGroupId" type="xs:int" />
+        <xs:element minOccurs="0" name="direction" type="xs:int" />
+        <xs:element minOccurs="0" name="tblTransactionType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxRouteCardTransactionIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxRouteCardTransactionIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteBomIssue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salesOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="style" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="styleColor" nillable="true" type="q36:ArrayOfstring" />
+        <xs:element minOccurs="0" name="operation" type="xs:int" />
+        <xs:element minOccurs="0" name="direction" type="xs:int" />
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="degree" nillable="true" type="q37:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRouteBomIssueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetRouteBomIssueResult" nillable="true" type="q38:ArrayOfRouteBomIssueSP_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

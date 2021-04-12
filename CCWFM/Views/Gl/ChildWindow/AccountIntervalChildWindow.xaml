@@ -1,0 +1,43 @@
+﻿<sdk:ChildWindow x:Class="CCWFM.Views.Gl.ChildWindow.AccountIntervalChildWindow"
+                                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+                 Title="Ledger Detail" mc:Ignorable="d"
+                                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                                    xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                 Width="500" Height="500"
+                                   >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dataGrid:OsGrid Grid.Row="0" Grid.RowSpan="2" MaxHeight="300" AutoGenerateColumns="False"
+                         SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}"
+                         FilteredItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+                         HorizontalAlignment="Left" ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+                         Name="TblPeriodLineDataGrid" VerticalAlignment="Top"
+                         KeyUp="DetailGrid_KeyUp" LoadingRow="DetailGrid_LoadingRow" 
+                         RowEditEnded="DetailGrid_RowEditEnded" OnFilter="DetailGrid_OnOnFilter">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Binding="{Binding Path=FromRange,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding FromRange, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+
+                <sdk:DataGridTextColumn Binding="{Binding Path=ToRange,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ToRange, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+
+                <sdk:DataGridCheckBoxColumn SortMemberPath="InvertSign" Binding="{Binding InvertSign,Mode=TwoWay}"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding InvertSign, Source={StaticResource LocalizedStrings}}"
+                                            Width="*">
+                   
+                </sdk:DataGridCheckBoxColumn>
+            </sdk:DataGrid.Columns>
+        </dataGrid:OsGrid>
+
+
+    </Grid>
+</sdk:ChildWindow>

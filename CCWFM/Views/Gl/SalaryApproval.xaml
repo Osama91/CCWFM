@@ -1,0 +1,238 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.SalaryApproval" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:gl="clr-namespace:CCWFM.ViewModel.Gl"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="SalaryApproval">
+	<navigation:Page.Resources>
+		<gl:SalaryApprovalViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Vertical">
+		<StackPanel Height="40" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+
+                <Button Name="BtnImport"
+					Click="BtnImport_Click"
+					Content="Import" />
+                <Button Name="BtnExportExcel" Visibility="Collapsed"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="ExportExcel_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+					<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+				</Button>
+			</StackPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="150"></ColumnDefinition>
+					<ColumnDefinition Width="150"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+            </Grid>
+		</StackPanel>
+		<dataGrid:OsGrid  AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   Grid.Row="1" Margin="10,10,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter" GotFocus="MainGrid_OnGotFocus"
+				   SelectionChanged="MainGrid_SelectionChanged" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">
+			<dataGrid:OsGrid.Columns>
+                <sdk:DataGridTextColumn IsReadOnly="True" SortMemberPath="Code" Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+                <sdk:DataGridTextColumn IsReadOnly="True" SortMemberPath="Year" Binding="{Binding Year,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Year, Source={StaticResource LocalizedStrings}}" Width="*" />
+                <sdk:DataGridTextColumn  IsReadOnly="True" SortMemberPath="Month" Binding="{Binding Month,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Month, Source={StaticResource LocalizedStrings}}" Width="*" />
+                <sdk:DataGridTemplateColumn Width="*"
+											SortMemberPath="VotDate"    
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DocDate,
+																								  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=VotDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker
+								SelectedDate="{Binding Path=VotDate, Mode=TwoWay}"   />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn Width="*"
+											SortMemberPath="DueDate"    
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DueDate,
+																								  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=DueDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker
+								SelectedDate="{Binding Path=DueDate, Mode=TwoWay}"   />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn SortMemberPath="TblSalaryType1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalaryType, Source={StaticResource LocalizedStrings}}"													
+											Width="80">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding SalaryTypePerRow.EName,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn SortMemberPath="TblStore1.code"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Store, Source={StaticResource LocalizedStrings}}"													
+											Width="80">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TblStore1.code,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn SortMemberPath="TblStore1.ENAME"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Store, Source={StaticResource LocalizedStrings}}"													
+											Width="80">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TblStore1.ENAME,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn Width="*"
+											SortMemberPath="StoreApproved"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding StoreApproved,Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=StoreApproved,Mode=TwoWay}" IsEnabled="False"   />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=StoreApproved,Mode=TwoWay}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+
+
+                <sdk:DataGridTemplateColumn Width="*"
+											SortMemberPath="HQApproved"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding HQApproved,Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=HQApproved,Mode=TwoWay}" IsEnabled="False" />
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=HQApproved,Mode=TwoWay}"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+            </dataGrid:OsGrid.Columns>		
+		</dataGrid:OsGrid>
+
+        <dataGrid:OsGrid  AutoGenerateColumns="False"   HorizontalAlignment="Left" SelectionMode="Extended"
+				   x:Name="DetailGrid" 
+				   Grid.Row="2" Height="200" FilteredItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+				   ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}" Margin="10,0,10,0"
+				   KeyUp="DetailGrid_KeyUp" OnFilter="DetailGrid_OnFilter"
+				   SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" LoadingRow="DetailGrid_LoadingRow"
+				   SelectionChanged="DetailGrid_OnSelectionChanged" GotFocus="MainGrid_OnGotFocus"
+				   RowEditEnded="DetailGrid_RowEditEnded">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTemplateColumn SortMemberPath="EmpPerRow.code" IsReadOnly="True"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee, Source={StaticResource LocalizedStrings}}"
+													
+											Width="80">
+                    <!--<sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}" 
+									  SelectedValuePath="Iserial" Name="CmdSalaryType"  
+									  ItemsSource="{Binding Path=DataContext.SalaryTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=navigation:Page, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblSalaryType,Mode=TwoWay}"
+									  SelectedItem="{Binding SalaryTypePerRow,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>-->
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding EmpPerRow.code,Mode=TwoWay}" />
+                                <TextBlock Text="-" />
+                                <TextBlock Text="{Binding EmpPerRow.ename,Mode=TwoWay}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Binding="{Binding Salary,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Salary, Source={StaticResource LocalizedStrings}}" Width="*" />
+                <sdk:DataGridTemplateColumn Width="*" IsReadOnly="True"
+											SortMemberPath="Approved"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Approved,Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=Approved,Mode=TwoWay}"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn Width="*" IsReadOnly="True"
+											SortMemberPath="CreationDate"    
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CreationDate,
+																								  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=CreationDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>		
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

@@ -1,0 +1,82 @@
+﻿<sdk:ChildWindow x:Class="CCWFM.Views.Gl.ChildWindow.GlCashCostCenterChildWindow"
+									xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+									xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									Title="Bank Cheque" mc:Ignorable="d"
+									xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+									xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+									xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+									xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+									Width="500" Height="500"
+				 xmlns:userControls="clr-namespace:CCWFM.UserControls">
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<sdk:DataGrid Grid.Row="0" Grid.RowSpan="2" MaxHeight="400" AutoGenerateColumns="False"
+						 SelectedItem="{Binding SelectedSubDetailRow,Mode=TwoWay}"						
+						 HorizontalAlignment="Left" ItemsSource="{Binding SelectedDetailRow.DetailsList,Mode=TwoWay}"
+						 Name="DetailGrid" VerticalAlignment="Top" GotFocus="DetailGrid_OnGotFocus"
+						 KeyUp="DetailGrid_KeyUp"   Loaded="DetailGrid_OnLoaded"
+				 SelectionChanged="TblPeriodLineDataGrid_OnSelectionChanged" 
+						 RowEditEnded="DetailGrid_RowEditEnded" >
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCostCenterType1.Ename"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CostCenterType, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate> 
+							<ComboBox  SelectionChanged="Selector_OnSelectionChanged" IsEnabled="{Binding CostCenterTypeEnabled,Mode=TwoWay}"
+										DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+										SelectedValuePath="Iserial"
+										ItemsSource="{Binding Path=DataContext.CostCenterTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+										SelectedValue="{Binding TblCostCenterType,Mode=TwoWay}"
+										SelectedItem="{Binding CostCenterTypePerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CostCenterTypePerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCostCenter1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CostCenter, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<userControls:SearchCostCenterUserControl  JournalAccountType="{Binding CostCenterTypePerRow,Mode=TwoWay}" EntityAccount="{Binding EntityAccountPerRow,Mode=TwoWay}"  EntityAccountType="{Binding JournalAccountTypePerRow,Mode=TwoWay}"
+							   SearchPerRow="{Binding CostCenterPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CostCenterPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn Binding="{Binding Path=Amount, Mode=TwoWay, StringFormat=\{0:F\}}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Amount, Source={StaticResource LocalizedStrings}}"
+										Width="SizeToHeader" />
+				<sdk:DataGridTemplateColumn SortMemberPath="Ratio"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Percentage, Source={StaticResource LocalizedStrings}}"
+											Width="SizeToHeader">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<TextBox Name="TxtRatio" TextChanged="TxtRatio_OnTextChanged"  Text="{Binding Ratio,Mode=TwoWay, StringFormat=\{0:F\}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Ratio,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+
+		<Image Name="ImgClose" Width="40" Grid.Row="1" Source="/CCWFM;component/Images/1371055186_button_cancel.png"  HorizontalAlignment="Right" MouseLeftButtonDown="ImgClose_OnMouseLeftButtonDown"></Image>
+
+	</Grid>
+</sdk:ChildWindow>

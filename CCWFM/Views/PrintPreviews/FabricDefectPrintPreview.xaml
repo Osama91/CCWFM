@@ -1,0 +1,91 @@
+﻿<controls:ChildWindow xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.PrintPreviews.FabricDefectPrintPreview"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+		   Width="800" Height="600"
+		   Title="Fabric Defect Print Preview"
+					  xmlns:wp="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+		   xmlns:res="clr-namespace:CCWFM.Helpers.LocalizationHelpers"
+					  FlowDirection="RightToLeft" xmlns:my="clr-namespace:CCWFM.Helpers.Converters">
+    <controls:ChildWindow.Resources>
+        <Style TargetType="ListBox" x:Key="BarCodeTemplate">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <wp:WrapPanel Margin="5" Orientation="Horizontal"
+									  Width="200"
+					   VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                        </wp:WrapPanel>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Set this attached property to 'Disabled' so that the
+			 ScrollViewer in the ListBox will never show a horizontal
+			 scrollbar, and the WrapPanel it contains will be constrained
+			 to the width of the ScrollViewer's viewable surface. -->
+            <Setter
+			  Property="ScrollViewer.HorizontalScrollBarVisibility"
+			  Value="Disabled" />
+            <Setter
+			  Property="ScrollViewer.VerticalScrollBarVisibility"
+			  Value="Visible" />
+        </Style>
+        <my:PrintingDefectsConverter x:Key="PrintingDefectsConverter1" />
+    </controls:ChildWindow.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListBox    Name="ListPrint"
+	ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="FabricItemStack">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Grid.Column="1">
+                            <TextBlock Margin="3" Text="الوزن"></TextBlock>
+                            <TextBlock Margin="3" Text="{Binding NetRollQty}" />
+                            <TextBlock Margin="3" Text="العرض"></TextBlock>
+                            <TextBlock Margin="3" Text="{Binding RollWMT}" />
+                        </StackPanel>
+                        <Canvas Grid.Row="2" Width="250" Height="50" Grid.Column="1" Tag="{Binding BATCHID}" Name="MyCanvas" Loaded="MyCanvas_Loaded"></Canvas>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Grid.Row="4"  Grid.Column="1">
+                            <TextBlock Margin="3" TextAlignment="Center" Text="كود القماش" />
+                            <TextBlock Margin="3" TextAlignment="Center" Text="{Binding Fabric_Code}" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="3" TextAlignment="Center" Text="اسم القماش" />
+                            <TextBlock Margin="3" TextAlignment="Center" Text="{Binding FabricDescriptionAR}" />
+                        </StackPanel>
+                        <ListBox    Name="ListDefects"  Width="300"   Grid.Row="1" Grid.RowSpan="4" Style="{StaticResource BarCodeTemplate}"
+	ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+							ItemsSource="{Binding Converter={StaticResource PrintingDefectsConverter1}, Path=RecordNumber}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <TextBlock Margin="3"  HorizontalAlignment="Right" TextAlignment="Center" Text="{Binding Aname}" />
+                                        <TextBlock Margin="3" HorizontalAlignment="Left" TextAlignment="Center" Text="{Binding DefectValue}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="Print" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

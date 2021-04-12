@@ -1,0 +1,197 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.VariableTermManualFactory"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="VariableTerm Page">
+	<navigation:Page.Resources>
+		<viewModel:VariableTermManualFactoryViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="BtnAddNewMainRow"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="BtnAddNewMainRow_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Add">
+				<Image Width="30"
+					   HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnSave"
+					Content="Save" Click="BtnSave_Onclick" />
+		</StackPanel>
+
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<TextBlock VerticalAlignment="Center" Grid.Row="1"
+					   Text="{Binding Day,Source={StaticResource LocalizedStrings}}" />
+			<TextBox Grid.Row="1"
+					  Grid.Column="1"
+					  MinHeight="20"
+					  VerticalAlignment="Center"   Text="{Binding Days,Mode=TwoWay}"
+					   />
+			<TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"
+					   Text="Hours" />
+			<TextBox Grid.Row="2"
+					  Grid.Column="1"
+					  MinHeight="20"
+					  VerticalAlignment="Center" Text="{Binding Hours,Mode=TwoWay}"
+					   />
+
+			<TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"
+					   Text="Salary Term" />
+			<ComboBox DisplayMemberPath="Ename" SelectedValuePath="Iserial" SelectedValue="{Binding TermId,Mode=TwoWay}"  Grid.Row="3" Grid.Column="1"
+										  Height="23" HorizontalAlignment="Stretch"  SelectedItem="{Binding SalaryTerPerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.SalaryTermList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+									  Margin="3"  VerticalAlignment="Center">
+				<ComboBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<VirtualizingStackPanel />
+					</ItemsPanelTemplate>
+				</ComboBox.ItemsPanel>
+			</ComboBox>
+	
+			<TextBlock Grid.Row="1"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Date,
+									  Source={StaticResource LocalizedStrings}}" />
+			<sdk:DatePicker Grid.Row="1"
+							Grid.Column="3"
+							MinHeight="20"
+							VerticalAlignment="Center"
+							KeyUp="UIElement_OnKeyUp"
+							SelectedDate="{Binding DayDate,
+												   Mode=TwoWay}" />
+			<TextBlock Grid.Row="2"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="{Binding Position,
+									  Source={StaticResource LocalizedStrings}}"
+					   Visibility="{Binding PositionVisibility}" />
+
+			<StackPanel Orientation="Horizontal" Grid.Row="2" MinHeight="20"
+					  Grid.Column="3"  VerticalAlignment="Center">
+				<ComboBox MinWidth="120"
+				VerticalAlignment="Center"
+					  ItemsSource="{Binding PositionList,Mode=TwoWay}"
+					  SelectedValue="{Binding Position,Mode=TwoWay}"
+					  Visibility="{Binding PositionVisibility}" />
+				<CheckBox 	Width="20"
+					  IsChecked="{Binding PositionAllowed,Mode=TwoWay}"
+					  Visibility="{Binding TransportationLineAllow}" />
+			</StackPanel>
+			<TextBlock Grid.Row="3"
+					   Grid.Column="2"
+					   VerticalAlignment="Center"
+					   Text="TransportationLine"
+					   Visibility="{Binding TransportationLineAllow}" />
+			<StackPanel Orientation="Horizontal" Grid.Row="3" MinHeight="20"
+					  Grid.Column="3"  VerticalAlignment="Center">
+				<ComboBox MinWidth="120"
+				VerticalAlignment="Center"
+					  ItemsSource="{Binding TransportationList,Mode=TwoWay}"
+					  SelectedValue="{Binding Transportation,Mode=TwoWay}"
+					  Visibility="{Binding TransportationLineAllow}" />
+				<CheckBox 	Width="20"
+					  IsChecked="{Binding TransportationAllowed,Mode=TwoWay}"
+					  Visibility="{Binding TransportationLineAllow}" />
+			</StackPanel>
+		</Grid>
+
+		<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}"  Grid.Column="0"
+							 Grid.Row="2"    HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300"
+					KeyUp="MainGrid_KeyUp">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee, Source={StaticResource LocalizedStrings}}" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding EmpPerRow.Emplid,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>					
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee, Source={StaticResource LocalizedStrings}}" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding EmpPerRow.Name,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalaryTerm, Source={StaticResource LocalizedStrings}}" SortMemberPath="PeriodId" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding SalaryTerPerRow.Ename,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="Ename" SelectedValuePath="Iserial" SelectedValue="{Binding TermId,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Stretch"  SelectedItem="{Binding SalaryTerPerRow,Mode=TwoWay}"
+									  ItemsSource="{Binding Path=DataContext.SalaryTermList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+									  Margin="3"  VerticalAlignment="Center">
+								<ComboBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<VirtualizingStackPanel />
+									</ItemsPanelTemplate>
+								</ComboBox.ItemsPanel>
+							</ComboBox>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn      utilities:GlobalMethods.FormatForExport="Date" SortMemberPath="TransDate" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransDate, Source={StaticResource LocalizedStrings}}" Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<sdk:DatePicker SelectedDate="{Binding Path=TransDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path=TransDate, StringFormat=\{0:d\}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn  Binding="{Binding Path=Days,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Day, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader" />
+				<sdk:DataGridTextColumn  Binding="{Binding Path=Hours,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="Hours" Width="SizeToHeader" />
+			</sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

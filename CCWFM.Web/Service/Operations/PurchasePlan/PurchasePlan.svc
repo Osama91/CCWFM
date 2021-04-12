@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CCWFM.Web.Service.Operations.PurchasePlan.PurchasePlan" CodeBehind="PurchasePlan.svc.cs" %>

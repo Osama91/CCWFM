@@ -1,0 +1,2 @@
+2018-11-05 16:27:53.3128|INFO|Info|User Iserial:994
+2018-11-05 16:27:53.3408|ERROR|Info|{"Message":"Object reference not set to an instance of an object.","Data":{},"InnerException":null,"StackTrace":"   at CCWFM.ViewModel.OGViewModels.EmployeeShiftViewModel.<.ctor>b__21_38(Object s, GetTblEmployeeShiftByStoreCompletedEventArgs sv)\r\n   at CCWFM.CRUDManagerService.CRUD_ManagerServiceClient.OnGetTblEmployeeShiftByStoreCompleted(Object state)"}

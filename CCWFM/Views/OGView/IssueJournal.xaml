@@ -1,0 +1,340 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="CCWFM.Views.OGView.IssueJournal"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   d:DesignWidth="1000" d:DesignHeight="520"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 Title="Issue Journal">
+	<sdk:TabControl HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Top" Name="TabControl">
+		<sdk:TabItem Header="{Binding Order,Source={StaticResource LocalizedStrings}}" Name="OrderTab">
+		<Grid  Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<ToggleButton Checked="btnAddNewOrder_Checked"
+								  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					 Name="BtnAddNewOrder" ToolTipService.ToolTip="Add" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png"
+							   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							   Stretch="Uniform"></Image>
+			</ToggleButton>
+	
+			<Button Name="BtnSearchOrder" Click="btnSearchOrder_Click"
+							  ToolTipService.ToolTip="Search" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+			</Button>
+			
+			<Button Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9"
+							Click="btnSaveOrder_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="Transparent"
+							ToolTipService.ToolTip="Save"
+							Name="BtnSaveOrder"  Foreground="Transparent">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Assets/Images/1370886069_save.png" Stretch="Uniform" OpacityMask="#FFF8F8F9" Margin="0" ></Image>
+			</Button>
+			<Button Content="Cancel" Name="BtnCancelOrder" ToolTipService.ToolTip="Cancel" Click="btnCancelOrder_Click" BorderBrush="#FFA8091A" FontWeight="Bold">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Background" Value="#ffa8091a" />
+						<Setter Property="Cursor" Value="Hand" />
+					</Style>
+				</Button.Style>
+			</Button>
+		
+		
+		</StackPanel>
+		<Grid Grid.Row="1" Margin="0,20,0,0" DataContext="{Binding SelectedMainRow,Mode=TwoWay}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=Vendor, Source={StaticResource LocalizedStrings}}" Grid.Row="0" />
+
+			<search:SearchVendor Grid.Row="0" Grid.Column="1"  SearchPerRow="{Binding VendorPerRow,Mode=TwoWay}"></search:SearchVendor>
+
+			<TextBlock  MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Name="TxtBlockTransDate" Text="{Binding Path=Date, Source={StaticResource LocalizedStrings}}" Grid.Column="2"   Grid.Row="0" />
+			<sdk:DatePicker MinHeight="30"    HorizontalAlignment="Stretch" Name="DpTransDate" IsEnabled="{Binding Enabled}"
+						   Grid.Column="3" SelectedDate="{Binding Date,Mode=TwoWay}" Grid.Row="0" />
+		</Grid>
+
+		<StackPanel Orientation="Vertical" Margin="5" Grid.Row="2"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+			<Button Click="btnAddNewMainOrderDetails_Clicked"
+								  HorizontalAlignment="Left" VerticalAlignment="Stretch"
+					 Name="BtntnAddNewMainOrderDetails" ToolTipService.ToolTip="Add" Cursor="Hand">
+				<Image Width="32" Source="/CCWFM;component/Assets/Images/1370885545_add-notes.png" Stretch="Uniform"></Image>
+			</Button>
+			<dataGrid:OsGrid Height="250" Margin="0,36,10,0" Name="DetailGrid"  VerticalAlignment="Top" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding SelectedMainRow.DetailList,Mode=TwoWay}">
+				<sdk:DataGrid.Columns>
+							<sdk:DataGridTemplateColumn SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Fabric, Source={StaticResource LocalizedStrings}}" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock HorizontalAlignment="Stretch" Text="{Binding ItemPerRow.Code,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock HorizontalAlignment="Stretch" Text="{Binding ColorPerRow.Code,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<search:SearchColor HorizontalAlignment="Stretch"
+												Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"  SearchPerRow="{Binding ColorPerRow,Mode=TwoWay}">
+									</search:SearchColor>
+									<ComboBox Height="23" HorizontalAlignment="Stretch" FontSize="8"
+										   Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter}}"
+																	   VerticalAlignment="Center"
+																	  DisplayMemberPath="Code"
+																	  ItemsSource="{Binding Path=ItemPerRow.AccConfigList,Mode=TwoWay}"
+																	  SelectedValue="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedItem="{Binding ColorPerRow,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial"></ComboBox>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+<sdk:DataGridTextColumn      dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BatchNo, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=BatchNo,Mode=TwoWay}" Width="*"/>
+					<sdk:DataGridTemplateColumn SortMemberPath="Size"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock HorizontalAlignment="Stretch" Text="{Binding Size,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding Size,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn SortMemberPath="Location"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Location, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding Location,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox ItemsSource="{Binding DataContext.WarehouseWithOnHandList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"  SelectedValue="{Binding Location,Mode=TwoWay}"  MinHeight="30" Name="CbLocation" MinWidth="250"  SelectedValuePath="WareHouseCode" DisplayMemberPath="WareHouseName" Margin="5" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cost, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Cost,Mode=TwoWay}" Width="*"/>
+					<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Qty,Mode=TwoWay}" Width="*"/>
+
+				</sdk:DataGrid.Columns>
+			</dataGrid:OsGrid>
+		</StackPanel>
+	</Grid>
+	</sdk:TabItem>
+		<sdk:TabItem    
+					 IsEnabled="{Binding SelectedMainRow.Iserial}"
+					 Header="{Binding Receive,Source={StaticResource LocalizedStrings}}" Name="ReceiveTab">
+			<Grid  Background="White">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<StackPanel.Background>
+						<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+							<GradientStop Color="#FFC6ECFE" />
+							<GradientStop Color="#FF003FFF" Offset=".01" />
+							<GradientStop Color="#ff02fdce" Offset="0.3" />
+						</LinearGradientBrush>
+					</StackPanel.Background>
+					<ToggleButton Checked="btnAddNewOrderRec_Checked"
+								  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					 Name="BtnAddNewOrderRec" ToolTipService.ToolTip="Add" Cursor="Hand">
+						<Image Source="/CCWFM;component/Images/1371054818_New_File.png"
+							   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							   Stretch="Uniform"></Image>
+					</ToggleButton>
+				
+					<Button Name="BtnSearchOrderRec" Click="btnSearchOrderRec_Click"
+							  ToolTipService.ToolTip="Search" Cursor="Hand">
+						<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+					</Button>
+
+					<Button Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9"
+							Click="btnSaveOrder_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="Transparent"
+							ToolTipService.ToolTip="Save"
+							Name="BtnSaveOrderRec"  Foreground="Transparent">
+						<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Assets/Images/1370886069_save.png" Stretch="Uniform" OpacityMask="#FFF8F8F9" Margin="0" ></Image>
+					</Button>
+					<Button Content="Cancel" Name="BtnCancelOrderRec" ToolTipService.ToolTip="Cancel" Click="btnCancelOrderRec_Click" BorderBrush="#FFA8091A" FontWeight="Bold">
+						<Button.Style>
+							<Style TargetType="Button">
+								<Setter Property="Background" Value="#ffa8091a" />
+								<Setter Property="Cursor" Value="Hand" />
+							</Style>
+						</Button.Style>
+					</Button>
+
+
+				</StackPanel>
+				<Grid Grid.Row="1" Margin="0,20,0,0" DataContext="{Binding SelectedRecRow,Mode=TwoWay}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width=".7*" />
+						<ColumnDefinition Width="2*" />
+						<ColumnDefinition Width=".7*" />
+						<ColumnDefinition Width="2*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<TextBlock  MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0"    Text="{Binding Path=Date, Source={StaticResource LocalizedStrings}}"     Grid.Row="0" />
+					<sdk:DatePicker MinHeight="30"    HorizontalAlignment="Stretch"         
+						   Grid.Column="1" SelectedDate="{Binding  Date,Mode=TwoWay}"
+							Grid.Row="0" />
+				</Grid>
+
+				<StackPanel Orientation="Vertical" Margin="5" Grid.Row="2"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+					<Button Click="btnAddNewMainOrderDetailsRec_Clicked"
+								  HorizontalAlignment="Left" VerticalAlignment="Stretch"
+					 Name="BtntnAddNewMainOrderDetailsRec" ToolTipService.ToolTip="Add" Cursor="Hand">
+						<Image Width="32" Source="/CCWFM;component/Assets/Images/1370885545_add-notes.png" Stretch="Uniform"></Image>
+					</Button>
+					<dataGrid:OsGrid Height="250" Margin="0,36,10,0" Name="RecGrid"  VerticalAlignment="Top" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ItemsSource="{Binding SelectedRecRow.DetailList,Mode=TwoWay}">
+						<sdk:DataGrid.Columns>
+							<sdk:DataGridTemplateColumn IsReadOnly="True" SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Fabric, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding ItemPerRow.Code,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn IsReadOnly="True" SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding ColorPerRow.Code,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<search:SearchColor HorizontalAlignment="Stretch"
+												Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"  SearchPerRow="{Binding ColorPerRow,Mode=TwoWay}">
+											</search:SearchColor>
+											<ComboBox Height="23" HorizontalAlignment="Stretch" FontSize="8"
+										   Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter}}"
+																	   VerticalAlignment="Center"
+																	  DisplayMemberPath="Code"
+																	  ItemsSource="{Binding Path=ItemPerRow.AccConfigList,Mode=TwoWay}"
+																	  SelectedValue="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedItem="{Binding ColorPerRow,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial"></ComboBox>
+										</StackPanel>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BatchNo, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=BatchNo,Mode=TwoWay}" Width="*"/>
+							<sdk:DataGridTemplateColumn IsReadOnly="True" SortMemberPath="Size"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding Size,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding Size,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn IsReadOnly="True" SortMemberPath="Location"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Location, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding Location,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox ItemsSource="{Binding DataContext.WarehouseWithOnHandList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"  SelectedValue="{Binding Location,Mode=TwoWay}"  MinHeight="30" Name="CbLocation" MinWidth="250"  SelectedValuePath="WareHouseCode" DisplayMemberPath="WareHouseName" Margin="5" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cost, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Cost,Mode=TwoWay}" Width="*"/>
+							<sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Qty,Mode=TwoWay}" Width="*"/>
+							<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding NewCost, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=NewCost,Mode=TwoWay}" Width="*"/>
+							<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding NewQty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=NewQty,Mode=TwoWay}" Width="*"/>
+
+							<sdk:DataGridTemplateColumn SortMemberPath="Location"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding NewLocation, Source={StaticResource LocalizedStrings}}" Width="*">
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock HorizontalAlignment="Stretch" Text="{Binding NewLocation,Mode=TwoWay}"></TextBlock>
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<ComboBox ItemsSource="{Binding DataContext.WarehouseWithOnHandList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"  SelectedValue="{Binding NewLocation,Mode=TwoWay}"  MinHeight="30" Name="CbLocation" MinWidth="250"  SelectedValuePath="WareHouseCode" DisplayMemberPath="WareHouseName" Margin="5" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+							</sdk:DataGridTemplateColumn>
+						</sdk:DataGrid.Columns>
+					</dataGrid:OsGrid>
+				</StackPanel>
+			</Grid>
+		</sdk:TabItem>
+	</sdk:TabControl>
+</navigation:Page>

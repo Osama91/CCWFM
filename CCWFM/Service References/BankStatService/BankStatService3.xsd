@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" />
+  <xs:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Excel" />
+  <xs:element name="GetBankStatHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBankStatHeaderResult" nillable="true" type="q2:ArrayOfTblBankStatHeader" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatHeaderByIserial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatHeaderByIserialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBankStatHeaderByIserialResult" nillable="true" type="q3:TblBankStatHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsBankStatHeaderHasMatchedRows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsBankStatHeaderHasMatchedRowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsBankStatHeaderHasMatchedRowsResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertBankStatHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q4:TblBankStatHeader" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertBankStatHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertBankStatHeaderResult" nillable="true" type="q5:TblBankStatHeader" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q6:TblBankStatHeader" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteBankStatHeaderResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBankStatDetailResult" nillable="true" type="q7:ArrayOfTblBankStatDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertBankStatDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q8:TblBankStatDetail" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrInsertBankStatDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertBankStatDetailResult" nillable="true" type="q9:TblBankStatDetail" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q10:TblBankStatDetail" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="DeleteBankStatDetailResult" nillable="true" type="q11:TblBankStatDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertImportedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="header" nillable="true" type="q12:TblBankStatHeader" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="importedList" nillable="true" type="q13:ArrayOfImportedBankStatement" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertImportedItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertImportedItemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRemainingImportedItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="importedList" nillable="true" type="q14:ArrayOfImportedBankStatement" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRemainingImportedItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InsertRemainingImportedItemsResult" nillable="true" type="q15:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatByIserial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBankStatByIserialResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertExcelFileDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="header" nillable="true" type="q16:TblBankStatHeader" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Models.Excel" minOccurs="0" name="detailList" nillable="true" type="q17:ArrayOfCellModel" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertExcelFileDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertExcelFileDateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailForMatching">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailForMatchingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetBankStatDetailForMatchingResult" nillable="true" type="q18:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailForMatching">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailForMatchingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetLedgerDetailForMatchingResult" nillable="true" type="q19:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailMatched">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailMatchedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetBankStatDetailMatchedResult" nillable="true" type="q20:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailMatched">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailMatchedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetLedgerDetailMatchedResult" nillable="true" type="q21:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailMatchedByLedgerDetailId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="ledgerDetailId" type="xs:int" />
+        <xs:element minOccurs="0" name="isChecked" type="xs:boolean" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankStatDetailMatchedByLedgerDetailIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetBankStatDetailMatchedByLedgerDetailIdResult" nillable="true" type="q22:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailMatchedByBankStatDetailId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="headerId" type="xs:int" />
+        <xs:element minOccurs="0" name="bankStatDetailId" type="xs:int" />
+        <xs:element minOccurs="0" name="isChecked" type="xs:boolean" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLedgerDetailMatchedByBankStatDetailIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="GetLedgerDetailMatchedByBankStatDetailIdResult" nillable="true" type="q23:ArrayOfBankStatMatchingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertMatchedList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="BankStatDetailList" nillable="true" type="q24:ArrayOfBankStatMatchingModel" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="LedgerDetailList" nillable="true" type="q25:ArrayOfBankStatMatchingModel" />
+        <xs:element minOccurs="0" name="reload" type="xs:boolean" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertMatchedListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertMatchedListResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lastInsert" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveMatchedList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="BankStatDetailList" nillable="true" type="q26:ArrayOfBankStatMatchingModel" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" minOccurs="0" name="LedgerDetailList" nillable="true" type="q27:ArrayOfBankStatMatchingModel" />
+        <xs:element minOccurs="0" name="reload" type="xs:boolean" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveMatchedListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveMatchedListResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lastInsert" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployees">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetEmployeesResult" nillable="true" type="q28:ArrayOfEmployee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanies">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompaniesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetCompaniesResult" nillable="true" type="q29:ArrayOfTblCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpBankTransactionType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpBankTransactionTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpBankTransactionTypeResult" nillable="true" type="q30:ArrayOfTblBankTransactionType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpBank">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpBankResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpBankResult" nillable="true" type="q31:ArrayOfTblBank" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpCurrency">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpCurrencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpCurrencyResult" nillable="true" type="q32:ArrayOfTblCurrencyTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,425 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.GeneratePurchase"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   d:DesignWidth="1000" d:DesignHeight="520" Title="Generate Purchase"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+		   xmlns:ogViewModels="clr-namespace:CCWFM.ViewModel.OGViewModels">
+	<navigation:Page.Resources>
+		<ogViewModels:GeneratePurchaseViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="370*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<ToggleButton Checked="btnAddNewOrder_Checked"
+								  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					 Name="BtnAddNewOrder" ToolTipService.ToolTip="Add" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png"
+							   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							   Stretch="Uniform"></Image>
+			</ToggleButton>
+			<ToggleButton  Checked="btnEditOrder_Checked" Name="BtnEditOrder" Visibility="Collapsed"
+
+					 ToolTipService.ToolTip="Edit" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054625_27-Edit%20Text.png" Stretch="Uniform"></Image>
+			</ToggleButton>
+			 <ToggleButton Name="BtnShowSearchOrder" Checked="btnShowSearchOrder_Checked"
+					IsEnabled="{Binding ElementName=BtnAddNewOrder,Path=IsChecked,Converter={StaticResource ReversedConverter}}"
+							  Visibility="{Binding ElementName=BtnAddNewOrder,Path=IsChecked
+					,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"
+							  ToolTipService.ToolTip="Toggle Search Mode" Content="{Binding Search, Source={StaticResource LocalizedStrings}}" Cursor="Hand"
+								  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			</ToggleButton>
+			<Button Name="BtnSearchOrder" Click="btnSearchOrder_Click"
+						Visibility="{Binding ElementName=BtnShowSearchOrder,Path=IsChecked
+					,Converter={StaticResource VisibilityConverter}}"
+					IsEnabled="{Binding ElementName=BtnEditOrder,Path=IsChecked,Converter={StaticResource ReversedConverter}}"
+							  ToolTipService.ToolTip="Search" Cursor="Hand">
+				<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+			</Button>
+			<Button Name="BtnDeleteOrder" Click="btnDeleteOrder_Click" Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}" ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform">
+				</Image>
+			</Button>
+			<Button Cursor="Hand" BorderThickness="1" OpacityMask="#FFF9F9F9"
+							Click="btnSaveOrder_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Background="Transparent"
+							ToolTipService.ToolTip="Save"
+							Name="BtnSaveOrder"  Foreground="Transparent">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Assets/Images/1370886069_save.png" Stretch="Uniform" OpacityMask="#FFF8F8F9" Margin="0" ></Image>
+			</Button>
+			<Button Content="Cancel" Name="BtnCancelOrder" ToolTipService.ToolTip="Cancel" Visibility="Collapsed" Click="btnCancelOrder_Click" IsEnabled="False" BorderBrush="#FFA8091A" FontWeight="Bold">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Background" Value="#ffa8091a" />
+						<Setter Property="Cursor" Value="Hand" />
+					</Style>
+				</Button.Style>
+			</Button>
+			<Button Name="BtnPrintPreviewOrder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ToolTipService.ToolTip="Print" Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}"  Click="btnPrintPreviewOrder_Click">
+				<Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+							Source="/CCWFM;component/Images/1372257722_MB__print.png" Stretch="Uniform"></Image>
+			</Button>
+			<Button Content="ReCalc" Name="BtnReCalc" ToolTipService.ToolTip="ReCalc" Click="btnReCalc_Click" BorderBrush="#FFA8091A" FontWeight="Bold">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Background" Value="#ffa8091a" />
+						<Setter Property="Cursor" Value="Hand" />
+					</Style>
+				</Button.Style>
+			</Button>
+		</StackPanel>
+		<Grid Grid.Row="1" DataContext="{Binding SelectedMainRow,Mode=TwoWay}" Margin="0,20,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=Brand, Source={StaticResource LocalizedStrings}}" Grid.Row="0" />
+			<ComboBox Grid.Row="0" Grid.Column="1"  DisplayMemberPath="Brand_Code"  ItemsSource="{Binding Path=DataContext.BrandList,
+					  RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+												  SelectedValue="{Binding Brand,Mode=TwoWay}"
+												  SelectedValuePath="Brand_Code" IsEnabled="{Binding Enabled}"></ComboBox>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="{Binding Path=BrandSection, Source={StaticResource LocalizedStrings}}" Grid.Row="0" />
+			<ComboBox Grid.Row="0" Grid.Column="3"  DisplayMemberPath="Ename"   ItemsSource="{Binding Path=BrandSectionList,Mode=TwoWay}"
+												  SelectedItem="{Binding SectionPerRow,Mode=TwoWay}"
+												  SelectedValue="{Binding TblLkpBrandSection,Mode=TwoWay}"
+												  SelectedValuePath="Iserial"  IsEnabled="{Binding Enabled}"></ComboBox>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="{Binding Path=Season, Source={StaticResource LocalizedStrings}}" Grid.Row="1" />
+			<ComboBox Grid.Row="1" Grid.Column="1"  DisplayMemberPath="Ename"   ItemsSource="{Binding Path=DataContext.SeasonList,
+							RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}" SelectedItem="{Binding SeasonPerRow,Mode=TwoWay}"
+												  SelectedValue="{Binding TblLkpSeason,Mode=TwoWay}"
+												  SelectedValuePath="Iserial"  IsEnabled="{Binding Enabled}"></ComboBox>
+			<TextBlock MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=TransDate, Source={StaticResource LocalizedStrings}}" Grid.Column="2" Grid.Row="1" />
+			<sdk:DatePicker MinHeight="30"    HorizontalAlignment="Stretch" Name="DpToDate" IsEnabled="{Binding Enabled}"
+						   Grid.Column="3" SelectedDate="{Binding  TransDate,Mode=TwoWay}" Grid.Row="1" />
+							
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="Purchase Type" Grid.Row="2" />
+			<ComboBox Grid.Row="2" Grid.Column="1"  DisplayMemberPath="Ename"   ItemsSource="{Binding Path=DataContext.PurchaseTypeList,
+							RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+
+												  SelectedValue="{Binding TblPurchaseType,
+																		  Mode=TwoWay}"
+												  SelectedValuePath="Iserial"  IsEnabled="{Binding Enabled}"></ComboBox>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="Plan Type" Grid.Row="2" />
+			<ComboBox Grid.Row="2" Grid.Column="3"  DisplayMemberPath="Ename"   ItemsSource="{Binding Path=DataContext.PlanTypeList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													SelectedValue="{Binding TblPlanType,Mode=TwoWay}" SelectedValuePath="Iserial"  IsEnabled="{Binding Enabled}"></ComboBox>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Visibility="Collapsed" Text="{Binding Path=DeliveryDate, Source={StaticResource LocalizedStrings}}" Grid.Row="2" />
+			<sdk:DatePicker Grid.Row="2" Grid.Column="3" SelectedDate="{Binding  DeliveryDate,Mode=TwoWay}" Visibility="Collapsed"></sdk:DatePicker>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="{Binding Path=Code, Source={StaticResource LocalizedStrings}}" Grid.Row="3" />
+			<TextBox IsEnabled="{Binding Enabled}" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Code,Mode=TwoWay}"></TextBox>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="GenerateLink" Grid.Row="3" />
+			<Button Grid.Row="3" Grid.Column="3" Content="Generate Link" Click="ButtonBase_OnClick"></Button>
+
+			<TextBlock Visibility="Collapsed" TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="{Binding Path=ShippingDate, Source={StaticResource LocalizedStrings}}" Grid.Row="3" />
+			<sdk:DatePicker Visibility="Collapsed" Grid.Row="3" Grid.Column="3" SelectedDate="{Binding  ShippingDate,Mode=TwoWay}" ></sdk:DatePicker>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="{Binding Path=MethodOfPayment, Source={StaticResource LocalizedStrings}}" Grid.Row="4" Visibility="Collapsed" />
+			<ComboBox Height="23" Grid.Column="1" Grid.Row="4" Margin="3" HorizontalAlignment="Stretch"  VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMMODE"
+													  ItemsSource="{Binding Path=DataContext.VendPayModeList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxMethodOfPaymentCode,Mode=TwoWay}" SelectedValuePath="PAYMMODE" Visibility="Collapsed">
+			</ComboBox>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="{Binding Path=TermOfPayment, Source={StaticResource LocalizedStrings}}" Grid.Row="4" Visibility="Collapsed" />
+			<ComboBox Height="23" Margin="3"  Grid.Column="3" Grid.Row="4"
+													  HorizontalAlignment="Stretch" VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMTERMID"
+													  ItemsSource="{Binding Path=DataContext.PaymTerm,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxTermOfPaymentCode,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="PAYMTERMID" Visibility="Collapsed">
+				<ComboBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<VirtualizingStackPanel />
+					</ItemsPanelTemplate>
+				</ComboBox.ItemsPanel>
+			</ComboBox>
+
+			<TextBlock TextAlignment="Right"  Margin="0,0,5,0" Text="{Binding WareHouse, Source={StaticResource LocalizedStrings},Mode=TwoWay}"  Grid.Row="5"
+					   Grid.Column="0" Visibility="Collapsed" />
+			<ComboBox ItemsSource="{Binding WareHouseList,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1"
+					  SelectedValuePath="INVENTLOCATIONID" DisplayMemberPath="NAME"
+					  SelectedValue="{Binding Warehouse,Mode=TwoWay}" Visibility="Collapsed"></ComboBox>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="{Binding Path=SalesOrder, Source={StaticResource LocalizedStrings}}" Grid.Row="4" />
+			<Button Grid.Row="4" Grid.Column="1" Content="Sales Orders" Name="BtnSalesOrders" Click="BtnSalesOrders_OnClick"></Button>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="Factory Delivery" Grid.Row="4" />
+			<ComboBox Grid.Row="4" Grid.Column="3"  DisplayMemberPath="Ename"   ItemsSource="{Binding Path=DataContext.TblFactoryDeliveryList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													SelectedValue="{Binding TblFactoryDelivery,Mode=TwoWay}" SelectedValuePath="Iserial"  IsEnabled="{Binding Enabled}"></ComboBox>
+
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="0" MinHeight="30" Text="Merge Plans" Grid.Row="5" />
+			<Button Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}" Grid.Row="5" Grid.Column="1" Content="Merge Plans" Name="BtnMergePlans" Click="BtnMergePlans_OnClick"></Button>
+
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2" MinHeight="30" Text="Currencies" Grid.Row="5" />
+			<Button Visibility="{Binding SelectedMainRow.Iserial,Converter={StaticResource VisibilityConverter}}" Grid.Row="5" Grid.Column="3" Content="Currencies" Name="btnCurrencies" Click="btnCurrencies_OnClick"></Button>
+
+		</Grid>
+        <sdk:TabControl x:Name="TaPurchase" Margin="10,36,10,0"  Grid.Row="2" SelectionChanged="TabControl_OnSelectionChanged" >
+            <sdk:TabItem Header="Production">
+                <dataGrid:OsGrid  VerticalAlignment="Top" AutoGenerateColumns="False"
+					  SelectedItem="{Binding SelectedPurchaseRow,Mode=TwoWay}" BeginningEdit="PurchaseGrid_OnBeginningEdit"
+					   ItemsSource="{Binding SelectedMainRow.PurchaseOrderList}" 
+					  FilteredItemsSource="{Binding SelectedMainRow.PurchaseOrderList}"
+					  HorizontalAlignment="left" Name="PurchaseGrid" KeyUp="PurchaseGrid_OnKeyUp" RowEditEnded="PurchaseGrid_OnRowEditEnded">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTemplateColumn SortMemberPath="Vendor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Foreground="{Binding Foreground,Mode=TwoWay}" Text="{Binding Vendor,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <search:SearchVendor  SearchPerRow="{Binding VendorPerRow,Mode=TwoWay}" ></search:SearchVendor>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="Warehouse"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding WareHouse, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Warehouse,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="Code"
+													  ItemsSource="{Binding Path=DataContext.WareHouseList,
+																			RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding Warehouse,Mode=TwoWay}" SelectedValuePath="Code">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTextColumn SortMemberPath="TransDate" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransDate, Source={StaticResource LocalizedStrings}}" IsReadOnly="True"  Binding="{Binding Path=TransDate,Mode=TwoWay, StringFormat=\{0:d\}}" Width="*" />
+                        <sdk:DataGridTemplateColumn SortMemberPath="DeliveryDate"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDate="{Binding  DeliveryDate,Mode=TwoWay}" ></sdk:DatePicker>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="ShippingDate"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ShippingDate, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDate="{Binding ShippingDate,Mode=TwoWay}" ></sdk:DatePicker>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxMethodOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MethodOfPayment, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding AxMethodOfPaymentCode,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMMODE"
+													  ItemsSource="{Binding Path=DataContext.VendPayModeList,
+																			RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxMethodOfPaymentCode,Mode=TwoWay}" SelectedValuePath="PAYMMODE">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxTermOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TermOfPayment, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding AxTermOfPaymentCode,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch" VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMTERMID"
+													  ItemsSource="{Binding Path=DataContext.PaymTerm,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxTermOfPaymentCode,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="PAYMTERMID" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxTermOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PurchaseDetail, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Purchase Detail" Name="BtnPurchaseDetail" Click="BtnPurchaseDetail_OnClick"></Button>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}" SortMemberPath="CurrencyCode" Width="SizeToHeader">
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=sdk:DataGrid}, Path=DataContext.AxCurrencyList}"
+										  Width="150" HorizontalAlignment="Left" Height="20"
+										  SelectedValue="{Binding CurrencyCode,Mode=TwoWay}" 
+										  DisplayMemberPath="CURRENCYCODE" SelectedValuePath="CURRENCYCODE">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CurrencyCode,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="TblPurchaseHeaderType1.Ename"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PurchaseOrder, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PurchaseHeaderTypePerRow.Ename,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                    </sdk:DataGrid.Columns>
+                </dataGrid:OsGrid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Purchase">
+                <dataGrid:OsGrid  VerticalAlignment="Top" AutoGenerateColumns="False"
+					  SelectedItem="{Binding SelectedPurchase2Row,Mode=TwoWay}"
+					   ItemsSource="{Binding SelectedPurchaseRow.PurchaseOrderHeaderList}" 
+					  FilteredItemsSource="{Binding SelectedPurchaseRow.PurchaseOrderHeaderList}"
+					  HorizontalAlignment="left" Name="Purchase2Grid" KeyUp="Purchase2Grid_OnKeyUp" RowEditEnded="Purchase2Grid_OnRowEditEnded">
+                    <sdk:DataGrid.Columns>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="Vendor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Foreground="{Binding Foreground,Mode=TwoWay}" Text="{Binding Vendor,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <search:SearchVendor  SearchPerRow="{Binding VendorPerRow,Mode=TwoWay}" ></search:SearchVendor>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="Warehouse"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding WareHouse, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Warehouse,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="Name"
+													  ItemsSource="{Binding Path=DataContext.WareHouseList,
+																			RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding Warehouse,Mode=TwoWay}" SelectedValuePath="WarehouseID">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTextColumn SortMemberPath="TransDate" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransDate, Source={StaticResource LocalizedStrings}}" IsReadOnly="True"  Binding="{Binding Path=TransDate,Mode=TwoWay, StringFormat=\{0:d\}}" Width="*" />
+                        <sdk:DataGridTemplateColumn SortMemberPath="DeliveryDate"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDate="{Binding  DeliveryDate,Mode=TwoWay}" ></sdk:DatePicker>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="ShippingDate"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ShippingDate, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDate="{Binding ShippingDate,Mode=TwoWay}" ></sdk:DatePicker>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxMethodOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MethodOfPayment, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding AxMethodOfPaymentCode,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch"
+													  VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMMODE"
+													  ItemsSource="{Binding Path=DataContext.VendPayModeList,
+																			RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxMethodOfPaymentCode,Mode=TwoWay}" SelectedValuePath="PAYMMODE">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxTermOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TermOfPayment, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding AxTermOfPaymentCode,Mode=TwoWay}"></TextBlock>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox Height="23" Margin="3"
+													  HorizontalAlignment="Stretch" VerticalAlignment="Center"
+													  DisplayMemberPath="PAYMTERMID"
+													  ItemsSource="{Binding Path=DataContext.PaymTerm,
+																			RelativeSource={RelativeSource FindAncestor,
+																										   AncestorType=sdk:Page,AncestorLevel=1}}"
+													  SelectedValue="{Binding AxTermOfPaymentCode,
+																			  Mode=TwoWay}"
+													  SelectedValuePath="PAYMTERMID" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="AxTermOfPaymentCode"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PurchaseDetail, Source={StaticResource LocalizedStrings}}" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Purchase Detail" Name="BtnPurchaseDetail" Click="BtnPurchaseDetail2_OnClick"></Button>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                    </sdk:DataGrid.Columns>
+                </dataGrid:OsGrid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+</navigation:Page>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Gl" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Excel" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/BankStatOp/BankStatService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BankStatService_GetBankStatHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatHeaderByIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatHeaderByIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatHeaderByIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatHeaderByIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_IsBankStatHeaderHasMatchedRows_InputMessage">
+    <wsdl:part name="parameters" element="IsBankStatHeaderHasMatchedRows" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_IsBankStatHeaderHasMatchedRows_OutputMessage">
+    <wsdl:part name="parameters" element="IsBankStatHeaderHasMatchedRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_UpdateOrInsertBankStatHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertBankStatHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_UpdateOrInsertBankStatHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertBankStatHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatHeader" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_UpdateOrInsertBankStatDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertBankStatDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_UpdateOrInsertBankStatDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertBankStatDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatDetail" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertImportedItems_InputMessage">
+    <wsdl:part name="parameters" element="InsertImportedItems" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertImportedItems_OutputMessage">
+    <wsdl:part name="parameters" element="InsertImportedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertRemainingImportedItems_InputMessage">
+    <wsdl:part name="parameters" element="InsertRemainingImportedItems" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertRemainingImportedItems_OutputMessage">
+    <wsdl:part name="parameters" element="InsertRemainingImportedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatByIserial_InputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatByIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DeleteBankStatByIserial_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteBankStatByIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertExcelFileDate_InputMessage">
+    <wsdl:part name="parameters" element="InsertExcelFileDate" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertExcelFileDate_OutputMessage">
+    <wsdl:part name="parameters" element="InsertExcelFileDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailForMatching_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailForMatching" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailForMatching_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailForMatchingResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailForMatching_InputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailForMatching" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailForMatching_OutputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailForMatchingResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailMatched_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailMatched" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailMatched_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailMatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailMatched_InputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailMatched" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailMatched_OutputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailMatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailMatchedByLedgerDetailId_InputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailMatchedByLedgerDetailId" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetBankStatDetailMatchedByLedgerDetailId_OutputMessage">
+    <wsdl:part name="parameters" element="GetBankStatDetailMatchedByLedgerDetailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailMatchedByBankStatDetailId_InputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailMatchedByBankStatDetailId" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLedgerDetailMatchedByBankStatDetailId_OutputMessage">
+    <wsdl:part name="parameters" element="GetLedgerDetailMatchedByBankStatDetailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertMatchedList_InputMessage">
+    <wsdl:part name="parameters" element="InsertMatchedList" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_InsertMatchedList_OutputMessage">
+    <wsdl:part name="parameters" element="InsertMatchedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_RemoveMatchedList_InputMessage">
+    <wsdl:part name="parameters" element="RemoveMatchedList" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_RemoveMatchedList_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveMatchedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetCompanies_InputMessage">
+    <wsdl:part name="parameters" element="GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpBankTransactionType_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBankTransactionType" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpBankTransactionType_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBankTransactionTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpBank_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBank" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpBank_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpCurrency_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCurrency" />
+  </wsdl:message>
+  <wsdl:message name="BankStatService_GetLookUpCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BankStatService">
+    <wsdl:operation name="GetBankStatHeader">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatHeader" message="BankStatService_GetBankStatHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatHeaderResponse" message="BankStatService_GetBankStatHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatHeaderByIserial">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatHeaderByIserial" message="BankStatService_GetBankStatHeaderByIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatHeaderByIserialResponse" message="BankStatService_GetBankStatHeaderByIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsBankStatHeaderHasMatchedRows">
+      <wsdl:input wsaw:Action="urn:BankStatService/IsBankStatHeaderHasMatchedRows" message="BankStatService_IsBankStatHeaderHasMatchedRows_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/IsBankStatHeaderHasMatchedRowsResponse" message="BankStatService_IsBankStatHeaderHasMatchedRows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertBankStatHeader">
+      <wsdl:input wsaw:Action="urn:BankStatService/UpdateOrInsertBankStatHeader" message="BankStatService_UpdateOrInsertBankStatHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/UpdateOrInsertBankStatHeaderResponse" message="BankStatService_UpdateOrInsertBankStatHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatHeader">
+      <wsdl:input wsaw:Action="urn:BankStatService/DeleteBankStatHeader" message="BankStatService_DeleteBankStatHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/DeleteBankStatHeaderResponse" message="BankStatService_DeleteBankStatHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatDetail">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatDetail" message="BankStatService_GetBankStatDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatDetailResponse" message="BankStatService_GetBankStatDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertBankStatDetail">
+      <wsdl:input wsaw:Action="urn:BankStatService/UpdateOrInsertBankStatDetail" message="BankStatService_UpdateOrInsertBankStatDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/UpdateOrInsertBankStatDetailResponse" message="BankStatService_UpdateOrInsertBankStatDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatDetail">
+      <wsdl:input wsaw:Action="urn:BankStatService/DeleteBankStatDetail" message="BankStatService_DeleteBankStatDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/DeleteBankStatDetailResponse" message="BankStatService_DeleteBankStatDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertImportedItems">
+      <wsdl:input wsaw:Action="urn:BankStatService/InsertImportedItems" message="BankStatService_InsertImportedItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/InsertImportedItemsResponse" message="BankStatService_InsertImportedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRemainingImportedItems">
+      <wsdl:input wsaw:Action="urn:BankStatService/InsertRemainingImportedItems" message="BankStatService_InsertRemainingImportedItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/InsertRemainingImportedItemsResponse" message="BankStatService_InsertRemainingImportedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatByIserial">
+      <wsdl:input wsaw:Action="urn:BankStatService/DeleteBankStatByIserial" message="BankStatService_DeleteBankStatByIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/DeleteBankStatByIserialResponse" message="BankStatService_DeleteBankStatByIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertExcelFileDate">
+      <wsdl:input wsaw:Action="urn:BankStatService/InsertExcelFileDate" message="BankStatService_InsertExcelFileDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/InsertExcelFileDateResponse" message="BankStatService_InsertExcelFileDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatDetailForMatching">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatDetailForMatching" message="BankStatService_GetBankStatDetailForMatching_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatDetailForMatchingResponse" message="BankStatService_GetBankStatDetailForMatching_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLedgerDetailForMatching">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLedgerDetailForMatching" message="BankStatService_GetLedgerDetailForMatching_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLedgerDetailForMatchingResponse" message="BankStatService_GetLedgerDetailForMatching_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatDetailMatched">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatDetailMatched" message="BankStatService_GetBankStatDetailMatched_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatDetailMatchedResponse" message="BankStatService_GetBankStatDetailMatched_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLedgerDetailMatched">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLedgerDetailMatched" message="BankStatService_GetLedgerDetailMatched_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLedgerDetailMatchedResponse" message="BankStatService_GetLedgerDetailMatched_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatDetailMatchedByLedgerDetailId">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetBankStatDetailMatchedByLedgerDetailId" message="BankStatService_GetBankStatDetailMatchedByLedgerDetailId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetBankStatDetailMatchedByLedgerDetailIdResponse" message="BankStatService_GetBankStatDetailMatchedByLedgerDetailId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLedgerDetailMatchedByBankStatDetailId">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLedgerDetailMatchedByBankStatDetailId" message="BankStatService_GetLedgerDetailMatchedByBankStatDetailId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLedgerDetailMatchedByBankStatDetailIdResponse" message="BankStatService_GetLedgerDetailMatchedByBankStatDetailId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMatchedList">
+      <wsdl:input wsaw:Action="urn:BankStatService/InsertMatchedList" message="BankStatService_InsertMatchedList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/InsertMatchedListResponse" message="BankStatService_InsertMatchedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMatchedList">
+      <wsdl:input wsaw:Action="urn:BankStatService/RemoveMatchedList" message="BankStatService_RemoveMatchedList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/RemoveMatchedListResponse" message="BankStatService_RemoveMatchedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:BankStatService/DoWork" message="BankStatService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/DoWorkResponse" message="BankStatService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetEmployees" message="BankStatService_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetEmployeesResponse" message="BankStatService_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetCompanies" message="BankStatService_GetCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetCompaniesResponse" message="BankStatService_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpBankTransactionType">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLookUpBankTransactionType" message="BankStatService_GetLookUpBankTransactionType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLookUpBankTransactionTypeResponse" message="BankStatService_GetLookUpBankTransactionType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpBank">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLookUpBank" message="BankStatService_GetLookUpBank_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLookUpBankResponse" message="BankStatService_GetLookUpBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpCurrency">
+      <wsdl:input wsaw:Action="urn:BankStatService/GetLookUpCurrency" message="BankStatService_GetLookUpCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankStatService/GetLookUpCurrencyResponse" message="BankStatService_GetLookUpCurrency_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

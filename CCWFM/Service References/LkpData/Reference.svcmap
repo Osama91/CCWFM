@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee9fe2e8-a660-4bdf-9203-f3fb94f2b27f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/LkpData/LkpData.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LkpData.wsdl" MetadataType="Wsdl" ID="3c0e6d5f-ad23-469e-8b4c-a1a7ca68d715" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="LkpData.xsd" MetadataType="Schema" ID="46861e69-523f-4ae2-98dd-0902c950375f" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" />
+    <MetadataFile FileName="LkpData1.xsd" MetadataType="Schema" ID="ace7be3e-4535-4dc4-b348-7698f9b11b76" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd0" />
+    <MetadataFile FileName="LkpData2.xsd" MetadataType="Schema" ID="2a0f5db0-ab52-47c3-8333-4176ae3362f2" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd3" />
+    <MetadataFile FileName="LkpData3.xsd" MetadataType="Schema" ID="44c8efd8-e85c-4f66-8d0c-d7e60703554c" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd5" />
+    <MetadataFile FileName="LkpData1.wsdl" MetadataType="Wsdl" ID="18fb8c1a-dabd-453d-b669-33b9e84a13bc" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?wsdl" />
+    <MetadataFile FileName="LkpData4.xsd" MetadataType="Schema" ID="f10167bf-c31a-47de-b0aa-6efa6a032100" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd4" />
+    <MetadataFile FileName="LkpData.disco" MetadataType="Disco" ID="8e134431-69f8-4a39-9678-3282f224efb0" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?disco" />
+    <MetadataFile FileName="LkpData5.xsd" MetadataType="Schema" ID="b7c96cfe-1e14-4526-b1cf-d6e9680996be" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd6" />
+    <MetadataFile FileName="LkpData6.xsd" MetadataType="Schema" ID="76a7830a-6058-489f-97f9-e5116ce41a5e" SourceId="1" SourceUrl="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

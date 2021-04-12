@@ -1,0 +1,19 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.FrameChildWindow"
+                                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                       xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                                       Title="FrameChildWindow">
+
+    <Grid x:Name="LayoutRoot1" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="LayoutRoot" >
+            </Grid>
+
+        <Image Name="ImgClose" Width="40" Grid.Row="1" Source="/CCWFM;component/Images/1371055186_button_cancel.png"  HorizontalAlignment="Right" MouseLeftButtonDown="ImgClose_OnMouseLeftButtonDown"></Image>
+
+
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

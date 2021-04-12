@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" />
+  <xs:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/AuthOp/AuthService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthJournalSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthJournalSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" minOccurs="0" name="GetAuthJournalSettingResult" nillable="true" type="q1:ArrayOfAuthWarehouseModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAuthJournalSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" minOccurs="0" name="authList" nillable="true" type="q2:ArrayOfAuthWarehouseModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAuthJournalSettingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpAuthWarehouseTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookUpAuthWarehouseTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetLookUpAuthWarehouseTypesResult" nillable="true" type="q3:ArrayOfTblAuthWarehousePermissionType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthWarehouses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="PermissionIserial" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthWarehousesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" minOccurs="0" name="GetAuthWarehousesResult" nillable="true" type="q4:ArrayOfAuthWarehouseModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAuthWarehouses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="PermissionIserial" type="xs:short" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" minOccurs="0" name="authList" nillable="true" type="q5:ArrayOfAuthWarehouseModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAuthWarehousesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeOperationsLkp">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeOperationsLkpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBarcodeOperationsLkpResult" nillable="true" type="q6:ArrayOftbl_lkp_BarcodeOperations" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeProperty">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodePropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBarcodePropertyResult" nillable="true" type="q7:ArrayOfPrintingBarcodeProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeDisplaySettingsDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BarcodeDisplaySettingsHeader" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeDisplaySettingsDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBarcodeDisplaySettingsDetailResult" nillable="true" type="q8:ArrayOfBarcodeDisplaySettingsDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAndSaveBarcodeDisplaySettingsDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BarcodeDisplaySettingsHeader" type="xs:int" />
+        <xs:element minOccurs="0" name="FontSize" nillable="true" type="xs:double" />
+        <xs:element minOccurs="0" name="BoldProperty" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ItalicProperty" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="CanvasTop" type="xs:double" />
+        <xs:element minOccurs="0" name="CanvasLeft" type="xs:double" />
+        <xs:element minOccurs="0" name="FontFamily" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="propertyIserial" type="xs:int" />
+        <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PropertyNameArabic" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PropertyType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAndSaveBarcodeDisplaySettingsDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeDisplaySettingsHeader">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBarcodeDisplaySettingsHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetBarcodeDisplaySettingsHeaderResult" nillable="true" type="q9:ArrayOfBarcodeDisplaySettingsHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAndSaveBarcodeDisplaySettingsHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+        <xs:element minOccurs="0" name="barcodeOperation" type="xs:int" />
+        <xs:element minOccurs="0" name="PrintingBarcodeFormate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BarcodeWidth" type="xs:double" />
+        <xs:element minOccurs="0" name="BarcodeHeight" type="xs:double" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PageWidth" type="xs:double" />
+        <xs:element minOccurs="0" name="PageHeight" type="xs:double" />
+        <xs:element minOccurs="0" name="PageSizeUnit" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAndSaveBarcodeDisplaySettingsHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAndSaveBarcodeDisplaySettingsHeaderResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBarcodeDisplaySettingsHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBarcodeDisplaySettingsHeaderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q10:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q11:ArrayOfTblAuthUser" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q12:ArrayOfKeyValueOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetEmpTableResult" nillable="true" type="q13:ArrayOfEmployeesView" />
+        <xs:element minOccurs="0" name="fullCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q14:TblAuthUser" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="SaveUserResult" nillable="true" type="q15:TblAuthUser" />
+        <xs:element minOccurs="0" name="outindex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllJobs">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllJobsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAllJobsResult" nillable="true" type="q16:ArrayOfTblAuthJob" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAxUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAxUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetAxUserResult" nillable="true" type="q17:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

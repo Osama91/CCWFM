@@ -1,0 +1,121 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.FingerPrintTransaction" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"		   
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		   xmlns:datagridExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="FingerPrintTrans">
+	<navigation:Page.Resources>
+		<viewModel:FingerPrintTransactionViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+		   
+				<RowDefinition Height="40" />
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+		
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+		</StackPanel>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<!--<TextBlock VerticalAlignment="Center" Text="{Binding ExcuseRuleGroup,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+			<ComboBox VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" ItemsSource="{Binding ExcuseRuleGroupList}" SelectedValue="{Binding ExcuseRuleGroup,Mode=TwoWay}"  MinHeight="30"  SelectedValuePath="Iserial" DisplayMemberPath="Ename" Margin="5" />-->
+
+		<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}" Grid.ColumnSpan="4"
+				   Grid.Row="1" Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">			
+					<sdk:DataGrid.Columns>
+					<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee, Source={StaticResource LocalizedStrings}}" SortMemberPath="UserId" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+								<TextBlock Text="{Binding EmpPerRow.Emplid,Mode=TwoWay}" ></TextBlock>
+								<TextBlock Text="{Binding EmpPerRow.Name,Mode=TwoWay}" ></TextBlock>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<search:SearchEmp
+									MinHeight="30"
+					  Margin="5" VerticalAlignment="Center"
+					 SearchPerRow="{Binding EmpPerRow,Mode=TwoWay}"/>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Store, Source={StaticResource LocalizedStrings}}" SortMemberPath="StoreCode" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding StoreCode,Mode=TwoWay}" ></TextBlock>
+									<TextBlock Text="{Binding StorePerRow.Ename,Mode=TwoWay}" ></TextBlock>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<search:SearchStoresForAllCompany
+									MinHeight="30"
+					  Margin="5" VerticalAlignment="Center"
+					 SearchPerRow="{Binding StorePerRow,Mode=TwoWay}"/>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+
+					<sdk:DataGridTextColumn  Binding="{Binding Path=TransDate,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Date, Source={StaticResource LocalizedStrings}}" Width="*" />
+					<sdk:DataGridTextColumn  Binding="{Binding Path=Company,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Company, Source={StaticResource LocalizedStrings}}"  Width="*" />
+					
+						
+
+				</sdk:DataGrid.Columns>
+
+					
+	   
+			<i:Interaction.Behaviors>
+				<datagridExtenders:ScrollIntoViewBehavior />
+			</i:Interaction.Behaviors>
+		</dataGrid:OsGrid>
+	</Grid>
+		</Grid>
+</navigation:Page>

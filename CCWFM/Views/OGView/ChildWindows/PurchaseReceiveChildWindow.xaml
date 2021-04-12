@@ -1,0 +1,54 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.ChildWindows.PurchaseReceiveChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="500"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride">
+    <Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding DocNo, Source={StaticResource LocalizedStrings}}"></TextBlock>
+            <TextBox Grid.Column="1" Text="{Binding SelectedSubDetailRow.DocCode,Mode=TwoWay}"></TextBox>
+            <TextBlock Grid.Row="1" Text="{Binding Referance, Source={StaticResource LocalizedStrings}}"></TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedSubDetailRow.RefNo,Mode=TwoWay}"></TextBox>
+
+            <TextBlock Grid.Row="2" Text="{Binding Notes, Source={StaticResource LocalizedStrings}}"></TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedSubDetailRow.Notes,Mode=TwoWay}"></TextBox>
+
+            <TextBlock Grid.Row="3" Text="{Binding DocDate, Source={StaticResource LocalizedStrings}}"></TextBlock>
+            <sdk:DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding  SelectedSubDetailRow.DocDate,Mode=TwoWay}" ></sdk:DatePicker>
+
+            <TextBlock  Grid.Row="4" Text="{Binding Qty, Source={StaticResource LocalizedStrings}}"></TextBlock>
+            <ComboBox Grid.Row="4" Grid.Column="1" x:Name="CmbQty" >
+                <ComboBoxItem  IsSelected="True" Content="Receive Now"/>
+                <ComboBoxItem Content="All"/>
+            </ComboBox>
+        </Grid>
+        <Button x:Name="OKButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}" Click="OkButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,75,0" Grid.Row="1" />
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+	    
+	</Grid>
+</controlsOverride:ChildWindowsOverride>

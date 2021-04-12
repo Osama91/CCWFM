@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="configurationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="configurationModelStoreContainer">
+          <EntitySet Name="CSPATTENDANCEFILE" EntityType="configurationModel.Store.CSPATTENDANCEFILE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPEMPLOYEECALENDARS" EntityType="configurationModel.Store.CSPEMPLOYEECALENDARS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPEMPLOYEECALENDARSDEVIATIONS" EntityType="configurationModel.Store.CSPEMPLOYEECALENDARSDEVIATIONS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPEMPLOYEEVACATIONS" EntityType="configurationModel.Store.CSPEMPLOYEEVACATIONS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPEXCUSETRANSACTIONS" EntityType="configurationModel.Store.CSPEXCUSETRANSACTIONS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPPERIODLINES" EntityType="configurationModel.Store.CSPPERIODLINES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CSPPERIODS" EntityType="configurationModel.Store.CSPPERIODS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DIRPARTYTABLE" EntityType="configurationModel.Store.DIRPARTYTABLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EMPLTABLE" EntityType="configurationModel.Store.EMPLTABLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WORKCALENDARDATE" EntityType="configurationModel.Store.WORKCALENDARDATE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WORKCALENDARDATELINE" EntityType="configurationModel.Store.WORKCALENDARDATELINE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WORKCALENDARTABLE" EntityType="configurationModel.Store.WORKCALENDARTABLE" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="CSPATTENDANCEFILE">
+          <Key>
+            <PropertyRef Name="TIME" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="CSPDIRECTION" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="TIME" Type="int" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TRANSDATE" Type="datetime" Nullable="false" />
+          <Property Name="CSPDIRECTION" Type="int" Nullable="false" />
+          <Property Name="CSPATTENDNACEREASONID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="MANUAL" Type="int" Nullable="false" />
+          <Property Name="EMPLNAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+          <Property Name="TRANSID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEECALENDARS">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="FROMDATE" Type="datetime" Nullable="false" />
+          <Property Name="TODATE" Type="datetime" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="EMPLNAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEECALENDARSDEVIATIONS">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CALENDARIDNEW" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="TODATE" Type="datetime" Nullable="false" />
+          <Property Name="FROMDATE" Type="datetime" Nullable="false" />
+          <Property Name="EMPLNAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEEVACATIONS">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CSPVACATIONID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="VACATIONDAYS" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PREVBALANCE" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="CONSUMED" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="REMAINING" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PERIODVACATIONDAYS" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="PERIODS" Type="int" Nullable="false" />
+          <Property Name="PERIODUNIT" Type="int" Nullable="false" />
+          <Property Name="EMPLNAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEXCUSETRANSACTIONS">
+          <Key>
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="TOTIME" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CSPEXCUSEID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="FROMTIME" Type="int" Nullable="false" />
+          <Property Name="TOTIME" Type="int" Nullable="false" />
+          <Property Name="TRANSDATE" Type="datetime" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CSPPERIODLINE" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="CSPPERIODID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="EMPLNAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="COUNTER" Type="int" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPPERIODLINES">
+          <Key>
+            <PropertyRef Name="CSPPERIODID" />
+            <PropertyRef Name="CSPPERIODLINE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CSPPERIODID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="CSPPERIODLINE" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="FROMDATE" Type="datetime" Nullable="false" />
+          <Property Name="TODATE" Type="datetime" Nullable="false" />
+          <Property Name="CSPCALCULATED" Type="int" Nullable="false" />
+          <Property Name="LOCKED" Type="int" Nullable="false" />
+          <Property Name="APPROVED" Type="int" Nullable="false" />
+          <Property Name="ATTCALCULATED" Type="int" Nullable="false" />
+          <Property Name="DUE" Type="int" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPPERIODS">
+          <Key>
+            <PropertyRef Name="CSPPERIODID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="CSPPERIODID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="PERIODS" Type="int" Nullable="false" />
+          <Property Name="PERIODUNIT" Type="int" Nullable="false" />
+          <Property Name="TAXES" Type="int" Nullable="false" />
+          <Property Name="INSURANCE" Type="int" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+          <Property Name="CSPABSENCEID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ATTMODIFICATIONLIMIT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIRPARTYTABLE">
+          <Key>
+            <PropertyRef Name="PARTYID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="GENERATIONALSUFFIX" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="SALUTATION" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="PERSONNAMEORDER" Type="int" Nullable="false" />
+          <Property Name="LANGUAGEID" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+          <Property Name="PREFIX" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="PROFESSIONALSUFFIX" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="FIRSTNAME" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="MIDDLENAME" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="LASTNAME" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="PARTYID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="NAMEALIAS" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="MEMO" Type="ntext" />
+          <Property Name="MODIFIEDDATETIME" Type="datetime" Nullable="false" />
+          <Property Name="MODIFIEDBY" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="CREATEDDATETIME" Type="datetime" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLTABLE">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="EMPLID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="DIMENSION" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="DIMENSION2_" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="DIMENSION3_" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="TRAINING" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="OUTLOOKCALENDAROUTLOOKSTOREID" Type="ntext" />
+          <Property Name="OUTLOOKCALENDAROUTLOOKENTRYID" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OUTLOOKTASKOUTLOOKSTOREID" Type="ntext" />
+          <Property Name="ALTNUM" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="BIRTHDATE" Type="datetime" Nullable="false" />
+          <Property Name="PROJPERIODID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ITEMBUYERGROUPID" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="OUTLOOKTASKOUTLOOKENTRYID" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OUTLOOKTASKFOLDERNAME" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="TITLE" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="OUTLOOKCALENDARFOLDERNAME" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="VALIDATEPROJEMPL" Type="int" Nullable="false" />
+          <Property Name="VALIDATEEMPLCATEGORY" Type="int" Nullable="false" />
+          <Property Name="ACTIVITYSTARTTIME" Type="int" Nullable="false" />
+          <Property Name="ACTIVITYENDTIME" Type="int" Nullable="false" />
+          <Property Name="OUTLOOKCONTACTFOLDERENTRYID" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="OUTLOOKCONTACTFOLDERSTOREID" Type="ntext" />
+          <Property Name="OUTLOOKCONTACTFOLDERNAME" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="INCLRECURRINGAPPOINTMENTS" Type="int" Nullable="false" />
+          <Property Name="OUTLOOKUSERENTRYID" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="INCLPRIVATEAPPOINTMENTS" Type="int" Nullable="false" />
+          <Property Name="INCLPRIVATETASKS" Type="int" Nullable="false" />
+          <Property Name="PARTYID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="SYNCTRANSIDCREATE" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SYNCENTITYID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SYNCVERSION" Type="bigint" Nullable="false" />
+          <Property Name="REQSITEID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="REQLOCATIONID" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="EMPLIDENTNUMBER" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="REQATTENTION" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="DISPATCHTEAMID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="DECEASEDDATE" Type="datetime" Nullable="false" />
+          <Property Name="EMPLGENDER" Type="int" Nullable="false" />
+          <Property Name="OUTLOOKUSERID" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="ACTIVATEANSWER" Type="int" Nullable="false" />
+          <Property Name="EMAILSAVECOPY" Type="int" Nullable="false" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="ACTIVITYREMINDERMINUTES" Type="int" Nullable="false" />
+          <Property Name="SMMSYNCHRONIZEDAYSBACK" Type="int" Nullable="false" />
+          <Property Name="SMMSYNCHRONIZEDAYSFORWARD" Type="int" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+          <Property Name="PBAUSERPROFILE" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="WORKINGHOURS" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="DAYS" Type="int" Nullable="false" />
+          <Property Name="HOURSDAY" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="CSPNOATTENDANCE" Type="int" Nullable="false" />
+          <Property Name="CSPMILITARYSTATUS" Type="int" Nullable="false" />
+          <Property Name="CSPCONTRACTTYPE" Type="int" Nullable="false" />
+          <Property Name="CSPRELIGION" Type="int" Nullable="false" />
+          <Property Name="CSPMILITARYSTART" Type="datetime" Nullable="false" />
+          <Property Name="CSPMILITARYEND" Type="datetime" Nullable="false" />
+          <Property Name="TESTPERIODS" Type="int" Nullable="false" />
+          <Property Name="TESTPERIODUNIT" Type="int" Nullable="false" />
+          <Property Name="CSPIDEXPIRYDATE" Type="datetime" Nullable="false" />
+          <Property Name="CSPIDISSUEDATE" Type="datetime" Nullable="false" />
+          <Property Name="ADJUSTEDSTARTDATE" Type="datetime" Nullable="false" />
+          <Property Name="STARTDATE" Type="datetime" Nullable="false" />
+          <Property Name="LASTDATEWORKED" Type="datetime" Nullable="false" />
+          <Property Name="TERMINATIONDATE" Type="datetime" Nullable="false" />
+          <Property Name="INSURANCESTART" Type="datetime" Nullable="false" />
+          <Property Name="MARITALSTATUS" Type="int" Nullable="false" />
+          <Property Name="CITIZENSHIP" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="COUNTRYREGIONOFBIRTH" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="COUNTRYREGIONOFBIRTHMOTHER" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="COUNTRYREGIONOFBIRTHFATHER" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="CURRENCYCODE" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="ORGANIZATIONUNITID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="POSITIONID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="JOBID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="BANKACCOUNTID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CSPSALARYTERMGROUPID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CSPPERIODID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="RETAILCOMPANYREF" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="RETAILSTORECODE" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CSPTRANSPORTATIONLINE" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ISERIAL" Type="int" Nullable="false" />
+          <Property Name="HIREDATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARDATE">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="WORKTIMECONTROL" Type="int" Nullable="false" />
+          <Property Name="TRANSDATE" Type="datetime" Nullable="false" />
+          <Property Name="CLOSEDFORPICKUP" Type="int" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARDATELINE">
+          <Key>
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="EFFECTIVITY" Type="numeric" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="TOTIME" Type="int" Nullable="false" />
+          <Property Name="FROMTIME" Type="int" Nullable="false" />
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="TRANSDATE" Type="datetime" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+          <Property Name="PROPERTYID" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="CSPSHIFTID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="PREVDAY" Type="int" Nullable="false" />
+          <Property Name="CSPCALENDARTYPE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARTABLE">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="BASICCALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CALENDARID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="DATAAREAID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="RECVERSION" Type="int" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+          <Property Name="CSPCALENDARTYPE" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="configurationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="configurationEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="EMPLTABLEs" EntityType="configurationModel.EMPLTABLE" />
+          <EntitySet Name="DIRPARTYTABLEs" EntityType="configurationModel.DIRPARTYTABLE" />
+          <EntitySet Name="CSPATTENDANCEFILEs" EntityType="configurationModel.CSPATTENDANCEFILE" />
+          <EntitySet Name="CSPPERIODLINES" EntityType="configurationModel.CSPPERIODLINE" />
+          <EntitySet Name="CSPEMPLOYEEVACATIONS" EntityType="configurationModel.CSPEMPLOYEEVACATION" />
+          <EntitySet Name="CSPEXCUSETRANSACTIONS" EntityType="configurationModel.CSPEXCUSETRANSACTION" />
+          <EntitySet Name="WORKCALENDARDATEs" EntityType="configurationModel.WORKCALENDARDATE" />
+          <EntitySet Name="WORKCALENDARDATELINEs" EntityType="configurationModel.WORKCALENDARDATELINE" />
+          <EntitySet Name="WORKCALENDARTABLEs" EntityType="configurationModel.WORKCALENDARTABLE" />
+          <EntitySet Name="CSPEMPLOYEECALENDARS" EntityType="configurationModel.CSPEMPLOYEECALENDAR" />
+          <EntitySet Name="CSPEMPLOYEECALENDARSDEVIATIONS" EntityType="configurationModel.CSPEMPLOYEECALENDARSDEVIATION" />
+          <EntitySet Name="CSPPERIODS" EntityType="configurationModel.CSPPERIOD" />
+        </EntityContainer>
+        <EntityType Name="EMPLTABLE">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Name="EMPLID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DIMENSION" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="DIMENSION2_" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="DIMENSION3_" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="TRAINING" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKCALENDAROUTLOOKSTOREID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKCALENDAROUTLOOKENTRYID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKTASKOUTLOOKSTOREID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ALTNUM" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CALENDARID" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="BIRTHDATE" Type="DateTime" Nullable="false" />
+          <Property Name="PROJPERIODID" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ITEMBUYERGROUPID" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKTASKOUTLOOKENTRYID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKTASKFOLDERNAME" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKCALENDARFOLDERNAME" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="VALIDATEPROJEMPL" Type="Int32" Nullable="false" />
+          <Property Name="VALIDATEEMPLCATEGORY" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVITYSTARTTIME" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVITYENDTIME" Type="Int32" Nullable="false" />
+          <Property Name="OUTLOOKCONTACTFOLDERENTRYID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKCONTACTFOLDERSTOREID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OUTLOOKCONTACTFOLDERNAME" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="INCLRECURRINGAPPOINTMENTS" Type="Int32" Nullable="false" />
+          <Property Name="OUTLOOKUSERENTRYID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="INCLPRIVATEAPPOINTMENTS" Type="Int32" Nullable="false" />
+          <Property Name="INCLPRIVATETASKS" Type="Int32" Nullable="false" />
+          <Property Name="PARTYID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="SYNCTRANSIDCREATE" Type="Guid" Nullable="false" />
+          <Property Name="SYNCENTITYID" Type="Guid" Nullable="false" />
+          <Property Name="SYNCVERSION" Type="Int64" Nullable="false" />
+          <Property Name="REQSITEID" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="REQLOCATIONID" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="EMPLIDENTNUMBER" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="REQATTENTION" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DISPATCHTEAMID" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DECEASEDDATE" Type="DateTime" Nullable="false" />
+          <Property Name="EMPLGENDER" Type="Int32" Nullable="false" />
+          <Property Name="OUTLOOKUSERID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="ACTIVATEANSWER" Type="Int32" Nullable="false" />
+          <Property Name="EMAILSAVECOPY" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVITYREMINDERMINUTES" Type="Int32" Nullable="false" />
+          <Property Name="SMMSYNCHRONIZEDAYSBACK" Type="Int32" Nullable="false" />
+          <Property Name="SMMSYNCHRONIZEDAYSFORWARD" Type="Int32" Nullable="false" />
+          <Property Name="DATAAREAID" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="RECVERSION" Type="Int32" Nullable="false" />
+          <Property Name="RECID" Type="Int64" Nullable="false" />
+          <Property Name="PBAUSERPROFILE" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="WORKINGHOURS" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="DAYS" Type="Int32" Nullable="false" />
+          <Property Name="HOURSDAY" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="CSPNOATTENDANCE" Type="Int32" Nullable="false" />
+          <Property Name="CSPMILITARYSTATUS" Type="Int32" Nullable="false" />
+          <Property Name="CSPCONTRACTTYPE" Type="Int32" Nullable="false" />
+          <Property Name="CSPRELIGION" Type="Int32" Nullable="false" />
+          <Property Name="CSPMILITARYSTART" Type="DateTime" Nullable="false" />
+          <Property Name="CSPMILITARYEND" Type="DateTime" Nullable="false" />
+          <Property Name="TESTPERIODS" Type="Int32" Nullable="false" />
+          <Property Name="TESTPERIODUNIT" Type="Int32" Nullable="false" />
+          <Property Name="CSPIDEXPIRYDATE" Type="DateTime" Nullable="false" />
+          <Property Name="CSPIDISSUEDATE" Type="DateTime" Nullable="false" />
+          <Property Name="ADJUSTEDSTARTDATE" Type="DateTime" Nullable="false" />
+          <Property Name="STARTDATE" Type="DateTime" Nullable="false" />
+          <Property Name="LASTDATEWORKED" Type="DateTime" Nullable="false" />
+          <Property Name="TERMINATIONDATE" Type="DateTime" Nullable="false" />
+          <Property Name="INSURANCESTART" Type="DateTime" Nullable="false" />
+          <Property Name="MARITALSTATUS" Type="Int32" Nullable="false" />
+          <Property Name="CITIZENSHIP" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTRYREGIONOFBIRTH" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTRYREGIONOFBIRTHMOTHER" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTRYREGIONOFBIRTHFATHER" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="CURRENCYCODE" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="ORGANIZATIONUNITID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="POSITIONID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="JOBID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="BANKACCOUNTID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CSPSALARYTERMGROUPID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CSPPERIODID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="RETAILCOMPANYREF" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="RETAILSTORECODE" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="CSPTRANSPORTATIONLINE" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ISERIAL" Nullable="false" />
+          <Property Type="DateTime" Name="HIREDATE" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIRPARTYTABLE">
+          <Key>
+            <PropertyRef Name="PARTYID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="GENERATIONALSUFFIX" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SALUTATION" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PERSONNAMEORDER" Nullable="false" />
+          <Property Type="String" Name="LANGUAGEID" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TYPE" Nullable="false" />
+          <Property Type="String" Name="PREFIX" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PROFESSIONALSUFFIX" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FIRSTNAME" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MIDDLENAME" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LASTNAME" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PARTYID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAMEALIAS" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MEMO" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="MODIFIEDDATETIME" Nullable="false" />
+          <Property Type="String" Name="MODIFIEDBY" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CREATEDDATETIME" Nullable="false" />
+          <Property Type="String" Name="CREATEDBY" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPATTENDANCEFILE">
+          <Key>
+            <PropertyRef Name="TIME" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="CSPDIRECTION" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="Int32" Name="TIME" Nullable="false" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TRANSDATE" Nullable="false" />
+          <Property Type="Int32" Name="CSPDIRECTION" Nullable="false" />
+          <Property Type="String" Name="CSPATTENDNACEREASONID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MANUAL" Nullable="false" />
+          <Property Type="String" Name="EMPLNAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+          <Property Type="Int32" Name="TRANSID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPPERIODLINE">
+          <Key>
+            <PropertyRef Name="CSPPERIODID" />
+            <PropertyRef Name="CSPPERIODLINE1" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CSPPERIODLINE1" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="DateTime" Name="FROMDATE" Nullable="false" />
+          <Property Type="DateTime" Name="TODATE" Nullable="false" />
+          <Property Type="Int32" Name="CSPCALCULATED" Nullable="false" />
+          <Property Type="Int32" Name="LOCKED" Nullable="false" />
+          <Property Type="Int32" Name="APPROVED" Nullable="false" />
+          <Property Type="Int32" Name="ATTCALCULATED" Nullable="false" />
+          <Property Type="Int32" Name="DUE" Nullable="false" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEEVACATION">
+          <Key>
+            <PropertyRef Name="CSPVACATIONID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CSPVACATIONID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="VACATIONDAYS" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="PREVBALANCE" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="CONSUMED" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="REMAINING" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Decimal" Name="PERIODVACATIONDAYS" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Int32" Name="PERIODS" Nullable="false" />
+          <Property Type="Int32" Name="PERIODUNIT" Nullable="false" />
+          <Property Type="String" Name="EMPLNAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEXCUSETRANSACTION">
+          <Key>
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="TOTIME" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CSPEXCUSEID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FROMTIME" Nullable="false" />
+          <Property Type="Int32" Name="TOTIME" Nullable="false" />
+          <Property Type="DateTime" Name="TRANSDATE" Nullable="false" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="CSPPERIODLINE" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="String" Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLNAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="COUNTER" Nullable="false" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARDATE">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="WORKTIMECONTROL" Nullable="false" />
+          <Property Type="DateTime" Name="TRANSDATE" Nullable="false" />
+          <Property Type="Int32" Name="CLOSEDFORPICKUP" Nullable="false" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARDATELINE">
+          <Key>
+            <PropertyRef Name="FROMTIME" />
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="TRANSDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="Decimal" Name="EFFECTIVITY" Nullable="false" Precision="28" Scale="12" />
+          <Property Type="Int32" Name="TOTIME" Nullable="false" />
+          <Property Type="Int32" Name="FROMTIME" Nullable="false" />
+          <Property Type="String" Name="CALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TRANSDATE" Nullable="false" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+          <Property Type="String" Name="PROPERTYID" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPSHIFTID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PREVDAY" Nullable="false" />
+          <Property Type="Int32" Name="CSPCALENDARTYPE" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WORKCALENDARTABLE">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BASICCALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+          <Property Type="Int32" Name="CSPCALENDARTYPE" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEECALENDAR">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FROMDATE" Nullable="false" />
+          <Property Type="DateTime" Name="TODATE" Nullable="false" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLNAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPEMPLOYEECALENDARSDEVIATION">
+          <Key>
+            <PropertyRef Name="CALENDARID" />
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="TODATE" />
+            <PropertyRef Name="FROMDATE" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="CALENDARID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CALENDARIDNEW" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TODATE" Nullable="false" />
+          <Property Type="DateTime" Name="FROMDATE" Nullable="false" />
+          <Property Type="String" Name="EMPLNAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSPPERIOD">
+          <Key>
+            <PropertyRef Name="CSPPERIODID" />
+            <PropertyRef Name="DATAAREAID" />
+          </Key>
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PERIODS" Nullable="false" />
+          <Property Type="Int32" Name="PERIODUNIT" Nullable="false" />
+          <Property Type="Int32" Name="TAXES" Nullable="false" />
+          <Property Type="Int32" Name="INSURANCE" Nullable="false" />
+          <Property Type="String" Name="DATAAREAID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RECVERSION" Nullable="false" />
+          <Property Type="Int64" Name="RECID" Nullable="false" />
+          <Property Type="String" Name="CSPABSENCEID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ATTMODIFICATIONLIMIT" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="configurationModelStoreContainer" CdmEntityContainer="configurationEntities">
+          <EntitySetMapping Name="EMPLTABLEs"><EntityTypeMapping TypeName="configurationModel.EMPLTABLE"><MappingFragment StoreEntitySet="EMPLTABLE">
+            <ScalarProperty Name="HIREDATE" ColumnName="HIREDATE" />
+                <ScalarProperty Name="ISERIAL" ColumnName="ISERIAL" />
+                <ScalarProperty Name="CSPTRANSPORTATIONLINE" ColumnName="CSPTRANSPORTATIONLINE" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+            <ScalarProperty Name="DIMENSION" ColumnName="DIMENSION" />
+            <ScalarProperty Name="DIMENSION2_" ColumnName="DIMENSION2_" />
+            <ScalarProperty Name="DIMENSION3_" ColumnName="DIMENSION3_" />
+            <ScalarProperty Name="TRAINING" ColumnName="TRAINING" />
+            <ScalarProperty Name="OUTLOOKCALENDAROUTLOOKSTOREID" ColumnName="OUTLOOKCALENDAROUTLOOKSTOREID" />
+            <ScalarProperty Name="OUTLOOKCALENDAROUTLOOKENTRYID" ColumnName="OUTLOOKCALENDAROUTLOOKENTRYID" />
+            <ScalarProperty Name="OUTLOOKTASKOUTLOOKSTOREID" ColumnName="OUTLOOKTASKOUTLOOKSTOREID" />
+            <ScalarProperty Name="ALTNUM" ColumnName="ALTNUM" />
+            <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+            <ScalarProperty Name="BIRTHDATE" ColumnName="BIRTHDATE" />
+            <ScalarProperty Name="PROJPERIODID" ColumnName="PROJPERIODID" />
+            <ScalarProperty Name="ITEMBUYERGROUPID" ColumnName="ITEMBUYERGROUPID" />
+            <ScalarProperty Name="OUTLOOKTASKOUTLOOKENTRYID" ColumnName="OUTLOOKTASKOUTLOOKENTRYID" />
+            <ScalarProperty Name="OUTLOOKTASKFOLDERNAME" ColumnName="OUTLOOKTASKFOLDERNAME" />
+            <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+            <ScalarProperty Name="OUTLOOKCALENDARFOLDERNAME" ColumnName="OUTLOOKCALENDARFOLDERNAME" />
+            <ScalarProperty Name="VALIDATEPROJEMPL" ColumnName="VALIDATEPROJEMPL" />
+            <ScalarProperty Name="VALIDATEEMPLCATEGORY" ColumnName="VALIDATEEMPLCATEGORY" />
+            <ScalarProperty Name="ACTIVITYSTARTTIME" ColumnName="ACTIVITYSTARTTIME" />
+            <ScalarProperty Name="ACTIVITYENDTIME" ColumnName="ACTIVITYENDTIME" />
+            <ScalarProperty Name="OUTLOOKCONTACTFOLDERENTRYID" ColumnName="OUTLOOKCONTACTFOLDERENTRYID" />
+            <ScalarProperty Name="OUTLOOKCONTACTFOLDERSTOREID" ColumnName="OUTLOOKCONTACTFOLDERSTOREID" />
+            <ScalarProperty Name="OUTLOOKCONTACTFOLDERNAME" ColumnName="OUTLOOKCONTACTFOLDERNAME" />
+            <ScalarProperty Name="INCLRECURRINGAPPOINTMENTS" ColumnName="INCLRECURRINGAPPOINTMENTS" />
+            <ScalarProperty Name="OUTLOOKUSERENTRYID" ColumnName="OUTLOOKUSERENTRYID" />
+            <ScalarProperty Name="INCLPRIVATEAPPOINTMENTS" ColumnName="INCLPRIVATEAPPOINTMENTS" />
+            <ScalarProperty Name="INCLPRIVATETASKS" ColumnName="INCLPRIVATETASKS" />
+            <ScalarProperty Name="PARTYID" ColumnName="PARTYID" />
+            <ScalarProperty Name="SYNCTRANSIDCREATE" ColumnName="SYNCTRANSIDCREATE" />
+            <ScalarProperty Name="SYNCENTITYID" ColumnName="SYNCENTITYID" />
+            <ScalarProperty Name="SYNCVERSION" ColumnName="SYNCVERSION" />
+            <ScalarProperty Name="REQSITEID" ColumnName="REQSITEID" />
+            <ScalarProperty Name="REQLOCATIONID" ColumnName="REQLOCATIONID" />
+            <ScalarProperty Name="EMPLIDENTNUMBER" ColumnName="EMPLIDENTNUMBER" />
+            <ScalarProperty Name="REQATTENTION" ColumnName="REQATTENTION" />
+            <ScalarProperty Name="DISPATCHTEAMID" ColumnName="DISPATCHTEAMID" />
+            <ScalarProperty Name="DECEASEDDATE" ColumnName="DECEASEDDATE" />
+            <ScalarProperty Name="EMPLGENDER" ColumnName="EMPLGENDER" />
+            <ScalarProperty Name="OUTLOOKUSERID" ColumnName="OUTLOOKUSERID" />
+            <ScalarProperty Name="ACTIVATEANSWER" ColumnName="ACTIVATEANSWER" />
+            <ScalarProperty Name="EMAILSAVECOPY" ColumnName="EMAILSAVECOPY" />
+            <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+            <ScalarProperty Name="ACTIVITYREMINDERMINUTES" ColumnName="ACTIVITYREMINDERMINUTES" />
+            <ScalarProperty Name="SMMSYNCHRONIZEDAYSBACK" ColumnName="SMMSYNCHRONIZEDAYSBACK" />
+            <ScalarProperty Name="SMMSYNCHRONIZEDAYSFORWARD" ColumnName="SMMSYNCHRONIZEDAYSFORWARD" />
+            <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+            <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+            <ScalarProperty Name="RECID" ColumnName="RECID" />
+            <ScalarProperty Name="PBAUSERPROFILE" ColumnName="PBAUSERPROFILE" />
+            <ScalarProperty Name="WORKINGHOURS" ColumnName="WORKINGHOURS" />
+            <ScalarProperty Name="DAYS" ColumnName="DAYS" />
+            <ScalarProperty Name="HOURSDAY" ColumnName="HOURSDAY" />
+            <ScalarProperty Name="CSPNOATTENDANCE" ColumnName="CSPNOATTENDANCE" />
+            <ScalarProperty Name="CSPMILITARYSTATUS" ColumnName="CSPMILITARYSTATUS" />
+            <ScalarProperty Name="CSPCONTRACTTYPE" ColumnName="CSPCONTRACTTYPE" />
+            <ScalarProperty Name="CSPRELIGION" ColumnName="CSPRELIGION" />
+            <ScalarProperty Name="CSPMILITARYSTART" ColumnName="CSPMILITARYSTART" />
+            <ScalarProperty Name="CSPMILITARYEND" ColumnName="CSPMILITARYEND" />
+            <ScalarProperty Name="TESTPERIODS" ColumnName="TESTPERIODS" />
+            <ScalarProperty Name="TESTPERIODUNIT" ColumnName="TESTPERIODUNIT" />
+            <ScalarProperty Name="CSPIDEXPIRYDATE" ColumnName="CSPIDEXPIRYDATE" />
+            <ScalarProperty Name="CSPIDISSUEDATE" ColumnName="CSPIDISSUEDATE" />
+            <ScalarProperty Name="ADJUSTEDSTARTDATE" ColumnName="ADJUSTEDSTARTDATE" />
+            <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+            <ScalarProperty Name="LASTDATEWORKED" ColumnName="LASTDATEWORKED" />
+            <ScalarProperty Name="TERMINATIONDATE" ColumnName="TERMINATIONDATE" />
+            <ScalarProperty Name="INSURANCESTART" ColumnName="INSURANCESTART" />
+            <ScalarProperty Name="MARITALSTATUS" ColumnName="MARITALSTATUS" />
+            <ScalarProperty Name="CITIZENSHIP" ColumnName="CITIZENSHIP" />
+            <ScalarProperty Name="COUNTRYREGIONOFBIRTH" ColumnName="COUNTRYREGIONOFBIRTH" />
+            <ScalarProperty Name="COUNTRYREGIONOFBIRTHMOTHER" ColumnName="COUNTRYREGIONOFBIRTHMOTHER" />
+            <ScalarProperty Name="COUNTRYREGIONOFBIRTHFATHER" ColumnName="COUNTRYREGIONOFBIRTHFATHER" />
+            <ScalarProperty Name="CURRENCYCODE" ColumnName="CURRENCYCODE" />
+            <ScalarProperty Name="ORGANIZATIONUNITID" ColumnName="ORGANIZATIONUNITID" />
+            <ScalarProperty Name="POSITIONID" ColumnName="POSITIONID" />
+            <ScalarProperty Name="JOBID" ColumnName="JOBID" />
+            <ScalarProperty Name="BANKACCOUNTID" ColumnName="BANKACCOUNTID" />
+            <ScalarProperty Name="CSPSALARYTERMGROUPID" ColumnName="CSPSALARYTERMGROUPID" />
+            <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+            <ScalarProperty Name="RETAILCOMPANYREF" ColumnName="RETAILCOMPANYREF" />
+            <ScalarProperty Name="RETAILSTORECODE" ColumnName="RETAILSTORECODE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DIRPARTYTABLEs">
+            <EntityTypeMapping TypeName="configurationModel.DIRPARTYTABLE">
+              <MappingFragment StoreEntitySet="DIRPARTYTABLE">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
+                <ScalarProperty Name="MODIFIEDBY" ColumnName="MODIFIEDBY" />
+                <ScalarProperty Name="MODIFIEDDATETIME" ColumnName="MODIFIEDDATETIME" />
+                <ScalarProperty Name="MEMO" ColumnName="MEMO" />
+                <ScalarProperty Name="NAMEALIAS" ColumnName="NAMEALIAS" />
+                <ScalarProperty Name="PARTYID" ColumnName="PARTYID" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="MIDDLENAME" ColumnName="MIDDLENAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="PROFESSIONALSUFFIX" ColumnName="PROFESSIONALSUFFIX" />
+                <ScalarProperty Name="PREFIX" ColumnName="PREFIX" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="LANGUAGEID" ColumnName="LANGUAGEID" />
+                <ScalarProperty Name="PERSONNAMEORDER" ColumnName="PERSONNAMEORDER" />
+                <ScalarProperty Name="SALUTATION" ColumnName="SALUTATION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="GENERATIONALSUFFIX" ColumnName="GENERATIONALSUFFIX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPATTENDANCEFILEs">
+            <EntityTypeMapping TypeName="configurationModel.CSPATTENDANCEFILE">
+              <MappingFragment StoreEntitySet="CSPATTENDANCEFILE">
+                <ScalarProperty Name="TRANSID" ColumnName="TRANSID" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="MANUAL" ColumnName="MANUAL" />
+                <ScalarProperty Name="CSPATTENDNACEREASONID" ColumnName="CSPATTENDNACEREASONID" />
+                <ScalarProperty Name="CSPDIRECTION" ColumnName="CSPDIRECTION" />
+                <ScalarProperty Name="TRANSDATE" ColumnName="TRANSDATE" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPPERIODLINES">
+            <EntityTypeMapping TypeName="configurationModel.CSPPERIODLINE">
+              <MappingFragment StoreEntitySet="CSPPERIODLINES">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="DUE" ColumnName="DUE" />
+                <ScalarProperty Name="ATTCALCULATED" ColumnName="ATTCALCULATED" />
+                <ScalarProperty Name="APPROVED" ColumnName="APPROVED" />
+                <ScalarProperty Name="LOCKED" ColumnName="LOCKED" />
+                <ScalarProperty Name="CSPCALCULATED" ColumnName="CSPCALCULATED" />
+                <ScalarProperty Name="TODATE" ColumnName="TODATE" />
+                <ScalarProperty Name="FROMDATE" ColumnName="FROMDATE" />
+                <ScalarProperty Name="CSPPERIODLINE1" ColumnName="CSPPERIODLINE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPEMPLOYEEVACATIONS">
+            <EntityTypeMapping TypeName="configurationModel.CSPEMPLOYEEVACATION">
+              <MappingFragment StoreEntitySet="CSPEMPLOYEEVACATIONS">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="PERIODUNIT" ColumnName="PERIODUNIT" />
+                <ScalarProperty Name="PERIODS" ColumnName="PERIODS" />
+                <ScalarProperty Name="PERIODVACATIONDAYS" ColumnName="PERIODVACATIONDAYS" />
+                <ScalarProperty Name="REMAINING" ColumnName="REMAINING" />
+                <ScalarProperty Name="CONSUMED" ColumnName="CONSUMED" />
+                <ScalarProperty Name="PREVBALANCE" ColumnName="PREVBALANCE" />
+                <ScalarProperty Name="VACATIONDAYS" ColumnName="VACATIONDAYS" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="CSPVACATIONID" ColumnName="CSPVACATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPEXCUSETRANSACTIONS">
+            <EntityTypeMapping TypeName="configurationModel.CSPEXCUSETRANSACTION">
+              <MappingFragment StoreEntitySet="CSPEXCUSETRANSACTIONS">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="COUNTER" ColumnName="COUNTER" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="CSPPERIODLINE" ColumnName="CSPPERIODLINE" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="TRANSDATE" ColumnName="TRANSDATE" />
+                <ScalarProperty Name="TOTIME" ColumnName="TOTIME" />
+                <ScalarProperty Name="FROMTIME" ColumnName="FROMTIME" />
+                <ScalarProperty Name="CSPEXCUSEID" ColumnName="CSPEXCUSEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WORKCALENDARDATEs">
+            <EntityTypeMapping TypeName="configurationModel.WORKCALENDARDATE">
+              <MappingFragment StoreEntitySet="WORKCALENDARDATE">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="CLOSEDFORPICKUP" ColumnName="CLOSEDFORPICKUP" />
+                <ScalarProperty Name="TRANSDATE" ColumnName="TRANSDATE" />
+                <ScalarProperty Name="WORKTIMECONTROL" ColumnName="WORKTIMECONTROL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WORKCALENDARDATELINEs">
+            <EntityTypeMapping TypeName="configurationModel.WORKCALENDARDATELINE">
+              <MappingFragment StoreEntitySet="WORKCALENDARDATELINE">
+                <ScalarProperty Name="CSPCALENDARTYPE" ColumnName="CSPCALENDARTYPE" />
+                <ScalarProperty Name="PREVDAY" ColumnName="PREVDAY" />
+                <ScalarProperty Name="CSPSHIFTID" ColumnName="CSPSHIFTID" />
+                <ScalarProperty Name="PROPERTYID" ColumnName="PROPERTYID" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="TRANSDATE" ColumnName="TRANSDATE" />
+                <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+                <ScalarProperty Name="FROMTIME" ColumnName="FROMTIME" />
+                <ScalarProperty Name="TOTIME" ColumnName="TOTIME" />
+                <ScalarProperty Name="EFFECTIVITY" ColumnName="EFFECTIVITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WORKCALENDARTABLEs">
+            <EntityTypeMapping TypeName="configurationModel.WORKCALENDARTABLE">
+              <MappingFragment StoreEntitySet="WORKCALENDARTABLE">
+                <ScalarProperty Name="CSPCALENDARTYPE" ColumnName="CSPCALENDARTYPE" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+                <ScalarProperty Name="BASICCALENDARID" ColumnName="BASICCALENDARID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPEMPLOYEECALENDARS">
+            <EntityTypeMapping TypeName="configurationModel.CSPEMPLOYEECALENDAR">
+              <MappingFragment StoreEntitySet="CSPEMPLOYEECALENDARS">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TODATE" ColumnName="TODATE" />
+                <ScalarProperty Name="FROMDATE" ColumnName="FROMDATE" />
+                <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPEMPLOYEECALENDARSDEVIATIONS">
+            <EntityTypeMapping TypeName="configurationModel.CSPEMPLOYEECALENDARSDEVIATION">
+              <MappingFragment StoreEntitySet="CSPEMPLOYEECALENDARSDEVIATIONS">
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="EMPLNAME" ColumnName="EMPLNAME" />
+                <ScalarProperty Name="FROMDATE" ColumnName="FROMDATE" />
+                <ScalarProperty Name="TODATE" ColumnName="TODATE" />
+                <ScalarProperty Name="CALENDARIDNEW" ColumnName="CALENDARIDNEW" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CALENDARID" ColumnName="CALENDARID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPPERIODS">
+            <EntityTypeMapping TypeName="configurationModel.CSPPERIOD">
+              <MappingFragment StoreEntitySet="CSPPERIODS">
+                <ScalarProperty Name="ATTMODIFICATIONLIMIT" ColumnName="ATTMODIFICATIONLIMIT" />
+                <ScalarProperty Name="CSPABSENCEID" ColumnName="CSPABSENCEID" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+                <ScalarProperty Name="RECVERSION" ColumnName="RECVERSION" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="INSURANCE" ColumnName="INSURANCE" />
+                <ScalarProperty Name="TAXES" ColumnName="TAXES" />
+                <ScalarProperty Name="PERIODUNIT" ColumnName="PERIODUNIT" />
+                <ScalarProperty Name="PERIODS" ColumnName="PERIODS" />
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ConfigrationsModel" ZoomLevel="14">
+        <EntityTypeShape EntityType="configurationModel.EMPLTABLE" Width="1.5" PointX="0.75" PointY="0.75" Height="14.411398111979166" IsExpanded="true" />
+        <EntityTypeShape EntityType="configurationModel.DIRPARTYTABLE" Width="1.5" PointX="3.375" PointY="0.75" Height="4.3862109375" />
+        <EntityTypeShape EntityType="configurationModel.CSPATTENDANCEFILE" Width="1.5" PointX="5.375" PointY="0.75" Height="2.7427376302083335" />
+        <EntityTypeShape EntityType="configurationModel.CSPPERIODLINE" Width="1.5" PointX="7.375" PointY="0.75" Height="3.0714322916666656" />
+        <EntityTypeShape EntityType="configurationModel.CSPEMPLOYEEVACATION" Width="1.5" PointX="7.375" PointY="4.75" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="configurationModel.CSPEXCUSETRANSACTION" Width="1.5" PointX="3.375" PointY="8.75" Height="2.9070849609374996" />
+        <EntityTypeShape EntityType="configurationModel.WORKCALENDARDATE" Width="1.5" PointX="5.375" PointY="8.75" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="configurationModel.WORKCALENDARDATELINE" Width="1.5" PointX="7.375" PointY="8.75" Height="2.9070849609374996" />
+        <EntityTypeShape EntityType="configurationModel.WORKCALENDARTABLE" Width="1.5" PointX="9.375" PointY="0.75" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="configurationModel.CSPEMPLOYEECALENDAR" Width="1.5" PointX="9.375" PointY="3.75" Height="2.4140429687500031" />
+        <EntityTypeShape EntityType="configurationModel.CSPEMPLOYEECALENDARSDEVIATION" Width="1.5" PointX="9.375" PointY="7.75" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="configurationModel.CSPPERIOD" Width="1.5" PointX="11.375" PointY="0.75" Height="2.7427376302083388" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

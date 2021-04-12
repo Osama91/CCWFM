@@ -1,0 +1,2699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>أضف</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Approvals" xml:space="preserve">
+    <value>الموافقات</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="BatchNo" xml:space="preserve">
+    <value>رقم الحوض</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="CloretteCmPerPc" xml:space="preserve">
+    <value>Clorette CM/PC</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="Colors" xml:space="preserve">
+    <value>الألوان</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ConsPerPCMT" xml:space="preserve">
+    <value>استهلاك للقطعة الواحدة متر</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>محتويات</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="CuttingSelection" xml:space="preserve">
+    <value>استخدام نسيج</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="DataSettings" xml:space="preserve">
+    <value>إعدادات البيانات</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+    <comment>Common</comment>
+  </data>
+  <data name="DyeingPlanReport" xml:space="preserve">
+    <value>تقرير خطة صباغة</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="DyeingReport" xml:space="preserve">
+    <value>تقرير صباغة</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedDyedFabricPlan" xml:space="preserve">
+    <value>خطة النسيج المصبوغ التقديرية</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedProductGroupPlan" xml:space="preserve">
+    <value>خطة مجموعة المنتج التقديرية</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="EstimatedPurchasePlan" xml:space="preserve">
+    <value>خطة الشراء التقديرية</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Fabric" xml:space="preserve">
+    <value>قماش</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricAttributes" xml:space="preserve">
+    <value>سمات القماش</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricCode" xml:space="preserve">
+    <value>كود القماش</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricColor" xml:space="preserve">
+    <value>لون القماش</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricDesigns" xml:space="preserve">
+    <value>تصاميم القماش</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricFinishes" xml:space="preserve">
+    <value>تشطيبات القماش</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricInspection" xml:space="preserve">
+    <value>فحص القماش</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricMaterials" xml:space="preserve">
+    <value>مواد القماش</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricPreparations" xml:space="preserve">
+    <value>التحضيرات القماش </value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="FabricStructures" xml:space="preserve">
+    <value>هياكل القماش </value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FabricTypes" xml:space="preserve">
+    <value>أنواع القماش </value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="FinishedProductAttributes" xml:space="preserve">
+    <value>سمات المنتج النهائي</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="Gauges" xml:space="preserve">
+    <value>أجهزة القياس</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Lookups" xml:space="preserve">
+    <value>عمليات البحث</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="MarkerDetails" xml:space="preserve">
+    <value>تفاصيل ماركر</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="MarkerL" xml:space="preserve">
+    <value>طول الماركر</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MarkerNo" xml:space="preserve">
+    <value>رقم الماركر</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MarkerW" xml:space="preserve">
+    <value>عرض الماركر</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="MeasurementChart" xml:space="preserve">
+    <value>الرسم البياني للقياس</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>العمليات</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Planning" xml:space="preserve">
+    <value>تخطيط</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>طباعة</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ProductGroup" xml:space="preserve">
+    <value>مجموعة المنتجات</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>تقارير</value>
+    <comment>Main Menu</comment>
+  </data>
+  <data name="RollAssignedQty" xml:space="preserve">
+    <value>Roll Assigned Qty</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RollNo" xml:space="preserve">
+    <value>رقم التوب</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RollUnit" xml:space="preserve">
+    <value>وحدة التوب</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RouteCard" xml:space="preserve">
+    <value>كارت المتابعة</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="SalesOrder" xml:space="preserve">
+    <value>أمر المبيعات</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Seasons" xml:space="preserve">
+    <value>مواسم</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SharedAttributes" xml:space="preserve">
+    <value>سمات مشتركة</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="Sizes" xml:space="preserve">
+    <value>المقاسات</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Statuses" xml:space="preserve">
+    <value>الأوضاع</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>موديل</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleList" xml:space="preserve">
+    <value>قائمة الموديلات</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleApproval" xml:space="preserve">
+    <value>اعتماد الموديل</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="StyleCode" xml:space="preserve">
+    <value>كود الموديل</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StyleColor" xml:space="preserve">
+    <value>لون الموديل</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ThreadNumbers" xml:space="preserve">
+    <value>نمرة الخيط</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="TransactionManagement" xml:space="preserve">
+    <value>ادارة العمليات</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="TransDate" xml:space="preserve">
+    <value>تاريخ العملية</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TransIserial" xml:space="preserve">
+    <value>كود المعاملات</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UoMs" xml:space="preserve">
+    <value>وحدة القياس</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>المورد</value>
+    <comment>Common</comment>
+  </data>
+  <data name="YarnAttributes" xml:space="preserve">
+    <value>سمات الغزل</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="YarnCounts" xml:space="preserve">
+    <value>عدد الغزول</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="YarnFinishes" xml:space="preserve">
+    <value>تشطيب الخام</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>علامة تجارية</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ChoiceType" xml:space="preserve">
+    <value>نوع الاختيار</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="ConsPc" xml:space="preserve">
+    <value>استهلاك للقطعة الواحدة</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Iserial" xml:space="preserve">
+    <value>رقم الحركه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="M2WeightGm" xml:space="preserve">
+    <value>وزن م2</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="NetRollWMT" xml:space="preserve">
+    <value>صافي عرض التوب</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="NoOfPc" xml:space="preserve">
+    <value>عدد القطع</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="ProductCat" xml:space="preserve">
+    <value>فئة المنتج</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>أمر الشراء</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="RollWMT" xml:space="preserve">
+    <value>عرض التوب متر</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>الموسم</value>
+    <comment>Common</comment>
+  </data>
+  <data name="StoreRollQty" xml:space="preserve">
+    <value>كمية التوب</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>المورد</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>وحدة</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FabricSetups" xml:space="preserve">
+    <value>مواصفات القماش </value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="NewOrder" xml:space="preserve">
+    <value>أمر مبيعات جديد</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="DocPlan" xml:space="preserve">
+    <value>مستند الخطة</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="DyeingClass" xml:space="preserve">
+    <value>نوع الصباغة</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="DyeingPlan" xml:space="preserve">
+    <value>خطة الصباغة</value>
+    <comment>Page</comment>
+  </data>
+  <data name="FabricName" xml:space="preserve">
+    <value>اسم القماش</value>
+    <comment>Common</comment>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>من تاريخ</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>موقع</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>ملخص</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>إلى تاريخ</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Tolerance" xml:space="preserve">
+    <value>تسامح</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Aname" xml:space="preserve">
+    <value>الاسم العربي</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>كود</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Ename" xml:space="preserve">
+    <value>الاسم الانكليزية</value>
+    <comment>Common</comment>
+  </data>
+  <data name="OnOrder" xml:space="preserve">
+    <value>تحت الطلب</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Po" xml:space="preserve">
+    <value>أمر الشراء</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="RemainingQty" xml:space="preserve">
+    <value>الكمية المتبقية</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="StorageQty" xml:space="preserve">
+    <value>الكمية متوافرة</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>إجمالي</value>
+    <comment>Common</comment>
+  </data>
+  <data name="PartsOfMeasurement" xml:space="preserve">
+    <value>أجزاء القياس</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="StyleImage" xml:space="preserve">
+    <value>صورة الموديل</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>اللون</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>درجة</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>تاريخ التسليم</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>اتجاه</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DocDate" xml:space="preserve">
+    <value>تاريخ المستند</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="GrandTotal" xml:space="preserve">
+    <value>المجموع الكلي</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>حسنا</value>
+    <comment>Common</comment>
+  </data>
+  <data name="OutDate" xml:space="preserve">
+    <value>تاريخ الخروج</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Route" xml:space="preserve">
+    <value>محطة العمل</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="RouteGroup" xml:space="preserve">
+    <value>عملية</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="SalesOrderColor" xml:space="preserve">
+    <value>لون أمر مبيعات</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TotalQuantity" xml:space="preserve">
+    <value>إجمالي الكمية</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TransID" xml:space="preserve">
+    <value>رقم المعاملات</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="DocumentDate" xml:space="preserve">
+    <value>تاريخ المستند</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="ReportTitle" xml:space="preserve">
+    <value>عنوان التقرير</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TransactionID" xml:space="preserve">
+    <value>رقم المعاملات</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="AddContent" xml:space="preserve">
+    <value>إضافة محتوى</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AfterWashing" xml:space="preserve">
+    <value>بعد الغسل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="BeforeWashing" xml:space="preserve">
+    <value>قبل الغسل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Design" xml:space="preserve">
+    <value>تصميم</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Pattern" xml:space="preserve">
+    <value>Pattern</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyedFabricWidth" xml:space="preserve">
+    <value>عرض الخامة مصبوغ</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyingClassification" xml:space="preserve">
+    <value>طريقة الصباغة</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="ExistingFabric" xml:space="preserve">
+    <value>القماش الموجودة</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="ExpectedDyingLossMargin" xml:space="preserve">
+    <value>نسبة فاقد صباغة متوقعة</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="FabricCategories" xml:space="preserve">
+    <value>فئات القماش</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="FabricDescription" xml:space="preserve">
+    <value>اسم القماش</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>التشطيب</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Guag" xml:space="preserve">
+    <value>الجوج</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="HorizontalShrinkage" xml:space="preserve">
+    <value>الانكماش العرضي</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Materials" xml:space="preserve">
+    <value>المواد</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Measurments" xml:space="preserve">
+    <value>القياسات</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PostToAxapta" xml:space="preserve">
+    <value>أرسل الى AX</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Structure" xml:space="preserve">
+    <value>التركيبة</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Twist" xml:space="preserve">
+    <value>Twist</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>نوع</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="UnitOfMeasurment" xml:space="preserve">
+    <value>وحدة القياس</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="VerticalShrinkage" xml:space="preserve">
+    <value>الانكماش الطولي</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="WeightM2" xml:space="preserve">
+    <value>وزن م 2</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>عرض</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="YarnFinish" xml:space="preserve">
+    <value>نوع الغزل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>ترتيب</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Pom" xml:space="preserve">
+    <value>Pom</value>
+    <comment>Measurement</comment>
+  </data>
+  <data name="Barcode" xml:space="preserve">
+    <value>الباركود</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>إدارة</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="UserJobs" xml:space="preserve">
+    <value>وظائف المستخدم</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة السر</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>عنوان</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>تعليق</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Jobs" xml:space="preserve">
+    <value>وظيفة</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>لغة</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Tel1" xml:space="preserve">
+    <value>الهاتف1</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Tel2" xml:space="preserve">
+    <value>الهاتف2</value>
+    <comment>Users</comment>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>شركة</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="User_Domain" xml:space="preserve">
+    <value>User_Domain</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="User_Win_Login" xml:space="preserve">
+    <value>User_Win_Login</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="AxId" xml:space="preserve">
+    <value>AxId</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="AxName" xml:space="preserve">
+    <value>AxName</value>
+    <comment>Import User ChildWindow</comment>
+  </data>
+  <data name="FabImg" xml:space="preserve">
+    <value>صورة القماش</value>
+    <comment>Menu Sb</comment>
+  </data>
+  <data name="LoadFabric" xml:space="preserve">
+    <value>اعرض القماش</value>
+    <comment>Menu Sub</comment>
+  </data>
+  <data name="AccGroupstr" xml:space="preserve">
+    <value>مجموعات الاكسسوار</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="SuppRef" xml:space="preserve">
+    <value>كود الصنف لدى المورد</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccGroup" xml:space="preserve">
+    <value>مجموعة الاكسسوار</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccsSize" xml:space="preserve">
+    <value>المقاس</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="AccsConfig" xml:space="preserve">
+    <value>الإعدادات </value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="YarnSourceTxt" xml:space="preserve">
+    <value>مصدر الغزل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="InshesTxt" xml:space="preserve">
+    <value>البوصه</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PrintBarcode" xml:space="preserve">
+    <value>طباعة الباركود</value>
+    <comment>Fabric Defects</comment>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>تقرير</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="BottomMargin" xml:space="preserve">
+    <value>Bottom Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="LabelFontSize" xml:space="preserve">
+    <value>Label Font Size</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PageHeight" xml:space="preserve">
+    <value>Page Height</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PrintingCode" xml:space="preserve">
+    <value>Printing Code</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="RightMargin" xml:space="preserve">
+    <value>Right Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="UpperMargin" xml:space="preserve">
+    <value>Upper Margin</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="ValuesFontSize" xml:space="preserve">
+    <value>Values Font Size</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="BarcodeSettings" xml:space="preserve">
+    <value>إعدادات الباركود</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="Defects" xml:space="preserve">
+    <value>العيوب</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="BarcodeHeight" xml:space="preserve">
+    <value>ارتفاع الباركود</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="BarcodeOperation" xml:space="preserve">
+    <value>عملية الباركود</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="BarcodeWidth" xml:space="preserve">
+    <value>عرض الباركود</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="PrintingBarcodeFormate" xml:space="preserve">
+    <value>Printing Barcode Formate</value>
+    <comment>Display Barcode Setup</comment>
+  </data>
+  <data name="PageSizeUnit" xml:space="preserve">
+    <value>PageSize Unit</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="PageWidth" xml:space="preserve">
+    <value>PageWidth</value>
+    <comment>Barcode Setting</comment>
+  </data>
+  <data name="RollQty" xml:space="preserve">
+    <value>كمية التوب</value>
+    <comment>FabricDefects</comment>
+  </data>
+  <data name="AccType" xml:space="preserve">
+    <value>النوع</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="BoxNum" xml:space="preserve">
+    <value>رقم الصندوق</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="DetailsStngs" xml:space="preserve">
+    <value>التفاصيل</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>مجموعة الإكسسوار</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="HeaderStngs" xml:space="preserve">
+    <value>الإعدادات الرئيسيه</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="ItemID" xml:space="preserve">
+    <value>كود الصنف:</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="SubGroup" xml:space="preserve">
+    <value>مجموعة الإكسسوار الفرعيه</value>
+    <comment>AccSetups</comment>
+  </data>
+  <data name="AccessorySetups" xml:space="preserve">
+    <value>إعدادات الإكسسوار</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SameFabricConfirmationMessage" xml:space="preserve">
+    <value>الصنف الذى تحاول حفظه موجود، حفظ المكونات بكود جديد ؟</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="PartialDetails" xml:space="preserve">
+    <value>غير كامل التفاصيل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="DyedFabric" xml:space="preserve">
+    <value>قماش مصبوغ</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>اسم</value>
+    <comment>Dyeing Services</comment>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>حفظ</value>
+    <comment>Dyeing Services</comment>
+  </data>
+  <data name="WareHouse" xml:space="preserve">
+    <value>المخزن</value>
+    <comment>Common</comment>
+  </data>
+  <data name="img" xml:space="preserve">
+    <value>صورة</value>
+    <comment>Common</comment>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>خدمات</value>
+    <comment>Common</comment>
+  </data>
+  <data name="RFQItems" xml:space="preserve">
+    <value>RFQ Items</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQServices" xml:space="preserve">
+    <value>RFQ Services</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="AvaliableQuantity" xml:space="preserve">
+    <value>الكمية المتاحة</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="ColorName" xml:space="preserve">
+    <value>اسم اللون</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Config</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="DyedOrder" xml:space="preserve">
+    <value>Dyed Order</value>
+    <comment>Dyeing Orders</comment>
+  </data>
+  <data name="EstimatedDeliveryDate" xml:space="preserve">
+    <value>Estimated Delivery Date</value>
+    <comment>Dyeing Order</comment>
+  </data>
+  <data name="FabricLot" xml:space="preserve">
+    <value>Fabric Lot</value>
+    <comment>Dyeing Order</comment>
+  </data>
+  <data name="FabricLotDetails" xml:space="preserve">
+    <value>Fabric Lot Details</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="GenerateDyeingOrder" xml:space="preserve">
+    <value>Generate Dyeing Order</value>
+    <comment>Dyeing Plan</comment>
+  </data>
+  <data name="NoOfRolls" xml:space="preserve">
+    <value>عدد الاتواب</value>
+    <comment>Fabric Defects</comment>
+  </data>
+  <data name="Journal" xml:space="preserve">
+    <value>عملية تجارية</value>
+    <comment>Fabric Inspection</comment>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>ItemType</value>
+    <comment>Genric Item Type</comment>
+  </data>
+  <data name="ItemMainGroup" xml:space="preserve">
+    <value>Item Main Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="ItemSubGroup" xml:space="preserve">
+    <value>Item Sub Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>مسح البيانات المُختاره ؟</value>
+    <comment>Messages</comment>
+  </data>
+  <data name="Acc" xml:space="preserve">
+    <value>اكسسوار</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="ItemGroup" xml:space="preserve">
+    <value>Item Group</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>موقع</value>
+    <comment>Generic Item Search</comment>
+  </data>
+  <data name="CreateRoute" xml:space="preserve">
+    <value>Create Route</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="RouteType" xml:space="preserve">
+    <value>RouteType</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>الكميه</value>
+    <comment>Route Card</comment>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>السعر الإجمالي</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>سعر الوحدة</value>
+    <comment>Common</comment>
+  </data>
+  <data name="DocNo" xml:space="preserve">
+    <value>رقم المستند</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>التكلفه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>المواد</value>
+    <comment>Common</comment>
+  </data>
+  <data name="RFQ" xml:space="preserve">
+    <value>طلب شراء</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQActualCosting" xml:space="preserve">
+    <value>التاريخ الفعلى للتسعير</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQActualDeliveryDate" xml:space="preserve">
+    <value>التاريخ الفعلى للإستلام</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQCosting" xml:space="preserve">
+    <value>متابعة عروض الاسعار</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQEstimatedCosting" xml:space="preserve">
+    <value>التاريخ التقديري للتسعير</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQEstimatedDeliveryDate" xml:space="preserve">
+    <value>التاريخ التقديري للإستلام</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQFabInfo" xml:space="preserve">
+    <value>مواصفات القماش</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQMainFabDesc" xml:space="preserve">
+    <value>تفاصيل الخامه الرئيسيه</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQPurch" xml:space="preserve">
+    <value>أمر شراء</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSampleAtt" xml:space="preserve">
+    <value>مرفق عينه</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSampling" xml:space="preserve">
+    <value>متابعة العينات</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQSubFabDesc" xml:space="preserve">
+    <value>تفاصيل الخامه الفرعيه</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="RFQTech" xml:space="preserve">
+    <value>المواصفات التقنية</value>
+    <comment>RFQ</comment>
+  </data>
+  <data name="SampleImage" xml:space="preserve">
+    <value>صورة العينه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>الخدمات</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>المصدر</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>العمله</value>
+    <comment>Common</comment>
+  </data>
+  <data name="ExchRate" xml:space="preserve">
+    <value>سعر العمله</value>
+    <comment>Common</comment>
+  </data>
+  <data name="localCost" xml:space="preserve">
+    <value>السعر المحلى</value>
+    <comment>Common</comment>
+  </data>
+  <data name="AdditionalCost" xml:space="preserve">
+    <value>تكاليف إضافيه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="LocalAdditionalUnitCost" xml:space="preserve">
+    <value>التكلفه الإضافيه المحليه للوحده</value>
+    <comment>Common</comment>
+  </data>
+  <data name="LocalUnitCost" xml:space="preserve">
+    <value>التكلفه المحليه للوحده</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UnitCost" xml:space="preserve">
+    <value>تكلفة الوحده</value>
+    <comment>Common</comment>
+  </data>
+  <data name="CostType" xml:space="preserve">
+    <value>نوع التكلفه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TotalQty" xml:space="preserve">
+    <value>إجمالى الكميه</value>
+    <comment>Common</comment>
+  </data>
+  <data name="UserBrands" xml:space="preserve">
+    <value>العلامات التجارية المستعمل</value>
+    <comment>Menu item</comment>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>كل</value>
+    <comment>Common</comment>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>الصنف</value>
+    <comment>TradeAgreement</comment>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>حجز</value>
+    <comment>Common</comment>
+  </data>
+  <data name="TradeAgreement" xml:space="preserve">
+    <value>TradeAgreement</value>
+    <comment>Menu item</comment>
+  </data>
+  <data name="TubularWidth" xml:space="preserve">
+    <value>عرض مقفول</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Colored" xml:space="preserve">
+    <value>ملون</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="SubCode" xml:space="preserve">
+    <value>Sub Code</value>
+    <comment>Acc Group</comment>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>تاريخ التكويد</value>
+  </data>
+  <data name="SizeRange" xml:space="preserve">
+    <value>مجموعة المقاسات</value>
+  </data>
+  <data name="Ratio" xml:space="preserve">
+    <value>النسب</value>
+  </data>
+  <data name="RFSNo" xml:space="preserve">
+    <value>رقم المستند</value>
+  </data>
+  <data name="StylEname" xml:space="preserve">
+    <value>1 وصف الموديل</value>
+    <comment>StyleHeader</comment>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+    <comment>StyleHeader</comment>
+  </data>
+  <data name="StyleDetail" xml:space="preserve">
+    <value>تفصيل الموديل</value>
+    <comment>StyleHeader</comment>
+  </data>
+
+  <data name="SizeGroupCode" xml:space="preserve">
+    <value>حجم مجموعة المقاسات</value>
+    <comment>Size Group</comment>
+  </data>
+  <data name="SizeGroupName" xml:space="preserve">
+    <value>اسم مجموعة المقاسات</value>
+    <comment>Size Group</comment>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>صلاحيات</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="BrandSection" xml:space="preserve">
+    <value>القسم</value>
+  </data>
+  <data name="Chanet" xml:space="preserve">
+    <value>حالة الغزل</value>
+    <comment>Fabric Setups</comment>
+  </data>
+  <data name="Family" xml:space="preserve">
+    <value>المجموعة</value>
+  </data>
+  <data name="FamilyLink" xml:space="preserve">
+    <value>Family Link</value>
+  </data>
+  <data name="SubFamily" xml:space="preserve">
+    <value>المجموعة فرعية</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="SalesOrderColorTheme" xml:space="preserve">
+    <value>Sales Order Theme</value>
+  </data>
+  <data name="SalesOrderCode" xml:space="preserve">
+    <value>Sales Order Code</value>
+  </data>
+  <data name="SalesOrderDetail" xml:space="preserve">
+    <value>Sales Order Detail</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>عميل</value>
+  </data>
+  <data name="ColorGroup" xml:space="preserve">
+    <value>مجموعة اللون</value>
+  </data>
+  <data name="ColorIdentifier" xml:space="preserve">
+    <value>ColorIdentifier</value>
+  </data>
+  <data name="DirectionLink" xml:space="preserve">
+    <value>DirectionLink</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ManualCalculation" xml:space="preserve">
+    <value>ManualCalculation</value>
+  </data>
+  <data name="ReqColorGroup" xml:space="preserve">
+    <value>Color Group Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqServiceGroup" xml:space="preserve">
+    <value>Service Group Is Required</value>
+  </data>
+  <data name="BomSettings" xml:space="preserve">
+    <value>Bom Settings</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ServiceCoding" xml:space="preserve">
+    <value>Service Coding</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ServiceCodingGroup" xml:space="preserve">
+    <value>Service Coding Group</value>
+  </data>
+  <data name="Bom" xml:space="preserve">
+    <value>Bom</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="FactoryGroup" xml:space="preserve">
+    <value>Factory Group</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="ColorLink" xml:space="preserve">
+    <value>Color Link</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ExternalStyleCode" xml:space="preserve">
+    <value>مرجع الموديل</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqBrand" xml:space="preserve">
+    <value>Brand Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqBrandSection" xml:space="preserve">
+    <value>BrandSection Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDescription" xml:space="preserve">
+    <value>الوصف مطلوب !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDesign" xml:space="preserve">
+    <value>Design Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDirection" xml:space="preserve">
+    <value>Direction Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqFamily" xml:space="preserve">
+    <value>Family Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSeason" xml:space="preserve">
+    <value>! الموسم مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSizeGroup" xml:space="preserve">
+    <value>! مجموعة المقاسات مطلوبة</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqStyleCode" xml:space="preserve">
+    <value>Style Code Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSubFamily" xml:space="preserve">
+    <value>Sub FamilyIs Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="AccCoding" xml:space="preserve">
+    <value>Acc Coding</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqSize" xml:space="preserve">
+    <value>! مقاس مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CC" xml:space="preserve">
+    <value>Consolidated Casual</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="CCPo" xml:space="preserve">
+    <value>Consolidated Casual Purchase</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Retail" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="RetailPo" xml:space="preserve">
+    <value>Retail Purchase</value>
+  </data>
+  <data name="InstallmentCountIncluded" xml:space="preserve">
+    <value>Installment Count Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="InstallmentIntervalIncluded" xml:space="preserve">
+    <value>Installment Interval Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="PercentageIncluded" xml:space="preserve">
+    <value>Percentage Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="StartingDayIncluded" xml:space="preserve">
+    <value>Starting Day Included</value>
+    <comment>Payment Schedule Setting</comment>
+  </data>
+  <data name="MethodOfPayment" xml:space="preserve">
+    <value>Method Of Payment</value>
+    <comment>PaymentSchedule</comment>
+  </data>
+  <data name="InstallmentCount" xml:space="preserve">
+    <value>Installment Count</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="InstallmentInterval" xml:space="preserve">
+    <value>Installment Interval</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Percentage</value>
+    <comment>Payment Schedule </comment>
+  </data>
+  <data name="StartingDays" xml:space="preserve">
+    <value>Starting Days</value>
+    <comment>Payment Schedule</comment>
+  </data>
+  <data name="PaymentSchedule" xml:space="preserve">
+    <value>Payment Schedule</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PaymentScheduleSetting" xml:space="preserve">
+    <value>Payment Schedule Setting</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqPaymentSchedule" xml:space="preserve">
+    <value>Payment Schedule Is Required!</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqDeliveryDate" xml:space="preserve">
+    <value>Delivery Date Is Required</value>
+  </data>
+  <data name="ReqCost" xml:space="preserve">
+    <value>Cost Is Required!</value>
+  </data>
+  <data name="RetailSpecs" xml:space="preserve">
+    <value>Retail Specs</value>
+  </data>
+  <data name="SeasonalMasterList" xml:space="preserve">
+    <value>Seasonal Master List</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SeasonalMasterListStyleCode" xml:space="preserve">
+    <value>تفاصيل الموديل</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="IsPlannedOrder" xml:space="preserve">
+    <value>IsPlannedOrder</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="IsSupplierMaterial" xml:space="preserve">
+    <value>IsSupplierMaterial</value>
+    <comment>Sales Order</comment>
+  </data>
+  <data name="Financial" xml:space="preserve">
+    <value>المالية</value>
+  </data>
+  <data name="Technical" xml:space="preserve">
+    <value>تقني</value>
+  </data>
+  <data name="BrandSectionPermission" xml:space="preserve">
+    <value>BrandSectionPermission</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="SeasonTrackType" xml:space="preserve">
+    <value>SeasonTrackType</value>
+  </data>
+  <data name="ReqFromDate" xml:space="preserve">
+    <value>من التاريخ مطلوب</value>
+  </data>
+  <data name="ReqSeasonTrackType" xml:space="preserve">
+    <value>Season Track Is Required!</value>
+  </data>
+  <data name="ReqToDate" xml:space="preserve">
+    <value>الي تاريخ</value>
+  </data>
+  <data name="ReqQty" xml:space="preserve">
+    <value>! الكمية مطلوبة</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqTheme" xml:space="preserve">
+    <value>Theme Is Required!</value>
+  </data>
+  <data name="OrdersToApprove" xml:space="preserve">
+    <value>Orders To Approve</value>
+  </data>
+  <data name="FinancialApproved" xml:space="preserve">
+    <value>Financial Approved</value>
+  </data>
+  <data name="RetailApproved" xml:space="preserve">
+    <value>Retail Approved</value>
+  </data>
+  <data name="TechnicalApproved" xml:space="preserve">
+    <value>Technical Approved</value>
+  </data>
+  <data name="RetailWarehouse" xml:space="preserve">
+    <value>Retail Warehouse</value>
+  </data>
+  <data name="RequestForSample" xml:space="preserve">
+    <value>Sample</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ReqColor" xml:space="preserve">
+    <value>Color Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSupplier" xml:space="preserve">
+    <value>Supplier Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqItem" xml:space="preserve">
+    <value>Item Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqService" xml:space="preserve">
+    <value>Service Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="PoDetails" xml:space="preserve">
+    <value>Purchase Details</value>
+  </data>
+  <data name="RequestForSampleEvents" xml:space="preserve">
+    <value>Request For Sample Events</value>
+  </data>
+  <data name="ReqRequestDate" xml:space="preserve">
+    <value>Request Date Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqStatus" xml:space="preserve">
+    <value>! الحالة مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="RfqDetails" xml:space="preserve">
+    <value>RFQ Details</value>
+  </data>
+  <data name="RequestImage" xml:space="preserve">
+    <value>Request Image</value>
+  </data>
+  <data name="FabricCoding" xml:space="preserve">
+    <value>Fabric Coding</value>
+    <comment>Menus</comment>
+  </data>
+  <data name="Production" xml:space="preserve">
+    <value>الإنتاج</value>
+    <comment>Production</comment>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>المنصب</value>
+    <comment>Users</comment>
+  </data>
+  <data name="ReqUserName" xml:space="preserve">
+    <value>User Name Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqUserPassword" xml:space="preserve">
+    <value>User Password Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ImportEmployeeFromAx" xml:space="preserve">
+    <value>Import Employee From Ax</value>
+    <comment>User</comment>
+  </data>
+  <data name="ImportUserFromAx" xml:space="preserve">
+    <value>Import User From Ax</value>
+    <comment>User</comment>
+  </data>
+  <data name="BankDeposit" xml:space="preserve">
+    <value>ايداع بنكي</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>كود المحل</value>
+  </data>
+  <data name="StorEname" xml:space="preserve">
+    <value>اسم المحل</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>يوم</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>أسبوع</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>موظف</value>
+    <comment>EmployeeShift</comment>
+  </data>
+  <data name="Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="EmployeeShift" xml:space="preserve">
+    <value>Employee Shift</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqDate" xml:space="preserve">
+    <value>التاريخ مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqDays" xml:space="preserve">
+    <value>مطلوب عدد الايام</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqExcuseType" xml:space="preserve">
+    <value>نوع الأذن</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqFromTime" xml:space="preserve">
+    <value>من الوقت مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMissionType" xml:space="preserve">
+    <value>نوع المهمه مطلوب</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqToTime" xml:space="preserve">
+    <value>الي الوقت المطلوب </value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqVacationType" xml:space="preserve">
+    <value>نوع الاجازه مطلوب</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ExcuseType" xml:space="preserve">
+    <value>نوع الاذن</value>
+  </data>
+  <data name="MissionType" xml:space="preserve">
+    <value>نوع المهمه</value>
+  </data>
+  <data name="VactionType" xml:space="preserve">
+    <value>نوع الاجازه</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>From Time</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>إلى وقت</value>
+  </data>
+  <data name="Attendace" xml:space="preserve">
+    <value>الحضور</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>التسليم</value>
+    <comment>Retail Po</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>سنة</value>
+    <comment>Employee Shift</comment>
+  </data>
+  <data name="EmployeeBehalf" xml:space="preserve">
+    <value>Employee Behalf</value>
+    <comment>Attendance</comment>
+  </data>
+  <data name="Excuse" xml:space="preserve">
+    <value>الاذن</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>مهمة</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Vacation" xml:space="preserve">
+    <value>إجازة</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Manager</value>
+    <comment>Att</comment>
+  </data>
+  <data name="Operator" xml:space="preserve">
+    <value>Operator</value>
+    <comment>Att</comment>
+  </data>
+  <data name="AllowAddMsg" xml:space="preserve">
+    <value>You are Not Allowed to Add</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="AllowDeleteMsg" xml:space="preserve">
+    <value>You are Not Allowed to Delete</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="AllowUpdateMsg" xml:space="preserve">
+    <value>You are Not Allowed to Update</value>
+    <comment>Msg</comment>
+  </data>
+  <data name="AllowedStores" xml:space="preserve">
+    <value>المتاجر المسموح بها</value>
+    <comment>User</comment>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>فترة</value>
+  </data>
+  <data name="CounterPerPeriodLine" xml:space="preserve">
+    <value>Counter Per Period Line</value>
+  </data>
+  <data name="ReqPeriod" xml:space="preserve">
+    <value>Period Is Required!</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ExcuseRules" xml:space="preserve">
+    <value>قوانين الاذن</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqManager" xml:space="preserve">
+    <value>Manager Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="EmployeeInfo" xml:space="preserve">
+    <value>Employee Info</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+    <comment>Employee Shifts</comment>
+  </data>
+  <data name="ForeignFabric" xml:space="preserve">
+    <value>Foreign Fabric</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ForeignFabricDescription" xml:space="preserve">
+    <value>Foreign Fabric Description</value>
+    <comment>Style</comment>
+  </data>
+  <data name="RetailTargetCostPrice" xml:space="preserve">
+    <value>Retail Target Cost Price</value>
+    <comment>Style</comment>
+  </data>
+  <data name="TargetCostPrice" xml:space="preserve">
+    <value>Target Cost Price</value>
+    <comment>Style</comment>
+  </data>
+  <data name="StyleStatus" xml:space="preserve">
+    <value>StyleStatus</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqCurrency" xml:space="preserve">
+    <value>Currency Is Required !</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqOperation" xml:space="preserve">
+    <value>Operation Is Required !</value>
+    <comment>Style</comment>
+  </data>
+  <data name="ReqApprovedBy" xml:space="preserve">
+    <value>Approved By Is Required !</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ApprovedBy" xml:space="preserve">
+    <value>ApprovedBy</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="FreeItem" xml:space="preserve">
+    <value>Free Item</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="ReqActive" xml:space="preserve">
+    <value>اختار مفعل</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqFromCode" xml:space="preserve">
+    <value>من الكود مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMessage" xml:space="preserve">
+    <value>الرساله مطلوبه</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMobileNo" xml:space="preserve">
+    <value>رقم الهاتف مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqNoOfVisitsFrom" xml:space="preserve">
+    <value>عدد الزيارات مطلوب من</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqNoOfVisitsTo" xml:space="preserve">
+    <value>عدد الزيارات مطلوب الي</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>رساله</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSalesAmountFrom" xml:space="preserve">
+    <value>المبيعات مطلوبه من</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqSalesAmountTo" xml:space="preserve">
+    <value>المبيعات مطلوبه الي</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqToCode" xml:space="preserve">
+    <value>الي الكود مطلوب</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>التصنيف</value>
+    <comment>Style</comment>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Assets</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="HardDisk" xml:space="preserve">
+    <value>Hard Disk</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Memory" xml:space="preserve">
+    <value>Memory</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Processor</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>سعر الشراء</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="TechSpec" xml:space="preserve">
+    <value>المواصفات الفنية</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="YearOfProduct" xml:space="preserve">
+    <value>سنة الإنتاج</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="AssetType" xml:space="preserve">
+    <value>نوع الأصل</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReciveDate" xml:space="preserve">
+    <value>Recive Date</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Return Date</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqAssets" xml:space="preserve">
+    <value>Assets Is Required !</value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="ReqEmployee" xml:space="preserve">
+    <value>Employee Is Required ! </value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>الاسم العربي</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>الاسم الانكليزية</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="EmpVacation" xml:space="preserve">
+    <value>Emp Vacation</value>
+    <comment>Employee Shifts</comment>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>Times</value>
+    <comment>Times</comment>
+  </data>
+  <data name="ReqAssetType" xml:space="preserve">
+    <value>Asset Type Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqPurchasePrice" xml:space="preserve">
+    <value>Purchase Price Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqTechSpec" xml:space="preserve">
+    <value>Tech Spec Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqYearOfProduction" xml:space="preserve">
+    <value>Year Of Production Is Required !</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="Disposable" xml:space="preserve">
+    <value>Disposable</value>
+    <comment>Assets</comment>
+  </data>
+  <data name="ReqFabricCategory" xml:space="preserve">
+    <value>Fabric Category Is Required !</value>
+    <comment>Fabric</comment>
+  </data>
+  <data name="ReqExchRate" xml:space="preserve">
+    <value>ExchRate Is Required !</value>
+    <comment>Req Error !</comment>
+  </data>
+  <data name="SendMail" xml:space="preserve">
+    <value>Send Mail</value>
+    <comment>Request For Sample</comment>
+  </data>
+  <data name="BudgetItem" xml:space="preserve">
+    <value>Budget Item</value>
+    <comment>Global Budget</comment>
+  </data>
+  <data name="ReqBudgetItem" xml:space="preserve">
+    <value>Budget Item Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="BrandFamilyBudget" xml:space="preserve">
+    <value>Brand Family Budget</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="BrandMonthlyBudget" xml:space="preserve">
+    <value>Brand Monthly Budget</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReqShippingDate" xml:space="preserve">
+    <value>Shipping Date Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMethodOfPayment" xml:space="preserve">
+    <value>Method Of Payment Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqTermOfPayment" xml:space="preserve">
+    <value>Term Of Payment Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ShippingDate" xml:space="preserve">
+    <value>Shipping Date</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="TermOfPayment" xml:space="preserve">
+    <value>Term Of Payment</value>
+    <comment>SalesOrder</comment>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+    <comment>Style</comment>
+  </data>
+  <data name="RequiredQuantity" xml:space="preserve">
+    <value>Required Quantity</value>
+  </data>
+  <data name="ReqFactoryGroup" xml:space="preserve">
+    <value>Factory Group is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqComplexityGroup" xml:space="preserve">
+    <value>Complexity Group is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="GenerateFromStandard" xml:space="preserve">
+    <value>Generate From Standard</value>
+  </data>
+  <data name="OperationDetails" xml:space="preserve">
+    <value>Operation Details</value>
+    <comment>Dyeing</comment>
+  </data>
+  <data name="AdvancedSampleRequest" xml:space="preserve">
+    <value>Advanced Sample Request</value>
+  </data>
+  <data name="RefStyleCode" xml:space="preserve">
+    <value>Ref StyleCode</value>
+  </data>
+  <data name="ReqOrder" xml:space="preserve">
+    <value>Order Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqVendor" xml:space="preserve">
+    <value>Vendor Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqDegree" xml:space="preserve">
+    <value>Degree Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="DyeingService" xml:space="preserve">
+    <value>Dyeing Service</value>
+    <comment>Dyeing</comment>
+  </data>
+  <data name="ReqShortCode" xml:space="preserve">
+    <value>Short Code Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="RetailSeason" xml:space="preserve">
+    <value>Retail Season</value>
+    <comment>Season</comment>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="ReqPrice" xml:space="preserve">
+    <value>Price Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="AttendaceReason" xml:space="preserve">
+    <value>Attendance Reason</value>
+  </data>
+  <data name="GenerateSalesOrder" xml:space="preserve">
+    <value>Generate SalesOrder</value>
+  </data>
+  <data name="CopyBom" xml:space="preserve">
+    <value>Copy Bom</value>
+    <comment>Bom</comment>
+  </data>
+  <data name="VendorTransaction" xml:space="preserve">
+    <value>Vendor Transaction</value>
+    <comment>Dyeing Order</comment>
+  </data>
+  <data name="ReqRequestForSampleStatus" xml:space="preserve">
+    <value>Request For Sample Status Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CuttingOrder" xml:space="preserve">
+    <value>أمر قص</value>
+    <comment>Marker</comment>
+  </data>
+  <data name="SupplierRef" xml:space="preserve">
+    <value>SupplierRef</value>
+  </data>
+  <data name="CheckListGroup" xml:space="preserve">
+    <value>CheckListGroup</value>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>SendTo</value>
+  </data>
+  <data name="CheckListItem" xml:space="preserve">
+    <value>CheckListItem</value>
+  </data>
+  <data name="CheckListDesignGroupHeader1" xml:space="preserve">
+    <value>CheckListDesignGroupHeader1</value>
+  </data>
+  <data name="CheckListDesignGroupHeader2" xml:space="preserve">
+    <value>CheckListDesignGroupHeader2</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>مقاس</value>
+  </data>
+  <data name="ReqAmount" xml:space="preserve">
+    <value>Amount Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqMonth" xml:space="preserve">
+    <value>Month Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="ReqCheckListGroup" xml:space="preserve">
+    <value>Check List Group Is Required</value>
+    <comment>Req error</comment>
+  </data>
+  <data name="PickingList" xml:space="preserve">
+    <value>PickingList</value>
+    <comment>RouteCard</comment>
+  </data>
+  <data name="SalaryTerm" xml:space="preserve">
+    <value>SalaryTerm</value>
+  </data>
+  <data name="ReqSalaryTerm" xml:space="preserve">
+    <value>Salary Term Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="PurchaseDetail" xml:space="preserve">
+    <value>Purchase Detail</value>
+  </data>
+  <data name="ShopDeliveryDate" xml:space="preserve">
+    <value>Shop DeliveryDate</value>
+  </data>
+  <data name="DyeingType" xml:space="preserve">
+    <value>Dyeing Type</value>
+  </data>
+  <data name="VendorSubtraction" xml:space="preserve">
+    <value>Vendor Subtraction</value>
+  </data>
+  <data name="IncludeSub" xml:space="preserve">
+    <value>Include Sub</value>
+  </data>
+  <data name="NoOfColors" xml:space="preserve">
+    <value>No Of Colors</value>
+  </data>
+  <data name="NoOfStyles" xml:space="preserve">
+    <value>No Of Styles</value>
+  </data>
+  <data name="ReqAccount" xml:space="preserve">
+    <value>Account Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqBankAccountNo" xml:space="preserve">
+    <value>Bank Account Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value>Blocks</value>
+  </data>
+  <data name="NewColor" xml:space="preserve">
+    <value>NewColor</value>
+  </data>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>ProfitMargin</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="ClosedDate" xml:space="preserve">
+    <value>Closed Date</value>
+  </data>
+  <data name="ReqCostAllocationMethod" xml:space="preserve">
+    <value>Cost Allocation Method Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="Rule" xml:space="preserve">
+    <value>Rule</value>
+  </data>
+  <data name="ReqItemType" xml:space="preserve">
+    <value>Item Type Is Required!</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqUnit" xml:space="preserve">
+    <value>Unit Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqMarkupGroup" xml:space="preserve">
+    <value>Markup Group Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqLocalPrice" xml:space="preserve">
+    <value>Local price is required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqVendorPurchaseGroup" xml:space="preserve">
+    <value>Vendor Purchase Group</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="CustomsPercentage" xml:space="preserve">
+    <value>جمرك</value>
+  </data>
+  <data name="SalesPercentage" xml:space="preserve">
+    <value>مبيعات</value>
+  </data>
+  <data name="ShippingPercentage" xml:space="preserve">
+    <value>Shipping</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>حساب</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountCursor" xml:space="preserve">
+    <value>مقترح مدين/دائن</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountMustDrOrCr" xml:space="preserve">
+    <value>طلب مدين/دائن</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>نوع الحساب</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>الموافقة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ApproveDate" xml:space="preserve">
+    <value>تاريخ الموافقة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="AssetGroup" xml:space="preserve">
+    <value>مجموعة الأصول</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BalanceControl" xml:space="preserve">
+    <value>التحكم في الرصيد</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>بنك</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankAccountNo" xml:space="preserve">
+    <value>رقم الحساب البنكي</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankGroup" xml:space="preserve">
+    <value>مجموعة البنك</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankTransactionType" xml:space="preserve">
+    <value>نوع الحركة البنكية</value>
+    <comment>GL</comment>
+  </data>
+  <data name="Bold" xml:space="preserve">
+    <value>عريض</value>
+    <comment>GL</comment>
+  </data>
+  <data name="BridgingAccount" xml:space="preserve">
+    <value>Bridging Account</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ClosedBackGroupPost" xml:space="preserve">
+    <value>رقم الحساب البنكي</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ColLevel" xml:space="preserve">
+    <value>العمود</value>
+    <comment>GL</comment>
+  </data>
+  <data name="ColNo" xml:space="preserve">
+    <value>المستوى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenter" xml:space="preserve">
+    <value>مركز التكلفة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenterAllocationMethod" xml:space="preserve">
+    <value> طرق توزيع مراكز التكلفة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenterOption" xml:space="preserve">
+    <value>خيارات مركز التكلفة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CostCenterType" xml:space="preserve">
+    <value> نوع مركز التكلفة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CrAmount" xml:space="preserve">
+    <value>دائن</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DetailSequence" xml:space="preserve">
+    <value>مسلسل التفصيلى قيد اليومية </value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DrAmount" xml:space="preserve">
+    <value>مدين</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>حساب</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ExchangeRate" xml:space="preserve">
+    <value>أسعار العملات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>مصاريف</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ExpensesDate" xml:space="preserve">
+    <value>تاريخ المصاريف</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>تنسيق</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="FromRange" xml:space="preserve">
+    <value>من مدى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="GlPosting" xml:space="preserve">
+    <value>ترحيل الحركات المخزنية</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="HeaderSequence" xml:space="preserve">
+    <value>مسلسل قيد اليومية </value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Highest" xml:space="preserve">
+    <value>أعلى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Interval" xml:space="preserve">
+    <value>Interval</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>المخزون</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="InvertSign" xml:space="preserve">
+    <value>عكس العلامة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Italics" xml:space="preserve">
+    <value>نص مائل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ItemEffect" xml:space="preserve">
+    <value>تأثير العنصر</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="JournalAccountType" xml:space="preserve">
+    <value>نوع الحساب</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="JournalType" xml:space="preserve">
+    <value>نوع دفتر اليومية</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LastPostedDate" xml:space="preserve">
+    <value> اخر تاريخ مرحل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ledger" xml:space="preserve">
+    <value>قيود اليومية</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>مستوى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LineAbove" xml:space="preserve">
+    <value>خط بالاعلى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="LineBelow" xml:space="preserve">
+    <value>خط بالأسفل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>مغلق</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Lowest" xml:space="preserve">
+    <value>أدنى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>يدوي</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Markup" xml:space="preserve">
+    <value>مصاريف إضافية و خصومات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MarkupGroup" xml:space="preserve">
+    <value> مجموعات المصاريف الإضافية و الخصومات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MiscValue" xml:space="preserve">
+    <value>القيمة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MiscValueType" xml:space="preserve">
+    <value>نوع</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="NextRec" xml:space="preserve">
+    <value>التالى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="NoOfint" xml:space="preserve">
+    <value>عدد الأرقام</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OffsetAccountType" xml:space="preserve">
+    <value>نوع الحساب المقابل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OffsetEntityAccount" xml:space="preserve">
+    <value>الحساب المقابل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="OverView" xml:space="preserve">
+    <value>نظرة عامة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Parent</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>دفع</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PaymentRef" xml:space="preserve">
+    <value>مرجع الدفعة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PeriodUnit" xml:space="preserve">
+    <value>وحدة الفترة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>ترحيل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="PostDate" xml:space="preserve">
+    <value>تاريخ الترحيل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Posted" xml:space="preserve">
+    <value>مرحل</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ProfitAndLoss" xml:space="preserve">
+    <value>الربح والخسارة</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="RecInv" xml:space="preserve">
+    <value>فوترة المشتريات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Referance" xml:space="preserve">
+    <value>الايصال</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqAssetGroup" xml:space="preserve">
+    <value>مجموعة الأصول  مطلوب !!!</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqBankGroup" xml:space="preserve">
+    <value>رقم الحساب البنكي  مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqBankTransactionType" xml:space="preserve">
+    <value>نوع الحركة البنكية مطلوب !!!</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqCostCenter" xml:space="preserve">
+    <value>مركز التكلفة مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqCostCenterOption" xml:space="preserve">
+    <value>ضبط مركز التكلفة مطلوب !!!</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqCostCenterType" xml:space="preserve">
+    <value>نوع  مركز التكلفة مطلوب !!!</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqEntity" xml:space="preserve">
+    <value>حساب مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqFormat" xml:space="preserve">
+    <value>التنسيق مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqGroup" xml:space="preserve">
+    <value>مجموعة مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqJournal" xml:space="preserve">
+    <value>انواع اليوميات مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqJournalAccountType" xml:space="preserve">
+    <value>نوع الحساب مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqJournalType" xml:space="preserve">
+    <value>نوع دفتر اليومية مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="ReqSequence" xml:space="preserve">
+    <value>مسلسل المستندات  مطلوب !!!</value>
+    <comment>Gl Req Error</comment>
+  </data>
+  <data name="Scope" xml:space="preserve">
+    <value>مجال الت</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="StandardCostVariance" xml:space="preserve">
+    <value>StandardCostVariance</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="SupplierInvoice" xml:space="preserve">
+    <value>فاتورة المورد</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ToRange" xml:space="preserve">
+    <value>إلى مدى</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>عملية </value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Underline" xml:space="preserve">
+    <value>رسم خطا</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="VendorEffect" xml:space="preserve">
+    <value>تأثير المورد</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="BankTransactionTypeGroup" xml:space="preserve">
+    <value>مجموعة نوع الحركة البنكية</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="ReqBankTransactionTypeGroup" xml:space="preserve">
+    <value>مجموعة نوع الحركة البنكيةمطلوب !!!</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Cheque" xml:space="preserve">
+    <value>شيك</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="CreateCheck" xml:space="preserve">
+    <value>Create Check</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="DeleteCheck" xml:space="preserve">
+    <value>Delete Check</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="SupplierColorCode" xml:space="preserve">
+    <value>Supplier Color Code</value>
+  </data>
+  <data name="balanced" xml:space="preserve">
+    <value>balanced</value>
+  </data>
+  <data name="Adjustment" xml:space="preserve">
+    <value>تعديل أسعار</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Sales" xml:space="preserve">
+    <value>مبيعات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>تحويلات</value>
+    <comment>Gl</comment>
+  </data>
+  <data name="MarkerType" xml:space="preserve">
+    <value>Marker Type</value>
+  </data>
+  <data name="ReqYear" xml:space="preserve">
+    <value>Year Is Required !</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="ReqGlExpensisGroup" xml:space="preserve">
+    <value>Expenses Group Is Required</value>
+    <comment>Req Error</comment>
+  </data>
+  <data name="GlExpensisGroup" xml:space="preserve">
+    <value>Expenses Group</value>
+  </data>
+  <data name="BankCollectionDate" xml:space="preserve">
+    <value>Bank Collection Date</value>
+  </data>
+  <data name="PayTo" xml:space="preserve">
+    <value>Pay To</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="UseDateTime" xml:space="preserve">
+    <value>Use DateTime</value>
+  </data>
+  <data name="DepreciationLife" xml:space="preserve">
+    <value>Depreciation Life</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="DepreciationMethod" xml:space="preserve">
+    <value>Depreciation Method Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqDepreciationLife" xml:space="preserve">
+    <value>Depreciation Life Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqSalvageValue" xml:space="preserve">
+    <value>Salvage Value Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="SalvageValue" xml:space="preserve">
+    <value>Salvage Value</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="ReqStartDate" xml:space="preserve">
+    <value>Start Date Is Required !</value>
+    <comment>ReqError</comment>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="DepreciationValue" xml:space="preserve">
+    <value>Depreciation Value</value>
+    <comment>Dep</comment>
+  </data>
+  <data name="ReqDepreciationFactor" xml:space="preserve">
+    <value>Depreciation Factor Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqDepreciationMethod" xml:space="preserve">
+    <value>Depreciation Method Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="ReqBookValue" xml:space="preserve">
+    <value>Book Value  Is Required !</value>
+    <comment>Req</comment>
+  </data>
+  <data name="DepreciationFactor" xml:space="preserve">
+    <value>Depreciation Factor</value>
+  </data>
+  <data name="AccDepreciation" xml:space="preserve">
+    <value>Accumulated Depreciation</value>
+  </data>
+  <data name="DepExpense" xml:space="preserve">
+    <value>Depreciation expenses</value>
+  </data>
+  <data name="EndBookValue" xml:space="preserve">
+    <value>End BookValue</value>
+  </data>
+  <data name="StartBookValue" xml:space="preserve">
+    <value>Start BookValue</value>
+  </data>
+  <data name="Depreciation" xml:space="preserve">
+    <value>Depreciation</value>
+  </data>
+  <data name="SumAccount" xml:space="preserve">
+    <value>Sum Account</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Receive" xml:space="preserve">
+    <value>Receive</value>
+  </data>
+  <data name="NewCost" xml:space="preserve">
+    <value>New Cost</value>
+  </data>
+  <data name="NewLocation" xml:space="preserve">
+    <value>New Location</value>
+  </data>
+  <data name="NewQty" xml:space="preserve">
+    <value>New Qty</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Additional Notes</value>
+  </data>
+  <data name="ReadyProduct" xml:space="preserve">
+    <value>Ready Product</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="ReceiveNow" xml:space="preserve">
+    <value>Receive Now</value>
+  </data>
+  <data name="BasicPrice" xml:space="preserve">
+    <value>Basic Price</value>
+  </data>
+  <data name="SalesPerson" xml:space="preserve">
+    <value>Sales Person</value>
+  </data>
+  <data name="WarehouseTo" xml:space="preserve">
+    <value>إلى مخزن</value>
+    <comment>Transfer</comment>
+  </data>
+    <data name="BasicPrice" xml:space="preserve">
+    <value>Basic Price</value>
+  </data>
+    <data name="SalesPerson" xml:space="preserve">
+    <value>Sales Person</value>
+  </data>
+    <data name="ReceiveDetail" xml:space="preserve">
+    <value>Receive Detail</value>
+  </data>
+  <data name="ReceiveDetail" xml:space="preserve">
+    <value>Receive Detail</value>
+  </data>
+</root>

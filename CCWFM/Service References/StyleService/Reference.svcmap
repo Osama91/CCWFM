@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a0990b74-229e-417d-9628-3fb65838ffc2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/StyleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StyleService1.xsd" MetadataType="Schema" ID="20e2b155-2896-41de-a74f-29ea7c324159" SourceId="1" SourceUrl="http://localhost:18559/Service/StyleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="StyleService.wsdl" MetadataType="Wsdl" ID="a2ebf746-6205-460a-b993-5ed481524aad" SourceId="1" SourceUrl="http://localhost:18559/Service/StyleService.svc?wsdl" />
+    <MetadataFile FileName="StyleService1.wsdl" MetadataType="Wsdl" ID="73834283-808a-4661-bde6-9bc5bd76f977" SourceId="1" SourceUrl="http://localhost:18559/Service/StyleService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="StyleService.disco" MetadataType="Disco" ID="b0bab616-d6ee-40c8-9dfc-57ac357d55a9" SourceId="1" SourceUrl="http://localhost:18559/Service/StyleService.svc?disco" />
+    <MetadataFile FileName="StyleService.xsd" MetadataType="Schema" ID="a0461875-1769-4684-91fa-e55e71c0fc8c" SourceId="1" SourceUrl="http://localhost:18559/Service/StyleService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

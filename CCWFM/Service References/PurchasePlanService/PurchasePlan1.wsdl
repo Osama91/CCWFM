@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeaderRequestPayment_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeaderRequestPayment" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeaderRequestPayment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeaderRequestPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPruchaseOrderTotal_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPruchaseOrderTotal" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPruchaseOrderTotal_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPruchaseOrderTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequestPayments_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeaderRequestPayments" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequestPayments_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeaderRequestPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeaderRequestPayment_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeaderRequestPayment" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeaderRequestPayment_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeaderRequestPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GeneratePurchaseOrderHeaderRequestPayment_InputMessage">
+    <wsdl:part name="parameters" element="GeneratePurchaseOrderHeaderRequestPayment" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GeneratePurchaseOrderHeaderRequestPayment_OutputMessage">
+    <wsdl:part name="parameters" element="GeneratePurchaseOrderHeaderRequestPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailRequestByPlanCode_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailRequestByPlanCode" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailRequestByPlanCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailRequestByPlanCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetVendorsByPlanCode_InputMessage">
+    <wsdl:part name="parameters" element="GetVendorsByPlanCode" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetVendorsByPlanCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetVendorsByPlanCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseReceiveHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseReceiveHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseReceiveHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseReceiveHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseReceiveDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseReceiveDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseReceiveDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseReceiveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_SearchPurchaseOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="SearchPurchaseOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_SearchPurchaseOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="SearchPurchaseOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseReceiveHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseReceiveHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseReceiveHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseReceiveHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseReceiveHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseReceiveHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseReceiveHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseReceiveHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseReceiveDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseReceiveDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseReceiveDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseReceiveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseReceiveDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseReceiveDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseReceiveDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseReceiveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblGeneratePurchaseHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGeneratePurchaseHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblGeneratePurchaseHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGeneratePurchaseHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GeneratePurchaseOrderFromUnpannedPurchase_InputMessage">
+    <wsdl:part name="parameters" element="GeneratePurchaseOrderFromUnpannedPurchase" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GeneratePurchaseOrderFromUnpannedPurchase_OutputMessage">
+    <wsdl:part name="parameters" element="GeneratePurchaseOrderFromUnpannedPurchaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_RecalcAllModifiedPlans_InputMessage">
+    <wsdl:part name="parameters" element="RecalcAllModifiedPlans" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_RecalcAllModifiedPlans_OutputMessage">
+    <wsdl:part name="parameters" element="RecalcAllModifiedPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_RecalculateTblGeneratePurchaseHeader_InputMessage">
+    <wsdl:part name="parameters" element="RecalculateTblGeneratePurchaseHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_RecalculateTblGeneratePurchaseHeader_OutputMessage">
+    <wsdl:part name="parameters" element="RecalculateTblGeneratePurchaseHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblGeneratePurchaseHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGeneratePurchaseHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblGeneratePurchaseHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGeneratePurchaseHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblGeneratePurchaseHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGeneratePurchaseHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblGeneratePurchaseHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGeneratePurchaseHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailBreakDown_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailBreakDown" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblPurchaseOrderDetailBreakDown_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPurchaseOrderDetailBreakDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetailBreakDown_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetailBreakDown" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetailBreakDown_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetailBreakDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailCanceled_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetailCanceled" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailCanceled_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPurchaseOrderDetailCanceledResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblPurchaseOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPurchaseOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_CollectPlans_InputMessage">
+    <wsdl:part name="parameters" element="CollectPlans" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_CollectPlans_OutputMessage">
+    <wsdl:part name="parameters" element="CollectPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblMarkupGroupProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupGroupProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblMarkupGroupProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupGroupProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupGroupProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupGroupProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupGroupProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupGroupProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupGroupProd_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupGroupProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupGroupProd_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupGroupProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblMarkupProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblMarkupProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupProd_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupProd_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupProd_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupProd_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblTblMarkupTransProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblTblMarkupTransProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblTblMarkupTransProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblTblMarkupTransProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertTblMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteTblMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DyeingOrderInvoiceMarkupTransProd_InputMessage">
+    <wsdl:part name="parameters" element="DyeingOrderInvoiceMarkupTransProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DyeingOrderInvoiceMarkupTransProd_OutputMessage">
+    <wsdl:part name="parameters" element="DyeingOrderInvoiceMarkupTransProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblRouteCardInvoiceMarkupTransProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRouteCardInvoiceMarkupTransProd" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_GetTblRouteCardInvoiceMarkupTransProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRouteCardInvoiceMarkupTransProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertRouteCardInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertRouteCardInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteRouteCardInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteRouteCardInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertDyeingOrderInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_UpdateOrInsertDyeingOrderInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertDyeingOrderInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteDyeingOrderInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="PurchasePlan_DeleteDyeingOrderInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteDyeingOrderInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PurchasePlan">
+    <wsdl:operation name="GetTblPurchaseOrderHeaderRequestPayment">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequestPayment" message="PurchasePlan_GetTblPurchaseOrderHeaderRequestPayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequestPaymentResponse" message="PurchasePlan_GetTblPurchaseOrderHeaderRequestPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPruchaseOrderTotal">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPruchaseOrderTotal" message="PurchasePlan_GetTblPruchaseOrderTotal_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPruchaseOrderTotalResponse" message="PurchasePlan_GetTblPruchaseOrderTotal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeaderRequestPayments">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequestPayments" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequestPayments_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequestPaymentsResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequestPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeaderRequestPayment">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequestPayment" message="PurchasePlan_DeleteTblPurchaseOrderHeaderRequestPayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequestPaymentResponse" message="PurchasePlan_DeleteTblPurchaseOrderHeaderRequestPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePurchaseOrderHeaderRequestPayment">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GeneratePurchaseOrderHeaderRequestPayment" message="PurchasePlan_GeneratePurchaseOrderHeaderRequestPayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GeneratePurchaseOrderHeaderRequestPaymentResponse" message="PurchasePlan_GeneratePurchaseOrderHeaderRequestPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequest" message="PurchasePlan_GetTblPurchaseOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequestResponse" message="PurchasePlan_GetTblPurchaseOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequest" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequestResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequest" message="PurchasePlan_DeleteTblPurchaseOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequestResponse" message="PurchasePlan_DeleteTblPurchaseOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailRequest" message="PurchasePlan_GetTblPurchaseOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailRequestResponse" message="PurchasePlan_GetTblPurchaseOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailRequestByPlanCode">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailRequestByPlanCode" message="PurchasePlan_GetTblPurchaseOrderDetailRequestByPlanCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailRequestByPlanCodeResponse" message="PurchasePlan_GetTblPurchaseOrderDetailRequestByPlanCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorsByPlanCode">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetVendorsByPlanCode" message="PurchasePlan_GetVendorsByPlanCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetVendorsByPlanCodeResponse" message="PurchasePlan_GetVendorsByPlanCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailRequest" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailRequestResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetailRequest" message="PurchasePlan_DeleteTblPurchaseOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetailRequestResponse" message="PurchasePlan_DeleteTblPurchaseOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseReceiveHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseReceiveHeader" message="PurchasePlan_GetTblPurchaseReceiveHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseReceiveHeaderResponse" message="PurchasePlan_GetTblPurchaseReceiveHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseReceiveDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseReceiveDetail" message="PurchasePlan_GetTblPurchaseReceiveDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseReceiveDetailResponse" message="PurchasePlan_GetTblPurchaseReceiveDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPurchaseOrderDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/SearchPurchaseOrderDetail" message="PurchasePlan_SearchPurchaseOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/SearchPurchaseOrderDetailResponse" message="PurchasePlan_SearchPurchaseOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseReceiveHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveHeader" message="PurchasePlan_UpdateOrInsertTblPurchaseReceiveHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveHeaderResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseReceiveHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseReceiveHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseReceiveHeader" message="PurchasePlan_DeleteTblPurchaseReceiveHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseReceiveHeaderResponse" message="PurchasePlan_DeleteTblPurchaseReceiveHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseReceiveDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveDetail" message="PurchasePlan_UpdateOrInsertTblPurchaseReceiveDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveDetailResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseReceiveDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseReceiveDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseReceiveDetail" message="PurchasePlan_DeleteTblPurchaseReceiveDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseReceiveDetailResponse" message="PurchasePlan_DeleteTblPurchaseReceiveDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGeneratePurchaseHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblGeneratePurchaseHeader" message="PurchasePlan_GetTblGeneratePurchaseHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblGeneratePurchaseHeaderResponse" message="PurchasePlan_GetTblGeneratePurchaseHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePurchaseOrderFromUnpannedPurchase">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GeneratePurchaseOrderFromUnpannedPurchase" message="PurchasePlan_GeneratePurchaseOrderFromUnpannedPurchase_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GeneratePurchaseOrderFromUnpannedPurchaseResponse" message="PurchasePlan_GeneratePurchaseOrderFromUnpannedPurchase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecalcAllModifiedPlans">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/RecalcAllModifiedPlans" message="PurchasePlan_RecalcAllModifiedPlans_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/RecalcAllModifiedPlansResponse" message="PurchasePlan_RecalcAllModifiedPlans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecalculateTblGeneratePurchaseHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/RecalculateTblGeneratePurchaseHeader" message="PurchasePlan_RecalculateTblGeneratePurchaseHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/RecalculateTblGeneratePurchaseHeaderResponse" message="PurchasePlan_RecalculateTblGeneratePurchaseHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGeneratePurchaseHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblGeneratePurchaseHeader" message="PurchasePlan_UpdateOrInsertTblGeneratePurchaseHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblGeneratePurchaseHeaderResponse" message="PurchasePlan_UpdateOrInsertTblGeneratePurchaseHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGeneratePurchaseHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblGeneratePurchaseHeader" message="PurchasePlan_DeleteTblGeneratePurchaseHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblGeneratePurchaseHeaderResponse" message="PurchasePlan_DeleteTblGeneratePurchaseHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeader" message="PurchasePlan_GetTblPurchaseOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderHeaderResponse" message="PurchasePlan_GetTblPurchaseOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeader" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeader">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeader" message="PurchasePlan_DeleteTblPurchaseOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderResponse" message="PurchasePlan_DeleteTblPurchaseOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetail" message="PurchasePlan_GetTblPurchaseOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailResponse" message="PurchasePlan_GetTblPurchaseOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailBreakDown">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailBreakDown" message="PurchasePlan_GetTblPurchaseOrderDetailBreakDown_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblPurchaseOrderDetailBreakDownResponse" message="PurchasePlan_GetTblPurchaseOrderDetailBreakDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetailBreakDown">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetailBreakDown" message="PurchasePlan_DeleteTblPurchaseOrderDetailBreakDown_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetailBreakDownResponse" message="PurchasePlan_DeleteTblPurchaseOrderDetailBreakDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetail" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetailCanceled">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailCanceled" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailCanceled_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailCanceledResponse" message="PurchasePlan_UpdateOrInsertTblPurchaseOrderDetailCanceled_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetail">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetail" message="PurchasePlan_DeleteTblPurchaseOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblPurchaseOrderDetailResponse" message="PurchasePlan_DeleteTblPurchaseOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CollectPlans">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/CollectPlans" message="PurchasePlan_CollectPlans_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/CollectPlansResponse" message="PurchasePlan_CollectPlans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupGroupProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblMarkupGroupProd" message="PurchasePlan_GetTblMarkupGroupProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblMarkupGroupProdResponse" message="PurchasePlan_GetTblMarkupGroupProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupGroupProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupGroupProds" message="PurchasePlan_UpdateOrInsertTblMarkupGroupProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupGroupProdsResponse" message="PurchasePlan_UpdateOrInsertTblMarkupGroupProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupGroupProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblMarkupGroupProd" message="PurchasePlan_DeleteTblMarkupGroupProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblMarkupGroupProdResponse" message="PurchasePlan_DeleteTblMarkupGroupProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblMarkupProd" message="PurchasePlan_GetTblMarkupProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblMarkupProdResponse" message="PurchasePlan_GetTblMarkupProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupProd" message="PurchasePlan_UpdateOrInsertTblMarkupProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupProdResponse" message="PurchasePlan_UpdateOrInsertTblMarkupProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblMarkupProd" message="PurchasePlan_DeleteTblMarkupProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblMarkupProdResponse" message="PurchasePlan_DeleteTblMarkupProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblTblMarkupTransProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblTblMarkupTransProd" message="PurchasePlan_GetTblTblMarkupTransProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblTblMarkupTransProdResponse" message="PurchasePlan_GetTblTblMarkupTransProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupTransProds" message="PurchasePlan_UpdateOrInsertTblMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertTblMarkupTransProdsResponse" message="PurchasePlan_UpdateOrInsertTblMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteTblMarkupTransProds" message="PurchasePlan_DeleteTblMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteTblMarkupTransProdsResponse" message="PurchasePlan_DeleteTblMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DyeingOrderInvoiceMarkupTransProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DyeingOrderInvoiceMarkupTransProd" message="PurchasePlan_DyeingOrderInvoiceMarkupTransProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DyeingOrderInvoiceMarkupTransProdResponse" message="PurchasePlan_DyeingOrderInvoiceMarkupTransProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRouteCardInvoiceMarkupTransProd">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/GetTblRouteCardInvoiceMarkupTransProd" message="PurchasePlan_GetTblRouteCardInvoiceMarkupTransProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/GetTblRouteCardInvoiceMarkupTransProdResponse" message="PurchasePlan_GetTblRouteCardInvoiceMarkupTransProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertRouteCardInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertRouteCardInvoiceMarkupTransProds" message="PurchasePlan_UpdateOrInsertRouteCardInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertRouteCardInvoiceMarkupTransProdsResponse" message="PurchasePlan_UpdateOrInsertRouteCardInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteCardInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteRouteCardInvoiceMarkupTransProds" message="PurchasePlan_DeleteRouteCardInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteRouteCardInvoiceMarkupTransProdsResponse" message="PurchasePlan_DeleteRouteCardInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertDyeingOrderInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/UpdateOrInsertDyeingOrderInvoiceMarkupTransProds" message="PurchasePlan_UpdateOrInsertDyeingOrderInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/UpdateOrInsertDyeingOrderInvoiceMarkupTransProdsResponse" message="PurchasePlan_UpdateOrInsertDyeingOrderInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDyeingOrderInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:PurchasePlan/DeleteDyeingOrderInvoiceMarkupTransProds" message="PurchasePlan_DeleteDyeingOrderInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PurchasePlan/DeleteDyeingOrderInvoiceMarkupTransProdsResponse" message="PurchasePlan_DeleteDyeingOrderInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

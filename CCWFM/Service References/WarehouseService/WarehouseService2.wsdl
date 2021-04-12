@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Items" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="GetAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetUserAsignedWarehousesForAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="GetUserAsignedWarehousesForAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetUserAsignedWarehousesForAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserAsignedWarehousesForAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsOrCreate_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsOrCreate" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsOrCreate_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsOrCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsQuantitiesByDate_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsQuantitiesByDate" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsQuantitiesByDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsQuantitiesByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionQuantitiesByDate_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionQuantitiesByDate" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionQuantitiesByDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionQuantitiesByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_InsertImportedItems_InputMessage">
+    <wsdl:part name="parameters" element="InsertImportedItems" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_InsertImportedItems_OutputMessage">
+    <wsdl:part name="parameters" element="InsertImportedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_InsertRemainingImportedItems_InputMessage">
+    <wsdl:part name="parameters" element="InsertRemainingImportedItems" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_InsertRemainingImportedItems_OutputMessage">
+    <wsdl:part name="parameters" element="InsertRemainingImportedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentByIserial_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentByIserial" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentByIserial_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentByIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_ApproveAdjustmentByIserial_InputMessage">
+    <wsdl:part name="parameters" element="ApproveAdjustmentByIserial" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_ApproveAdjustmentByIserial_OutputMessage">
+    <wsdl:part name="parameters" element="ApproveAdjustmentByIserialResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentTempDetails_InputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentTempDetails" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentTempDetails_OutputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentTempDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentTempDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentTempDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAdjustmentTempDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetAdjustmentTempDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentTempDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentTempDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertAdjustmentTempDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertAdjustmentTempDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentTempDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentTempDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteAdjustmentTempDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAdjustmentTempDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_ApproveAdjustmentTempDetail_InputMessage">
+    <wsdl:part name="parameters" element="ApproveAdjustmentTempDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_ApproveAdjustmentTempDetail_OutputMessage">
+    <wsdl:part name="parameters" element="ApproveAdjustmentTempDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsOrCreteForTransfer_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsOrCreteForTransfer" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionsOrCreteForTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionsOrCreteForTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimension_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimension" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimension_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertItemDimension_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertItemDimension" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertItemDimension_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertItemDimensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetItemGroup" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransferByWarehouseTo_InputMessage">
+    <wsdl:part name="parameters" element="GetTransferByWarehouseTo" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransferByWarehouseTo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTransferByWarehouseToResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderHeaderRequest_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderHeaderRequest_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderHeaderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderDetailRequest_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderDetailRequest_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesIssueHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesIssueHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesIssueHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesIssueHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesIssueDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesIssueDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesIssueDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesIssueDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesIssueHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesIssueHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesIssueHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesIssueHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesIssueHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesIssueHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesIssueHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesIssueHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesIssueDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesIssueDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesIssueDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesIssueDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesIssueDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesIssueDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesIssueDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesIssueDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetSalesIssueHeaderPending_InputMessage">
+    <wsdl:part name="parameters" element="GetSalesIssueHeaderPending" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetSalesIssueHeaderPending_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalesIssueHeaderPendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_SearchSalesOrderRequestInvoice_InputMessage">
+    <wsdl:part name="parameters" element="SearchSalesOrderRequestInvoice" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_SearchSalesOrderRequestInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="SearchSalesOrderRequestInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceMarkupTransProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceMarkupTransProd" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTblSalesOrderRequestInvoiceMarkupTransProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderRequestInvoiceMarkupTransProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblSalesOrderRequestInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSalesOrderRequestInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_PostTblSalesOrderRequestInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="PostTblSalesOrderRequestInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_PostTblSalesOrderRequestInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PostTblSalesOrderRequestInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransfer_InputMessage">
+    <wsdl:part name="parameters" element="GetTransfer" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="GetTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetUserAsignedWarehousesForTransfer_InputMessage">
+    <wsdl:part name="parameters" element="GetUserAsignedWarehousesForTransfer" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetUserAsignedWarehousesForTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserAsignedWarehousesForTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForTransferFrom_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForTransferFrom" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForTransferFrom_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForTransferFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForTransferTo_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForTransferTo" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouseForTransferTo_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseForTransferToResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTransferHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTransferHeader" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTransferHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTransferHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTransfer_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTransfer" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransferDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTransferDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetTransferDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTransferDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTransferDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTransferDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTransferDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTransferDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTransferDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTransferDetail" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTransferDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTransferDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionQuantities_InputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionQuantities" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemDimensionQuantities_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemDimensionQuantitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemToQuantities_InputMessage">
+    <wsdl:part name="parameters" element="GetItemToQuantities" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetItemToQuantities_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemToQuantitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetLookUpWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_UpdateOrInsertTblWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DeleteTblWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAccWarehouseRows_InputMessage">
+    <wsdl:part name="parameters" element="GetAccWarehouseRows" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetAccWarehouseRows_OutputMessage">
+    <wsdl:part name="parameters" element="GetAccWarehouseRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetInspectionWarehouseRows_InputMessage">
+    <wsdl:part name="parameters" element="GetInspectionWarehouseRows" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_GetInspectionWarehouseRows_OutputMessage">
+    <wsdl:part name="parameters" element="GetInspectionWarehouseRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="WarehouseService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WarehouseService">
+    <wsdl:operation name="GetLookUpWarehouseForAdjustment">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForAdjustment" message="WarehouseService_GetLookUpWarehouseForAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForAdjustmentResponse" message="WarehouseService_GetLookUpWarehouseForAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustment">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetAdjustment" message="WarehouseService_GetAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetAdjustmentResponse" message="WarehouseService_GetAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAsignedWarehousesForAdjustment">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetUserAsignedWarehousesForAdjustment" message="WarehouseService_GetUserAsignedWarehousesForAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetUserAsignedWarehousesForAdjustmentResponse" message="WarehouseService_GetUserAsignedWarehousesForAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAdjustmentHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentHeader" message="WarehouseService_UpdateOrInsertAdjustmentHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentHeaderResponse" message="WarehouseService_UpdateOrInsertAdjustmentHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdjustment">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteAdjustment" message="WarehouseService_DeleteAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteAdjustmentResponse" message="WarehouseService_DeleteAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustmentDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetAdjustmentDetail" message="WarehouseService_GetAdjustmentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetAdjustmentDetailResponse" message="WarehouseService_GetAdjustmentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAdjustmentDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentDetail" message="WarehouseService_UpdateOrInsertAdjustmentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentDetailResponse" message="WarehouseService_UpdateOrInsertAdjustmentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdjustmentDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteAdjustmentDetail" message="WarehouseService_DeleteAdjustmentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteAdjustmentDetailResponse" message="WarehouseService_DeleteAdjustmentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimensionsOrCreate">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimensionsOrCreate" message="WarehouseService_GetItemDimensionsOrCreate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionsOrCreateResponse" message="WarehouseService_GetItemDimensionsOrCreate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimensionsQuantitiesByDate">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimensionsQuantitiesByDate" message="WarehouseService_GetItemDimensionsQuantitiesByDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionsQuantitiesByDateResponse" message="WarehouseService_GetItemDimensionsQuantitiesByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimensionQuantitiesByDate">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimensionQuantitiesByDate" message="WarehouseService_GetItemDimensionQuantitiesByDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionQuantitiesByDateResponse" message="WarehouseService_GetItemDimensionQuantitiesByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertImportedItems">
+      <wsdl:input wsaw:Action="urn:WarehouseService/InsertImportedItems" message="WarehouseService_InsertImportedItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/InsertImportedItemsResponse" message="WarehouseService_InsertImportedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRemainingImportedItems">
+      <wsdl:input wsaw:Action="urn:WarehouseService/InsertRemainingImportedItems" message="WarehouseService_InsertRemainingImportedItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/InsertRemainingImportedItemsResponse" message="WarehouseService_InsertRemainingImportedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdjustmentByIserial">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteAdjustmentByIserial" message="WarehouseService_DeleteAdjustmentByIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteAdjustmentByIserialResponse" message="WarehouseService_DeleteAdjustmentByIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveAdjustmentByIserial">
+      <wsdl:input wsaw:Action="urn:WarehouseService/ApproveAdjustmentByIserial" message="WarehouseService_ApproveAdjustmentByIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/ApproveAdjustmentByIserialResponse" message="WarehouseService_ApproveAdjustmentByIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustmentTempDetails">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetAdjustmentTempDetails" message="WarehouseService_GetAdjustmentTempDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetAdjustmentTempDetailsResponse" message="WarehouseService_GetAdjustmentTempDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustmentTempDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetAdjustmentTempDetail" message="WarehouseService_GetAdjustmentTempDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetAdjustmentTempDetailResponse" message="WarehouseService_GetAdjustmentTempDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertAdjustmentTempDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentTempDetail" message="WarehouseService_UpdateOrInsertAdjustmentTempDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertAdjustmentTempDetailResponse" message="WarehouseService_UpdateOrInsertAdjustmentTempDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdjustmentTempDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteAdjustmentTempDetail" message="WarehouseService_DeleteAdjustmentTempDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteAdjustmentTempDetailResponse" message="WarehouseService_DeleteAdjustmentTempDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveAdjustmentTempDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/ApproveAdjustmentTempDetail" message="WarehouseService_ApproveAdjustmentTempDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/ApproveAdjustmentTempDetailResponse" message="WarehouseService_ApproveAdjustmentTempDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimensionsOrCreteForTransfer">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimensionsOrCreteForTransfer" message="WarehouseService_GetItemDimensionsOrCreteForTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionsOrCreteForTransferResponse" message="WarehouseService_GetItemDimensionsOrCreteForTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimension">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimension" message="WarehouseService_GetItemDimension_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionResponse" message="WarehouseService_GetItemDimension_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertItemDimension">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertItemDimension" message="WarehouseService_UpdateOrInsertItemDimension_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertItemDimensionResponse" message="WarehouseService_UpdateOrInsertItemDimension_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemGroup">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemGroup" message="WarehouseService_GetItemGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemGroupResponse" message="WarehouseService_GetItemGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferByWarehouseTo">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTransferByWarehouseTo" message="WarehouseService_GetTransferByWarehouseTo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTransferByWarehouseToResponse" message="WarehouseService_GetTransferByWarehouseTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesOrderHeaderRequest" message="WarehouseService_GetTblSalesOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesOrderHeaderRequestResponse" message="WarehouseService_GetTblSalesOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderHeaderRequest" message="WarehouseService_UpdateOrInsertTblSalesOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderHeaderRequestResponse" message="WarehouseService_UpdateOrInsertTblSalesOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesOrderHeaderRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderHeaderRequest" message="WarehouseService_DeleteTblSalesOrderHeaderRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderHeaderRequestResponse" message="WarehouseService_DeleteTblSalesOrderHeaderRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesOrderDetailRequest" message="WarehouseService_GetTblSalesOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesOrderDetailRequestResponse" message="WarehouseService_GetTblSalesOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderDetailRequest" message="WarehouseService_UpdateOrInsertTblSalesOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderDetailRequestResponse" message="WarehouseService_UpdateOrInsertTblSalesOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesOrderDetailRequest">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderDetailRequest" message="WarehouseService_DeleteTblSalesOrderDetailRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderDetailRequestResponse" message="WarehouseService_DeleteTblSalesOrderDetailRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesIssueHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesIssueHeader" message="WarehouseService_GetTblSalesIssueHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesIssueHeaderResponse" message="WarehouseService_GetTblSalesIssueHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesIssueDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesIssueDetail" message="WarehouseService_GetTblSalesIssueDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesIssueDetailResponse" message="WarehouseService_GetTblSalesIssueDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesIssueHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesIssueHeader" message="WarehouseService_UpdateOrInsertTblSalesIssueHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesIssueHeaderResponse" message="WarehouseService_UpdateOrInsertTblSalesIssueHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesIssueHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesIssueHeader" message="WarehouseService_DeleteTblSalesIssueHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesIssueHeaderResponse" message="WarehouseService_DeleteTblSalesIssueHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesIssueDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesIssueDetail" message="WarehouseService_UpdateOrInsertTblSalesIssueDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesIssueDetailResponse" message="WarehouseService_UpdateOrInsertTblSalesIssueDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesIssueDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesIssueDetail" message="WarehouseService_DeleteTblSalesIssueDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesIssueDetailResponse" message="WarehouseService_DeleteTblSalesIssueDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderRequestInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceHeader" message="WarehouseService_GetTblSalesOrderRequestInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceHeaderResponse" message="WarehouseService_GetTblSalesOrderRequestInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesOrderRequestInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceHeader" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceHeaderResponse" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesOrderRequestInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceHeader" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceHeaderResponse" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderRequestInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceDetail" message="WarehouseService_GetTblSalesOrderRequestInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceDetailResponse" message="WarehouseService_GetTblSalesOrderRequestInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesOrderRequestInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceDetail" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceDetailResponse" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesOrderRequestInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceDetail" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceDetailResponse" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesIssueHeaderPending">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetSalesIssueHeaderPending" message="WarehouseService_GetSalesIssueHeaderPending_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetSalesIssueHeaderPendingResponse" message="WarehouseService_GetSalesIssueHeaderPending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSalesOrderRequestInvoice">
+      <wsdl:input wsaw:Action="urn:WarehouseService/SearchSalesOrderRequestInvoice" message="WarehouseService_SearchSalesOrderRequestInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/SearchSalesOrderRequestInvoiceResponse" message="WarehouseService_SearchSalesOrderRequestInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderRequestInvoiceMarkupTransProd">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceMarkupTransProd" message="WarehouseService_GetTblSalesOrderRequestInvoiceMarkupTransProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTblSalesOrderRequestInvoiceMarkupTransProdResponse" message="WarehouseService_GetTblSalesOrderRequestInvoiceMarkupTransProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProdsResponse" message="WarehouseService_UpdateOrInsertTblSalesOrderRequestInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSalesOrderRequestInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceMarkupTransProds" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblSalesOrderRequestInvoiceMarkupTransProdsResponse" message="WarehouseService_DeleteTblSalesOrderRequestInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTblSalesOrderRequestInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/PostTblSalesOrderRequestInvoiceHeader" message="WarehouseService_PostTblSalesOrderRequestInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/PostTblSalesOrderRequestInvoiceHeaderResponse" message="WarehouseService_PostTblSalesOrderRequestInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTransfer" message="WarehouseService_GetTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTransferResponse" message="WarehouseService_GetTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAsignedWarehousesForTransfer">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetUserAsignedWarehousesForTransfer" message="WarehouseService_GetUserAsignedWarehousesForTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetUserAsignedWarehousesForTransferResponse" message="WarehouseService_GetUserAsignedWarehousesForTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpWarehouseForTransferFrom">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForTransferFrom" message="WarehouseService_GetLookUpWarehouseForTransferFrom_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForTransferFromResponse" message="WarehouseService_GetLookUpWarehouseForTransferFrom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpWarehouseForTransferTo">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForTransferTo" message="WarehouseService_GetLookUpWarehouseForTransferTo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetLookUpWarehouseForTransferToResponse" message="WarehouseService_GetLookUpWarehouseForTransferTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTransferHeader">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTransferHeader" message="WarehouseService_UpdateOrInsertTransferHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTransferHeaderResponse" message="WarehouseService_UpdateOrInsertTransferHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransfer">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTransfer" message="WarehouseService_DeleteTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTransferResponse" message="WarehouseService_DeleteTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetTransferDetail" message="WarehouseService_GetTransferDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetTransferDetailResponse" message="WarehouseService_GetTransferDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTransferDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTransferDetail" message="WarehouseService_UpdateOrInsertTransferDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTransferDetailResponse" message="WarehouseService_UpdateOrInsertTransferDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransferDetail">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTransferDetail" message="WarehouseService_DeleteTransferDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTransferDetailResponse" message="WarehouseService_DeleteTransferDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemDimensionQuantities">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemDimensionQuantities" message="WarehouseService_GetItemDimensionQuantities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemDimensionQuantitiesResponse" message="WarehouseService_GetItemDimensionQuantities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemToQuantities">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetItemToQuantities" message="WarehouseService_GetItemToQuantities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetItemToQuantitiesResponse" message="WarehouseService_GetItemToQuantities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpWarehouse">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetLookUpWarehouse" message="WarehouseService_GetLookUpWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetLookUpWarehouseResponse" message="WarehouseService_GetLookUpWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblWarehouse">
+      <wsdl:input wsaw:Action="urn:WarehouseService/UpdateOrInsertTblWarehouse" message="WarehouseService_UpdateOrInsertTblWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/UpdateOrInsertTblWarehouseResponse" message="WarehouseService_UpdateOrInsertTblWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblWarehouse">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DeleteTblWarehouse" message="WarehouseService_DeleteTblWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DeleteTblWarehouseResponse" message="WarehouseService_DeleteTblWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccWarehouseRows">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetAccWarehouseRows" message="WarehouseService_GetAccWarehouseRows_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetAccWarehouseRowsResponse" message="WarehouseService_GetAccWarehouseRows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInspectionWarehouseRows">
+      <wsdl:input wsaw:Action="urn:WarehouseService/GetInspectionWarehouseRows" message="WarehouseService_GetInspectionWarehouseRows_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/GetInspectionWarehouseRowsResponse" message="WarehouseService_GetInspectionWarehouseRows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:WarehouseService/DoWork" message="WarehouseService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WarehouseService/DoWorkResponse" message="WarehouseService_DoWork_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

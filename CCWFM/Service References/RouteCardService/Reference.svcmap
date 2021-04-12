@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fcef6013-4579-4cd0-b97f-4e90f24dcbc6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/RouteCard/RouteCardService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RouteCardService.xsd" MetadataType="Schema" ID="0e82152e-3106-43d4-b4c7-ee860ba59eb9" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RouteCardService1.xsd" MetadataType="Schema" ID="8b6c7ad1-f85e-4047-909f-32c1a1e6b521" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd6" />
+    <MetadataFile FileName="RouteCardService.wsdl" MetadataType="Wsdl" ID="de6e9e25-d058-4836-ba31-15a0163857eb" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?wsdl" />
+    <MetadataFile FileName="RouteCardService2.xsd" MetadataType="Schema" ID="e06b1fb2-43a0-4308-b8bd-51638f808591" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd4" />
+    <MetadataFile FileName="RouteCardService3.xsd" MetadataType="Schema" ID="a0fa6d07-107f-4032-bddd-bb9bd2da7734" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd5" />
+    <MetadataFile FileName="RouteCardService8.xsd" MetadataType="Schema" ID="8008b486-e9cc-4a54-8a82-e2491ff48ce6" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd8" />
+    <MetadataFile FileName="RouteCardService4.xsd" MetadataType="Schema" ID="4f43a52b-e920-4b69-840b-979f5e381c95" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RouteCardService.disco" MetadataType="Disco" ID="e5527e1f-9d5c-4c08-9312-cb836e28d486" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?disco" />
+    <MetadataFile FileName="RouteCardService7.xsd" MetadataType="Schema" ID="f94f9521-d8fd-4c5d-bd52-8d66a00b87d5" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd7" />
+    <MetadataFile FileName="RouteCardService5.xsd" MetadataType="Schema" ID="4cbafc15-ee48-4f32-970a-6dbd3d76fd5e" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RouteCardService1.wsdl" MetadataType="Wsdl" ID="6a088966-7134-4559-ac8c-01e86961af22" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="RouteCardService6.xsd" MetadataType="Schema" ID="4fd16e68-9a07-498c-9996-2f47474de7b8" SourceId="1" SourceUrl="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

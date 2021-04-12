@@ -1,0 +1,399 @@
+﻿<navigation:Page x:Name="page" x:Class="CCWFM.Views.OGView.TransferView"
+ 		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:dataprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+           xmlns:ext="clr-namespace:CCWFM.Helpers.Extention"
+           xmlns:local="clr-namespace:CCWFM.Views"
+           xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+		   mc:Ignorable="d"
+		   d:DesignWidth="1000" d:DesignHeight="480"
+		   Title="Transfer">
+    <navigation:Page.Resources>
+        <viewModel:TransferViewModel x:Key="ViewModel" />
+        <Style x:Key="DataGridBaseHeaderStyle"    
+           TargetType="dataprimitives:DataGridColumnHeader">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="FromHeaderStyle"   TargetType="dataprimitives:DataGridColumnHeader" BasedOn="{StaticResource DataGridBaseHeaderStyle}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="SeparatorBrush" Value="#FFC9CACA"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="FromRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="#FF1F3B53" Stretch="Fill" Grid.ColumnSpan="2"/>
+                            <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                        <GradientStop Color="#FCFFFFFF" Offset="0.015"/>
+                                        <GradientStop Color="#F7FFFFFF" Offset="0.375"/>
+                                        <GradientStop Color="#E5FFFFFF" Offset="0.6"/>
+                                        <GradientStop Color="#D1FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Row 0 -->
+                                <ContentPresenter Content="From" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="12" />
+                                <!-- Row 1 -->
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="12" />
+                                <!-- Row 2 -->
+                                <ContentPresenter Content="Color Code" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="Size" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="Batch No" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="Available" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
+                                <ContentPresenter Content="Pending" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#FFC9CACA"                            
+                                   VerticalAlignment="Stretch" Width="1" Visibility="Visible"                      
+                                   Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToHeaderStyle"   TargetType="dataprimitives:DataGridColumnHeader"     BasedOn="{StaticResource DataGridBaseHeaderStyle}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="SeparatorBrush" Value="#FFC9CACA"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="ToRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="#FF1F3B53" Stretch="Fill" Grid.ColumnSpan="2"/>
+                            <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                        <GradientStop Color="#FCFFFFFF" Offset="0.015"/>
+                                        <GradientStop Color="#F7FFFFFF" Offset="0.375"/>
+                                        <GradientStop Color="#E5FFFFFF" Offset="0.6"/>
+                                        <GradientStop Color="#D1FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Row 0 -->
+                                <ContentPresenter Content="To" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="12" />
+                                <!-- Row 1 -->
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Height="1" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="12" />
+                                <!-- Row 2 -->
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="1" />
+                                <ContentPresenter Content="Color" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="3" />
+                                <ContentPresenter Content="Size" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="5" />
+                                <ContentPresenter Content="Batch No" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="7" />
+                                <ContentPresenter Content="Available" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <Rectangle Fill="#FFC9CACA" Width="1" Visibility="Visible" Grid.Row="2" Grid.Column="9" />
+                                <ContentPresenter Content="Pending" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="#FFC9CACA"                            
+                                   VerticalAlignment="Stretch" Width="1" Visibility="Visible"                      
+                                   Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource ViewModel}}"
+          Margin="5" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <local:WindowHeader x:Name="Header"
+                            DataContext="{Binding Source={StaticResource ViewModel}}">
+
+        </local:WindowHeader>
+        <Grid Margin="5" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <sdk:Label Content="{Binding WarehouseFrom, Mode=OneWay, Source={StaticResource LocalizedStrings}}" />
+            <ComboBox Grid.Column="1" Margin="5" IsEnabled="{Binding IsHeaderHasDetails, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
+                      ItemsSource="{Binding WarehouseListFrom, Mode=TwoWay}"
+                      SelectedValue="{Binding Path=SelectedMainRow.WarehouseFrom, Mode=TwoWay}" DisplayMemberPath="Ename"                      
+                      SelectedValuePath="Iserial" SelectedItem="{Binding SelectedMainRow.TblWarehouseFrom, Mode=TwoWay}">
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyDown">
+                        <cmd:EventToCommand Command="{Binding Path=SearchComboFrom,Source={StaticResource ViewModel}}" PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            </ComboBox>
+
+            <sdk:Label Content="{Binding WarehouseTo, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Grid.Column="2" />
+            <ComboBox Grid.Column="3" Margin="5" IsEnabled="{Binding IsHeaderHasDetails, Mode=TwoWay,Converter={StaticResource ReversedConverter}}"
+                      ItemsSource="{Binding WarehouseListTo, Mode=TwoWay}"
+                      SelectedValue="{Binding Path=SelectedMainRow.WarehouseTo, Mode=TwoWay}" DisplayMemberPath="Ename"
+                      SelectedValuePath="Iserial" SelectedItem="{Binding SelectedMainRow.TblWarehouseTo, Mode=TwoWay}"/>
+
+            <sdk:Label Content="{Binding Sequence, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Grid.Row="1" />
+            <TextBlock Margin="5" Visibility="{Binding IsFrom, ElementName=page,Converter={StaticResource VisibilityConverter}}"
+                       Text="{Binding SelectedMainRow.CodeFrom, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Margin="5" Visibility="{Binding IsFrom, ConverterParameter=True, Converter={StaticResource VisibilityConverter}, ElementName=page}"
+                Text="{Binding SelectedMainRow.CodeTo, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+            <sdk:Label Content="{Binding Date, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Grid.Row="1" Grid.Column="2" />
+            <sdk:DatePicker Grid.Row="1" Grid.Column="3" Margin="5" SelectedDate="{Binding SelectedMainRow.DocDate, Mode=TwoWay}" IsEnabled="{Binding IsReadOnly, Mode=TwoWay,Converter={StaticResource ReversedConverter}}" />
+
+            <sdk:Label Content="{Binding Notes, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Grid.Row="2" />
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2"
+                     Margin="5,5,190,5" MinHeight="50" IsEnabled="{Binding IsReadOnly, Mode=TwoWay,Converter={StaticResource ReversedConverter}}"
+                     Text="{Binding SelectedMainRow.Notes, Mode=TwoWay}"/>
+            <TextBox ToolTipService.ToolTip="Ref" Text="{Binding Path=ItemDimFromIserial,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                     Grid.Row="2" Grid.Column="3" Width="75" Height="50"
+                     Margin="5,5,110,5" HorizontalAlignment="Right"
+                     ext:FocusExtension.IsFocused="{Binding IsRefFocused, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyDown">
+                        <cmd:EventToCommand Command="{Binding Path=GetDetailItem,Source={StaticResource ViewModel}}" PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+
+            <Button Content="{Binding Approve, Source={StaticResource LocalizedStrings}}" Grid.Row="2" Grid.RowSpan="2"
+                    Grid.Column="3" MaxWidth="100" Margin="5" HorizontalAlignment="Right" Width="100" Command="{Binding Path=ApproveTransfer, Mode=TwoWay}"/>
+        </Grid>
+        <dataGrid:OsGrid Grid.Row="2" VerticalAlignment="Stretch" Margin="5" ItemsSource="{Binding SelectedMainRow.TblTransferDetails, Mode=TwoWay}"
+                         ColumnWidth="*" IsReadOnly="{Binding IsReadOnly, Mode=TwoWay}" SelectedItem="{Binding SelectedDetailRow, Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="KeyDown">
+                    <cmd:EventToCommand Command="{Binding DeleteTransferDetail}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <cmd:EventToCommand Command="{Binding DetailSelectionChanged}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <dataGrid:OsGrid.Columns>
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" dataGrid:DataGridColumnHelper.HeaderBinding=
+                                            "{Binding Search, Source={StaticResource LocalizedStrings}}" Width="Auto">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button ToolTipService.ToolTip="Search" Cursor="Hand"  IsEnabled="{Binding IsReadOnly, Source={StaticResource ViewModel}, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
+                                    Command="{Binding Path=OpenItemSearch, Source={StaticResource ViewModel}}">
+                                <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" Binding="{Binding Path=ItemTransfer.ItemCode, Mode=TwoWay}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding Code, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader"/>
+                <sdk:DataGridTextColumn  HeaderStyle="{StaticResource DataGridBaseHeaderStyle}"  Binding="{Binding Path=ItemTransfer.ItemName, Mode=TwoWay}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding ItemName, Source={StaticResource LocalizedStrings}}" Width="*"/>
+                <!--NewFPSearchColumns-->
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" dataGrid:DataGridColumnHelper.HeaderBinding=
+                                            "{Binding Search, Source={StaticResource LocalizedStrings}}" Width="Auto">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button ToolTipService.ToolTip="Search" Cursor="Hand"  IsEnabled="{Binding IsReadOnly, Source={StaticResource ViewModel}, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
+                                    Command="{Binding Path=OpenFPItemSearch, Source={StaticResource ViewModel}}">
+                                <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}" 
+                                        Binding="{Binding ItemFPName, Mode=TwoWay}"
+                                        Header="FP Code"/>
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}"  
+                                        Binding="{Binding ItemFPCode, Mode=TwoWay}"
+                                        Header="FP Name" Width="*"/>
+                <!--********-->
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource FromHeaderStyle}" Width="3*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Text="{Binding Path=ItemTransfer.ColorFromCode, Mode=TwoWay}" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="1" />
+                                <TextBox Text="{Binding Path=ItemTransfer.ColorFrom.Ename, Mode=TwoWay}" IsReadOnly="True" Grid.Column="2"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="3" />
+                                <TextBox Text="{Binding Path=ItemTransfer.SizeFrom, Mode=TwoWay}" Grid.Column="4" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="5" />
+                                <TextBox Text="{Binding Path=ItemTransfer.BatchNoFrom, Mode=TwoWay}" Grid.Column="6" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="7" />
+                                <TextBox Text="{Binding Path=ItemTransfer.AvailableQuantity, Mode=TwoWay}" Grid.Column="8" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="9" />
+                                <TextBox Text="{Binding Path=ItemTransfer.PendingQuantity, Mode=TwoWay}" Grid.Column="10" IsReadOnly="True"/>
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource ToHeaderStyle}" Width="3*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="75*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Text="{Binding Path=ItemTransfer.ColorPerRow.Code, Mode=TwoWay}" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="1" />
+                                <TextBox Text="{Binding Path=ItemTransfer.ColorPerRow.Ename, Mode=TwoWay}" IsReadOnly="True" Grid.Column="2"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="3" />
+                                <TextBox Text="{Binding Path=ItemTransfer.SizeTo, Mode=TwoWay}" Grid.Column="4" IsEnabled="{Binding Path=ItemTransfer.IsAcc}" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="5" />
+                                <TextBox Text="{Binding Path=ItemTransfer.BatchNoTo, Mode=TwoWay}" Margin="2,0,0,0" Grid.Column="6"
+                                         IsEnabled="{Binding Path=ItemTransfer.IsAcc, Converter={StaticResource ReversedConverter}}" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="7" />
+                                <TextBox Text="{Binding Path=ItemTransfer.AvailableToQuantity, Mode=TwoWay}" Margin="2,0,0,0" Grid.Column="8" IsReadOnly="True"/>
+                                <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="9" />
+                                <TextBox Text="{Binding Path=ItemTransfer.PendingToQuantity, Mode=TwoWay}" Margin="2,0,0,0" Grid.Column="10" IsReadOnly="True"/>
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridBaseHeaderStyle}"
+                                         dataGrid:DataGridColumnHelper.HeaderBinding=
+                                         "{Binding Transferred, Source={StaticResource LocalizedStrings}}" Width="SizeToHeader" IsReadOnly="False">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Path=Quantity, Mode=TwoWay}" 
+                                     IsReadOnly="{Binding IsReadOnly, Source={StaticResource ViewModel}, Mode=TwoWay}"                                     
+                                     ext:FocusExtension.IsFocused="{Binding IsQuantityFocused, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <cmd:EventToCommand Command="{Binding Path=ReturnToBarcode,Source={StaticResource ViewModel}}" PassEventArgsToCommand="True"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </dataGrid:OsGrid.Columns>
+        </dataGrid:OsGrid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" >
+            <TextBlock Text="Total : " VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Width="150" Text="{Binding Total}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <!--<Grid Grid.Row="4" Margin="200,0,0,0">
+            <Popup x:Name="MyPopup" IsOpen="False" Margin="0,0" Height="300" VerticalAlignment="Center">
+                <Border CornerRadius="0"  BorderThickness="2" BorderBrush="Black">
+                    <StackPanel  Orientation="Vertical" Margin="0,0,0,10" Height="148" Width="538">
+                        <StackPanel  Orientation="Horizontal">
+                            <sdk:Label Content="{Binding Source={StaticResource LocalizedStrings}, Path=ItemID}" Margin="5" Grid.Column="2"/>
+                            <search:SearchFabricAcc Grid.Column="3"
+                                SearchPerRow="{Binding ItemPerRow, Mode=TwoWay}" Margin="12,6,23,4" Grid.ColumnSpan="3" Width="167"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal">
+                            <sdk:Label Content="{Binding Source={StaticResource LocalizedStrings}, Path=Color}" Margin="10,20,15,10" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.473,0.307"/>
+                            <ComboBox Margin="10,10,25,0"
+                  VerticalAlignment="Center" DisplayMemberPath="Code"
+                  ItemsSource="{Binding SelectedItemFPRow.ItemPerRow.AccConfigList, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedItemFPRow.ColorPerRow, Mode=TwoWay}"
+                  SelectedValuePath="Iserial" Height="34" Width="175"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="6" HorizontalAlignment="Left" Width="256" Margin="0,15,0,-25" >
+                            <Button Content="OK" Width="75" Height="23" HorizontalAlignment="Right" Margin="5" x:Name="btnItemFPOK" Click="btnItemFPOK_Click"/>
+                            <Button Content="Cancel" Width="75" Height="23" HorizontalAlignment="Right" Margin="5" x:Name="btnItemFPCancel" Click="btnItemFPCancel_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>-->
+    </Grid>
+</navigation:Page>

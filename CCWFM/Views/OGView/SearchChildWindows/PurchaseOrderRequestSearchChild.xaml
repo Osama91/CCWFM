@@ -1,0 +1,37 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.SearchChildWindows.PurchaseOrderRequestSearchChild"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+           xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride">  
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dataGrid:OsGrid IsReadOnly="True" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}" ItemsSource="{Binding MainRowList,Mode=TwoWay}" OnFilter="DgResults_OnOnFilter"  LoadingRow="DgResults_OnLoadingRow"
+                         x:Name="DgResults" AutoGenerateColumns="False" TabNavigation="Cycle" ClipboardCopyMode="IncludeHeader" SelectionMode="Single">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Binding="{Binding Code}" SortMemberPath="Code"/>
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Binding="{Binding Vendor}" SortMemberPath="Vendor"/>
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Binding="{Binding VendorPerRow.vendor_ename}" SortMemberPath="Vendor"/>
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding WareHouse, Source={StaticResource LocalizedStrings}}" Binding="{Binding WarehousePerRow.Ename}" SortMemberPath="TblWarehouse1.Ename"/>
+                
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransDate, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=TransDate, StringFormat=\{0:d\}}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ShippingDate, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=ShippingDate, StringFormat=\{0:d\}}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=DeliveryDate, StringFormat=\{0:d\}}" />
+                <sdk:DataGridCheckBoxColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Approved, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Status}" />
+                <sdk:DataGridCheckBoxColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PendingInvoice, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=PendingInvoice,Mode=TwoWay}" />
+
+                <sdk:DataGridCheckBoxColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PendingReceive, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=PendingReceive,Mode=TwoWay}" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="Ax Purchase" Binding="{Binding AxPurchase}" SortMemberPath="AxPurchase"/>
+
+
+            </sdk:DataGrid.Columns>
+        </dataGrid:OsGrid>       
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding ElementName=DgResults,Path=SelectedItem
+            ,Converter={StaticResource NullToBoolConverted},ConverterParameter=True}"
+                Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right"
+                Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

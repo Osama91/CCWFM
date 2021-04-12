@@ -1,0 +1,14 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.StyleTNAChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:converters="clr-namespace:CCWFM.Helpers.Converters"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+									   xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+									   Height="600"
+		   Title="Style TNA ChildWindow">
+	<controlsOverride:ChildWindowsOverride.Resources>
+		<converters:ByteToImageConverter x:Name="BinaryConverter" />
+		<converters:ReversedBoolConverter x:Name="ReversedConverter"/>				
+	</controlsOverride:ChildWindowsOverride.Resources>
+	
+</controlsOverride:ChildWindowsOverride>

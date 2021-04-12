@@ -1,0 +1,99 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.GlGenEntity" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:gl="clr-namespace:CCWFM.ViewModel.Gl"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="GlGenEntity">
+	<navigation:Page.Resources>
+		<gl:GlGenEntityViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="70" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Vertical">
+		<StackPanel Height="40" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+				<Button Name="BtnExportExcel"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="ExportExcel_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+					<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+				</Button>
+			</StackPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="150"></ColumnDefinition>
+					<ColumnDefinition Width="150"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+			
+			<TextBlock Text="{Binding JournalAccountType, Source={StaticResource LocalizedStrings}}"></TextBlock>
+			<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial" Grid.Column="1"
+									  ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+										SelectionChanged="Selector_OnSelectionChanged"
+									  SelectedItem="{Binding MainJournalAccoutType,Mode=TwoWay}" />
+</Grid>
+		</StackPanel>
+		<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   Grid.Row="1" Margin="10,10,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter" GotFocus="MainGrid_OnGotFocus"
+				   SelectionChanged="MainGrid_SelectionChanged" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">
+			<dataGrid:OsGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+			</dataGrid:OsGrid.Columns>		
+		</dataGrid:OsGrid>
+
+		<dataGrid:OsGrid AutoGenerateColumns="False"   HorizontalAlignment="Left" SelectionMode="Extended"
+				   x:Name="DetailGrid" 
+				   Grid.Row="2" Height="200" FilteredItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+				   ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}" Margin="10,0,10,0"
+				   KeyUp="DetailGrid_KeyUp" OnFilter="DetailGrid_OnFilter"
+				   SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" LoadingRow="DetailGrid_LoadingRow"
+						 SelectionChanged="DetailGrid_OnSelectionChanged" GotFocus="MainGrid_OnGotFocus"
+				   RowEditEnded="DetailGrid_RowEditEnded">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+
+			</sdk:DataGrid.Columns>		
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

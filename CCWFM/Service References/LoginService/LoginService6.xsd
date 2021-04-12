@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfNewUserRequests">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewUserRequests" nillable="true" type="tns:NewUserRequests" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewUserRequests" nillable="true" type="tns:ArrayOfNewUserRequests" />
+  <xs:complexType name="NewUserRequests">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApproveDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Approved" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRetailPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSalesPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LikeUserCompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LikeUserCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LikeUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LikeUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewUserCompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewUserCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rejected" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserCreateRequestID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCreateRequestName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewUserRequests" nillable="true" type="tns:NewUserRequests" />
+</xs:schema>

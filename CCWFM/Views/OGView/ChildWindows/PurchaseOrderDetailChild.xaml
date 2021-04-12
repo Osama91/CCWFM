@@ -1,0 +1,206 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.ChildWindows.PurchaseOrderDetailChild"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   xmlns:search="clr-namespace:CCWFM.UserControls.Search">  
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<sdk:TabControl x:Name="TaPurchase" Grid.Row="0">
+			<sdk:TabItem Header="Purchase Details">
+				<StackPanel Orientation="Vertical" Grid.Row="0">
+		<dataGrid:OsGrid  VerticalAlignment="Top" AutoGenerateColumns="False" 
+					  SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" Height="600"
+					   ItemsSource="{Binding SelectedPurchaseRow.DetailsList}"  BeginningEdit="DetailGrid_OnBeginningEdit"
+					  FilteredItemsSource="{Binding SelectedPurchaseRow.DetailsList}" OnFilter="DgResults_OnOnFilter" LoadingRow="DgResults_OnLoadingRow"
+					  HorizontalAlignment="left" Name="DetailGrid" KeyUp="DgResults_OnKeyUp" RowEditEnded="DetailGrid_OnRowEditEnded">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn SortMemberPath="ItemId"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Item, Source={StaticResource LocalizedStrings}}"  Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+                                        <TextBlock Foreground="{Binding Foreground,Mode=TwoWay}"  Text="{Binding ItemId,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn SortMemberPath="ItemType" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ItemType, Source={StaticResource LocalizedStrings}}" IsReadOnly="True" Binding="{Binding Path=ItemType,Mode=TwoWay}" Width="*" />
+				<sdk:DataGridTextColumn SortMemberPath="Unit" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Unit, Source={StaticResource LocalizedStrings}}" IsReadOnly="True"  Binding="{Binding Path=Unit,Mode=TwoWay}" Width="*" />
+				<sdk:DataGridTemplateColumn SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock HorizontalAlignment="Stretch" Text="{Binding ColorPerRow.Code,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<search:SearchColor HorizontalAlignment="Stretch"
+												Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"  SearchPerRow="{Binding ColorPerRow,Mode=TwoWay}">
+								</search:SearchColor>
+								<ComboBox Height="23" HorizontalAlignment="Stretch" FontSize="8"
+										   Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter}}"
+																	   VerticalAlignment="Center"
+																	  DisplayMemberPath="Code"
+																	  ItemsSource="{Binding Path=ItemPerRow.AccConfigList,Mode=TwoWay}"
+																	  SelectedValue="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedItem="{Binding ColorPerRow,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial"></ComboBox>
+							</StackPanel>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+
+							<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BatchNo, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=BatchNo, Mode=TwoWay}" Width="*" />
+							<sdk:DataGridTemplateColumn SortMemberPath="AccSize"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock HorizontalAlignment="Stretch" Text="{Binding AccSize,Mode=TwoWay}"></TextBlock>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding AccSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Qty, Mode=TwoWay, StringFormat=\{0:N\}}" Width="*" />
+				<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Price, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Price,Mode=TwoWay,StringFormat=\{0:N\}}" Width="*" />
+                            <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BasicPrice, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=BasicPrice,Mode=TwoWay,StringFormat=\{0:N\}}" Width="*" />
+                            <sdk:DataGridTemplateColumn SortMemberPath="AccSize"  dataGrid:DataGridColumnHelper.HeaderBinding="PurchaseLink" Width="*">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Button Content="PurchaseLink" Name="BtnLink" Click="BtnLink_OnClick"></Button>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding AccSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+			</sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>
+
+			<dataGrid:OsGrid  VerticalAlignment="Top" AutoGenerateColumns="False" 
+					  SelectedItem="{Binding SelectedDetail2Row,Mode=TwoWay}" Height="600"
+					   ItemsSource="{Binding SelectedPurchase2Row.DetailsList}"  
+					  FilteredItemsSource="{Binding SelectedPurchase2Row.DetailsList}" OnFilter="DgResults_OnOnFilter" LoadingRow="DgResults_OnLoadingRow"
+					  HorizontalAlignment="left" Name="DetailGrid2" KeyUp="DgResults_OnKeyUp" RowEditEnded="DetailGrid_OnRowEditEnded">
+				<sdk:DataGrid.Columns>
+					<sdk:DataGridTemplateColumn SortMemberPath="ItemId"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Item, Source={StaticResource LocalizedStrings}}"  Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+                                        <TextBlock Foreground="{Binding Foreground,Mode=TwoWay}" Text="{Binding ItemId,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTextColumn SortMemberPath="ItemType" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ItemType, Source={StaticResource LocalizedStrings}}" IsReadOnly="True" Binding="{Binding Path=ItemType,Mode=TwoWay}" Width="*" />
+					<sdk:DataGridTextColumn SortMemberPath="Unit" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Unit, Source={StaticResource LocalizedStrings}}" IsReadOnly="True"  Binding="{Binding Path=Unit,Mode=TwoWay}" Width="*" />
+					<sdk:DataGridTemplateColumn SortMemberPath="TblColor"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock HorizontalAlignment="Stretch" Text="{Binding ColorPerRow.Code,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<search:SearchColor HorizontalAlignment="Stretch"
+												Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter},ConverterParameter=True}"  SearchPerRow="{Binding ColorPerRow,Mode=TwoWay}">
+									</search:SearchColor>
+									<ComboBox Height="23" HorizontalAlignment="Stretch" FontSize="8"
+										   Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter}}"
+																	   VerticalAlignment="Center"
+																	  DisplayMemberPath="Code"
+																	  ItemsSource="{Binding Path=ItemPerRow.AccConfigList,Mode=TwoWay}"
+																	  SelectedValue="{Binding TblColor,Mode=TwoWay}"
+																	  SelectedItem="{Binding ColorPerRow,Mode=TwoWay}"
+																	  SelectedValuePath="Iserial"></ComboBox>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+
+					<sdk:DataGridTemplateColumn SortMemberPath="AccSize"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock HorizontalAlignment="Stretch" Text="{Binding AccSize,Mode=TwoWay}"></TextBlock>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding AccSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Qty, Mode=TwoWay, StringFormat=\{0:N\}}" Width="*" />
+					<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Price, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Price,Mode=TwoWay,StringFormat=\{0:N\}}" Width="*" />
+							<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BasicPrice, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=BasicPrice,Mode=TwoWay,StringFormat=\{0:N\}}" Width="*" />
+
+							<sdk:DataGridTemplateColumn SortMemberPath="AccSize"  dataGrid:DataGridColumnHelper.HeaderBinding="PurchaseLink" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<Button Content="PurchaseLink" Name="BtnLink" Click="BtnLink_OnClick"></Button>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox FontSize="8" Height="23" Margin="3"
+																	  HorizontalAlignment="Stretch"
+																	  VerticalAlignment="Stretch"
+																	  ItemsSource="{Binding Path=ItemPerRow.SizesList,Mode=TwoWay}"
+																	  SelectedValue="{Binding AccSize,
+																							  Mode=TwoWay}"
+																	  Visibility="{Binding IsAcc,
+																						   Converter={StaticResource VisibilityConverter}}" />
+
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+				</sdk:DataGrid.Columns>
+			</dataGrid:OsGrid>
+		</StackPanel>
+				</sdk:TabItem>
+
+	
+		</sdk:TabControl>
+	
+		<Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+	  
+	</Grid>
+</controlsOverride:ChildWindowsOverride>

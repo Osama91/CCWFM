@@ -1,0 +1,173 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.StyleTNAColor"
+                                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                       xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                                       xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                                       xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                                       Title="Colors">    
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+                    <GradientStop Color="#FFC6ECFE" />
+                    <GradientStop Offset=".01" Color="#FF003FFF" />
+                    <GradientStop Offset="0.3" Color="#ff02fdce" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Name="BtnAddNewMainRow"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="BtnAddNewMainRow_Click"
+                    Cursor="Hand"
+                    ToolTipService.ToolTip="Add">
+                <Image Width="30"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Source="/CCWFM;component/Images/1371054818_New_File.png"
+                       Stretch="Uniform" />
+            </Button>
+            <Button x:Name="BtnTnaApprovals"  Content="Status"
+													HorizontalAlignment="Stretch"
+													 Visibility="{Binding SelectedTnaRow.Iserial,Converter={StaticResource VisibilityConverter}}"
+													VerticalAlignment="Stretch"
+													Click="BtnTnaApprovals_OnClick">
+
+            </Button>
+
+        </StackPanel>
+        <dataGrid:OsGrid Name="SalesOrderColorsGrid"
+                      Grid.Row="1"
+                      MaxHeight="300"
+                      Margin="10,36,10,0"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Top"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding SelectedTnaRow.StyleTNAColorDetailList,
+                                            Mode=TwoWay}"
+                      KeyUp="SalesOrderColorsGrid_OnKeyUp"                
+                      RowHeight="60" 
+                      SelectedItem="{Binding SelectedStyleTNAColorDetailRow,
+                                             Mode=TwoWay}"
+                      SelectionMode="Extended">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="TblColor"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Text="{Binding ColorPerRow.Code}" />
+                                <TextBlock VerticalAlignment="Center" Text="-" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding ColorPerRow.Ename}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+															SortMemberPath="DeliveryDate"															
+															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DeliveryDate,
+																												  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=DeliveryDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <sdk:DatePicker SelectedDate="{Binding Path=DeliveryDate, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=Cost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTextColumn Width="SizeToHeader" SortMemberPath="FabricCost" Binding="{Binding FabricCost,Mode=TwoWay}"
+														dataGrid:DataGridColumnHelper.HeaderBinding="FabricCost" />
+                <sdk:DataGridTextColumn Width="SizeToHeader" SortMemberPath="AccCost" Binding="{Binding AccCost,Mode=TwoWay}"
+														dataGrid:DataGridColumnHelper.HeaderBinding="AccCost" />
+                <sdk:DataGridTextColumn Width="SizeToHeader" SortMemberPath="OperationCost" Binding="{Binding OperationCost,Mode=TwoWay}"
+														dataGrid:DataGridColumnHelper.HeaderBinding="OperationCost" />
+
+                <sdk:DataGridTemplateColumn CanUserSort="False"
+                                            SortMemberPath="Cost"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency,
+                                                                   
+                    Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding CurrencyPerRow.Ename}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Width="160"
+                                      Height="23"
+                                      Margin="3"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      DisplayMemberPath="Code"
+                                      ItemsSource="{Binding Path=DataContext.CurrencyList,
+                                                            RelativeSource={RelativeSource FindAncestor,
+                                                                                           AncestorType=sdk:ChildWindow,
+                                                                                           AncestorLevel=1}}"
+                                      SelectedItem="{Binding CurrencyPerRow,
+                                                             Mode=TwoWay}"
+                                      SelectedValue="{Binding TblCurrency,
+                                                              Mode=TwoWay}"
+                                      SelectedValuePath="Iserial">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=ExchangeRate,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ExchRate,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=LocalCost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding localCost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=AdditionalCost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding AdditionalCost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=Qty,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+            </sdk:DataGrid.Columns>
+            
+            </dataGrid:OsGrid>
+   
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

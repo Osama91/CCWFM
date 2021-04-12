@@ -1,0 +1,102 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="CCWFM.Views.OGView.BrandStoreTarget"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   d:DesignWidth="1000" d:DesignHeight="520"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+				 xmlns:ogViewModels="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+				 Title="BrandStoreTarget Page">
+	<navigation:Page.Resources>
+		<ogViewModels:BrandStoreTargetViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+<RowDefinition Height="50" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Button Name="BtnExportExcel"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Stretch"
+					Click="ExportExcel_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+			<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+		</Button>
+
+		<Grid Grid.Row="1" Margin="0,0,0,0" DataContext="{Binding TransactionHeader,Mode=TwoWay}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width=".7*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=Year, Source={StaticResource LocalizedStrings}}" Grid.Row="0" />
+			<ComboBox   HorizontalAlignment="Stretch"  ItemsSource="{Binding Path=DataContext.YearList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+						SelectedValue="{Binding Year,Mode=TwoWay}" 
+						Grid.Row="0" Grid.Column="1" />
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"  MinHeight="30" Text="{Binding Path=Brand, Source={StaticResource LocalizedStrings}}"  Grid.Row="0"
+					   Grid.Column="2" />
+			<search:SearchItemDownloadDef Grid.Row="0" Grid.Column="3" SearchPerRow="{Binding ItemDownloadDefPerRow,Mode=TwoWay}" ></search:SearchItemDownloadDef>
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"   Text="{Binding Path=Month, Source={StaticResource LocalizedStrings}}"  Grid.Row="1"
+					   Grid.Column="0" />
+			<TextBox  Text="{Binding Month,Mode=TwoWay}"
+					 HorizontalAlignment="Stretch" MinHeight="30" Grid.Column="1"  Grid.Row="1" />
+			<TextBlock TextAlignment="Right" Margin="0,0,5,0"   Text="{Binding Path=TransactionID, Source={StaticResource LocalizedStrings}}"  Grid.Row="1"
+					   Grid.Column="2" />
+			<TextBlock Name="TxtIserial" Text="{Binding Glserial,Mode=TwoWay}"
+					 HorizontalAlignment="Stretch" MinHeight="30" Grid.Column="3"  Grid.Row="1" />
+		</Grid>
+		<StackPanel  Orientation="Vertical" Margin="5" Grid.Row="2"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+			<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding TransactionHeader.MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding TransactionHeader.MainRowList,Mode=TwoWay}"
+							 Margin="10,0,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="340" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   
+				   RowEditEnded="MainGrid_RowEditEnded">
+				<dataGrid:OsGrid.Columns>
+					<sdk:DataGridTemplateColumn Width="*"
+											SortMemberPath="StorePerRow.Code"
+												utilities:GlobalMethods.PathForExport="StorePerRow.Code"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Store,
+																								  Source={StaticResource LocalizedStrings}}">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Width="30" Text="{Binding StorePerRow.Code,Mode=TwoWay}"></TextBlock>
+									<TextBlock Width="250" Text="{Binding StorePerRow.Ename,Mode=TwoWay}"></TextBlock>
+								</StackPanel>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTextColumn Binding="{Binding Amount,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Amount, Source={StaticResource LocalizedStrings}}" Width="*" />
+					<sdk:DataGridTextColumn Binding="{Binding Qty,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Width="*" />
+				</dataGrid:OsGrid.Columns>
+			</dataGrid:OsGrid>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Total Amount :"></TextBlock>
+				<TextBlock Text="{Binding TransactionHeader.TotalAmount}"></TextBlock>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Total Qty :"></TextBlock>
+				<TextBlock Text="{Binding TransactionHeader.TotalQty}"></TextBlock>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</navigation:Page>

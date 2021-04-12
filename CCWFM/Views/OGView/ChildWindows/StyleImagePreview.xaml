@@ -1,0 +1,14 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.StyleImagePreview" 
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		   xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+		   xmlns:converters="clr-namespace:CCWFM.Helpers.Converters"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   Width="973.792" Height="705.585"
+		   Title="Images">
+    <Image x:Name="imgStyle"
+					Grid.Row="1"
+					Stretch="Fill">
+    </Image>
+</controlsOverride:ChildWindowsOverride>

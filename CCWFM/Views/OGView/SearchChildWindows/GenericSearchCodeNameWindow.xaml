@@ -1,0 +1,40 @@
+﻿<controlsOverride:ChildWindowsOverride x:Name="childWindowsOverride"
+    x:Class="CCWFM.Views.OGView.SearchChildWindows.GenericSearchCodeNameWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.GenericViewModels"
+    xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:globalExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders"
+    mc:Ignorable="d" Title="{Binding Title}"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <dataGrid:OsGrid IsReadOnly="True" x:Name="MainGrid" FilteredItemsSource="{Binding FilteredItemsList, Mode=TwoWay}"
+                         ItemsSource="{Binding ItemsList, Mode=TwoWay}" SelectionMode="Single"
+                         Margin="10" HorizontalContentAlignment="Stretch" AllowDrop="True"
+                         SelectedItem="{Binding SelectedRow, Mode=TwoWay}"
+                         VerticalAlignment="Stretch" LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter">
+
+            <i:Interaction.Behaviors>
+                <globalExtenders:DoubleClickBehavior DoubleClick="DoubleClickBehavior_DoubleClick" />
+            </i:Interaction.Behaviors>
+            <dataGrid:OsGrid.Columns>
+
+            </dataGrid:OsGrid.Columns>
+        </dataGrid:OsGrid>
+        <Button x:Name="OkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+                IsEnabled="{Binding SelectedItem, ConverterParameter=True, Converter={StaticResource NullToBoolConverted}, ElementName=MainGrid}"
+			    Width="75" Height="25" HorizontalAlignment="Right" Margin="10" Grid.Row="1"
+                Command="{Binding OkCommand}" CommandParameter="{Binding ElementName=childWindowsOverride}"/>
+    </Grid>
+
+</controlsOverride:ChildWindowsOverride>

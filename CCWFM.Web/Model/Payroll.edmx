@@ -1,0 +1,2434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="TblAttendanceFile">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Manual" Type="bit" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="OrginalToTime" Type="int" />
+          <Property Name="OrginalFromTime" Type="int" />
+          <Property Name="OrgToTime" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ApprovedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblCalendar">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OverNightShift" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblDeletedEmpFromCalc">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmployee">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Altnum" Type="nvarchar" MaxLength="20" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="EmpIdentNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReqAttention" Type="nvarchar" MaxLength="255" />
+          <Property Name="DeceasedDate" Type="date" />
+          <Property Name="OutLookUserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="TblEducation" Type="int" />
+          <Property Name="TblTitle" Type="int" />
+          <Property Name="TblGender" Type="int" />
+          <Property Name="TblEmployeeStatus" Type="int" />
+          <Property Name="TblMilitaryStatus" Type="int" />
+          <Property Name="TblReligion" Type="int" />
+          <Property Name="TblContractType" Type="int" />
+          <Property Name="TblMaritalStatus" Type="int" />
+          <Property Name="TblCitizenShip" Type="int" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblPosition" Type="int" />
+          <Property Name="TblJob" Type="int" />
+          <Property Name="TblTestPeriodUnit" Type="int" />
+          <Property Name="WorkingHours" Type="float" />
+          <Property Name="Days" Type="float" Nullable="false" />
+          <Property Name="HoursDay" Type="float" />
+          <Property Name="NoAttendance" Type="bit" Nullable="false" />
+          <Property Name="MilitaryStart" Type="date" />
+          <Property Name="MilitaryEnd" Type="date" />
+          <Property Name="TestPeriodS" Type="int" />
+          <Property Name="IdExpiryDate" Type="date" />
+          <Property Name="IdIssueDate" Type="date" />
+          <Property Name="AdjustedStartDate" Type="date" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="LastDateWorked" Type="date" />
+          <Property Name="TerminationDate" Type="date" />
+          <Property Name="InsuraneStart" Type="date" />
+          <Property Name="BankAcCountId" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpImage" Type="image" />
+          <Property Name="TblDepartment" Type="int" />
+          <Property Name="TblOrganization" Type="int" />
+          <Property Name="TblOrganizationUnit" Type="int" />
+          <Property Name="Manager" Type="int" />
+          <Property Name="AttOperator" Type="int" />
+          <Property Name="HourlyAttendance" Type="bit" />
+          <Property Name="RETAILCOMPANYREF" Type="nvarchar" MaxLength="50" />
+          <Property Name="RETAILSTORECODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblInsuranceOffice" Type="int" Nullable="false" />
+          <Property Name="InsuranceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BRCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblTransportationLine" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="TblCalendar" Type="int" />
+          <Property Name="FlexibleHours" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmployeeCalendar">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="TblCalendar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmployeeCalendarsDeviation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="TblCalendar" Type="int" Nullable="false" />
+          <Property Name="TblCalendarNew" Type="int" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmployeeVacation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblVacation" Type="int" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="VacationDays" Type="int" Nullable="false" />
+          <Property Name="Consumed" Type="int" Nullable="false" />
+          <Property Name="Remaining" Type="int" Nullable="false" />
+          <Property Name="TblPeriod" Type="int" />
+        </EntityType>
+        <EntityType Name="TblExcuse">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblExcuseTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblExcuse" Type="int" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Counter" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblMission">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblMissionTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="TblMission" Type="int" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblOrganization">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblOrganizationGroup" Type="int" />
+          <Property Name="DbName" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TblOrganizationGroup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblPeriod" Type="int" />
+        </EntityType>
+        <EntityType Name="TblOrganizationUnit">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblOrganization" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblPeriod" Type="int" />
+          <Property Name="TblSalaryTermGroup" Type="int" />
+        </EntityType>
+        <EntityType Name="TblPayslip">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="TblSalaryTerm" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="TblTermType" Type="int" Nullable="false" />
+          <Property Name="TblPeriodLine" Type="int" Nullable="false" />
+          <Property Name="TblPayslipLineType" Type="int" Nullable="false" />
+          <Property Name="ConstInsurane" Type="float" Nullable="false" />
+          <Property Name="VarInsurane" Type="float" Nullable="false" />
+          <Property Name="ConstInsuraneComp" Type="float" Nullable="false" />
+          <Property Name="VARInsuraneComp" Type="float" Nullable="false" />
+          <Property Name="TblTermMethod" Type="int" Nullable="false" />
+          <Property Name="TblCurrency" Type="int" Nullable="false" />
+          <Property Name="TblOrganizationUnit" Type="int" Nullable="false" />
+          <Property Name="OldAmount" Type="float" />
+        </EntityType>
+        <EntityType Name="TblPayslipHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblPeriodLine" Type="int" Nullable="false" />
+          <Property Name="TblCompany" Type="int" Nullable="false" />
+          <Property Name="TblOrganizationUnit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblPeriod">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeriodUnit" Type="int" Nullable="false" />
+          <Property Name="Taxes" Type="bit" Nullable="false" />
+          <Property Name="Insurane" Type="bit" Nullable="false" />
+          <Property Name="AttModificationLimit" Type="int" />
+        </EntityType>
+        <EntityType Name="TblPeriodLine">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblPeriod" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="PayrollCalculated" Type="bit" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="AttCalculated" Type="bit" />
+          <Property Name="Due" Type="bit" Nullable="false" />
+          <Property Name="LineNumber" Type="int" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsCalcprocess" Type="bit" />
+          <Property Name="CalcUser" Type="int" />
+        </EntityType>
+        <EntityType Name="TblSalaryTerm">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblSalaryTermGroup" Type="int" Nullable="false" />
+          <Property Name="TblPenaltyTrigger" Type="int" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="TermType" Type="int" Nullable="false" />
+          <Property Name="TermMethod" Type="int" Nullable="false" />
+          <Property Name="TaxCalculated" Type="bit" Nullable="false" />
+          <Property Name="InsuraneIncluded" Type="bit" Nullable="false" />
+          <Property Name="InsuraneType" Type="int" Nullable="false" />
+          <Property Name="hidden" Type="bit" Nullable="false" />
+          <Property Name="LedgerAccount" Type="nvarchar" MaxLength="20" />
+          <Property Name="DisplayIndex" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblVacations">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="IncludeOfficialVacations" Type="bit" Nullable="false" />
+          <Property Name="VacationDays" Type="int" />
+          <Property Name="PeriodID" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TblVacationTrans">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Days" Type="int" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" Nullable="false" />
+          <Property Name="TblVacation" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblVariableTermManual">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblEmployee" Type="int" />
+          <Property Name="TblPeriodLine" Type="int" />
+          <Property Name="TblAttendaceFile" Type="int" />
+          <Property Name="TblSalaryTerm" Type="int" />
+          <Property Name="TblPenalty" Type="int" />
+          <Property Name="TblReason" Type="int" />
+          <Property Name="TblCalculated" Type="int" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="Hours" Type="float" />
+          <Property Name="TransDate" Type="date" />
+          <Property Name="AmountCUR" Type="float" />
+          <Property Name="FromAtt" Type="bit" />
+          <Property Name="ExcuseTransRECId" Type="int" />
+          <Property Name="AttType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AttHours" Type="float" />
+          <Property Name="OldAmount" Type="float" />
+        </EntityType>
+        <EntityType Name="TblWorkCalendarDateLine">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="ToTime" Type="int" Nullable="false" />
+          <Property Name="FromTime" Type="int" Nullable="false" />
+          <Property Name="TblCalendar" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TblAttendaceFile_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1" />
+          <End Role="TblAttendanceFile" Type="Self.TblAttendanceFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAttendanceFile">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblCalendar">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="0..1" />
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="0..1" />
+          <End Role="TblEmployee1" Type="Self.TblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee1">
+              <PropertyRef Name="Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblEmployee1">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="0..1" />
+          <End Role="TblEmployee1" Type="Self.TblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee1">
+              <PropertyRef Name="AttOperator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblOrganization">
+          <End Role="TblOrganization" Type="Self.TblOrganization" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganization">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee">
+              <PropertyRef Name="TblOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendar_TblCalendar">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeCalendar" Type="Self.TblEmployeeCalendar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendar">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendar_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeCalendar" Type="Self.TblEmployeeCalendar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendar">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblCalendar">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeCalendarsDeviation" Type="Self.TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblCalendar1">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="1" />
+          <End Role="TblEmployeeCalendarsDeviation" Type="Self.TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblCalendarNew" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeCalendarsDeviation" Type="Self.TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeVacation_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployeeVacation" Type="Self.TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeVacation_TblPeriod">
+          <End Role="TblPeriod" Type="Self.TblPeriod" Multiplicity="0..1" />
+          <End Role="TblEmployeeVacation" Type="Self.TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeVacation_TblVacations">
+          <End Role="TblVacations" Type="Self.TblVacations" Multiplicity="1" />
+          <End Role="TblEmployeeVacation" Type="Self.TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVacations">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblVacation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblExcuseTran_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblExcuseTran" Type="Self.TblExcuseTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblExcuseTran">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblExcuseTran_TblExcuse">
+          <End Role="TblExcuse" Type="Self.TblExcuse" Multiplicity="1" />
+          <End Role="TblExcuseTran" Type="Self.TblExcuseTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblExcuse">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblExcuseTran">
+              <PropertyRef Name="TblExcuse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMissionTran_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblMissionTran" Type="Self.TblMissionTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMissionTran">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMissionTran_TblMission">
+          <End Role="TblMission" Type="Self.TblMission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblMissionTran" Type="Self.TblMissionTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMission">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMissionTran">
+              <PropertyRef Name="TblMission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrganization_TblOrganizationGroup">
+          <End Role="TblOrganizationGroup" Type="Self.TblOrganizationGroup" Multiplicity="0..1" />
+          <End Role="TblOrganization" Type="Self.TblOrganization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationGroup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganization">
+              <PropertyRef Name="TblOrganizationGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrganizationGroup_TblPeriod">
+          <End Role="TblPeriod" Type="Self.TblPeriod" Multiplicity="0..1" />
+          <End Role="TblOrganizationGroup" Type="Self.TblOrganizationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganizationGroup">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrganizationUnit_TblOrganization">
+          <End Role="TblOrganization" Type="Self.TblOrganization" Multiplicity="0..1" />
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganization">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganizationUnit">
+              <PropertyRef Name="TblOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="1" />
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblPeriodLine">
+          <End Role="TblPeriodLine" Type="Self.TblPeriodLine" Multiplicity="1" />
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblSalaryTerm">
+          <End Role="TblSalaryTerm" Type="Self.TblSalaryTerm" Multiplicity="1" />
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblSalaryTerm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslipHeader_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="1" />
+          <End Role="TblPayslipHeader" Type="Self.TblPayslipHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslipHeader">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslipHeader_TblPeriodLine">
+          <End Role="TblPeriodLine" Type="Self.TblPeriodLine" Multiplicity="1" />
+          <End Role="TblPayslipHeader" Type="Self.TblPayslipHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslipHeader">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPeriodLine_TblPeriod">
+          <End Role="TblPeriod" Type="Self.TblPeriod" Multiplicity="1" />
+          <End Role="TblPeriodLine" Type="Self.TblPeriodLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPeriodLine">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVacationTrans_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblVacationTrans" Type="Self.TblVacationTrans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVacationTrans">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVacationTrans_TblVacations">
+          <End Role="TblVacations" Type="Self.TblVacations" Multiplicity="1" />
+          <End Role="TblVacationTrans" Type="Self.TblVacationTrans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVacations">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVacationTrans">
+              <PropertyRef Name="TblVacation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblEmployee">
+          <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="0..1" />
+          <End Role="TblVariableTermManual" Type="Self.TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblPeriodLine">
+          <End Role="TblPeriodLine" Type="Self.TblPeriodLine" Multiplicity="0..1" />
+          <End Role="TblVariableTermManual" Type="Self.TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblSalaryTerm">
+          <End Role="TblSalaryTerm" Type="Self.TblSalaryTerm" Multiplicity="0..1" />
+          <End Role="TblVariableTermManual" Type="Self.TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblSalaryTerm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblWorkCalendarDateLine_TblCalendar">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="1" />
+          <End Role="TblWorkCalendarDateLine" Type="Self.TblWorkCalendarDateLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblWorkCalendarDateLine">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PayrollModelStoreContainer">
+          <EntitySet Name="TblAttendanceFile" EntityType="Self.TblAttendanceFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCalendar" EntityType="Self.TblCalendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblDeletedEmpFromCalc" EntityType="Self.TblDeletedEmpFromCalc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeCalendar" EntityType="Self.TblEmployeeCalendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeCalendarsDeviation" EntityType="Self.TblEmployeeCalendarsDeviation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEmployeeVacation" EntityType="Self.TblEmployeeVacation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExcuse" EntityType="Self.TblExcuse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExcuseTran" EntityType="Self.TblExcuseTran" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMission" EntityType="Self.TblMission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMissionTran" EntityType="Self.TblMissionTran" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrganization" EntityType="Self.TblOrganization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrganizationGroup" EntityType="Self.TblOrganizationGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrganizationUnit" EntityType="Self.TblOrganizationUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPayslip" EntityType="Self.TblPayslip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPayslipHeader" EntityType="Self.TblPayslipHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPeriod" EntityType="Self.TblPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPeriodLine" EntityType="Self.TblPeriodLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSalaryTerm" EntityType="Self.TblSalaryTerm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVacations" EntityType="Self.TblVacations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVacationTrans" EntityType="Self.TblVacationTrans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVariableTermManual" EntityType="Self.TblVariableTermManual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblWorkCalendarDateLine" EntityType="Self.TblWorkCalendarDateLine" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblAttendaceFile_TblEmployee" Association="Self.FK_TblAttendaceFile_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblAttendanceFile" EntitySet="TblAttendanceFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblCalendar" Association="Self.FK_TblEmployee_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblEmployee" Association="Self.FK_TblEmployee_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblEmployee1" EntitySet="TblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblEmployee1" Association="Self.FK_TblEmployee_TblEmployee1">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblEmployee1" EntitySet="TblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblOrganization" Association="Self.FK_TblEmployee_TblOrganization">
+            <End Role="TblOrganization" EntitySet="TblOrganization" />
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblOrganizationUnit" Association="Self.FK_TblEmployee_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnit" />
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblCalendar" Association="Self.FK_TblEmployeeCalendar_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TblEmployeeCalendar" EntitySet="TblEmployeeCalendar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblEmployee" Association="Self.FK_TblEmployeeCalendar_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblEmployeeCalendar" EntitySet="TblEmployeeCalendar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblCalendar" Association="Self.FK_TblEmployeeCalendarsDeviation_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblCalendar1" Association="Self.FK_TblEmployeeCalendarsDeviation_TblCalendar1">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblEmployee" Association="Self.FK_TblEmployeeCalendarsDeviation_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeVacation_TblEmployee" Association="Self.FK_TblEmployeeVacation_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeVacation_TblPeriod" Association="Self.FK_TblEmployeeVacation_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriod" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeVacation_TblVacations" Association="Self.FK_TblEmployeeVacation_TblVacations">
+            <End Role="TblVacations" EntitySet="TblVacations" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblExcuseTran_TblEmployee" Association="Self.FK_TblExcuseTran_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblExcuseTran" EntitySet="TblExcuseTran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblExcuseTran_TblExcuse" Association="Self.FK_TblExcuseTran_TblExcuse">
+            <End Role="TblExcuse" EntitySet="TblExcuse" />
+            <End Role="TblExcuseTran" EntitySet="TblExcuseTran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMissionTran_TblEmployee" Association="Self.FK_TblMissionTran_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblMissionTran" EntitySet="TblMissionTran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMissionTran_TblMission" Association="Self.FK_TblMissionTran_TblMission">
+            <End Role="TblMission" EntitySet="TblMission" />
+            <End Role="TblMissionTran" EntitySet="TblMissionTran" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrganization_TblOrganizationGroup" Association="Self.FK_TblOrganization_TblOrganizationGroup">
+            <End Role="TblOrganizationGroup" EntitySet="TblOrganizationGroup" />
+            <End Role="TblOrganization" EntitySet="TblOrganization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrganizationGroup_TblPeriod" Association="Self.FK_TblOrganizationGroup_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriod" />
+            <End Role="TblOrganizationGroup" EntitySet="TblOrganizationGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrganizationUnit_TblOrganization" Association="Self.FK_TblOrganizationUnit_TblOrganization">
+            <End Role="TblOrganization" EntitySet="TblOrganization" />
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblEmployee" Association="Self.FK_TblPayslip_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblPayslip" EntitySet="TblPayslip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblOrganizationUnit" Association="Self.FK_TblPayslip_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnit" />
+            <End Role="TblPayslip" EntitySet="TblPayslip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblPeriodLine" Association="Self.FK_TblPayslip_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLine" />
+            <End Role="TblPayslip" EntitySet="TblPayslip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblSalaryTerm" Association="Self.FK_TblPayslip_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="TblSalaryTerm" />
+            <End Role="TblPayslip" EntitySet="TblPayslip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslipHeader_TblOrganizationUnit" Association="Self.FK_TblPayslipHeader_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnit" />
+            <End Role="TblPayslipHeader" EntitySet="TblPayslipHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslipHeader_TblPeriodLine" Association="Self.FK_TblPayslipHeader_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLine" />
+            <End Role="TblPayslipHeader" EntitySet="TblPayslipHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPeriodLine_TblPeriod" Association="Self.FK_TblPeriodLine_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriod" />
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVacationTrans_TblEmployee" Association="Self.FK_TblVacationTrans_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblVacationTrans" EntitySet="TblVacationTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVacationTrans_TblVacations" Association="Self.FK_TblVacationTrans_TblVacations">
+            <End Role="TblVacations" EntitySet="TblVacations" />
+            <End Role="TblVacationTrans" EntitySet="TblVacationTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblEmployee" Association="Self.FK_TblVariableTermManual_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployee" />
+            <End Role="TblVariableTermManual" EntitySet="TblVariableTermManual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblPeriodLine" Association="Self.FK_TblVariableTermManual_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLine" />
+            <End Role="TblVariableTermManual" EntitySet="TblVariableTermManual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblSalaryTerm" Association="Self.FK_TblVariableTermManual_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="TblSalaryTerm" />
+            <End Role="TblVariableTermManual" EntitySet="TblVariableTermManual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblWorkCalendarDateLine_TblCalendar" Association="Self.FK_TblWorkCalendarDateLine_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TblWorkCalendarDateLine" EntitySet="TblWorkCalendarDateLine" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PayrollModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="TblEmployeePayroll">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Altnum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="EmpIdentNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReqAttention" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DeceasedDate" Type="DateTime" Precision="0" />
+          <Property Name="OutLookUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TblEducation" Type="Int32" />
+          <Property Name="TblTitle" Type="Int32" />
+          <Property Name="TblGender" Type="Int32" />
+          <Property Name="TblEmployeeStatus" Type="Int32" />
+          <Property Name="TblMilitaryStatus" Type="Int32" />
+          <Property Name="TblReligion" Type="Int32" />
+          <Property Name="TblContractType" Type="Int32" />
+          <Property Name="TblMaritalStatus" Type="Int32" />
+          <Property Name="TblCitizenShip" Type="Int32" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="TblPosition" Type="Int32" />
+          <Property Name="TblJob" Type="Int32" />
+          <Property Name="TblTestPeriodUnit" Type="Int32" />
+          <Property Name="WorkingHours" Type="Double" />
+          <Property Name="Days" Type="Double" Nullable="false" />
+          <Property Name="HoursDay" Type="Double" />
+          <Property Name="NoAttendance" Type="Boolean" Nullable="false" />
+          <Property Name="MilitaryStart" Type="DateTime" Precision="0" />
+          <Property Name="MilitaryEnd" Type="DateTime" Precision="0" />
+          <Property Name="TestPeriodS" Type="Int32" />
+          <Property Name="IdExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="IdIssueDate" Type="DateTime" Precision="0" />
+          <Property Name="AdjustedStartDate" Type="DateTime" Precision="0" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="LastDateWorked" Type="DateTime" Precision="0" />
+          <Property Name="TerminationDate" Type="DateTime" Precision="0" />
+          <Property Name="InsuraneStart" Type="DateTime" Precision="0" />
+          <Property Name="BankAcCountId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmpImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TblDepartment" Type="Int32" />
+          <Property Name="TblOrganization" Type="Int32" />
+          <Property Name="TblOrganizationUnit" Type="Int32" />
+          <Property Name="Manager" Type="Int32" />
+          <Property Name="AttOperator" Type="Int32" />
+          <Property Name="HourlyAttendance" Type="Boolean" />
+          <Property Name="RETAILCOMPANYREF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RETAILSTORECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblEmployee1" Relationship="Self.FK_TblEmployee_TblEmployee" FromRole="TblEmployee" ToRole="TblEmployee1" />
+          <NavigationProperty Name="TblEmployee2" Relationship="Self.FK_TblEmployee_TblEmployee" FromRole="TblEmployee1" ToRole="TblEmployee" />
+          <NavigationProperty Name="TblEmployee11" Relationship="Self.FK_TblEmployee_TblEmployee1" FromRole="TblEmployee" ToRole="TblEmployee1" />
+          <NavigationProperty Name="TblEmployee3" Relationship="Self.FK_TblEmployee_TblEmployee1" FromRole="TblEmployee1" ToRole="TblEmployee" />
+          <NavigationProperty Name="TblOrganization1" Relationship="Self.FK_TblEmployee_TblOrganization" FromRole="TblEmployee" ToRole="TblOrganization" />
+          <NavigationProperty Name="TblOrganizationUnit1" Relationship="Self.FK_TblEmployee_TblOrganizationUnit" FromRole="TblEmployee" ToRole="TblOrganizationUnit" />
+          <NavigationProperty Name="TblPayslips" Relationship="Self.FK_TblPayslip_TblEmployee" FromRole="TblEmployee" ToRole="TblPayslip" />
+          <NavigationProperty Name="TblExcuseTrans" Relationship="PayrollModel.FK_TblExcuseTran_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblExcuseTran" />
+          <NavigationProperty Name="TblVacationTrans" Relationship="PayrollModel.FK_TblVacationTrans_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblVacationTran" />
+          <Property Name="TblInsuranceOffice" Type="Int32" Nullable="false" />
+          <Property Name="InsuranceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblEmployeeCalendars" Relationship="PayrollModel.FK_TblEmployeeCalendar_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblEmployeeCalendar" />
+          <NavigationProperty Name="TblEmployeeCalendarsDeviations" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblEmployeeCalendarsDeviation" />
+          <NavigationProperty Name="TblMissionTrans" Relationship="PayrollModel.FK_TblMissionTran_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblMissionTran" />
+          <NavigationProperty Name="TblVariableTermManuals" Relationship="PayrollModel.FK_TblVariableTermManual_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblVariableTermManual" />
+          <Property Name="BRCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblTransportationLine" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblAttendanceFiles" Relationship="PayrollModel.FK_TblAttendaceFile_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblAttendanceFile" />
+          <NavigationProperty Name="TblEmployeeVacations" Relationship="PayrollModel.FK_TblEmployeeVacation_TblEmployee" FromRole="TblEmployeePayroll" ToRole="TblEmployeeVacation" />
+          <Property Name="TblCalendar" Type="Int32" />
+          <Property Name="FlexibleHours" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblCalendar1" Relationship="PayrollModel.FK_TblEmployee_TblCalendar" FromRole="TblEmployeePayroll" ToRole="TblCalendar" />
+        </EntityType>
+        <EntityType Name="TblOrganization">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblOrganizationGroup" Type="Int32" />
+          <NavigationProperty Name="TblEmployees" Relationship="Self.FK_TblEmployee_TblOrganization" FromRole="TblOrganization" ToRole="TblEmployee" />
+          <NavigationProperty Name="TblOrganizationUnits" Relationship="Self.FK_TblOrganizationUnit_TblOrganization" FromRole="TblOrganization" ToRole="TblOrganizationUnit" />
+          <NavigationProperty Name="TblOrganizationGroup1" Relationship="PayrollModel.FK_TblOrganization_TblOrganizationGroup" FromRole="TblOrganization" ToRole="TblOrganizationGroup" />
+          <Property Name="DbName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblOrganizationUnit">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblOrganization" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblPeriod" Type="Int32" />
+          <Property Name="TblSalaryTermGroup" Type="Int32" />
+          <NavigationProperty Name="TblEmployees" Relationship="Self.FK_TblEmployee_TblOrganizationUnit" FromRole="TblOrganizationUnit" ToRole="TblEmployee" />
+          <NavigationProperty Name="TblOrganization1" Relationship="Self.FK_TblOrganizationUnit_TblOrganization" FromRole="TblOrganizationUnit" ToRole="TblOrganization" />
+          <NavigationProperty Name="TblPayslips" Relationship="Self.FK_TblPayslip_TblOrganizationUnit" FromRole="TblOrganizationUnit" ToRole="TblPayslip" />
+          <NavigationProperty Name="TblPayslipHeaders" Relationship="Self.FK_TblPayslipHeader_TblOrganizationUnit" FromRole="TblOrganizationUnit" ToRole="TblPayslipHeader" />
+        </EntityType>
+        <EntityType Name="TblPayslip">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TblSalaryTerm" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="TblTermType" Type="Int32" Nullable="false" />
+          <Property Name="TblPeriodLine" Type="Int32" Nullable="false" />
+          <Property Name="TblPayslipLineType" Type="Int32" Nullable="false" />
+          <Property Name="ConstInsurane" Type="Double" Nullable="false" />
+          <Property Name="VarInsurane" Type="Double" Nullable="false" />
+          <Property Name="ConstInsuraneComp" Type="Double" Nullable="false" />
+          <Property Name="VARInsuraneComp" Type="Double" Nullable="false" />
+          <Property Name="TblTermMethod" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" Nullable="false" />
+          <Property Name="TblOrganizationUnit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="Self.FK_TblPayslip_TblEmployee" FromRole="TblPayslip" ToRole="TblEmployee" />
+          <NavigationProperty Name="TblOrganizationUnit1" Relationship="Self.FK_TblPayslip_TblOrganizationUnit" FromRole="TblPayslip" ToRole="TblOrganizationUnit" />
+          <Property Name="OldAmount" Type="Double" />
+          <NavigationProperty Name="TblPeriodLine1" Relationship="PayrollModel.FK_TblPayslip_TblPeriodLine" FromRole="TblPayslip" ToRole="TblPeriodLine" />
+          <NavigationProperty Name="TblSalaryTerm1" Relationship="PayrollModel.FK_TblPayslip_TblSalaryTerm" FromRole="TblPayslip" ToRole="TblSalaryTerm" />
+        </EntityType>
+        <EntityType Name="TblPayslipHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblPeriodLine" Type="Int32" Nullable="false" />
+          <Property Name="TblCompany" Type="Int32" Nullable="false" />
+          <Property Name="TblOrganizationUnit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblOrganizationUnit1" Relationship="Self.FK_TblPayslipHeader_TblOrganizationUnit" FromRole="TblPayslipHeader" ToRole="TblOrganizationUnit" />
+          <NavigationProperty Name="TblPeriodLine1" Relationship="PayrollModel.FK_TblPayslipHeader_TblPeriodLine" FromRole="TblPayslipHeader" ToRole="TblPeriodLine" />
+        </EntityType>
+        <Association Name="FK_TblEmployee_TblEmployee">
+          <End Role="TblEmployee" Type="PayrollModel.TblEmployeePayroll" Multiplicity="0..1" />
+          <End Role="TblEmployee1" Type="PayrollModel.TblEmployeePayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee1">
+              <PropertyRef Name="Manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblEmployee1">
+          <End Role="TblEmployee" Type="PayrollModel.TblEmployeePayroll" Multiplicity="0..1" />
+          <End Role="TblEmployee1" Type="PayrollModel.TblEmployeePayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee1">
+              <PropertyRef Name="AttOperator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblOrganization">
+          <End Role="TblOrganization" Type="Self.TblOrganization" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployee" Type="PayrollModel.TblEmployeePayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganization">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee">
+              <PropertyRef Name="TblOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployee_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblEmployee" Type="PayrollModel.TblEmployeePayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployee">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblEmployee">
+          <End Role="TblEmployee" Type="PayrollModel.TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployee">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrganizationUnit_TblOrganization">
+          <End Role="TblOrganization" Type="Self.TblOrganization" Multiplicity="0..1" />
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganization">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganizationUnit">
+              <PropertyRef Name="TblOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslip_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="1" />
+          <End Role="TblPayslip" Type="Self.TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslipHeader_TblOrganizationUnit">
+          <End Role="TblOrganizationUnit" Type="Self.TblOrganizationUnit" Multiplicity="1" />
+          <End Role="TblPayslipHeader" Type="Self.TblPayslipHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationUnit">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslipHeader">
+              <PropertyRef Name="TblOrganizationUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PayrollEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="TblEmployeePayrolls" EntityType="PayrollModel.TblEmployeePayroll" />
+          <EntitySet Name="TblOrganizations" EntityType="Self.TblOrganization" />
+          <EntitySet Name="TblOrganizationUnits" EntityType="Self.TblOrganizationUnit" />
+          <EntitySet Name="TblPayslips" EntityType="Self.TblPayslip" />
+          <EntitySet Name="TblPayslipHeaders" EntityType="Self.TblPayslipHeader" />
+          <AssociationSet Name="FK_TblEmployee_TblEmployee" Association="Self.FK_TblEmployee_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblEmployee1" EntitySet="TblEmployeePayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblEmployee1" Association="Self.FK_TblEmployee_TblEmployee1">
+            <End Role="TblEmployee" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblEmployee1" EntitySet="TblEmployeePayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblOrganization" Association="Self.FK_TblEmployee_TblOrganization">
+            <End Role="TblOrganization" EntitySet="TblOrganizations" />
+            <End Role="TblEmployee" EntitySet="TblEmployeePayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployee_TblOrganizationUnit" Association="Self.FK_TblEmployee_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnits" />
+            <End Role="TblEmployee" EntitySet="TblEmployeePayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblEmployee" Association="Self.FK_TblPayslip_TblEmployee">
+            <End Role="TblEmployee" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblPayslip" EntitySet="TblPayslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrganizationUnit_TblOrganization" Association="Self.FK_TblOrganizationUnit_TblOrganization">
+            <End Role="TblOrganization" EntitySet="TblOrganizations" />
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslip_TblOrganizationUnit" Association="Self.FK_TblPayslip_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnits" />
+            <End Role="TblPayslip" EntitySet="TblPayslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslipHeader_TblOrganizationUnit" Association="Self.FK_TblPayslipHeader_TblOrganizationUnit">
+            <End Role="TblOrganizationUnit" EntitySet="TblOrganizationUnits" />
+            <End Role="TblPayslipHeader" EntitySet="TblPayslipHeaders" />
+          </AssociationSet>
+          <EntitySet Name="TblDeletedEmpFromCalcs" EntityType="PayrollModel.TblDeletedEmpFromCalc" />
+          <EntitySet Name="TblPeriodLines" EntityType="PayrollModel.TblPeriodLine" />
+          <AssociationSet Name="FK_TblPayslip_TblPeriodLine" Association="PayrollModel.FK_TblPayslip_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLines" />
+            <End Role="TblPayslip" EntitySet="TblPayslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPayslipHeader_TblPeriodLine" Association="PayrollModel.FK_TblPayslipHeader_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLines" />
+            <End Role="TblPayslipHeader" EntitySet="TblPayslipHeaders" />
+          </AssociationSet>
+          <EntitySet Name="TblExcuseTrans" EntityType="PayrollModel.TblExcuseTran" />
+          <EntitySet Name="TblVacationTrans" EntityType="PayrollModel.TblVacationTran" />
+          <AssociationSet Name="FK_TblExcuseTran_TblEmployee" Association="PayrollModel.FK_TblExcuseTran_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblExcuseTran" EntitySet="TblExcuseTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVacationTrans_TblEmployee" Association="PayrollModel.FK_TblVacationTrans_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblVacationTran" EntitySet="TblVacationTrans" />
+          </AssociationSet>
+          <EntitySet Name="PayrollTblExcuses" EntityType="PayrollModel.PayrollTblExcuse" />
+          <AssociationSet Name="FK_TblExcuseTran_TblExcuse" Association="PayrollModel.FK_TblExcuseTran_TblExcuse">
+            <End Role="TblExcuse" EntitySet="PayrollTblExcuses" />
+            <End Role="TblExcuseTran" EntitySet="TblExcuseTrans" />
+          </AssociationSet>
+          <EntitySet Name="TblEmployeeCalendars" EntityType="PayrollModel.TblEmployeeCalendar" />
+          <EntitySet Name="TblEmployeeCalendarsDeviations" EntityType="PayrollModel.TblEmployeeCalendarsDeviation" />
+          <EntitySet Name="PayrollTblMissions" EntityType="PayrollModel.PayrollTblMission" />
+          <EntitySet Name="TblMissionTrans" EntityType="PayrollModel.TblMissionTran" />
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblEmployee" Association="PayrollModel.FK_TblEmployeeCalendar_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblEmployeeCalendar" EntitySet="TblEmployeeCalendars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblEmployee" Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMissionTran_TblEmployee" Association="PayrollModel.FK_TblMissionTran_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblMissionTran" EntitySet="TblMissionTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMissionTran_TblMission" Association="PayrollModel.FK_TblMissionTran_TblMission">
+            <End Role="TblMission" EntitySet="PayrollTblMissions" />
+            <End Role="TblMissionTran" EntitySet="TblMissionTrans" />
+          </AssociationSet>
+          <EntitySet Name="PayrollTblVariableTermManuals" EntityType="PayrollModel.PayrollTblVariableTermManual" />
+          <AssociationSet Name="FK_TblVariableTermManual_TblEmployee" Association="PayrollModel.FK_TblVariableTermManual_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblVariableTermManual" EntitySet="PayrollTblVariableTermManuals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblPeriodLine" Association="PayrollModel.FK_TblVariableTermManual_TblPeriodLine">
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLines" />
+            <End Role="TblVariableTermManual" EntitySet="PayrollTblVariableTermManuals" />
+          </AssociationSet>
+          <EntitySet Name="PayrollTblSalaryTerms" EntityType="PayrollModel.PayrollTblSalaryTerm" />
+          <AssociationSet Name="FK_TblPayslip_TblSalaryTerm" Association="PayrollModel.FK_TblPayslip_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="PayrollTblSalaryTerms" />
+            <End Role="TblPayslip" EntitySet="TblPayslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblVariableTermManual_TblSalaryTerm" Association="PayrollModel.FK_TblVariableTermManual_TblSalaryTerm">
+            <End Role="TblSalaryTerm" EntitySet="PayrollTblSalaryTerms" />
+            <End Role="TblVariableTermManual" EntitySet="PayrollTblVariableTermManuals" />
+          </AssociationSet>
+          <EntitySet Name="TblOrganizationGroups" EntityType="PayrollModel.TblOrganizationGroup" />
+          <AssociationSet Name="FK_TblOrganization_TblOrganizationGroup" Association="PayrollModel.FK_TblOrganization_TblOrganizationGroup">
+            <End Role="TblOrganizationGroup" EntitySet="TblOrganizationGroups" />
+            <End Role="TblOrganization" EntitySet="TblOrganizations" />
+          </AssociationSet>
+          <EntitySet Name="PayrollVacations" EntityType="PayrollModel.PayrollVacation" />
+          <AssociationSet Name="FK_TblVacationTrans_TblVacations" Association="PayrollModel.FK_TblVacationTrans_TblVacations">
+            <End Role="TblVacation" EntitySet="PayrollVacations" />
+            <End Role="TblVacationTran" EntitySet="TblVacationTrans" />
+          </AssociationSet>
+          <EntitySet Name="PayrollTblAttendanceFiles" EntityType="PayrollModel.PayrollTblAttendanceFile" />
+          <AssociationSet Name="FK_TblAttendaceFile_TblEmployee" Association="PayrollModel.FK_TblAttendaceFile_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblAttendanceFile" EntitySet="PayrollTblAttendanceFiles" />
+          </AssociationSet>
+          <EntitySet Name="TblEmployeeVacations" EntityType="PayrollModel.TblEmployeeVacation" />
+          <AssociationSet Name="FK_TblEmployeeVacation_TblEmployee" Association="PayrollModel.FK_TblEmployeeVacation_TblEmployee">
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeVacation_TblVacations" Association="PayrollModel.FK_TblEmployeeVacation_TblVacations">
+            <End Role="PayrollVacation" EntitySet="PayrollVacations" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacations" />
+          </AssociationSet>
+          <EntitySet Name="TblCalendars" EntityType="PayrollModel.TblCalendar" />
+          <EntitySet Name="TblWorkCalendarDateLines" EntityType="PayrollModel.TblWorkCalendarDateLine" />
+          <AssociationSet Name="FK_TblEmployeeCalendar_TblCalendar" Association="PayrollModel.FK_TblEmployeeCalendar_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendars" />
+            <End Role="TblEmployeeCalendar" EntitySet="TblEmployeeCalendars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblCalendar" Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendars" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeCalendarsDeviation_TblCalendar1" Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar1">
+            <End Role="TblCalendar" EntitySet="TblCalendars" />
+            <End Role="TblEmployeeCalendarsDeviation" EntitySet="TblEmployeeCalendarsDeviations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblWorkCalendarDateLine_TblCalendar" Association="PayrollModel.FK_TblWorkCalendarDateLine_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendars" />
+            <End Role="TblWorkCalendarDateLine" EntitySet="TblWorkCalendarDateLines" />
+          </AssociationSet>
+          <EntitySet Name="TblPeriods" EntityType="PayrollModel.TblPeriod" />
+          <AssociationSet Name="FK_TblEmployee_TblCalendar" Association="PayrollModel.FK_TblEmployee_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendars" />
+            <End Role="TblEmployeePayroll" EntitySet="TblEmployeePayrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblEmployeeVacation_TblPeriod" Association="PayrollModel.FK_TblEmployeeVacation_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriods" />
+            <End Role="TblEmployeeVacation" EntitySet="TblEmployeeVacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrganizationGroup_TblPeriod" Association="PayrollModel.FK_TblOrganizationGroup_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriods" />
+            <End Role="TblOrganizationGroup" EntitySet="TblOrganizationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPeriodLine_TblPeriod" Association="PayrollModel.FK_TblPeriodLine_TblPeriod">
+            <End Role="TblPeriod" EntitySet="TblPeriods" />
+            <End Role="TblPeriodLine" EntitySet="TblPeriodLines" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="TblDeletedEmpFromCalc">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblPeriodLine">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblPeriod" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PayrollCalculated" Type="Boolean" />
+          <Property Name="Locked" Type="Boolean" Nullable="false" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="AttCalculated" Type="Boolean" />
+          <Property Name="Due" Type="Boolean" Nullable="false" />
+          <Property Name="LineNumber" Type="Int32" Nullable="false" />
+          <Property Name="Aname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblPayslips" Relationship="PayrollModel.FK_TblPayslip_TblPeriodLine" FromRole="TblPeriodLine" ToRole="TblPayslip" />
+          <NavigationProperty Name="TblPayslipHeaders" Relationship="PayrollModel.FK_TblPayslipHeader_TblPeriodLine" FromRole="TblPeriodLine" ToRole="TblPayslipHeader" />
+          <NavigationProperty Name="TblVariableTermManuals" Relationship="PayrollModel.FK_TblVariableTermManual_TblPeriodLine" FromRole="TblPeriodLine" ToRole="TblVariableTermManual" />
+          <Property Name="IsCalcprocess" Type="Boolean" />
+          <Property Name="CalcUser" Type="Int32" />
+          <NavigationProperty Name="TblPeriod1" Relationship="PayrollModel.FK_TblPeriodLine_TblPeriod" FromRole="TblPeriodLine" ToRole="TblPeriod" />
+        </EntityType>
+        <Association Name="FK_TblPayslip_TblPeriodLine">
+          <End Type="PayrollModel.TblPeriodLine" Role="TblPeriodLine" Multiplicity="1" />
+          <End Type="PayrollModel.TblPayslip" Role="TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPayslipHeader_TblPeriodLine">
+          <End Type="PayrollModel.TblPeriodLine" Role="TblPeriodLine" Multiplicity="1" />
+          <End Type="PayrollModel.TblPayslipHeader" Role="TblPayslipHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslipHeader">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblExcuseTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblExcuse" Type="Int32" Nullable="false" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="FromTime" Type="Int32" Nullable="false" />
+          <Property Name="ToTime" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Counter" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblExcuseTran_TblEmployee" FromRole="TblExcuseTran" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblExcuse1" Relationship="PayrollModel.FK_TblExcuseTran_TblExcuse" FromRole="TblExcuseTran" ToRole="TblExcuse" />
+        </EntityType>
+        <EntityType Name="TblVacationTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Days" Type="Int32" Nullable="false" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="TblVacation" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblVacationTrans_TblEmployee" FromRole="TblVacationTran" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblVacation1" Relationship="PayrollModel.FK_TblVacationTrans_TblVacations" FromRole="TblVacationTran" ToRole="TblVacation" />
+        </EntityType>
+        <Association Name="FK_TblExcuseTran_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblExcuseTran" Role="TblExcuseTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblExcuseTran">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVacationTrans_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblVacationTran" Role="TblVacationTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVacationTran">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayrollTblExcuse">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblExcuseTrans" Relationship="PayrollModel.FK_TblExcuseTran_TblExcuse" FromRole="TblExcuse" ToRole="TblExcuseTran" />
+        </EntityType>
+        <Association Name="FK_TblExcuseTran_TblExcuse">
+          <End Type="PayrollModel.PayrollTblExcuse" Role="TblExcuse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblExcuseTran" Role="TblExcuseTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblExcuse">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblExcuseTran">
+              <PropertyRef Name="TblExcuse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblEmployeeCalendar">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="TblCalendar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblEmployeeCalendar_TblEmployee" FromRole="TblEmployeeCalendar" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblCalendar1" Relationship="PayrollModel.FK_TblEmployeeCalendar_TblCalendar" FromRole="TblEmployeeCalendar" ToRole="TblCalendar" />
+        </EntityType>
+        <EntityType Name="TblEmployeeCalendarsDeviation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TblCalendar" Type="Int32" Nullable="false" />
+          <Property Name="TblCalendarNew" Type="Int32" Nullable="false" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblEmployee" FromRole="TblEmployeeCalendarsDeviation" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblCalendar1" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar" FromRole="TblEmployeeCalendarsDeviation" ToRole="TblCalendar" />
+          <NavigationProperty Name="TblCalendar2" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar1" FromRole="TblEmployeeCalendarsDeviation" ToRole="TblCalendar" />
+        </EntityType>
+        <EntityType Name="PayrollTblMission">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblMissionTrans" Relationship="PayrollModel.FK_TblMissionTran_TblMission" FromRole="TblMission" ToRole="TblMissionTran" />
+        </EntityType>
+        <EntityType Name="TblMissionTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TblMission" Type="Int32" Nullable="false" />
+          <Property Name="FromTime" Type="Int32" Nullable="false" />
+          <Property Name="ToTime" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblMissionTran_TblEmployee" FromRole="TblMissionTran" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblMission1" Relationship="PayrollModel.FK_TblMissionTran_TblMission" FromRole="TblMissionTran" ToRole="TblMission" />
+        </EntityType>
+        <Association Name="FK_TblEmployeeCalendar_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblEmployeeCalendar" Role="TblEmployeeCalendar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendar">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblEmployeeCalendarsDeviation" Role="TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMissionTran_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblMissionTran" Role="TblMissionTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMissionTran">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMissionTran_TblMission">
+          <End Type="PayrollModel.PayrollTblMission" Role="TblMission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblMissionTran" Role="TblMissionTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMission">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMissionTran">
+              <PropertyRef Name="TblMission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayrollTblVariableTermManual">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblEmployee" Type="Int32" />
+          <Property Name="TblPeriodLine" Type="Int32" />
+          <Property Name="TblAttendaceFile" Type="Int32" />
+          <Property Name="TblSalaryTerm" Type="Int32" />
+          <Property Name="TblPenalty" Type="Int32" />
+          <Property Name="TblReason" Type="Int32" />
+          <Property Name="TblCalculated" Type="Int32" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="Hours" Type="Double" />
+          <Property Name="TransDate" Type="DateTime" Precision="0" />
+          <Property Name="AmountCUR" Type="Double" />
+          <Property Name="FromAtt" Type="Boolean" />
+          <Property Name="ExcuseTransRECId" Type="Int32" />
+          <Property Name="AttType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AttHours" Type="Double" />
+          <Property Name="OldAmount" Type="Double" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblVariableTermManual_TblEmployee" FromRole="TblVariableTermManual" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblPeriodLine1" Relationship="PayrollModel.FK_TblVariableTermManual_TblPeriodLine" FromRole="TblVariableTermManual" ToRole="TblPeriodLine" />
+          <NavigationProperty Name="TblSalaryTerm1" Relationship="PayrollModel.FK_TblVariableTermManual_TblSalaryTerm" FromRole="TblVariableTermManual" ToRole="TblSalaryTerm" />
+        </EntityType>
+        <Association Name="FK_TblVariableTermManual_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.PayrollTblVariableTermManual" Role="TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblPeriodLine">
+          <End Type="PayrollModel.TblPeriodLine" Role="TblPeriodLine" Multiplicity="0..1" />
+          <End Type="PayrollModel.PayrollTblVariableTermManual" Role="TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriodLine">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblPeriodLine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayrollTblSalaryTerm">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblSalaryTermGroup" Type="Int32" Nullable="false" />
+          <Property Name="TblPenaltyTrigger" Type="Int32" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TermType" Type="Int32" Nullable="false" />
+          <Property Name="TermMethod" Type="Int32" Nullable="false" />
+          <Property Name="TaxCalculated" Type="Boolean" Nullable="false" />
+          <Property Name="InsuraneIncluded" Type="Boolean" Nullable="false" />
+          <Property Name="InsuraneType" Type="Int32" Nullable="false" />
+          <Property Name="hidden" Type="Boolean" Nullable="false" />
+          <Property Name="LedgerAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayIndex" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblPayslips" Relationship="PayrollModel.FK_TblPayslip_TblSalaryTerm" FromRole="TblSalaryTerm" ToRole="TblPayslip" />
+          <NavigationProperty Name="TblVariableTermManuals" Relationship="PayrollModel.FK_TblVariableTermManual_TblSalaryTerm" FromRole="TblSalaryTerm" ToRole="TblVariableTermManual" />
+        </EntityType>
+        <Association Name="FK_TblPayslip_TblSalaryTerm">
+          <End Type="PayrollModel.PayrollTblSalaryTerm" Role="TblSalaryTerm" Multiplicity="1" />
+          <End Type="PayrollModel.TblPayslip" Role="TblPayslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPayslip">
+              <PropertyRef Name="TblSalaryTerm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblVariableTermManual_TblSalaryTerm">
+          <End Type="PayrollModel.PayrollTblSalaryTerm" Role="TblSalaryTerm" Multiplicity="0..1" />
+          <End Type="PayrollModel.PayrollTblVariableTermManual" Role="TblVariableTermManual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalaryTerm">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVariableTermManual">
+              <PropertyRef Name="TblSalaryTerm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblOrganizationGroup">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblPeriod" Type="Int32" />
+          <NavigationProperty Name="TblOrganizations" Relationship="PayrollModel.FK_TblOrganization_TblOrganizationGroup" FromRole="TblOrganizationGroup" ToRole="TblOrganization" />
+          <NavigationProperty Name="TblPeriod1" Relationship="PayrollModel.FK_TblOrganizationGroup_TblPeriod" FromRole="TblOrganizationGroup" ToRole="TblPeriod" />
+        </EntityType>
+        <Association Name="FK_TblOrganization_TblOrganizationGroup">
+          <End Type="PayrollModel.TblOrganizationGroup" Role="TblOrganizationGroup" Multiplicity="0..1" />
+          <End Type="PayrollModel.TblOrganization" Role="TblOrganization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblOrganizationGroup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganization">
+              <PropertyRef Name="TblOrganizationGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayrollVacation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IncludeOfficialVacations" Type="Boolean" Nullable="false" />
+          <Property Name="VacationDays" Type="Int32" />
+          <Property Name="PeriodID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblVacationTrans" Relationship="PayrollModel.FK_TblVacationTrans_TblVacations" FromRole="TblVacation" ToRole="TblVacationTran" />
+          <NavigationProperty Name="TblEmployeeVacations" Relationship="PayrollModel.FK_TblEmployeeVacation_TblVacations" FromRole="PayrollVacation" ToRole="TblEmployeeVacation" />
+        </EntityType>
+        <Association Name="FK_TblVacationTrans_TblVacations">
+          <End Type="PayrollModel.PayrollVacation" Role="TblVacation" Multiplicity="1" />
+          <End Type="PayrollModel.TblVacationTran" Role="TblVacationTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVacation">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblVacationTran">
+              <PropertyRef Name="TblVacation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayrollTblAttendanceFile">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="FromTime" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Manual" Type="Boolean" Nullable="false" />
+          <Property Name="ToTime" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="OrginalToTime" Type="Int32" />
+          <Property Name="OrginalFromTime" Type="Int32" />
+          <Property Name="OrgToTime" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblAttendaceFile_TblEmployee" FromRole="TblAttendanceFile" ToRole="TblEmployeePayroll" />
+        </EntityType>
+        <Association Name="FK_TblAttendaceFile_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.PayrollTblAttendanceFile" Role="TblAttendanceFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAttendanceFile">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblEmployeeVacation">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblVacation" Type="Int32" Nullable="false" />
+          <Property Name="TblEmployee" Type="Int32" Nullable="false" />
+          <Property Name="VacationDays" Type="Int32" Nullable="false" />
+          <Property Name="Consumed" Type="Int32" Nullable="false" />
+          <Property Name="Remaining" Type="Int32" Nullable="false" />
+          <Property Name="TblPeriod" Type="Int32" />
+          <NavigationProperty Name="TblEmployee1" Relationship="PayrollModel.FK_TblEmployeeVacation_TblEmployee" FromRole="TblEmployeeVacation" ToRole="TblEmployeePayroll" />
+          <NavigationProperty Name="TblVacation1" Relationship="PayrollModel.FK_TblEmployeeVacation_TblVacations" FromRole="TblEmployeeVacation" ToRole="PayrollVacation" />
+          <NavigationProperty Name="TblPeriod1" Relationship="PayrollModel.FK_TblEmployeeVacation_TblPeriod" FromRole="TblEmployeeVacation" ToRole="TblPeriod" />
+        </EntityType>
+        <Association Name="FK_TblEmployeeVacation_TblEmployee">
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblEmployeeVacation" Role="TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmployeePayroll">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeVacation_TblVacations">
+          <End Type="PayrollModel.PayrollVacation" Role="PayrollVacation" Multiplicity="1" />
+          <End Type="PayrollModel.TblEmployeeVacation" Role="TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayrollVacation">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblVacation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblCalendar">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TblEmployeeCalendars" Relationship="PayrollModel.FK_TblEmployeeCalendar_TblCalendar" FromRole="TblCalendar" ToRole="TblEmployeeCalendar" />
+          <NavigationProperty Name="TblEmployeeCalendarsDeviations" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar" FromRole="TblCalendar" ToRole="TblEmployeeCalendarsDeviation" />
+          <NavigationProperty Name="TblEmployeeCalendarsDeviations1" Relationship="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar1" FromRole="TblCalendar" ToRole="TblEmployeeCalendarsDeviation" />
+          <NavigationProperty Name="TblWorkCalendarDateLines" Relationship="PayrollModel.FK_TblWorkCalendarDateLine_TblCalendar" FromRole="TblCalendar" ToRole="TblWorkCalendarDateLine" />
+          <Property Name="OverNightShift" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblEmployees" Relationship="PayrollModel.FK_TblEmployee_TblCalendar" FromRole="TblCalendar" ToRole="TblEmployeePayroll" />
+        </EntityType>
+        <EntityType Name="TblWorkCalendarDateLine">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="ToTime" Type="Int32" Nullable="false" />
+          <Property Name="FromTime" Type="Int32" Nullable="false" />
+          <Property Name="TblCalendar" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TblCalendar1" Relationship="PayrollModel.FK_TblWorkCalendarDateLine_TblCalendar" FromRole="TblWorkCalendarDateLine" ToRole="TblCalendar" />
+        </EntityType>
+        <Association Name="FK_TblEmployeeCalendar_TblCalendar">
+          <End Type="PayrollModel.TblCalendar" Role="TblCalendar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblEmployeeCalendar" Role="TblEmployeeCalendar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendar">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblCalendar">
+          <End Type="PayrollModel.TblCalendar" Role="TblCalendar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PayrollModel.TblEmployeeCalendarsDeviation" Role="TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeCalendarsDeviation_TblCalendar1">
+          <End Type="PayrollModel.TblCalendar" Role="TblCalendar" Multiplicity="1" />
+          <End Type="PayrollModel.TblEmployeeCalendarsDeviation" Role="TblEmployeeCalendarsDeviation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeCalendarsDeviation">
+              <PropertyRef Name="TblCalendarNew" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblWorkCalendarDateLine_TblCalendar">
+          <End Type="PayrollModel.TblCalendar" Role="TblCalendar" Multiplicity="1" />
+          <End Type="PayrollModel.TblWorkCalendarDateLine" Role="TblWorkCalendarDateLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblWorkCalendarDateLine">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblPeriod">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodUnit" Type="Int32" Nullable="false" />
+          <Property Name="Taxes" Type="Boolean" Nullable="false" />
+          <Property Name="Insurane" Type="Boolean" Nullable="false" />
+          <Property Name="AttModificationLimit" Type="Int32" />
+          <NavigationProperty Name="TblEmployeeVacations" Relationship="PayrollModel.FK_TblEmployeeVacation_TblPeriod" FromRole="TblPeriod" ToRole="TblEmployeeVacation" />
+          <NavigationProperty Name="TblOrganizationGroups" Relationship="PayrollModel.FK_TblOrganizationGroup_TblPeriod" FromRole="TblPeriod" ToRole="TblOrganizationGroup" />
+          <NavigationProperty Name="TblPeriodLines" Relationship="PayrollModel.FK_TblPeriodLine_TblPeriod" FromRole="TblPeriod" ToRole="TblPeriodLine" />
+        </EntityType>
+        <Association Name="FK_TblEmployee_TblCalendar">
+          <End Type="PayrollModel.TblCalendar" Role="TblCalendar" Multiplicity="0..1" />
+          <End Type="PayrollModel.TblEmployeePayroll" Role="TblEmployeePayroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeePayroll">
+              <PropertyRef Name="TblCalendar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblEmployeeVacation_TblPeriod">
+          <End Type="PayrollModel.TblPeriod" Role="TblPeriod" Multiplicity="0..1" />
+          <End Type="PayrollModel.TblEmployeeVacation" Role="TblEmployeeVacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblEmployeeVacation">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrganizationGroup_TblPeriod">
+          <End Type="PayrollModel.TblPeriod" Role="TblPeriod" Multiplicity="0..1" />
+          <End Type="PayrollModel.TblOrganizationGroup" Role="TblOrganizationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblOrganizationGroup">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPeriodLine_TblPeriod">
+          <End Type="PayrollModel.TblPeriod" Role="TblPeriod" Multiplicity="1" />
+          <End Type="PayrollModel.TblPeriodLine" Role="TblPeriodLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPeriod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPeriodLine">
+              <PropertyRef Name="TblPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PayrollModelStoreContainer" CdmEntityContainer="PayrollEntities">
+          <EntitySetMapping Name="TblEmployeePayrolls">
+            <EntityTypeMapping TypeName="PayrollModel.TblEmployeePayroll">
+              <MappingFragment StoreEntitySet="TblEmployee">
+                <ScalarProperty Name="FlexibleHours" ColumnName="FlexibleHours" />
+                <ScalarProperty Name="TblCalendar" ColumnName="TblCalendar" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TblTransportationLine" ColumnName="TblTransportationLine" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="BRCode" ColumnName="BRCode" />
+                <ScalarProperty Name="InsuranceNumber" ColumnName="InsuranceNumber" />
+                <ScalarProperty Name="TblInsuranceOffice" ColumnName="TblInsuranceOffice" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Altnum" ColumnName="Altnum" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="EmpIdentNumber" ColumnName="EmpIdentNumber" />
+                <ScalarProperty Name="ReqAttention" ColumnName="ReqAttention" />
+                <ScalarProperty Name="DeceasedDate" ColumnName="DeceasedDate" />
+                <ScalarProperty Name="OutLookUserId" ColumnName="OutLookUserId" />
+                <ScalarProperty Name="TblEducation" ColumnName="TblEducation" />
+                <ScalarProperty Name="TblTitle" ColumnName="TblTitle" />
+                <ScalarProperty Name="TblGender" ColumnName="TblGender" />
+                <ScalarProperty Name="TblEmployeeStatus" ColumnName="TblEmployeeStatus" />
+                <ScalarProperty Name="TblMilitaryStatus" ColumnName="TblMilitaryStatus" />
+                <ScalarProperty Name="TblReligion" ColumnName="TblReligion" />
+                <ScalarProperty Name="TblContractType" ColumnName="TblContractType" />
+                <ScalarProperty Name="TblMaritalStatus" ColumnName="TblMaritalStatus" />
+                <ScalarProperty Name="TblCitizenShip" ColumnName="TblCitizenShip" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblPosition" ColumnName="TblPosition" />
+                <ScalarProperty Name="TblJob" ColumnName="TblJob" />
+                <ScalarProperty Name="TblTestPeriodUnit" ColumnName="TblTestPeriodUnit" />
+                <ScalarProperty Name="WorkingHours" ColumnName="WorkingHours" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="HoursDay" ColumnName="HoursDay" />
+                <ScalarProperty Name="NoAttendance" ColumnName="NoAttendance" />
+                <ScalarProperty Name="MilitaryStart" ColumnName="MilitaryStart" />
+                <ScalarProperty Name="MilitaryEnd" ColumnName="MilitaryEnd" />
+                <ScalarProperty Name="TestPeriodS" ColumnName="TestPeriodS" />
+                <ScalarProperty Name="IdExpiryDate" ColumnName="IdExpiryDate" />
+                <ScalarProperty Name="IdIssueDate" ColumnName="IdIssueDate" />
+                <ScalarProperty Name="AdjustedStartDate" ColumnName="AdjustedStartDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="LastDateWorked" ColumnName="LastDateWorked" />
+                <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+                <ScalarProperty Name="InsuraneStart" ColumnName="InsuraneStart" />
+                <ScalarProperty Name="BankAcCountId" ColumnName="BankAcCountId" />
+                <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
+                <ScalarProperty Name="TblDepartment" ColumnName="TblDepartment" />
+                <ScalarProperty Name="TblOrganization" ColumnName="TblOrganization" />
+                <ScalarProperty Name="TblOrganizationUnit" ColumnName="TblOrganizationUnit" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="AttOperator" ColumnName="AttOperator" />
+                <ScalarProperty Name="HourlyAttendance" ColumnName="HourlyAttendance" />
+                <ScalarProperty Name="RETAILCOMPANYREF" ColumnName="RETAILCOMPANYREF" />
+                <ScalarProperty Name="RETAILSTORECODE" ColumnName="RETAILSTORECODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrganizations">
+            <EntityTypeMapping TypeName="PayrollModel.TblOrganization">
+              <MappingFragment StoreEntitySet="TblOrganization">
+                <ScalarProperty Name="DbName" ColumnName="DbName" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="TblOrganizationGroup" ColumnName="TblOrganizationGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrganizationUnits">
+            <EntityTypeMapping TypeName="PayrollModel.TblOrganizationUnit">
+              <MappingFragment StoreEntitySet="TblOrganizationUnit">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="TblOrganization" ColumnName="TblOrganization" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TblPeriod" ColumnName="TblPeriod" />
+                <ScalarProperty Name="TblSalaryTermGroup" ColumnName="TblSalaryTermGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPayslips">
+            <EntityTypeMapping TypeName="PayrollModel.TblPayslip">
+              <MappingFragment StoreEntitySet="TblPayslip">
+                <ScalarProperty Name="OldAmount" ColumnName="OldAmount" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="TblSalaryTerm" ColumnName="TblSalaryTerm" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TblTermType" ColumnName="TblTermType" />
+                <ScalarProperty Name="TblPeriodLine" ColumnName="TblPeriodLine" />
+                <ScalarProperty Name="TblPayslipLineType" ColumnName="TblPayslipLineType" />
+                <ScalarProperty Name="ConstInsurane" ColumnName="ConstInsurane" />
+                <ScalarProperty Name="VarInsurane" ColumnName="VarInsurane" />
+                <ScalarProperty Name="ConstInsuraneComp" ColumnName="ConstInsuraneComp" />
+                <ScalarProperty Name="VARInsuraneComp" ColumnName="VARInsuraneComp" />
+                <ScalarProperty Name="TblTermMethod" ColumnName="TblTermMethod" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblOrganizationUnit" ColumnName="TblOrganizationUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPayslipHeaders">
+            <EntityTypeMapping TypeName="PayrollModel.TblPayslipHeader">
+              <MappingFragment StoreEntitySet="TblPayslipHeader">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="TblPeriodLine" ColumnName="TblPeriodLine" />
+                <ScalarProperty Name="TblCompany" ColumnName="TblCompany" />
+                <ScalarProperty Name="TblOrganizationUnit" ColumnName="TblOrganizationUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDeletedEmpFromCalcs">
+            <EntityTypeMapping TypeName="PayrollModel.TblDeletedEmpFromCalc">
+              <MappingFragment StoreEntitySet="TblDeletedEmpFromCalc">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPeriodLines">
+            <EntityTypeMapping TypeName="PayrollModel.TblPeriodLine">
+              <MappingFragment StoreEntitySet="TblPeriodLine">
+                <ScalarProperty Name="CalcUser" ColumnName="CalcUser" />
+                <ScalarProperty Name="IsCalcprocess" ColumnName="IsCalcprocess" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="AttCalculated" ColumnName="AttCalculated" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="PayrollCalculated" ColumnName="PayrollCalculated" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="TblPeriod" ColumnName="TblPeriod" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExcuseTrans">
+            <EntityTypeMapping TypeName="PayrollModel.TblExcuseTran">
+              <MappingFragment StoreEntitySet="TblExcuseTran">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="TblExcuse" ColumnName="TblExcuse" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVacationTrans">
+            <EntityTypeMapping TypeName="PayrollModel.TblVacationTran">
+              <MappingFragment StoreEntitySet="TblVacationTrans">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TblVacation" ColumnName="TblVacation" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollTblExcuses">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollTblExcuse">
+              <MappingFragment StoreEntitySet="TblExcuse">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeCalendars">
+            <EntityTypeMapping TypeName="PayrollModel.TblEmployeeCalendar">
+              <MappingFragment StoreEntitySet="TblEmployeeCalendar">
+                <ScalarProperty Name="TblCalendar" ColumnName="TblCalendar" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeCalendarsDeviations">
+            <EntityTypeMapping TypeName="PayrollModel.TblEmployeeCalendarsDeviation">
+              <MappingFragment StoreEntitySet="TblEmployeeCalendarsDeviation">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="TblCalendarNew" ColumnName="TblCalendarNew" />
+                <ScalarProperty Name="TblCalendar" ColumnName="TblCalendar" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollTblMissions">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollTblMission">
+              <MappingFragment StoreEntitySet="TblMission">
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMissionTrans">
+            <EntityTypeMapping TypeName="PayrollModel.TblMissionTran">
+              <MappingFragment StoreEntitySet="TblMissionTran">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="TblMission" ColumnName="TblMission" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollTblVariableTermManuals">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollTblVariableTermManual">
+              <MappingFragment StoreEntitySet="TblVariableTermManual">
+                <ScalarProperty Name="OldAmount" ColumnName="OldAmount" />
+                <ScalarProperty Name="AttHours" ColumnName="AttHours" />
+                <ScalarProperty Name="AttType" ColumnName="AttType" />
+                <ScalarProperty Name="ExcuseTransRECId" ColumnName="ExcuseTransRECId" />
+                <ScalarProperty Name="FromAtt" ColumnName="FromAtt" />
+                <ScalarProperty Name="AmountCUR" ColumnName="AmountCUR" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblCalculated" ColumnName="TblCalculated" />
+                <ScalarProperty Name="TblReason" ColumnName="TblReason" />
+                <ScalarProperty Name="TblPenalty" ColumnName="TblPenalty" />
+                <ScalarProperty Name="TblSalaryTerm" ColumnName="TblSalaryTerm" />
+                <ScalarProperty Name="TblAttendaceFile" ColumnName="TblAttendaceFile" />
+                <ScalarProperty Name="TblPeriodLine" ColumnName="TblPeriodLine" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollTblSalaryTerms">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollTblSalaryTerm">
+              <MappingFragment StoreEntitySet="TblSalaryTerm">
+                <ScalarProperty Name="DisplayIndex" ColumnName="DisplayIndex" />
+                <ScalarProperty Name="LedgerAccount" ColumnName="LedgerAccount" />
+                <ScalarProperty Name="hidden" ColumnName="hidden" />
+                <ScalarProperty Name="InsuraneType" ColumnName="InsuraneType" />
+                <ScalarProperty Name="InsuraneIncluded" ColumnName="InsuraneIncluded" />
+                <ScalarProperty Name="TaxCalculated" ColumnName="TaxCalculated" />
+                <ScalarProperty Name="TermMethod" ColumnName="TermMethod" />
+                <ScalarProperty Name="TermType" ColumnName="TermType" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="TblPenaltyTrigger" ColumnName="TblPenaltyTrigger" />
+                <ScalarProperty Name="TblSalaryTermGroup" ColumnName="TblSalaryTermGroup" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrganizationGroups">
+            <EntityTypeMapping TypeName="PayrollModel.TblOrganizationGroup">
+              <MappingFragment StoreEntitySet="TblOrganizationGroup">
+                <ScalarProperty Name="TblPeriod" ColumnName="TblPeriod" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollVacations">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollVacation">
+              <MappingFragment StoreEntitySet="TblVacations">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="VacationDays" ColumnName="VacationDays" />
+                <ScalarProperty Name="IncludeOfficialVacations" ColumnName="IncludeOfficialVacations" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollTblAttendanceFiles">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollTblAttendanceFile">
+              <MappingFragment StoreEntitySet="TblAttendanceFile">
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrgToTime" ColumnName="OrgToTime" />
+                <ScalarProperty Name="OrginalFromTime" ColumnName="OrginalFromTime" />
+                <ScalarProperty Name="OrginalToTime" ColumnName="OrginalToTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="Manual" ColumnName="Manual" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeVacations">
+            <EntityTypeMapping TypeName="PayrollModel.TblEmployeeVacation">
+              <MappingFragment StoreEntitySet="TblEmployeeVacation">
+                <ScalarProperty Name="TblPeriod" ColumnName="TblPeriod" />
+                <ScalarProperty Name="Remaining" ColumnName="Remaining" />
+                <ScalarProperty Name="Consumed" ColumnName="Consumed" />
+                <ScalarProperty Name="VacationDays" ColumnName="VacationDays" />
+                <ScalarProperty Name="TblEmployee" ColumnName="TblEmployee" />
+                <ScalarProperty Name="TblVacation" ColumnName="TblVacation" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCalendars">
+            <EntityTypeMapping TypeName="PayrollModel.TblCalendar">
+              <MappingFragment StoreEntitySet="TblCalendar">
+                <ScalarProperty Name="OverNightShift" ColumnName="OverNightShift" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblWorkCalendarDateLines">
+            <EntityTypeMapping TypeName="PayrollModel.TblWorkCalendarDateLine">
+              <MappingFragment StoreEntitySet="TblWorkCalendarDateLine">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="TblCalendar" ColumnName="TblCalendar" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPeriods">
+            <EntityTypeMapping TypeName="PayrollModel.TblPeriod">
+              <MappingFragment StoreEntitySet="TblPeriod">
+                <ScalarProperty Name="AttModificationLimit" ColumnName="AttModificationLimit" />
+                <ScalarProperty Name="Insurane" ColumnName="Insurane" />
+                <ScalarProperty Name="Taxes" ColumnName="Taxes" />
+                <ScalarProperty Name="PeriodUnit" ColumnName="PeriodUnit" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="8daf715f14774dd4bfdf198ba2a2a484" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="PayrollModel.TblEmployeePayroll" Width="2.375" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayrollModel.TblOrganization" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayrollModel.TblOrganizationUnit" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayrollModel.TblPayslip" Width="1.5" PointX="11.625" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayrollModel.TblPayslipHeader" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployee_TblEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployee_TblEmployee1" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployee_TblOrganization" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployee_TblOrganizationUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslip_TblEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblOrganizationUnit_TblOrganization" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslip_TblOrganizationUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslipHeader_TblOrganizationUnit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PayrollModel.TblDeletedEmpFromCalc" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PayrollModel.TblPeriodLine" Width="1.5" PointX="12.625" PointY="1" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslip_TblPeriodLine" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslipHeader_TblPeriodLine" />
+        <EntityTypeShape EntityType="PayrollModel.TblExcuseTran" Width="1.5" PointX="10.625" PointY="18" />
+        <EntityTypeShape EntityType="PayrollModel.TblVacationTran" Width="1.5" PointX="10.625" PointY="14.75" />
+        <AssociationConnector Association="PayrollModel.FK_TblExcuseTran_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblVacationTrans_TblEmployee" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollTblExcuse" Width="1.5" PointX="0.75" PointY="2.875" />
+        <AssociationConnector Association="PayrollModel.FK_TblExcuseTran_TblExcuse" />
+        <EntityTypeShape EntityType="PayrollModel.TblEmployeeCalendar" Width="1.5" PointX="10.625" PointY="25.125" />
+        <EntityTypeShape EntityType="PayrollModel.TblEmployeeCalendarsDeviation" Width="1.5" PointX="10.625" PointY="21.625" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollTblMission" Width="1.5" PointX="12.375" PointY="28.125" />
+        <EntityTypeShape EntityType="PayrollModel.TblMissionTran" Width="1.5" PointX="14.625" PointY="6.75" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeCalendar_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblMissionTran_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblMissionTran_TblMission" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollTblVariableTermManual" Width="1.5" PointX="16.875" PointY="4.875" />
+        <AssociationConnector Association="PayrollModel.FK_TblVariableTermManual_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblVariableTermManual_TblPeriodLine" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollTblSalaryTerm" Width="1.5" PointX="3.375" PointY="1" />
+        <AssociationConnector Association="PayrollModel.FK_TblPayslip_TblSalaryTerm" />
+        <AssociationConnector Association="PayrollModel.FK_TblVariableTermManual_TblSalaryTerm" />
+        <EntityTypeShape EntityType="PayrollModel.TblOrganizationGroup" Width="1.5" PointX="12.625" PointY="30.75" />
+        <AssociationConnector Association="PayrollModel.FK_TblOrganization_TblOrganizationGroup" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollVacation" Width="1.5" PointX="0.75" PointY="10.875" />
+        <AssociationConnector Association="PayrollModel.FK_TblVacationTrans_TblVacations" />
+        <EntityTypeShape EntityType="PayrollModel.PayrollTblAttendanceFile" Width="1.5" PointX="10.625" PointY="33.75" />
+        <AssociationConnector Association="PayrollModel.FK_TblAttendaceFile_TblEmployee" />
+        <EntityTypeShape EntityType="PayrollModel.TblEmployeeVacation" Width="1.5" PointX="14.625" PointY="10.375" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeVacation_TblEmployee" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeVacation_TblVacations" />
+        <EntityTypeShape EntityType="PayrollModel.TblCalendar" Width="1.5" PointX="8.375" PointY="23.25" />
+        <EntityTypeShape EntityType="PayrollModel.TblWorkCalendarDateLine" Width="1.5" PointX="10.625" PointY="11.5" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeCalendar_TblCalendar" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeCalendarsDeviation_TblCalendar1" />
+        <AssociationConnector Association="PayrollModel.FK_TblWorkCalendarDateLine_TblCalendar" />
+        <EntityTypeShape EntityType="PayrollModel.TblPeriod" Width="1.5" PointX="8.375" PointY="17.5" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployee_TblCalendar" />
+        <AssociationConnector Association="PayrollModel.FK_TblEmployeeVacation_TblPeriod" />
+        <AssociationConnector Association="PayrollModel.FK_TblOrganizationGroup_TblPeriod" />
+        <AssociationConnector Association="PayrollModel.FK_TblPeriodLine_TblPeriod" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,352 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.SalesOrderColorProduction"
+                                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                       xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+                                       xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                                       xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                                       Title="Colors">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+                    <GradientStop Color="#FFC6ECFE" />
+                    <GradientStop Offset=".01" Color="#FF003FFF" />
+                    <GradientStop Offset="0.3" Color="#ff02fdce" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Name="BtnSave"
+                    Click="BtnSave_Onclick"
+                    Content="Save" />
+        </StackPanel>
+        <dataGrid:OsGrid Name="SalesOrderColorsGrid"
+                      Grid.Row="1"
+                      MaxHeight="300"
+                      Margin="10,36,10,0"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Top"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding SelectedDetailRow.SalesOrderColorList,
+                                            Mode=TwoWay}"
+                      RowHeight="60"
+                      SelectedItem="{Binding SelectedSalesOrderColorRow,
+                                             Mode=TwoWay}"
+                      SelectionMode="Extended">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="DeliveryDate"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Delivery,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Path=DeliveryDate, Mode=TwoWay, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridCheckBoxColumn Width="SizeToHeader"
+                                            Binding="{Binding Path=ManualCalculationForProduction,
+                                                              Mode=TwoWay,
+                                                              UpdateSourceTrigger=PropertyChanged}"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ManualCalculation,
+                                                                                                  Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="TblColor"
+                                            IsReadOnly="True"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Text="{Binding ColorPerRow.Code}" />
+                                <TextBlock VerticalAlignment="Center" Text="-" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding ColorPerRow.Ename}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox Width="120"
+                                          Height="23"
+                                          Margin="3"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          DisplayMemberPath="Code"
+                                          ItemsSource="{Binding Path=DataContext.ColorList,
+                                                                RelativeSource={RelativeSource FindAncestor,
+                                                                                               AncestorType=sdk:ChildWindow,
+                                                                                               AncestorLevel=1}}"
+                                          SelectedItem="{Binding ColorPerRow,
+                                                                 Mode=TwoWay}"
+                                          SelectedValue="{Binding TblColor,
+                                                                  Mode=TwoWay}"
+                                          SelectedValuePath="Iserial"
+                                          Visibility="{Binding Path=DataContext.SelectedDetailRow.IsPlannedOrder,
+                                                               Converter={StaticResource VisibilityConverter},
+                                                               ConverterParameter=true,
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                                                              AncestorType=sdk:ChildWindow,
+                                                                                              AncestorLevel=1}}">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                </ComboBox>
+                                <ComboBox Width="120"
+                                          Height="23"
+                                          Margin="3"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          DisplayMemberPath="TblColor1.Code"
+                                          ItemsSource="{Binding Path=DataContext.SelectedDetailRow.SeasonalMasterList,
+                                                                RelativeSource={RelativeSource FindAncestor,
+                                                                                               AncestorType=sdk:ChildWindow,
+                                                                                               AncestorLevel=1}}"
+                                          SelectedItem="{Binding SeasonalMasterPerRow,
+                                                                 Mode=TwoWay}"
+                                          SelectedValue="{Binding TblColor,
+                                                                  Mode=TwoWay}"
+                                          SelectedValuePath="TblColor1.Iserial"
+                                          Visibility="{Binding Path=DataContext.SelectedDetailRow.IsPlannedOrder,
+                                                               Converter={StaticResource VisibilityConverter},
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                                                              AncestorType=sdk:ChildWindow,
+                                                                                              AncestorLevel=1}}">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                </ComboBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="TblSalesOrderColorTheme"
+                                            IsReadOnly="True"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalesOrderColorTheme,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding ThemePerRow.Ename}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Width="120"
+                                      Height="23"
+                                      Margin="3"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      DisplayMemberPath="Ename"
+                                      ItemsSource="{Binding Path=DataContext.ThemesList,
+                                                            RelativeSource={RelativeSource FindAncestor,
+                                                                                           AncestorType=sdk:ChildWindow,
+                                                                                           AncestorLevel=1}}"
+                                      SelectedItem="{Binding ThemePerRow,
+                                                             Mode=TwoWay}"
+                                      SelectedValue="{Binding TblSalesOrderColorTheme,
+                                                              Mode=TwoWay}"
+                                      SelectedValuePath="Iserial">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Cost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTemplateColumn CanUserSort="False"
+                                            IsReadOnly="True"
+                                            SortMemberPath="Cost"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency,
+
+                    Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding CurrencyPerRow.Ename}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Width="160"
+                                      Height="23"
+                                      Margin="3"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      DisplayMemberPath="Code"
+                                      ItemsSource="{Binding Path=DataContext.CurrencyList,
+                                                            RelativeSource={RelativeSource FindAncestor,
+                                                                                           AncestorType=sdk:ChildWindow,
+                                                                                           AncestorLevel=1}}"
+                                      SelectedItem="{Binding CurrencyPerRow,
+                                                             Mode=TwoWay}"
+                                      SelectedValue="{Binding TblCurrency,
+                                                              Mode=TwoWay}"
+                                      SelectedValuePath="Iserial">
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=ExchangeRate,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ExchRate,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=LocalCost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding localCost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=AdditionalCost,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged,
+                                                          StringFormat=\{0:N\}}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding AdditionalCost,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                <sdk:DataGridTemplateColumn CanUserSort="False"
+                                            SortMemberPath="Iserial"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Sizes,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="sdk:DataGridColumnHeader">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ItemsControl ItemsSource="{Binding Path=DataContext.Sizes, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Vertical">
+                                                            <TextBlock Width="50"
+                                                                       HorizontalAlignment="Stretch"
+                                                                       FontWeight="Bold"
+                                                                       Padding="5"
+                                                                       Text="{Binding SizeCode}"
+                                                                       TextAlignment="Center" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </sdk:DataGridTemplateColumn.HeaderStyle>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="%" />
+                                    <ItemsControl ItemsSource="{Binding SalesOrderSizeRatiosList, Mode=TwoWay}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox Width="50"
+                                                             Background="#FFB2E0F4"
+                                                             GotFocus="TextBox_GotFocus"
+                                                             IsEnabled="{Binding Mode=TwoWay,
+                                                                                 Path=SelectedItem.ManualCalculationForProduction,
+                                                                                 UpdateSourceTrigger=PropertyChanged,
+                                                                                 RelativeSource={RelativeSource FindAncestor,
+                                                                                                                AncestorType=sdk:DataGrid,
+                                                                                                                AncestorLevel=1},
+                                                                                 Converter={StaticResource ReversedConverter}}"
+                                                             Padding="5"
+                                                             Text="{Binding RatioForProduction,
+                                                                            Mode=TwoWay,
+                                                                            UpdateSourceTrigger=PropertyChanged}"
+                                                             TextAlignment="Center" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="V" />
+                                    <ItemsControl ItemsSource="{Binding SalesOrderSizeRatiosList, Mode=TwoWay}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox Width="50"
+                                                             GotFocus="TextBox_GotFocus"
+                                                             IsEnabled="{Binding Mode=TwoWay,
+                                                                                 Path=SelectedItem.ManualCalculationForProduction,
+                                                                                 UpdateSourceTrigger=PropertyChanged,
+                                                                                 RelativeSource={RelativeSource FindAncestor,
+                                                                                                                AncestorType=sdk:DataGrid,
+                                                                                                                AncestorLevel=1}}"
+                                                             Padding="5"
+                                                             Text="{Binding ProductionPerSizeForProduction,
+                                                                            Mode=TwoWay,
+                                                                            UpdateSourceTrigger=PropertyChanged}"
+                                                             TextAlignment="Center" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Width="SizeToHeader"
+                                        Binding="{Binding Path=TotalForProduction,
+                                                          Mode=TwoWay,
+                                                          UpdateSourceTrigger=PropertyChanged}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty,
+                                                                                              Source={StaticResource LocalizedStrings}}" />
+                
+            </sdk:DataGrid.Columns>
+        </dataGrid:OsGrid>
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

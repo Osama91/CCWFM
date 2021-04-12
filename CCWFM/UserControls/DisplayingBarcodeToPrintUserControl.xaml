@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="CCWFM.UserControls.DisplayingBarcodeToPrintUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" xmlns:converts="clr-namespace:CCWFM.Helpers.Converters"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <converts:BoldConverter x:Key="Conboldprop"></converts:BoldConverter>
+        <converts:ItalicConverter x:Key="ConitalicProp"></converts:ItalicConverter>
+        <converts:FontFamilyConverter x:Key="FontFamilyConverter"></converts:FontFamilyConverter>
+        <converts:Barcode x:Key="BarcodeConverter"></converts:Barcode>
+        <converts:PixelsConverters x:Key="PixelsCon"></converts:PixelsConverters>
+        <Style TargetType="TextBlock" x:Key="TextBlockUserResource">
+            <Setter Property="Canvas.Left" Value="{Binding CanvasLeft}"></Setter>
+            <Setter Property="Canvas.Top" Value="{Binding CanvasTop}"></Setter>
+            <Setter Property="Text" Value="{Binding PropertyValue}" ></Setter>
+            <Setter Property="FontFamily" Value="{Binding FontFamily,Mode=TwoWay,Converter={StaticResource FontFamilyConverter}}" />
+            <Setter Property="FontSize" Value="{Binding FontSize,Mode=TwoWay}" />
+            <Setter Property="FontWeight" Value="{Binding BoldProperty,Mode=TwoWay, Converter={StaticResource Conboldprop}}" />
+            <Setter Property="FontStyle" Value="{Binding Converter={StaticResource ConitalicProp},Path=ItalicProperty,Mode=TwoWay}" />
+             <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+        </Style>
+
+        <Style TargetType="Image"  x:Key="BarcodeContentControlResouces">
+            <Setter Property="Source" Value="{Binding PropertyValue,Converter={StaticResource BarcodeConverter}}" ></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock"  x:Key="BarcodeLabel">
+            <Setter Property="FontFamily" Value="{Binding FontFamily,Mode=TwoWay,Converter={StaticResource FontFamilyConverter}}" />
+            <Setter Property="FontSize" Value="{Binding FontSize,Mode=TwoWay}" />
+            <Setter Property="FlowDirection" Value="LeftToRight" ></Setter>
+            <Setter Property="FontWeight" Value="{Binding BoldProperty,Mode=TwoWay, Converter={StaticResource Conboldprop}}" />
+            <Setter Property="FontStyle" Value="{Binding Converter={StaticResource ConitalicProp},Path=ItalicProperty,Mode=TwoWay}" />
+        </Style>
+    </UserControl.Resources>
+
+    <Canvas  x:Name="MyCanvas" Width="{Binding PageWidthSizeUnitProperty,Mode=TwoWay,Converter={StaticResource PixelsCon}}" Height="{Binding PageHeightSizeUnitProperty,Mode=TwoWay,Converter={StaticResource PixelsCon}}">
+    </Canvas>
+</UserControl>

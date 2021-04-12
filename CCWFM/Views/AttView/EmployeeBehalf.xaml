@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="CCWFM.Views.AttView.EmployeeBehalf"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:attViewModel="clr-namespace:CCWFM.ViewModel.AttViewModel"
+			 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+			 mc:Ignorable="d"
+	d:DesignHeight="600" d:DesignWidth="600">
+	<UserControl.Resources>
+		<attViewModel:EmployeeBehalfViewModel x:Key="ViewModel" />
+	</UserControl.Resources>
+	<Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource ViewModel}}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height ="50"></RowDefinition>
+			<RowDefinition Height ="*"></RowDefinition>
+			
+		</Grid.RowDefinitions>	
+		<StackPanel  Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>			
+			<Button  Height="50" Name="SaveBttn" Width="75" Click="SaveBttn_Click" ToolTipService.ToolTip="Save">
+				<Image Source="/CCWFM;component/Images/Save-icon.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform" Width="44" Height="45"></Image>
+			</Button>
+		
+		</StackPanel>
+		<dataGrid:OsGrid  AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   Grid.Row="1" Height="400" RowEditEnded="MainGrid_OnRowEditEnded"
+					AllowDrop="True"
+					 SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}" OnFilter="MainGrid_OnFilter"  LoadingRow="MainGrid_LoadingRow" VerticalAlignment="Top"   RowHeight="50" >
+			<dataGrid:OsGrid.Columns>			 
+				<sdk:DataGridTextColumn  Binding="{Binding Emplid,Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Employee, Source={StaticResource LocalizedStrings}}"  IsReadOnly="True" Width="100" />
+                <sdk:DataGridTextColumn SortMemberPath="Name" Binding="{Binding EmpPerRow.Name,Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Name, Source={StaticResource LocalizedStrings}}"  Width="150" IsReadOnly="True" />
+				<sdk:DataGridTextColumn  Binding="{Binding ManagerId,Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Manager, Source={StaticResource LocalizedStrings}}" Width="100" />			   
+				<sdk:DataGridTemplateColumn SortMemberPath="ManagerId"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Name, Source={StaticResource LocalizedStrings}}"  Width="200">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBox Text="{Binding ManagerPerRow.Name,Mode=TwoWay  }" Width="150" Height="30" IsReadOnly="True" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+								<TextBox Text="{Binding ManagerPerRow.Name,Mode=TwoWay  }" Width="150" Height="30" IsReadOnly="True" />
+								<Button Height="30"  HorizontalAlignment="Left"  Name="buttonchildSearch" VerticalAlignment="Top" Width="30"   Click="Search_Click"/>
+							</StackPanel>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn  Binding="{Binding AttOperatorId,Mode=TwoWay}"  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Operator, Source={StaticResource LocalizedStrings}}"  IsReadOnly="True" Width="100" />
+				<sdk:DataGridTemplateColumn SortMemberPath="AttOperatorId"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Name, Source={StaticResource LocalizedStrings}}"  Width="200">
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+								<TextBox Text="{Binding OperatorPerRow.Name,Mode=TwoWay  }" Width="150" Height="30" IsReadOnly="True" />
+					
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+								<TextBox Text="{Binding OperatorPerRow.Name,Mode=TwoWay  }" Width="150" Height="30" IsReadOnly="True" />
+								<Button Height="30"  HorizontalAlignment="Left"  Name="buttonchildSearch" VerticalAlignment="Top" Width="30"   Click="SearchOperator_Click"/>
+							</StackPanel>
+						</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+				</sdk:DataGridTemplateColumn>
+			</dataGrid:OsGrid.Columns>
+		</dataGrid:OsGrid>		
+	</Grid>
+</UserControl>

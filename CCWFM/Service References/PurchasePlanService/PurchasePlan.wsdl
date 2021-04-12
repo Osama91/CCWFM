@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PurchasePlan" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_PurchasePlan_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="" location="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="CustomBinding_PurchasePlan" type="PurchasePlan">
+    <wsp:PolicyReference URI="#CustomBinding_PurchasePlan_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTblPurchaseOrderHeaderRequestPayment">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequestPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPruchaseOrderTotal">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPruchaseOrderTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeaderRequestPayments">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequestPayments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeaderRequestPayment">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequestPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePurchaseOrderHeaderRequestPayment">
+      <soap12:operation soapAction="urn:PurchasePlan/GeneratePurchaseOrderHeaderRequestPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderHeaderRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderHeaderRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeaderRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeaderRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeaderRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderHeaderRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderDetailRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailRequestByPlanCode">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderDetailRequestByPlanCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorsByPlanCode">
+      <soap12:operation soapAction="urn:PurchasePlan/GetVendorsByPlanCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetailRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetailRequest">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderDetailRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseReceiveHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseReceiveHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseReceiveDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseReceiveDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPurchaseOrderDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/SearchPurchaseOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseReceiveHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseReceiveHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseReceiveHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseReceiveDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseReceiveDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseReceiveDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseReceiveDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGeneratePurchaseHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblGeneratePurchaseHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePurchaseOrderFromUnpannedPurchase">
+      <soap12:operation soapAction="urn:PurchasePlan/GeneratePurchaseOrderFromUnpannedPurchase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecalcAllModifiedPlans">
+      <soap12:operation soapAction="urn:PurchasePlan/RecalcAllModifiedPlans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecalculateTblGeneratePurchaseHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/RecalculateTblGeneratePurchaseHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGeneratePurchaseHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblGeneratePurchaseHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGeneratePurchaseHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblGeneratePurchaseHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderHeader">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPurchaseOrderDetailBreakDown">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblPurchaseOrderDetailBreakDown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetailBreakDown">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderDetailBreakDown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPurchaseOrderDetailCanceled">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblPurchaseOrderDetailCanceled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPurchaseOrderDetail">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblPurchaseOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CollectPlans">
+      <soap12:operation soapAction="urn:PurchasePlan/CollectPlans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupGroupProd">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblMarkupGroupProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupGroupProds">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblMarkupGroupProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupGroupProd">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblMarkupGroupProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupProd">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblMarkupProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupProd">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblMarkupProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupProd">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblMarkupProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblTblMarkupTransProd">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblTblMarkupTransProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertTblMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteTblMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DyeingOrderInvoiceMarkupTransProd">
+      <soap12:operation soapAction="urn:PurchasePlan/DyeingOrderInvoiceMarkupTransProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRouteCardInvoiceMarkupTransProd">
+      <soap12:operation soapAction="urn:PurchasePlan/GetTblRouteCardInvoiceMarkupTransProd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertRouteCardInvoiceMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertRouteCardInvoiceMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteCardInvoiceMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteRouteCardInvoiceMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertDyeingOrderInvoiceMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/UpdateOrInsertDyeingOrderInvoiceMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDyeingOrderInvoiceMarkupTransProds">
+      <soap12:operation soapAction="urn:PurchasePlan/DeleteDyeingOrderInvoiceMarkupTransProds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PurchasePlan">
+    <wsdl:port name="CustomBinding_PurchasePlan" binding="tns:CustomBinding_PurchasePlan">
+      <soap12:address location="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

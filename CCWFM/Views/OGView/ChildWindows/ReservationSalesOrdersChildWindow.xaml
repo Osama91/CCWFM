@@ -1,0 +1,169 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.ReservationSalesOrdersChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Reservation SalesOrders"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:search="clr-namespace:CCWFM.UserControls.Search"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   Width="800" Height="600"
+		   KeyDown="ChildWindow_KeyDown">
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />           
+			<RowDefinition Height="300" />
+			<RowDefinition Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.9*" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="0.9*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"
+					   Text="{Binding Brand, Source={StaticResource LocalizedStrings}}"  />
+
+			<ComboBox x:Name="BrandUpdate" Grid.Row="0" Grid.Column="1"												    
+												  Height="23"
+												  Margin="3"
+												  HorizontalAlignment="Stretch"
+												  VerticalAlignment="Center"
+												  DisplayMemberPath="Brand_Ename"											
+												  ItemsSource="{Binding Path=DataContext.BrandsList,
+																		RelativeSource={RelativeSource FindAncestor,
+																									   AncestorType=sdk:ChildWindow,
+																									   AncestorLevel=1}}"
+												  SelectedValue="{Binding Brand,Mode=TwoWay}"
+												  SelectedValuePath="Brand_Code">
+				<ComboBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<VirtualizingStackPanel />
+					</ItemsPanelTemplate>
+				</ComboBox.ItemsPanel>
+			</ComboBox>
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" 
+					   Text="{Binding StylePerRow.Brand}" />
+			<sdk:Label Grid.Row="0" Grid.Column="2" Margin="3" FontWeight="Bold"
+											   HorizontalAlignment="Left"
+											   VerticalAlignment="Center"
+											   Content="{Binding BrandSection,
+																 Source={StaticResource LocalizedStrings}}" />
+		
+
+			<ComboBox  Grid.Row="0" Grid.Column="3"												 
+												  Height="23"
+												  Margin="3"
+												  HorizontalAlignment="Stretch"
+												  VerticalAlignment="Center"
+												  DisplayMemberPath="Ename"
+											
+												  ItemsSource="{Binding Path=DataContext.BrandSectionList,
+																		RelativeSource={RelativeSource FindAncestor,
+																									   AncestorType=sdk:ChildWindow,
+																									   AncestorLevel=1}}"
+											
+												  SelectedValue="{Binding Section,
+																		  Mode=TwoWay}"
+												  SelectedValuePath="Iserial" />
+			<TextBlock Grid.Row="1" Grid.Column="0" Margin="5,0,10,0" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding Season, Source={StaticResource LocalizedStrings}}"  />
+
+			<ComboBox Grid.Row="1" Grid.Column="1"												    
+												  Height="23"
+												  Margin="3"
+												  HorizontalAlignment="Stretch"
+												  VerticalAlignment="Center"
+												  DisplayMemberPath="Ename"												  
+												  ItemsSource="{Binding Path=DataContext.SeasonList,Mode=TwoWay,
+																		RelativeSource={RelativeSource FindAncestor,
+																									   AncestorType=sdk:ChildWindow,
+																									   AncestorLevel=1}}"
+												
+												  SelectedValue="{Binding TblLkpSeason,
+																		  Mode=TwoWay}"
+												  SelectedValuePath="Iserial"
+												  Tag="Season" />
+			<TextBlock Grid.Row="1" Grid.Column="2" Margin="5,0,10,0" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding Search, Source={StaticResource LocalizedStrings}}"  />
+<Button Grid.Row="1" Grid.Column="3" Margin="5,0,10,0" VerticalAlignment="Center" FontWeight="Bold" Name="BtnSearchSalesOrder" Click="BtnSearchSalesOrder_OnClick"  Content="{Binding Search, Source={StaticResource LocalizedStrings}}"  />
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"  Text="{Binding TotalQuantity, Source={StaticResource LocalizedStrings}}" />
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Column="1" MinHeight="30" Grid.Row="2"  Text="{Binding SelectedMainDetails.Qty}" />
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  Text="{Binding RemainingQty, Source={StaticResource LocalizedStrings}}" />
+			<TextBlock FontWeight="Bold" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Column="3" MinHeight="30" Grid.Row="2"  Text="{Binding Mode=TwoWay, Path=SelectedMainDetails.RemQtyTemp, StringFormat=\{0:N\}}" />
+		</Grid>
+
+		<sdk:DataGrid  Grid.Row="1" ItemsSource="{Binding SalesorderList}"  AutoGenerateColumns="False" SelectionMode="Extended"
+					  x:Name="DgSalesOrders">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn  Binding="{Binding SalesOrder}" IsReadOnly="True" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+					<sdk:DataGridTextColumn.HeaderStyle>
+						<Style TargetType="sdk:DataGridColumnHeader">
+							<Setter Property="ContentTemplate">
+								<Setter.Value>
+									<DataTemplate>
+										<TextBlock Text="{Binding SalesOrder, Source={StaticResource LocalizedStrings}}" />
+									</DataTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</sdk:DataGridTextColumn.HeaderStyle>
+				</sdk:DataGridTextColumn>
+				<sdk:DataGridTextColumn  Binding="{Binding SalesOrderColor}" IsReadOnly="True" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+					<sdk:DataGridTextColumn.HeaderStyle>
+						<Style TargetType="sdk:DataGridColumnHeader">
+							<Setter Property="ContentTemplate">
+								<Setter.Value>
+									<DataTemplate>
+										<TextBlock Text="{Binding SalesOrderColor, Source={StaticResource LocalizedStrings}}" />
+									</DataTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</sdk:DataGridTextColumn.HeaderStyle>
+				</sdk:DataGridTextColumn>
+				<sdk:DataGridTextColumn  Binding="{Binding  IntialQty}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+					<sdk:DataGridTextColumn.HeaderStyle>
+						<Style TargetType="sdk:DataGridColumnHeader">
+							<Setter Property="ContentTemplate">
+								<Setter.Value>
+									<DataTemplate>
+										<TextBlock Text="{Binding Qty, Source={StaticResource LocalizedStrings}}" />
+									</DataTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</sdk:DataGridTextColumn.HeaderStyle>
+				</sdk:DataGridTextColumn>
+				<sdk:DataGridTemplateColumn CanUserReorder="False" CanUserResize="False" CanUserSort="False" Width="Auto" Visibility="Visible">
+					<sdk:DataGridTemplateColumn.HeaderStyle>
+						<Style TargetType="sdk:DataGridColumnHeader">
+							<Setter Property="ContentTemplate">
+								<Setter.Value>
+									<DataTemplate>
+										<TextBlock Text="{Binding Delete, Source={StaticResource LocalizedStrings}}" />
+									</DataTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</sdk:DataGridTemplateColumn.HeaderStyle>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Image Cursor="Hand"
+									   ToolTipService.ToolTip="Delete!"
+										   Width="32"     HorizontalAlignment="Left"                                   
+										   MouseLeftButtonUp="btnDeleteRow_Click"
+										   Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png"
+										   Stretch="Uniform">
+							</Image>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>    
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="2" />
+		<Button x:Name="OkButton" Content="OK" IsEnabled="{Binding ElementName=DgSalesOrders, Path=SelectedItem}" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="2" />
+	</Grid>
+</controlsOverride:ChildWindowsOverride>

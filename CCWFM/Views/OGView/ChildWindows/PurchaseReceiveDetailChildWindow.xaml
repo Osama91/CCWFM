@@ -1,0 +1,28 @@
+﻿<controlsOverride:ChildWindowsOverride xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="CCWFM.Views.OGView.ChildWindows.PurchaseReceiveDetailChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="500"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+		   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"   >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dataGrid:OsGrid  VerticalAlignment="Top" AutoGenerateColumns="False" 
+					  SelectedItem="{Binding SelectedRecDetailRow,Mode=TwoWay}" MaxHeight="600"
+					   ItemsSource="{Binding SelectedSubDetailRow.DetailList,Mode=TwoWay}"  
+					  FilteredItemsSource="{Binding SelectedSubDetailRow.DetailList}" OnFilter="RecDetailGrid_OnOnFilter" LoadingRow="RecDetailGrid_OnLoadingRow"
+					  HorizontalAlignment="left" Name="RecDetailGrid" KeyUp="RecDetailGrid_OnKeyUp" RowEditEnded="RecDetailGrid_OnRowEditEnded">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=TblPurchaseOrderDetailRequest1.ItemId,Mode=TwoWay}" Width="*" />
+                <sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=TblPurchaseOrderDetailRequest1.TblColor.Code,Mode=TwoWay}" Width="*" />
+                <sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=TblPurchaseOrderDetailRequest1.Size,Mode=TwoWay}" Width="*" />
+                <sdk:DataGridTextColumn IsReadOnly="True" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding BatchNo, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=TblPurchaseOrderDetailRequest1.BatchNo,Mode=TwoWay}" Width="*" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Qty, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Qty,Mode=TwoWay}" Width="*" />
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cost, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=Cost,Mode=TwoWay}" Width="*" />
+            </sdk:DataGrid.Columns>
+        </dataGrid:OsGrid>
+
+        <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+   
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

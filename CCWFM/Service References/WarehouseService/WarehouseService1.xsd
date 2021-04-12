@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/WarehouseOp/WarehouseService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfItemsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemsDto" nillable="true" type="tns:ItemsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemsDto" nillable="true" type="tns:ArrayOfItemsDto" />
+  <xs:complexType name="ItemsDto">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AccConfigList" nillable="true" type="q1:ArrayOfTblColor" />
+      <xs:element minOccurs="0" name="Batch" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="CombinationList" nillable="true" type="q2:ArrayOftbl_AccessoryAttributesDetails" />
+      <xs:element minOccurs="0" name="Config" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Images" nillable="true" type="tns:ArrayOfImageDto" />
+      <xs:element minOccurs="0" name="IsSizeIncluded" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Size" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SizesList" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemsDto" nillable="true" type="tns:ItemsDto" />
+  <xs:complexType name="ArrayOfImageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageDto" nillable="true" type="tns:ImageDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageDto" nillable="true" type="tns:ArrayOfImageDto" />
+  <xs:complexType name="ImageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageDto" nillable="true" type="tns:ImageDto" />
+</xs:schema>

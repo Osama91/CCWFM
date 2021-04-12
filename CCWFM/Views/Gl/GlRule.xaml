@@ -1,0 +1,177 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.GlRule" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+                 xmlns:userControls="clr-namespace:CCWFM.UserControls"
+				 xmlns:gl="clr-namespace:CCWFM.ViewModel.Gl"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="GlRule">
+	<navigation:Page.Resources>
+		<gl:GlRuleViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+	
+		</StackPanel>
+
+		<dataGrid:OsGrid AutoGenerateColumns="False" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   Grid.Row="1" Margin="10,10,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter"
+				   SelectionChanged="MainGrid_SelectionChanged" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">
+			<dataGrid:OsGrid.Columns>
+				<sdk:DataGridTextColumn Binding="{Binding Code,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Ename,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding EnglishName, Source={StaticResource LocalizedStrings}}" Width="*" />
+				<sdk:DataGridTextColumn Binding="{Binding Aname,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ArabicName, Source={StaticResource LocalizedStrings}}" Width="*" />
+			</dataGrid:OsGrid.Columns>		
+		</dataGrid:OsGrid>
+
+		<dataGrid:OsGrid AutoGenerateColumns="False"   HorizontalAlignment="Left" SelectionMode="Extended"
+				   x:Name="DetailGrid" 
+				   Grid.Row="2" Height="200" FilteredItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"
+				   ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}" Margin="10,0,10,0"
+				   KeyUp="DetailGrid_KeyUp" OnFilter="DetailGrid_OnFilter"
+				   SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" LoadingRow="DetailGrid_LoadingRow"
+                         SelectionChanged="DetailGrid_OnSelectionChanged"
+				   RowEditEnded="DetailGrid_RowEditEnded">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblJournalAccountType1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding JournalAccountType, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial" 
+									  ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=navigation:Page, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblJournalAccountType,Mode=TwoWay}"
+									  SelectedItem="{Binding JournalAccountTypePerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding JournalAccountTypePerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn SortMemberPath="EntityAccount"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Entity, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<userControls:SearchEntityUserControl 
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+								SearchPerRow="{Binding EntityAccountPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding EntityAccountPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCostCenterType1.Ename"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CostCenterType, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox
+										DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+										SelectedValuePath="Iserial"
+										ItemsSource="{Binding Path=DataContext.CostCenterTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+										SelectedValue="{Binding TblCostCenterType,Mode=TwoWay}"
+										SelectedItem="{Binding CostCenterTypePerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CostCenterTypePerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCostCenterOption1.Ename"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CostCenterOption, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox
+										DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+										SelectedValuePath="Iserial"
+										ItemsSource="{Binding Path=DataContext.CostCenterOptionList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+										SelectedValue="{Binding TblCostCenterOption,Mode=TwoWay}"
+										SelectedItem="{Binding CostCenterOptionPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CostCenterOptionPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+
+				<sdk:DataGridTemplateColumn SortMemberPath="TblCostCenterAllocationMethod1.Ename"
+													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CostCenterAllocationMethod, Source={StaticResource LocalizedStrings}}"
+													Width="*">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<ComboBox
+										DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+										SelectedValuePath="Iserial"
+										ItemsSource="{Binding Path=DataContext.CostAllocationMethodList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"
+										SelectedValue="{Binding TblCostAllocationMethod,Mode=TwoWay}"
+										SelectedItem="{Binding CostAllocationMethodPerRow,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding CostAllocationMethodPerRow.Ename,Mode=TwoWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="Iserial"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Details,
+																								  Source={StaticResource LocalizedStrings}}">
+
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Button Content="Details" Name="BtnDetails" Click="BtnDetails_OnClick" ></Button>
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+			</sdk:DataGrid.Columns>		
+		</dataGrid:OsGrid>
+	</Grid>
+</navigation:Page>

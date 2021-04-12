@@ -1,0 +1,158 @@
+﻿<navigation:Page x:Class="CCWFM.Views.OGView.ExcuseRules" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"		   
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+		   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		   xmlns:datagridExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.DatagridExtenders"
+		   xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:viewModel="clr-namespace:CCWFM.ViewModel.OGViewModels"
+				 xmlns:controls="clr-namespace:Os.Controls;assembly=Os.Controls"
+				 d:DesignWidth="640" d:DesignHeight="480"
+		   Title="Excuse Rule Page">
+	<navigation:Page.Resources>
+		<viewModel:ExcuseRuleViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+		   
+				<RowDefinition Height="40" />
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+		<!--<WebBrowser x:Name="browserControl" Grid.RowSpan="5"   />
+		<Rectangle Grid.Row="0" Grid.Column="0" Grid.RowSpan="5"  x:Name="browserControlRect" >
+			<Rectangle.Fill>
+				<WebBrowserBrush SourceName="browserControl" />
+			</Rectangle.Fill>
+		</Rectangle>-->
+
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Color="#FF003FFF" Offset=".01" />
+					<GradientStop Color="#ff02fdce" Offset="0.3" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Name="BtnAddNewMainRow" ToolTipService.ToolTip="Add" Cursor="Hand" Click="BtnAddNewMainRow_Click">
+				<Image Source="/CCWFM;component/Images/1371054818_New_File.png" Width="30"
+					   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow" Click="BtnDeleteMainRow_Click"  ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888630_trashcan-delete.png" Width="30" Stretch="Uniform" />
+			</Button>
+			<Button Content="Save" Name="BtnSave" Click="BtnSave_Onclick" />
+		</StackPanel>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="3*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock VerticalAlignment="Center" Text="{Binding ExcuseRuleGroup,Source={StaticResource LocalizedStrings}}" ></TextBlock>
+			
+			<!--<WebBrowser x:Name="browserControl"   />
+			<Rectangle Grid.Row="0" Grid.Column="0" x:Name="browserControlRect" >
+				<Rectangle.Fill>
+					<WebBrowserBrush SourceName="browserControl" />
+				</Rectangle.Fill>
+			</Rectangle>-->
+
+			
+		<dataGrid:OsGrid AutoGenerateColumns="True" Name="MainGrid" FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
+				   ItemsSource="{Binding MainRowList,Mode=TwoWay}" Grid.ColumnSpan="4"
+				   Grid.Row="1" Margin="10,36,10,0" HorizontalContentAlignment="Stretch"
+				   VerticalContentAlignment="Stretch" AllowDrop="True"
+				   MaxHeight="300" SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}"
+						
+				   LoadingRow="MainGrid_LoadingRow" OnFilter="MainGrid_OnFilter" KeyUp="MainGrid_KeyUp"
+				   RowEditEnded="MainGrid_RowEditEnded">
+				<!--<sdk:DataGrid.Columns>
+			   
+
+					<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Excuse, Source={StaticResource LocalizedStrings}}" SortMemberPath="ExcuseId" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="CSPEXCUSEID" SelectedValuePath="CSPEXCUSEID" SelectedValue="{Binding ExcuseId,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Stretch" IsEnabled="False"
+									  ItemsSource="{Binding Path=DataContext.ExcuseTypeList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+									<ComboBox.ItemsPanel>
+										<ItemsPanelTemplate>
+											<VirtualizingStackPanel />
+										</ItemsPanelTemplate>
+									</ComboBox.ItemsPanel>
+								</ComboBox>
+
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="CSPEXCUSEID" SelectedValuePath="CSPEXCUSEID" SelectedValue="{Binding ExcuseId,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Stretch" 
+									  ItemsSource="{Binding Path=DataContext.ExcuseTypeList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+									<ComboBox.ItemsPanel>
+										<ItemsPanelTemplate>
+											<VirtualizingStackPanel />
+										</ItemsPanelTemplate>
+									</ComboBox.ItemsPanel>
+								</ComboBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn  dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Period, Source={StaticResource LocalizedStrings}}" SortMemberPath="PeriodId" Width="*">
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="CSPPERIODID" SelectedValuePath="CSPPERIODID" SelectedValue="{Binding PeriodId,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Stretch" IsEnabled="False"
+									  ItemsSource="{Binding Path=DataContext.PeriodList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+									<ComboBox.ItemsPanel>
+										<ItemsPanelTemplate>
+											<VirtualizingStackPanel />
+										</ItemsPanelTemplate>
+									</ComboBox.ItemsPanel>
+								</ComboBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="CSPPERIODID" SelectedValuePath="CSPPERIODID" SelectedValue="{Binding PeriodId,Mode=TwoWay}"
+										  Height="23" HorizontalAlignment="Stretch" 
+									  ItemsSource="{Binding Path=DataContext.PeriodList,Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:Page, AncestorLevel=1}}"    										
+									  Margin="3"  VerticalAlignment="Center" >
+									<ComboBox.ItemsPanel>
+										<ItemsPanelTemplate>
+											<VirtualizingStackPanel />
+										</ItemsPanelTemplate>
+									</ComboBox.ItemsPanel>
+								</ComboBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTextColumn  Binding="{Binding Path=CounterPerPeriodLine,Mode=TwoWay}" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CounterPerPeriodLine, Source={StaticResource LocalizedStrings}}" SortMemberPath="CounterPerPeriodLine" Width="SizeToHeader" />
+
+				</sdk:DataGrid.Columns>-->
+
+					
+	   
+			<i:Interaction.Behaviors>
+				<datagridExtenders:ScrollIntoViewBehavior />
+			</i:Interaction.Behaviors>
+		</dataGrid:OsGrid>
+	</Grid>
+		</Grid>
+</navigation:Page>

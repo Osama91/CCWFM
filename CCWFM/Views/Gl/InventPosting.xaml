@@ -1,0 +1,160 @@
+﻿<navigation:Page x:Class="CCWFM.Views.Gl.InventPosting"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+				 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 xmlns:gl1="clr-namespace:CCWFM.ViewModel.Gl"
+				 xmlns:userControls="clr-namespace:CCWFM.UserControls"
+				 Title="Absence"
+				 d:DesignHeight="480"
+				 d:DesignWidth="640"
+				 mc:Ignorable="d">
+	<navigation:Page.Resources>
+		<gl1:InventPostingViewModel x:Key="ViewModel" />
+	</navigation:Page.Resources>
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource ViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,9">
+					<GradientStop Color="#FFC6ECFE" />
+					<GradientStop Offset=".01" Color="#FF003FFF" />
+					<GradientStop Offset="0.3" Color="#ff02fdce" />
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<Button Name="BtnAddNewMainRow"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					Click="BtnAddNewMainRow_Click"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Add">
+				<Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					  Source="/CCWFM;component/Images/1371054818_New_File.png"
+					   Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnDeleteMainRow"
+					Click="BtnDeleteMainRow_Click"
+					ToolTipService.ToolTip="Delete">
+				<Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform" />
+			</Button>
+			<Button Name="BtnSave"
+					Click="BtnSave_Onclick"
+					Content="Save" />
+		</StackPanel>
+<sdk:TabControl Name="Tab"  Grid.Row="1" SelectionChanged="TabControl_OnSelectionChanged" >
+			<sdk:TabItem Name="SalesOrder" Header="{Binding SalesOrder,Source={StaticResource LocalizedStrings}}"></sdk:TabItem>
+			<sdk:TabItem Name="Purchase" Header="{Binding PurchaseOrder,Source={StaticResource LocalizedStrings}}"></sdk:TabItem>
+			<sdk:TabItem Name="Inventory"  Header="{Binding Inventory,Source={StaticResource LocalizedStrings}}"></sdk:TabItem>
+			<sdk:TabItem Name="Production"  Header="{Binding Production,Source={StaticResource LocalizedStrings}}"></sdk:TabItem>
+			<sdk:TabItem Name="StandardCostVariance"  Header="{Binding StandardCostVariance,Source={StaticResource LocalizedStrings}}"></sdk:TabItem>
+	
+		</sdk:TabControl>
+		<Grid  Grid.Row="2" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="2*" />
+				</Grid.ColumnDefinitions>
+				<ListBox  Name="LstItems"  ItemsSource="{Binding Items}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<RadioButton Content="{Binding Ename}" GroupName="Temp"
+						 Checked="RadioButton_Checked"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<dataGrid:OsGrid Grid.Column="1" Name="MainGrid"
+						 
+						 MaxHeight="300"
+						 Margin="10,36,10,0"
+						 HorizontalContentAlignment="Stretch"
+						 VerticalContentAlignment="Stretch"
+						 AllowDrop="True"
+						 GotFocus="MainGrid_OnGotFocus"
+						 ItemsSource="{Binding MainRowList,Mode=TwoWay}"
+						 KeyUp="MainGrid_KeyUp"                                                        
+						 RowEditEnded="MainGrid_RowEditEnded"
+						 SelectedItem="{Binding SelectedMainRow,
+												Mode=TwoWay}">
+				<sdk:DataGrid.Columns>
+					<sdk:DataGridTemplateColumn SortMemberPath="ItemScopeRelation"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ItemGroup, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.ItemGroupList, RelativeSource={RelativeSource FindAncestor, AncestorType=navigation:Page, AncestorLevel=1}}"
+									  SelectedValue="{Binding ItemScopeRelation,Mode=TwoWay}"
+									  SelectedItem="{Binding ItemGroupPerRow,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding ItemGroupPerRow.Ename,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+					<sdk:DataGridTemplateColumn SortMemberPath="SupCustScope"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Scope, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<ComboBox Height="23"
+											  Margin="3"
+											  FontWeight="Bold"
+											  SelectedIndex="{Binding SupCustScope,Mode=TwoWay}">
+									<ComboBoxItem>Table</ComboBoxItem>
+									<ComboBoxItem>Group</ComboBoxItem>
+									<ComboBoxItem>All</ComboBoxItem>
+								</ComboBox>
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					</sdk:DataGridTemplateColumn>
+
+					<sdk:DataGridTemplateColumn SortMemberPath="SupCustRelation"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Entity, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<userControls:SearchEntityUserControl ScopePerRow="{Binding ScopePerRow, Mode=TwoWay}"
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+								SearchPerRow="{Binding EntityAccountPerRow,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding EntityAccountPerRow.Ename,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+
+					<sdk:DataGridTemplateColumn SortMemberPath="TblAccount1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Account, Source={StaticResource LocalizedStrings}}"
+											Width="*">
+						<sdk:DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<userControls:SearchAccountUserControl SearchPerRow="{Binding AccountPerRow,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<sdk:DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding AccountPerRow.Ename,Mode=TwoWay}" />
+							</DataTemplate>
+						</sdk:DataGridTemplateColumn.CellTemplate>
+					</sdk:DataGridTemplateColumn>
+
+				</sdk:DataGrid.Columns>
+		</dataGrid:OsGrid>
+		</Grid>
+	</Grid>
+</navigation:Page>

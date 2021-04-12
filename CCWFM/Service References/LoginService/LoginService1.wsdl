@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LoginService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllLoginUsersData_InputMessage">
+    <wsdl:part name="parameters" element="GetAllLoginUsersData" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllLoginUsersData_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllLoginUsersDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetItemsPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissions" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetItemsPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetItemsPermissionsByParent_InputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissionsByParent" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetItemsPermissionsByParent_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissionsByParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserJob_InputMessage">
+    <wsdl:part name="parameters" element="GetUserJob" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserJob_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserJobPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetUserJobPermissions" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserJobPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserJobPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserMenuesPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetUserMenuesPermissions" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetUserMenuesPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserMenuesPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllLoginUsers_InputMessage">
+    <wsdl:part name="parameters" element="GetAllLoginUsers" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllLoginUsers_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllLoginUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_SaveNewUserRequest_InputMessage">
+    <wsdl:part name="parameters" element="SaveNewUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_SaveNewUserRequest_OutputMessage">
+    <wsdl:part name="parameters" element="SaveNewUserRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllNewUsersRequest_InputMessage">
+    <wsdl:part name="parameters" element="GetAllNewUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_GetAllNewUsersRequest_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllNewUsersRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_UpdateNewUsersRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateNewUsersRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_UpdateNewUsersRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateNewUsersRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_AuthenticateLoginExpiration_InputMessage">
+    <wsdl:part name="parameters" element="AuthenticateLoginExpiration" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_AuthenticateLoginExpiration_OutputMessage">
+    <wsdl:part name="parameters" element="AuthenticateLoginExpirationResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="LoginService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoginService">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="urn:LoginService/Authenticate" message="LoginService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/AuthenticateResponse" message="LoginService_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginUsersData">
+      <wsdl:input wsaw:Action="urn:LoginService/GetAllLoginUsersData" message="LoginService_GetAllLoginUsersData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetAllLoginUsersDataResponse" message="LoginService_GetAllLoginUsersData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPermissions">
+      <wsdl:input wsaw:Action="urn:LoginService/GetItemsPermissions" message="LoginService_GetItemsPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetItemsPermissionsResponse" message="LoginService_GetItemsPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPermissionsByParent">
+      <wsdl:input wsaw:Action="urn:LoginService/GetItemsPermissionsByParent" message="LoginService_GetItemsPermissionsByParent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetItemsPermissionsByParentResponse" message="LoginService_GetItemsPermissionsByParent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserJob">
+      <wsdl:input wsaw:Action="urn:LoginService/GetUserJob" message="LoginService_GetUserJob_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetUserJobResponse" message="LoginService_GetUserJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserJobPermissions">
+      <wsdl:input wsaw:Action="urn:LoginService/GetUserJobPermissions" message="LoginService_GetUserJobPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetUserJobPermissionsResponse" message="LoginService_GetUserJobPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuesPermissions">
+      <wsdl:input wsaw:Action="urn:LoginService/GetUserMenuesPermissions" message="LoginService_GetUserMenuesPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetUserMenuesPermissionsResponse" message="LoginService_GetUserMenuesPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLoginUsers">
+      <wsdl:input wsaw:Action="urn:LoginService/GetAllLoginUsers" message="LoginService_GetAllLoginUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetAllLoginUsersResponse" message="LoginService_GetAllLoginUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveNewUserRequest">
+      <wsdl:input wsaw:Action="urn:LoginService/SaveNewUserRequest" message="LoginService_SaveNewUserRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/SaveNewUserRequestResponse" message="LoginService_SaveNewUserRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNewUsersRequest">
+      <wsdl:input wsaw:Action="urn:LoginService/GetAllNewUsersRequest" message="LoginService_GetAllNewUsersRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/GetAllNewUsersRequestResponse" message="LoginService_GetAllNewUsersRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewUsersRequest">
+      <wsdl:input wsaw:Action="urn:LoginService/UpdateNewUsersRequest" message="LoginService_UpdateNewUsersRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/UpdateNewUsersRequestResponse" message="LoginService_UpdateNewUsersRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateLoginExpiration">
+      <wsdl:input wsaw:Action="urn:LoginService/AuthenticateLoginExpiration" message="LoginService_AuthenticateLoginExpiration_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/AuthenticateLoginExpirationResponse" message="LoginService_AuthenticateLoginExpiration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="urn:LoginService/ChangePassword" message="LoginService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LoginService/ChangePasswordResponse" message="LoginService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

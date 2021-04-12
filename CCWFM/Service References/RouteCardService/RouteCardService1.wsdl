@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.RouteCard" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/RouteCard/RouteCardService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RouteCardService_GetRouteCardInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_SearchRouteCardInvoice_InputMessage">
+    <wsdl:part name="parameters" element="SearchRouteCardInvoice" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_SearchRouteCardInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="SearchRouteCardInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateOrInsertRouteCardInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateOrInsertRouteCardInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRouteCardInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRouteCardInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateOrInsertRouteCardInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateOrInsertRouteCardInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertRouteCardInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRouteCardInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRouteCardInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteCardInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PostRouteCardInvoice_InputMessage">
+    <wsdl:part name="parameters" element="PostRouteCardInvoice" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PostRouteCardInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="PostRouteCardInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PostRoutCardToAx_InputMessage">
+    <wsdl:part name="parameters" element="PostRoutCardToAx" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PostRoutCardToAx_OutputMessage">
+    <wsdl:part name="parameters" element="PostRoutCardToAxResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_EndPo_InputMessage">
+    <wsdl:part name="parameters" element="EndPo" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_EndPo_OutputMessage">
+    <wsdl:part name="parameters" element="EndPoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_TransferRoute_InputMessage">
+    <wsdl:part name="parameters" element="TransferRoute" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_TransferRoute_OutputMessage">
+    <wsdl:part name="parameters" element="TransferRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PurchaseRouteServicesToAx_InputMessage">
+    <wsdl:part name="parameters" element="PurchaseRouteServicesToAx" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PurchaseRouteServicesToAx_OutputMessage">
+    <wsdl:part name="parameters" element="PurchaseRouteServicesToAxResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PurchaseRouteItemByNegativeToAx_InputMessage">
+    <wsdl:part name="parameters" element="PurchaseRouteItemByNegativeToAx" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_PurchaseRouteItemByNegativeToAx_OutputMessage">
+    <wsdl:part name="parameters" element="PurchaseRouteItemByNegativeToAxResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetAxItemPrice_InputMessage">
+    <wsdl:part name="parameters" element="GetAxItemPrice" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetAxItemPrice_OutputMessage">
+    <wsdl:part name="parameters" element="GetAxItemPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetTransactionTypes_InputMessage">
+    <wsdl:part name="parameters" element="GetTransactionTypes" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetTransactionTypes_OutputMessage">
+    <wsdl:part name="parameters" element="GetTransactionTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetLookUpWarehousePermissionType_InputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehousePermissionType" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetLookUpWarehousePermissionType_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookUpWarehousePermissionTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRoutes_InputMessage">
+    <wsdl:part name="parameters" element="GetRoutes" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRoutes_OutputMessage">
+    <wsdl:part name="parameters" element="GetRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRoutGroups_InputMessage">
+    <wsdl:part name="parameters" element="GetRoutGroups" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRoutGroups_OutputMessage">
+    <wsdl:part name="parameters" element="GetRoutGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardHeaders_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardHeaders" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardHeadersBeforeInspection_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardHeadersBeforeInspection" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardHeadersBeforeInspection_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardHeadersBeforeInspectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardDetails_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardDetails" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteCardDetails_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteCardDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_AddRoutCard_InputMessage">
+    <wsdl:part name="parameters" element="AddRoutCard" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_AddRoutCard_OutputMessage">
+    <wsdl:part name="parameters" element="AddRoutCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRemRouteQuantity_InputMessage">
+    <wsdl:part name="parameters" element="GetRemRouteQuantity" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRemRouteQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="GetRemRouteQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateRoutCard_InputMessage">
+    <wsdl:part name="parameters" element="UpdateRoutCard" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_UpdateRoutCard_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateRoutCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRoutCard_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRoutCard" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_DeleteRoutCard_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRoutCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_RouteCardFabric_InputMessage">
+    <wsdl:part name="parameters" element="RouteCardFabric" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_RouteCardFabric_OutputMessage">
+    <wsdl:part name="parameters" element="RouteCardFabricResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetMaxRouteCardTransactionID_InputMessage">
+    <wsdl:part name="parameters" element="GetMaxRouteCardTransactionID" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetMaxRouteCardTransactionID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMaxRouteCardTransactionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteBomIssue_InputMessage">
+    <wsdl:part name="parameters" element="GetRouteBomIssue" />
+  </wsdl:message>
+  <wsdl:message name="RouteCardService_GetRouteBomIssue_OutputMessage">
+    <wsdl:part name="parameters" element="GetRouteBomIssueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RouteCardService">
+    <wsdl:operation name="GetRouteCardInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteCardInvoiceHeader" message="RouteCardService_GetRouteCardInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteCardInvoiceHeaderResponse" message="RouteCardService_GetRouteCardInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRouteCardInvoice">
+      <wsdl:input wsaw:Action="urn:RouteCardService/SearchRouteCardInvoice" message="RouteCardService_SearchRouteCardInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/SearchRouteCardInvoiceResponse" message="RouteCardService_SearchRouteCardInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertRouteCardInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:RouteCardService/UpdateOrInsertRouteCardInvoiceHeader" message="RouteCardService_UpdateOrInsertRouteCardInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/UpdateOrInsertRouteCardInvoiceHeaderResponse" message="RouteCardService_UpdateOrInsertRouteCardInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteCardInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:RouteCardService/DeleteRouteCardInvoiceHeader" message="RouteCardService_DeleteRouteCardInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/DeleteRouteCardInvoiceHeaderResponse" message="RouteCardService_DeleteRouteCardInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCardInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteCardInvoiceDetail" message="RouteCardService_GetRouteCardInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteCardInvoiceDetailResponse" message="RouteCardService_GetRouteCardInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertRouteCardInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:RouteCardService/UpdateOrInsertRouteCardInvoiceDetail" message="RouteCardService_UpdateOrInsertRouteCardInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/UpdateOrInsertRouteCardInvoiceDetailResponse" message="RouteCardService_UpdateOrInsertRouteCardInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteCardInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:RouteCardService/DeleteRouteCardInvoiceDetail" message="RouteCardService_DeleteRouteCardInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/DeleteRouteCardInvoiceDetailResponse" message="RouteCardService_DeleteRouteCardInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRouteCardInvoice">
+      <wsdl:input wsaw:Action="urn:RouteCardService/PostRouteCardInvoice" message="RouteCardService_PostRouteCardInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/PostRouteCardInvoiceResponse" message="RouteCardService_PostRouteCardInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRoutCardToAx">
+      <wsdl:input wsaw:Action="urn:RouteCardService/PostRoutCardToAx" message="RouteCardService_PostRoutCardToAx_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/PostRoutCardToAxResponse" message="RouteCardService_PostRoutCardToAx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndPo">
+      <wsdl:input wsaw:Action="urn:RouteCardService/EndPo" message="RouteCardService_EndPo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/EndPoResponse" message="RouteCardService_EndPo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferRoute">
+      <wsdl:input wsaw:Action="urn:RouteCardService/TransferRoute" message="RouteCardService_TransferRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/TransferRouteResponse" message="RouteCardService_TransferRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseRouteServicesToAx">
+      <wsdl:input wsaw:Action="urn:RouteCardService/PurchaseRouteServicesToAx" message="RouteCardService_PurchaseRouteServicesToAx_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/PurchaseRouteServicesToAxResponse" message="RouteCardService_PurchaseRouteServicesToAx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseRouteItemByNegativeToAx">
+      <wsdl:input wsaw:Action="urn:RouteCardService/PurchaseRouteItemByNegativeToAx" message="RouteCardService_PurchaseRouteItemByNegativeToAx_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/PurchaseRouteItemByNegativeToAxResponse" message="RouteCardService_PurchaseRouteItemByNegativeToAx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAxItemPrice">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetAxItemPrice" message="RouteCardService_GetAxItemPrice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetAxItemPriceResponse" message="RouteCardService_GetAxItemPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionTypes">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetTransactionTypes" message="RouteCardService_GetTransactionTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetTransactionTypesResponse" message="RouteCardService_GetTransactionTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookUpWarehousePermissionType">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetLookUpWarehousePermissionType" message="RouteCardService_GetLookUpWarehousePermissionType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetLookUpWarehousePermissionTypeResponse" message="RouteCardService_GetLookUpWarehousePermissionType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutes">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRoutes" message="RouteCardService_GetRoutes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRoutesResponse" message="RouteCardService_GetRoutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutGroups">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRoutGroups" message="RouteCardService_GetRoutGroups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRoutGroupsResponse" message="RouteCardService_GetRoutGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCardHeaders">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteCardHeaders" message="RouteCardService_GetRouteCardHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteCardHeadersResponse" message="RouteCardService_GetRouteCardHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCardHeadersBeforeInspection">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteCardHeadersBeforeInspection" message="RouteCardService_GetRouteCardHeadersBeforeInspection_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteCardHeadersBeforeInspectionResponse" message="RouteCardService_GetRouteCardHeadersBeforeInspection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteCardDetails">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteCardDetails" message="RouteCardService_GetRouteCardDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteCardDetailsResponse" message="RouteCardService_GetRouteCardDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRoutCard">
+      <wsdl:input wsaw:Action="urn:RouteCardService/AddRoutCard" message="RouteCardService_AddRoutCard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/AddRoutCardResponse" message="RouteCardService_AddRoutCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemRouteQuantity">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRemRouteQuantity" message="RouteCardService_GetRemRouteQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRemRouteQuantityResponse" message="RouteCardService_GetRemRouteQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoutCard">
+      <wsdl:input wsaw:Action="urn:RouteCardService/UpdateRoutCard" message="RouteCardService_UpdateRoutCard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/UpdateRoutCardResponse" message="RouteCardService_UpdateRoutCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoutCard">
+      <wsdl:input wsaw:Action="urn:RouteCardService/DeleteRoutCard" message="RouteCardService_DeleteRoutCard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/DeleteRoutCardResponse" message="RouteCardService_DeleteRoutCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RouteCardFabric">
+      <wsdl:input wsaw:Action="urn:RouteCardService/RouteCardFabric" message="RouteCardService_RouteCardFabric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/RouteCardFabricResponse" message="RouteCardService_RouteCardFabric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxRouteCardTransactionID">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetMaxRouteCardTransactionID" message="RouteCardService_GetMaxRouteCardTransactionID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetMaxRouteCardTransactionIDResponse" message="RouteCardService_GetMaxRouteCardTransactionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteBomIssue">
+      <wsdl:input wsaw:Action="urn:RouteCardService/GetRouteBomIssue" message="RouteCardService_GetRouteBomIssue_InputMessage" />
+      <wsdl:output wsaw:Action="urn:RouteCardService/GetRouteBomIssueResponse" message="RouteCardService_GetRouteBomIssue_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

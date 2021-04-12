@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Models.Inv" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfAuthWarehouseType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuthWarehouseType" type="tns:AuthWarehouseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuthWarehouseType" nillable="true" type="tns:ArrayOfAuthWarehouseType" />
+  <xs:simpleType name="AuthWarehouseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="TransferTo" />
+      <xs:enumeration value="TransferFrom" />
+      <xs:enumeration value="TransferToFrom" />
+      <xs:enumeration value="Adjustment" />
+      <xs:enumeration value="FirstDegreeWarehouse" />
+      <xs:enumeration value="SecondDegreeWarehouse" />
+      <xs:enumeration value="ThridDegreeWarehouse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthWarehouseType" nillable="true" type="tns:AuthWarehouseType" />
+</xs:schema>

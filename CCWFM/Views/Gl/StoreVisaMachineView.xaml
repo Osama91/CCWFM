@@ -1,0 +1,86 @@
+﻿<sdk:Page xmlns:DataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls" 
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Tools.Silverlight"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:viewModel="clr-namespace:CCWFM.ViewModel.Gl"
+    xmlns:Views="clr-namespace:CCWFM.Views"
+    xmlns:ext="clr-namespace:CCWFM.Helpers.Extention"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+    x:Class="CCWFM.Views.Gl.StoreVisaMachineView"
+    xmlns:UserControls="clr-namespace:CCWFM.UserControls" 
+    mc:Ignorable="d" Title="Cash Deposit"
+    d:DesignHeight="300" d:DesignWidth="800">
+    <sdk:Page.Resources>
+        <viewModel:StoreVisaMachineViewModel x:Key="ViewModel" />
+    </sdk:Page.Resources>
+    <Grid Background="White" Margin="5" DataContext="{Binding Source={StaticResource ViewModel}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Views:WindowHeader DataContext="{Binding Source={StaticResource ViewModel}}" Margin="5"/>
+
+        <Grid Margin="5" Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <sdk:Label Margin="5" Content="{Binding BankAccount, Source={StaticResource LocalizedStrings}}"/>
+            <ComboBox Margin="5" Grid.Column="1" ItemsSource="{Binding BankList, Mode=TwoWay}"
+                      SelectedItem="{Binding BankRec, Mode=TwoWay}"
+                      DisplayMemberPath="Ename" SelectedValuePath="Iserial" TextSearch.TextPath="Code"/>
+
+            <sdk:Label Margin="5" Content="{Binding Percentage, Source={StaticResource LocalizedStrings}}" Grid.Column="2"/>
+            <TextBox Text="{Binding DiscountPercent, Mode=TwoWay}" Margin="5" Grid.Column="3"
+                                      MaxWidth="150" TextAlignment="Center"/>
+
+            <sdk:Label Margin="5" Content="{Binding Entity, Source={StaticResource LocalizedStrings}}" Grid.Column="4"/>
+
+            <UserControls:SearchEntityUserControl Margin="5"
+                      SearchPerRow="{Binding EntityPerRow, Mode=TwoWay}"
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}" Grid.Column="5"/>
+        </Grid>
+       
+        <DataGrid:OsGrid Grid.Row="2" VerticalAlignment="Stretch" ColumnWidth="*" Grid.ColumnSpan="3"
+                      ItemsSource="{Binding MainRowList, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedMainRow, Mode=TwoWay}"
+                      AutoGenerateColumns="False">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="KeyDown">
+                    <cmd:EventToCommand Command="{Binding DeleteDetail}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="KeyUp">
+                    <cmd:EventToCommand Command="{Binding NewVisaCommand}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+           
+            <DataGrid:OsGrid.Columns>
+                <sdk:DataGridTextColumn Header="Code" Binding="{Binding Code, Mode=TwoWay}"/>
+                <sdk:DataGridTextColumn Header="MachineId" Binding="{Binding MachineId, Mode=TwoWay}"/>
+                <sdk:DataGridTemplateColumn Header="Store">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox Margin="5" TextSearch.TextPath="code"
+                                      ItemsSource="{Binding StoreList, Mode=TwoWay, Source={StaticResource ViewModel}}"
+                                      SelectedValue="{Binding Path=StoreIserial, Mode=TwoWay}"
+                                      SelectedValuePath="iserial" DisplayMemberPath="ENAME"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridCheckBoxColumn Header="IsDefault" Binding="{Binding IsDefault, Mode=TwoWay}"/>
+            </DataGrid:OsGrid.Columns>
+        </DataGrid:OsGrid>
+    </Grid>
+</sdk:Page>

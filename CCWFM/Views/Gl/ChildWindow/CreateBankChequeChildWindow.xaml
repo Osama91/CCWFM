@@ -1,0 +1,49 @@
+﻿<sdk:ChildWindow x:Class="CCWFM.Views.Gl.ChildWindow.CreateBankChequeChildWindow"
+									xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+									xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									Title="Ledger Detail" mc:Ignorable="d"
+									xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+									xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+									xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+				 Width="200" Height="150">
+	<Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition ></RowDefinition>
+				<RowDefinition Height="20"></RowDefinition>
+				<RowDefinition  Height="20"></RowDefinition>
+				<RowDefinition  Height="20"></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+
+			<TextBlock Grid.ColumnSpan="2" Text="{Binding CreateCheck,Source={StaticResource LocalizedStrings}}" TextAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+
+			<TextBlock Grid.Column="0" Grid.Row="1"  Text="{Binding Bank,Source={StaticResource LocalizedStrings}}" TextAlignment="Center" HorizontalAlignment="Right" ></TextBlock>
+			<TextBlock Grid.Column="1" Grid.Row="1" MinWidth="50" MinHeight="10"  Text="{Binding SelectedMainRow.Ename}" TextAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+
+			<TextBlock Grid.Column="0" Grid.Row="2"  Text="{Binding From,Source={StaticResource LocalizedStrings}}" TextAlignment="Center" HorizontalAlignment="Right" ></TextBlock>
+			<TextBox Grid.Column="1" Grid.Row="2" MinWidth="50"  Name="TxtFrom" TextAlignment="Center" HorizontalAlignment="Center" ></TextBox>
+
+			<TextBlock Grid.Column="0" Grid.Row="3"     Text="{Binding Qty,Source={StaticResource LocalizedStrings}}" TextAlignment="Center" HorizontalAlignment="Right" ></TextBlock>
+			<TextBox Grid.Column="1" Grid.Row="3" MinWidth="50"  Name="TxtQty" TextAlignment="Center" HorizontalAlignment="Center" ></TextBox>
+
+			<Button x:Name="CreateCancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}"
+				Click="CreateCance_Click" Width="75" Height="23"
+				HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4" />
+			<Button x:Name="CreateOkButton" Content="{Binding Ok, Source={StaticResource LocalizedStrings}}"
+				Click="CreateOkButton_Click" Width="75" Height="23"
+				HorizontalAlignment="Right"  Grid.Column="0" Grid.Row="4" />
+
+		</Grid>
+
+	</Grid>
+</sdk:ChildWindow>

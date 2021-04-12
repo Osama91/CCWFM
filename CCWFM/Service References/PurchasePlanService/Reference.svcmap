@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3d418fa3-17d0-4aab-a9bf-5c89352535da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PurchasePlan.xsd" MetadataType="Schema" ID="f867c820-87cc-4acd-9a39-f05ba02f6fbb" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd4" />
+    <MetadataFile FileName="PurchasePlan1.xsd" MetadataType="Schema" ID="6b217391-4f6a-4c72-901f-6d17fc1f4f34" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd0" />
+    <MetadataFile FileName="PurchasePlan2.xsd" MetadataType="Schema" ID="5e9d1417-bffd-4545-b8df-d8557fecc90e" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd5" />
+    <MetadataFile FileName="PurchasePlan3.xsd" MetadataType="Schema" ID="da8d030f-5fb3-4a9b-ac31-00e925a87639" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd3" />
+    <MetadataFile FileName="PurchasePlan.wsdl" MetadataType="Wsdl" ID="f401c7dd-40bf-49aa-a98a-833d6f620b32" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?wsdl" />
+    <MetadataFile FileName="PurchasePlan1.wsdl" MetadataType="Wsdl" ID="6358f77d-4c2f-4b60-96dc-b8e6a9ad8825" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PurchasePlan4.xsd" MetadataType="Schema" ID="6b3bfa5e-d23c-428f-8e18-6d35a994b4c0" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd1" />
+    <MetadataFile FileName="PurchasePlan6.xsd" MetadataType="Schema" ID="26302477-1521-4410-8a50-3b82c1afe61a" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd6" />
+    <MetadataFile FileName="PurchasePlan.disco" MetadataType="Disco" ID="9e4cba38-9d25-4c51-b1ce-fa910ae879f0" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?disco" />
+    <MetadataFile FileName="PurchasePlan5.xsd" MetadataType="Schema" ID="4b7712d2-a575-4acf-a49f-520c39752fcf" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/PurchasePlan/PurchasePlan.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

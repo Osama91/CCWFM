@@ -1,0 +1,76 @@
+﻿<controls:ChildWindow x:Class="CCWFM.Views.OGView.UiBarcodeSetup"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="600" Height="500"
+           Title="UiBarcodeSetup"
+                      xmlns:Converters="clr-namespace:CCWFM.Helpers.Converters"
+                       xmlns:res="clr-namespace:CCWFM.Helpers.LocalizationHelpers">
+    <controls:ChildWindow.Resources>        
+        <Converters:PixelsConverters x:Key="PixelsCon" ></Converters:PixelsConverters>
+        <Converters:BoldConverter x:Key="Conboldprop"></Converters:BoldConverter>
+        <Converters:ItalicConverter x:Key="ConitalicProp"></Converters:ItalicConverter>
+        <Converters:FontFamilyConverter x:Key="FontFamilyConverter"></Converters:FontFamilyConverter>       
+        <Converters:ReversedBoolConverter x:Key="ReversedConverted"></Converters:ReversedBoolConverter>
+        <res:strings x:Key="LocalizedStrings"></res:strings>
+    </controls:ChildWindow.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />            
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="100" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid  DataContext="{Binding SelectedTemplate,Mode=TwoWay}" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button  Style="{StaticResource AddNew-Button}" Grid.Column="2" Background="{StaticResource PrimaryColor-Brush}"  Name="BtnAddNewRow"  Click="BtnAddNewRow_Click" />
+            <Button  Content="Perview" Grid.Column="2" Grid.Row="1" Background="{StaticResource PrimaryColor-Brush}"  Name="btnPerview"  Click="btnPerview_Click" />
+            <ComboBox x:Name="CmbFontFamily" Grid.Column="0" SelectedItem="{Binding FontFamilyProp,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
+            <ToggleButton Grid.Row="1" Grid.Column="0"   Content="B" IsChecked="{Binding BoldProperty,Mode=TwoWay}" ></ToggleButton>
+            <ToggleButton Grid.Row="1" Grid.Column="1"   Content="I" IsChecked="{Binding ItalicProperty,Mode=TwoWay}"  ></ToggleButton>
+            <TextBox  Grid.Column="1"  Text="{Binding FontSizeProp,Mode=TwoWay}" MaxLength="2" TextChanged="TextBox_TextChanged" ></TextBox>
+            <TextBlock  Grid.Row="2" Grid.Column="0"  Text="English Name"></TextBlock>
+            <TextBox
+                IsReadOnly="{Binding Path=BarcodePropertiesIserial,Mode=TwoWay}"
+                TextChanged="PropertyName_TextChanged"
+            Grid.Row="3"   FontFamily="{Binding FontFamilyProp,Mode=TwoWay,Converter={StaticResource FontFamilyConverter}}"
+            FontSize="{Binding FontSizeProp,Mode=TwoWay}"
+            FontWeight="{Binding BoldProperty,Mode=TwoWay, Converter={StaticResource Conboldprop}}"
+            FontStyle="{Binding Converter={StaticResource ConitalicProp},
+            Path=ItalicProperty,Mode=TwoWay}"
+                 Text="{Binding PropertyName,Mode=TwoWay}" Grid.Column="0" />
+            <TextBlock  Grid.Row="2" Grid.Column="1"  Text="Arabic Name"></TextBlock>
+            <TextBox
+                IsReadOnly="{Binding Path=BarcodePropertiesIserial,Mode=TwoWay}"
+                TextChanged="PropertyName_TextChanged"
+            Grid.Row="3"   FontFamily="{Binding FontFamilyProp,Mode=TwoWay,Converter={StaticResource FontFamilyConverter}}"
+            FontSize="{Binding FontSizeProp,Mode=TwoWay}"
+            FontWeight="{Binding BoldProperty,Mode=TwoWay, Converter={StaticResource Conboldprop}}"
+            FontStyle="{Binding Converter={StaticResource ConitalicProp},
+            Path=ItalicProperty,Mode=TwoWay}"
+                 Text="{Binding PropertyNameArabic,Mode=TwoWay}" Grid.Column="1" />
+        </Grid>
+
+
+        <Canvas x:Name="panel" Background="LightGray" 
+                
+                MaxWidth="{Binding PageWidthSizeUnitProperty,Mode=TwoWay,Converter={StaticResource PixelsCon}}" MaxHeight="{Binding PageHeightSizeUnitProperty,Mode=TwoWay,Converter={StaticResource PixelsCon}}" Grid.Row="1" Grid.ColumnSpan="3">
+        </Canvas>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"  Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="2" Grid.Column="1" />
+        <Button x:Name="OKButton" Content="Save" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="2" Grid.Column="1" />
+    </Grid>
+</controls:ChildWindow>

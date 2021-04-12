@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/Production/ProductionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProductionService_DeleteTblStyleTNAColorDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNAColorDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblStyleTNAColorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNAColorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAColorDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAColorDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAColorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAColorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAColorDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAColorDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAColorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAColorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTnaStatus_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTnaStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTnaStatus_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTnaStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAStatusDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAStatusDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAStatusDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAStatusDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAStatusDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAStatusDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAStatusDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAStatusDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblUsersStyleTNAStatus_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblUsersStyleTNAStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblUsersStyleTNAStatus_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblUsersStyleTNAStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblUsersStyleTNAStatus_InputMessage">
+    <wsdl:part name="parameters" element="GetTblUsersStyleTNAStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblUsersStyleTNAStatus_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblUsersStyleTNAStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblUsersStyleTNAStatus_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblUsersStyleTNAStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblUsersStyleTNAStatus_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblUsersStyleTNAStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblUsersApprovalStatus_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblUsersApprovalStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblUsersApprovalStatus_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblUsersApprovalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblUsersApprovalStatus_InputMessage">
+    <wsdl:part name="parameters" element="GetTblUsersApprovalStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblUsersApprovalStatus_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblUsersApprovalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblUsersApprovalStatus_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblUsersApprovalStatus" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblUsersApprovalStatus_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblUsersApprovalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleLookup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleLookup" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleLookup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_StyleTnaCount_InputMessage">
+    <wsdl:part name="parameters" element="StyleTnaCount" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_StyleTnaCount_OutputMessage">
+    <wsdl:part name="parameters" element="StyleTnaCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblStyleTNAHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNAHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblStyleTNAHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNAHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNAHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNAHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_RequestStyleTna_InputMessage">
+    <wsdl:part name="parameters" element="RequestStyleTna" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_RequestStyleTna_OutputMessage">
+    <wsdl:part name="parameters" element="RequestStyleTnaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNADetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNADetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblStyleTNADetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNADetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DownloadAttachFile_InputMessage">
+    <wsdl:part name="parameters" element="DownloadAttachFile" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DownloadAttachFile_OutputMessage">
+    <wsdl:part name="parameters" element="DownloadAttachFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderTransaction_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderTransaction_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderTransaction_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderFabric_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderFabric" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderFabric_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderFabricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderFabric_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderFabric" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderFabric_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderFabricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderFabric_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderFabric" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderFabric_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderFabricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderService_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderService" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderService_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderService_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderService" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderService_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderService_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderService" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderService_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetProductionOrderServicePending_InputMessage">
+    <wsdl:part name="parameters" element="GetProductionOrderServicePending" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetProductionOrderServicePending_OutputMessage">
+    <wsdl:part name="parameters" element="GetProductionOrderServicePendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SearchProductionOrderInvoice_InputMessage">
+    <wsdl:part name="parameters" element="SearchProductionOrderInvoice" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SearchProductionOrderInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="SearchProductionOrderInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceMarkupTransProd_InputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceMarkupTransProd" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblProductionOrderInvoiceMarkupTransProd_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblProductionOrderInvoiceMarkupTransProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblProductionOrderInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceMarkupTransProds_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceMarkupTransProds" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblProductionOrderInvoiceMarkupTransProds_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblProductionOrderInvoiceMarkupTransProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_PostTblProductionOrderInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="PostTblProductionOrderInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_PostTblProductionOrderInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PostTblProductionOrderInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementTransaction_InputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementDetailListFabricView_InputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementDetailListFabricView" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementDetailListFabricView_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementDetailListFabricViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SearchItemForTradeAgreement_InputMessage">
+    <wsdl:part name="parameters" element="SearchItemForTradeAgreement" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SearchItemForTradeAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="SearchItemForTradeAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SaveTradeAgreement_InputMessage">
+    <wsdl:part name="parameters" element="SaveTradeAgreement" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_SaveTradeAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="SaveTradeAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTradeAgreementHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTradeAgreementHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTradeAgreementHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTradeAgreementHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementDetailList_InputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementDetailList" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_GetTblTradeAgreementDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblTradeAgreementDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblTradeAgreementDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblTradeAgreementDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_UpdateOrInsertTblTradeAgreementDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblTradeAgreementDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblTradeAgreementDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblTradeAgreementDetail" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_DeleteTblTradeAgreementDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblTradeAgreementDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductionService">
+    <wsdl:operation name="DeleteTblStyleTNAColorDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblStyleTNAColorDetail" message="ProductionService_DeleteTblStyleTNAColorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblStyleTNAColorDetailResponse" message="ProductionService_DeleteTblStyleTNAColorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNAColorDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleTNAColorDetail" message="ProductionService_GetTblStyleTNAColorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleTNAColorDetailResponse" message="ProductionService_GetTblStyleTNAColorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblStyleTNAColorDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAColorDetail" message="ProductionService_UpdateOrInsertTblStyleTNAColorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAColorDetailResponse" message="ProductionService_UpdateOrInsertTblStyleTNAColorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTnaStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleTnaStatus" message="ProductionService_GetTblStyleTnaStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleTnaStatusResponse" message="ProductionService_GetTblStyleTnaStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblStyleTNAStatusDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAStatusDetail" message="ProductionService_UpdateOrInsertTblStyleTNAStatusDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAStatusDetailResponse" message="ProductionService_UpdateOrInsertTblStyleTNAStatusDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNAStatusDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleTNAStatusDetail" message="ProductionService_GetTblStyleTNAStatusDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleTNAStatusDetailResponse" message="ProductionService_GetTblStyleTNAStatusDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblUsersStyleTNAStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblUsersStyleTNAStatus" message="ProductionService_DeleteTblUsersStyleTNAStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblUsersStyleTNAStatusResponse" message="ProductionService_DeleteTblUsersStyleTNAStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblUsersStyleTNAStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblUsersStyleTNAStatus" message="ProductionService_GetTblUsersStyleTNAStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblUsersStyleTNAStatusResponse" message="ProductionService_GetTblUsersStyleTNAStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblUsersStyleTNAStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblUsersStyleTNAStatus" message="ProductionService_UpdateOrInsertTblUsersStyleTNAStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblUsersStyleTNAStatusResponse" message="ProductionService_UpdateOrInsertTblUsersStyleTNAStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblUsersApprovalStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblUsersApprovalStatus" message="ProductionService_DeleteTblUsersApprovalStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblUsersApprovalStatusResponse" message="ProductionService_DeleteTblUsersApprovalStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblUsersApprovalStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblUsersApprovalStatus" message="ProductionService_GetTblUsersApprovalStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblUsersApprovalStatusResponse" message="ProductionService_GetTblUsersApprovalStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblUsersApprovalStatus">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblUsersApprovalStatus" message="ProductionService_UpdateOrInsertTblUsersApprovalStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblUsersApprovalStatusResponse" message="ProductionService_UpdateOrInsertTblUsersApprovalStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleLookup">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleLookup" message="ProductionService_GetTblStyleLookup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleLookupResponse" message="ProductionService_GetTblStyleLookup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StyleTnaCount">
+      <wsdl:input wsaw:Action="urn:ProductionService/StyleTnaCount" message="ProductionService_StyleTnaCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/StyleTnaCountResponse" message="ProductionService_StyleTnaCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblStyleTNAHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblStyleTNAHeader" message="ProductionService_DeleteTblStyleTNAHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblStyleTNAHeaderResponse" message="ProductionService_DeleteTblStyleTNAHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNAHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleTNAHeader" message="ProductionService_GetTblStyleTNAHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleTNAHeaderResponse" message="ProductionService_GetTblStyleTNAHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestStyleTna">
+      <wsdl:input wsaw:Action="urn:ProductionService/RequestStyleTna" message="ProductionService_RequestStyleTna_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/RequestStyleTnaResponse" message="ProductionService_RequestStyleTna_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNADetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblStyleTNADetail" message="ProductionService_GetTblStyleTNADetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblStyleTNADetailResponse" message="ProductionService_GetTblStyleTNADetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblStyleTNAHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAHeader" message="ProductionService_UpdateOrInsertTblStyleTNAHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAHeaderResponse" message="ProductionService_UpdateOrInsertTblStyleTNAHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttachFile">
+      <wsdl:input wsaw:Action="urn:ProductionService/DownloadAttachFile" message="ProductionService_DownloadAttachFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DownloadAttachFileResponse" message="ProductionService_DownloadAttachFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderHeader" message="ProductionService_GetTblProductionOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderHeaderResponse" message="ProductionService_GetTblProductionOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderHeader" message="ProductionService_UpdateOrInsertTblProductionOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderHeaderResponse" message="ProductionService_UpdateOrInsertTblProductionOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderHeader" message="ProductionService_DeleteTblProductionOrderHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderHeaderResponse" message="ProductionService_DeleteTblProductionOrderHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderTransaction">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderTransaction" message="ProductionService_GetTblProductionOrderTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderTransactionResponse" message="ProductionService_GetTblProductionOrderTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderTransaction">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderTransaction" message="ProductionService_UpdateOrInsertTblProductionOrderTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderTransactionResponse" message="ProductionService_UpdateOrInsertTblProductionOrderTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderTransaction">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderTransaction" message="ProductionService_DeleteTblProductionOrderTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderTransactionResponse" message="ProductionService_DeleteTblProductionOrderTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderFabric">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderFabric" message="ProductionService_GetTblProductionOrderFabric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderFabricResponse" message="ProductionService_GetTblProductionOrderFabric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderFabric">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderFabric" message="ProductionService_UpdateOrInsertTblProductionOrderFabric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderFabricResponse" message="ProductionService_UpdateOrInsertTblProductionOrderFabric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderFabric">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderFabric" message="ProductionService_DeleteTblProductionOrderFabric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderFabricResponse" message="ProductionService_DeleteTblProductionOrderFabric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderService">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderService" message="ProductionService_GetTblProductionOrderService_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderServiceResponse" message="ProductionService_GetTblProductionOrderService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderService">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderService" message="ProductionService_UpdateOrInsertTblProductionOrderService_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderServiceResponse" message="ProductionService_UpdateOrInsertTblProductionOrderService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderService">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderService" message="ProductionService_DeleteTblProductionOrderService_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderServiceResponse" message="ProductionService_DeleteTblProductionOrderService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceHeader" message="ProductionService_GetTblProductionOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceHeaderResponse" message="ProductionService_GetTblProductionOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceHeader" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceHeaderResponse" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceHeader" message="ProductionService_DeleteTblProductionOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceHeaderResponse" message="ProductionService_DeleteTblProductionOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceDetail" message="ProductionService_GetTblProductionOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceDetailResponse" message="ProductionService_GetTblProductionOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceDetail" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceDetailResponse" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderInvoiceDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceDetail" message="ProductionService_DeleteTblProductionOrderInvoiceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceDetailResponse" message="ProductionService_DeleteTblProductionOrderInvoiceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductionOrderServicePending">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetProductionOrderServicePending" message="ProductionService_GetProductionOrderServicePending_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetProductionOrderServicePendingResponse" message="ProductionService_GetProductionOrderServicePending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProductionOrderInvoice">
+      <wsdl:input wsaw:Action="urn:ProductionService/SearchProductionOrderInvoice" message="ProductionService_SearchProductionOrderInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/SearchProductionOrderInvoiceResponse" message="ProductionService_SearchProductionOrderInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblProductionOrderInvoiceMarkupTransProd">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceMarkupTransProd" message="ProductionService_GetTblProductionOrderInvoiceMarkupTransProd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblProductionOrderInvoiceMarkupTransProdResponse" message="ProductionService_GetTblProductionOrderInvoiceMarkupTransProd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblProductionOrderInvoiceMarkupTransProdsResponse" message="ProductionService_UpdateOrInsertTblProductionOrderInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblProductionOrderInvoiceMarkupTransProds">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceMarkupTransProds" message="ProductionService_DeleteTblProductionOrderInvoiceMarkupTransProds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblProductionOrderInvoiceMarkupTransProdsResponse" message="ProductionService_DeleteTblProductionOrderInvoiceMarkupTransProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTblProductionOrderInvoiceHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/PostTblProductionOrderInvoiceHeader" message="ProductionService_PostTblProductionOrderInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/PostTblProductionOrderInvoiceHeaderResponse" message="ProductionService_PostTblProductionOrderInvoiceHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblTradeAgreementTransaction">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblTradeAgreementTransaction" message="ProductionService_GetTblTradeAgreementTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblTradeAgreementTransactionResponse" message="ProductionService_GetTblTradeAgreementTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblTradeAgreementDetailListFabricView">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblTradeAgreementDetailListFabricView" message="ProductionService_GetTblTradeAgreementDetailListFabricView_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblTradeAgreementDetailListFabricViewResponse" message="ProductionService_GetTblTradeAgreementDetailListFabricView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItemForTradeAgreement">
+      <wsdl:input wsaw:Action="urn:ProductionService/SearchItemForTradeAgreement" message="ProductionService_SearchItemForTradeAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/SearchItemForTradeAgreementResponse" message="ProductionService_SearchItemForTradeAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTradeAgreement">
+      <wsdl:input wsaw:Action="urn:ProductionService/SaveTradeAgreement" message="ProductionService_SaveTradeAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/SaveTradeAgreementResponse" message="ProductionService_SaveTradeAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTradeAgreementHeader">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTradeAgreementHeader" message="ProductionService_DeleteTradeAgreementHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTradeAgreementHeaderResponse" message="ProductionService_DeleteTradeAgreementHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblTradeAgreementDetailList">
+      <wsdl:input wsaw:Action="urn:ProductionService/GetTblTradeAgreementDetailList" message="ProductionService_GetTblTradeAgreementDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/GetTblTradeAgreementDetailListResponse" message="ProductionService_GetTblTradeAgreementDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblTradeAgreementDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblTradeAgreementDetail" message="ProductionService_UpdateOrInsertTblTradeAgreementDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblTradeAgreementDetailResponse" message="ProductionService_UpdateOrInsertTblTradeAgreementDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblTradeAgreementDetail">
+      <wsdl:input wsaw:Action="urn:ProductionService/DeleteTblTradeAgreementDetail" message="ProductionService_DeleteTblTradeAgreementDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/DeleteTblTradeAgreementDetailResponse" message="ProductionService_DeleteTblTradeAgreementDetail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LkpData_GetTblFactoryDelivery_InputMessage">
+    <wsdl:part name="parameters" element="GetTblFactoryDelivery" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFactoryDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblFactoryDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblFactoryDelivery_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblFactoryDelivery" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblFactoryDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblFactoryDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblFactoryDelivery_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblFactoryDelivery" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblFactoryDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblFactoryDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblDirection_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblDirection" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblDirection_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblDirectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblStyleCategory_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblStyleCategory" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblStyleCategory_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblStyleCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblFamily_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblFamily_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblSubFamily_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblSubFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblSubFamily_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblSubFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblDirectionLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblDirectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblDirectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblDirectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblThemeLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblThemeLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblThemeLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblThemeLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblSubFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblSubFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblSubFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblSubFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetRepeatedStyles_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetRepeatedStyles" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetRepeatedStyles_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetRepeatedStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblLkpDirectionLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblLkpDirectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblLkpDirectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblLkpDirectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblStyleCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblStyleCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblStyleCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblStyleCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblStyleTNA_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblStyleTNA" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTblStyleTNA_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTblStyleTNAResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTNARouteByStyle_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTNARouteByStyle" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_GetTNARouteByStyle_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_GetTNARouteByStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblStyleTNARoute_InputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblStyleTNARoute" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_FamilyCategory_UpdateOrDeleteTblStyleTNARoute_OutputMessage">
+    <wsdl:part name="parameters" element="FamilyCategory_UpdateOrDeleteTblStyleTNARouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertStyleImageFromFolder_InputMessage">
+    <wsdl:part name="parameters" element="InsertStyleImageFromFolder" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertStyleImageFromFolder_OutputMessage">
+    <wsdl:part name="parameters" element="InsertStyleImageFromFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetStyleImageFromFolder_InputMessage">
+    <wsdl:part name="parameters" element="GetStyleImageFromFolder" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetStyleImageFromFolder_OutputMessage">
+    <wsdl:part name="parameters" element="GetStyleImageFromFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetStyleSpecDetails_InputMessage">
+    <wsdl:part name="parameters" element="GetStyleSpecDetails" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetStyleSpecDetails_OutputMessage">
+    <wsdl:part name="parameters" element="GetStyleSpecDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleSpecTypes_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleSpecTypes" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleSpecTypes_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleSpecTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertStyleSpecDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertStyleSpecDetails" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertStyleSpecDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertStyleSpecDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteStyleSpecDetailRow_InputMessage">
+    <wsdl:part name="parameters" element="DeleteStyleSpecDetailRow" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteStyleSpecDetailRow_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteStyleSpecDetailRowResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleSpecDetailAttachment_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleSpecDetailAttachment" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleSpecDetailAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleSpecDetailAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblStyleSpecDetailAttachmentRow_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleSpecDetailAttachmentRow" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblStyleSpecDetailAttachmentRow_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleSpecDetailAttachmentRowResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblStyleTNADetailAttachmentRow_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNADetailAttachmentRow" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblStyleTNADetailAttachmentRow_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblStyleTNADetailAttachmentRowResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UploadStyleImage_InputMessage">
+    <wsdl:part name="parameters" element="UploadStyleImage" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UploadStyleImage_OutputMessage">
+    <wsdl:part name="parameters" element="UploadStyleImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UploadStyleTNADetailFiles_InputMessage">
+    <wsdl:part name="parameters" element="UploadStyleTNADetailFiles" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UploadStyleTNADetailFiles_OutputMessage">
+    <wsdl:part name="parameters" element="UploadStyleTNADetailFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleTNADetailAttachment_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNADetailAttachment" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleTNADetailAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNADetailAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackStatus_InputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackStatus" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackStatus_OutputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackParts_InputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackParts" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackParts_OutputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackDetails_InputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackDetails" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackDetails_OutputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertOrUpdateTBLTechPackHeader_InputMessage">
+    <wsdl:part name="parameters" element="InsertOrUpdateTBLTechPackHeader" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertOrUpdateTBLTechPackHeader_OutputMessage">
+    <wsdl:part name="parameters" element="InsertOrUpdateTBLTechPackHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertOrUpdateTBLTechPackDetail_InputMessage">
+    <wsdl:part name="parameters" element="InsertOrUpdateTBLTechPackDetail" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_InsertOrUpdateTBLTechPackDetail_OutputMessage">
+    <wsdl:part name="parameters" element="InsertOrUpdateTBLTechPackDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CanChangeDeliveryDate_InputMessage">
+    <wsdl:part name="parameters" element="CanChangeDeliveryDate" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CanChangeDeliveryDate_OutputMessage">
+    <wsdl:part name="parameters" element="CanChangeDeliveryDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackBOMComment_InputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackBOMComment" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLTechPackBOMComment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTBLTechPackBOMCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTechPackBOMComment_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTechPackBOMComment" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTechPackBOMComment_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTechPackBOMCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTechPackDesignDetails_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTechPackDesignDetails" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTechPackDesignDetails_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTechPackDesignDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetCurrentTechPackBOMStyles_InputMessage">
+    <wsdl:part name="parameters" element="GetCurrentTechPackBOMStyles" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetCurrentTechPackBOMStyles_OutputMessage">
+    <wsdl:part name="parameters" element="GetCurrentTechPackBOMStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSalesOrderColor_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderColor" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSalesOrderColor_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSalesOrderColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateSalesOrderColorCancelRequest_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSalesOrderColorCancelRequest" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateSalesOrderColorCancelRequest_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSalesOrderColorCancelRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_ApproveSalesOrderColorCancelRequest_InputMessage">
+    <wsdl:part name="parameters" element="ApproveSalesOrderColorCancelRequest" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_ApproveSalesOrderColorCancelRequest_OutputMessage">
+    <wsdl:part name="parameters" element="ApproveSalesOrderColorCancelRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckApprovedSalesOrderColorCancelRequest_InputMessage">
+    <wsdl:part name="parameters" element="CheckApprovedSalesOrderColorCancelRequest" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckApprovedSalesOrderColorCancelRequest_OutputMessage">
+    <wsdl:part name="parameters" element="CheckApprovedSalesOrderColorCancelRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleTNARouteStatus_InputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNARouteStatus" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblStyleTNARouteStatus_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblStyleTNARouteStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GettblFormLayoutDefault_InputMessage">
+    <wsdl:part name="parameters" element="GettblFormLayoutDefault" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GettblFormLayoutDefault_OutputMessage">
+    <wsdl:part name="parameters" element="GettblFormLayoutDefaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GettblFormLayoutByUser_InputMessage">
+    <wsdl:part name="parameters" element="GettblFormLayoutByUser" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GettblFormLayoutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="GettblFormLayoutByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeletetblFormLayoutUsers_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeletetblFormLayoutUsers" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeletetblFormLayoutUsers_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeletetblFormLayoutUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLsupplier_InputMessage">
+    <wsdl:part name="parameters" element="GetTBLsupplier" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTBLsupplier_OutputMessage">
+    <wsdl:part name="parameters" element="GetTBLsupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblBrandSectionLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblBrandSectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblBrandSectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblBrandSectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblAllBrandSectionLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAllBrandSectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblAllBrandSectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAllBrandSectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblLkpBrandSectionLink_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblLkpBrandSectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblLkpBrandSectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblLkpBrandSectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamilyLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblFamilyLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamilyLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblFamilyLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblFamilyLink_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblFamilyLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblFamilyLink_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblFamilyLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamilyLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamilyLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamilyLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamilyLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamilyCategoryLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamilyCategoryLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamilyCategoryLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamilyCategoryLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblSubFamilyLink_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblSubFamilyLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblSubFamilyLink_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblSubFamilyLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblDirectionLink_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblDirectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrDeleteTblDirectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrDeleteTblDirectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblDirectionLink_InputMessage">
+    <wsdl:part name="parameters" element="GetTblDirectionLink" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblDirectionLink_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblDirectionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetHasDBImage_InputMessage">
+    <wsdl:part name="parameters" element="GetHasDBImage" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetHasDBImage_OutputMessage">
+    <wsdl:part name="parameters" element="GetHasDBImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamily_InputMessage">
+    <wsdl:part name="parameters" element="GetTblFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblFamily_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblFamily_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblFamily_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblFamily_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblFamily_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamily_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetTblSubFamily_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSubFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblSubFamily_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSubFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_UpdateOrInsertTblSubFamily_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSubFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblSubFamily_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSubFamily" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_DeleteTblSubFamily_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSubFamilyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckManualCodeing_InputMessage">
+    <wsdl:part name="parameters" element="CheckManualCodeing" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckManualCodeing_OutputMessage">
+    <wsdl:part name="parameters" element="CheckManualCodeingResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckTNA_InputMessage">
+    <wsdl:part name="parameters" element="CheckTNA" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckTNA_OutputMessage">
+    <wsdl:part name="parameters" element="CheckTNAResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LkpData">
+    <wsdl:operation name="GetTblFactoryDelivery">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblFactoryDelivery" message="LkpData_GetTblFactoryDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblFactoryDeliveryResponse" message="LkpData_GetTblFactoryDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblFactoryDelivery">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrInsertTblFactoryDelivery" message="LkpData_UpdateOrInsertTblFactoryDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrInsertTblFactoryDeliveryResponse" message="LkpData_UpdateOrInsertTblFactoryDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblFactoryDelivery">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTblFactoryDelivery" message="LkpData_DeleteTblFactoryDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTblFactoryDeliveryResponse" message="LkpData_DeleteTblFactoryDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblDirection">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblDirection" message="LkpData_FamilyCategory_GetTblDirection_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblDirectionResponse" message="LkpData_FamilyCategory_GetTblDirection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblStyleCategory">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblStyleCategory" message="LkpData_FamilyCategory_GetTblStyleCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblStyleCategoryResponse" message="LkpData_FamilyCategory_GetTblStyleCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblFamily" message="LkpData_FamilyCategory_GetTblFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblFamilyResponse" message="LkpData_FamilyCategory_GetTblFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblSubFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblSubFamily" message="LkpData_FamilyCategory_GetTblSubFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblSubFamilyResponse" message="LkpData_FamilyCategory_GetTblSubFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblDirectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblDirectionLink" message="LkpData_FamilyCategory_GetTblDirectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblDirectionLinkResponse" message="LkpData_FamilyCategory_GetTblDirectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblCategoryLink" message="LkpData_FamilyCategory_GetTblCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblCategoryLinkResponse" message="LkpData_FamilyCategory_GetTblCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblThemeLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblThemeLink" message="LkpData_FamilyCategory_GetTblThemeLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblThemeLinkResponse" message="LkpData_FamilyCategory_GetTblThemeLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblFamilyCategoryLink" message="LkpData_FamilyCategory_GetTblFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblFamilyCategoryLinkResponse" message="LkpData_FamilyCategory_GetTblFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblSubFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblSubFamilyCategoryLink" message="LkpData_FamilyCategory_GetTblSubFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblSubFamilyCategoryLinkResponse" message="LkpData_FamilyCategory_GetTblSubFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetRepeatedStyles">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetRepeatedStyles" message="LkpData_FamilyCategory_GetRepeatedStyles_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetRepeatedStylesResponse" message="LkpData_FamilyCategory_GetRepeatedStyles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink" message="LkpData_FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLinkResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblLkpBrandSectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblLkpDirectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblLkpDirectionLink" message="LkpData_FamilyCategory_UpdateOrDeleteTblLkpDirectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblLkpDirectionLinkResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblLkpDirectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblStyleCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblStyleCategoryLink" message="LkpData_FamilyCategory_UpdateOrDeleteTblStyleCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblStyleCategoryLinkResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblStyleCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink" message="LkpData_FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblFamilyCategoryLinkResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink" message="LkpData_FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLinkResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblSubFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTblStyleTNA">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTblStyleTNA" message="LkpData_FamilyCategory_GetTblStyleTNA_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTblStyleTNAResponse" message="LkpData_FamilyCategory_GetTblStyleTNA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_GetTNARouteByStyle">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_GetTNARouteByStyle" message="LkpData_FamilyCategory_GetTNARouteByStyle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_GetTNARouteByStyleResponse" message="LkpData_FamilyCategory_GetTNARouteByStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FamilyCategory_UpdateOrDeleteTblStyleTNARoute">
+      <wsdl:input wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblStyleTNARoute" message="LkpData_FamilyCategory_UpdateOrDeleteTblStyleTNARoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/FamilyCategory_UpdateOrDeleteTblStyleTNARouteResponse" message="LkpData_FamilyCategory_UpdateOrDeleteTblStyleTNARoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertStyleImageFromFolder">
+      <wsdl:input wsaw:Action="urn:LkpData/InsertStyleImageFromFolder" message="LkpData_InsertStyleImageFromFolder_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/InsertStyleImageFromFolderResponse" message="LkpData_InsertStyleImageFromFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStyleImageFromFolder">
+      <wsdl:input wsaw:Action="urn:LkpData/GetStyleImageFromFolder" message="LkpData_GetStyleImageFromFolder_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetStyleImageFromFolderResponse" message="LkpData_GetStyleImageFromFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStyleSpecDetails">
+      <wsdl:input wsaw:Action="urn:LkpData/GetStyleSpecDetails" message="LkpData_GetStyleSpecDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetStyleSpecDetailsResponse" message="LkpData_GetStyleSpecDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleSpecTypes">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblStyleSpecTypes" message="LkpData_GetTblStyleSpecTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblStyleSpecTypesResponse" message="LkpData_GetTblStyleSpecTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertStyleSpecDetails">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrInsertStyleSpecDetails" message="LkpData_UpdateOrInsertStyleSpecDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrInsertStyleSpecDetailsResponse" message="LkpData_UpdateOrInsertStyleSpecDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStyleSpecDetailRow">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteStyleSpecDetailRow" message="LkpData_DeleteStyleSpecDetailRow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteStyleSpecDetailRowResponse" message="LkpData_DeleteStyleSpecDetailRow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleSpecDetailAttachment">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblStyleSpecDetailAttachment" message="LkpData_GetTblStyleSpecDetailAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblStyleSpecDetailAttachmentResponse" message="LkpData_GetTblStyleSpecDetailAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblStyleSpecDetailAttachmentRow">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTblStyleSpecDetailAttachmentRow" message="LkpData_DeleteTblStyleSpecDetailAttachmentRow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTblStyleSpecDetailAttachmentRowResponse" message="LkpData_DeleteTblStyleSpecDetailAttachmentRow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblStyleTNADetailAttachmentRow">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTblStyleTNADetailAttachmentRow" message="LkpData_DeleteTblStyleTNADetailAttachmentRow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTblStyleTNADetailAttachmentRowResponse" message="LkpData_DeleteTblStyleTNADetailAttachmentRow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadStyleImage">
+      <wsdl:input wsaw:Action="urn:LkpData/UploadStyleImage" message="LkpData_UploadStyleImage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UploadStyleImageResponse" message="LkpData_UploadStyleImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadStyleTNADetailFiles">
+      <wsdl:input wsaw:Action="urn:LkpData/UploadStyleTNADetailFiles" message="LkpData_UploadStyleTNADetailFiles_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UploadStyleTNADetailFilesResponse" message="LkpData_UploadStyleTNADetailFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNADetailAttachment">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblStyleTNADetailAttachment" message="LkpData_GetTblStyleTNADetailAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblStyleTNADetailAttachmentResponse" message="LkpData_GetTblStyleTNADetailAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTBLTechPackStatus">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTBLTechPackStatus" message="LkpData_GetTBLTechPackStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTBLTechPackStatusResponse" message="LkpData_GetTBLTechPackStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTBLTechPackParts">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTBLTechPackParts" message="LkpData_GetTBLTechPackParts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTBLTechPackPartsResponse" message="LkpData_GetTBLTechPackParts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTBLTechPackDetails">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTBLTechPackDetails" message="LkpData_GetTBLTechPackDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTBLTechPackDetailsResponse" message="LkpData_GetTBLTechPackDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrUpdateTBLTechPackHeader">
+      <wsdl:input wsaw:Action="urn:LkpData/InsertOrUpdateTBLTechPackHeader" message="LkpData_InsertOrUpdateTBLTechPackHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/InsertOrUpdateTBLTechPackHeaderResponse" message="LkpData_InsertOrUpdateTBLTechPackHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrUpdateTBLTechPackDetail">
+      <wsdl:input wsaw:Action="urn:LkpData/InsertOrUpdateTBLTechPackDetail" message="LkpData_InsertOrUpdateTBLTechPackDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/InsertOrUpdateTBLTechPackDetailResponse" message="LkpData_InsertOrUpdateTBLTechPackDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanChangeDeliveryDate">
+      <wsdl:input wsaw:Action="urn:LkpData/CanChangeDeliveryDate" message="LkpData_CanChangeDeliveryDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/CanChangeDeliveryDateResponse" message="LkpData_CanChangeDeliveryDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTBLTechPackBOMComment">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTBLTechPackBOMComment" message="LkpData_GetTBLTechPackBOMComment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTBLTechPackBOMCommentResponse" message="LkpData_GetTBLTechPackBOMComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTechPackBOMComment">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrInsertTechPackBOMComment" message="LkpData_UpdateOrInsertTechPackBOMComment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrInsertTechPackBOMCommentResponse" message="LkpData_UpdateOrInsertTechPackBOMComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTechPackDesignDetails">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTechPackDesignDetails" message="LkpData_DeleteTechPackDesignDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTechPackDesignDetailsResponse" message="LkpData_DeleteTechPackDesignDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTechPackBOMStyles">
+      <wsdl:input wsaw:Action="urn:LkpData/GetCurrentTechPackBOMStyles" message="LkpData_GetCurrentTechPackBOMStyles_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetCurrentTechPackBOMStylesResponse" message="LkpData_GetCurrentTechPackBOMStyles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSalesOrderColor">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblSalesOrderColor" message="LkpData_GetTblSalesOrderColor_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblSalesOrderColorResponse" message="LkpData_GetTblSalesOrderColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOrderColorCancelRequest">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateSalesOrderColorCancelRequest" message="LkpData_UpdateSalesOrderColorCancelRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateSalesOrderColorCancelRequestResponse" message="LkpData_UpdateSalesOrderColorCancelRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveSalesOrderColorCancelRequest">
+      <wsdl:input wsaw:Action="urn:LkpData/ApproveSalesOrderColorCancelRequest" message="LkpData_ApproveSalesOrderColorCancelRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/ApproveSalesOrderColorCancelRequestResponse" message="LkpData_ApproveSalesOrderColorCancelRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckApprovedSalesOrderColorCancelRequest">
+      <wsdl:input wsaw:Action="urn:LkpData/CheckApprovedSalesOrderColorCancelRequest" message="LkpData_CheckApprovedSalesOrderColorCancelRequest_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/CheckApprovedSalesOrderColorCancelRequestResponse" message="LkpData_CheckApprovedSalesOrderColorCancelRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblStyleTNARouteStatus">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblStyleTNARouteStatus" message="LkpData_GetTblStyleTNARouteStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblStyleTNARouteStatusResponse" message="LkpData_GetTblStyleTNARouteStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblFormLayoutDefault">
+      <wsdl:input wsaw:Action="urn:LkpData/GettblFormLayoutDefault" message="LkpData_GettblFormLayoutDefault_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GettblFormLayoutDefaultResponse" message="LkpData_GettblFormLayoutDefault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblFormLayoutByUser">
+      <wsdl:input wsaw:Action="urn:LkpData/GettblFormLayoutByUser" message="LkpData_GettblFormLayoutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GettblFormLayoutByUserResponse" message="LkpData_GettblFormLayoutByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrDeletetblFormLayoutUsers">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrDeletetblFormLayoutUsers" message="LkpData_UpdateOrDeletetblFormLayoutUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrDeletetblFormLayoutUsersResponse" message="LkpData_UpdateOrDeletetblFormLayoutUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTBLsupplier">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTBLsupplier" message="LkpData_GetTBLsupplier_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTBLsupplierResponse" message="LkpData_GetTBLsupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblBrandSectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblBrandSectionLink" message="LkpData_GetTblBrandSectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblBrandSectionLinkResponse" message="LkpData_GetTblBrandSectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAllBrandSectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblAllBrandSectionLink" message="LkpData_GetTblAllBrandSectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblAllBrandSectionLinkResponse" message="LkpData_GetTblAllBrandSectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrDeleteTblLkpBrandSectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrDeleteTblLkpBrandSectionLink" message="LkpData_UpdateOrDeleteTblLkpBrandSectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrDeleteTblLkpBrandSectionLinkResponse" message="LkpData_UpdateOrDeleteTblLkpBrandSectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblFamilyLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblFamilyLink" message="LkpData_GetTblFamilyLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblFamilyLinkResponse" message="LkpData_GetTblFamilyLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblFamilyCategoryLink" message="LkpData_GetTblFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblFamilyCategoryLinkResponse" message="LkpData_GetTblFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrDeleteTblFamilyLink">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrDeleteTblFamilyLink" message="LkpData_UpdateOrDeleteTblFamilyLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrDeleteTblFamilyLinkResponse" message="LkpData_UpdateOrDeleteTblFamilyLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSubFamilyLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblSubFamilyLink" message="LkpData_GetTblSubFamilyLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblSubFamilyLinkResponse" message="LkpData_GetTblSubFamilyLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSubFamilyCategoryLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblSubFamilyCategoryLink" message="LkpData_GetTblSubFamilyCategoryLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblSubFamilyCategoryLinkResponse" message="LkpData_GetTblSubFamilyCategoryLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrDeleteTblSubFamilyLink">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrDeleteTblSubFamilyLink" message="LkpData_UpdateOrDeleteTblSubFamilyLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrDeleteTblSubFamilyLinkResponse" message="LkpData_UpdateOrDeleteTblSubFamilyLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrDeleteTblDirectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrDeleteTblDirectionLink" message="LkpData_UpdateOrDeleteTblDirectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrDeleteTblDirectionLinkResponse" message="LkpData_UpdateOrDeleteTblDirectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblDirectionLink">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblDirectionLink" message="LkpData_GetTblDirectionLink_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblDirectionLinkResponse" message="LkpData_GetTblDirectionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHasDBImage">
+      <wsdl:input wsaw:Action="urn:LkpData/GetHasDBImage" message="LkpData_GetHasDBImage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetHasDBImageResponse" message="LkpData_GetHasDBImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblFamily" message="LkpData_GetTblFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblFamilyResponse" message="LkpData_GetTblFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrInsertTblFamily" message="LkpData_UpdateOrInsertTblFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrInsertTblFamilyResponse" message="LkpData_UpdateOrInsertTblFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTblFamily" message="LkpData_DeleteTblFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTblFamilyResponse" message="LkpData_DeleteTblFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSubFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/GetTblSubFamily" message="LkpData_GetTblSubFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetTblSubFamilyResponse" message="LkpData_GetTblSubFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSubFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/UpdateOrInsertTblSubFamily" message="LkpData_UpdateOrInsertTblSubFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/UpdateOrInsertTblSubFamilyResponse" message="LkpData_UpdateOrInsertTblSubFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSubFamily">
+      <wsdl:input wsaw:Action="urn:LkpData/DeleteTblSubFamily" message="LkpData_DeleteTblSubFamily_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/DeleteTblSubFamilyResponse" message="LkpData_DeleteTblSubFamily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckManualCodeing">
+      <wsdl:input wsaw:Action="urn:LkpData/CheckManualCodeing" message="LkpData_CheckManualCodeing_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/CheckManualCodeingResponse" message="LkpData_CheckManualCodeing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTNA">
+      <wsdl:input wsaw:Action="urn:LkpData/CheckTNA" message="LkpData_CheckTNA_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/CheckTNAResponse" message="LkpData_CheckTNA_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

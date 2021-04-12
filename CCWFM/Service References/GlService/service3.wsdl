@@ -1,0 +1,2447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GlService_GetTblLedgerMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerMainDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerMainDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerMainDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerMainDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerDetailCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerDetailCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerDetailCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerDetailCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerDetailCostCenters_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerDetailCostCenters" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerDetailCostCenters_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerDetailCostCentersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerDetailCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerDetailCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerDetailCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerDetailCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostGlLedgerHeader_InputMessage">
+    <wsdl:part name="parameters" element="PostGlLedgerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostGlLedgerHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PostGlLedgerHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ImportLedgerMainDetails_InputMessage">
+    <wsdl:part name="parameters" element="ImportLedgerMainDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ImportLedgerMainDetails_OutputMessage">
+    <wsdl:part name="parameters" element="ImportLedgerMainDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ReverseLedgerTransactions_InputMessage">
+    <wsdl:part name="parameters" element="ReverseLedgerTransactions" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ReverseLedgerTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="ReverseLedgerTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPeriod_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblperiod_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblperiod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblperiod_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblperiodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GeneratePeriodLines_InputMessage">
+    <wsdl:part name="parameters" element="GeneratePeriodLines" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GeneratePeriodLines_OutputMessage">
+    <wsdl:part name="parameters" element="GeneratePeriodLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPeriod_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPeriod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPeriodLine_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriodLine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPeriodLine_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPeriodLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertCspPeriodLine_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCspPeriodLine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertCspPeriodLine_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertCspPeriodLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteCspPeriodLine_InputMessage">
+    <wsdl:part name="parameters" element="DeleteCspPeriodLine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteCspPeriodLine_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteCspPeriodLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ClosePeriod_InputMessage">
+    <wsdl:part name="parameters" element="ClosePeriod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ClosePeriod_OutputMessage">
+    <wsdl:part name="parameters" element="ClosePeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ClosePeriodline_InputMessage">
+    <wsdl:part name="parameters" element="ClosePeriodline" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ClosePeriodline_OutputMessage">
+    <wsdl:part name="parameters" element="ClosePeriodlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPostingProfileHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPostingProfileHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPostingProfileHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPostingProfileHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPostingProfileDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPostingProfileDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPostingProfileDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPostingProfileDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPostingProfileHeaders_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPostingProfileHeaders" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPostingProfileHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPostingProfileHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPostingProfileDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPostingProfileDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPostingProfileDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPostingProfileDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPostingProfileHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPostingProfileHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPostingProfileHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPostingProfileHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPostingProfileDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPostingProfileDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPostingProfileDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPostingProfileDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblSequence_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSequence" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblSequence_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblSequences_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSequences" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblSequences_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblSequencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblSequence_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSequence" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblSequence_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GlOpen_InputMessage">
+    <wsdl:part name="parameters" element="GlOpen" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GlOpen_OutputMessage">
+    <wsdl:part name="parameters" element="GlOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetIncomeStatmentData_InputMessage">
+    <wsdl:part name="parameters" element="GetIncomeStatmentData" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetIncomeStatmentData_OutputMessage">
+    <wsdl:part name="parameters" element="GetIncomeStatmentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetIncomeStatmentDataCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetIncomeStatmentDataCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetIncomeStatmentDataCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetIncomeStatmentDataCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBank_InputMessage">
+    <wsdl:part name="parameters" element="GetTblBank" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBank_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBanks_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBanks" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBanks_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBanksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBank_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBank" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBank_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkupGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkupGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkupGroups_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupGroups" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkupGroups_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkupGroup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkupGroup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkups_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkups" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkups_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkupTrans_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupTrans" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMarkupTrans_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMarkupTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkupTrans_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupTrans" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMarkupTrans_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMarkupTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkupTrans_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupTrans" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMarkupTrans_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMarkupTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostInv_InputMessage">
+    <wsdl:part name="parameters" element="PostInv" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostInv_OutputMessage">
+    <wsdl:part name="parameters" element="PostInvResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecInvDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecInvDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvHeaders_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvHeaders" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblRecInvDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblRecInvDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblRecInvDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblRecInvDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveHeaderFromTo_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveHeaderFromTo" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveHeaderFromTo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveHeaderFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnHeaderFromTo_InputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnHeaderFromTo" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnHeaderFromTo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnHeaderFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRecieveDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRecieveDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblReturnDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblReturnDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRecInvStyleColor_InputMessage">
+    <wsdl:part name="parameters" element="GetRecInvStyleColor" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRecInvStyleColor_OutputMessage">
+    <wsdl:part name="parameters" element="GetRecInvStyleColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRecInvStyle_InputMessage">
+    <wsdl:part name="parameters" element="GetRecInvStyle" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRecInvStyle_OutputMessage">
+    <wsdl:part name="parameters" element="GetRecInvStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateCostInRecInv_InputMessage">
+    <wsdl:part name="parameters" element="UpdateCostInRecInv" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateCostInRecInv_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateCostInRecInvResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterByCode_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterByCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterByCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenters_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenters" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenters_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCentersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankChequeCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetTblBankChequeCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankChequeCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblBankChequeCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBankChequeCostCenters_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBankChequeCostCenters" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBankChequeCostCenters_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBankChequeCostCentersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankChequeCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankChequeCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankChequeCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankChequeCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetEntity_InputMessage">
+    <wsdl:part name="parameters" element="GetEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetEntity_OutputMessage">
+    <wsdl:part name="parameters" element="GetEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindEntityByCode_InputMessage">
+    <wsdl:part name="parameters" element="FindEntityByCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindEntityByCode_OutputMessage">
+    <wsdl:part name="parameters" element="FindEntityByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindEntity_InputMessage">
+    <wsdl:part name="parameters" element="FindEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindEntity_OutputMessage">
+    <wsdl:part name="parameters" element="FindEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGeneric_InputMessage">
+    <wsdl:part name="parameters" element="GetGeneric" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGeneric_OutputMessage">
+    <wsdl:part name="parameters" element="GetGenericResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteGeneric_InputMessage">
+    <wsdl:part name="parameters" element="DeleteGeneric" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteGeneric_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteGenericResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GenericUpdateOrInsert_InputMessage">
+    <wsdl:part name="parameters" element="GenericUpdateOrInsert" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GenericUpdateOrInsert_OutputMessage">
+    <wsdl:part name="parameters" element="GenericUpdateOrInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_TestingMethod_InputMessage">
+    <wsdl:part name="parameters" element="TestingMethod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_TestingMethod_OutputMessage">
+    <wsdl:part name="parameters" element="TestingMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournal_InputMessage">
+    <wsdl:part name="parameters" element="GetTblJournal" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournal_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindJournalByCode_InputMessage">
+    <wsdl:part name="parameters" element="FindJournalByCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindJournalByCode_OutputMessage">
+    <wsdl:part name="parameters" element="FindJournalByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournals_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournals" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournals_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournal_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournal" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournal_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PrintLedgerHeader_InputMessage">
+    <wsdl:part name="parameters" element="PrintLedgerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PrintLedgerHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PrintLedgerHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTotalLedger_InputMessage">
+    <wsdl:part name="parameters" element="PostTotalLedger" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTotalLedger_OutputMessage">
+    <wsdl:part name="parameters" element="PostTotalLedgerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CorrectLedgerHeaderRouding_InputMessage">
+    <wsdl:part name="parameters" element="CorrectLedgerHeaderRouding" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CorrectLedgerHeaderRouding_OutputMessage">
+    <wsdl:part name="parameters" element="CorrectLedgerHeaderRoudingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerHeaders_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerHeaders" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblItemPricebyCode_InputMessage">
+    <wsdl:part name="parameters" element="GetTblItemPricebyCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblItemPricebyCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblItemPricebyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAssetRetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAssetRetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAssetRetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAssetRetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAssetRetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAssetRetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAssetRetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAssetRetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAssetRetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAssetRetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAssetRetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAssetRetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAssetGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAssetGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAssetGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAssetGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAssetGroup_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAssetGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAssetGroup_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAssetGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAssetGroup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAssetGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAssetGroup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAssetGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankTransactionType_InputMessage">
+    <wsdl:part name="parameters" element="GetTblBankTransactionType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankTransactionType_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblBankTransactionTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBankTransactionTypes_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBankTransactionTypes" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblBankTransactionTypes_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblBankTransactionTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankTransactionType_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankTransactionType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankTransactionType_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankTransactionTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PrintCheck_InputMessage">
+    <wsdl:part name="parameters" element="PrintCheck" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PrintCheck_OutputMessage">
+    <wsdl:part name="parameters" element="PrintCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankCheque_InputMessage">
+    <wsdl:part name="parameters" element="GetTblBankCheque" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblBankCheque_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblBankChequeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetMaxCheque_InputMessage">
+    <wsdl:part name="parameters" element="GetMaxCheque" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetMaxCheque_OutputMessage">
+    <wsdl:part name="parameters" element="GetMaxChequeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CreateCheque_InputMessage">
+    <wsdl:part name="parameters" element="CreateCheque" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CreateCheque_OutputMessage">
+    <wsdl:part name="parameters" element="CreateChequeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankCheque_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankCheque" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblBankCheque_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblBankChequeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblIncomeStatmentDesignHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblIncomeStatmentDesignHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblIncomeStatmentDesignHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblIncomeStatmentDesignHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblIncomeStatmentDesignHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblIncomeStatmentDesignHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblIncomeStatmentDesignHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblIncomeStatmentDesignHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblIncomeStatmentDesignHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblIncomeStatmentDesignHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblIncomeStatmentDesignHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblIncomeStatmentDesignHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblIncomeStatmentDesignDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblIncomeStatmentDesignDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblIncomeStatmentDesignDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblIncomeStatmentDesignDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertIncomeStatmentDesignDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertIncomeStatmentDesignDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertIncomeStatmentDesignDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertIncomeStatmentDesignDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteIncomeStatmentDesignDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteIncomeStatmentDesignDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteIncomeStatmentDesignDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteIncomeStatmentDesignDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRetailCurrency_InputMessage">
+    <wsdl:part name="parameters" element="GetTblRetailCurrency" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblRetailCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblRetailCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRetailChainSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetRetailChainSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRetailChainSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetRetailChainSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRetailChainSetupByCode_InputMessage">
+    <wsdl:part name="parameters" element="GetRetailChainSetupByCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetRetailChainSetupByCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetRetailChainSetupByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMethodOfPayment_InputMessage">
+    <wsdl:part name="parameters" element="GetTblMethodOfPayment" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblMethodOfPayment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblMethodOfPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMethodOfPayments_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMethodOfPayments" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblMethodOfPayments_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblMethodOfPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMethodOfPayment_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMethodOfPayment" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblMethodOfPayment_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblMethodOfPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleJob_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleJob" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleJob_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleJobs_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleJobs" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleJobs_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleJob_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleJob" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleJob_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostAllocationMethod_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostAllocationMethod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostAllocationMethod_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostAllocationMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostAllocationMethods_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostAllocationMethods" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostAllocationMethods_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostAllocationMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostAllocationMethod_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostAllocationMethod" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostAllocationMethod_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostAllocationMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleHeaders_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleHeaders" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleMainDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleMainDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleMainDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleMainDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleMainDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleMainDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleMainDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleMainDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleDetails" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlRuleDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlRuleDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlRuleByUser_InputMessage">
+    <wsdl:part name="parameters" element="GetGlRuleByUser" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlRuleByUser_OutputMessage">
+    <wsdl:part name="parameters" element="GetGlRuleByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostDimSetupHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostDimSetupHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostDimSetupHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostDimSetupHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostDimSetupHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostDimSetupHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostDimSetupHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostDimSetupHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostDimSetupDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostDimSetupDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostDimSetupDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostDimSetupDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostDimSetupDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostDimSetupDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostDimSetupDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostDimSetupDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccount_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAccount" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccount_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccountbyCode_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAccountbyCode" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccountbyCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAccountbyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAccounts_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAccounts" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAccount_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAccount" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAccount_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupHeaderForAccount_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupHeaderForAccount" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostDimSetupHeaderForAccount_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostDimSetupHeaderForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_SaveTblCostDimHeader_InputMessage">
+    <wsdl:part name="parameters" element="SaveTblCostDimHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_SaveTblCostDimHeader_OutputMessage">
+    <wsdl:part name="parameters" element="SaveTblCostDimHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccountInterval_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAccountInterval" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAccountInterval_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAccountIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAccountIntervals_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAccountIntervals" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAccountIntervals_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAccountIntervalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAccountInterval_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAccountInterval" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAccountInterval_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAccountIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterInterval_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterInterval" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterInterval_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterIntervals_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterIntervals" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterIntervals_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterIntervalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterInterval_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterInterval" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterInterval_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlItemGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetGlItemGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlItemGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetGlItemGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlInventoryGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetGlInventoryGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetGlInventoryGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetGlInventoryGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblInventPosting_InputMessage">
+    <wsdl:part name="parameters" element="GetTblInventPosting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblInventPosting_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblInventPostingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblInventPostingType_InputMessage">
+    <wsdl:part name="parameters" element="GetTblInventPostingType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblInventPostingType_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblInventPostingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblInventPostings_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblInventPostings" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblInventPostings_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblInventPostingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblInventPosting_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblInventPosting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblInventPosting_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblInventPostingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CreateTblLedgerDetailCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="CreateTblLedgerDetailCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CreateTblLedgerDetailCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="CreateTblLedgerDetailCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetAccountByEntity_InputMessage">
+    <wsdl:part name="parameters" element="GetAccountByEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetAccountByEntity_OutputMessage">
+    <wsdl:part name="parameters" element="GetAccountByEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetPostingTimes_InputMessage">
+    <wsdl:part name="parameters" element="GetPostingTimes" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetPostingTimes_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostingTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GlPost_InputMessage">
+    <wsdl:part name="parameters" element="GlPost" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GlPost_OutputMessage">
+    <wsdl:part name="parameters" element="GlPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CalcCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="CalcCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_CalcCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="CalcCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindCostCenterByType_InputMessage">
+    <wsdl:part name="parameters" element="FindCostCenterByType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_FindCostCenterByType_OutputMessage">
+    <wsdl:part name="parameters" element="FindCostCenterByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCashDepositType_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCashDepositType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCashDepositType_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCashDepositTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCashDepositType_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCashDepositType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCashDepositType_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCashDepositTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCashDepositTypes_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCashDepositTypes" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCashDepositTypes_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCashDepositTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetCashDepositeSequence_InputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositeSequence" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetCashDepositeSequence_OutputMessage">
+    <wsdl:part name="parameters" element="GetCashDepositeSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSettingCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSettingCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSettingCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSettingCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettingCostCenters_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettingCostCenters" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettingCostCenters_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettingCostCentersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSettingCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSettingCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSettingCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSettingCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAuthUserJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetTblAuthUserJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblAuthUserJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblAuthUserJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAuthUserJournalSettings_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAuthUserJournalSettings" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblAuthUserJournalSettings_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblAuthUserJournalSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAuthUserJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAuthUserJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblAuthUserJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblAuthUserJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSettingEntity_InputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSettingEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSettingEntity_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSettingEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettingEntitys_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettingEntitys" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettingEntitys_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettingEntitysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSettingEntity_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSettingEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSettingEntity_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSettingEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetJournalAccountTypeSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetJournalAccountTypeSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetJournalAccountTypeSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetJournalAccountTypeSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettings_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettings" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblJournalSettings_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblJournalSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSetting_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSetting" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblJournalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblJournalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblChequeTransactionDetailNotLinked_InputMessage">
+    <wsdl:part name="parameters" element="GetTblChequeTransactionDetailNotLinked" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblChequeTransactionDetailNotLinked_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblChequeTransactionDetailNotLinkedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateorInsertClosingAdvanceVendorPayments_InputMessage">
+    <wsdl:part name="parameters" element="UpdateorInsertClosingAdvanceVendorPayments" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateorInsertClosingAdvanceVendorPayments_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateorInsertClosingAdvanceVendorPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetPayrollOrganizationUnit_InputMessage">
+    <wsdl:part name="parameters" element="GetPayrollOrganizationUnit" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetPayrollOrganizationUnit_OutputMessage">
+    <wsdl:part name="parameters" element="GetPayrollOrganizationUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterOrganizationUnit_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterOrganizationUnit" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterOrganizationUnit_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterOrganizationUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterOrganizationUnits_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterOrganizationUnits" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterOrganizationUnits_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterOrganizationUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterOrganizationUnit_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterOrganizationUnit" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterOrganizationUnit_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterOrganizationUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterRouteGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterRouteGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterRouteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterRouteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterRouteGroups_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterRouteGroups" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterRouteGroups_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterRouteGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterRouteGroup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterRouteGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterRouteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterRouteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCashTypeSettings_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCashTypeSettings" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCashTypeSettings_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCashTypeSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlCashTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlCashTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlCashTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlCashTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTblGlCashTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="PostTblGlCashTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTblGlCashTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PostTblGlCashTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionDetailCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionDetailCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlCashTransactionDetailCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlCashTransactionDetailCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlCashTransactionDetailCostCenters_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlCashTransactionDetailCostCenters" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlCashTransactionDetailCostCenters_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlCashTransactionDetailCostCentersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionDetailCostCenter_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionDetailCostCenter" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlCashTransactionDetailCostCenter_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlCashTransactionDetailCostCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPositionRouteHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPositionRouteHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPositionRouteHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPositionRouteHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPositionRouteHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPositionRouteHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPositionRouteHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPositionRouteHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPositionRouteHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPositionRouteHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPositionRouteHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPositionRouteHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPositionRoute_InputMessage">
+    <wsdl:part name="parameters" element="GetTblPositionRoute" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblPositionRoute_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblPositionRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPositionRoute_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPositionRoute" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblPositionRoute_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblPositionRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPositionRoute_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPositionRoute" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblPositionRoute_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblPositionRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ReveseTBLCashDepoisteHeader_InputMessage">
+    <wsdl:part name="parameters" element="ReveseTBLCashDepoisteHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_ReveseTBLCashDepoisteHeader_OutputMessage">
+    <wsdl:part name="parameters" element="ReveseTBLCashDepoisteHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetDailySalesCommision_InputMessage">
+    <wsdl:part name="parameters" element="GetDailySalesCommision" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetDailySalesCommision_OutputMessage">
+    <wsdl:part name="parameters" element="GetDailySalesCommisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="GetTblVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblVisaMachine_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblVisaMachine" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblVisaMachine_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblVisaMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetVisaMachineBanks_InputMessage">
+    <wsdl:part name="parameters" element="GetVisaMachineBanks" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetVisaMachineBanks_OutputMessage">
+    <wsdl:part name="parameters" element="GetVisaMachineBanksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterType_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterType_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterTypes_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterTypes" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterTypes_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterType_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterType_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_Getshoparea_InputMessage">
+    <wsdl:part name="parameters" element="Getshoparea" />
+  </wsdl:message>
+  <wsdl:message name="GlService_Getshoparea_OutputMessage">
+    <wsdl:part name="parameters" element="GetshopareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertshoparea_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertshoparea" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertshoparea_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertshopareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_Deleteshoparea_InputMessage">
+    <wsdl:part name="parameters" element="Deleteshoparea" />
+  </wsdl:message>
+  <wsdl:message name="GlService_Deleteshoparea_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteshopareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterShopArea_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterShopArea" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblCostCenterShopArea_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCostCenterShopAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterShopAreas_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterShopAreas" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblCostCenterShopAreas_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblCostCenterShopAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterShopArea_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterShopArea" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblCostCenterShopArea_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblCostCenterShopAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerHeaderAttachment_InputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerHeaderAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerHeaderAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerHeaderAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerHeaderAttachment_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerHeaderAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblLedgerHeaderAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblLedgerHeaderAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerHeaderAttachment_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerHeaderAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblLedgerHeaderAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblLedgerHeaderAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblDepreciationTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblDepreciationTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblDepreciationTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblDepreciationTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblDepreciationTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblDepreciationTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblDepreciationTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblDepreciationTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblDepreciationTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblDepreciationTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblDepreciationTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblDepreciationTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblDepreciationTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblDepreciationTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblDepreciationTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblDepreciationTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblDepreciationTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblDepreciationTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblDepreciationTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblDepreciationTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerDetailForDepreciation_InputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerDetailForDepreciation" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblLedgerDetailForDepreciation_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblLedgerDetailForDepreciationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblChequeTypeSettings_InputMessage">
+    <wsdl:part name="parameters" element="GetTblChequeTypeSettings" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblChequeTypeSettings_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblChequeTypeSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlChequeTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlChequeTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlChequeTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlChequeTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlChequeTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlChequeTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlChequeTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlChequeTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlChequeTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlChequeTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlChequeTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlChequeTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlChequeTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlChequeTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlChequeTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlChequeTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblContractHeaderForCheque_InputMessage">
+    <wsdl:part name="parameters" element="GetTblContractHeaderForCheque" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblContractHeaderForCheque_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblContractHeaderForChequeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlChequeTransactionDetail_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlChequeTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlChequeTransactionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlChequeTransactionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTblGlChequeTransactionHeader_InputMessage">
+    <wsdl:part name="parameters" element="PostTblGlChequeTransactionHeader" />
+  </wsdl:message>
+  <wsdl:message name="GlService_PostTblGlChequeTransactionHeader_OutputMessage">
+    <wsdl:part name="parameters" element="PostTblGlChequeTransactionHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetLockupFromPreTransaction_InputMessage">
+    <wsdl:part name="parameters" element="GetLockupFromPreTransaction" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetLockupFromPreTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="GetLockupFromPreTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalAccountType_InputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalAccountType" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblJournalAccountType_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblJournalAccountTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlGenEntityGroup_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlGenEntityGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlGenEntityGroup_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlGenEntityGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlGenEntityGroup_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlGenEntityGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlGenEntityGroup_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlGenEntityGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlGenEntityGroup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlGenEntityGroup" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlGenEntityGroup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlGenEntityGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlGenEntity_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlGenEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlGenEntity_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlGenEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlGenEntity_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlGenEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlGenEntity_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlGenEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlGenEntity_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlGenEntity" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlGenEntity_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlGenEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlExpensis_InputMessage">
+    <wsdl:part name="parameters" element="GetTblGlExpensis" />
+  </wsdl:message>
+  <wsdl:message name="GlService_GetTblGlExpensis_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblGlExpensisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlExpensis_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlExpensis" />
+  </wsdl:message>
+  <wsdl:message name="GlService_UpdateOrInsertTblGlExpensis_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrInsertTblGlExpensisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlExpensis_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlExpensis" />
+  </wsdl:message>
+  <wsdl:message name="GlService_DeleteTblGlExpensis_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTblGlExpensisResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GlService">
+    <wsdl:operation name="GetTblLedgerMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblLedgerMainDetail" message="GlService_GetTblLedgerMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblLedgerMainDetailResponse" message="GlService_GetTblLedgerMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerMainDetails">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerMainDetails" message="GlService_UpdateOrInsertTblLedgerMainDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerMainDetailsResponse" message="GlService_UpdateOrInsertTblLedgerMainDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblLedgerMainDetail" message="GlService_DeleteTblLedgerMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblLedgerMainDetailResponse" message="GlService_DeleteTblLedgerMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerDetailCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblLedgerDetailCostCenter" message="GlService_GetTblLedgerDetailCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblLedgerDetailCostCenterResponse" message="GlService_GetTblLedgerDetailCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerDetailCostCenters">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerDetailCostCenters" message="GlService_UpdateOrInsertTblLedgerDetailCostCenters_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerDetailCostCentersResponse" message="GlService_UpdateOrInsertTblLedgerDetailCostCenters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerDetailCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblLedgerDetailCostCenter" message="GlService_DeleteTblLedgerDetailCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblLedgerDetailCostCenterResponse" message="GlService_DeleteTblLedgerDetailCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostGlLedgerHeader">
+      <wsdl:input wsaw:Action="urn:GlService/PostGlLedgerHeader" message="GlService_PostGlLedgerHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PostGlLedgerHeaderResponse" message="GlService_PostGlLedgerHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportLedgerMainDetails">
+      <wsdl:input wsaw:Action="urn:GlService/ImportLedgerMainDetails" message="GlService_ImportLedgerMainDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/ImportLedgerMainDetailsResponse" message="GlService_ImportLedgerMainDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReverseLedgerTransactions">
+      <wsdl:input wsaw:Action="urn:GlService/ReverseLedgerTransactions" message="GlService_ReverseLedgerTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/ReverseLedgerTransactionsResponse" message="GlService_ReverseLedgerTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPeriod">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPeriod" message="GlService_GetTblPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPeriodResponse" message="GlService_GetTblPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblperiod">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblperiod" message="GlService_UpdateOrInsertTblperiod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblperiodResponse" message="GlService_UpdateOrInsertTblperiod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneratePeriodLines">
+      <wsdl:input wsaw:Action="urn:GlService/GeneratePeriodLines" message="GlService_GeneratePeriodLines_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GeneratePeriodLinesResponse" message="GlService_GeneratePeriodLines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPeriod">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblPeriod" message="GlService_DeleteTblPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblPeriodResponse" message="GlService_DeleteTblPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPeriodLine">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPeriodLine" message="GlService_GetTblPeriodLine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPeriodLineResponse" message="GlService_GetTblPeriodLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertCspPeriodLine">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertCspPeriodLine" message="GlService_UpdateOrInsertCspPeriodLine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertCspPeriodLineResponse" message="GlService_UpdateOrInsertCspPeriodLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCspPeriodLine">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteCspPeriodLine" message="GlService_DeleteCspPeriodLine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteCspPeriodLineResponse" message="GlService_DeleteCspPeriodLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClosePeriod">
+      <wsdl:input wsaw:Action="urn:GlService/ClosePeriod" message="GlService_ClosePeriod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/ClosePeriodResponse" message="GlService_ClosePeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClosePeriodline">
+      <wsdl:input wsaw:Action="urn:GlService/ClosePeriodline" message="GlService_ClosePeriodline_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/ClosePeriodlineResponse" message="GlService_ClosePeriodline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPostingProfileHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPostingProfileHeader" message="GlService_GetTblPostingProfileHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPostingProfileHeaderResponse" message="GlService_GetTblPostingProfileHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPostingProfileDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPostingProfileDetail" message="GlService_GetTblPostingProfileDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPostingProfileDetailResponse" message="GlService_GetTblPostingProfileDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPostingProfileHeaders">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblPostingProfileHeaders" message="GlService_UpdateOrInsertTblPostingProfileHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblPostingProfileHeadersResponse" message="GlService_UpdateOrInsertTblPostingProfileHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPostingProfileDetails">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblPostingProfileDetails" message="GlService_UpdateOrInsertTblPostingProfileDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblPostingProfileDetailsResponse" message="GlService_UpdateOrInsertTblPostingProfileDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPostingProfileHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblPostingProfileHeader" message="GlService_DeleteTblPostingProfileHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblPostingProfileHeaderResponse" message="GlService_DeleteTblPostingProfileHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPostingProfileDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblPostingProfileDetail" message="GlService_DeleteTblPostingProfileDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblPostingProfileDetailResponse" message="GlService_DeleteTblPostingProfileDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblSequence">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblSequence" message="GlService_GetTblSequence_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblSequenceResponse" message="GlService_GetTblSequence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblSequences">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblSequences" message="GlService_UpdateOrInsertTblSequences_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblSequencesResponse" message="GlService_UpdateOrInsertTblSequences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblSequence">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblSequence" message="GlService_DeleteTblSequence_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblSequenceResponse" message="GlService_DeleteTblSequence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GlOpen">
+      <wsdl:input wsaw:Action="urn:GlService/GlOpen" message="GlService_GlOpen_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GlOpenResponse" message="GlService_GlOpen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncomeStatmentData">
+      <wsdl:input wsaw:Action="urn:GlService/GetIncomeStatmentData" message="GlService_GetIncomeStatmentData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetIncomeStatmentDataResponse" message="GlService_GetIncomeStatmentData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncomeStatmentDataCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetIncomeStatmentDataCostCenter" message="GlService_GetIncomeStatmentDataCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetIncomeStatmentDataCostCenterResponse" message="GlService_GetIncomeStatmentDataCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblBank">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblBank" message="GlService_GetTblBank_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblBankResponse" message="GlService_GetTblBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblBanks">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblBanks" message="GlService_UpdateOrInsertTblBanks_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblBanksResponse" message="GlService_UpdateOrInsertTblBanks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblBank">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblBank" message="GlService_DeleteTblBank_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblBankResponse" message="GlService_DeleteTblBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblMarkupGroup" message="GlService_GetTblMarkupGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblMarkupGroupResponse" message="GlService_GetTblMarkupGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupGroups">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblMarkupGroups" message="GlService_UpdateOrInsertTblMarkupGroups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblMarkupGroupsResponse" message="GlService_UpdateOrInsertTblMarkupGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupGroup">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblMarkupGroup" message="GlService_DeleteTblMarkupGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblMarkupGroupResponse" message="GlService_DeleteTblMarkupGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkup">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblMarkup" message="GlService_GetTblMarkup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblMarkupResponse" message="GlService_GetTblMarkup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkups">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblMarkups" message="GlService_UpdateOrInsertTblMarkups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblMarkupsResponse" message="GlService_UpdateOrInsertTblMarkups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkup">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblMarkup" message="GlService_DeleteTblMarkup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblMarkupResponse" message="GlService_DeleteTblMarkup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMarkupTrans">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblMarkupTrans" message="GlService_GetTblMarkupTrans_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblMarkupTransResponse" message="GlService_GetTblMarkupTrans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMarkupTrans">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblMarkupTrans" message="GlService_UpdateOrInsertTblMarkupTrans_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblMarkupTransResponse" message="GlService_UpdateOrInsertTblMarkupTrans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMarkupTrans">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblMarkupTrans" message="GlService_DeleteTblMarkupTrans_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblMarkupTransResponse" message="GlService_DeleteTblMarkupTrans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostInv">
+      <wsdl:input wsaw:Action="urn:GlService/PostInv" message="GlService_PostInv_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PostInvResponse" message="GlService_PostInv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecInvHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecInvHeader" message="GlService_GetTblRecInvHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecInvHeaderResponse" message="GlService_GetTblRecInvHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecInvMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecInvMainDetail" message="GlService_GetTblRecInvMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecInvMainDetailResponse" message="GlService_GetTblRecInvMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecInvDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecInvDetail" message="GlService_GetTblRecInvDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecInvDetailResponse" message="GlService_GetTblRecInvDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblRecInvHeaders">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvHeaders" message="GlService_UpdateOrInsertTblRecInvHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvHeadersResponse" message="GlService_UpdateOrInsertTblRecInvHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblRecInvMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvMainDetail" message="GlService_UpdateOrInsertTblRecInvMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvMainDetailResponse" message="GlService_UpdateOrInsertTblRecInvMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblRecInvDetails">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvDetails" message="GlService_UpdateOrInsertTblRecInvDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblRecInvDetailsResponse" message="GlService_UpdateOrInsertTblRecInvDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblRecInvHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblRecInvHeader" message="GlService_DeleteTblRecInvHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblRecInvHeaderResponse" message="GlService_DeleteTblRecInvHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblRecInvMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblRecInvMainDetail" message="GlService_DeleteTblRecInvMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblRecInvMainDetailResponse" message="GlService_DeleteTblRecInvMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblRecInvDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblRecInvDetail" message="GlService_DeleteTblRecInvDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblRecInvDetailResponse" message="GlService_DeleteTblRecInvDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecieveHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecieveHeader" message="GlService_GetTblRecieveHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecieveHeaderResponse" message="GlService_GetTblRecieveHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblReturnHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblReturnHeader" message="GlService_GetTblReturnHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblReturnHeaderResponse" message="GlService_GetTblReturnHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecieveHeaderFromTo">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecieveHeaderFromTo" message="GlService_GetTblRecieveHeaderFromTo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecieveHeaderFromToResponse" message="GlService_GetTblRecieveHeaderFromTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblReturnHeaderFromTo">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblReturnHeaderFromTo" message="GlService_GetTblReturnHeaderFromTo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblReturnHeaderFromToResponse" message="GlService_GetTblReturnHeaderFromTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRecieveDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRecieveDetail" message="GlService_GetTblRecieveDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRecieveDetailResponse" message="GlService_GetTblRecieveDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblReturnDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblReturnDetail" message="GlService_GetTblReturnDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblReturnDetailResponse" message="GlService_GetTblReturnDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecInvStyleColor">
+      <wsdl:input wsaw:Action="urn:GlService/GetRecInvStyleColor" message="GlService_GetRecInvStyleColor_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetRecInvStyleColorResponse" message="GlService_GetRecInvStyleColor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecInvStyle">
+      <wsdl:input wsaw:Action="urn:GlService/GetRecInvStyle" message="GlService_GetRecInvStyle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetRecInvStyleResponse" message="GlService_GetRecInvStyle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCostInRecInv">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateCostInRecInv" message="GlService_UpdateCostInRecInv_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateCostInRecInvResponse" message="GlService_UpdateCostInRecInv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenter" message="GlService_GetTblCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterResponse" message="GlService_GetTblCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterByCode">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterByCode" message="GlService_GetTblCostCenterByCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterByCodeResponse" message="GlService_GetTblCostCenterByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenters">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenters" message="GlService_UpdateOrInsertTblCostCenters_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCentersResponse" message="GlService_UpdateOrInsertTblCostCenters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenter" message="GlService_DeleteTblCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterResponse" message="GlService_DeleteTblCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblBankChequeCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblBankChequeCostCenter" message="GlService_GetTblBankChequeCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblBankChequeCostCenterResponse" message="GlService_GetTblBankChequeCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblBankChequeCostCenters">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblBankChequeCostCenters" message="GlService_UpdateOrInsertTblBankChequeCostCenters_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblBankChequeCostCentersResponse" message="GlService_UpdateOrInsertTblBankChequeCostCenters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblBankChequeCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblBankChequeCostCenter" message="GlService_DeleteTblBankChequeCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblBankChequeCostCenterResponse" message="GlService_DeleteTblBankChequeCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntity">
+      <wsdl:input wsaw:Action="urn:GlService/GetEntity" message="GlService_GetEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetEntityResponse" message="GlService_GetEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindEntityByCode">
+      <wsdl:input wsaw:Action="urn:GlService/FindEntityByCode" message="GlService_FindEntityByCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/FindEntityByCodeResponse" message="GlService_FindEntityByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindEntity">
+      <wsdl:input wsaw:Action="urn:GlService/FindEntity" message="GlService_FindEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/FindEntityResponse" message="GlService_FindEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneric">
+      <wsdl:input wsaw:Action="urn:GlService/GetGeneric" message="GlService_GetGeneric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetGenericResponse" message="GlService_GetGeneric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGeneric">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteGeneric" message="GlService_DeleteGeneric_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteGenericResponse" message="GlService_DeleteGeneric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenericUpdateOrInsert">
+      <wsdl:input wsaw:Action="urn:GlService/GenericUpdateOrInsert" message="GlService_GenericUpdateOrInsert_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GenericUpdateOrInsertResponse" message="GlService_GenericUpdateOrInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestingMethod">
+      <wsdl:input wsaw:Action="urn:GlService/TestingMethod" message="GlService_TestingMethod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/TestingMethodResponse" message="GlService_TestingMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournal">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblJournal" message="GlService_GetTblJournal_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblJournalResponse" message="GlService_GetTblJournal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindJournalByCode">
+      <wsdl:input wsaw:Action="urn:GlService/FindJournalByCode" message="GlService_FindJournalByCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/FindJournalByCodeResponse" message="GlService_FindJournalByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblJournals">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblJournals" message="GlService_UpdateOrInsertTblJournals_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblJournalsResponse" message="GlService_UpdateOrInsertTblJournals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblJournal">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblJournal" message="GlService_DeleteTblJournal_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblJournalResponse" message="GlService_DeleteTblJournal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintLedgerHeader">
+      <wsdl:input wsaw:Action="urn:GlService/PrintLedgerHeader" message="GlService_PrintLedgerHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PrintLedgerHeaderResponse" message="GlService_PrintLedgerHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTotalLedger">
+      <wsdl:input wsaw:Action="urn:GlService/PostTotalLedger" message="GlService_PostTotalLedger_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PostTotalLedgerResponse" message="GlService_PostTotalLedger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CorrectLedgerHeaderRouding">
+      <wsdl:input wsaw:Action="urn:GlService/CorrectLedgerHeaderRouding" message="GlService_CorrectLedgerHeaderRouding_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/CorrectLedgerHeaderRoudingResponse" message="GlService_CorrectLedgerHeaderRouding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblLedgerHeader" message="GlService_GetTblLedgerHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblLedgerHeaderResponse" message="GlService_GetTblLedgerHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerHeaders">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerHeaders" message="GlService_UpdateOrInsertTblLedgerHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerHeadersResponse" message="GlService_UpdateOrInsertTblLedgerHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblLedgerHeader" message="GlService_DeleteTblLedgerHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblLedgerHeaderResponse" message="GlService_DeleteTblLedgerHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblItemPricebyCode">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblItemPricebyCode" message="GlService_GetTblItemPricebyCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblItemPricebyCodeResponse" message="GlService_GetTblItemPricebyCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAssetRetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAssetRetail" message="GlService_GetTblAssetRetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAssetRetailResponse" message="GlService_GetTblAssetRetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAssetRetail">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblAssetRetail" message="GlService_UpdateOrInsertTblAssetRetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblAssetRetailResponse" message="GlService_UpdateOrInsertTblAssetRetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAssetRetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblAssetRetail" message="GlService_DeleteTblAssetRetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblAssetRetailResponse" message="GlService_DeleteTblAssetRetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAssetGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAssetGroup" message="GlService_GetTblAssetGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAssetGroupResponse" message="GlService_GetTblAssetGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAssetGroup">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblAssetGroup" message="GlService_UpdateOrInsertTblAssetGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblAssetGroupResponse" message="GlService_UpdateOrInsertTblAssetGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAssetGroup">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblAssetGroup" message="GlService_DeleteTblAssetGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblAssetGroupResponse" message="GlService_DeleteTblAssetGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblBankTransactionType">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblBankTransactionType" message="GlService_GetTblBankTransactionType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblBankTransactionTypeResponse" message="GlService_GetTblBankTransactionType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblBankTransactionTypes">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblBankTransactionTypes" message="GlService_UpdateOrInsertTblBankTransactionTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblBankTransactionTypesResponse" message="GlService_UpdateOrInsertTblBankTransactionTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblBankTransactionType">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblBankTransactionType" message="GlService_DeleteTblBankTransactionType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblBankTransactionTypeResponse" message="GlService_DeleteTblBankTransactionType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCheck">
+      <wsdl:input wsaw:Action="urn:GlService/PrintCheck" message="GlService_PrintCheck_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PrintCheckResponse" message="GlService_PrintCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblBankCheque">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblBankCheque" message="GlService_GetTblBankCheque_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblBankChequeResponse" message="GlService_GetTblBankCheque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxCheque">
+      <wsdl:input wsaw:Action="urn:GlService/GetMaxCheque" message="GlService_GetMaxCheque_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetMaxChequeResponse" message="GlService_GetMaxCheque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheque">
+      <wsdl:input wsaw:Action="urn:GlService/CreateCheque" message="GlService_CreateCheque_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/CreateChequeResponse" message="GlService_CreateCheque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblBankCheque">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblBankCheque" message="GlService_DeleteTblBankCheque_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblBankChequeResponse" message="GlService_DeleteTblBankCheque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblIncomeStatmentDesignHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblIncomeStatmentDesignHeader" message="GlService_GetTblIncomeStatmentDesignHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblIncomeStatmentDesignHeaderResponse" message="GlService_GetTblIncomeStatmentDesignHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblIncomeStatmentDesignHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblIncomeStatmentDesignHeader" message="GlService_UpdateOrInsertTblIncomeStatmentDesignHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblIncomeStatmentDesignHeaderResponse" message="GlService_UpdateOrInsertTblIncomeStatmentDesignHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblIncomeStatmentDesignHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblIncomeStatmentDesignHeader" message="GlService_DeleteTblIncomeStatmentDesignHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblIncomeStatmentDesignHeaderResponse" message="GlService_DeleteTblIncomeStatmentDesignHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblIncomeStatmentDesignDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblIncomeStatmentDesignDetail" message="GlService_GetTblIncomeStatmentDesignDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblIncomeStatmentDesignDetailResponse" message="GlService_GetTblIncomeStatmentDesignDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertIncomeStatmentDesignDetail">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertIncomeStatmentDesignDetail" message="GlService_UpdateOrInsertIncomeStatmentDesignDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertIncomeStatmentDesignDetailResponse" message="GlService_UpdateOrInsertIncomeStatmentDesignDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIncomeStatmentDesignDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteIncomeStatmentDesignDetail" message="GlService_DeleteIncomeStatmentDesignDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteIncomeStatmentDesignDetailResponse" message="GlService_DeleteIncomeStatmentDesignDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblRetailCurrency">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblRetailCurrency" message="GlService_GetTblRetailCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblRetailCurrencyResponse" message="GlService_GetTblRetailCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRetailChainSetting">
+      <wsdl:input wsaw:Action="urn:GlService/GetRetailChainSetting" message="GlService_GetRetailChainSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetRetailChainSettingResponse" message="GlService_GetRetailChainSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRetailChainSetupByCode">
+      <wsdl:input wsaw:Action="urn:GlService/GetRetailChainSetupByCode" message="GlService_GetRetailChainSetupByCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetRetailChainSetupByCodeResponse" message="GlService_GetRetailChainSetupByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblMethodOfPayment">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblMethodOfPayment" message="GlService_GetTblMethodOfPayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblMethodOfPaymentResponse" message="GlService_GetTblMethodOfPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblMethodOfPayments">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblMethodOfPayments" message="GlService_UpdateOrInsertTblMethodOfPayments_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblMethodOfPaymentsResponse" message="GlService_UpdateOrInsertTblMethodOfPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblMethodOfPayment">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblMethodOfPayment" message="GlService_DeleteTblMethodOfPayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblMethodOfPaymentResponse" message="GlService_DeleteTblMethodOfPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlRuleJob">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlRuleJob" message="GlService_GetTblGlRuleJob_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlRuleJobResponse" message="GlService_GetTblGlRuleJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlRuleJobs">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleJobs" message="GlService_UpdateOrInsertTblGlRuleJobs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleJobsResponse" message="GlService_UpdateOrInsertTblGlRuleJobs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlRuleJob">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlRuleJob" message="GlService_DeleteTblGlRuleJob_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlRuleJobResponse" message="GlService_DeleteTblGlRuleJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostAllocationMethod">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostAllocationMethod" message="GlService_GetTblCostAllocationMethod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostAllocationMethodResponse" message="GlService_GetTblCostAllocationMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostAllocationMethods">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostAllocationMethods" message="GlService_UpdateOrInsertTblCostAllocationMethods_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostAllocationMethodsResponse" message="GlService_UpdateOrInsertTblCostAllocationMethods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostAllocationMethod">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostAllocationMethod" message="GlService_DeleteTblCostAllocationMethod_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostAllocationMethodResponse" message="GlService_DeleteTblCostAllocationMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlRuleHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlRuleHeader" message="GlService_GetTblGlRuleHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlRuleHeaderResponse" message="GlService_GetTblGlRuleHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlRuleHeaders">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleHeaders" message="GlService_UpdateOrInsertTblGlRuleHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleHeadersResponse" message="GlService_UpdateOrInsertTblGlRuleHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlRuleHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlRuleHeader" message="GlService_DeleteTblGlRuleHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlRuleHeaderResponse" message="GlService_DeleteTblGlRuleHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlRuleMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlRuleMainDetail" message="GlService_GetTblGlRuleMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlRuleMainDetailResponse" message="GlService_GetTblGlRuleMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlRuleMainDetails">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleMainDetails" message="GlService_UpdateOrInsertTblGlRuleMainDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleMainDetailsResponse" message="GlService_UpdateOrInsertTblGlRuleMainDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlRuleMainDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlRuleMainDetail" message="GlService_DeleteTblGlRuleMainDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlRuleMainDetailResponse" message="GlService_DeleteTblGlRuleMainDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlRuleDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlRuleDetail" message="GlService_GetTblGlRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlRuleDetailResponse" message="GlService_GetTblGlRuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlRuleDetails">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleDetails" message="GlService_UpdateOrInsertTblGlRuleDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlRuleDetailsResponse" message="GlService_UpdateOrInsertTblGlRuleDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlRuleDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlRuleDetail" message="GlService_DeleteTblGlRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlRuleDetailResponse" message="GlService_DeleteTblGlRuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlRuleByUser">
+      <wsdl:input wsaw:Action="urn:GlService/GetGlRuleByUser" message="GlService_GetGlRuleByUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetGlRuleByUserResponse" message="GlService_GetGlRuleByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostDimSetupHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostDimSetupHeader" message="GlService_GetTblCostDimSetupHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostDimSetupHeaderResponse" message="GlService_GetTblCostDimSetupHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostDimSetupHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostDimSetupHeader" message="GlService_UpdateOrInsertTblCostDimSetupHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostDimSetupHeaderResponse" message="GlService_UpdateOrInsertTblCostDimSetupHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostDimSetupHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostDimSetupHeader" message="GlService_DeleteTblCostDimSetupHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostDimSetupHeaderResponse" message="GlService_DeleteTblCostDimSetupHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostDimSetupDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostDimSetupDetail" message="GlService_GetTblCostDimSetupDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostDimSetupDetailResponse" message="GlService_GetTblCostDimSetupDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostDimSetupDetail">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostDimSetupDetail" message="GlService_UpdateOrInsertTblCostDimSetupDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostDimSetupDetailResponse" message="GlService_UpdateOrInsertTblCostDimSetupDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostDimSetupDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostDimSetupDetail" message="GlService_DeleteTblCostDimSetupDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostDimSetupDetailResponse" message="GlService_DeleteTblCostDimSetupDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAccount">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAccount" message="GlService_GetTblAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAccountResponse" message="GlService_GetTblAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAccountbyCode">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAccountbyCode" message="GlService_GetTblAccountbyCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAccountbyCodeResponse" message="GlService_GetTblAccountbyCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAccounts">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblAccounts" message="GlService_UpdateOrInsertTblAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblAccountsResponse" message="GlService_UpdateOrInsertTblAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAccount">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblAccount" message="GlService_DeleteTblAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblAccountResponse" message="GlService_DeleteTblAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostDimSetupHeaderForAccount">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostDimSetupHeaderForAccount" message="GlService_GetTblCostDimSetupHeaderForAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostDimSetupHeaderForAccountResponse" message="GlService_GetTblCostDimSetupHeaderForAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTblCostDimHeader">
+      <wsdl:input wsaw:Action="urn:GlService/SaveTblCostDimHeader" message="GlService_SaveTblCostDimHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/SaveTblCostDimHeaderResponse" message="GlService_SaveTblCostDimHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAccountInterval">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAccountInterval" message="GlService_GetTblAccountInterval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAccountIntervalResponse" message="GlService_GetTblAccountInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAccountIntervals">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblAccountIntervals" message="GlService_UpdateOrInsertTblAccountIntervals_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblAccountIntervalsResponse" message="GlService_UpdateOrInsertTblAccountIntervals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAccountInterval">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblAccountInterval" message="GlService_DeleteTblAccountInterval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblAccountIntervalResponse" message="GlService_DeleteTblAccountInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterInterval">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterInterval" message="GlService_GetTblCostCenterInterval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterIntervalResponse" message="GlService_GetTblCostCenterInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenterIntervals">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterIntervals" message="GlService_UpdateOrInsertTblCostCenterIntervals_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterIntervalsResponse" message="GlService_UpdateOrInsertTblCostCenterIntervals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenterInterval">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenterInterval" message="GlService_DeleteTblCostCenterInterval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterIntervalResponse" message="GlService_DeleteTblCostCenterInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlItemGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetGlItemGroup" message="GlService_GetGlItemGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetGlItemGroupResponse" message="GlService_GetGlItemGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlInventoryGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetGlInventoryGroup" message="GlService_GetGlInventoryGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetGlInventoryGroupResponse" message="GlService_GetGlInventoryGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblInventPosting">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblInventPosting" message="GlService_GetTblInventPosting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblInventPostingResponse" message="GlService_GetTblInventPosting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblInventPostingType">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblInventPostingType" message="GlService_GetTblInventPostingType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblInventPostingTypeResponse" message="GlService_GetTblInventPostingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblInventPostings">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblInventPostings" message="GlService_UpdateOrInsertTblInventPostings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblInventPostingsResponse" message="GlService_UpdateOrInsertTblInventPostings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblInventPosting">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblInventPosting" message="GlService_DeleteTblInventPosting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblInventPostingResponse" message="GlService_DeleteTblInventPosting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTblLedgerDetailCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/CreateTblLedgerDetailCostCenter" message="GlService_CreateTblLedgerDetailCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/CreateTblLedgerDetailCostCenterResponse" message="GlService_CreateTblLedgerDetailCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByEntity">
+      <wsdl:input wsaw:Action="urn:GlService/GetAccountByEntity" message="GlService_GetAccountByEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetAccountByEntityResponse" message="GlService_GetAccountByEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostingTimes">
+      <wsdl:input wsaw:Action="urn:GlService/GetPostingTimes" message="GlService_GetPostingTimes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetPostingTimesResponse" message="GlService_GetPostingTimes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GlPost">
+      <wsdl:input wsaw:Action="urn:GlService/GlPost" message="GlService_GlPost_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GlPostResponse" message="GlService_GlPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/CalcCostCenter" message="GlService_CalcCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/CalcCostCenterResponse" message="GlService_CalcCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCostCenterByType">
+      <wsdl:input wsaw:Action="urn:GlService/FindCostCenterByType" message="GlService_FindCostCenterByType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/FindCostCenterByTypeResponse" message="GlService_FindCostCenterByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCashDepositType">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCashDepositType" message="GlService_GetTblCashDepositType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCashDepositTypeResponse" message="GlService_GetTblCashDepositType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCashDepositType">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCashDepositType" message="GlService_UpdateOrInsertTblCashDepositType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCashDepositTypeResponse" message="GlService_UpdateOrInsertTblCashDepositType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCashDepositTypes">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCashDepositTypes" message="GlService_DeleteTblCashDepositTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCashDepositTypesResponse" message="GlService_DeleteTblCashDepositTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDepositeSequence">
+      <wsdl:input wsaw:Action="urn:GlService/GetCashDepositeSequence" message="GlService_GetCashDepositeSequence_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetCashDepositeSequenceResponse" message="GlService_GetCashDepositeSequence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournalSettingCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblJournalSettingCostCenter" message="GlService_GetTblJournalSettingCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblJournalSettingCostCenterResponse" message="GlService_GetTblJournalSettingCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblJournalSettingCostCenters">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettingCostCenters" message="GlService_UpdateOrInsertTblJournalSettingCostCenters_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettingCostCentersResponse" message="GlService_UpdateOrInsertTblJournalSettingCostCenters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblJournalSettingCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblJournalSettingCostCenter" message="GlService_DeleteTblJournalSettingCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblJournalSettingCostCenterResponse" message="GlService_DeleteTblJournalSettingCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblAuthUserJournalSetting">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblAuthUserJournalSetting" message="GlService_GetTblAuthUserJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblAuthUserJournalSettingResponse" message="GlService_GetTblAuthUserJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblAuthUserJournalSettings">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblAuthUserJournalSettings" message="GlService_UpdateOrInsertTblAuthUserJournalSettings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblAuthUserJournalSettingsResponse" message="GlService_UpdateOrInsertTblAuthUserJournalSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblAuthUserJournalSetting">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblAuthUserJournalSetting" message="GlService_DeleteTblAuthUserJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblAuthUserJournalSettingResponse" message="GlService_DeleteTblAuthUserJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournalSettingEntity">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblJournalSettingEntity" message="GlService_GetTblJournalSettingEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblJournalSettingEntityResponse" message="GlService_GetTblJournalSettingEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblJournalSettingEntitys">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettingEntitys" message="GlService_UpdateOrInsertTblJournalSettingEntitys_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettingEntitysResponse" message="GlService_UpdateOrInsertTblJournalSettingEntitys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblJournalSettingEntity">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblJournalSettingEntity" message="GlService_DeleteTblJournalSettingEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblJournalSettingEntityResponse" message="GlService_DeleteTblJournalSettingEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournalSetting">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblJournalSetting" message="GlService_GetTblJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblJournalSettingResponse" message="GlService_GetTblJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJournalAccountTypeSetting">
+      <wsdl:input wsaw:Action="urn:GlService/GetJournalAccountTypeSetting" message="GlService_GetJournalAccountTypeSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetJournalAccountTypeSettingResponse" message="GlService_GetJournalAccountTypeSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblJournalSettings">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettings" message="GlService_UpdateOrInsertTblJournalSettings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblJournalSettingsResponse" message="GlService_UpdateOrInsertTblJournalSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblJournalSetting">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblJournalSetting" message="GlService_DeleteTblJournalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblJournalSettingResponse" message="GlService_DeleteTblJournalSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblChequeTransactionDetailNotLinked">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblChequeTransactionDetailNotLinked" message="GlService_GetTblChequeTransactionDetailNotLinked_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblChequeTransactionDetailNotLinkedResponse" message="GlService_GetTblChequeTransactionDetailNotLinked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateorInsertClosingAdvanceVendorPayments">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateorInsertClosingAdvanceVendorPayments" message="GlService_UpdateorInsertClosingAdvanceVendorPayments_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateorInsertClosingAdvanceVendorPaymentsResponse" message="GlService_UpdateorInsertClosingAdvanceVendorPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayrollOrganizationUnit">
+      <wsdl:input wsaw:Action="urn:GlService/GetPayrollOrganizationUnit" message="GlService_GetPayrollOrganizationUnit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetPayrollOrganizationUnitResponse" message="GlService_GetPayrollOrganizationUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterOrganizationUnit">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterOrganizationUnit" message="GlService_GetTblCostCenterOrganizationUnit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterOrganizationUnitResponse" message="GlService_GetTblCostCenterOrganizationUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenterOrganizationUnits">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterOrganizationUnits" message="GlService_UpdateOrInsertTblCostCenterOrganizationUnits_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterOrganizationUnitsResponse" message="GlService_UpdateOrInsertTblCostCenterOrganizationUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenterOrganizationUnit">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenterOrganizationUnit" message="GlService_DeleteTblCostCenterOrganizationUnit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterOrganizationUnitResponse" message="GlService_DeleteTblCostCenterOrganizationUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterRouteGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterRouteGroup" message="GlService_GetTblCostCenterRouteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterRouteGroupResponse" message="GlService_GetTblCostCenterRouteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenterRouteGroups">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterRouteGroups" message="GlService_UpdateOrInsertTblCostCenterRouteGroups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterRouteGroupsResponse" message="GlService_UpdateOrInsertTblCostCenterRouteGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenterRouteGroup">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenterRouteGroup" message="GlService_DeleteTblCostCenterRouteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterRouteGroupResponse" message="GlService_DeleteTblCostCenterRouteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCashTypeSettings">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCashTypeSettings" message="GlService_GetTblCashTypeSettings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCashTypeSettingsResponse" message="GlService_GetTblCashTypeSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlCashTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlCashTransactionHeader" message="GlService_GetTblGlCashTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlCashTransactionHeaderResponse" message="GlService_GetTblGlCashTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlCashTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlCashTransactionHeader" message="GlService_UpdateOrInsertTblGlCashTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlCashTransactionHeaderResponse" message="GlService_UpdateOrInsertTblGlCashTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlCashTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlCashTransactionHeader" message="GlService_DeleteTblGlCashTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlCashTransactionHeaderResponse" message="GlService_DeleteTblGlCashTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlCashTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlCashTransactionDetail" message="GlService_GetTblGlCashTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlCashTransactionDetailResponse" message="GlService_GetTblGlCashTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlCashTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlCashTransactionDetail" message="GlService_DeleteTblGlCashTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlCashTransactionDetailResponse" message="GlService_DeleteTblGlCashTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTblGlCashTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/PostTblGlCashTransactionHeader" message="GlService_PostTblGlCashTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PostTblGlCashTransactionHeaderResponse" message="GlService_PostTblGlCashTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlCashTransactionDetailCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlCashTransactionDetailCostCenter" message="GlService_GetTblGlCashTransactionDetailCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlCashTransactionDetailCostCenterResponse" message="GlService_GetTblGlCashTransactionDetailCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlCashTransactionDetailCostCenters">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlCashTransactionDetailCostCenters" message="GlService_UpdateOrInsertTblGlCashTransactionDetailCostCenters_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlCashTransactionDetailCostCentersResponse" message="GlService_UpdateOrInsertTblGlCashTransactionDetailCostCenters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlCashTransactionDetailCostCenter">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlCashTransactionDetailCostCenter" message="GlService_DeleteTblGlCashTransactionDetailCostCenter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlCashTransactionDetailCostCenterResponse" message="GlService_DeleteTblGlCashTransactionDetailCostCenter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPositionRouteHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPositionRouteHeader" message="GlService_GetTblPositionRouteHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPositionRouteHeaderResponse" message="GlService_GetTblPositionRouteHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPositionRouteHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblPositionRouteHeader" message="GlService_UpdateOrInsertTblPositionRouteHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblPositionRouteHeaderResponse" message="GlService_UpdateOrInsertTblPositionRouteHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPositionRouteHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblPositionRouteHeader" message="GlService_DeleteTblPositionRouteHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblPositionRouteHeaderResponse" message="GlService_DeleteTblPositionRouteHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblPositionRoute">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblPositionRoute" message="GlService_GetTblPositionRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblPositionRouteResponse" message="GlService_GetTblPositionRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblPositionRoute">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblPositionRoute" message="GlService_UpdateOrInsertTblPositionRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblPositionRouteResponse" message="GlService_UpdateOrInsertTblPositionRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblPositionRoute">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblPositionRoute" message="GlService_DeleteTblPositionRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblPositionRouteResponse" message="GlService_DeleteTblPositionRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReveseTBLCashDepoisteHeader">
+      <wsdl:input wsaw:Action="urn:GlService/ReveseTBLCashDepoisteHeader" message="GlService_ReveseTBLCashDepoisteHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/ReveseTBLCashDepoisteHeaderResponse" message="GlService_ReveseTBLCashDepoisteHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailySalesCommision">
+      <wsdl:input wsaw:Action="urn:GlService/GetDailySalesCommision" message="GlService_GetDailySalesCommision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetDailySalesCommisionResponse" message="GlService_GetDailySalesCommision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblVisaMachine">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblVisaMachine" message="GlService_GetTblVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblVisaMachineResponse" message="GlService_GetTblVisaMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblVisaMachine">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblVisaMachine" message="GlService_UpdateOrInsertTblVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblVisaMachineResponse" message="GlService_UpdateOrInsertTblVisaMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblVisaMachine">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblVisaMachine" message="GlService_DeleteTblVisaMachine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblVisaMachineResponse" message="GlService_DeleteTblVisaMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisaMachineBanks">
+      <wsdl:input wsaw:Action="urn:GlService/GetVisaMachineBanks" message="GlService_GetVisaMachineBanks_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetVisaMachineBanksResponse" message="GlService_GetVisaMachineBanks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterType">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterType" message="GlService_GetTblCostCenterType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterTypeResponse" message="GlService_GetTblCostCenterType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenterTypes">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterTypes" message="GlService_UpdateOrInsertTblCostCenterTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterTypesResponse" message="GlService_UpdateOrInsertTblCostCenterTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenterType">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenterType" message="GlService_DeleteTblCostCenterType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterTypeResponse" message="GlService_DeleteTblCostCenterType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getshoparea">
+      <wsdl:input wsaw:Action="urn:GlService/Getshoparea" message="GlService_Getshoparea_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetshopareaResponse" message="GlService_Getshoparea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertshoparea">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertshoparea" message="GlService_UpdateOrInsertshoparea_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertshopareaResponse" message="GlService_UpdateOrInsertshoparea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deleteshoparea">
+      <wsdl:input wsaw:Action="urn:GlService/Deleteshoparea" message="GlService_Deleteshoparea_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteshopareaResponse" message="GlService_Deleteshoparea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblCostCenterShopArea">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblCostCenterShopArea" message="GlService_GetTblCostCenterShopArea_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblCostCenterShopAreaResponse" message="GlService_GetTblCostCenterShopArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblCostCenterShopAreas">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterShopAreas" message="GlService_UpdateOrInsertTblCostCenterShopAreas_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblCostCenterShopAreasResponse" message="GlService_UpdateOrInsertTblCostCenterShopAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblCostCenterShopArea">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblCostCenterShopArea" message="GlService_DeleteTblCostCenterShopArea_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblCostCenterShopAreaResponse" message="GlService_DeleteTblCostCenterShopArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerHeaderAttachment">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblLedgerHeaderAttachment" message="GlService_GetTblLedgerHeaderAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblLedgerHeaderAttachmentResponse" message="GlService_GetTblLedgerHeaderAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerHeaderAttachment">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerHeaderAttachment" message="GlService_UpdateOrInsertTblLedgerHeaderAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblLedgerHeaderAttachmentResponse" message="GlService_UpdateOrInsertTblLedgerHeaderAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerHeaderAttachment">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblLedgerHeaderAttachment" message="GlService_DeleteTblLedgerHeaderAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblLedgerHeaderAttachmentResponse" message="GlService_DeleteTblLedgerHeaderAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblDepreciationTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblDepreciationTransactionHeader" message="GlService_GetTblDepreciationTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblDepreciationTransactionHeaderResponse" message="GlService_GetTblDepreciationTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblDepreciationTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblDepreciationTransactionHeader" message="GlService_UpdateOrInsertTblDepreciationTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblDepreciationTransactionHeaderResponse" message="GlService_UpdateOrInsertTblDepreciationTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblDepreciationTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblDepreciationTransactionHeader" message="GlService_DeleteTblDepreciationTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblDepreciationTransactionHeaderResponse" message="GlService_DeleteTblDepreciationTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblDepreciationTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblDepreciationTransactionDetail" message="GlService_GetTblDepreciationTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblDepreciationTransactionDetailResponse" message="GlService_GetTblDepreciationTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblDepreciationTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblDepreciationTransactionDetail" message="GlService_DeleteTblDepreciationTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblDepreciationTransactionDetailResponse" message="GlService_DeleteTblDepreciationTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerDetailForDepreciation">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblLedgerDetailForDepreciation" message="GlService_GetTblLedgerDetailForDepreciation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblLedgerDetailForDepreciationResponse" message="GlService_GetTblLedgerDetailForDepreciation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblChequeTypeSettings">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblChequeTypeSettings" message="GlService_GetTblChequeTypeSettings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblChequeTypeSettingsResponse" message="GlService_GetTblChequeTypeSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlChequeTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlChequeTransactionHeader" message="GlService_GetTblGlChequeTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlChequeTransactionHeaderResponse" message="GlService_GetTblGlChequeTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlChequeTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlChequeTransactionHeader" message="GlService_UpdateOrInsertTblGlChequeTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlChequeTransactionHeaderResponse" message="GlService_UpdateOrInsertTblGlChequeTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlChequeTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlChequeTransactionHeader" message="GlService_DeleteTblGlChequeTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlChequeTransactionHeaderResponse" message="GlService_DeleteTblGlChequeTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlChequeTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlChequeTransactionDetail" message="GlService_GetTblGlChequeTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlChequeTransactionDetailResponse" message="GlService_GetTblGlChequeTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblContractHeaderForCheque">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblContractHeaderForCheque" message="GlService_GetTblContractHeaderForCheque_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblContractHeaderForChequeResponse" message="GlService_GetTblContractHeaderForCheque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlChequeTransactionDetail">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlChequeTransactionDetail" message="GlService_DeleteTblGlChequeTransactionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlChequeTransactionDetailResponse" message="GlService_DeleteTblGlChequeTransactionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTblGlChequeTransactionHeader">
+      <wsdl:input wsaw:Action="urn:GlService/PostTblGlChequeTransactionHeader" message="GlService_PostTblGlChequeTransactionHeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/PostTblGlChequeTransactionHeaderResponse" message="GlService_PostTblGlChequeTransactionHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLockupFromPreTransaction">
+      <wsdl:input wsaw:Action="urn:GlService/GetLockupFromPreTransaction" message="GlService_GetLockupFromPreTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetLockupFromPreTransactionResponse" message="GlService_GetLockupFromPreTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournalAccountType">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblJournalAccountType" message="GlService_GetTblJournalAccountType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblJournalAccountTypeResponse" message="GlService_GetTblJournalAccountType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlGenEntityGroup">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlGenEntityGroup" message="GlService_GetTblGlGenEntityGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlGenEntityGroupResponse" message="GlService_GetTblGlGenEntityGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlGenEntityGroup">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlGenEntityGroup" message="GlService_UpdateOrInsertTblGlGenEntityGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlGenEntityGroupResponse" message="GlService_UpdateOrInsertTblGlGenEntityGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlGenEntityGroup">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlGenEntityGroup" message="GlService_DeleteTblGlGenEntityGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlGenEntityGroupResponse" message="GlService_DeleteTblGlGenEntityGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlGenEntity">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlGenEntity" message="GlService_GetTblGlGenEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlGenEntityResponse" message="GlService_GetTblGlGenEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlGenEntity">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlGenEntity" message="GlService_UpdateOrInsertTblGlGenEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlGenEntityResponse" message="GlService_UpdateOrInsertTblGlGenEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlGenEntity">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlGenEntity" message="GlService_DeleteTblGlGenEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlGenEntityResponse" message="GlService_DeleteTblGlGenEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlExpensis">
+      <wsdl:input wsaw:Action="urn:GlService/GetTblGlExpensis" message="GlService_GetTblGlExpensis_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/GetTblGlExpensisResponse" message="GlService_GetTblGlExpensis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlExpensis">
+      <wsdl:input wsaw:Action="urn:GlService/UpdateOrInsertTblGlExpensis" message="GlService_UpdateOrInsertTblGlExpensis_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/UpdateOrInsertTblGlExpensisResponse" message="GlService_UpdateOrInsertTblGlExpensis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlExpensis">
+      <wsdl:input wsaw:Action="urn:GlService/DeleteTblGlExpensis" message="GlService_DeleteTblGlExpensis_InputMessage" />
+      <wsdl:output wsaw:Action="urn:GlService/DeleteTblGlExpensisResponse" message="GlService_DeleteTblGlExpensis_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d76a80e2-27c1-43c9-af39-3a445269fbe0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18559/Service/Att/AttService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AttService.wsdl" MetadataType="Wsdl" ID="34495d39-5663-4cb8-bf1d-1962fce7a539" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AttService.xsd" MetadataType="Schema" ID="644d7f0b-939f-47d8-ab35-c514d76daa1b" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AttService1.xsd" MetadataType="Schema" ID="2982d63a-fd8e-424a-ae25-3295bd4ded03" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AttService2.xsd" MetadataType="Schema" ID="e27fd51b-c396-44a8-8229-48ffb79776cb" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd6" />
+    <MetadataFile FileName="AttService.disco" MetadataType="Disco" ID="981b5be3-ce5f-4b8b-a183-dcc7fd5741ec" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?disco" />
+    <MetadataFile FileName="AttService3.xsd" MetadataType="Schema" ID="c6fbb17e-d202-495a-b1fd-c88921c544a1" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AttService4.xsd" MetadataType="Schema" ID="14b09660-e674-474b-b973-2a9c8b06ee7e" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AttService5.xsd" MetadataType="Schema" ID="c06e3901-4c7d-40bf-8096-46205f61213a" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RouteCardService.wsdl" MetadataType="Wsdl" ID="64f0e84b-fc97-45ba-bee2-2e819c8c8fab" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?wsdl" />
+    <MetadataFile FileName="AttService6.xsd" MetadataType="Schema" ID="c8ae4b78-8970-4b31-9e3a-199a8f963c05" SourceId="1" SourceUrl="http://localhost:18559/Service/Att/AttService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

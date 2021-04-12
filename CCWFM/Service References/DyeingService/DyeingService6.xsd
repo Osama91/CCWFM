@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.Dyeing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.Dyeing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDyeingService.DyeingOrderInvoiceDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DyeingService.DyeingOrderInvoiceDetailDto" nillable="true" type="tns:DyeingService.DyeingOrderInvoiceDetailDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDyeingService.DyeingOrderInvoiceDetailDto" nillable="true" type="tns:ArrayOfDyeingService.DyeingOrderInvoiceDetailDto" />
+  <xs:complexType name="DyeingService.DyeingOrderInvoiceDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BatchNo" type="xs:int" />
+      <xs:element minOccurs="0" name="ColorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="DyedFabric" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DyeingOrderInvoiceHeader" type="xs:int" />
+      <xs:element minOccurs="0" name="Qty" type="xs:double" />
+      <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierInv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TblColor" type="xs:int" />
+      <xs:element minOccurs="0" name="TblDyeingOrdersMainDetails" type="xs:int" />
+      <xs:element minOccurs="0" name="TblService" type="xs:int" />
+      <xs:element minOccurs="0" name="TransID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DyeingService.DyeingOrderInvoiceDetailDto" nillable="true" type="tns:DyeingService.DyeingOrderInvoiceDetailDto" />
+</xs:schema>

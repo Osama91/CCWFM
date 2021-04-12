@@ -1,0 +1,80 @@
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.Views.OGView.ChildWindows.MarkerCalculationsChildWindow"
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									   xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
+		   Title="Marker Size">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock> Color:</TextBlock>
+
+                <ComboBox SelectedValuePath="StyleColorIserial" SelectedValue="{Binding StyleColorCode,Mode=TwoWay}" DisplayMemberPath="StyleColorCode" HorizontalAlignment="Left" Margin="5,5,0,0" x:Name="CbColorCode"
+												   ItemsSource="{Binding SelectedMarker.StyleDetailsList}"  SelectedItem="{Binding StyleColorPerRow,Mode=TwoWay}" SelectionChanged="CbColorCode_SelectionChanged" />
+                <Button Content="Calculate" Name="BtnCalculate" Click="BtnCalculate_OnClick" />
+            </StackPanel>
+            <ListBox x:Name="MeterPerSizeStackPanel"   ItemsSource="{Binding CalcList,Mode=TwoWay}"
+				  HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"  Text="{Binding MarkerNo,Mode=TwoWay}" />
+                                <ItemsControl
+											  ItemsSource="{Binding DetailsList,Mode=TwoWay}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel
+												HorizontalAlignment="Stretch" Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock TextAlignment="Center" Visibility="{Binding SizeVisible}" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="Size" />
+
+                                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="{Binding Size,Mode=TwoWay}" />
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock TextAlignment="Center"  Visibility="{Binding SizeVisible}" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="Ratio" />
+
+                                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="{Binding Ratio,Mode=TwoWay}" />
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock TextAlignment="Center"  Visibility="{Binding SizeVisible}" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="Production" />
+
+                                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="{Binding Production,Mode=TwoWay}" />
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock TextAlignment="Center"  Visibility="{Binding SizeVisible}" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="Remaining" />
+
+                                                    <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"   Width="60" Text="{Binding Rem,Mode=TwoWay}" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                            <TextBlock TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"  Text="{Binding NoOfLayersOrg,Mode=TwoWay}" />
+                            <TextBox TextAlignment="Center" HorizontalAlignment="Stretch" FontWeight="Bold"  Text="{Binding NoOfLayers,Mode=TwoWay}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controlsOverride:ChildWindowsOverride>

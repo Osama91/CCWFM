@@ -1,0 +1,57 @@
+﻿<StackPanel  x:Class="CCWFM.Views.WindowHeader"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="clr-namespace:CCWFM.ViewModel.OGViewModels"
+    d:DesignHeight="300" d:DesignWidth="800" Orientation="Horizontal" Height="40">  
+    <StackPanel.Background>
+        <LinearGradientBrush EndPoint="0.5,9" StartPoint="0.5,0">
+            <GradientStop Color="#FFC6ECFE" />
+            <GradientStop Color="#FF003FFF" Offset=".01" />
+            <GradientStop Color="#ff02fdce" Offset="0.3" />
+        </LinearGradientBrush>
+    </StackPanel.Background>
+    <Button Name="BtnAddNewOrder" ToolTipService.ToolTip="Add" Cursor="Hand" Command="{Binding Path=NewCommand, Mode=TwoWay}">
+        <Image Source="/CCWFM;component/Images/1371054818_New_File.png" Stretch="Uniform"></Image>
+    </Button>
+    <Button Name="BtnEditOrder" Visibility="Collapsed" ToolTipService.ToolTip="Edit" Cursor="Hand" Command="{Binding Path=EditCommand, Mode=TwoWay}">
+        <Image Source="/CCWFM;component/Images/1371054625_27-Edit%20Text.png" Stretch="Uniform"></Image>
+    </Button>
+    <Button Content="Save" Name="BtnSave" Command="{Binding Path=SaveCommand, Mode=TwoWay}"
+            IsEnabled="{Binding Path=Loading, Converter={StaticResource ReversedConverter}}"/>
+    <Button Name="BtnSearchOrder" ToolTipService.ToolTip="Search" Cursor="Hand" Command="{Binding Path=SearchCommand, Mode=TwoWay}">
+        <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
+    </Button>
+    <Button Name="BtnDeleteOrder" ToolTipService.ToolTip="Delete" Command="{Binding Path=DeleteCommand, Mode=TwoWay}">
+        <Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform"/>
+    </Button>
+    <Button Name="BtnExportExcel"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+				    Command="{Binding Path=ExportCommand, Mode=TwoWay}"
+					Cursor="Hand"
+					ToolTipService.ToolTip="Export">
+        <Image HorizontalAlignment="Stretch"
+					   VerticalAlignment="Stretch"
+					   Source="/CCWFM;component/Images/ExportExcel.png"
+					   Stretch="Uniform" />
+    </Button>
+    <Button Name="BtnPrintPreviewOrder" ToolTipService.ToolTip="Print"
+            Command="{Binding Path=PrintCommand, Mode=TwoWay}" 
+            Visibility="{Binding IsNew, Converter={StaticResource VisibilityConverter}, 
+        ConverterParameter=true}">
+        <Image Source="/CCWFM;component/Images/1372257722_MB__print.png" Stretch="Uniform"/>
+    </Button>
+    <Button Content="Cancel" Name="BtnCancelOrder" ToolTipService.ToolTip="Cancel" BorderBrush="#FFA8091A" FontWeight="Bold"
+            Command="{Binding Path=CancelCommand, Mode=TwoWay}">
+        <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#ffa8091a" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+        </Button.Style>
+    </Button>
+
+</StackPanel>
