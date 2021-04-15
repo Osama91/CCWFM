@@ -192,31 +192,32 @@ namespace CCWFM.Web.Service.Att
                         }
 
                         // calendar = workcalendar.CALENDARID;
-                        if (calendar!=null)
-                        {
-                            var workcalendarDateLine = db.TblWorkCalendarDateLines.FirstOrDefault(x => x.TblCalendar1.Code == calendar && x.TransDate == day);
-
-                            if (workcalendarDateLine != null)
-                            {
-                                var record = new WORKCALENDARDATELINE()
-                                {
-
-                                    CALENDARID = calendar,
-                                    FROMTIME = workcalendarDateLine.FromTime,
-                                    TOTIME = workcalendarDateLine.ToTime,
-                                    TRANSDATE = workcalendarDateLine.TransDate,
-                                };
-                                return record;
-                            }
-                            else
-                            {
-                                return null;
-                            }
-
-                        }
+                       
               
 
                     }
+                }
+                if (calendar != null)
+                {
+                    var workcalendarDateLine = db.TblWorkCalendarDateLines.FirstOrDefault(x => x.TblCalendar1.Code == calendar && x.TransDate == day);
+
+                    if (workcalendarDateLine != null)
+                    {
+                        var record = new WORKCALENDARDATELINE()
+                        {
+
+                            CALENDARID = calendar,
+                            FROMTIME = workcalendarDateLine.FromTime,
+                            TOTIME = workcalendarDateLine.ToTime,
+                            TRANSDATE = workcalendarDateLine.TransDate,
+                        };
+                        return record;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
                 }
                 return null;
       
