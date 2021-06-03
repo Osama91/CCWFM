@@ -816,6 +816,9 @@
     <Compile Include="Service\Dto%27s\SalesOrdersQuantity.cs" />
     <Compile Include="Service\Dto%27s\SMLDTO.cs" />
     <Compile Include="Service\Dto%27s\WareHouse.cs" />
+    <Compile Include="Service\LkpData\CalliopeOperations.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Service\LkpData\FactoryDelivery.cs" />
     <Compile Include="Service\LkpData\FamilyCategoryOperations.cs" />
     <Compile Include="Service\LkpData\StyleImage.cs" />

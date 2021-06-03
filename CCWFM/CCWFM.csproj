@@ -580,6 +580,9 @@
     <Compile Include="ViewModel\OGViewModels\AdjastmentViewModel.cs" />
     <Compile Include="ViewModel\OGViewModels\AttachmentViewModel.cs" />
     <Compile Include="ViewModel\OGViewModels\BrandSectionFamilySizeGroupViewModel.cs" />
+    <Compile Include="ViewModel\OGViewModels\StoreDailySalesViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ViewModel\OGViewModels\StyleTnaStatusViewModel.cs" />
     <Compile Include="ViewModel\OGViewModels\DyeingOrderInvoiceViewModel.cs" />
     <Compile Include="ViewModel\OGViewModels\PeriodLockModel.cs" />
@@ -971,6 +974,10 @@
     </Compile>
     <Compile Include="Views\OGView\FactoryDelivery.xaml.cs">
       <DependentUpon>FactoryDelivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OGView\StoreDailySales.xaml.cs">
+      <DependentUpon>StoreDailySales.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Views\OGView\TransferView.xaml.cs">
       <DependentUpon>TransferView.xaml</DependentUpon>
@@ -2265,6 +2272,11 @@
     <Page Include="Views\OGView\FactoryDelivery.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OGView\StoreDailySales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Page Include="Views\OGView\TransferView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -4601,6 +4613,9 @@
     <None Include="Service References\GlService\System.Data2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\LkpData\CCWFM.LkpData.tblCalliopeStoresDailySale.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\LkpData\CCWFM.LkpData.TblFactoryDelivery.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -4632,6 +4647,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\LkpData\CCWFM.LkpData.TblSalesOrderColorTheme.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LkpData\CCWFM.LkpData.TblStore.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\LkpData\CCWFM.LkpData.TblStyle.datasource">

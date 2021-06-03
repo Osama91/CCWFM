@@ -302,6 +302,20 @@
           <Property Name="Month" Type="int" />
           <Property Name="BrandAmount" Type="int" />
         </EntityType>
+        <EntityType Name="tblCalliopeStoresDailySales">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblStore" Type="int" Nullable="false" />
+          <Property Name="TransDate" Type="datetime" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="SalesAmount" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="TblCashDepositAmountDetail">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -1933,6 +1947,7 @@
           <Property Name="SalesGlSerial" Type="int" />
           <Property Name="SalesTblStore" Type="int" />
           <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="AvailableLimit" Type="money" />
         </EntityType>
         <EntityType Name="TblPromoHeader">
           <Key>
@@ -8301,6 +8316,7 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <EntitySet Name="TblBrandStorePriorityActive" EntityType="Self.TblBrandStorePriorityActive" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblBrandStoreTargetDetail" EntityType="Self.TblBrandStoreTargetDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblBrandStoreTargetHeader" EntityType="Self.TblBrandStoreTargetHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCalliopeStoresDailySales" EntityType="Self.tblCalliopeStoresDailySales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCashDepositAmountDetail" EntityType="Self.TblCashDepositAmountDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCashDepositDetail" EntityType="Self.TblCashDepositDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCashDepositHeader" EntityType="Self.TblCashDepositHeader" Schema="dbo" store:Type="Tables" />
@@ -12898,6 +12914,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <Parameter Name="Ledger_Code" Mode="InOut" Type="String" />
           </FunctionImport>
           <EntitySet Name="TblGLTransactionReverse1" EntityType="ccnewModel.TblGLTransactionReverse1" />
+          <EntitySet Name="tblCalliopeStoresDailySales" EntityType="ccnewModel.tblCalliopeStoresDailySale" />
           </EntityContainer>
         <EntityType Name="TblPODetail">
           <Key>
@@ -20413,6 +20430,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="SalesTblStore" Type="Int32" />
           <NavigationProperty Name="TblPromoHeader1" Relationship="ccnewModel.FK_TblPromoDetail_TblPromoHeader" FromRole="TblPromoDetail" ToRole="TblPromoHeader" />
           <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="AvailableLimit" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <Association Name="FK_TblPromoDetail_TblPromoHeader">
           <End Type="ccnewModel.TblPromoHeader" Role="TblPromoHeader" Multiplicity="1">
@@ -21173,6 +21191,20 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="TblTransactionHeaderReverse" Type="Int32" Nullable="false" />
           <Property Name="TblTransactionType" Type="Int32" />
           <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCalliopeStoresDailySale">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblStore" Type="Int32" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="SalesAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -26097,6 +26129,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblPromoDetails">
             <EntityTypeMapping TypeName="ccnewModel.TblPromoDetail">
               <MappingFragment StoreEntitySet="TblPromoDetail">
+                <ScalarProperty Name="AvailableLimit" ColumnName="AvailableLimit" />
                 <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
                 <ScalarProperty Name="SalesTblStore" ColumnName="SalesTblStore" />
                 <ScalarProperty Name="SalesGlSerial" ColumnName="SalesGlSerial" />
@@ -26454,6 +26487,21 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
                 <ScalarProperty Name="TblTransactionType" ColumnName="TblTransactionType" />
                 <ScalarProperty Name="TblTransactionHeaderReverse" ColumnName="TblTransactionHeaderReverse" />
                 <ScalarProperty Name="TblTransactionHeader" ColumnName="TblTransactionHeader" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCalliopeStoresDailySales">
+            <EntityTypeMapping TypeName="ccnewModel.tblCalliopeStoresDailySale">
+              <MappingFragment StoreEntitySet="tblCalliopeStoresDailySales">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="SalesAmount" ColumnName="SalesAmount" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="TblStore" ColumnName="TblStore" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -28509,6 +28557,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_Poh1_TblUser" />
         <AssociationConnector Association="ccnewModel.FK_Poh_TblUser" />
         <EntityTypeShape EntityType="ccnewModel.TblGLTransactionReverse1" Width="1.5" PointX="3.375" PointY="32.75" />
+        <EntityTypeShape EntityType="ccnewModel.tblCalliopeStoresDailySale" Width="1.5" PointX="28.375" PointY="21.75" />
         </Diagram>
     </Diagrams>
   </Designer>

@@ -4,13 +4,31 @@
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd0" />
       <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
-      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.DataLayer" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="LkpData_CheckTNA_InputMessage">
+    <wsdl:part name="parameters" element="CheckTNA" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_CheckTNA_OutputMessage">
+    <wsdl:part name="parameters" element="CheckTNAResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetUserDefaultStore_InputMessage">
+    <wsdl:part name="parameters" element="GetUserDefaultStore" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_GetUserDefaultStore_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserDefaultStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_SaveStoreDailySales_InputMessage">
+    <wsdl:part name="parameters" element="SaveStoreDailySales" />
+  </wsdl:message>
+  <wsdl:message name="LkpData_SaveStoreDailySales_OutputMessage">
+    <wsdl:part name="parameters" element="SaveStoreDailySalesResponse" />
+  </wsdl:message>
   <wsdl:message name="LkpData_GetTblFactoryDelivery_InputMessage">
     <wsdl:part name="parameters" element="GetTblFactoryDelivery" />
   </wsdl:message>
@@ -437,13 +455,19 @@
   <wsdl:message name="LkpData_CheckManualCodeing_OutputMessage">
     <wsdl:part name="parameters" element="CheckManualCodeingResponse" />
   </wsdl:message>
-  <wsdl:message name="LkpData_CheckTNA_InputMessage">
-    <wsdl:part name="parameters" element="CheckTNA" />
-  </wsdl:message>
-  <wsdl:message name="LkpData_CheckTNA_OutputMessage">
-    <wsdl:part name="parameters" element="CheckTNAResponse" />
-  </wsdl:message>
   <wsdl:portType name="LkpData">
+    <wsdl:operation name="CheckTNA">
+      <wsdl:input wsaw:Action="urn:LkpData/CheckTNA" message="LkpData_CheckTNA_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/CheckTNAResponse" message="LkpData_CheckTNA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDefaultStore">
+      <wsdl:input wsaw:Action="urn:LkpData/GetUserDefaultStore" message="LkpData_GetUserDefaultStore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/GetUserDefaultStoreResponse" message="LkpData_GetUserDefaultStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStoreDailySales">
+      <wsdl:input wsaw:Action="urn:LkpData/SaveStoreDailySales" message="LkpData_SaveStoreDailySales_InputMessage" />
+      <wsdl:output wsaw:Action="urn:LkpData/SaveStoreDailySalesResponse" message="LkpData_SaveStoreDailySales_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTblFactoryDelivery">
       <wsdl:input wsaw:Action="urn:LkpData/GetTblFactoryDelivery" message="LkpData_GetTblFactoryDelivery_InputMessage" />
       <wsdl:output wsaw:Action="urn:LkpData/GetTblFactoryDeliveryResponse" message="LkpData_GetTblFactoryDelivery_OutputMessage" />
@@ -727,10 +751,6 @@
     <wsdl:operation name="CheckManualCodeing">
       <wsdl:input wsaw:Action="urn:LkpData/CheckManualCodeing" message="LkpData_CheckManualCodeing_InputMessage" />
       <wsdl:output wsaw:Action="urn:LkpData/CheckManualCodeingResponse" message="LkpData_CheckManualCodeing_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckTNA">
-      <wsdl:input wsaw:Action="urn:LkpData/CheckTNA" message="LkpData_CheckTNA_InputMessage" />
-      <wsdl:output wsaw:Action="urn:LkpData/CheckTNAResponse" message="LkpData_CheckTNA_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

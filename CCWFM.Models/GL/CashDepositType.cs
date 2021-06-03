@@ -17,6 +17,8 @@ namespace CCWFM.Models.Gl
         TFKCourier = 8,
         TFKCash =9,
         TFKDiscount15 = 10,
-        PremiumCard2030 = 11
+        PremiumCard2030 = 11,
+        DsquaresLuckyWallet = 12,
+
     }
 }

@@ -24,7 +24,7 @@ namespace CCWFM
 {
     public partial class MainPage
     {
-       
+
         private readonly CRUD_ManagerServiceClient _client = new CRUD_ManagerServiceClient();
 
         public class BrandSalesClass
@@ -85,7 +85,7 @@ namespace CCWFM
         public MainPage()
         {
             InitializeComponent();
-            
+
             var brushes = new[] {
   Colors.Blue,
   Colors.White,
@@ -103,6 +103,10 @@ namespace CCWFM
             _myDispatcherTimer.Tick += Each_Tick;
             _client.GetDashBoardCompleted += (s, sv) =>
             {
+                if (sv.Error != null)
+                {
+                    return;
+                }
                 if (sv.Result != null)
                 {
                     NewbrandSalesData.Clear();
@@ -291,7 +295,7 @@ namespace CCWFM
                 case "stylecodingform":
                     child.Content = new StyleHeader(SalesOrderType.SalesOrderPo, true);
                     //   _client.EndPoAsync(703, LoggedUserInfo.Iserial, "555555");
-                  // child.Content = new UserFormLayout();
+                    // child.Content = new UserFormLayout();
                     break;
 
                 case "employeeshiftform":
@@ -349,7 +353,7 @@ namespace CCWFM
                     child.LayoutRoot.Children.Add(new CostCenterOrganizationUnit());
                     break;
 
-                    
+
             }
             child.Title = btn.Tag.ToString();
             if (LoggedUserInfo.CurrLang == 0)

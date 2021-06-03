@@ -118,6 +118,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             //{
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
+        
                 if (transfer)
                 {
                     if (

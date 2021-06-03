@@ -332,7 +332,8 @@
         StyleTheme,
         BrandSectionFamily,
         CashdepositeTypeForm,
-        VisaMachineForm
+        VisaMachineForm,
+        CalliopeDaliySales
     }
 
     public enum BarcodeFormatEnum
@@ -437,7 +438,8 @@
         //     Plessey
         PLESSEY,
         CashdepositeTypeForm,
-        VisaMachineForm
+        VisaMachineForm,
+        CalliopeDaliySales
     }
 
     public enum FormMode

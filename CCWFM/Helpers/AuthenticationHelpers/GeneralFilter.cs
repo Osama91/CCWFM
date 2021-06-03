@@ -968,6 +968,10 @@ namespace CCWFM.Helpers.AuthenticationHelpers
             {
                 child.LayoutRoot.Children.Add(new VisaMachine());
             }
+            else if (menuName == PermissionItemName.CalliopeDaliySales.ToString())
+            {
+                child.LayoutRoot.Children.Add(new StoreDailySales());
+            }
             else if (menuName == PermissionItemName.Account.ToString())
             {
                 child.LayoutRoot.Children.Add(new Account());
@@ -1051,10 +1055,6 @@ namespace CCWFM.Helpers.AuthenticationHelpers
             {
                 child.LayoutRoot.Children.Add(new CostCenterOrganizationUnit());
             }
-
-
-
-
 
             if (!string.IsNullOrWhiteSpace(menuLink)&& menuName.StartsWith(PermissionItemName.GlCashTransaction.ToString()))
             {

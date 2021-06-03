@@ -13,6 +13,33 @@
   <wsdl:binding name="CustomBinding_LkpData" type="LkpData">
     <wsp:PolicyReference URI="#CustomBinding_LkpData_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckTNA">
+      <soap12:operation soapAction="urn:LkpData/CheckTNA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDefaultStore">
+      <soap12:operation soapAction="urn:LkpData/GetUserDefaultStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStoreDailySales">
+      <soap12:operation soapAction="urn:LkpData/SaveStoreDailySales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTblFactoryDelivery">
       <soap12:operation soapAction="urn:LkpData/GetTblFactoryDelivery" style="document" />
       <wsdl:input>
@@ -645,15 +672,6 @@
     </wsdl:operation>
     <wsdl:operation name="CheckManualCodeing">
       <soap12:operation soapAction="urn:LkpData/CheckManualCodeing" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckTNA">
-      <soap12:operation soapAction="urn:LkpData/CheckTNA" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

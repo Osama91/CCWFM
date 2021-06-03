@@ -635,6 +635,63 @@ namespace CCWFM.Web.Service.BankDepositOp
                         #endregion
                     }
 
+                    if (headerType.Iserial == (int)CashDepositType.DsquaresLuckyWallet)
+                    {
+                        #region DsquaresLuckyWallet
+                        // Bank Entity
+                        var entity = context.Entities.FirstOrDefault(e => e.Iserial == item.EntityAccount && e.TblJournalAccountType == item.TblJournalAccountType && e.scope == 0);
+                        decimal itemDiscountPercent = 1;
+                        if (item.TblJournalAccountType == 6)
+                        {
+                            var discountpercentage = item.DiscountPercent ?? 0;
+                            itemDiscountPercent = (discountpercentage / 100);
+                            var amountLedger = item.Amount * itemDiscountPercent;
+
+                            var setting = CashDepositSetting.FirstOrDefault(w => w.TblJournalAccountType == item.TblJournalAccountType && w.EntityAccount == item.EntityAccount);
+
+                            //var discountpercentage = setting.DiscountPercent??0;
+                            //itemDiscountPercent = (discountpercentage / 100);
+                            //var amountLedger = item.Amount * itemDiscountPercent;
+
+
+                            if (setting != null)
+                            {
+                                var disquareEntity = context.Entities.FirstOrDefault(e => e.Iserial == setting.DiscountEntityAccount && e.TblJournalAccountType == setting.DiscountJournalAccountType && e.scope == 0);
+                                if (disquareEntity != null)
+                                {
+                                    var LedgerDetailAccount = getLedgerDetail(item.BatchDate, "", true,
+                                                         newLedgerHeaderRow.Iserial, item, disquareEntity, disquareEntity.TblJournalAccountType, amountLedger);
+
+                                    service.UpdateOrInsertTblLedgerMainDetails(context, LedgerDetailAccount, true, 0, out tmp, userIserial);
+
+                                    var storeCostcenter = new TblGlRuleDetail();
+                                    storeCostcenter = service.FindCostCenterByType(storeCostcenter, 8, newRow.TblStore,
+                                        context);
+                                    service.CreateTblLedgerDetailCostCenter(context, LedgerDetailAccount.Amount ?? 0,
+                                        LedgerDetailAccount, storeCostcenter);
+                                }
+                            }
+                            itemDiscountPercent = 1 - (itemDiscountPercent);
+                        }
+                        var amount = item.Amount * itemDiscountPercent;
+
+                        var bankLedgerDetail = getLedgerDetail(item.BatchDate, "", true,
+                            newLedgerHeaderRow.Iserial, item, entity, item.TblJournalAccountType, amount);
+                        service.UpdateOrInsertTblLedgerMainDetails(context, bankLedgerDetail, true, 0, out tmp, userIserial);
+
+                        // Expenses Entity                
+                        //var visaExpensesEntity = visaExpensesEntities.FirstOrDefault(e =>
+                        //    e.Iserial == machine.EntityAccount);
+
+                        //var visaExpensesLedgerDetail = getLedgerDetail(item.BatchDate, _ref, true,
+                        //    newLedgerHeaderRow.Iserial, item, visaExpensesEntity, 15, item.Amount - amount);
+                        //service.UpdateOrInsertTblLedgerMainDetails(context, visaExpensesLedgerDetail, true, 0, out tmp, userIserial);
+
+                        // Cost Center
+
+                        #endregion
+                    }
+
                     if (headerType.Iserial == (int)CashDepositType.TFKCourier)
                     {
                         #region TFKCourier

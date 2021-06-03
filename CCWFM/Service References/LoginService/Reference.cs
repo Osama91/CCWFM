@@ -137,6 +137,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOMainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUserWFMapping))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblBankDeposit))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPositionRoute))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPositionRouteHeader))]
@@ -210,7 +211,6 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSeasonalMasterList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSeasonalMasterListDetail))]
@@ -221,6 +221,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamily))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirectionLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSizeGroup))]
@@ -231,12 +232,17 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatusDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUsersStyleTNAStatu))]
@@ -251,10 +257,9 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricAttriputes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.FabricContentsComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCategories))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.WF_FabricContentsComposition))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCodingConfigurations))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricStructure))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricFinish))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricMaterials))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricTypes))]
@@ -366,6 +371,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalReceiveHeader))]
@@ -521,6 +527,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOMainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUserWFMapping))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblBankDeposit))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPositionRoute))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPositionRouteHeader))]
@@ -594,7 +601,6 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSeasonalMasterList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSeasonalMasterListDetail))]
@@ -605,6 +611,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamily))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirectionLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSizeGroup))]
@@ -615,12 +622,17 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatusDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUsersStyleTNAStatu))]
@@ -635,10 +647,9 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricAttriputes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.FabricContentsComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCategories))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.WF_FabricContentsComposition))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCodingConfigurations))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricStructure))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricFinish))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricMaterials))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricTypes))]
@@ -750,6 +761,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalReceiveHeader))]
@@ -814,6 +826,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> PageWidthField;
         
         private string PrintingBarcodeFormateField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsersField;
         
@@ -948,6 +962,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -991,6 +1018,8 @@ namespace CCWFM.LoginService {
         private string PropertyNameArabicField;
         
         private string PropertyTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> printingPropertiesIserialField;
         
@@ -1164,6 +1193,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> printingPropertiesIserial {
             get {
                 return this.printingPropertiesIserialField;
@@ -1235,6 +1277,8 @@ namespace CCWFM.LoginService {
         private int RouteTypeField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUserField;
         
@@ -1620,6 +1664,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblAuthUser TblAuthUser {
             get {
                 return this.TblAuthUserField;
@@ -1857,6 +1914,8 @@ namespace CCWFM.LoginService {
         
         private int StatusField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -2025,6 +2084,19 @@ namespace CCWFM.LoginService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -2579,6 +2651,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private string PantonCodeField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardDetailActualCost> RouteCardDetailActualCostsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardDetail> RouteCardDetailsField;
@@ -2590,6 +2664,8 @@ namespace CCWFM.LoginService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardFabric> RouteCardFabrics2Field;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardInvoiceDetail> RouteCardInvoiceDetailsField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
         
@@ -2755,6 +2831,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantonCode {
+            get {
+                return this.PantonCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantonCodeField, value) != true)) {
+                    this.PantonCodeField = value;
+                    this.RaisePropertyChanged("PantonCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardDetailActualCost> RouteCardDetailActualCosts {
             get {
                 return this.RouteCardDetailActualCostsField;
@@ -2828,6 +2917,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceDetailsField, value) != true)) {
                     this.RouteCardInvoiceDetailsField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -3346,6 +3448,8 @@ namespace CCWFM.LoginService {
         
         private int StyleColorField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblColor TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -3631,6 +3735,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblColor TblColor {
             get {
                 return this.TblColorField;
@@ -3859,6 +3976,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> ShippingDateField;
         
         private int StatusField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblApprovalStatu TblApprovalStatuField;
         
@@ -4367,6 +4486,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblApprovalStatu TblApprovalStatu {
             get {
                 return this.TblApprovalStatuField;
@@ -4828,6 +4960,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMSizeEstimated> TblBOMSizeEstimatedsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
@@ -5099,6 +5233,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMSizeEstimated> TblBOMSizeEstimateds {
             get {
                 return this.TblBOMSizeEstimatedsField;
@@ -5180,6 +5327,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStandardBOM> TblStandardBOMsField;
         
@@ -5264,6 +5413,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStandardBOM> TblStandardBOMs {
             get {
                 return this.TblStandardBOMsField;
@@ -5342,6 +5504,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private bool OnStockField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMSize> TblBOMSizesField;
         
@@ -5670,6 +5834,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMSize> TblBOMSizes {
             get {
                 return this.TblBOMSizesField;
@@ -5795,6 +5972,8 @@ namespace CCWFM.LoginService {
         private int StyleColorField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.BOM BOM1 {
@@ -5990,6 +6169,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6014,6 +6206,8 @@ namespace CCWFM.LoginService {
         private double MaterialUsageField;
         
         private System.Nullable<double> RowIndexField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblRouteGroup TblRouteGroupField;
         
@@ -6137,6 +6331,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblRouteGroup TblRouteGroup {
             get {
                 return this.TblRouteGroupField;
@@ -6189,6 +6396,8 @@ namespace CCWFM.LoginService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeadersField;
         
         private System.Nullable<bool> SubFabricProcessField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRouteGroupBomBase> TblRouteGroupBomBasesField;
         
@@ -6350,6 +6559,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRouteGroupBomBase> TblRouteGroupBomBases {
             get {
                 return this.TblRouteGroupBomBasesField;
@@ -6463,6 +6685,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRouteGroupField;
         
         private CCWFM.LoginService.TblRouteGroup TblRouteGroup1Field;
@@ -6491,6 +6715,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -6555,6 +6792,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> RouteCapacityField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         private int TblRouteGroupField;
         
@@ -6676,6 +6915,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RouteCardHeadersField, value) != true)) {
                     this.RouteCardHeadersField = value;
                     this.RaisePropertyChanged("RouteCardHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -6828,6 +7080,8 @@ namespace CCWFM.LoginService {
         
         private string ServiceGroupField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingOrderInvoiceDetail> TblDyeingOrderInvoiceDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblProductionOrderInvoiceDetail> TblProductionOrderInvoiceDetailsField;
@@ -6914,6 +7168,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.ServiceGroupField, value) != true)) {
                     this.ServiceGroupField = value;
                     this.RaisePropertyChanged("ServiceGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -7015,6 +7282,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> QtyField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -7125,6 +7394,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
                     this.SupplierInvField = value;
                     this.RaisePropertyChanged("SupplierInv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -7296,6 +7578,8 @@ namespace CCWFM.LoginService {
         
         private string SupplierInvField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingOrderInvoiceDetail> TblDyeingOrderInvoiceDetailsField;
@@ -7424,6 +7708,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -7502,6 +7799,8 @@ namespace CCWFM.LoginService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblDyeingOrderInvoiceHeaderField;
@@ -7570,6 +7869,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -7722,6 +8034,8 @@ namespace CCWFM.LoginService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardInvoiceMarkupTransProd> RouteCardInvoiceMarkupTransProdsField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingOrderInvoiceMarkupTransProd> TblDyeingOrderInvoiceMarkupTransProdsField;
         
         private System.Nullable<int> TblMarkupGroupProdField;
@@ -7810,6 +8124,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceMarkupTransProdsField, value) != true)) {
                     this.RouteCardInvoiceMarkupTransProdsField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceMarkupTransProds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -7925,6 +8252,8 @@ namespace CCWFM.LoginService {
         
         private CCWFM.LoginService.EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO RouteCardInvoiceHeader1ReferenceField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -8026,6 +8355,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceHeader1ReferenceField, value) != true)) {
                     this.RouteCardInvoiceHeader1ReferenceField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -8148,6 +8490,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -8299,6 +8643,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -8362,6 +8719,8 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.RouteCardInvoiceHeader RouteCardInvoiceHeader1Field;
         
         private CCWFM.LoginService.EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO RouteCardInvoiceHeader1ReferenceField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -8508,6 +8867,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -8614,6 +8986,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblMarkupProd> TblMarkupProdsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -8682,6 +9056,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblMarkupProd> TblMarkupProds {
             get {
                 return this.TblMarkupProdsField;
@@ -8709,6 +9096,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> MiscValueField;
         
         private int MiscValueTypeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -8791,6 +9180,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -8947,6 +9349,8 @@ namespace CCWFM.LoginService {
         
         private string SupplierInvField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblMarkupTransProd> TblMarkupTransProdsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRecInvDetailProd> TblRecInvDetailProdsField;
@@ -9067,6 +9471,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
                     this.SupplierInvField = value;
                     this.RaisePropertyChanged("SupplierInv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -9225,6 +9642,8 @@ namespace CCWFM.LoginService {
         
         private string SizeCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -9357,6 +9776,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -9455,6 +9887,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblPurchaseReceiveHeaderField;
         
         private CCWFM.LoginService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1Field;
@@ -9478,6 +9912,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -9596,6 +10043,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private string RefNoField;
+        
+        private int TBlWFCompanyField;
         
         private int TblInventTypeField;
         
@@ -9734,6 +10183,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RefNoField, value) != true)) {
                     this.RefNoField = value;
                     this.RaisePropertyChanged("RefNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -9912,6 +10374,8 @@ namespace CCWFM.LoginService {
         
         private string ShortCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblInventTran> TblInventTransField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseReceiveHeader> TblPurchaseReceiveHeadersField;
@@ -9997,6 +10461,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblInventTran> TblInventTrans {
             get {
                 return this.TblInventTransField;
@@ -10060,6 +10537,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<decimal> OldCostField;
         
         private decimal QtyField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblInventTypeField;
         
@@ -10209,6 +10688,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -10374,6 +10866,8 @@ namespace CCWFM.LoginService {
         
         private string SizeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentDetail> TblAdjustmentDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentTempDetail> TblAdjustmentTempDetailsField;
@@ -10482,6 +10976,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SizeField, value) != true)) {
                     this.SizeField = value;
                     this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -10729,6 +11236,8 @@ namespace CCWFM.LoginService {
         
         private int ItemDimIserialField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblAdjustmentHeader TblAdjustmentHeaderField;
         
         private CCWFM.LoginService.EntityReferenceOfTblAdjustmentHeadero0bgEGGO TblAdjustmentHeaderReferenceField;
@@ -10842,6 +11351,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblAdjustmentHeader TblAdjustmentHeader {
             get {
                 return this.TblAdjustmentHeaderField;
@@ -10924,6 +11446,8 @@ namespace CCWFM.LoginService {
         private int LastChangeUserField;
         
         private string NotesField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentDetail> TblAdjustmentDetailsField;
         
@@ -11113,6 +11637,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentDetail> TblAdjustmentDetails {
             get {
                 return this.TblAdjustmentDetailsField;
@@ -11255,6 +11792,8 @@ namespace CCWFM.LoginService {
         
         private decimal OldQuantityField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblAdjustmentHeader TblAdjustmentHeaderField;
         
         private CCWFM.LoginService.EntityReferenceOfTblAdjustmentHeadero0bgEGGO TblAdjustmentHeaderReferenceField;
@@ -11394,6 +11933,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblAdjustmentHeader TblAdjustmentHeader {
             get {
                 return this.TblAdjustmentHeaderField;
@@ -11484,6 +12036,8 @@ namespace CCWFM.LoginService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardDetail> RouteCardDetailsField;
         
         private System.Nullable<int> SalesField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentHeader> TblAdjustmentHeadersField;
         
@@ -11743,6 +12297,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentHeader> TblAdjustmentHeaders {
             get {
                 return this.TblAdjustmentHeadersField;
@@ -11988,6 +12555,8 @@ namespace CCWFM.LoginService {
         
         private short PermissionTypeField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblAuthUser TblAuthUserField;
         
         private CCWFM.LoginService.EntityReferenceOfTblAuthUsero0bgEGGO TblAuthUserReferenceField;
@@ -12037,6 +12606,19 @@ namespace CCWFM.LoginService {
                 if ((this.PermissionTypeField.Equals(value) != true)) {
                     this.PermissionTypeField = value;
                     this.RaisePropertyChanged("PermissionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12144,6 +12726,8 @@ namespace CCWFM.LoginService {
         
         private short IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthWarehouse> TblAuthWarehousesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -12186,6 +12770,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthWarehouse> TblAuthWarehouses {
             get {
                 return this.TblAuthWarehousesField;
@@ -12213,6 +12810,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private System.Nullable<decimal> QtyField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblItemDimField;
         
@@ -12293,6 +12892,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12441,6 +13053,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> PostedByField;
         
         private System.Nullable<System.DateTime> PostedDateField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblProductionOrderFabric> TblProductionOrderFabricsField;
         
@@ -12605,6 +13219,19 @@ namespace CCWFM.LoginService {
                 if ((this.PostedDateField.Equals(value) != true)) {
                     this.PostedDateField = value;
                     this.RaisePropertyChanged("PostedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12791,6 +13418,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblItemDimField;
         
         private CCWFM.LoginService.TblItemDim TblItemDim1Field;
@@ -12938,6 +13567,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblItemDim {
             get {
                 return this.TblItemDimField;
@@ -13074,6 +13716,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -13272,6 +13916,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -13376,6 +14033,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -13448,6 +14107,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13622,6 +14294,8 @@ namespace CCWFM.LoginService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -13686,6 +14360,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13810,6 +14497,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -13891,6 +14580,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14039,6 +14741,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblProductionOrderTransaction> TblProductionOrderTransactionsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -14089,6 +14793,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14501,6 +15218,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<bool> ModifiedField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanHeader> TblDyeingPlanHeadersField;
         
         private System.Nullable<int> TblFactoryDeliveryField;
@@ -14589,6 +15308,19 @@ namespace CCWFM.LoginService {
                 if ((this.ModifiedField.Equals(value) != true)) {
                     this.ModifiedField = value;
                     this.RaisePropertyChanged("Modified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14871,6 +15603,8 @@ namespace CCWFM.LoginService {
         
         private bool PlanGeneratedField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlan> TblDyeingPlansField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingSummary> TblDyeingSummariesField;
@@ -14977,6 +15711,19 @@ namespace CCWFM.LoginService {
                 if ((this.PlanGeneratedField.Equals(value) != true)) {
                     this.PlanGeneratedField = value;
                     this.RaisePropertyChanged("PlanGenerated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -15211,6 +15958,8 @@ namespace CCWFM.LoginService {
         
         private string StyleField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanDetail> TblDyeingPlanDetailsField;
         
         private CCWFM.LoginService.TblDyeingPlanHeader TblDyeingPlanHeaderField;
@@ -15324,6 +16073,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanDetail> TblDyeingPlanDetails {
             get {
                 return this.TblDyeingPlanDetailsField;
@@ -15390,6 +16152,8 @@ namespace CCWFM.LoginService {
         private double FabricColorValueField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlan TblDyeingPlanField;
         
@@ -15463,6 +16227,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlan TblDyeingPlan {
             get {
                 return this.TblDyeingPlanField;
@@ -15524,6 +16301,8 @@ namespace CCWFM.LoginService {
         private string FabricCodeField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlanHeader TblDyeingPlanHeaderField;
         
@@ -15653,6 +16432,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlanHeader TblDyeingPlanHeader {
             get {
                 return this.TblDyeingPlanHeaderField;
@@ -15734,6 +16526,8 @@ namespace CCWFM.LoginService {
         private string ServiceNameField;
         
         private int SummaryRowIserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingSummary TblDyeingSummaryField;
         
@@ -15818,6 +16612,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingSummary TblDyeingSummary {
             get {
                 return this.TblDyeingSummaryField;
@@ -15864,6 +16671,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private double RequiredQuantityField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanLotsDetail> TblDyeingPlanLotsDetailsField;
         
@@ -15978,6 +16787,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanLotsDetail> TblDyeingPlanLotsDetails {
             get {
                 return this.TblDyeingPlanLotsDetailsField;
@@ -16046,6 +16868,8 @@ namespace CCWFM.LoginService {
         private string SalesOrderField;
         
         private bool SavedField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlanLotsMaster TblDyeingPlanLotsMasterField;
         
@@ -16130,6 +16954,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlanLotsMaster TblDyeingPlanLotsMaster {
             get {
                 return this.TblDyeingPlanLotsMasterField;
@@ -16168,6 +17005,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanHeader> TblDyeingPlanHeadersField;
         
@@ -16224,6 +17063,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanHeader> TblDyeingPlanHeaders {
             get {
                 return this.TblDyeingPlanHeadersField;
@@ -16249,6 +17101,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetHeader> TblBrandBudgetHeadersField;
         
@@ -16334,6 +17188,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -16590,6 +17457,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
         private int TblLkpBrandSectionField;
@@ -16682,6 +17551,19 @@ namespace CCWFM.LoginService {
                 if ((this.LastUpdatedDateField.Equals(value) != true)) {
                     this.LastUpdatedDateField = value;
                     this.RaisePropertyChanged("LastUpdatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -16823,6 +17705,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblBrandBudgetHeaderField;
         
         private CCWFM.LoginService.TblBrandBudgetHeader TblBrandBudgetHeader1Field;
@@ -16946,6 +17830,19 @@ namespace CCWFM.LoginService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -17202,6 +18099,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> ProfitPercentageField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblMasterStyleList> TblMasterStyleListsField;
@@ -17289,6 +18188,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -17354,6 +18266,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblFactoryGroupField;
         
         private CCWFM.LoginService.TblFactoryGroup TblFactoryGroup1Field;
@@ -17410,6 +18324,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -17478,6 +18405,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpBrandSectionField;
         
         private CCWFM.LoginService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -17537,6 +18466,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -17721,6 +18663,8 @@ namespace CCWFM.LoginService {
         
         private string SubSeasonCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetHeader> TblBrandBudgetHeadersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblColorLink> TblColorLinksField;
@@ -17868,6 +18812,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SubSeasonCodeField, value) != true)) {
                     this.SubSeasonCodeField = value;
                     this.RaisePropertyChanged("SubSeasonCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -18099,6 +19056,10 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblColorLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblColorLink : CCWFM.LoginService.EntityObject {
         
+        private string PantonCodeField;
+        
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblColorField;
@@ -18118,6 +19079,32 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblLkpSeason TblLkpSeason1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblLkpSeasono0bgEGGO TblLkpSeason1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantonCode {
+            get {
+                return this.PantonCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantonCodeField, value) != true)) {
+                    this.PantonCodeField = value;
+                    this.RaisePropertyChanged("PantonCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -18288,6 +19275,8 @@ namespace CCWFM.LoginService {
         private decimal SecondClassRatioField;
         
         private int SupplierIserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblContractHeaderField;
         
@@ -18537,6 +19526,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblContractHeader {
             get {
                 return this.TblContractHeaderField;
@@ -18719,6 +19721,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractHeaderDel> TblContractHeaderDelsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractHeader> TblContractHeadersField;
@@ -18775,6 +19779,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -18885,9 +19902,13 @@ namespace CCWFM.LoginService {
         
         private decimal SecondClassRatioField;
         
+        private System.Nullable<int> StatusField;
+        
         private CCWFM.LoginService.TBLsupplier SupplierField;
         
         private int SupplierIserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetail> TblContractDetailsField;
         
@@ -19234,6 +20255,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TBLsupplier Supplier {
             get {
                 return this.SupplierField;
@@ -19255,6 +20289,19 @@ namespace CCWFM.LoginService {
                 if ((this.SupplierIserialField.Equals(value) != true)) {
                     this.SupplierIserialField = value;
                     this.RaisePropertyChanged("SupplierIserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -24892,6 +25939,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> Dserial1Field;
         
+        private System.Nullable<float> EODQTYField;
+        
         private System.Nullable<System.DateTime> ExdateField;
         
         private System.Nullable<int> FlgField;
@@ -24907,6 +25956,10 @@ namespace CCWFM.LoginService {
         private System.Nullable<float> LastStoreQtyField;
         
         private System.Nullable<float> OldCostField;
+        
+        private System.Nullable<float> RPrice1Field;
+        
+        private System.Nullable<float> RPrice3Field;
         
         private System.Nullable<float> SalespriceField;
         
@@ -24958,6 +26011,19 @@ namespace CCWFM.LoginService {
                 if ((this.Dserial1Field.Equals(value) != true)) {
                     this.Dserial1Field = value;
                     this.RaisePropertyChanged("Dserial1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> EODQTY {
+            get {
+                return this.EODQTYField;
+            }
+            set {
+                if ((this.EODQTYField.Equals(value) != true)) {
+                    this.EODQTYField = value;
+                    this.RaisePropertyChanged("EODQTY");
                 }
             }
         }
@@ -25062,6 +26128,32 @@ namespace CCWFM.LoginService {
                 if ((this.OldCostField.Equals(value) != true)) {
                     this.OldCostField = value;
                     this.RaisePropertyChanged("OldCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> RPrice1 {
+            get {
+                return this.RPrice1Field;
+            }
+            set {
+                if ((this.RPrice1Field.Equals(value) != true)) {
+                    this.RPrice1Field = value;
+                    this.RaisePropertyChanged("RPrice1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> RPrice3 {
+            get {
+                return this.RPrice3Field;
+            }
+            set {
+                if ((this.RPrice3Field.Equals(value) != true)) {
+                    this.RPrice3Field = value;
+                    this.RaisePropertyChanged("RPrice3");
                 }
             }
         }
@@ -31232,6 +32324,8 @@ namespace CCWFM.LoginService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPOHeader> TblPOHeadersField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblUserWFMapping> TblUserWFMappingsField;
+        
         private string Tel1Field;
         
         private string Tel2Field;
@@ -31444,6 +32538,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblPOHeadersField, value) != true)) {
                     this.TblPOHeadersField = value;
                     this.RaisePropertyChanged("TblPOHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblUserWFMapping> TblUserWFMappings {
+            get {
+                return this.TblUserWFMappingsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblUserWFMappingsField, value) != true)) {
+                    this.TblUserWFMappingsField = value;
+                    this.RaisePropertyChanged("TblUserWFMappings");
                 }
             }
         }
@@ -32408,6 +33515,117 @@ namespace CCWFM.LoginService {
                 if ((this.unitvatField.Equals(value) != true)) {
                     this.unitvatField = value;
                     this.RaisePropertyChanged("unitvat");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblUserWFMapping", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblUserWFMapping : CCWFM.LoginService.EntityObject {
+        
+        private int CreatedByField;
+        
+        private System.DateTime CreationDateField;
+        
+        private int IserialField;
+        
+        private int TblUserField;
+        
+        private CCWFM.LoginService.TblUser TblUser1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblUsero0bgEGGO TblUser1ReferenceField;
+        
+        private int WFTblAuthUserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblUser {
+            get {
+                return this.TblUserField;
+            }
+            set {
+                if ((this.TblUserField.Equals(value) != true)) {
+                    this.TblUserField = value;
+                    this.RaisePropertyChanged("TblUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblUser TblUser1 {
+            get {
+                return this.TblUser1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblUser1Field, value) != true)) {
+                    this.TblUser1Field = value;
+                    this.RaisePropertyChanged("TblUser1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblUsero0bgEGGO TblUser1Reference {
+            get {
+                return this.TblUser1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblUser1ReferenceField, value) != true)) {
+                    this.TblUser1ReferenceField = value;
+                    this.RaisePropertyChanged("TblUser1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int WFTblAuthUser {
+            get {
+                return this.WFTblAuthUserField;
+            }
+            set {
+                if ((this.WFTblAuthUserField.Equals(value) != true)) {
+                    this.WFTblAuthUserField = value;
+                    this.RaisePropertyChanged("WFTblAuthUser");
                 }
             }
         }
@@ -34026,6 +35244,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblPromoDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblPromoDetail : CCWFM.LoginService.EntityObject {
         
+        private System.Nullable<decimal> AvailableLimitField;
+        
         private string CodeField;
         
         private int GlserialField;
@@ -34051,6 +35271,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.EntityReferenceOfTblPromoHeadero0bgEGGO TblPromoHeader1ReferenceField;
         
         private System.Nullable<System.DateTime> UseDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AvailableLimit {
+            get {
+                return this.AvailableLimitField;
+            }
+            set {
+                if ((this.AvailableLimitField.Equals(value) != true)) {
+                    this.AvailableLimitField = value;
+                    this.RaisePropertyChanged("AvailableLimit");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Code {
@@ -35244,8 +36477,6 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblTenderType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblTenderType : CCWFM.LoginService.EntityObject {
         
-        private System.Nullable<int> AllowOneBenefitOnlyField;
-        
         private System.Nullable<decimal> CardSalsDiscPField;
         
         private System.Nullable<decimal> GLBankComPField;
@@ -35275,19 +36506,6 @@ namespace CCWFM.LoginService {
         private System.Nullable<byte> duetypeField;
         
         private string enameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> AllowOneBenefitOnly {
-            get {
-                return this.AllowOneBenefitOnlyField;
-            }
-            set {
-                if ((this.AllowOneBenefitOnlyField.Equals(value) != true)) {
-                    this.AllowOneBenefitOnlyField = value;
-                    this.RaisePropertyChanged("AllowOneBenefitOnly");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> CardSalsDiscP {
@@ -35738,6 +36956,8 @@ namespace CCWFM.LoginService {
         
         private string AnameField;
         
+        private System.Nullable<int> DepositeTypeGroupField;
+        
         private string EnameField;
         
         private int IserialField;
@@ -35765,6 +36985,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.AnameField, value) != true)) {
                     this.AnameField = value;
                     this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DepositeTypeGroup {
+            get {
+                return this.DepositeTypeGroupField;
+            }
+            set {
+                if ((this.DepositeTypeGroupField.Equals(value) != true)) {
+                    this.DepositeTypeGroupField = value;
+                    this.RaisePropertyChanged("DepositeTypeGroup");
                 }
             }
         }
@@ -46565,6 +47798,10 @@ namespace CCWFM.LoginService {
         
         private int QtyField;
         
+        private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
+        
         private int TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -46577,6 +47814,8 @@ namespace CCWFM.LoginService {
         
         private CCWFM.LoginService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
         
+        private System.Nullable<int> TblContractSubHeaderField;
+        
         private System.Nullable<int> TblLkpBrandSectionField;
         
         private CCWFM.LoginService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -46588,6 +47827,10 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblSalesOrderColor TblSalesOrderColor1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1ReferenceField;
+        
+        private System.Nullable<System.DateTime> UpdatedDeliveryDateField;
+        
+        private System.Nullable<int> UpdatedQtyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal AccCost {
@@ -46759,6 +48002,32 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -46832,6 +48101,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
                     this.TblContractHeader1ReferenceField = value;
                     this.RaisePropertyChanged("TblContractHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeader {
+            get {
+                return this.TblContractSubHeaderField;
+            }
+            set {
+                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
+                    this.TblContractSubHeaderField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader");
                 }
             }
         }
@@ -46913,6 +48195,32 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UpdatedDeliveryDate {
+            get {
+                return this.UpdatedDeliveryDateField;
+            }
+            set {
+                if ((this.UpdatedDeliveryDateField.Equals(value) != true)) {
+                    this.UpdatedDeliveryDateField = value;
+                    this.RaisePropertyChanged("UpdatedDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UpdatedQty {
+            get {
+                return this.UpdatedQtyField;
+            }
+            set {
+                if ((this.UpdatedQtyField.Equals(value) != true)) {
+                    this.UpdatedQtyField = value;
+                    this.RaisePropertyChanged("UpdatedQty");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -46938,13 +48246,15 @@ namespace CCWFM.LoginService {
         
         private string NotesField;
         
+        private System.Nullable<int> RequestForCancelField;
+        
+        private int TBlWFCompanyField;
+        
         private int TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetailDel> TblContractDetailDelsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetail> TblContractDetailsField;
         
@@ -47086,6 +48396,32 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> RequestForCancel {
+            get {
+                return this.RequestForCancelField;
+            }
+            set {
+                if ((this.RequestForCancelField.Equals(value) != true)) {
+                    this.RequestForCancelField = value;
+                    this.RaisePropertyChanged("RequestForCancel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -47120,19 +48456,6 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
                     this.TblColor1ReferenceField = value;
                     this.RaisePropertyChanged("TblColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetailDel> TblContractDetailDels {
-            get {
-                return this.TblContractDetailDelsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractDetailDelsField, value) != true)) {
-                    this.TblContractDetailDelsField = value;
-                    this.RaisePropertyChanged("TblContractDetailDels");
                 }
             }
         }
@@ -47283,312 +48606,6 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractDetailDel", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblContractDetailDel : CCWFM.LoginService.EntityObject {
-        
-        private decimal AccCostField;
-        
-        private decimal CostField;
-        
-        private int CreatedByField;
-        
-        private System.DateTime CreationDateField;
-        
-        private System.DateTime DeliveryDateField;
-        
-        private decimal FabricCostField;
-        
-        private int IserialField;
-        
-        private System.Nullable<System.DateTime> LastChangeDateField;
-        
-        private System.Nullable<int> LastChangeUserField;
-        
-        private string MaterialField;
-        
-        private decimal OperationCostField;
-        
-        private int QtyField;
-        
-        private int TblColorField;
-        
-        private CCWFM.LoginService.TblColor TblColor1Field;
-        
-        private CCWFM.LoginService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
-        
-        private int TblContractHeaderField;
-        
-        private System.Nullable<int> TblLkpBrandSectionField;
-        
-        private int TblSalesOrderColorField;
-        
-        private CCWFM.LoginService.TblSalesOrderColor TblSalesOrderColor1Field;
-        
-        private CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal AccCost {
-            get {
-                return this.AccCostField;
-            }
-            set {
-                if ((this.AccCostField.Equals(value) != true)) {
-                    this.AccCostField = value;
-                    this.RaisePropertyChanged("AccCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((this.CreatedByField.Equals(value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DeliveryDate {
-            get {
-                return this.DeliveryDateField;
-            }
-            set {
-                if ((this.DeliveryDateField.Equals(value) != true)) {
-                    this.DeliveryDateField = value;
-                    this.RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal FabricCost {
-            get {
-                return this.FabricCostField;
-            }
-            set {
-                if ((this.FabricCostField.Equals(value) != true)) {
-                    this.FabricCostField = value;
-                    this.RaisePropertyChanged("FabricCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastChangeDate {
-            get {
-                return this.LastChangeDateField;
-            }
-            set {
-                if ((this.LastChangeDateField.Equals(value) != true)) {
-                    this.LastChangeDateField = value;
-                    this.RaisePropertyChanged("LastChangeDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastChangeUser {
-            get {
-                return this.LastChangeUserField;
-            }
-            set {
-                if ((this.LastChangeUserField.Equals(value) != true)) {
-                    this.LastChangeUserField = value;
-                    this.RaisePropertyChanged("LastChangeUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Material {
-            get {
-                return this.MaterialField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MaterialField, value) != true)) {
-                    this.MaterialField = value;
-                    this.RaisePropertyChanged("Material");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal OperationCost {
-            get {
-                return this.OperationCostField;
-            }
-            set {
-                if ((this.OperationCostField.Equals(value) != true)) {
-                    this.OperationCostField = value;
-                    this.RaisePropertyChanged("OperationCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblColor {
-            get {
-                return this.TblColorField;
-            }
-            set {
-                if ((this.TblColorField.Equals(value) != true)) {
-                    this.TblColorField = value;
-                    this.RaisePropertyChanged("TblColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.TblColor TblColor1 {
-            get {
-                return this.TblColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
-                    this.TblColor1Field = value;
-                    this.RaisePropertyChanged("TblColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
-            get {
-                return this.TblColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
-                    this.TblColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblContractHeader {
-            get {
-                return this.TblContractHeaderField;
-            }
-            set {
-                if ((this.TblContractHeaderField.Equals(value) != true)) {
-                    this.TblContractHeaderField = value;
-                    this.RaisePropertyChanged("TblContractHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblLkpBrandSection {
-            get {
-                return this.TblLkpBrandSectionField;
-            }
-            set {
-                if ((this.TblLkpBrandSectionField.Equals(value) != true)) {
-                    this.TblLkpBrandSectionField = value;
-                    this.RaisePropertyChanged("TblLkpBrandSection");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblSalesOrderColor {
-            get {
-                return this.TblSalesOrderColorField;
-            }
-            set {
-                if ((this.TblSalesOrderColorField.Equals(value) != true)) {
-                    this.TblSalesOrderColorField = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.TblSalesOrderColor TblSalesOrderColor1 {
-            get {
-                return this.TblSalesOrderColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblSalesOrderColor1Field, value) != true)) {
-                    this.TblSalesOrderColor1Field = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1Reference {
-            get {
-                return this.TblSalesOrderColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblSalesOrderColor1ReferenceField, value) != true)) {
-                    this.TblSalesOrderColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor1Reference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSalesOrderColorTheme", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSalesOrderColorTheme : CCWFM.LoginService.EntityObject {
         
@@ -47603,6 +48620,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Nullable<System.DateTime> ShopDeliveryDateField;
+        
+        private int TBlWFCompanyField;
         
         private string TblBrandField;
         
@@ -47694,6 +48713,19 @@ namespace CCWFM.LoginService {
                 if ((this.ShopDeliveryDateField.Equals(value) != true)) {
                     this.ShopDeliveryDateField = value;
                     this.RaisePropertyChanged("ShopDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -47812,6 +48844,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<System.DateTime> DelivaryDateField;
         
+        private System.Nullable<bool> IsApprovedField;
+        
         private int IserialField;
         
         private bool ManualCalculationField;
@@ -47819,6 +48853,8 @@ namespace CCWFM.LoginService {
         private int QtyField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -47862,6 +48898,19 @@ namespace CCWFM.LoginService {
                 if ((this.DelivaryDateField.Equals(value) != true)) {
                     this.DelivaryDateField = value;
                     this.RaisePropertyChanged("DelivaryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsApproved {
+            get {
+                return this.IsApprovedField;
+            }
+            set {
+                if ((this.IsApprovedField.Equals(value) != true)) {
+                    this.IsApprovedField = value;
+                    this.RaisePropertyChanged("IsApproved");
                 }
             }
         }
@@ -47914,6 +48963,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
                     this.SupplierColorCodeField = value;
                     this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -48062,6 +49124,8 @@ namespace CCWFM.LoginService {
         
         private string SizeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblSeasonalMasterListField;
         
         private CCWFM.LoginService.TblSeasonalMasterList TblSeasonalMasterList1Field;
@@ -48121,6 +49185,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSeasonalMasterList {
             get {
                 return this.TblSeasonalMasterListField;
@@ -48175,6 +49252,8 @@ namespace CCWFM.LoginService {
         
         private string BrandField;
         
+        private System.Nullable<double> CCTargetCostPriceField;
+        
         private bool CanceledField;
         
         private string CreatedByField;
@@ -48192,6 +49271,8 @@ namespace CCWFM.LoginService {
         private string Fabric3Field;
         
         private System.Nullable<double> FabricCostField;
+        
+        private string GenericFabricNotesField;
         
         private System.Nullable<bool> IsPostedOnAxaptaField;
         
@@ -48221,6 +49302,8 @@ namespace CCWFM.LoginService {
         
         private string SupplierRefField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<System.DateTime> TNACreationDateField;
         
         private double TargetCostPriceField;
@@ -48230,6 +49313,12 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblFamily TblFamily1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblFamilyo0bgEGGO TblFamily1ReferenceField;
+        
+        private System.Nullable<int> TblGenericFabricField;
+        
+        private CCWFM.LoginService.TblGenericFabric TblGenericFabric1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblGenericFabrico0bgEGGO TblGenericFabric1ReferenceField;
         
         private int TblGroup1Field;
         
@@ -48288,6 +49377,8 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO TblStyleFabricComposition1ReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleImage> TblStyleImagesField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleSpecDetail> TblStyleSpecDetailsField;
         
         private CCWFM.LoginService.TblStyleStatu TblStyleStatuField;
         
@@ -48390,6 +49481,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.BrandField, value) != true)) {
                     this.BrandField = value;
                     this.RaisePropertyChanged("Brand");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> CCTargetCostPrice {
+            get {
+                return this.CCTargetCostPriceField;
+            }
+            set {
+                if ((this.CCTargetCostPriceField.Equals(value) != true)) {
+                    this.CCTargetCostPriceField = value;
+                    this.RaisePropertyChanged("CCTargetCostPrice");
                 }
             }
         }
@@ -48507,6 +49611,19 @@ namespace CCWFM.LoginService {
                 if ((this.FabricCostField.Equals(value) != true)) {
                     this.FabricCostField = value;
                     this.RaisePropertyChanged("FabricCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GenericFabricNotes {
+            get {
+                return this.GenericFabricNotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenericFabricNotesField, value) != true)) {
+                    this.GenericFabricNotesField = value;
+                    this.RaisePropertyChanged("GenericFabricNotes");
                 }
             }
         }
@@ -48694,6 +49811,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> TNACreationDate {
             get {
                 return this.TNACreationDateField;
@@ -48754,6 +49884,45 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblFamily1ReferenceField, value) != true)) {
                     this.TblFamily1ReferenceField = value;
                     this.RaisePropertyChanged("TblFamily1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblGenericFabric {
+            get {
+                return this.TblGenericFabricField;
+            }
+            set {
+                if ((this.TblGenericFabricField.Equals(value) != true)) {
+                    this.TblGenericFabricField = value;
+                    this.RaisePropertyChanged("TblGenericFabric");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblGenericFabric TblGenericFabric1 {
+            get {
+                return this.TblGenericFabric1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGenericFabric1Field, value) != true)) {
+                    this.TblGenericFabric1Field = value;
+                    this.RaisePropertyChanged("TblGenericFabric1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblGenericFabrico0bgEGGO TblGenericFabric1Reference {
+            get {
+                return this.TblGenericFabric1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGenericFabric1ReferenceField, value) != true)) {
+                    this.TblGenericFabric1ReferenceField = value;
+                    this.RaisePropertyChanged("TblGenericFabric1Reference");
                 }
             }
         }
@@ -49136,6 +50305,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleSpecDetail> TblStyleSpecDetails {
+            get {
+                return this.TblStyleSpecDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailsField, value) != true)) {
+                    this.TblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblStyleStatu TblStyleStatu {
             get {
                 return this.TblStyleStatuField;
@@ -49407,11 +50589,15 @@ namespace CCWFM.LoginService {
         
         private string EnameField;
         
+        private System.Nullable<bool> HasTwinField;
+        
         private bool IncludeSubField;
         
         private int IserialField;
         
         private System.Nullable<int> StartIserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -49463,6 +50649,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> HasTwin {
+            get {
+                return this.HasTwinField;
+            }
+            set {
+                if ((this.HasTwinField.Equals(value) != true)) {
+                    this.HasTwinField = value;
+                    this.RaisePropertyChanged("HasTwin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IncludeSub {
             get {
                 return this.IncludeSubField;
@@ -49497,6 +50696,19 @@ namespace CCWFM.LoginService {
                 if ((this.StartIserialField.Equals(value) != true)) {
                     this.StartIserialField = value;
                     this.RaisePropertyChanged("StartIserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -49572,6 +50784,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblFamilyCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblFamilyCategoryLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -49585,6 +50799,19 @@ namespace CCWFM.LoginService {
         private int TblLkpDirectionField;
         
         private int TblStyleCategoryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -49683,6 +50910,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblFamilyLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblFamilyLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -49694,6 +50923,19 @@ namespace CCWFM.LoginService {
         private int TblLkpBrandSectionField;
         
         private System.Nullable<int> TblStyleCategoryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -49789,6 +51031,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> SubFamilyLinkField;
         
+        private int TBlWFCompanyField;
+        
         private int TblFamilyField;
         
         private CCWFM.LoginService.TblFamily TblFamily1Field;
@@ -49862,6 +51106,19 @@ namespace CCWFM.LoginService {
                 if ((this.SubFamilyLinkField.Equals(value) != true)) {
                     this.SubFamilyLinkField = value;
                     this.RaisePropertyChanged("SubFamilyLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -49950,6 +51207,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSubFamilyCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSubFamilyCategoryLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -49965,6 +51224,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblSubFamily TblSubFamily1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblSubFamilyo0bgEGGO TblSubFamily1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -50076,6 +51348,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSubFamilyLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSubFamilyLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -50087,6 +51361,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblSubFamily TblSubFamily1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblSubFamilyo0bgEGGO TblSubFamily1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -50169,6 +51456,117 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblGenericFabric", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblGenericFabric : CCWFM.LoginService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
+        
+        private string TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
+            get {
+                return this.TblStylesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStylesField, value) != true)) {
+                    this.TblStylesField = value;
+                    this.RaisePropertyChanged("TblStyles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblLkpDirection", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblLkpDirection : CCWFM.LoginService.EntityObject {
         
@@ -50179,6 +51577,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -50239,6 +51639,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -50283,6 +51696,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblLkpDirectionLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblLkpDirectionLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -50292,6 +51707,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblLkpDirection TblLkpDirection1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblLkpDirectiono0bgEGGO TblLkpDirection1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -50375,6 +51803,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Nullable<int> SizeGroupTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSizeGroupLink> TblSizeGroupLinksField;
         
@@ -50461,6 +51891,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSizeGroupLink> TblSizeGroupLinks {
             get {
                 return this.TblSizeGroupLinksField;
@@ -50505,6 +51948,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSizeGroupLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSizeGroupLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -50514,6 +51959,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblSizeGroup TblSizeGroup1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblSizeGroupo0bgEGGO TblSizeGroup1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -50592,6 +52050,8 @@ namespace CCWFM.LoginService {
         
         private string SizeCodeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblSizeGroupField;
         
         private CCWFM.LoginService.TblSizeGroup TblSizeGroup1Field;
@@ -50633,6 +52093,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SizeCodeField, value) != true)) {
                     this.SizeCodeField = value;
                     this.RaisePropertyChanged("SizeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -50693,6 +52166,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private int TblStyleField;
         
@@ -50779,6 +52254,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblStyle {
             get {
                 return this.TblStyleField;
@@ -50830,6 +52318,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -50890,6 +52380,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -50934,6 +52437,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleCategoryLink : CCWFM.LoginService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -50945,6 +52450,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblStyleCategory TblStyleCategory1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblStyleCategoryo0bgEGGO TblStyleCategory1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -51038,6 +52556,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -51093,6 +52613,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -51130,6 +52663,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -51274,6 +52809,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -51354,6 +52902,444 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleSpecDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleSpecDetail : CCWFM.LoginService.EntityObject {
+        
+        private string AccessoryCodeField;
+        
+        private string DescriptionField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblStyleField;
+        
+        private CCWFM.LoginService.TblStyle TblStyle1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblStyleo0bgEGGO TblStyle1ReferenceField;
+        
+        private CCWFM.LoginService.TblStyleSpecType TblStyleSpecTypeField;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO TblStyleSpecTypeReferenceField;
+        
+        private System.Nullable<int> TblStyleSpecTypesField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblStyleSpecDetailAttachment> tblStyleSpecDetailAttachmentsField;
+        
+        private System.Nullable<int> tblWFAccessoryAttributesHeaderField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccessoryCode {
+            get {
+                return this.AccessoryCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AccessoryCodeField, value) != true)) {
+                    this.AccessoryCodeField = value;
+                    this.RaisePropertyChanged("AccessoryCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblStyle {
+            get {
+                return this.TblStyleField;
+            }
+            set {
+                if ((this.TblStyleField.Equals(value) != true)) {
+                    this.TblStyleField = value;
+                    this.RaisePropertyChanged("TblStyle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblStyle TblStyle1 {
+            get {
+                return this.TblStyle1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyle1Field, value) != true)) {
+                    this.TblStyle1Field = value;
+                    this.RaisePropertyChanged("TblStyle1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblStyleo0bgEGGO TblStyle1Reference {
+            get {
+                return this.TblStyle1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyle1ReferenceField, value) != true)) {
+                    this.TblStyle1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStyle1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblStyleSpecType TblStyleSpecType {
+            get {
+                return this.TblStyleSpecTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecTypeField, value) != true)) {
+                    this.TblStyleSpecTypeField = value;
+                    this.RaisePropertyChanged("TblStyleSpecType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO TblStyleSpecTypeReference {
+            get {
+                return this.TblStyleSpecTypeReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecTypeReferenceField, value) != true)) {
+                    this.TblStyleSpecTypeReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleSpecTypeReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleSpecTypes {
+            get {
+                return this.TblStyleSpecTypesField;
+            }
+            set {
+                if ((this.TblStyleSpecTypesField.Equals(value) != true)) {
+                    this.TblStyleSpecTypesField = value;
+                    this.RaisePropertyChanged("TblStyleSpecTypes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblStyleSpecDetailAttachment> tblStyleSpecDetailAttachments {
+            get {
+                return this.tblStyleSpecDetailAttachmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblStyleSpecDetailAttachmentsField, value) != true)) {
+                    this.tblStyleSpecDetailAttachmentsField = value;
+                    this.RaisePropertyChanged("tblStyleSpecDetailAttachments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblWFAccessoryAttributesHeader {
+            get {
+                return this.tblWFAccessoryAttributesHeaderField;
+            }
+            set {
+                if ((this.tblWFAccessoryAttributesHeaderField.Equals(value) != true)) {
+                    this.tblWFAccessoryAttributesHeaderField = value;
+                    this.RaisePropertyChanged("tblWFAccessoryAttributesHeader");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleSpecType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleSpecType : CCWFM.LoginService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleSpecDetail> TblStyleSpecDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleSpecDetail> TblStyleSpecDetails {
+            get {
+                return this.TblStyleSpecDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailsField, value) != true)) {
+                    this.TblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblStyleSpecDetailAttachment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class tblStyleSpecDetailAttachment : CCWFM.LoginService.EntityObject {
+        
+        private string FileNameField;
+        
+        private byte[] ImageThumbField;
+        
+        private int IserialField;
+        
+        private string NotesField;
+        
+        private int TBlWFCompanyField;
+        
+        private CCWFM.LoginService.TblStyleSpecDetail TblStyleSpecDetailField;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO TblStyleSpecDetailReferenceField;
+        
+        private string galaryLinkField;
+        
+        private string galaryLintField;
+        
+        private System.Nullable<int> tblStyleSpecDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ImageThumb {
+            get {
+                return this.ImageThumbField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageThumbField, value) != true)) {
+                    this.ImageThumbField = value;
+                    this.RaisePropertyChanged("ImageThumb");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblStyleSpecDetail TblStyleSpecDetail {
+            get {
+                return this.TblStyleSpecDetailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailField, value) != true)) {
+                    this.TblStyleSpecDetailField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO TblStyleSpecDetailReference {
+            get {
+                return this.TblStyleSpecDetailReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailReferenceField, value) != true)) {
+                    this.TblStyleSpecDetailReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetailReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLink {
+            get {
+                return this.galaryLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLinkField, value) != true)) {
+                    this.galaryLinkField = value;
+                    this.RaisePropertyChanged("galaryLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLint {
+            get {
+                return this.galaryLintField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLintField, value) != true)) {
+                    this.galaryLintField = value;
+                    this.RaisePropertyChanged("galaryLint");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblStyleSpecDetails {
+            get {
+                return this.tblStyleSpecDetailsField;
+            }
+            set {
+                if ((this.tblStyleSpecDetailsField.Equals(value) != true)) {
+                    this.tblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("tblStyleSpecDetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleStatu : CCWFM.LoginService.EntityObject {
         
@@ -51364,6 +53350,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
         
@@ -51420,6 +53408,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -51461,6 +53462,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<decimal> LocalCostField;
         
         private System.Nullable<double> OperationCostField;
+        
+        private int TBlWFCompanyField;
         
         private double TargetCostPriceField;
         
@@ -51652,6 +53655,19 @@ namespace CCWFM.LoginService {
                 if ((this.OperationCostField.Equals(value) != true)) {
                     this.OperationCostField = value;
                     this.RaisePropertyChanged("OperationCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -51927,6 +53943,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> OperationCostField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -52059,6 +54077,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -52171,17 +54202,27 @@ namespace CCWFM.LoginService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblStyleTNAField;
         
         private CCWFM.LoginService.TblStyleTNA TblStyleTNA1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblStyleTNAo0bgEGGO TblStyleTNA1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetailAttachment> TblStyleTNADetailAttachmentsField;
+        
         private System.Nullable<int> TblStyleTNAHeaderField;
         
         private CCWFM.LoginService.TblStyleTNAHeader TblStyleTNAHeader1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO TblStyleTNAHeader1ReferenceField;
+        
+        private CCWFM.LoginService.TblStyleTNARouteStatu TblStyleTNARouteStatuField;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO TblStyleTNARouteStatuReferenceField;
+        
+        private System.Nullable<int> TblStyleTNARouteStatusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> ActualDeliveryDate {
@@ -52288,6 +54329,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblStyleTNA {
             get {
                 return this.TblStyleTNAField;
@@ -52322,6 +54376,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblStyleTNA1ReferenceField, value) != true)) {
                     this.TblStyleTNA1ReferenceField = value;
                     this.RaisePropertyChanged("TblStyleTNA1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetailAttachment> TblStyleTNADetailAttachments {
+            get {
+                return this.TblStyleTNADetailAttachmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetailAttachmentsField, value) != true)) {
+                    this.TblStyleTNADetailAttachmentsField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetailAttachments");
                 }
             }
         }
@@ -52364,6 +54431,45 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblStyleTNARouteStatu TblStyleTNARouteStatu {
+            get {
+                return this.TblStyleTNARouteStatuField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNARouteStatuField, value) != true)) {
+                    this.TblStyleTNARouteStatuField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatu");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO TblStyleTNARouteStatuReference {
+            get {
+                return this.TblStyleTNARouteStatuReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNARouteStatuReferenceField, value) != true)) {
+                    this.TblStyleTNARouteStatuReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatuReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleTNARouteStatus {
+            get {
+                return this.TblStyleTNARouteStatusField;
+            }
+            set {
+                if ((this.TblStyleTNARouteStatusField.Equals(value) != true)) {
+                    this.TblStyleTNARouteStatusField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatus");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -52379,15 +54485,21 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> EstimatedDatesField;
         
+        private bool IsFixedField;
+        
         private int IserialField;
         
         private System.Nullable<int> MaxRepeatedField;
         
         private System.Nullable<int> OrderNoField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetail> TblStyleTNADetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNARoute> TblStyleTNARoutesField;
+        
+        private System.Nullable<int> TypeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -52442,6 +54554,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsFixed {
+            get {
+                return this.IsFixedField;
+            }
+            set {
+                if ((this.IsFixedField.Equals(value) != true)) {
+                    this.IsFixedField = value;
+                    this.RaisePropertyChanged("IsFixed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -52481,6 +54606,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetail> TblStyleTNADetails {
             get {
                 return this.TblStyleTNADetailsField;
@@ -52505,12 +54643,27 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNARoute", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleTNARoute : CCWFM.LoginService.EntityObject {
+        
+        private int TBlWFCompanyField;
         
         private int TblStyleField;
         
@@ -52519,6 +54672,19 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.TblStyleTNA TblStyleTNA1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblStyleTNAo0bgEGGO TblStyleTNA1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblStyle {
@@ -52575,6 +54741,228 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNADetailAttachment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleTNADetailAttachment : CCWFM.LoginService.EntityObject {
+        
+        private string FileNameField;
+        
+        private byte[] ImageThumbField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Nullable<int> TblStyleTNADetailField;
+        
+        private CCWFM.LoginService.TblStyleTNADetail TblStyleTNADetail1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblStyleTNADetailo0bgEGGO TblStyleTNADetail1ReferenceField;
+        
+        private string galaryLinkField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ImageThumb {
+            get {
+                return this.ImageThumbField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageThumbField, value) != true)) {
+                    this.ImageThumbField = value;
+                    this.RaisePropertyChanged("ImageThumb");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleTNADetail {
+            get {
+                return this.TblStyleTNADetailField;
+            }
+            set {
+                if ((this.TblStyleTNADetailField.Equals(value) != true)) {
+                    this.TblStyleTNADetailField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblStyleTNADetail TblStyleTNADetail1 {
+            get {
+                return this.TblStyleTNADetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetail1Field, value) != true)) {
+                    this.TblStyleTNADetail1Field = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblStyleTNADetailo0bgEGGO TblStyleTNADetail1Reference {
+            get {
+                return this.TblStyleTNADetail1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetail1ReferenceField, value) != true)) {
+                    this.TblStyleTNADetail1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLink {
+            get {
+                return this.galaryLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLinkField, value) != true)) {
+                    this.galaryLinkField = value;
+                    this.RaisePropertyChanged("galaryLink");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNARouteStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleTNARouteStatu : CCWFM.LoginService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetail> TblStyleTNADetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetail> TblStyleTNADetails {
+            get {
+                return this.TblStyleTNADetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetailsField, value) != true)) {
+                    this.TblStyleTNADetailsField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNAStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleTNAStatu : CCWFM.LoginService.EntityObject {
         
@@ -52589,6 +54977,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNAHeader> TblStyleTNAHeadersField;
         
@@ -52675,6 +55065,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNAHeader> TblStyleTNAHeaders {
             get {
                 return this.TblStyleTNAHeadersField;
@@ -52724,6 +55127,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.DateTime RequestDateField;
+        
+        private int TBlWFCompanyField;
         
         private int TblAuthUserField;
         
@@ -52778,6 +55183,19 @@ namespace CCWFM.LoginService {
                 if ((this.RequestDateField.Equals(value) != true)) {
                     this.RequestDateField = value;
                     this.RaisePropertyChanged("RequestDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -52907,6 +55325,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblAuthUserField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUser1Field;
@@ -52928,6 +55348,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -53024,6 +55457,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -53079,6 +55514,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -53100,6 +55548,8 @@ namespace CCWFM.LoginService {
         private string CommentField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblStyle TblStyle1Field;
         
@@ -53129,6 +55579,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -53193,6 +55656,8 @@ namespace CCWFM.LoginService {
         private CCWFM.LoginService.EntityReferenceOfTBLTechPackStatuo0bgEGGO TBLTechPackStatuReferenceField;
         
         private System.Nullable<int> TBLTechPackStatusField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblStyle TblStyle1Field;
         
@@ -53309,6 +55774,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblStyle TblStyle1 {
             get {
                 return this.TblStyle1Field;
@@ -53387,6 +55865,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblTechPackHeader> tblTechPackHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -53442,6 +55922,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblTechPackHeader> tblTechPackHeaders {
             get {
                 return this.tblTechPackHeadersField;
@@ -53469,6 +55962,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private int TBlWFCompanyField;
         
         private string galaryLinkField;
         
@@ -53549,6 +56044,19 @@ namespace CCWFM.LoginService {
                 if ((this.LastChangeDateField.Equals(value) != true)) {
                     this.LastChangeDateField = value;
                     this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -53680,6 +56188,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private string descriptionField;
         
         private string galaryLinkField;
@@ -53720,6 +56230,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -53855,6 +56378,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblTechPackDetail> tblTechPackDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblTechPackLog> tblTechPackLogsField;
@@ -53912,6 +56437,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblTechPackDetail> tblTechPackDetails {
             get {
                 return this.tblTechPackDetailsField;
@@ -53950,6 +56488,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
         
@@ -54008,6 +56548,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -54053,6 +56606,8 @@ namespace CCWFM.LoginService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.FabricContentsComposition> FabricContentsCompositionsField;
         
+        private System.Nullable<double> FabricCostField;
+        
         private string FabricDescriptionField;
         
         private string FabricDescriptionARField;
@@ -54089,6 +56644,8 @@ namespace CCWFM.LoginService {
         
         private string SupplierRefField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> ThreadNumbersIDField;
         
         private System.Nullable<bool> TubularWidthField;
@@ -54100,8 +56657,6 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> VerticalShrinkageField;
         
         private System.Nullable<double> VerticalShrinkageMaxField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsCompositionField;
         
         private System.Nullable<double> WeightPerSquarMeterAfterWashMaxField;
         
@@ -54266,6 +56821,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.FabricContentsCompositionsField, value) != true)) {
                     this.FabricContentsCompositionsField = value;
                     this.RaisePropertyChanged("FabricContentsCompositions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> FabricCost {
+            get {
+                return this.FabricCostField;
+            }
+            set {
+                if ((this.FabricCostField.Equals(value) != true)) {
+                    this.FabricCostField = value;
+                    this.RaisePropertyChanged("FabricCost");
                 }
             }
         }
@@ -54505,6 +57073,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> ThreadNumbersID {
             get {
                 return this.ThreadNumbersIDField;
@@ -54578,19 +57159,6 @@ namespace CCWFM.LoginService {
                 if ((this.VerticalShrinkageMaxField.Equals(value) != true)) {
                     this.VerticalShrinkageMaxField = value;
                     this.RaisePropertyChanged("VerticalShrinkageMax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsComposition {
-            get {
-                return this.WF_FabricContentsCompositionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WF_FabricContentsCompositionField, value) != true)) {
-                    this.WF_FabricContentsCompositionField = value;
-                    this.RaisePropertyChanged("WF_FabricContentsComposition");
                 }
             }
         }
@@ -55105,6 +57673,8 @@ namespace CCWFM.LoginService {
         
         private float PercentageField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.tbl_FabricAttriputes tbl_FabricAttriputesField;
         
         private CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO tbl_FabricAttriputesReferenceField;
@@ -55178,6 +57748,19 @@ namespace CCWFM.LoginService {
                 if ((this.PercentageField.Equals(value) != true)) {
                     this.PercentageField = value;
                     this.RaisePropertyChanged("Percentage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55276,7 +57859,7 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsCompositionField;
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.tbl_FabricCodingConfigurations tbl_FabricCodingConfigurationsField;
         
@@ -55350,14 +57933,14 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsComposition {
+        public int TBlWFCompany {
             get {
-                return this.WF_FabricContentsCompositionField;
+                return this.TBlWFCompanyField;
             }
             set {
-                if ((object.ReferenceEquals(this.WF_FabricContentsCompositionField, value) != true)) {
-                    this.WF_FabricContentsCompositionField = value;
-                    this.RaisePropertyChanged("WF_FabricContentsComposition");
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55404,43 +57987,20 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WF_FabricContentsComposition", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class WF_FabricContentsComposition : CCWFM.LoginService.EntityObject {
-        
-        private int ContentIDField;
+    [System.Runtime.Serialization.DataContractAttribute(Name="tbl_FabricCodingConfigurations", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class tbl_FabricCodingConfigurations : CCWFM.LoginService.EntityObject {
         
         private int FabricCategoryIDField;
         
-        private string FabricCodeField;
+        private string FabricStartingIDField;
         
-        private int IserialField;
+        private System.Nullable<int> NextFabIDField;
         
-        private float PercentageField;
-        
-        private CCWFM.LoginService.tbl_FabricAttriputes tbl_FabricAttriputesField;
-        
-        private CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO tbl_FabricAttriputesReferenceField;
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategoriesField;
         
         private CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategoriesReferenceField;
-        
-        private CCWFM.LoginService.tbl_lkp_Contents tbl_lkp_ContentsField;
-        
-        private CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO tbl_lkp_ContentsReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ContentID {
-            get {
-                return this.ContentIDField;
-            }
-            set {
-                if ((this.ContentIDField.Equals(value) != true)) {
-                    this.ContentIDField = value;
-                    this.RaisePropertyChanged("ContentID");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int FabricCategoryID {
@@ -55456,66 +58016,40 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FabricCode {
+        public string FabricStartingID {
             get {
-                return this.FabricCodeField;
+                return this.FabricStartingIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.FabricCodeField, value) != true)) {
-                    this.FabricCodeField = value;
-                    this.RaisePropertyChanged("FabricCode");
+                if ((object.ReferenceEquals(this.FabricStartingIDField, value) != true)) {
+                    this.FabricStartingIDField = value;
+                    this.RaisePropertyChanged("FabricStartingID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
+        public System.Nullable<int> NextFabID {
             get {
-                return this.IserialField;
+                return this.NextFabIDField;
             }
             set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
+                if ((this.NextFabIDField.Equals(value) != true)) {
+                    this.NextFabIDField = value;
+                    this.RaisePropertyChanged("NextFabID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Percentage {
+        public int TBlWFCompany {
             get {
-                return this.PercentageField;
+                return this.TBlWFCompanyField;
             }
             set {
-                if ((this.PercentageField.Equals(value) != true)) {
-                    this.PercentageField = value;
-                    this.RaisePropertyChanged("Percentage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.tbl_FabricAttriputes tbl_FabricAttriputes {
-            get {
-                return this.tbl_FabricAttriputesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricAttriputesField, value) != true)) {
-                    this.tbl_FabricAttriputesField = value;
-                    this.RaisePropertyChanged("tbl_FabricAttriputes");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO tbl_FabricAttriputesReference {
-            get {
-                return this.tbl_FabricAttriputesReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricAttriputesReferenceField, value) != true)) {
-                    this.tbl_FabricAttriputesReferenceField = value;
-                    this.RaisePropertyChanged("tbl_FabricAttriputesReference");
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55545,29 +58079,144 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tbl_lkp_FabricStructure", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class tbl_lkp_FabricStructure : CCWFM.LoginService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
+        
+        private System.Nullable<int> tbl_FabricCategoriesField;
+        
+        private CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategories1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategories1ReferenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.tbl_lkp_Contents tbl_lkp_Contents {
+        public string Aname {
             get {
-                return this.tbl_lkp_ContentsField;
+                return this.AnameField;
             }
             set {
-                if ((object.ReferenceEquals(this.tbl_lkp_ContentsField, value) != true)) {
-                    this.tbl_lkp_ContentsField = value;
-                    this.RaisePropertyChanged("tbl_lkp_Contents");
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO tbl_lkp_ContentsReference {
+        public string Code {
             get {
-                return this.tbl_lkp_ContentsReferenceField;
+                return this.CodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.tbl_lkp_ContentsReferenceField, value) != true)) {
-                    this.tbl_lkp_ContentsReferenceField = value;
-                    this.RaisePropertyChanged("tbl_lkp_ContentsReference");
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputes {
+            get {
+                return this.tbl_FabricAttriputesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tbl_FabricAttriputesField, value) != true)) {
+                    this.tbl_FabricAttriputesField = value;
+                    this.RaisePropertyChanged("tbl_FabricAttriputes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tbl_FabricCategories {
+            get {
+                return this.tbl_FabricCategoriesField;
+            }
+            set {
+                if ((this.tbl_FabricCategoriesField.Equals(value) != true)) {
+                    this.tbl_FabricCategoriesField = value;
+                    this.RaisePropertyChanged("tbl_FabricCategories");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategories1 {
+            get {
+                return this.tbl_FabricCategories1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tbl_FabricCategories1Field, value) != true)) {
+                    this.tbl_FabricCategories1Field = value;
+                    this.RaisePropertyChanged("tbl_FabricCategories1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategories1Reference {
+            get {
+                return this.tbl_FabricCategories1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tbl_FabricCategories1ReferenceField, value) != true)) {
+                    this.tbl_FabricCategories1ReferenceField = value;
+                    this.RaisePropertyChanged("tbl_FabricCategories1Reference");
                 }
             }
         }
@@ -55588,7 +58237,7 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsCompositionField;
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -55656,221 +58305,14 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition> WF_FabricContentsComposition {
+        public int TBlWFCompany {
             get {
-                return this.WF_FabricContentsCompositionField;
+                return this.TBlWFCompanyField;
             }
             set {
-                if ((object.ReferenceEquals(this.WF_FabricContentsCompositionField, value) != true)) {
-                    this.WF_FabricContentsCompositionField = value;
-                    this.RaisePropertyChanged("WF_FabricContentsComposition");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tbl_FabricCodingConfigurations", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class tbl_FabricCodingConfigurations : CCWFM.LoginService.EntityObject {
-        
-        private int FabricCategoryIDField;
-        
-        private string FabricStartingIDField;
-        
-        private System.Nullable<int> NextFabIDField;
-        
-        private CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategoriesField;
-        
-        private CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategoriesReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FabricCategoryID {
-            get {
-                return this.FabricCategoryIDField;
-            }
-            set {
-                if ((this.FabricCategoryIDField.Equals(value) != true)) {
-                    this.FabricCategoryIDField = value;
-                    this.RaisePropertyChanged("FabricCategoryID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FabricStartingID {
-            get {
-                return this.FabricStartingIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FabricStartingIDField, value) != true)) {
-                    this.FabricStartingIDField = value;
-                    this.RaisePropertyChanged("FabricStartingID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> NextFabID {
-            get {
-                return this.NextFabIDField;
-            }
-            set {
-                if ((this.NextFabIDField.Equals(value) != true)) {
-                    this.NextFabIDField = value;
-                    this.RaisePropertyChanged("NextFabID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategories {
-            get {
-                return this.tbl_FabricCategoriesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricCategoriesField, value) != true)) {
-                    this.tbl_FabricCategoriesField = value;
-                    this.RaisePropertyChanged("tbl_FabricCategories");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategoriesReference {
-            get {
-                return this.tbl_FabricCategoriesReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricCategoriesReferenceField, value) != true)) {
-                    this.tbl_FabricCategoriesReferenceField = value;
-                    this.RaisePropertyChanged("tbl_FabricCategoriesReference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tbl_lkp_FabricStructure", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class tbl_lkp_FabricStructure : CCWFM.LoginService.EntityObject {
-        
-        private string AnameField;
-        
-        private string CodeField;
-        
-        private string EnameField;
-        
-        private int IserialField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
-        
-        private System.Nullable<int> tbl_FabricCategoriesField;
-        
-        private CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategories1Field;
-        
-        private CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategories1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
-            get {
-                return this.EnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputes {
-            get {
-                return this.tbl_FabricAttriputesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricAttriputesField, value) != true)) {
-                    this.tbl_FabricAttriputesField = value;
-                    this.RaisePropertyChanged("tbl_FabricAttriputes");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> tbl_FabricCategories {
-            get {
-                return this.tbl_FabricCategoriesField;
-            }
-            set {
-                if ((this.tbl_FabricCategoriesField.Equals(value) != true)) {
-                    this.tbl_FabricCategoriesField = value;
-                    this.RaisePropertyChanged("tbl_FabricCategories");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.tbl_FabricCategories tbl_FabricCategories1 {
-            get {
-                return this.tbl_FabricCategories1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricCategories1Field, value) != true)) {
-                    this.tbl_FabricCategories1Field = value;
-                    this.RaisePropertyChanged("tbl_FabricCategories1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategories1Reference {
-            get {
-                return this.tbl_FabricCategories1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tbl_FabricCategories1ReferenceField, value) != true)) {
-                    this.tbl_FabricCategories1ReferenceField = value;
-                    this.RaisePropertyChanged("tbl_FabricCategories1Reference");
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55889,6 +58331,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -55939,6 +58383,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55969,6 +58426,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStylesField;
         
@@ -56027,6 +58486,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -56066,6 +58538,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -56116,6 +58590,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56147,6 +58634,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -56197,6 +58686,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56228,6 +58730,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -56278,6 +58782,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56309,6 +58826,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -56364,6 +58883,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputes {
             get {
                 return this.tbl_FabricAttriputesField;
@@ -56389,6 +58921,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_AccessoryAttributesHeader> tbl_AccessoryAttributesHeaderField;
         
@@ -56442,6 +58976,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56503,6 +59050,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Nullable<int> ItemTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblSizeField;
         
@@ -56688,6 +59237,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblSize {
             get {
                 return this.TblSizeField;
@@ -56796,6 +59358,8 @@ namespace CCWFM.LoginService {
         
         private string SubCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblAccSizeGroupField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_AccessoryAttributesHeader> tbl_AccessoryAttributesHeaderField;
@@ -56883,6 +59447,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblAccSizeGroup {
             get {
                 return this.TblAccSizeGroupField;
@@ -56948,6 +59525,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAccessoryDyeingMapping> TblAccessoryDyeingMappingsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_AccessoriesSubGroup> tbl_AccessoriesSubGroupField;
@@ -57006,6 +59585,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57083,6 +59675,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int tbl_AccessoryAttributesHeaderField;
         
         private int tbl_lkp_AccessoryGroupField;
@@ -57100,6 +59694,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57170,6 +59777,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_lkp_AccessoryGroup> tbl_lkp_AccessoryGroupField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -57225,6 +59834,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_lkp_AccessoryGroup> tbl_lkp_AccessoryGroup {
             get {
                 return this.tbl_lkp_AccessoryGroupField;
@@ -57256,6 +59878,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.tbl_AccessoryAttributesHeader tbl_AccessoryAttributesHeaderField;
         
@@ -57353,6 +59977,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.tbl_AccessoryAttributesHeader tbl_AccessoryAttributesHeader {
             get {
                 return this.tbl_AccessoryAttributesHeaderField;
@@ -57392,6 +60029,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -57442,6 +60081,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57473,6 +60125,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -57523,6 +60177,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57554,6 +60221,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -57604,6 +60273,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57635,6 +60317,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -57685,6 +60369,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57719,6 +60416,8 @@ namespace CCWFM.LoginService {
         private double RatioForProductionField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblSalesOrderColorField;
         
@@ -57805,6 +60504,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSalesOrderColor {
             get {
                 return this.TblSalesOrderColorField;
@@ -57865,11 +60577,17 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> LastChangeUserField;
         
+        private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
+        
         private int TblContractHeaderField;
         
         private CCWFM.LoginService.TblContractHeader TblContractHeader1Field;
         
         private CCWFM.LoginService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
+        
+        private System.Nullable<int> TblContractSubHeaderField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> AmountPercent {
@@ -57976,6 +60694,32 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblContractHeader {
             get {
                 return this.TblContractHeaderField;
@@ -58013,6 +60757,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeader {
+            get {
+                return this.TblContractSubHeaderField;
+            }
+            set {
+                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
+                    this.TblContractSubHeaderField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -58027,6 +60784,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractHeaderDel> TblContractHeaderDelsField;
         
@@ -58085,6 +60844,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractHeaderDel> TblContractHeaderDels {
             get {
                 return this.TblContractHeaderDelsField;
@@ -58127,6 +60899,8 @@ namespace CCWFM.LoginService {
         private string LocationField;
         
         private bool PlanGeneratedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanACC> TblDyeingPlanACCsField;
         
@@ -58222,6 +60996,19 @@ namespace CCWFM.LoginService {
                 if ((this.PlanGeneratedField.Equals(value) != true)) {
                     this.PlanGeneratedField = value;
                     this.RaisePropertyChanged("PlanGenerated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -58374,6 +61161,8 @@ namespace CCWFM.LoginService {
         
         private string SalesOrderField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanDetailsAcc> TblDyeingPlanDetailsAccsField;
         
         private CCWFM.LoginService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAccField;
@@ -58461,6 +61250,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanDetailsAcc> TblDyeingPlanDetailsAccs {
             get {
                 return this.TblDyeingPlanDetailsAccsField;
@@ -58531,6 +61333,8 @@ namespace CCWFM.LoginService {
         private string OldColorField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlanACC TblDyeingPlanACCField;
         
@@ -58628,6 +61432,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlanACC TblDyeingPlanACC {
             get {
                 return this.TblDyeingPlanACCField;
@@ -58672,6 +61489,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAccField;
         
@@ -58775,6 +61594,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAcc {
             get {
                 return this.TblDyeingPlanHeaderAccField;
@@ -58858,6 +61690,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private double RequiredQuantityField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanLotsDetailsAcc> TblDyeingPlanLotsDetailsAccsField;
         
@@ -58959,6 +61793,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblDyeingPlanLotsDetailsAcc> TblDyeingPlanLotsDetailsAccs {
             get {
                 return this.TblDyeingPlanLotsDetailsAccsField;
@@ -59027,6 +61874,8 @@ namespace CCWFM.LoginService {
         private string SalesOrderField;
         
         private bool SavedField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblDyeingPlanLotsMasterAcc TblDyeingPlanLotsMasterAccField;
         
@@ -59111,6 +61960,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblDyeingPlanLotsMasterAcc TblDyeingPlanLotsMasterAcc {
             get {
                 return this.TblDyeingPlanLotsMasterAccField;
@@ -59145,6 +62007,8 @@ namespace CCWFM.LoginService {
         private string BrandField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblBudgetItemField;
         
@@ -59194,6 +62058,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59381,6 +62258,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblBudgetTypeField;
         
         private CCWFM.LoginService.TblBudgetType TblBudgetType1Field;
@@ -59437,6 +62316,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59509,6 +62401,8 @@ namespace CCWFM.LoginService {
         
         private int NatureField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBudgetItem> TblBudgetItemsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -59577,6 +62471,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBudgetItem> TblBudgetItems {
             get {
                 return this.TblBudgetItemsField;
@@ -59597,6 +62504,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGlobalRetailBusinessBudgetMainDetail> TblGlobalRetailBusinessBudgetMainDetailsField;
         
         private System.DateTime TransDateField;
@@ -59614,6 +62523,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59682,6 +62604,8 @@ namespace CCWFM.LoginService {
         
         private int MonthField;
         
+        private int TBlWFCompanyField;
+        
         private int TblGlobalRetailBusinessBudgetMainDetailField;
         
         private CCWFM.LoginService.TblGlobalRetailBusinessBudgetMainDetail TblGlobalRetailBusinessBudgetMainDetail1Field;
@@ -59723,6 +62647,19 @@ namespace CCWFM.LoginService {
                 if ((this.MonthField.Equals(value) != true)) {
                     this.MonthField = value;
                     this.RaisePropertyChanged("Month");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59778,6 +62715,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpBrandSectionField;
         
         private CCWFM.LoginService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -59831,6 +62770,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59966,6 +62918,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseBudgetDetail> TblPurchaseBudgetDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -60021,6 +62975,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseBudgetDetail> TblPurchaseBudgetDetails {
             get {
                 return this.TblPurchaseBudgetDetailsField;
@@ -60044,6 +63011,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> ExRateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblLkpSeasonField;
         
@@ -60086,6 +63055,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -60140,6 +63122,8 @@ namespace CCWFM.LoginService {
         private System.DateTime FromDateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblLkpBrandSectionField;
         
@@ -60196,6 +63180,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -60344,6 +63341,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSeasonTrack> TblSeasonTracksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -60399,6 +63398,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSeasonTrack> TblSeasonTracks {
             get {
                 return this.TblSeasonTracksField;
@@ -60426,6 +63438,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblComplexityGroupField;
         
@@ -60514,6 +63528,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -60705,6 +63732,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> ProfitPercentageField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrder> TblSalesOrdersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStandardBomHeader> TblStandardBomHeadersField;
@@ -60788,6 +63817,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrder> TblSalesOrders {
             get {
                 return this.TblSalesOrdersField;
@@ -60850,6 +63892,8 @@ namespace CCWFM.LoginService {
         private bool IsSupplierMaterialField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -61072,6 +64116,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -61188,6 +64245,8 @@ namespace CCWFM.LoginService {
         private double ShippingPercentageField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
         
@@ -61441,6 +64500,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimateds {
             get {
                 return this.TblBOMStyleColorEstimatedsField;
@@ -61661,6 +64733,8 @@ namespace CCWFM.LoginService {
         
         private int StyleColorField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblColor TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -61810,6 +64884,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblColor TblColor {
             get {
                 return this.TblColorField;
@@ -61936,6 +65023,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblTradeAgreementDetail> TblTradeAgreementDetailsField;
         
         private System.Nullable<int> TblTradeAgreementTransactionField;
@@ -61970,6 +65059,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -62066,6 +65168,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> SerialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpSeasonField;
         
         private CCWFM.LoginService.TblLkpSeason TblLkpSeason1Field;
@@ -62124,6 +65228,19 @@ namespace CCWFM.LoginService {
                 if ((this.SerialField.Equals(value) != true)) {
                     this.SerialField = value;
                     this.RaisePropertyChanged("Serial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -62207,6 +65324,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblTradeAgreementDetail> TblTradeAgreementDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -62262,6 +65381,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblTradeAgreementDetail> TblTradeAgreementDetails {
             get {
                 return this.TblTradeAgreementDetailsField;
@@ -62283,6 +65415,8 @@ namespace CCWFM.LoginService {
         private string EmpField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private string TblBrandField;
         
@@ -62320,6 +65454,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -62431,6 +65578,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<bool> LastEventField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandSectionMailSample> TblBrandSectionMailSamplesField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRequestForSampleEvent> TblRequestForSampleEventsField;
@@ -62503,6 +65652,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBrandSectionMailSample> TblBrandSectionMailSamples {
             get {
                 return this.TblBrandSectionMailSamplesField;
@@ -62556,6 +65718,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private System.DateTime RequestDateField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUserField;
         
@@ -62636,6 +65800,19 @@ namespace CCWFM.LoginService {
                 if ((this.RequestDateField.Equals(value) != true)) {
                     this.RequestDateField = value;
                     this.RaisePropertyChanged("RequestDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -62782,6 +65959,8 @@ namespace CCWFM.LoginService {
         private string SerialNoField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -62933,6 +66112,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SizeField, value) != true)) {
                     this.SizeField = value;
                     this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63117,6 +66309,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRequestForSampleField;
         
         private CCWFM.LoginService.TblRequestForSample TblRequestForSample1Field;
@@ -63241,6 +66435,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblRequestForSample {
             get {
                 return this.TblRequestForSampleField;
@@ -63302,6 +66509,8 @@ namespace CCWFM.LoginService {
         private string NameField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -63433,6 +66642,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -63524,6 +66746,8 @@ namespace CCWFM.LoginService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRequestForSampleField;
         
         private CCWFM.LoginService.TblRequestForSample TblRequestForSample1Field;
@@ -63584,6 +66808,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63680,6 +66917,8 @@ namespace CCWFM.LoginService {
         
         private bool RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthPermissionField;
         
         private CCWFM.LoginService.TblAuthPermission TblAuthPermission1Field;
@@ -63742,6 +66981,19 @@ namespace CCWFM.LoginService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63870,6 +67122,8 @@ namespace CCWFM.LoginService {
         private string PermissionTypField;
         
         private string ReportServerField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthJobPermission> TblAuthJobPermissionsField;
         
@@ -64064,6 +67318,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthJobPermission> TblAuthJobPermissions {
             get {
                 return this.TblAuthJobPermissionsField;
@@ -64140,6 +67407,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<bool> AllowUpdateField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblAuthPermission TblAuthPermissionField;
         
         private CCWFM.LoginService.EntityReferenceOfTblAuthPermissiono0bgEGGO TblAuthPermissionReferenceField;
@@ -64187,6 +67456,19 @@ namespace CCWFM.LoginService {
                 if ((this.AllowUpdateField.Equals(value) != true)) {
                     this.AllowUpdateField = value;
                     this.RaisePropertyChanged("AllowUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64281,6 +67563,8 @@ namespace CCWFM.LoginService {
         
         private bool RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthPermissionField;
         
         private CCWFM.LoginService.TblAuthPermission TblAuthPermission1Field;
@@ -64330,6 +67614,19 @@ namespace CCWFM.LoginService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64435,6 +67732,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthUserField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUser1Field;
@@ -64471,6 +67770,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64580,6 +67892,8 @@ namespace CCWFM.LoginService {
         
         private string ShortCodeField;
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private string TblItemDownLoadDefField;
@@ -64642,6 +67956,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.ShortCodeField, value) != true)) {
                     this.ShortCodeField = value;
                     this.RaisePropertyChanged("ShortCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64753,6 +68080,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
         
         private System.DateTime ToDateField;
@@ -64823,6 +68152,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
             get {
                 return this.TblGeneratePurchaseHeadersField;
@@ -64859,6 +68201,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> CustomerExRateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblGeneratePurchaseHeaderField;
         
@@ -64903,6 +68247,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64973,6 +68330,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65028,6 +68387,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
             get {
                 return this.TblGeneratePurchaseHeadersField;
@@ -65061,6 +68433,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> ShippingDateField;
         
         private bool StatusField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblGeneratePurchaseHeaderField;
         
@@ -65190,6 +68564,19 @@ namespace CCWFM.LoginService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65390,6 +68777,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseOrderHeader> TblPurchaseOrderHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65445,6 +68834,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseOrderHeader> TblPurchaseOrderHeaders {
             get {
                 return this.TblPurchaseOrderHeadersField;
@@ -65488,6 +68890,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> RemaningQtyField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblColor TblColorField;
         
@@ -65675,6 +69079,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblColor TblColor {
             get {
                 return this.TblColorField;
@@ -65794,6 +69211,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblBOMSizeField;
         
         private CCWFM.LoginService.TblBOMSize TblBOMSize1Field;
@@ -65873,6 +69292,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -66016,6 +69448,8 @@ namespace CCWFM.LoginService {
         
         private string StyleSizeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -66123,6 +69557,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
             get {
                 return this.TblPurchaseOrderDetailBreakDownsField;
@@ -66156,6 +69603,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private int StyleColorField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblColor TblColorField;
         
@@ -66276,6 +69725,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblColor TblColor {
             get {
                 return this.TblColorField;
@@ -66374,6 +69836,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblPurchaseOrderDetailField;
         
         private CCWFM.LoginService.TblPurchaseOrderDetail TblPurchaseOrderDetail1Field;
@@ -66395,6 +69859,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67028,6 +70505,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -67083,6 +70562,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
             get {
                 return this.TblGeneratePurchaseHeadersField;
@@ -67110,6 +70602,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblPaymentScheduleSetting TblPaymentScheduleSettingField;
         
@@ -67184,6 +70678,19 @@ namespace CCWFM.LoginService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67287,6 +70794,8 @@ namespace CCWFM.LoginService {
         private bool PercentageIncludedField;
         
         private bool StartingDaysIncludedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPaymentScheduleDetail> TblPaymentScheduleDetailsField;
         
@@ -67397,6 +70906,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPaymentScheduleDetail> TblPaymentScheduleDetails {
             get {
                 return this.TblPaymentScheduleDetailsField;
@@ -67437,6 +70959,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> PercentageField;
         
         private System.Nullable<double> StartingDaysField;
+        
+        private int TBlWFCompanyField;
         
         private int TblPaymentScheduleField;
         
@@ -67511,6 +71035,19 @@ namespace CCWFM.LoginService {
                 if ((this.StartingDaysField.Equals(value) != true)) {
                     this.StartingDaysField = value;
                     this.RaisePropertyChanged("StartingDays");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67609,6 +71146,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPaymentScheduleDetail> TblPaymentScheduleDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrder> TblSalesOrdersField;
@@ -67679,6 +71218,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPaymentScheduleDetail> TblPaymentScheduleDetails {
             get {
                 return this.TblPaymentScheduleDetailsField;
@@ -67729,6 +71281,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private string RefNoField;
+        
+        private int TBlWFCompanyField;
         
         private int TblInventTypeField;
         
@@ -67880,6 +71434,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.RefNoField, value) != true)) {
                     this.RefNoField = value;
                     this.RaisePropertyChanged("RefNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68052,6 +71619,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblSalesIssueHeaderField;
         
         private CCWFM.LoginService.TblSalesIssueHeader TblSalesIssueHeader1Field;
@@ -68101,6 +71670,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68218,6 +71800,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<System.DateTime> ShippingDateField;
         
+        private int TBlWFCompanyField;
+        
         private int TblItemDimField;
         
         private CCWFM.LoginService.TblItemDim TblItemDim1Field;
@@ -68334,6 +71918,19 @@ namespace CCWFM.LoginService {
                 if ((this.ShippingDateField.Equals(value) != true)) {
                     this.ShippingDateField = value;
                     this.RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68471,6 +72068,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> ShippingDateField;
         
         private bool StatusField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -68648,6 +72247,19 @@ namespace CCWFM.LoginService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68841,6 +72453,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -69039,6 +72653,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -69143,6 +72770,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private int TblItemDimField;
         
         private CCWFM.LoginService.TblItemDim TblItemDim1Field;
@@ -69209,6 +72838,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -69344,6 +72986,8 @@ namespace CCWFM.LoginService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -69408,6 +73052,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -69530,6 +73187,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderHeaderRequest> TblSalesOrderHeaderRequestsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -69585,6 +73244,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderHeaderRequest> TblSalesOrderHeaderRequests {
             get {
                 return this.TblSalesOrderHeaderRequestsField;
@@ -69610,6 +73282,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblItemDim> TblItemDimsField;
         
@@ -69668,6 +73342,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblItemDim> TblItemDims {
             get {
                 return this.TblItemDimsField;
@@ -69706,6 +73393,8 @@ namespace CCWFM.LoginService {
         private decimal PendingQtyField;
         
         private decimal QtyField;
+        
+        private int TBlWFCompanyField;
         
         private int TblItemDimField;
         
@@ -69767,6 +73456,19 @@ namespace CCWFM.LoginService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -69878,6 +73580,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<int> LastChangeUserField;
         
         private string NotesField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUserField;
         
@@ -70057,6 +73761,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70252,6 +73969,8 @@ namespace CCWFM.LoginService {
         
         private decimal QuantityField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblItemDim TblItemDimField;
         
         private CCWFM.LoginService.TblItemDim TblItemDim1Field;
@@ -70371,6 +74090,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblItemDim TblItemDim {
             get {
                 return this.TblItemDimField;
@@ -70475,6 +74207,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRecInvHeaderProd> TblRecInvHeaderProdsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -70530,6 +74264,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblRecInvHeaderProd> TblRecInvHeaderProds {
             get {
                 return this.TblRecInvHeaderProdsField;
@@ -70563,6 +74310,8 @@ namespace CCWFM.LoginService {
         private double QtyField;
         
         private string SizeCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -70682,6 +74431,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SizeCodeField, value) != true)) {
                     this.SizeCodeField = value;
                     this.RaisePropertyChanged("SizeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70815,6 +74577,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblCurrencyField;
         
         private CCWFM.LoginService.TblCurrency TblCurrency1Field;
@@ -70870,6 +74634,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71020,6 +74797,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<bool> LocalCurrencyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseMarkupTransProd> TblPurchaseMarkupTransProdsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderRequestMarkupTransProd> TblSalesOrderRequestMarkupTransProdsField;
@@ -71090,6 +74869,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPurchaseMarkupTransProd> TblPurchaseMarkupTransProds {
             get {
                 return this.TblPurchaseMarkupTransProdsField;
@@ -71128,6 +74920,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> MiscValueField;
         
         private int MiscValueTypeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -71197,6 +74991,19 @@ namespace CCWFM.LoginService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71345,6 +75152,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> StatusField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblMarkerTypeField;
         
         private CCWFM.LoginService.TblMarkerType TblMarkerType1Field;
@@ -71417,6 +75226,19 @@ namespace CCWFM.LoginService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71591,6 +75413,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_MarkerTransactionHeader> tbl_MarkerTransactionHeaderField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -71646,6 +75470,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_MarkerTransactionHeader> tbl_MarkerTransactionHeader {
             get {
                 return this.tbl_MarkerTransactionHeaderField;
@@ -71691,6 +75528,8 @@ namespace CCWFM.LoginService {
         private int StyleColorCodeField;
         
         private string StyleNoField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblColor TblColorField;
         
@@ -71893,6 +75732,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.TblColor TblColor {
             get {
                 return this.TblColorField;
@@ -72033,6 +75885,8 @@ namespace CCWFM.LoginService {
         
         private string RollUnitField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblMarkerTypeField;
         
         private CCWFM.LoginService.tbl_MarkerDetail tbl_MarkerDetailField;
@@ -72157,6 +76011,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblMarkerType {
             get {
                 return this.TblMarkerTypeField;
@@ -72208,6 +76075,8 @@ namespace CCWFM.LoginService {
         private double MeterPerSizeValueField;
         
         private int SizeCode_IdField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.tbl_MarkerDetail tbl_MarkerDetailField;
         
@@ -72266,6 +76135,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.tbl_MarkerDetail tbl_MarkerDetail {
             get {
                 return this.tbl_MarkerDetailField;
@@ -72304,6 +76186,8 @@ namespace CCWFM.LoginService {
         private float OprCostField;
         
         private System.Nullable<double> RowIndexField;
+        
+        private int TBlWFCompanyField;
         
         private int TblOperationField;
         
@@ -72367,6 +76251,19 @@ namespace CCWFM.LoginService {
                 if ((this.RowIndexField.Equals(value) != true)) {
                     this.RowIndexField = value;
                     this.RaisePropertyChanged("RowIndex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72472,6 +76369,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<float> OprCostField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.LoginService.TblColor TblColor1Field;
@@ -72506,6 +76405,19 @@ namespace CCWFM.LoginService {
                 if ((this.OprCostField.Equals(value) != true)) {
                     this.OprCostField = value;
                     this.RaisePropertyChanged("OprCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72632,6 +76544,8 @@ namespace CCWFM.LoginService {
         
         private string CompositionField;
         
+        private string ConfigurationField;
+        
         private string ConsumptionField;
         
         private System.Nullable<bool> DyedField;
@@ -72639,6 +76553,10 @@ namespace CCWFM.LoginService {
         private string ExcelPathField;
         
         private string FabricCodeField;
+        
+        private string FabricExternalCodeField;
+        
+        private System.Nullable<int> FabricIDField;
         
         private System.Nullable<int> FabricTypeField;
         
@@ -72652,6 +76570,8 @@ namespace CCWFM.LoginService {
         
         private byte[] ImageThumbField;
         
+        private System.Nullable<bool> IsCompletedField;
+        
         private bool IsSupplierMaterialField;
         
         private int IserialField;
@@ -72660,9 +76580,13 @@ namespace CCWFM.LoginService {
         
         private string PlacementField;
         
+        private string PriceField;
+        
         private string SupplierCodeField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblStyleField;
         
@@ -72675,6 +76599,8 @@ namespace CCWFM.LoginService {
         private string WeightField;
         
         private string WidthField;
+        
+        private System.Nullable<int> tblWF_AccessoryAttributesDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BOMHorizontalShrinkage {
@@ -72924,6 +76850,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Configuration {
+            get {
+                return this.ConfigurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConfigurationField, value) != true)) {
+                    this.ConfigurationField = value;
+                    this.RaisePropertyChanged("Configuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Consumption {
             get {
                 return this.ConsumptionField;
@@ -72971,6 +76910,32 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.FabricCodeField, value) != true)) {
                     this.FabricCodeField = value;
                     this.RaisePropertyChanged("FabricCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FabricExternalCode {
+            get {
+                return this.FabricExternalCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FabricExternalCodeField, value) != true)) {
+                    this.FabricExternalCodeField = value;
+                    this.RaisePropertyChanged("FabricExternalCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FabricID {
+            get {
+                return this.FabricIDField;
+            }
+            set {
+                if ((this.FabricIDField.Equals(value) != true)) {
+                    this.FabricIDField = value;
+                    this.RaisePropertyChanged("FabricID");
                 }
             }
         }
@@ -73054,6 +77019,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCompleted {
+            get {
+                return this.IsCompletedField;
+            }
+            set {
+                if ((this.IsCompletedField.Equals(value) != true)) {
+                    this.IsCompletedField = value;
+                    this.RaisePropertyChanged("IsCompleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsSupplierMaterial {
             get {
                 return this.IsSupplierMaterialField;
@@ -73106,6 +77084,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriceField, value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string SupplierCode {
             get {
                 return this.SupplierCodeField;
@@ -73127,6 +77118,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
                     this.SupplierColorCodeField = value;
                     this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73208,6 +77212,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblWF_AccessoryAttributesDetails {
+            get {
+                return this.tblWF_AccessoryAttributesDetailsField;
+            }
+            set {
+                if ((this.tblWF_AccessoryAttributesDetailsField.Equals(value) != true)) {
+                    this.tblWF_AccessoryAttributesDetailsField = value;
+                    this.RaisePropertyChanged("tblWF_AccessoryAttributesDetails");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -73222,6 +77239,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TechPackBOM> TechPackBOMsField;
         
@@ -73278,6 +77297,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TechPackBOM> TechPackBOMs {
             get {
                 return this.TechPackBOMsField;
@@ -73305,6 +77337,8 @@ namespace CCWFM.LoginService {
         private string SizeFabricRatioField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TechPackBOMField;
         
@@ -73378,6 +77412,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TechPackBOM {
             get {
                 return this.TechPackBOMField;
@@ -73430,7 +77477,13 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private string PantoneColorCodeField;
+        
         private int StyleColorField;
+        
+        private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.LoginService.TblColor TblColorField;
         
@@ -73503,6 +77556,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantoneColorCode {
+            get {
+                return this.PantoneColorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantoneColorCodeField, value) != true)) {
+                    this.PantoneColorCodeField = value;
+                    this.RaisePropertyChanged("PantoneColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int StyleColor {
             get {
                 return this.StyleColorField;
@@ -73511,6 +77577,32 @@ namespace CCWFM.LoginService {
                 if ((this.StyleColorField.Equals(value) != true)) {
                     this.StyleColorField = value;
                     this.RaisePropertyChanged("StyleColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SupplierColorCode {
+            get {
+                return this.SupplierColorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
+                    this.SupplierColorCodeField = value;
+                    this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73667,6 +77759,8 @@ namespace CCWFM.LoginService {
         private int StyleColorField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.BOMEstimated BOMEstimated {
@@ -73862,6 +77956,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -73884,6 +77991,8 @@ namespace CCWFM.LoginService {
         private string SizeFabricRatioField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.LoginService.BOMEstimated BOMEstimated {
@@ -73988,6 +78097,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -74004,6 +78126,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrder> TblSalesOrdersField;
         
@@ -74075,6 +78199,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrder> TblSalesOrders {
             get {
                 return this.TblSalesOrdersField;
@@ -74108,6 +78245,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblApprovalStatu TblApprovalStatuField;
         
         private CCWFM.LoginService.EntityReferenceOfTblApprovalStatuo0bgEGGO TblApprovalStatuReferenceField;
@@ -74129,6 +78268,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74227,6 +78379,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.LoginService.TblApprovalType TblApprovalTypeField;
         
         private CCWFM.LoginService.EntityReferenceOfTblApprovalTypeo0bgEGGO TblApprovalTypeReferenceField;
@@ -74304,6 +78458,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74426,6 +78593,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblApproval> TblApprovalsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -74481,6 +78650,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblApproval> TblApprovals {
             get {
                 return this.TblApprovalsField;
@@ -74510,6 +78692,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private int TblSalesOrderField;
         
@@ -74596,6 +78780,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSalesOrder {
             get {
                 return this.TblSalesOrderField;
@@ -74644,6 +78841,8 @@ namespace CCWFM.LoginService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblSalesOrderField;
         
         private CCWFM.LoginService.TblSalesOrder TblSalesOrder1Field;
@@ -74678,6 +78877,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74774,6 +78986,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderNote> TblSalesOrderNotesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -74829,6 +79043,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderNote> TblSalesOrderNotes {
             get {
                 return this.TblSalesOrderNotesField;
@@ -74837,6 +79064,297 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.TblSalesOrderNotesField, value) != true)) {
                     this.TblSalesOrderNotesField = value;
                     this.RaisePropertyChanged("TblSalesOrderNotes");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractDetailDel", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractDetailDel : CCWFM.LoginService.EntityObject {
+        
+        private decimal AccCostField;
+        
+        private decimal CostField;
+        
+        private int CreatedByField;
+        
+        private System.DateTime CreationDateField;
+        
+        private System.DateTime DeliveryDateField;
+        
+        private decimal FabricCostField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private string MaterialField;
+        
+        private decimal OperationCostField;
+        
+        private int QtyField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblColorField;
+        
+        private CCWFM.LoginService.TblColor TblColor1Field;
+        
+        private CCWFM.LoginService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
+        
+        private int TblContractHeaderField;
+        
+        private System.Nullable<int> TblLkpBrandSectionField;
+        
+        private int TblSalesOrderColorField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal AccCost {
+            get {
+                return this.AccCostField;
+            }
+            set {
+                if ((this.AccCostField.Equals(value) != true)) {
+                    this.AccCostField = value;
+                    this.RaisePropertyChanged("AccCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DeliveryDate {
+            get {
+                return this.DeliveryDateField;
+            }
+            set {
+                if ((this.DeliveryDateField.Equals(value) != true)) {
+                    this.DeliveryDateField = value;
+                    this.RaisePropertyChanged("DeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal FabricCost {
+            get {
+                return this.FabricCostField;
+            }
+            set {
+                if ((this.FabricCostField.Equals(value) != true)) {
+                    this.FabricCostField = value;
+                    this.RaisePropertyChanged("FabricCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Material {
+            get {
+                return this.MaterialField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaterialField, value) != true)) {
+                    this.MaterialField = value;
+                    this.RaisePropertyChanged("Material");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal OperationCost {
+            get {
+                return this.OperationCostField;
+            }
+            set {
+                if ((this.OperationCostField.Equals(value) != true)) {
+                    this.OperationCostField = value;
+                    this.RaisePropertyChanged("OperationCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblColor {
+            get {
+                return this.TblColorField;
+            }
+            set {
+                if ((this.TblColorField.Equals(value) != true)) {
+                    this.TblColorField = value;
+                    this.RaisePropertyChanged("TblColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.TblColor TblColor1 {
+            get {
+                return this.TblColor1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
+                    this.TblColor1Field = value;
+                    this.RaisePropertyChanged("TblColor1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LoginService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
+            get {
+                return this.TblColor1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
+                    this.TblColor1ReferenceField = value;
+                    this.RaisePropertyChanged("TblColor1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblLkpBrandSection {
+            get {
+                return this.TblLkpBrandSectionField;
+            }
+            set {
+                if ((this.TblLkpBrandSectionField.Equals(value) != true)) {
+                    this.TblLkpBrandSectionField = value;
+                    this.RaisePropertyChanged("TblLkpBrandSection");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblSalesOrderColor {
+            get {
+                return this.TblSalesOrderColorField;
+            }
+            set {
+                if ((this.TblSalesOrderColorField.Equals(value) != true)) {
+                    this.TblSalesOrderColorField = value;
+                    this.RaisePropertyChanged("TblSalesOrderColor");
                 }
             }
         }
@@ -74864,6 +79382,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> RemQtyField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -74997,6 +79517,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -75107,6 +79640,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblIssueJournalDetail> TblIssueJournalDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblIssueJournalReceiveHeader> TblIssueJournalReceiveHeadersField;
@@ -75205,6 +79740,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblIssueJournalDetail> TblIssueJournalDetails {
             get {
                 return this.TblIssueJournalDetailsField;
@@ -75260,6 +79808,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<System.DateTime> DateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblIssueJournalHeaderField;
         
@@ -75348,6 +79898,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblIssueJournalHeader {
             get {
                 return this.TblIssueJournalHeaderField;
@@ -75413,6 +79976,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<double> NewQtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblIssueJournalDetailField;
         
         private CCWFM.LoginService.TblIssueJournalDetail TblIssueJournalDetail1Field;
@@ -75475,6 +80040,19 @@ namespace CCWFM.LoginService {
                 if ((this.NewQtyField.Equals(value) != true)) {
                     this.NewQtyField = value;
                     this.RaisePropertyChanged("NewQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -75584,6 +80162,8 @@ namespace CCWFM.LoginService {
         
         private string ServiceCodeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblIssueJournalReceiveDetailField;
         
         private CCWFM.LoginService.TblIssueJournalReceiveDetail TblIssueJournalReceiveDetail1Field;
@@ -75643,6 +80223,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblIssueJournalReceiveDetail {
             get {
                 return this.TblIssueJournalReceiveDetailField;
@@ -75695,7 +80288,11 @@ namespace CCWFM.LoginService {
         
         private string EnameField;
         
+        private string HTMLColorField;
+        
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblColor> TblColorsField;
         
@@ -75752,6 +80349,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HTMLColor {
+            get {
+                return this.HTMLColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HTMLColorField, value) != true)) {
+                    this.HTMLColorField = value;
+                    this.RaisePropertyChanged("HTMLColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -75760,6 +80370,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -75800,6 +80423,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<double> RemField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -75925,6 +80550,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -75978,6 +80616,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardDetailActualCost> RouteCardDetailActualCostsField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -76043,6 +80683,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -76059,6 +80712,8 @@ namespace CCWFM.LoginService {
         private int IserialField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -76124,6 +80779,19 @@ namespace CCWFM.LoginService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -76144,6 +80812,8 @@ namespace CCWFM.LoginService {
         private System.Nullable<short> PreProdctionField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblInventTypeField;
         
@@ -76241,6 +80911,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblInventType {
             get {
                 return this.TblInventTypeField;
@@ -76279,6 +80962,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsersField;
         
@@ -76335,6 +81020,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -76362,6 +81060,8 @@ namespace CCWFM.LoginService {
         private string NotesField;
         
         private string StoreField;
+        
+        private int TBlWFCompanyField;
         
         private int TblAuthUserField;
         
@@ -76440,6 +81140,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.StoreField, value) != true)) {
                     this.StoreField = value;
                     this.RaisePropertyChanged("Store");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76562,6 +81275,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinksField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListTransaction> TblCheckListTransactionsField;
@@ -76619,6 +81334,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -76651,6 +81379,8 @@ namespace CCWFM.LoginService {
     public partial class TblCheckListLink : CCWFM.LoginService.EntityObject {
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCheckListDesignGroupHeader1Field;
         
@@ -76685,6 +81415,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76859,6 +81602,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -76909,6 +81654,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76940,6 +81698,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -76995,6 +81755,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -77020,6 +81793,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinksField;
         
@@ -77080,6 +81855,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -77128,6 +81916,8 @@ namespace CCWFM.LoginService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCheckListGroupField;
         
         private CCWFM.LoginService.TblCheckListGroup TblCheckListGroup1Field;
@@ -77156,6 +81946,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77209,6 +82012,8 @@ namespace CCWFM.LoginService {
         
         private string SendToField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthUserField;
         
         private CCWFM.LoginService.TblAuthUser TblAuthUser1Field;
@@ -77243,6 +82048,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SendToField, value) != true)) {
                     this.SendToField = value;
                     this.RaisePropertyChanged("SendTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77345,6 +82163,8 @@ namespace CCWFM.LoginService {
         
         private string PortField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsers1Field;
@@ -77441,6 +82261,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -77479,6 +82312,8 @@ namespace CCWFM.LoginService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAuthUser> TblAuthUsersField;
         
@@ -77530,6 +82365,19 @@ namespace CCWFM.LoginService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77589,6 +82437,8 @@ namespace CCWFM.LoginService {
         
         private System.Nullable<int> PrintingCodeField;
         
+        private System.Nullable<int> QCPositionField;
+        
         private System.Nullable<int> RegNoField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeadersField;
@@ -77596,6 +82446,8 @@ namespace CCWFM.LoginService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.RouteCardHeader> RouteCardHeaders1Field;
         
         private string SIDField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblAdjustmentHeader> TblAdjustmentHeadersField;
         
@@ -77898,6 +82750,19 @@ namespace CCWFM.LoginService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> QCPosition {
+            get {
+                return this.QCPositionField;
+            }
+            set {
+                if ((this.QCPositionField.Equals(value) != true)) {
+                    this.QCPositionField = value;
+                    this.RaisePropertyChanged("QCPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> RegNo {
             get {
                 return this.RegNoField;
@@ -77945,6 +82810,19 @@ namespace CCWFM.LoginService {
                 if ((object.ReferenceEquals(this.SIDField, value) != true)) {
                     this.SIDField = value;
                     this.RaisePropertyChanged("SID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -78612,20 +83490,24 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -78634,8 +83516,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftblTechPackParto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO))]
@@ -78653,6 +83535,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -78927,6 +83810,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblPOMainDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblPOMainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblUserWFMapping>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblUserWFMapping))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblBankDeposit>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblBankDeposit))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblCashDepositHeader>))]
@@ -79059,8 +83944,6 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetailDel>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderColor>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSeasonalMasterList>))]
@@ -79080,6 +83963,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSubFamilyLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblLkpDirectionLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblLkpDirectionLink))]
@@ -79097,6 +83981,11 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleImage>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleSpecDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tblStyleSpecDetailAttachment>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNAHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAHeader))]
@@ -79107,6 +83996,9 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNARoute>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNADetailAttachment>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblStyleTNAStatusDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblStyleTNAStatusDetail))]
@@ -79129,12 +84021,10 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.FabricContentsComposition>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.FabricContentsComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCategories))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.WF_FabricContentsComposition>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.WF_FabricContentsComposition))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_FabricCodingConfigurations))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.tbl_lkp_FabricStructure>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricStructure))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_Contents))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricFinish))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricMaterials))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.tbl_lkp_FabricTypes))]
@@ -79327,6 +84217,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblSalesOrderNote>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblContractDetailDel>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LoginService.TblIssueJournalDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.TblIssueJournalHeader))]
@@ -84708,20 +89600,24 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -84730,8 +89626,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftblTechPackParto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO))]
@@ -84749,6 +89645,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -84946,20 +89843,24 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -84968,8 +89869,8 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftblTechPackParto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCategorieso0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_Contentso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricDesigneso0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_FabricMaterialso0bgEGGO))]
@@ -84987,6 +89888,7 @@ namespace CCWFM.LoginService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LoginService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -85686,12 +90588,6 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalesOrderColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblSalesOrderColoro0bgEGGO : CCWFM.LoginService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO : CCWFM.LoginService.EntityReference {
     }
@@ -85712,6 +90608,12 @@ namespace CCWFM.LoginService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSubFamilyo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblSubFamilyo0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblGenericFabrico0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblGenericFabrico0bgEGGO : CCWFM.LoginService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85746,6 +90648,18 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleSpecTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleSpecTypeo0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleSpecDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleSpecDetailo0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleStatuo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblStyleStatuo0bgEGGO : CCWFM.LoginService.EntityReference {
     }
@@ -85766,6 +90680,18 @@ namespace CCWFM.LoginService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNAo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblStyleTNAo0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNADetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleTNADetailo0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO : CCWFM.LoginService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85818,14 +90744,14 @@ namespace CCWFM.LoginService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOftbl_lkp_Contentso0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOftbl_lkp_Contentso0bgEGGO : CCWFM.LoginService.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO : CCWFM.LoginService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO : CCWFM.LoginService.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOftbl_lkp_Contentso0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOftbl_lkp_Contentso0bgEGGO : CCWFM.LoginService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85928,6 +90854,12 @@ namespace CCWFM.LoginService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO : CCWFM.LoginService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalesOrderColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblSalesOrderColoro0bgEGGO : CCWFM.LoginService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import schemaLocation="http://localhost:18559/Service/LkpData/LkpData.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="CheckTNA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_TblStyleSalesOrder" type="xs:int" />
+        <xs:element minOccurs="0" name="tblUserJob" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTNAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckTNAResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDefaultStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tblStore" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDefaultStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetUserDefaultStoreResult" nillable="true" type="q1:TblStore" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStoreDailySales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newrow" nillable="true" type="q2:tblCalliopeStoresDailySale" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStoreDailySalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="SaveStoreDailySalesResult" nillable="true" type="q3:tblCalliopeStoresDailySale" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetTblFactoryDelivery">
     <xs:complexType>
       <xs:sequence>
@@ -9,14 +56,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q4:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTblFactoryDeliveryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFactoryDeliveryResult" nillable="true" type="q2:ArrayOfTblFactoryDelivery" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFactoryDeliveryResult" nillable="true" type="q5:ArrayOfTblFactoryDelivery" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -24,7 +71,7 @@
   <xs:element name="UpdateOrInsertTblFactoryDelivery">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q3:TblFactoryDelivery" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q6:TblFactoryDelivery" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -33,7 +80,7 @@
   <xs:element name="UpdateOrInsertTblFactoryDeliveryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblFactoryDeliveryResult" nillable="true" type="q4:TblFactoryDelivery" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblFactoryDeliveryResult" nillable="true" type="q7:TblFactoryDelivery" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -41,7 +88,7 @@
   <xs:element name="DeleteTblFactoryDelivery">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q5:TblFactoryDelivery" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q8:TblFactoryDelivery" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -59,14 +106,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q6:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q9:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="FamilyCategory_GetTblDirectionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblDirectionResult" nillable="true" type="q7:ArrayOfTblLkpDirection" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblDirectionResult" nillable="true" type="q10:ArrayOfTblLkpDirection" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -78,14 +125,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q8:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q11:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="FamilyCategory_GetTblStyleCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblStyleCategoryResult" nillable="true" type="q9:ArrayOfTblStyleCategory" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblStyleCategoryResult" nillable="true" type="q12:ArrayOfTblStyleCategory" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -97,14 +144,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q10:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q13:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="FamilyCategory_GetTblFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblFamilyResult" nillable="true" type="q11:ArrayOfTblFamily" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblFamilyResult" nillable="true" type="q14:ArrayOfTblFamily" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -119,7 +166,7 @@
   <xs:element name="FamilyCategory_GetTblSubFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblSubFamilyResult" nillable="true" type="q12:ArrayOfTblSubFamily" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblSubFamilyResult" nillable="true" type="q15:ArrayOfTblSubFamily" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +181,7 @@
   <xs:element name="FamilyCategory_GetTblDirectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblDirectionLinkResult" nillable="true" type="q13:ArrayOfTblLkpDirectionLink" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblDirectionLinkResult" nillable="true" type="q16:ArrayOfTblLkpDirectionLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -150,7 +197,7 @@
   <xs:element name="FamilyCategory_GetTblCategoryLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblCategoryLinkResult" nillable="true" type="q14:ArrayOfTblStyleCategoryLink" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblCategoryLinkResult" nillable="true" type="q17:ArrayOfTblStyleCategoryLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -166,7 +213,7 @@
   <xs:element name="FamilyCategory_GetTblThemeLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblThemeLinkResult" nillable="true" type="q15:ArrayOfTblSalesOrderColorTheme" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblThemeLinkResult" nillable="true" type="q18:ArrayOfTblSalesOrderColorTheme" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -183,7 +230,7 @@
   <xs:element name="FamilyCategory_GetTblFamilyCategoryLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblFamilyCategoryLinkResult" nillable="true" type="q16:ArrayOfTblFamilyCategoryLink" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblFamilyCategoryLinkResult" nillable="true" type="q19:ArrayOfTblFamilyCategoryLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -201,7 +248,7 @@
   <xs:element name="FamilyCategory_GetTblSubFamilyCategoryLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblSubFamilyCategoryLinkResult" nillable="true" type="q17:ArrayOfTblSubFamilyCategoryLink" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblSubFamilyCategoryLinkResult" nillable="true" type="q20:ArrayOfTblSubFamilyCategoryLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -218,7 +265,7 @@
   <xs:element name="FamilyCategory_GetRepeatedStylesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FamilyCategory_GetRepeatedStylesResult" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FamilyCategory_GetRepeatedStylesResult" nillable="true" type="q21:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -320,7 +367,7 @@
   <xs:element name="FamilyCategory_GetTblStyleTNAResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblStyleTNAResult" nillable="true" type="q19:ArrayOfTblStyleTNA" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTblStyleTNAResult" nillable="true" type="q22:ArrayOfTblStyleTNA" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -334,7 +381,7 @@
   <xs:element name="FamilyCategory_GetTNARouteByStyleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTNARouteByStyleResult" nillable="true" type="q20:ArrayOfTblStyleTNARoute" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="FamilyCategory_GetTNARouteByStyleResult" nillable="true" type="q23:ArrayOfTblStyleTNARoute" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -395,7 +442,7 @@
   <xs:element name="GetStyleSpecDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetStyleSpecDetailsResult" nillable="true" type="q21:ArrayOfTblStyleSpecDetail" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetStyleSpecDetailsResult" nillable="true" type="q24:ArrayOfTblStyleSpecDetail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -407,21 +454,21 @@
   <xs:element name="GetTblStyleSpecTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleSpecTypesResult" nillable="true" type="q22:ArrayOfTblStyleSpecType" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleSpecTypesResult" nillable="true" type="q25:ArrayOfTblStyleSpecType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrInsertStyleSpecDetails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="styleSpecDetails" nillable="true" type="q23:ArrayOfTblStyleSpecDetail" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="styleSpecDetails" nillable="true" type="q26:ArrayOfTblStyleSpecDetail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrInsertStyleSpecDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertStyleSpecDetailsResult" nillable="true" type="q24:ArrayOfTblStyleSpecDetail" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertStyleSpecDetailsResult" nillable="true" type="q27:ArrayOfTblStyleSpecDetail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -449,7 +496,7 @@
   <xs:element name="GetTblStyleSpecDetailAttachmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleSpecDetailAttachmentResult" nillable="true" type="q25:ArrayOftblStyleSpecDetailAttachment" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleSpecDetailAttachmentResult" nillable="true" type="q28:ArrayOftblStyleSpecDetailAttachment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -515,7 +562,7 @@
   <xs:element name="GetTblStyleTNADetailAttachmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleTNADetailAttachmentResult" nillable="true" type="q26:ArrayOfTblStyleTNADetailAttachment" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleTNADetailAttachmentResult" nillable="true" type="q29:ArrayOfTblStyleTNADetailAttachment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -527,7 +574,7 @@
   <xs:element name="GetTBLTechPackStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackStatusResult" nillable="true" type="q27:ArrayOfTBLTechPackStatu" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackStatusResult" nillable="true" type="q30:ArrayOfTBLTechPackStatu" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -539,7 +586,7 @@
   <xs:element name="GetTBLTechPackPartsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackPartsResult" nillable="true" type="q28:ArrayOftblTechPackPart" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackPartsResult" nillable="true" type="q31:ArrayOftblTechPackPart" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -553,30 +600,30 @@
   <xs:element name="GetTBLTechPackDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackDetailsResult" nillable="true" type="q29:ArrayOftblTechPackDetail" />
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="tblTechPackHeader" nillable="true" type="q30:tblTechPackHeader" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackDetailsResult" nillable="true" type="q32:ArrayOftblTechPackDetail" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="tblTechPackHeader" nillable="true" type="q33:tblTechPackHeader" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertOrUpdateTBLTechPackHeader">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q31:tblTechPackHeader" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q34:tblTechPackHeader" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertOrUpdateTBLTechPackHeaderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="InsertOrUpdateTBLTechPackHeaderResult" nillable="true" type="q32:tblTechPackHeader" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="InsertOrUpdateTBLTechPackHeaderResult" nillable="true" type="q35:tblTechPackHeader" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertOrUpdateTBLTechPackDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="_techPackHeader" nillable="true" type="q33:tblTechPackHeader" />
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newTechPackDetailRows" nillable="true" type="q34:ArrayOftblTechPackDetail" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="_techPackHeader" nillable="true" type="q36:tblTechPackHeader" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newTechPackDetailRows" nillable="true" type="q37:ArrayOftblTechPackDetail" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -609,21 +656,21 @@
   <xs:element name="GetTBLTechPackBOMCommentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackBOMCommentResult" nillable="true" type="q35:tblTechPackBOMComment" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLTechPackBOMCommentResult" nillable="true" type="q38:tblTechPackBOMComment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrInsertTechPackBOMComment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="_tblTechPackBOMComment" nillable="true" type="q36:tblTechPackBOMComment" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="_tblTechPackBOMComment" nillable="true" type="q39:tblTechPackBOMComment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrInsertTechPackBOMCommentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTechPackBOMCommentResult" nillable="true" type="q37:tblTechPackBOMComment" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTechPackBOMCommentResult" nillable="true" type="q40:tblTechPackBOMComment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -646,14 +693,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q38:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q41:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCurrentTechPackBOMStylesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetCurrentTechPackBOMStylesResult" nillable="true" type="q39:ArrayOfTblStyle" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetCurrentTechPackBOMStylesResult" nillable="true" type="q42:ArrayOfTblStyle" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -669,7 +716,7 @@
   <xs:element name="GetTblSalesOrderColorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderColorResult" nillable="true" type="q40:ArrayOfTblSalesOrderColor" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSalesOrderColorResult" nillable="true" type="q43:ArrayOfTblSalesOrderColor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -724,7 +771,7 @@
   <xs:element name="GetTblStyleTNARouteStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleTNARouteStatusResult" nillable="true" type="q41:ArrayOfTblStyleTNARouteStatu" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblStyleTNARouteStatusResult" nillable="true" type="q44:ArrayOfTblStyleTNARouteStatu" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -738,7 +785,7 @@
   <xs:element name="GettblFormLayoutDefaultResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GettblFormLayoutDefaultResult" nillable="true" type="q42:ArrayOftblFormLayout" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GettblFormLayoutDefaultResult" nillable="true" type="q45:ArrayOftblFormLayout" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -753,7 +800,7 @@
   <xs:element name="GettblFormLayoutByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GettblFormLayoutByUserResult" nillable="true" type="q43:ArrayOftblFormLayoutUser" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GettblFormLayoutByUserResult" nillable="true" type="q46:ArrayOftblFormLayoutUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -762,7 +809,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="User" type="xs:int" />
         <xs:element minOccurs="0" name="FormCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UserLayouts" nillable="true" type="q44:ArrayOftblFormLayoutUser" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UserLayouts" nillable="true" type="q47:ArrayOftblFormLayoutUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -783,7 +830,7 @@
   <xs:element name="GetTBLsupplierResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLsupplierResult" nillable="true" type="q45:ArrayOfTBLsupplier" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTBLsupplierResult" nillable="true" type="q48:ArrayOfTBLsupplier" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -798,7 +845,7 @@
   <xs:element name="GetTblBrandSectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblBrandSectionLinkResult" nillable="true" type="q46:ArrayOfTblLkpBrandSectionLink" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblBrandSectionLinkResult" nillable="true" type="q49:ArrayOfTblLkpBrandSectionLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -812,14 +859,14 @@
   <xs:element name="GetTblAllBrandSectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblAllBrandSectionLinkResult" nillable="true" type="q47:ArrayOfTblLkpBrandSectionLink" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblAllBrandSectionLinkResult" nillable="true" type="q50:ArrayOfTblLkpBrandSectionLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrDeleteTblLkpBrandSectionLink">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q48:TblLkpBrandSectionLink" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q51:TblLkpBrandSectionLink" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -828,7 +875,7 @@
   <xs:element name="UpdateOrDeleteTblLkpBrandSectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblLkpBrandSectionLinkResult" nillable="true" type="q49:TblLkpBrandSectionLink" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblLkpBrandSectionLinkResult" nillable="true" type="q52:TblLkpBrandSectionLink" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -844,7 +891,7 @@
   <xs:element name="GetTblFamilyLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyLinkResult" nillable="true" type="q50:ArrayOfTblFamilyLink" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyLinkResult" nillable="true" type="q53:ArrayOfTblFamilyLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -859,14 +906,14 @@
   <xs:element name="GetTblFamilyCategoryLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyCategoryLinkResult" nillable="true" type="q51:ArrayOfTblFamilyCategoryLink" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyCategoryLinkResult" nillable="true" type="q54:ArrayOfTblFamilyCategoryLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrDeleteTblFamilyLink">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q52:TblFamilyLink" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q55:TblFamilyLink" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -875,7 +922,7 @@
   <xs:element name="UpdateOrDeleteTblFamilyLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblFamilyLinkResult" nillable="true" type="q53:TblFamilyLink" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblFamilyLinkResult" nillable="true" type="q56:TblFamilyLink" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -892,7 +939,7 @@
   <xs:element name="GetTblSubFamilyLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyLinkResult" nillable="true" type="q54:ArrayOfTblSubFamilyLink" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyLinkResult" nillable="true" type="q57:ArrayOfTblSubFamilyLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -908,14 +955,14 @@
   <xs:element name="GetTblSubFamilyCategoryLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyCategoryLinkResult" nillable="true" type="q55:ArrayOfTblSubFamilyCategoryLink" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyCategoryLinkResult" nillable="true" type="q58:ArrayOfTblSubFamilyCategoryLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrDeleteTblSubFamilyLink">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q56:TblSubFamilyLink" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q59:TblSubFamilyLink" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -924,7 +971,7 @@
   <xs:element name="UpdateOrDeleteTblSubFamilyLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblSubFamilyLinkResult" nillable="true" type="q57:TblSubFamilyLink" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblSubFamilyLinkResult" nillable="true" type="q60:TblSubFamilyLink" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -932,7 +979,7 @@
   <xs:element name="UpdateOrDeleteTblDirectionLink">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q58:TblLkpDirectionLink" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q61:TblLkpDirectionLink" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -940,7 +987,7 @@
   <xs:element name="UpdateOrDeleteTblDirectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblDirectionLinkResult" nillable="true" type="q59:TblLkpDirectionLink" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrDeleteTblDirectionLinkResult" nillable="true" type="q62:TblLkpDirectionLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -955,7 +1002,7 @@
   <xs:element name="GetTblDirectionLinkResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblDirectionLinkResult" nillable="true" type="q60:ArrayOfTblLkpDirectionLink" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblDirectionLinkResult" nillable="true" type="q63:ArrayOfTblLkpDirectionLink" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -980,14 +1027,14 @@
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q61:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q64:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTblFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyResult" nillable="true" type="q62:ArrayOfTblFamily" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblFamilyResult" nillable="true" type="q65:ArrayOfTblFamily" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -995,7 +1042,7 @@
   <xs:element name="UpdateOrInsertTblFamily">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q63:TblFamily" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q66:TblFamily" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -1004,7 +1051,7 @@
   <xs:element name="UpdateOrInsertTblFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblFamilyResult" nillable="true" type="q64:TblFamily" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblFamilyResult" nillable="true" type="q67:TblFamily" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1012,7 +1059,7 @@
   <xs:element name="DeleteTblFamily">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q65:TblFamily" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q68:TblFamily" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1031,14 +1078,14 @@
         <xs:element minOccurs="0" name="groupId" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
-        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q66:ArrayOfKeyValueOfstringanyType" />
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="valuesObjects" nillable="true" type="q69:ArrayOfKeyValueOfstringanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTblSubFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyResult" nillable="true" type="q67:ArrayOfTblSubFamily" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="GetTblSubFamilyResult" nillable="true" type="q70:ArrayOfTblSubFamily" />
         <xs:element minOccurs="0" name="fullCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1046,7 +1093,7 @@
   <xs:element name="UpdateOrInsertTblSubFamily">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q68:TblSubFamily" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newRow" nillable="true" type="q71:TblSubFamily" />
         <xs:element minOccurs="0" name="save" type="xs:boolean" />
         <xs:element minOccurs="0" name="index" type="xs:int" />
       </xs:sequence>
@@ -1055,7 +1102,7 @@
   <xs:element name="UpdateOrInsertTblSubFamilyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSubFamilyResult" nillable="true" type="q69:TblSubFamily" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblSubFamilyResult" nillable="true" type="q72:TblSubFamily" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1063,7 +1110,7 @@
   <xs:element name="DeleteTblSubFamily">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q70:TblSubFamily" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="row" nillable="true" type="q73:TblSubFamily" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1085,21 +1132,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CheckManualCodeingResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckTNA">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="_TblStyleSalesOrder" type="xs:int" />
-        <xs:element minOccurs="0" name="tblUserJob" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckTNAResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckTNAResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

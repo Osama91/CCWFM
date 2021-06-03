@@ -11,229 +11,229 @@
 			 d:DesignHeight="600"
 			 d:DesignWidth="800"
 			 mc:Ignorable="d">
-	<UserControl.Resources>
+    <UserControl.Resources>
 
-		<Style
+        <Style
 				x:Key="ColorByPreferenceColumn"
 				TargetType="toolkit:ColumnDataPoint">
-			<Setter Property="Background" Value="DarkGray" />
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate
+            <Setter Property="Background" Value="DarkGray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate
 							TargetType="toolkit:ColumnDataPoint">
-						<Border
+                        <Border
 								BorderBrush="{TemplateBinding BorderBrush}"
 								BorderThickness="{TemplateBinding BorderThickness}">
-							<Grid Background="{Binding FavoriteColor}">
-								<Rectangle>
-									<Rectangle.Fill>
-										<LinearGradientBrush>
-											<GradientStop Color="#77ffffff" Offset="0" />
-											<GradientStop Color="#00ffffff" Offset="1" />
-										</LinearGradientBrush>
-									</Rectangle.Fill>
-								</Rectangle>
-								<Border BorderBrush="#ccffffff" BorderThickness="1">
-									<Border BorderBrush="#77ffffff" BorderThickness="1" />
-								</Border>
-							</Grid>
-						</Border>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
+                            <Grid Background="{Binding FavoriteColor}">
+                                <Rectangle>
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#77ffffff" Offset="0" />
+                                            <GradientStop Color="#00ffffff" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Border BorderBrush="#ccffffff" BorderThickness="1">
+                                    <Border BorderBrush="#77ffffff" BorderThickness="1" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-		<Style x:Key="Title" TargetType="TextBlock">
-			<Setter Property="FontWeight" Value="ExtraBlack" />
-			<Setter Property="HorizontalAlignment" Value="Center" />
-			<Setter Property="FontSize" Value="16" />
-		</Style>
-		<Style x:Key="detailsSmallTitle" TargetType="TextBlock">
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="ExtraBlack" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style x:Key="detailsSmallTitle" TargetType="TextBlock">
 
-			<Setter Property="HorizontalAlignment" Value="Right" />
-			<Setter Property="FontSize" Value="14" />
-		</Style>
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
 
-		<Style x:Key="detailsSmallText" TargetType="TextBlock">
-			<Setter Property="FontSize" Value="12" />
-		</Style>
+        <Style x:Key="detailsSmallText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+        </Style>
 
-		<Style x:Key="darkBorder" TargetType="Border">
-			<Setter Property="BorderBrush" Value="Gray" />
-			<Setter Property="BorderThickness" Value="1" />
-			<Setter Property="Padding" Value="10" />
-			<Setter Property="Margin" Value="0,10,0,10" />
-		</Style>
+        <Style x:Key="darkBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0,10,0,10" />
+        </Style>
 
-		<DataTemplate x:Key="cityDetails">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<TextBlock Grid.Row="0"
+        <DataTemplate x:Key="cityDetails">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
 						   Style="{StaticResource Title}"
 						   Grid.Column="0"
 						   Grid.ColumnSpan="4"
 						   Text="Per Brand" />
 
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="0"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="Brand: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="1"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding Brand}" />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="2"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="SalesValue: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="3"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding SalesValue}" />
-			</Grid>
-		</DataTemplate>
+            </Grid>
+        </DataTemplate>
 
-		<DataTemplate x:Key="BrandComparison">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<TextBlock Grid.Row="0"
+        <DataTemplate x:Key="BrandComparison">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
 						   Style="{StaticResource Title}"
 						   Grid.Column="0"
 						   Grid.ColumnSpan="4"
 						   Text="Ratio Per Brand" />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="0"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="Brand: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="1"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding Brand}" />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="2"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="Sold Ratio: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="3"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding SalesRatio}" />
-			</Grid>
-		</DataTemplate>
+            </Grid>
+        </DataTemplate>
 
-		<DataTemplate x:Key="BrandPercentage">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="90" />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<TextBlock Grid.Row="0"
+        <DataTemplate x:Key="BrandPercentage">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
 						   Style="{StaticResource Title}"
 						   Grid.Column="0"
 						   Grid.ColumnSpan="4"
 						   Text="Percentage Per Brand" />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="0"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="Brand: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="1"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding Brand}" />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="2"
 						   Style="{StaticResource detailsSmallTitle}"
 						   Text="Sold Percentage: " />
-				<TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
 						   Grid.Column="3"
 						   Style="{StaticResource detailsSmallText}"
 						   Text="{Binding SalesPercentage}" />
-			</Grid>
-		</DataTemplate>
+            </Grid>
+        </DataTemplate>
 
-		<Style x:Key="pieChartLabelStyle" TargetType="customControls:PieChartLabel">
-			<!--
+        <Style x:Key="pieChartLabelStyle" TargetType="customControls:PieChartLabel">
+            <!--
 				<Setter Property="LineStrokeThickness" Value="2" />
 				<Setter Property="LineStroke" Value="Black" />
 			-->
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="customControls:PieChartLabel">
-						<Canvas Name="Panel_PART">
-							<Polyline Name="Polyline_PART"
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="customControls:PieChartLabel">
+                        <Canvas Name="Panel_PART">
+                            <Polyline Name="Polyline_PART"
 									  Stroke="{TemplateBinding LineStroke}"
 									  StrokeLineJoin="Round"
 									  StrokeThickness="{TemplateBinding LineStrokeThickness}" />
-							<StackPanel Name="Content_PART" Background="White">
-								<Border BorderBrush="Gray" BorderThickness="1">
-									<StackPanel Background="White" Orientation="Horizontal">
-										<TextBlock Margin="5,0,5,0"
+                            <StackPanel Name="Content_PART" Background="White">
+                                <Border BorderBrush="Gray" BorderThickness="1">
+                                    <StackPanel Background="White" Orientation="Horizontal">
+                                        <TextBlock Margin="5,0,5,0"
 												   VerticalAlignment="Center"
 												   Text="{TemplateBinding FormattedRatio}" />
-										<TextBlock Text="- " />
-										<TextBlock Margin="0,0,5,0" Text="{Binding Brand}" />
-									</StackPanel>
-								</Border>
-							</StackPanel>
-						</Canvas>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</UserControl.Resources>
+                                        <TextBlock Text="- " />
+                                        <TextBlock Margin="0,0,5,0" Text="{Binding Brand}" />
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="60" />
-			<RowDefinition Height="60" />
-			<RowDefinition Height="10*" />
-		</Grid.RowDefinitions>
-		<Border x:Name="BrandingBorder" Style="{StaticResource NavBrandingBorderStyle}">
-			<StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
-				<Grid x:Name="HeaderGrid">
-					<Grid.Style>
-						<Style TargetType="Grid">
-							<Setter Property="Height" Value="45" />
-							<Setter Property="MinWidth" Value="750" />
-							<Setter Property="Margin" Value="0,0,0,0" />
-							<Setter Property="VerticalAlignment" Value="Top" />
-							<Setter Property="HorizontalAlignment" Value="Stretch" />
-						</Style>
-					</Grid.Style>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="350" />
-						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="200" />
-					</Grid.ColumnDefinitions>
-					<StackPanel x:Name="PanelButtons"
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Border x:Name="BrandingBorder" Style="{StaticResource NavBrandingBorderStyle}">
+            <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
+                <Grid x:Name="HeaderGrid">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Height" Value="45" />
+                            <Setter Property="MinWidth" Value="750" />
+                            <Setter Property="Margin" Value="0,0,0,0" />
+                            <Setter Property="VerticalAlignment" Value="Top" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        </Style>
+                    </Grid.Style>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="PanelButtons"
 								Grid.Column="0"
 								HorizontalAlignment="Left"
 								Orientation="Horizontal"
 								Visibility="Visible">
-						<Button x:Name="GlobalRetailBusinessBudget"
+                        <Button x:Name="GlobalRetailBusinessBudget"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -243,12 +243,12 @@
 											  Source={StaticResource LocalizedStrings}}"
 								ToolTipService.ToolTip="Brand Monthly Budget">
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/GlobalRetailBusinessBudget.png"
 								   Stretch="Fill" />
-						</Button>
-						<Button x:Name="BrandBudget"
+                        </Button>
+                        <Button x:Name="BrandBudget"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -258,12 +258,12 @@
 											  Source={StaticResource LocalizedStrings}}"
 								ToolTipService.ToolTip="Brand Family Budget">
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/BrandBudget.png"
 								   Stretch="Fill" />
-						</Button>
-						<Button x:Name="StyleCodingForm"
+                        </Button>
+                        <Button x:Name="StyleCodingForm"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -272,12 +272,12 @@
 								Tag="{Binding StyleCode,
 											  Source={StaticResource LocalizedStrings}}"
 								ToolTipService.ToolTip="Style">
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/Style.png"
 								   Stretch="Fill" />
-						</Button>
-						<Button x:Name="RetailPoForm"
+                        </Button>
+                        <Button x:Name="RetailPoForm"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -287,12 +287,12 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/rfq.png"
 								   Stretch="Fill" />
-						</Button>
-						<Button x:Name="EmployeeShiftForm"
+                        </Button>
+                        <Button x:Name="EmployeeShiftForm"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -302,13 +302,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/Calendar.png"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="LedgerHeader"
+                        <Button x:Name="LedgerHeader"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -318,13 +318,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/LedgerHeader.Jpg"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="RecInv"
+                        <Button x:Name="RecInv"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -334,13 +334,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/RecInv.jpg"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="GlPosting"
+                        <Button x:Name="GlPosting"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -350,13 +350,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/GlPosting.jpg"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="Account" Margin="45,0,0,0"
+                        <Button x:Name="Account" Margin="45,0,0,0"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -366,13 +366,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/ChartOFAccounts.jpg"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="Asset"
+                        <Button x:Name="Asset"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -382,13 +382,13 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/Asset.jpg"
 								   Stretch="Fill" />
-						</Button>
+                        </Button>
 
-						<Button x:Name="Bank"
+                        <Button x:Name="Bank"
 								Visibility="Collapsed"
 								HorizontalAlignment="Stretch"
 								VerticalAlignment="Stretch"
@@ -398,15 +398,15 @@
 											  Source={StaticResource LocalizedStrings}}"
 >
 
-							<Image HorizontalAlignment="Left"
+                            <Image HorizontalAlignment="Left"
 								   VerticalAlignment="Stretch"
 								   Source="/CCWFM;component/Images/Bank.jpg"
 								   Stretch="Fill" />
-						</Button>
-					</StackPanel>
+                        </Button>
+                    </StackPanel>
 
-					<ContentControl Grid.Column="1" Style="{StaticResource LogoIcon}" />
-					<TextBlock x:Name="ApplicationNameTextBlock"
+                    <ContentControl Grid.Column="1" Style="{StaticResource LogoIcon}" />
+                    <TextBlock x:Name="ApplicationNameTextBlock"
 							   Grid.Column="1"
 							   FontFamily="Segoe UI"
 							   FontSize="26"
@@ -416,7 +416,7 @@
 							   Style="{StaticResource ApplicationNameStyle}"
 							   Text="P.D.M"
 							   TextAlignment="Center" />
-					<HyperlinkButton x:Name="LoggedUserTextBlock"
+                    <HyperlinkButton x:Name="LoggedUserTextBlock"
 									 Grid.Column="2"
 									 Width="150"
 									 Margin="20,15,70,0"
@@ -426,7 +426,7 @@
 									 Foreground="#FF119EDA"
 									 Padding="5,5,10,0" />
 
-					<HyperlinkButton x:Name="LogoutHyperButton"
+                    <HyperlinkButton x:Name="LogoutHyperButton"
 									 Grid.Column="2"
 									 Width="48"
 									 Margin="147,15,0,0"
@@ -436,27 +436,27 @@
 									 Content="Logout"
 									 Padding="2,0,10,0"
 									 Visibility="Visible" />
-				</Grid>
-			</StackPanel>
-		</Border>
+                </Grid>
+            </StackPanel>
+        </Border>
 
-		<controls:FloatingWindowHost x:Name="Host"
+        <controls:FloatingWindowHost x:Name="Host"
 									 Grid.Row="2"
 									 MinWidth="100"
 									 Visibility="Collapsed">
-			<controls:FloatingWindowHost.Bar>
-				<TextBlock VerticalAlignment="Center" Text="This Bar is acting as a container for any controls" />
-			</controls:FloatingWindowHost.Bar>
-			<controls:FloatingWindowHost.Background>
-				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-					<GradientStop Offset="0" Color="#FF00AEEF" />
-					<GradientStop Offset="1" Color="#FF89E0FF" />
-				</LinearGradientBrush>
-			</controls:FloatingWindowHost.Background>
-		</controls:FloatingWindowHost>
-		<!--  <Border x:Name="LinksBorder" Style="{StaticResource NavLinksBorderStyle}"  MaxHeight="500" Grid.Row="1">  -->
-		<Canvas Grid.Row="1" ZIndex="100" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-			<library:Menu x:Name="AppMenu"
+            <controls:FloatingWindowHost.Bar>
+                <TextBlock VerticalAlignment="Center" Text="This Bar is acting as a container for any controls" />
+            </controls:FloatingWindowHost.Bar>
+            <controls:FloatingWindowHost.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FF00AEEF" />
+                    <GradientStop Offset="1" Color="#FF89E0FF" />
+                </LinearGradientBrush>
+            </controls:FloatingWindowHost.Background>
+        </controls:FloatingWindowHost>
+        <!--  <Border x:Name="LinksBorder" Style="{StaticResource NavLinksBorderStyle}"  MaxHeight="500" Grid.Row="1">  -->
+        <Canvas Grid.Row="1" ZIndex="100" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <library:Menu x:Name="AppMenu"
 
 					  HorizontalAlignment="Stretch"
 					  VerticalAlignment="Stretch"
@@ -470,52 +470,52 @@
 					  ImageBackgroundBrush="#FFC0C0C0"
 					  MenuItem="{Binding MVVMMenuItem}"
 					  TopPanelBrush="White" />
-		</Canvas>
-		<StackPanel Grid.Row="2"
+        </Canvas>
+        <StackPanel Grid.Row="2"
 					HorizontalAlignment="Center"
 					Orientation="Vertical">
 
-			<Border Width="1200" x:Name="TodaySales" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+            <Border Width="1200" x:Name="TodaySales" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
 
-				<TextBlock Style="{StaticResource Title}" Text="Today Sales" />
-			</Border>
-			<Border Width="1200" x:Name="GlDashBoard" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+                <TextBlock Style="{StaticResource Title}" Text="Today Sales" />
+            </Border>
+            <Border Width="1200" x:Name="GlDashBoard" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
 
-				<TextBlock Style="{StaticResource Title}" Text="GlDashBoard" />
-			</Border>
+                <TextBlock Style="{StaticResource Title}" Text="GlDashBoard" />
+            </Border>
 
-			<StackPanel      Orientation="Horizontal">
+            <StackPanel      Orientation="Horizontal">
 
-				<Border Width="400" x:Name="BrandSalesBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
-					<ContentControl x:Name="BrandSalesControl"  Visibility="Collapsed"
+                <Border Width="400" x:Name="BrandSalesBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+                    <ContentControl x:Name="BrandSalesControl"  Visibility="Collapsed"
 								HorizontalAlignment="Center"
 								ContentTemplate="{StaticResource cityDetails}" />
-				</Border>
+                </Border>
 
-				<Border Width="400" x:Name="BrandRatioBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
-					<ContentControl x:Name="BrandRatioControl"
+                <Border Width="400" x:Name="BrandRatioBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+                    <ContentControl x:Name="BrandRatioControl"
 								HorizontalAlignment="Center" Visibility="Collapsed"
 								ContentTemplate="{StaticResource BrandComparison}" />
-				</Border>
+                </Border>
 
-				<Border Width="400" x:Name="BrandPercentageBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
-					<ContentControl x:Name="BrandPercentageControl"  Visibility="Collapsed"
+                <Border Width="400" x:Name="BrandPercentageBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+                    <ContentControl x:Name="BrandPercentageControl"  Visibility="Collapsed"
 								HorizontalAlignment="Center"
 								ContentTemplate="{StaticResource      BrandPercentage}" />
-				</Border>
+                </Border>
 
-				<Border Width="400" x:Name="BrandMarginBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
-					<ContentControl x:Name="BrandMarginControl"  Visibility="Collapsed"
+                <Border Width="400" x:Name="BrandMarginBorder" Visibility="Collapsed" HorizontalAlignment="Left" Style="{StaticResource darkBorder}">
+                    <ContentControl x:Name="BrandMarginControl"  Visibility="Collapsed"
 								HorizontalAlignment="Center"
 								ContentTemplate="{StaticResource      BrandPercentage}" />
-				</Border>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<customControls:LabeledPieChart Height="400" Width="400" x:Name="Brandsales" Visibility="Collapsed" HorizontalAlignment="Left"
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <customControls:LabeledPieChart Height="400" Width="400" x:Name="Brandsales" Visibility="Collapsed" HorizontalAlignment="Left"
 														VerticalAlignment="Stretch"
 											BorderBrush="Gray">
-					<customControls:LabeledPieChart.Series>
-						<customControls:LabeledPieSeries x:Name="labeledPieSeries"
+                    <customControls:LabeledPieChart.Series>
+                        <customControls:LabeledPieSeries x:Name="labeledPieSeries"
 													 VerticalAlignment="Stretch"
 													 DependentValuePath="SalesValue"
 													 IndependentValuePath="Brand"
@@ -530,54 +530,54 @@
 													 LabelDisplayMode="Auto"
 													 PieChartLabelStyle="{StaticResource pieChartLabelStyle}"
 													 SelectionChanged="LabeledPieSeries_SelectionChanged" />
-					</customControls:LabeledPieChart.Series>
-				</customControls:LabeledPieChart>
+                    </customControls:LabeledPieChart.Series>
+                </customControls:LabeledPieChart>
 
-				<toolkit:Chart x:Name="BrandRatio"
+                <toolkit:Chart x:Name="BrandRatio"
 				   Width="400" Height="400"    Visibility="Collapsed"
 				   Background="LightSteelBlue">
-					<toolkit:Chart.Series>
-						<toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}"  Title="Brand Sales Ratio"  Name="BrandComparision"
+                    <toolkit:Chart.Series>
+                        <toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}"  Title="Brand Sales Ratio"  Name="BrandComparision"
 						 DependentValuePath="SalesRatio" SelectionChanged="BrandComparision_OnSelectionChanged"
 														 IsSelectionEnabled="True"
 													 DependentValueBinding="{Binding SalesRatio,Mode=TwoWay}"
 													 IndependentValueBinding="{Binding Brand,Mode=TwoWay}">
-						</toolkit:ColumnSeries>
-					</toolkit:Chart.Series>
-				</toolkit:Chart>
+                        </toolkit:ColumnSeries>
+                    </toolkit:Chart.Series>
+                </toolkit:Chart>
 
-				<toolkit:Chart x:Name="BrandPercentage"
+                <toolkit:Chart x:Name="BrandPercentage"
 				   Width="400" Height="400"     Visibility="Collapsed"
 				   Background="LightSteelBlue">
-					<toolkit:Chart.Series>
-						<toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="Brand Sales Percentage"  Name="aa"
+                    <toolkit:Chart.Series>
+                        <toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="Brand Sales Percentage"  Name="aa"
 						  SelectionChanged="Aa_OnSelectionChanged"  IndependentValuePath="Brand" 	 DependentValuePath="SalesPercentage"
 														 IsSelectionEnabled="True"
 													 DependentValueBinding="{Binding SalesPercentage,Mode=TwoWay}"
 													 IndependentValueBinding="{Binding Brand,Mode=TwoWay}">
-						</toolkit:ColumnSeries>
-					</toolkit:Chart.Series>
-				</toolkit:Chart>
+                        </toolkit:ColumnSeries>
+                    </toolkit:Chart.Series>
+                </toolkit:Chart>
 
-				<toolkit:Chart x:Name="GrossMarginChart"
+                <toolkit:Chart x:Name="GrossMarginChart"
 				   Width="400" Height="400"     Visibility="Collapsed"
 				   Background="LightSteelBlue">
-					<toolkit:Chart.Series>
-						<toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="GrossMargin"  Name="GrossMargin"
+                    <toolkit:Chart.Series>
+                        <toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="GrossMargin"  Name="GrossMargin"
 						  SelectionChanged="GrossMargin_OnSelectionChanged"  IndependentValuePath="Brand" 	 DependentValuePath="SalesValue"
 														 IsSelectionEnabled="True"
 													 DependentValueBinding="{Binding SalesValue,Mode=TwoWay}"   
 													 IndependentValueBinding="{Binding Brand,Mode=TwoWay}">
-						</toolkit:ColumnSeries>
-						<toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="GrossMargin"  Name="GrossMarginPercentage"
+                        </toolkit:ColumnSeries>
+                        <toolkit:ColumnSeries  DataPointStyle="{StaticResource ColorByPreferenceColumn}" Title="GrossMargin"  Name="GrossMarginPercentage"
 						  SelectionChanged="GrossMargin_OnSelectionChanged"  IndependentValuePath="Brand" 	 DependentValuePath="SalesPercentage"
 														 IsSelectionEnabled="True"      
 													 DependentValueBinding="{Binding SalesPercentage,Mode=TwoWay}"
 													 IndependentValueBinding="{Binding Brand,Mode=TwoWay}">
-						</toolkit:ColumnSeries>
-					</toolkit:Chart.Series>
-				</toolkit:Chart>
-			</StackPanel>
-		</StackPanel>
-	</Grid>
+                        </toolkit:ColumnSeries>
+                    </toolkit:Chart.Series>
+                </toolkit:Chart>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </UserControl>

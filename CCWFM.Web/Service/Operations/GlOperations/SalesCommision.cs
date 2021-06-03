@@ -29,7 +29,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             List<GetSalesDailyCommission_Result> query;
             using (var context = new ccnewEntities(SharedOperation.GetSqlConnectionString(company)))
             {
-                context.CommandTimeout = 600;
+                context.CommandTimeout = 0;
                 salesCommissionEntity = context.Entities.FirstOrDefault(e => e.scope == 0 &&
                                                     e.Code == commissionAccount.sSetupValue &&
                                                     e.TblJournalAccountType == 15);
@@ -41,14 +41,14 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     query = context.GetSalesDailyCommission(store, from, to).ToList();
 
                 }
-                catch  (Exception ex )
+                catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
                 }
                 //query = context.tblsalesdailycommisions.Where(r =>
                 //   r.DocDate >= from && r.DocDate <= to);
 
-                var dquery = context.GetSalesDailyCommission(store, from, to).ToList().FirstOrDefault(x => x.tblstore == 173);
+                // var dquery = context.GetSalesDailyCommission(store, from, to).ToList().FirstOrDefault(x => x.tblstore == 173);
 
 
             }
@@ -61,6 +61,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             {
                 using (var context = new ccnewEntities(SharedOperation.GetSqlConnectionString(company)))
                 {
+                    context.CommandTimeout = 0;
                     // Old Ledgers to be deleted
                     oldLedgers =
                            context.TblLedgerHeaders.Where(
@@ -73,14 +74,15 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     context.SaveChanges();
                 }
                 foreach (var item in query.GroupBy(r => new { r.docdate }))
-               // Parallel.ForEach(query.GroupBy(r => new { r.docdate }), item =>
+                // Parallel.ForEach(query.GroupBy(r => new { r.docdate }), item =>
                 {
                     using (var context = new ccnewEntities(SharedOperation.GetSqlConnectionString(company)))
                     {
+                        context.CommandTimeout = 0;
                         var description = string.Format("اثبات عمولات بيعية" + " {0}", item.Key.docdate.Value.ToString("dd/MM/yyyy"));
                         int sequence = 25;
                         var seq = context.TblSequences.FirstOrDefault(s => s.Iserial == sequence);
-                        
+
                         var newLedgerHeaderRow = new TblLedgerHeader
                         {
                             CreatedBy = userIserial,
@@ -101,9 +103,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             var storeRec = context.TblStores
                                 .Include(nameof(TblStore.TblStoreCommission))
                                 .FirstOrDefault(s => s.iserial == innerItem.tblstore);
-                            
+
                             decimal taxPercent =
-                                storeRec.TblStoreCommission.ManagerComm * (innerItem.MaxCommision ?? 0)  / 100 * storeRec.TblStoreCommission.ManagerTax +
+                                storeRec.TblStoreCommission.ManagerComm * (innerItem.MaxCommision ?? 0) / 100 * storeRec.TblStoreCommission.ManagerTax +
                                 storeRec.TblStoreCommission.AssistantComm * (innerItem.MaxCommision ?? 0) / 100 * storeRec.TblStoreCommission.AssistantTax +
                                 storeRec.TblStoreCommission.SalesManComm * (innerItem.MaxCommision ?? 0) / 100 * storeRec.TblStoreCommission.SalesManTax;
                             decimal commissionPercentTotal =
@@ -119,7 +121,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             //    storeRec.TblStoreCommission.AssistantComm  / 100 +
                             //    storeRec.TblStoreCommission.SalesManComm  / 100;
                             decimal commissionTotal = (innerItem.NetSalesAfterVAT ?? 0) * commissionPercentTotal;
-                            if (commissionTotal==0)
+                            if (commissionTotal == 0)
                             {
                                 continue;
                             }
@@ -146,6 +148,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             // Store Entity
                             var storeEntity = context.Entities.FirstOrDefault(e => e.scope == 0 &&
                                                e.Code == storeRec.code && e.TblJournalAccountType == 14);
+                            if (storeEntity == null)
+                            {
+                                throw new Exception("store with code " + storeRec.code + " is not linked to Payable ");
+                            }
+
                             var storeLedgerDetail = new TblLedgerMainDetail
                             {
                                 Amount = commissionTotal - itemTax,
