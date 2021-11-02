@@ -14,6 +14,12 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service.Dto_s" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeaderItems_InputMessage">
+    <wsdl:part name="parameters" element="UpdateRFQSubHeaderItems" />
+  </wsdl:message>
+  <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeaderItems_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateRFQSubHeaderItemsResponse" />
+  </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeaderServices_InputMessage">
     <wsdl:part name="parameters" element="UpdateRFQSubHeaderServices" />
   </wsdl:message>
@@ -385,6 +391,12 @@
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_GetVendorGroups_OutputMessage">
     <wsdl:part name="parameters" element="GetVendorGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CRUD_ManagerService_GetItemsPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissions" />
+  </wsdl:message>
+  <wsdl:message name="CRUD_ManagerService_GetItemsPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetItemsPermissionsResponse" />
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_GetItemsPermissionsByParent_InputMessage">
     <wsdl:part name="parameters" element="GetItemsPermissionsByParent" />
@@ -848,11 +860,11 @@
   <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeader_OutputMessage">
     <wsdl:part name="parameters" element="UpdateRFQSubHeaderResponse" />
   </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeaderItems_InputMessage">
-    <wsdl:part name="parameters" element="UpdateRFQSubHeaderItems" />
+  <wsdl:message name="CRUD_ManagerService_GetTblSizeCode_InputMessage">
+    <wsdl:part name="parameters" element="GetTblSizeCode" />
   </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_UpdateRFQSubHeaderItems_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateRFQSubHeaderItemsResponse" />
+  <wsdl:message name="CRUD_ManagerService_GetTblSizeCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblSizeCodeResponse" />
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_UpdateOrInsertTblSizeCode_InputMessage">
     <wsdl:part name="parameters" element="UpdateOrInsertTblSizeCode" />
@@ -1310,11 +1322,11 @@
   <wsdl:message name="CRUD_ManagerService_Authenticate_OutputMessage">
     <wsdl:part name="parameters" element="AuthenticateResponse" />
   </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetItemsPermissions_InputMessage">
-    <wsdl:part name="parameters" element="GetItemsPermissions" />
+  <wsdl:message name="CRUD_ManagerService_GetTblCheckListMail_InputMessage">
+    <wsdl:part name="parameters" element="GetTblCheckListMail" />
   </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetItemsPermissions_OutputMessage">
-    <wsdl:part name="parameters" element="GetItemsPermissionsResponse" />
+  <wsdl:message name="CRUD_ManagerService_GetTblCheckListMail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTblCheckListMailResponse" />
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_UpdateOrInsertTblCheckListMail_InputMessage">
     <wsdl:part name="parameters" element="UpdateOrInsertTblCheckListMail" />
@@ -1808,12 +1820,6 @@
   <wsdl:message name="CRUD_ManagerService_DeleteTblSizeGroup_OutputMessage">
     <wsdl:part name="parameters" element="DeleteTblSizeGroupResponse" />
   </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetTblSizeCode_InputMessage">
-    <wsdl:part name="parameters" element="GetTblSizeCode" />
-  </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetTblSizeCode_OutputMessage">
-    <wsdl:part name="parameters" element="GetTblSizeCodeResponse" />
-  </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_GetDyeingClassificaiton_InputMessage">
     <wsdl:part name="parameters" element="GetDyeingClassificaiton" />
   </wsdl:message>
@@ -2060,6 +2066,12 @@
   <wsdl:message name="CRUD_ManagerService_GetStoresForAllCompany_OutputMessage">
     <wsdl:part name="parameters" element="GetStoresForAllCompanyResponse" />
   </wsdl:message>
+  <wsdl:message name="CRUD_ManagerService_GetBanks_InputMessage">
+    <wsdl:part name="parameters" element="GetBanks" />
+  </wsdl:message>
+  <wsdl:message name="CRUD_ManagerService_GetBanks_OutputMessage">
+    <wsdl:part name="parameters" element="GetBanksResponse" />
+  </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_GetPrmotionRange_InputMessage">
     <wsdl:part name="parameters" element="GetPrmotionRange" />
   </wsdl:message>
@@ -2257,12 +2269,6 @@
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_DeleteTblEmployeeBehalf_OutputMessage">
     <wsdl:part name="parameters" element="DeleteTblEmployeeBehalfResponse" />
-  </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetTblCheckListMail_InputMessage">
-    <wsdl:part name="parameters" element="GetTblCheckListMail" />
-  </wsdl:message>
-  <wsdl:message name="CRUD_ManagerService_GetTblCheckListMail_OutputMessage">
-    <wsdl:part name="parameters" element="GetTblCheckListMailResponse" />
   </wsdl:message>
   <wsdl:message name="CRUD_ManagerService_UpdateOrInsertTblGeneratePurchaseHeaderCurrency_InputMessage">
     <wsdl:part name="parameters" element="UpdateOrInsertTblGeneratePurchaseHeaderCurrency" />
@@ -3549,6 +3555,10 @@
     <wsdl:part name="parameters" element="GetPurchaseOrderJournalsResponse" />
   </wsdl:message>
   <wsdl:portType name="CRUD_ManagerService">
+    <wsdl:operation name="UpdateRFQSubHeaderItems">
+      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderItems" message="CRUD_ManagerService_UpdateRFQSubHeaderItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderItemsResponse" message="CRUD_ManagerService_UpdateRFQSubHeaderItems_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateRFQSubHeaderServices">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderServices" message="CRUD_ManagerService_UpdateRFQSubHeaderServices_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderServicesResponse" message="CRUD_ManagerService_UpdateRFQSubHeaderServices_OutputMessage" />
@@ -3796,6 +3806,10 @@
     <wsdl:operation name="GetVendorGroups">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetVendorGroups" message="CRUD_ManagerService_GetVendorGroups_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetVendorGroupsResponse" message="CRUD_ManagerService_GetVendorGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPermissions">
+      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetItemsPermissions" message="CRUD_ManagerService_GetItemsPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetItemsPermissionsResponse" message="CRUD_ManagerService_GetItemsPermissions_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetItemsPermissionsByParent">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetItemsPermissionsByParent" message="CRUD_ManagerService_GetItemsPermissionsByParent_InputMessage" />
@@ -4105,9 +4119,9 @@
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeader" message="CRUD_ManagerService_UpdateRFQSubHeader_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderResponse" message="CRUD_ManagerService_UpdateRFQSubHeader_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateRFQSubHeaderItems">
-      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderItems" message="CRUD_ManagerService_UpdateRFQSubHeaderItems_InputMessage" />
-      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/UpdateRFQSubHeaderItemsResponse" message="CRUD_ManagerService_UpdateRFQSubHeaderItems_OutputMessage" />
+    <wsdl:operation name="GetTblSizeCode">
+      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetTblSizeCode" message="CRUD_ManagerService_GetTblSizeCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetTblSizeCodeResponse" message="CRUD_ManagerService_GetTblSizeCode_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateOrInsertTblSizeCode">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateOrInsertTblSizeCode" message="CRUD_ManagerService_UpdateOrInsertTblSizeCode_InputMessage" />
@@ -4413,9 +4427,9 @@
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/Authenticate" message="CRUD_ManagerService_Authenticate_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/AuthenticateResponse" message="CRUD_ManagerService_Authenticate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetItemsPermissions">
-      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetItemsPermissions" message="CRUD_ManagerService_GetItemsPermissions_InputMessage" />
-      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetItemsPermissionsResponse" message="CRUD_ManagerService_GetItemsPermissions_OutputMessage" />
+    <wsdl:operation name="GetTblCheckListMail">
+      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetTblCheckListMail" message="CRUD_ManagerService_GetTblCheckListMail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetTblCheckListMailResponse" message="CRUD_ManagerService_GetTblCheckListMail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateOrInsertTblCheckListMail">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateOrInsertTblCheckListMail" message="CRUD_ManagerService_UpdateOrInsertTblCheckListMail_InputMessage" />
@@ -4745,10 +4759,6 @@
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/DeleteTblSizeGroup" message="CRUD_ManagerService_DeleteTblSizeGroup_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/DeleteTblSizeGroupResponse" message="CRUD_ManagerService_DeleteTblSizeGroup_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTblSizeCode">
-      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetTblSizeCode" message="CRUD_ManagerService_GetTblSizeCode_InputMessage" />
-      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetTblSizeCodeResponse" message="CRUD_ManagerService_GetTblSizeCode_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetDyeingClassificaiton">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetDyeingClassificaiton" message="CRUD_ManagerService_GetDyeingClassificaiton_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetDyeingClassificaitonResponse" message="CRUD_ManagerService_GetDyeingClassificaiton_OutputMessage" />
@@ -4913,6 +4923,10 @@
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetStoresForAllCompany" message="CRUD_ManagerService_GetStoresForAllCompany_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetStoresForAllCompanyResponse" message="CRUD_ManagerService_GetStoresForAllCompany_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetBanks">
+      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetBanks" message="CRUD_ManagerService_GetBanks_InputMessage" />
+      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetBanksResponse" message="CRUD_ManagerService_GetBanks_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPrmotionRange">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetPrmotionRange" message="CRUD_ManagerService_GetPrmotionRange_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetPrmotionRangeResponse" message="CRUD_ManagerService_GetPrmotionRange_OutputMessage" />
@@ -5044,10 +5058,6 @@
     <wsdl:operation name="DeleteTblEmployeeBehalf">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/DeleteTblEmployeeBehalf" message="CRUD_ManagerService_DeleteTblEmployeeBehalf_InputMessage" />
       <wsdl:output wsaw:Action="urn:CRUD_ManagerService/DeleteTblEmployeeBehalfResponse" message="CRUD_ManagerService_DeleteTblEmployeeBehalf_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTblCheckListMail">
-      <wsdl:input wsaw:Action="urn:CRUD_ManagerService/GetTblCheckListMail" message="CRUD_ManagerService_GetTblCheckListMail_InputMessage" />
-      <wsdl:output wsaw:Action="urn:CRUD_ManagerService/GetTblCheckListMailResponse" message="CRUD_ManagerService_GetTblCheckListMail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateOrInsertTblGeneratePurchaseHeaderCurrency">
       <wsdl:input wsaw:Action="urn:CRUD_ManagerService/UpdateOrInsertTblGeneratePurchaseHeaderCurrency" message="CRUD_ManagerService_UpdateOrInsertTblGeneratePurchaseHeaderCurrency_InputMessage" />

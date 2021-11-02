@@ -542,7 +542,7 @@
                                         </DataTemplate>
                                     </sdk:DataGridTemplateColumn.CellTemplate>
                                 </sdk:DataGridTemplateColumn>
-                                <sdk:DataGridTemplateColumn CanUserSort="False"
+                                <!--<sdk:DataGridTemplateColumn CanUserSort="False"
 														SortMemberPath="Iserial"
 														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SeasonalMasterListStyleCode,
 																									  Source={StaticResource LocalizedStrings}}"  Visibility="Collapsed">
@@ -558,7 +558,7 @@
 																  Source={StaticResource LocalizedStrings}}" />
                                         </DataTemplate>
                                     </sdk:DataGridTemplateColumn.CellTemplate>
-                                </sdk:DataGridTemplateColumn>
+                                </sdk:DataGridTemplateColumn>-->
                                 <sdk:DataGridTemplateColumn CanUserSort="False"
 														SortMemberPath="Iserial"
                                                         Visibility="Collapsed"
@@ -783,7 +783,7 @@
                                 <sdk:DataGridTextColumn  Visibility="Collapsed"  Width="120"
 													Binding="{Binding Path=StyleTNADeliveryDate,Mode=TwoWay}"
 													Header="Supplier DeliveryDate" />
-                                <sdk:DataGridTemplateColumn  Visibility="Collapsed" CanUserSort="False" 
+                                <!--<sdk:DataGridTemplateColumn  Visibility="Collapsed" CanUserSort="False" 
 														SortMemberPath="Iserial"
 														Header="TNA Approve" Width="180">
                                     <sdk:DataGridTemplateColumn.CellTemplate>
@@ -807,7 +807,7 @@
                                             </StackPanel>
                                         </DataTemplate>
                                     </sdk:DataGridTemplateColumn.CellTemplate>
-                                </sdk:DataGridTemplateColumn>
+                                </sdk:DataGridTemplateColumn>-->
                                 <sdk:DataGridTemplateColumn  Visibility="Collapsed" CanUserSort="False" 
 														SortMemberPath="Iserial"
 														Header="Print Style" Width="80">
@@ -1638,7 +1638,7 @@
                                         <userControls:LookupEdit Grid.Column="2" Grid.Row="7" Visibility="Collapsed" Title="Style Theme" FormName="StyleTheme" />
                                     </StackPanel>
                                 </Grid>
-                                <Grid Grid.Row="7" Grid.Column="3">
+                                <!--<Grid Grid.Row="7" Grid.Column="3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
@@ -1651,7 +1651,7 @@
 												Converter={StaticResource VisibilityConverter}}"
 												Content="{Binding SeasonalMasterListStyleCode,
 																  Source={StaticResource LocalizedStrings}}" />
-                                </Grid>
+                                </Grid>-->
                                 <!--<Grid Grid.Row="1" Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -3100,7 +3100,7 @@
                     <StackPanel Orientation="Vertical">
                         <Button Name="BtnGenerateSalesOrder"
 								Click="BtnGenerateSalesOrder_OnClick"
-								Content="Generate Sales Order" />
+								Content="Generate Production Order" />
                         <Button Name="BtnGeneratePo"
 								Click="BtnGeneratePo_OnClick"
 								Content="Generate Po"  />
@@ -4228,7 +4228,7 @@
 
                     </Grid>
                 </sdk:TabItem>-->
-                <sdk:TabItem Name="TabStyleTnaItem"
+                <!--<sdk:TabItem Name="TabStyleTnaItem"
 							 HorizontalContentAlignment="Stretch"
 							 VerticalContentAlignment="Stretch"
 							 Header="{Binding StyleTna,
@@ -4464,7 +4464,7 @@
 													Click="btnCancelRequest_Click" Margin="0,0,135,0" />
 
                         </Grid>
-                        <!--<sdk:DataGrid Grid.Row="1"  
+                        --><!--<sdk:DataGrid Grid.Row="1"  
 					       ItemsSource="{Binding SelectedTnaRow.DetailList,Mode=OneWay}"					    
 					       AutoGenerateColumns="False" 					    			    
 					       HorizontalContentAlignment="Stretch"
@@ -4555,9 +4555,9 @@
                                     </sdk:DataGridTemplateColumn.CellTemplate>
                                 </sdk:DataGridTemplateColumn>
                             </sdk:DataGrid.Columns>
-                        </sdk:DataGrid>-->
+                        </sdk:DataGrid>--><!--
                     </Grid>
-                </sdk:TabItem>
+                </sdk:TabItem>-->
                 <sdk:TabItem Name="TabStyleSpec" Header="Style Specification"
                                      HorizontalAlignment="Left" Width="128" Height="24" 
                                      VerticalAlignment="Top">

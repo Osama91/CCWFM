@@ -210,7 +210,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             {
                                 PostTblGlChequeTransactionHeader(newRow.Iserial, user, company, newRow.Code);
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
                                 var ledgerToDelete = entity.TblLedgerHeaders.Where(
                                     x => x.TblJournalLink == newRow.Iserial && x.TblTransactionType == 7).ToList();

@@ -497,14 +497,14 @@ namespace CCWFM.Web.Service
             }
         }
 
-        private void SaveStyle(TblStyle newRow, bool save, string UserName, WorkFlowManagerDBEntities context, bool Imported, string RepeatedSerial = "",string StyleTheme="")
+        private void SaveStyle(TblStyle newRow, bool save, string UserName, WorkFlowManagerDBEntities context, bool Imported, string RepeatedSerial = "", string StyleTheme = "")
         {
 
             var chainrow = context.tblChainSetups.FirstOrDefault(x => x.sGlobalSettingCode == "StarWithBrandSection");
             var serial = "";
             if (string.IsNullOrEmpty(RepeatedSerial))
             {
-                 serial = GetMaxStyle(newRow.Brand, newRow.TblLkpSeason, newRow.TblFamily, newRow.TblLkpBrandSection, newRow.TblSubFamily);
+                serial = GetMaxStyle(newRow.Brand, newRow.TblLkpSeason, newRow.TblFamily, newRow.TblLkpBrandSection, newRow.TblSubFamily);
             }
             if (!string.IsNullOrEmpty(serial))
             {
@@ -577,7 +577,7 @@ namespace CCWFM.Web.Service
                         //var refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code+ seasonShortCode.SubSeasonCode.PadLeft(2, '0') + familyShortCode.Code.PadLeft(2, '0') +
                         //                               newRow.SerialNo + tblLkpBrandSectionLink.ShortCode + tbllkpdirection.Code;
 
-                       
+
                         var refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code + seasonShortCode.Code.PadLeft(3, '0') + familyShortCode.Code.PadLeft(2, '0') +
                                                        newRow.SerialNo + tbllkpdirection.Code;
                         if (CheckUseThemeCode != null)
@@ -604,7 +604,7 @@ namespace CCWFM.Web.Service
 
                             refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
                                 seasonShortCode.Code.PadLeft(3, '0') + familyShortCode.Code.PadLeft(2, '0') +
-                                                      newRow.SerialNo +  tbllkpdirection.Code;
+                                                      newRow.SerialNo + tbllkpdirection.Code;
                             if (CheckUseThemeCode != null)
                             {
                                 refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
@@ -616,7 +616,7 @@ namespace CCWFM.Web.Service
                         var CheckSubFamilyLink = context.TblSubFamilies.FirstOrDefault(x => x.Iserial == newRow.TblSubFamily).SubFamilyLink;
                         var CheckParentSubFamilyLink = context.TblSubFamilies.FirstOrDefault(x => x.SubFamilyLink == newRow.TblSubFamily);
 
-                        if (familyShortCode.IncludeSub && (CheckSubFamilyLink != null || CheckParentSubFamilyLink !=null))
+                        if (familyShortCode.IncludeSub && (CheckSubFamilyLink != null || CheckParentSubFamilyLink != null))
                         {
                             if (subFamilyCode != null)
                             {
@@ -632,9 +632,9 @@ namespace CCWFM.Web.Service
                                 //                       newRow.SerialNo + tbllkpdirection.Code;
 
 
-                                    refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
-                                                         seasonShortCode.Code.PadLeft(3, '0') + subFamilyCode.Code.PadLeft(3, '0') +
-                                                          newRow.SerialNo + tbllkpdirection.Code;
+                                refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
+                                                     seasonShortCode.Code.PadLeft(3, '0') + subFamilyCode.Code.PadLeft(3, '0') +
+                                                      newRow.SerialNo + tbllkpdirection.Code;
                                 if (CheckUseThemeCode != null)
                                 {
                                     refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
@@ -652,9 +652,9 @@ namespace CCWFM.Web.Service
                                 //refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code + seasonShortCode.Code.PadLeft(3, '0') + familyShortCode.Code + subFamilyCode.Code.PadLeft(2, '0') +
                                 //                      newRow.SerialNo +  tbllkpdirection.Code;
 
-                                  refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
-                                                    seasonShortCode.Code.PadLeft(3, '0') + subFamilyCode.Code.PadLeft(3, '0') +
-                                                     newRow.SerialNo + tbllkpdirection.Code;
+                                refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
+                                                  seasonShortCode.Code.PadLeft(3, '0') + subFamilyCode.Code.PadLeft(3, '0') +
+                                                   newRow.SerialNo + tbllkpdirection.Code;
                                 if (CheckUseThemeCode != null)
                                 {
                                     refstylecode = tblLkpBrandSectionLink.TblBrand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code +
@@ -665,7 +665,7 @@ namespace CCWFM.Web.Service
                             }
                         }
                         //Added By Hashem To Code By SubFamily code Instead OF Family in ACCESSORIES CASE
-                        if (familyShortCode.IncludeSub && CheckSubFamilyLink == null )
+                        if (familyShortCode.IncludeSub && CheckSubFamilyLink == null)
                         {
                             if (subFamilyCode != null)
                             {
@@ -719,7 +719,7 @@ namespace CCWFM.Web.Service
                         newRow.SupplierRef = newRow.Brand + tblLkpBrandSectionLink.TblLkpBrandSection1.Code + seasonShortCode.Code + tbllkpdirection.Code + subFamilyCode.Code.PadLeft(4, '0') + newRow.SerialNo;
                     }
                 }
-              
+
                 newRow.StyleCode = newRow.RefStyleCode;
                 context.TblStyles.AddObject(newRow);
                 //  var subFamiliesBudle = context.TblSubFamilies.Where(w => w.SubFamilyLink == newRow.TblSubFamily).ToList();
@@ -741,7 +741,7 @@ namespace CCWFM.Web.Service
             }
             else
             {
-                var oldRow = (from e in context.TblStyles.Include("TblSeasonalMasterLists.TblSeasonalMasterListDetails")
+                var oldRow = (from e in context.TblStyles
                               where e.Iserial == newRow.Iserial
                               select e).SingleOrDefault();
                 if (oldRow != null)
@@ -767,83 +767,85 @@ namespace CCWFM.Web.Service
                     //                                   newRow.SerialNo + tblLkpBrandSectionLink.ShortCode + tbllkpdirection.Code;
                     //        }
                     //    }
-                    //}
-                    if (oldRow.TblSizeGroup != newRow.TblSizeGroup)
-                    {
-                        foreach (var seasonalMasterList in oldRow.TblSeasonalMasterLists)
-                        {
-                            foreach (var detail in seasonalMasterList.TblSeasonalMasterListDetails.ToList())
-                            {
-                                context.DeleteObject(detail);
-                            }
-                        }
-                    }
-
-                    if (oldRow.TblLkpSeason != newRow.TblLkpSeason)
-                    {
-                        newRow.SerialNo = serial;
-                    }
-                    else
-                    {
-                        newRow.SerialNo = oldRow.SerialNo;
-                    }
-                }
-                if (newRow.tbl_FabricAttriputes == 0)
-                {
-                    var defaultFabric = context.tbl_FabricAttriputes.FirstOrDefault(x => x.FabricID == "N/A").Iserial;
-
-                    newRow.tbl_FabricAttriputes = defaultFabric;
-                }
-                var changeditems = GenericUpdate(oldRow, newRow, context);
-
-                if (oldRow != null)
-                {
-                    if (oldRow.TblSizeGroup != newRow.TblSizeGroup)
-                    {
-                        foreach (var seasonalMasterList in oldRow.TblSeasonalMasterLists)
-                        {
-                            foreach (var detail in seasonalMasterList.TblSeasonalMasterListDetails.ToList())
-                            {
-                                context.DeleteObject(detail);
-                            }
-                        }
-                    }
-
-                    //if (newRow.Status == 100)
-                    //{
-                    //    var code = newRow.StyleCode;
-                    //    if (newRow.StyleCode.Length == 11)
+                    //    //}
+                    //    if (oldRow.TblSizeGroup != newRow.TblSizeGroup)
                     //    {
-                    //        newRow.StyleCode = code + serial;
+                    //        foreach (var seasonalMasterList in oldRow.TblSeasonalMasterLists)
+                    //        {
+                    //            foreach (var detail in seasonalMasterList.TblSeasonalMasterListDetails.ToList())
+                    //            {
+                    //                context.DeleteObject(detail);
+                    //            }
+                    //        }
+                    //    }
+
+                    //    if (oldRow.TblLkpSeason != newRow.TblLkpSeason)
+                    //    {
                     //        newRow.SerialNo = serial;
                     //    }
-                    //}
-
-                    newRow.CreationDate = oldRow.CreationDate;
-                    newRow.LastUpdatedDate = DateTime.Now;
-                    newRow.LastUpdatedBy = UserName;
-
-                    newRow.Status = 2;
-                 //   newRow.StyleCode = newRow.RefStyleCode.Trim();
-                    GenericUpdate(oldRow, newRow, context);
-
-                    //if (context.TblSalesOrders.Any(x => x.TblStyle == newRow.Iserial && x.SalesOrderType == 1 && x.Status == 0))
-                    //{
-                    //    var salesorders =
-                    //        context.TblSalesOrders.Where(x => x.TblStyle == newRow.Iserial && x.SalesOrderType == 1 && x.Status == 0);
-
-                    //    foreach (var row in salesorders)
+                    //    else
                     //    {
-                    //        var salesordersColors =
-                    //         context.TblSalesOrderColors.Where(x => x.TblSalesOrder == row.Iserial).ToList();
-
-                    //        //foreach (var colorrow in salesordersColors)
-                    //        //{
-                    //        //    colorrow.Cost = (decimal?)newRow.TargetCostPrice;
-                    //        //    colorrow.LocalCost = (decimal?)newRow.TargetCostPrice;
-                    //        //}
+                    //        newRow.SerialNo = oldRow.SerialNo;
                     //    }
                     //}
+                    //if (newRow.tbl_FabricAttriputes == 0)
+                    //{
+                    //    var defaultFabric = context.tbl_FabricAttriputes.FirstOrDefault(x => x.FabricID == "N/A").Iserial;
+
+                    //    newRow.tbl_FabricAttriputes = defaultFabric;
+                    //}
+                    //var changeditems = GenericUpdate(oldRow, newRow, context);
+
+                    if (oldRow != null)
+                    {
+                        //if (oldRow.TblSizeGroup != newRow.TblSizeGroup)
+                        //{
+                        //    foreach (var seasonalMasterList in oldRow.TblSeasonalMasterLists)
+                        //    {
+                        //        foreach (var detail in seasonalMasterList.TblSeasonalMasterListDetails.ToList())
+                        //        {
+                        //            context.DeleteObject(detail);
+                        //        }
+                        //    }
+                        //}
+
+                        //if (newRow.Status == 100)
+                        //{
+                        //    var code = newRow.StyleCode;
+                        //    if (newRow.StyleCode.Length == 11)
+                        //    {
+                        //        newRow.StyleCode = code + serial;
+                        //        newRow.SerialNo = serial;
+                        //    }
+                        //}
+                        oldRow.CCTargetCostPrice = newRow.CCTargetCostPrice;
+                        newRow.CreationDate = oldRow.CreationDate;
+                        oldRow.LastUpdatedDate = DateTime.Now;
+                        oldRow.LastUpdatedBy = UserName;
+
+                        oldRow.Status = 2;
+                        context.SaveChanges();
+                        //   newRow.StyleCode = newRow.RefStyleCode.Trim();
+                        // GenericUpdate(oldRow, newRow, context);
+
+                        //if (context.TblSalesOrders.Any(x => x.TblStyle == newRow.Iserial && x.SalesOrderType == 1 && x.Status == 0))
+                        //{
+                        //    var salesorders =
+                        //        context.TblSalesOrders.Where(x => x.TblStyle == newRow.Iserial && x.SalesOrderType == 1 && x.Status == 0);
+
+                        //    foreach (var row in salesorders)
+                        //    {
+                        //        var salesordersColors =
+                        //         context.TblSalesOrderColors.Where(x => x.TblSalesOrder == row.Iserial).ToList();
+
+                        //        //foreach (var colorrow in salesordersColors)
+                        //        //{
+                        //        //    colorrow.Cost = (decimal?)newRow.TargetCostPrice;
+                        //        //    colorrow.LocalCost = (decimal?)newRow.TargetCostPrice;
+                        //        //}
+                        //    }
+                        //}
+                    }
                 }
             }
         }
@@ -865,24 +867,24 @@ namespace CCWFM.Web.Service
 
                 context.SaveChanges();
 
-                var style =
-                    context.TblStyles
-                        .Include("TblLkpSeason1")
-                        .FirstOrDefault(x => x.Iserial == newRow.Iserial);
-                using (var entity = new ccnewEntities())
-                {
-                    var group4 = FindOrCreate("TblGroup4",
-                   new GenericTable
-                   {
-                       Iserial = 0,
-                       Aname = style.TblLkpSeason1.Aname,
-                       Code = style.TblLkpSeason1.Code,
-                       Ename = style.TblLkpSeason1.Ename
-                   });
-                    var query =
-                        "UPDATE  tblitem set AName='" + newRow.Description + "',EName='" + newRow.Description + "',SName='" + newRow.Description + "' ,TblGroup4='" + group4 + "' where style= '" + newRow.StyleCode + "'";
-                    entity.ExecuteStoreCommand(query);
-                }
+                //var style =
+                //    context.TblStyles
+                //        .Include("TblLkpSeason1")
+                //        .FirstOrDefault(x => x.Iserial == newRow.Iserial);
+                //using (var entity = new ccnewEntities())
+                //{
+                //    var group4 = FindOrCreate("TblGroup4",
+                //   new GenericTable
+                //   {
+                //       Iserial = 0,
+                //       Aname = style.TblLkpSeason1.Aname,
+                //       Code = style.TblLkpSeason1.Code,
+                //       Ename = style.TblLkpSeason1.Ename
+                //   });
+                //    var query =
+                //        "UPDATE  tblitem set AName='" + newRow.Description + "',EName='" + newRow.Description + "',SName='" + newRow.Description + "' ,TblGroup4='" + group4 + "' where style= '" + newRow.StyleCode + "'";
+                //    entity.ExecuteStoreCommand(query);
+                //}
 
                 return newRow;
             }

@@ -179,7 +179,12 @@ namespace CCWFM.Helpers.AuthenticationHelpers
                     {
                         para.Add(LoggedUserInfo.Code.ToString(CultureInfo.InvariantCulture));
                     }
-                    
+
+                    if (menuItem.Name == "StorePeopleCounter")
+                    {
+                        para.Add(LoggedUserInfo.AllowedStores.First().ToString());
+                    }
+
                     reportViewmodel.GenerateReport(item, para);
                     return;
                 }

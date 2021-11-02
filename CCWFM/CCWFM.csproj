@@ -383,6 +383,13 @@
       <DependentUpon>SearchSequenceUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SearchSequenceViewModel.cs" />
+    <Compile Include="UserControls\Search\SearchBanks.xaml.cs">
+      <DependentUpon>SearchBanks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Search\SearchBanksChild.xaml.cs">
+      <DependentUpon>SearchBanksChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Search\SearchBanksViewModel.cs" />
     <Compile Include="UserControls\Search\SearchEmpSecond.xaml.cs">
       <DependentUpon>SearchEmpSecond.xaml</DependentUpon>
     </Compile>
@@ -1814,6 +1821,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\SearchSequenceUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Search\SearchBanks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Search\SearchBanksChild.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -3739,6 +3754,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblAuthUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblBank.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblBankDeposit.datasource">

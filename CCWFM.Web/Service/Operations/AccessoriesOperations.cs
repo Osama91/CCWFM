@@ -34,7 +34,7 @@ namespace CCWFM.Web.Service
                         {
                             InsertAllNewAccessoryToAx(details, header, isSizeInHeader, userIserial);
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
 
 

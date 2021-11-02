@@ -473,6 +473,7 @@ namespace CCWFM.Web.Service.WarehouseOp
             List<string> errors = new List<string>();
             using (var entities = new WorkFlowManagerDBEntities())
             {
+                entities.CommandTimeout = 0;
                 try
                 {
                     header.Approved = false;
@@ -536,7 +537,7 @@ namespace CCWFM.Web.Service.WarehouseOp
         {
             string itemInfo = string.Format("Item code:{0}, Color code:{1}, Batch:{2}, Size:{3}, Quantity:{4}, Cost:{5}"
                 , item.ItemCode, item.Color, item.BatchNo, item.Size, item.Qty, item.Cost);
-            var items = entities.FabricAccSearches.Where(i => i.Code == item.ItemCode).ToList();
+            var items = entities.FabricAccSearches.Where(i => i.Code == item.ItemCode&& i.ItemGroup!= "FP").ToList();
             if (items.Count != 1)
             {
                 if (items.Count == 0)

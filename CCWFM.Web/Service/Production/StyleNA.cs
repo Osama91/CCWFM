@@ -121,6 +121,7 @@ namespace CCWFM.Web.Service.Production
         [OperationContract]
         private TblStyleTNAHeader UpdateOrInsertTblStyleTNAHeader(TblStyleTNAHeader newRow, bool save, int index, int user, out int outindex)
         {
+            /*
             outindex = index;
             try 
             {
@@ -283,6 +284,9 @@ namespace CCWFM.Web.Service.Production
             {
                 throw ex;
             }
+            */
+            outindex = index;
+            return null; 
         }
 
 

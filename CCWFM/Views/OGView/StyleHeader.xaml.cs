@@ -418,9 +418,9 @@ namespace CCWFM.Views.OGView
                     case (int)StyleTabes.Bom:
                         _viewModel.SaveBom();
                         break;
-                    case (int)StyleTabes.Tna:
-                        _viewModel.SaveStyleTNARow();
-                        break;
+                    //case (int)StyleTabes.Tna:
+                    //    _viewModel.SaveStyleTNARow();
+                    //    break;
 
                     case (int)StyleTabes.TeckPack:
                         SaveTechPack();
@@ -463,7 +463,7 @@ namespace CCWFM.Views.OGView
                     catch { _viewModel.SaveTechPackDesignDetailRow(null,"",""); }
                     break;
                 case 3:
-                    _viewModel.SaveStyleTNARow();
+                    //_viewModel.SaveStyleTNARow();
                  break;
             }
 
@@ -543,7 +543,7 @@ namespace CCWFM.Views.OGView
                 _viewModel.GetMaindata();
             }
 
-            ShowHideTNA_Approve(showHideTNA_Approve);
+           // ShowHideTNA_Approve(showHideTNA_Approve);
         }
         private void MainGrid_RowEditEnded(object sender, DataGridRowEditEndedEventArgs e)
         {
@@ -598,7 +598,7 @@ namespace CCWFM.Views.OGView
         {
             if (TabStyle != null)
             {
-                _viewModel.CheckTnaChanged();
+               //  _viewModel.CheckTnaChanged();
                 switch (TabStyle.SelectedIndex)
                 {
                     case (int)StyleTabes.StyleDetails:
@@ -784,19 +784,19 @@ namespace CCWFM.Views.OGView
                         _viewModel.SalesOrderType = SalesOrderType.SalesOrderPo;
                         _viewModel.GetSalesOrderBom();
                         break;
-                    case (int)StyleTabes.Tna:
-                        _viewModel.GetStyleTNALockup();
-                        _viewModel.SeasonPerRow = _viewModel.SelectedMainRow.SeasonPerRow;
-                        _viewModel.GetStyleTNAdata();
-                        //if (true)
-                        //{
+                    //case (int)StyleTabes.Tna:
+                    //    _viewModel.GetStyleTNALockup();
+                    //    _viewModel.SeasonPerRow = _viewModel.SelectedMainRow.SeasonPerRow;
+                    //    _viewModel.GetStyleTNAdata();
+                    //    //if (true)
+                    //    //{
 
-                        //}
-                        //_viewModel.SelectedTnaRow = null;
-                        //_viewModel.AddNewStyleTNARow(false);
-                        //_viewModel.AddNewTNADetailRow();
-                        _viewModel.getSml();
-                        break;
+                    //    //}
+                    //    //_viewModel.SelectedTnaRow = null;
+                    //    //_viewModel.AddNewStyleTNARow(false);
+                    //    //_viewModel.AddNewTNADetailRow();
+                    //    _viewModel.getSml();
+                    //    break;
                     //case (int)StyleTabes.TnaRoute:
                     //      GetStyleTNARouteByStyle();
                     //      break;
@@ -807,9 +807,9 @@ namespace CCWFM.Views.OGView
                     //      break;
                     case (int)StyleTabes.TeckPack:
                         //For Now Will Be Edited//
-                        _viewModel.GetStyleTNALockup();
-                        _viewModel.SeasonPerRow = _viewModel.SelectedMainRow.SeasonPerRow;
-                        _viewModel.GetStyleTNAdata();
+                        //_viewModel.GetStyleTNALockup();
+                        //_viewModel.SeasonPerRow = _viewModel.SelectedMainRow.SeasonPerRow;
+                        //_viewModel.GetStyleTNAdata();
                         ////////////////////////
                         GetTeckPackData();
                         EnableOrDisableTechPackControls();
@@ -1082,12 +1082,14 @@ namespace CCWFM.Views.OGView
 
         private void btnStyleTna_OnClick(object sender, RoutedEventArgs e)
         {
+            /*
             var btn = sender as Button;
             if (btn != null) _viewModel.SelectedMainRow = btn.DataContext as TblStyleViewModel;
 
             var childWindow = new StyleTNAChildWindow(_viewModel);
 
             childWindow.Show();
+            */
         }
 
         private void BtnColors_OnClick(object sender, RoutedEventArgs e)
@@ -1098,8 +1100,10 @@ namespace CCWFM.Views.OGView
 
         private void BtnTnaColors_OnClick(object sender, RoutedEventArgs e)
         {
+            /*
             var child = new StyleTNAColor(_viewModel);
             child.Show();
+            */
         }
 
         private void BtnNotes_OnClick(object sender, RoutedEventArgs e)
@@ -2038,6 +2042,7 @@ namespace CCWFM.Views.OGView
 
         private void btnTNAColors_Click(object sender, RoutedEventArgs e)
         {
+            /*
             try
             {
                 var MainGridSelectedItem = MainGrid.SelectedItem as TblStyleViewModel;
@@ -2058,6 +2063,7 @@ namespace CCWFM.Views.OGView
                 }
             }
             catch { }
+            */
 
         }
 
@@ -2328,6 +2334,7 @@ namespace CCWFM.Views.OGView
 
         private void btnTNApproveColor_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if (_viewModel.StyleTnaPerRow.RequireSo > 0)
             {
                 _viewModel.StyleTnaPerRow.RequireSo = _viewModel.StyleTnaPerRow.RequireSo - 1;
@@ -2337,6 +2344,7 @@ namespace CCWFM.Views.OGView
             btn.IsEnabled = false;
             TNAApprove = 1;
             openStyleTNAStatusWindow();
+            */
         }
 
         private void btnGridColumnOrder_Click(object sender, RoutedEventArgs e)

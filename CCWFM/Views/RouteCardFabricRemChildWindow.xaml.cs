@@ -27,6 +27,7 @@ namespace CCWFM.Views
 
             _client.GetRemRouteQuantityCompleted += (s, v) =>
             {
+                if (v.Result.Count > 0) { 
                 foreach (var item in v.Result)
                 {
                     viewModel.RouteCardFabricRemViewModelList.Add(RouteCardMappers.MapToViewModel(item));
@@ -34,6 +35,7 @@ namespace CCWFM.Views
                 viewModel.SearchPagedCollection = new PagedCollectionView(viewModel.RouteCardFabricRemViewModelList);
                 viewModel.SearchPagedCollection.GroupDescriptions.Add(new PropertyGroupDescription("TransID"));
                 DgfabricIssue.SelectedIndex = viewModel.SearchPagedCollection == null ? -1 : viewModel.SearchPagedCollection.Count - 1;
+                }
             };
         }
 

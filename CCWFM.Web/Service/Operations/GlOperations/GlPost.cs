@@ -199,10 +199,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     {
                         GlManPostSalesTransaction(fromDate, toDate, user, company, sales, transfer, adjustment, repost);
                     }
-                    else
-                    {
-                        GlPostSalesTransaction(fromDate, toDate, user, company, sales, transfer, adjustment, repost);
-                    }
+                    GlPostSalesTransaction(fromDate, toDate, user, company, sales, transfer, adjustment, repost);
+                    
                 }
                 if (transfer)
                 {
@@ -1189,12 +1187,12 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 {
                                     UpdateOrInsertTblLedgerHeaders(newLedgerHeaderRowCostOfGoodSold, true, 000, out tempheader, user,
                                    company);
-                                }
-                                if (salestype == "2")
-                                {
+
                                     UpdateOrInsertTblLedgerHeaders(newLedgerHeaderRow, true, 000, out tempheader, user,
-                                    company);
+                                 company);
+
                                 }
+                                
                                 #region Paramters
 
                                 var sqlParam = new List<SqlParameter>
@@ -1231,6 +1229,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                                                  sqlParam.ToArray())
                                                                  .ToList<GlPosting>();
                                 var temp = 0;
+
                                 #endregion Paramters                                    
 
                                 #region NetSales
@@ -1343,6 +1342,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         variable.AccountTemp = salesgroupAccount;
                                     }
                                 }
+
                                 if (taxPercentage > 0)
                                 {
                                     foreach (var group in list.GroupBy(x => x.AccountTemp))
@@ -1398,17 +1398,31 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         variable.AccountTemp = groupAccount;
                                     }
                                 }
+
+                                var journalType = 8;
+                                if (company == "MAN")
+                                {
+                                    journalType = 1;
+                                }
                                 foreach (var group in list.GroupBy(x => x.StoreIserial))
                                 {
+                                    var entityAccount = group.Key;
+                                    var Amount = @group.Sum(w => w.NetSales);
+
+                                    if (company == "MAN")
+                                    {
+                                        entityAccount = group.First().CustIserial;
+                                        Amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                                    }
                                     var newledgerDetailrow = new TblLedgerMainDetail
                                     {
-                                        Amount = @group.Sum(w => w.NetSales),
+                                        Amount = Amount,
                                         Description = "Sales",
                                         ExchangeRate = 1,
                                         TblCurrency = currency,
                                         TransDate = day,
-                                        TblJournalAccountType = 8,
-                                        EntityAccount = group.Key,
+                                        TblJournalAccountType = journalType,
+                                        EntityAccount = entityAccount,
                                         GlAccount = group.First().AccountTemp,
                                         TblLedgerHeader = newLedgerHeaderRow.Iserial,
                                         PaymentRef = "",
@@ -1428,12 +1442,69 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                         if (group.Key != 0)
                                         {
-                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales, newledgerDetailrow,
+                                            var amount = rr.NetSales;
+                                            if (company == "MAN")
+                                            {
+                                                amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+                                            }
+
+                                            CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
                                                 storeCostcenter);
-                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales, newledgerDetailrow,
+                                            CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
                                                 costcenter);
                                         }
                                     }
+                                }
+
+                                if (company == "MAN")
+                                {
+
+                                    foreach (var group in list.GroupBy(x => x.StoreIserial))
+                                    {
+                                        var entityAccount = group.First().CustIserial;
+                                        var custIserial = @group.FirstOrDefault().CustIserial;
+                                   
+                                        //101 SalesTax Account
+                                        var newledgerDetailrowtax = new TblLedgerMainDetail
+                                        {
+                                            Amount = @group.Sum(x => x.NetSales) - @group.Sum(x => x.NetSales) / (decimal)taxPercentage,
+                                            Description = "Tax",
+                                            ExchangeRate = 1,
+                                            TblCurrency = currency,
+                                            TransDate = day,
+                                            TblJournalAccountType = journalType,
+                                            EntityAccount = entityAccount,
+                                            GlAccount = group.First().AccountTemp,
+                                            TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                            PaymentRef = "",
+                                            DrOrCr = true
+                                        };
+                                        UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowtax, true, 000, out temp,
+                                            company, user);
+
+                                        foreach (var rr in list.Where(x => x.AccountTemp == @group.FirstOrDefault().AccountTemp))
+                                        {
+                                            var storeCostcenter = new TblGlRuleDetail();
+                                            storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
+                                                company);
+
+                                            var costcenter = new TblGlRuleDetail();
+
+                                            costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
+                                            if (storeCostcenter != null)
+                                            {
+                                                CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                                newledgerDetailrowtax, storeCostcenter);
+                                            }
+                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                                newledgerDetailrowtax, costcenter);
+
+
+
+                                        }
+
+                                    }
+
                                 }
 
                                 #endregion Payment
@@ -1524,18 +1595,16 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             field = "ItemStoreGroup";
                         }
 
-                        var Type = 2;
-
-                       
-
-                        //var oldLedgers =
-                        //    entity.TblLedgerHeaders.Where(
-                        //        x => x.TblTransactionType == Type && x.DocDate.Value >= fromDate && x.DocDate.Value <= toDate).ToList();
-                        //foreach (var variable in oldLedgers)
-                        //{
-                        //    entity.TblLedgerHeaders.DeleteObject(variable);
-                        //}
-                        //entity.SaveChanges();
+                        var Type = 15;
+                        
+                        var oldLedgers =
+                            entity.TblLedgerHeaders.Where(
+                                x => x.TblTransactionType == Type && x.DocDate.Value >= fromDate && x.DocDate.Value <= toDate).ToList();
+                        foreach (var variable in oldLedgers)
+                        {
+                            entity.TblLedgerHeaders.DeleteObject(variable);
+                        }
+                        entity.SaveChanges();
 
                         var journal =
                             entity.tblChainSetupTests.FirstOrDefault(
@@ -1575,22 +1644,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             TblJournalLink = 0,
                         };
 
-                        var newLedgerHeaderRowCostOfGoodSold = new TblLedgerHeader
-                        {
-                            CreatedBy = user,
-                            CreationDate = DateTime.Now,
-                            Description = "Cost Of Good Sold Man",
-                            DocDate = fromDate,
-                            TblJournal = journalCostInt,
-                            TblTransactionType = Type,
-                            TblJournalLink = 0,
-                        };
+                     
                         var tempheader = 0;
-                        if (salestype == "2")
-                        {
-                            UpdateOrInsertTblLedgerHeaders(newLedgerHeaderRowCostOfGoodSold, true, 000, out tempheader, user,
-                           company);
-                        }
+                      
 
                         UpdateOrInsertTblLedgerHeaders(newLedgerHeaderRow, true, 000, out tempheader, user,
                             company);
@@ -1670,15 +1726,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                             foreach (var rr in list.Where(x => x.AccountTemp == @group.Key).GroupBy(w => w.GroupIserial))
                             {
-                                //var storeCostcenter = new TblGlRuleDetail();
-                                //storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
-                                //    company);
-
                                 var costcenter = new TblGlRuleDetail();
                                 costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
 
-                                //CreateTblLedgerDetailCostCenter(company, rr.NetSales / (decimal)1.14,
-                                //    newledgerDetailrow, storeCostcenter);
                                 CreateTblLedgerDetailCostCenter(company, rr.Sum(w => w.NetSales),
                                     newledgerDetailrow, costcenter);
                             }
@@ -1713,7 +1763,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             var NetsalesAmount = @group.Sum(x => x.NetSales);
                             if (taxPercentage > 0)
                             {
-                                NetsalesAmount = @group.Sum(x => x.NetSales) * (decimal)taxPercentage;
+                                NetsalesAmount = @group.Sum(x => x.NetSales)* Math.Abs( (1-(decimal)taxPercentage));
                             }
 
                             //101 SalesTax Account
@@ -1736,20 +1786,52 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                             foreach (var rr in list.Where(x => x.AccountTemp == @group.Key).GroupBy(w => w.GroupIserial))
                             {
-                                //var storeCostcenter = new TblGlRuleDetail();
-                                //storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
-                                //    company);
-
-                                var costcenter = new TblGlRuleDetail();
+                                 var costcenter = new TblGlRuleDetail();
 
                                 costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
-
-                                //CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)1.14,
-                                //    newledgerDetailrowtax, storeCostcenter);
-                                CreateTblLedgerDetailCostCenter(company, rr.Sum(e => e.NetSales) * (decimal)taxPercentage,
+                                
+                                CreateTblLedgerDetailCostCenter(company,   rr.Sum(e => e.NetSales) *Math.Abs(1 - (decimal)taxPercentage),
                                     newledgerDetailrowtax, costcenter);
                             }
                         }
+
+                        foreach (var group in list.GroupBy(x => x.CustIserial))
+                        {
+
+                            var groupAccount = 0;
+                            GetAccountByEntity(@group.Key, 1, company, 0, out groupAccount);
+                            var newledgerDetailrow = new TblLedgerMainDetail
+                            {
+                                Amount  = @group.Sum(x => x.NetSales)*(decimal)0.01,//* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01),
+
+                                Description = "Sales Man tax",
+                                ExchangeRate = 1,
+                                TblCurrency = currency,
+                                TransDate = fromDate,
+                                TblJournalAccountType = 1,
+                                EntityAccount = group.Key,
+                                GlAccount = groupAccount,
+                                TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                PaymentRef = "",
+                                DrOrCr = false
+                            };
+                            UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
+                                user);
+
+                            foreach (var rr in list.Where(x => x.CustIserial == @group.Key).GroupBy(w => w.GroupIserial))
+                            {
+                                var costcenter = new TblGlRuleDetail();
+                                costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
+
+                                if (group.Key != 0)
+                                {
+                                    CreateTblLedgerDetailCostCenter(company, rr.Sum(x => x.NetSales) * (decimal)0.01 //* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01)
+                                        , newledgerDetailrow,
+                                        costcenter);
+                                }
+                            }
+                        }
+
 
                         foreach (var group in list.GroupBy(x => x.CustIserial))
                         {
@@ -1796,16 +1878,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                             foreach (var rr in list.Where(x => x.AccountTemp == @group.Key).GroupBy(w => w.GroupIserial))
                             {
-                                //var storeCostcenter = new TblGlRuleDetail();
-                                //storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
-                                //    company);
-
                                 var costcenter = new TblGlRuleDetail();
 
                                 costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
 
-                                //CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)1.14,
-                                //    newledgerDetailrowtax, storeCostcenter);
                                 CreateTblLedgerDetailCostCenter(company, rr.Sum(e => e.NetSales) * (decimal)0.01,
                                     newledgerDetailrowtax, costcenter);
                             }
@@ -1827,9 +1903,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                         foreach (var group in list.GroupBy(x => x.CustIserial))
                         {
+                            //var amount = (@group.Sum(x => x.NetSales)* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01);
                             var newledgerDetailrow = new TblLedgerMainDetail
                             {
-                                Amount = (@group.Sum(x => x.NetSales) * (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01),
+                                Amount = @group.Sum(x => x.NetSales)  * (decimal)taxPercentage,//* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01),
 
                                 Description = "Sales Man",
                                 ExchangeRate = 1,
@@ -1847,42 +1924,20 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                             foreach (var rr in list.Where(x => x.CustIserial == @group.Key).GroupBy(w => w.GroupIserial))
                             {
-                                //var storeCostcenter = new TblGlRuleDetail();
-                                //storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
-                                //    company);
-
                                 var costcenter = new TblGlRuleDetail();
                                 costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
 
                                 if (group.Key != 0)
                                 {
-                                    //CreateTblLedgerDetailCostCenter(company, rr.NetSales, newledgerDetailrow,
-                                    //    storeCostcenter);
-                                    CreateTblLedgerDetailCostCenter(company, (@group.Sum(x => x.NetSales) * (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01), newledgerDetailrow,
+                                    CreateTblLedgerDetailCostCenter(company, (rr.Sum(x => x.NetSales)  * (decimal)taxPercentage) //* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01)
+                                        , newledgerDetailrow,
                                         costcenter);
                                 }
                             }
                         }
 
                         #endregion Payment
-
-                        //if (salestype == "1" || salestype == "2")
-                        //{
-                        //    #region CostOfGoodSold
-
-
-                        //    if (salestype == "1")
-                        //    {
-                        //        CostOfGoodSold(entity, currency, newLedgerHeaderRow, fromDate, company, user, list);
-                        //    }
-
-                        //    if (salestype == "2")
-                        //    {
-                        //        CostOfGoodSold(entity, currency, newLedgerHeaderRowCostOfGoodSold, fromDate, company, user, list);
-                        //    }
-
-                        //    #endregion CostOfGoodSold
-                        //}
+                        
 
                         CorrectLedgerHeaderRouding(newLedgerHeaderRow.Iserial, company, user);
                     }

@@ -333,7 +333,7 @@ namespace CCWFM.Web.Service.BankDepositOp
             {
                 CreatedBy = userIserial,
                 CreationDate = DateTime.Now,
-                Description = newRow.LedgerDescription ?? "",
+                Description = newRow.LedgerDescription   ?? "",
                 DocDate = newRow.DocDate,
                 TblJournal = journalint,
                 TblTransactionType = 9,
@@ -763,7 +763,7 @@ namespace CCWFM.Web.Service.BankDepositOp
             storeLedgerDetail = new TblLedgerMainDetail
             {
                 Amount = Amount,
-                Description = item.LedgerDescription ?? "",
+                Description = item.LedgerDescription ?? ""+ " - " + item.Notes??"",
                 ExchangeRate = 1,
                 TblCurrency = 1,
                 TransDate = DocDate,

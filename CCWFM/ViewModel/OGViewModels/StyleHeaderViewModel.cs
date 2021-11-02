@@ -8724,12 +8724,14 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public void GetStyleTNAdata()
         {
+            /*
             try
             {
                 SelectedMainRow.StyleTnaList.Clear();
                 Loading = true;
                 ProductionClient.GetTblStyleTNAHeaderAsync(SelectedMainRow.Iserial, SeasonPerRow.Iserial);
             } catch { }
+            */
         }
 
         public void GetStyleTNAdataWithoutSeason()
@@ -8855,6 +8857,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public void SaveStyleTNARow()
         {
+            /*
             var save = SelectedTnaRow.Iserial == 0;
             if (SelectedTnaRow != null)
             {
@@ -8970,10 +8973,12 @@ namespace CCWFM.ViewModel.OGViewModels
                     return;
                 }
             }
+            */
         }
 
         public void GetStyleTNALockup()
         {
+           /*
             ProductionClient.GetTblStyleLookupCompleted += (s, sv) =>
             {
                 //
@@ -9009,6 +9014,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
             };
             ProductionClient.GetTblStyleLookupAsync(SelectedMainRow.Iserial);
+            */
         }
 
         private ObservableCollection<ProductionService.TblStyleTNA> _StyleTNA;
@@ -10305,7 +10311,7 @@ namespace CCWFM.ViewModel.OGViewModels
             }
 
             newRow.TblSalesOrderColors = new ObservableCollection<TblSalesOrderColor>();
-            foreach (var sizeColorNewRow in SelectedPoToLink.TblSalesOrderColors)
+            foreach (var sizeColorNewRow in SelectedPoToLink.TblSalesOrderColors.Where(w => w.Canceled == false).ToList())
             {
                 var salesOrderColorNewRow = new TblSalesOrderColor();
                 var sizeRatioList =

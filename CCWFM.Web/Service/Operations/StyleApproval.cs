@@ -31,8 +31,21 @@ namespace CCWFM.Web.Service
                     context.TblApprovals.AddObject(newRow);
                 }
                 var salesorder = context.TblSalesOrders.Include("TblStyle1.TblLkpBrandSection1.TblBrandSectionPermissions.TblAuthPermission1").Include("BOMs").FirstOrDefault(x => x.Iserial == newRow.TblSalesOrder);
+
+                
+
                 if (newRow.ApprovedStatus == (int)Enums.ApprovalStatus.Approved)
                 {
+                    if (salesorder.SalesOrderType == (int)(Enums.SalesOrderType.SalesOrderPo)) {
+
+                        var StyleBrand = context.TblBrands.FirstOrDefault(wde => wde.Brand_Code == salesorder.TblStyle1.Brand);
+                        if (!StyleBrand.CanCreateManualProductionOrder)
+                        {
+                            ContractColorsCheck(context, salesorder);
+                        }
+                    }
+
+
 
                     switch (newRow.ApprovalType)
                     {
@@ -94,6 +107,60 @@ namespace CCWFM.Web.Service
                 newRow.TblSalesOrder1 = salesorder;
                 return newRow;
             }
+        }
+
+        private bool ContractColorsCheck(WorkFlowManagerDBEntities context, TblSalesOrder salesorder)
+        {
+            var salesOrderColorsList = context.TblSalesOrderColors.Where(w => w.TblSalesOrder == salesorder.Iserial).ToList();
+            var salesOrderColors = salesOrderColorsList.Select(w => w.TblColor);
+          //  var salesOrderColorIserials = salesOrderColorsList.Select(w => w.Iserial);
+
+            int salesOrderType = (int)Enums.SalesOrderType.RetailPo;
+            var approvedColors = context.TblSalesOrderColors.Include("TblSalesOrder1").Where(wde => wde.TblSalesOrder1.TblStyle == salesorder.TblStyle && wde.TblSalesOrder1.SalesOrderType == salesOrderType).Select(w => w.TblColor);
+            var ContractColors = context.TblContractDetails
+                .Include("TblContractSubHeader1").Where(wde => salesOrderColors.Contains(wde.TblSalesOrderColor1.TblColor)&&     wde.TblContractSubHeader1.Approved==true  &&wde.TblContractSubHeader1.TblContractSubHeaderStatus == 2 && wde.Status!=2).Select(w => w.TblColor);
+
+
+            string errormsg = "";
+            if (!salesOrderColors.All(s => approvedColors.Contains(s)))
+            {
+                foreach (var item in salesOrderColors)
+                {
+                    if (!approvedColors.Contains(item))
+                    {
+                        var color = context.TblColors.FirstOrDefault(wde => wde.Iserial == item);
+                        errormsg = errormsg + " " + color.Code;
+                    }
+                }
+
+                if (errormsg != "")
+                {
+                    errormsg = errormsg + " these colors doesn't have an approved contract";
+                    throw new Exception(errormsg);  
+                }
+            }
+
+            if (!salesOrderColors.All(s => ContractColors.Contains(s)))
+            {
+                foreach (var item in salesOrderColors)
+                {
+                    if (!ContractColors.Contains(item))
+                    {
+                        var color = context.TblColors.FirstOrDefault(wde => wde.Iserial == item);
+                        errormsg = errormsg + " " + color.Code;
+                    }
+                }
+
+                if (errormsg != "")
+                {
+                    errormsg = errormsg + " these colors doesn't have an approved contract";
+                    throw new Exception(errormsg);
+                }
+            }
+
+
+            return true;
+
         }
 
         [OperationContract]

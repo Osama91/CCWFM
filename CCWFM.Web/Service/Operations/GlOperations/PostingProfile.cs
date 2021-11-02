@@ -40,8 +40,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     filter = filter + " and it.TblPostingProfileHeader ==(@Group0)";
                     valuesObjects.Add("Group0", PostingProfileHeader);
                     var parameterCollection = ConvertToParamters(valuesObjects);
-                    fullCount = entity.TblPostingProfileDetails.Where(filter, parameterCollection).Count();
-                    query = entity.TblPostingProfileDetails.Include("TblAccount1").Include("TblJournalAccountType").OrderBy(sort).Where(filter, parameterCollection).Skip(skip).Take(take);
+                    fullCount = entity.TblPostingProfileDetails.Where(filter, parameterCollection.ToArray()).Count();
+                    query = entity.TblPostingProfileDetails.Include("TblAccount1").Include("TblJournalAccountType").OrderBy(sort).Where(filter, parameterCollection.ToArray()).Skip(skip).Take(take);
                 }
                 else
                 {

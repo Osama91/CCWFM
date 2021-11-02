@@ -58,8 +58,8 @@ namespace CCWFM.ViewModel.AttViewModel
                     RaisePropertyChanged("CSPMISSIONID");
                     if (LoggedUserInfo.Code == "0140" && !string.IsNullOrEmpty(_cspmissionidField))
                     {
-                        FromTime = 25200;
-                        ToTime = 54000;
+                        FromTime = 28800;
+                        ToTime = 57600;
                     }
                     if (LoggedUserInfo.Code == "1002" && !string.IsNullOrEmpty(_cspmissionidField))
                     {

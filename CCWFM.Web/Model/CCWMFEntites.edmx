@@ -1554,7 +1554,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="ApprovedBy" Type="int" />
           <Property Name="ApproveDate" Type="datetime" />
           <Property Name="LastChangeDate" Type="datetime" />
-          <Property Name="LastChangeUser" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LastChangeUser" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar" MaxLength="500" />
           <Property Name="IsOpeningBalance" Type="bit" Nullable="false" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
@@ -1855,6 +1855,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="EnableTheme" Type="bit" />
           <Property Name="ManualCode" Type="bit" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CanCreateManualProductionOrder" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblBrandBudgetDetail">
           <Key>
@@ -2075,6 +2076,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="ColorItemType" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
           <Property Name="PantonCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TblColorLink">
           <Key>
@@ -2141,6 +2144,9 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="UpdatedDeliveryDate" Type="datetime" />
           <Property Name="UpdatedQty" Type="int" />
           <Property Name="Status" Type="int" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="OldTotal" Type="money" Nullable="false" />
+          <Property Name="UpdateType" Type="int" />
         </EntityType>
         <EntityType Name="TblContractDetailDel">
           <Key>
@@ -2200,6 +2206,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="PenalClause" Type="money" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
           <Property Name="Status" Type="int" />
+          <Property Name="IsCanceled" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblContractHeaderDel">
           <Key>
@@ -2236,7 +2243,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TblContractHeader" Type="int" Nullable="false" />
           <Property Name="DueDate" Type="date" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="AmountPercent" Type="decimal" Precision="18" Scale="4" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="CreationDate" Type="datetime" />
@@ -2261,6 +2268,24 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="LastChangeDate" Type="datetime" />
           <Property Name="LastChangeUser" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblContractSubHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblContractHeader" Type="int" />
+          <Property Name="Version" Type="int" />
+          <Property Name="Approved" Type="bit" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastChangeDate" Type="datetime" />
+          <Property Name="LastChangeUser" Type="int" />
+          <Property Name="TBlWFCompany" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="TblContractSubHeaderStatus" Type="int" />
         </EntityType>
         <EntityType Name="TblCurrency">
           <Key>
@@ -2643,7 +2668,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Ename" Type="nvarchar" MaxLength="100" />
           <Property Name="Aname" Type="nvarchar" MaxLength="100" />
           <Property Name="IncludeSub" Type="bit" Nullable="false" />
-          <Property Name="StartIserial" Type="int" />
+          <Property Name="StartIserial" Type="int" Nullable="false" />
           <Property Name="HasTwin" Type="bit" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
         </EntityType>
@@ -2911,6 +2936,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Totqty" Type="decimal" Precision="18" Scale="4" />
           <Property Name="ItemAvgCost" Type="money" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="TblLkpBrandSection">
           <Key>
@@ -3080,6 +3107,42 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Aname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ename" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblMileStoneDetailsReq">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblMileStoneHdr" Type="int" />
+          <Property Name="TblWF_Fabric" Type="int" />
+          <Property Name="REQType" Type="int" />
+          <Property Name="RefStyle" Type="int" />
+          <Property Name="TblColor" Type="int" />
+          <Property Name="SupplierDeliveryDate" Type="date" />
+          <Property Name="ActualDeliveryDate" Type="date" />
+          <Property Name="ExpectedDeliveryDate" Type="date" />
+          <Property Name="Price" Type="float" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="ExchangeRate" Type="money" />
+          <Property Name="RequestedPrice" Type="float" />
+          <Property Name="TblMileStoneStatus" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="DepitOrCredit" Type="int" />
+        </EntityType>
+        <EntityType Name="TblMileStoneHdr">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="MileStoneDate" Type="date" />
+          <Property Name="TblUser" Type="int" />
+          <Property Name="TblSupplier" Type="int" />
+          <Property Name="TblStyleTNA" Type="int" />
+          <Property Name="FinancEffect" Type="bit" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="tblNewRFQDetail">
           <Key>
@@ -3986,6 +4049,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="ManualCalculationForProduction" Type="bit" Nullable="false" />
           <Property Name="RequestForCancel" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="RetailTargetPrice" Type="money" />
+          <Property Name="Canceled" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblSalesOrderColorTheme">
           <Key>
@@ -4273,6 +4338,11 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="SupplierColorCode" Type="nvarchar" MaxLength="50" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
           <Property Name="IsApproved" Type="bit" />
+          <Property Name="IsCanceled" Type="bit" />
+          <Property Name="CreationDate" Type="date" />
+          <Property Name="LastChangeDate" Type="date" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastChangeUser" Type="int" />
         </EntityType>
         <EntityType Name="TblSeasonalMasterListDetail">
           <Key>
@@ -4498,7 +4568,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="ActualCostPrice" Type="float" Nullable="false" />
           <Property Name="BarcodePrice" Type="float" Nullable="false" />
           <Property Name="tbl_lkp_FabricMaterials" Type="int" />
-          <Property Name="Fabric1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fabric1" Type="nvarchar" MaxLength="200" />
           <Property Name="Fabric2" Type="nvarchar" MaxLength="50" />
           <Property Name="Fabric3" Type="nvarchar" MaxLength="50" />
           <Property Name="FabricCost" Type="float" />
@@ -4519,6 +4589,9 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="ParentSerialNo" Type="int" />
           <Property Name="TblSupplier" Type="int" />
           <Property Name="CCTargetCostPrice" Type="float" />
+          <Property Name="TblStyleFitType" Type="int" />
+          <Property Name="TblWfFabricAttriputes" Type="int" />
+          <Property Name="SeasonalMasterListNotes" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="TblStyleAttachment">
           <Key>
@@ -4575,7 +4648,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="IsPostedOnAxapta" Type="bit" />
           <Property Name="Status" Type="int" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="RefStyleCode" Type="nvarchar" MaxLength="20" />
           <Property Name="TargetCostPrice" Type="float" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
@@ -4693,6 +4766,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="TblStyleTNAHeader" Type="int" />
           <Property Name="TblColor" Type="int" />
           <Property Name="Cost" Type="money" />
+          <Property Name="ExpectedQty" Type="int" />
           <Property Name="DeliveryDate" Type="date" />
           <Property Name="ExchangeRate" Type="money" />
           <Property Name="LocalCost" Type="money" />
@@ -4754,7 +4828,10 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="LocalCost" Type="money" />
           <Property Name="AdditionalCost" Type="money" />
           <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblSubContractor" Type="int" />
+          <Property Name="TblInternalShip" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="TblStyleTNARoute">
           <Key>
@@ -4895,6 +4972,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="SupplierColorCode" Type="nvarchar" MaxLength="50" />
           <Property Name="PantoneColorCode" Type="nvarchar" MaxLength="50" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="IsCanceled" Type="bit" />
         </EntityType>
         <EntityType Name="tblTechPackDetail">
           <Key>
@@ -4923,6 +5001,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="FIT" Type="nvarchar" MaxLength="100" />
           <Property Name="ORGFabric" Type="nvarchar" MaxLength="100" />
+          <Property Name="FinishUser" Type="int" />
+          <Property Name="FinishDate" Type="datetime" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblTechPackLog">
@@ -5301,6 +5381,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.Brand' does not have a prima
             <PropertyRef Name="RETAILSUPPLIERCODE" />
             <PropertyRef Name="RequireTNA" />
             <PropertyRef Name="CategoryRequired" />
+            <PropertyRef Name="TBlWFCompany" />
+            <PropertyRef Name="CanCreateManualProductionOrder" />
           </Key>
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Brand_Code" Type="nvarchar" MaxLength="4" Nullable="false" />
@@ -5313,6 +5395,8 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.Brand' does not have a prima
           <Property Name="CategoryRequired" Type="bit" Nullable="false" />
           <Property Name="EnableTheme" Type="bit" />
           <Property Name="ManualCode" Type="bit" />
+          <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CanCreateManualProductionOrder" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WorkFlowManagerDB.dbo.DefectsData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -8840,6 +8924,18 @@ warning 6035: The relationship 'FK_TblAccessoryDyeingMapping_TblAccessoryDyeingM
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TblContractDetail_TblContractSubHeader">
+          <End Role="TblContractSubHeader" Type="Self.TblContractSubHeader" Multiplicity="0..1" />
+          <End Role="TblContractDetail" Type="Self.TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractSubHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblContractSubHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblContractDetail_TblLkpBrandSection">
           <End Role="TblLkpBrandSection" Type="Self.TblLkpBrandSection" Multiplicity="0..1" />
           <End Role="TblContractDetail" Type="Self.TblContractDetail" Multiplicity="*" />
@@ -8982,6 +9078,32 @@ warning 6035: The relationship 'FK_TblAccessoryDyeingMapping_TblAccessoryDyeingM
               <PropertyRef Name="Iserial" />
             </Principal>
             <Dependent Role="TblContractPaymentByPeriod">
+              <PropertyRef Name="TblContractHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractPaymentByPeriod_TblContractSubHeader">
+          <End Role="TblContractSubHeader" Type="Self.TblContractSubHeader" Multiplicity="0..1" />
+          <End Role="TblContractPaymentByPeriod" Type="Self.TblContractPaymentByPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractSubHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractPaymentByPeriod">
+              <PropertyRef Name="TblContractSubHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractSubHeader_tblContractHeader">
+          <End Role="TblContractHeader" Type="Self.TblContractHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblContractSubHeader" Type="Self.TblContractSubHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractSubHeader">
               <PropertyRef Name="TblContractHeader" />
             </Dependent>
           </ReferentialConstraint>
@@ -9801,6 +9923,20 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
             </Principal>
             <Dependent Role="TblMasterStyleList">
               <PropertyRef Name="TblFactoryGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMileStoneDetailsReq_TblMileStoneHdr">
+          <End Role="TblMileStoneHdr" Type="Self.TblMileStoneHdr" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblMileStoneDetailsReq" Type="Self.TblMileStoneDetailsReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMileStoneHdr">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMileStoneDetailsReq">
+              <PropertyRef Name="TblMileStoneHdr" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -12720,6 +12856,7 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <EntitySet Name="TblContractHeaderDel" EntityType="Self.TblContractHeaderDel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblContractPaymentByPeriod" EntityType="Self.TblContractPaymentByPeriod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblContractPaymentByPeriodDel" EntityType="Self.TblContractPaymentByPeriodDel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblContractSubHeader" EntityType="Self.TblContractSubHeader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCurrency" EntityType="Self.TblCurrency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDyeingOrderInvoiceDetail" EntityType="Self.TblDyeingOrderInvoiceDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDyeingOrderInvoiceHeader" EntityType="Self.TblDyeingOrderInvoiceHeader" Schema="dbo" store:Type="Tables" />
@@ -12782,6 +12919,8 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <EntitySet Name="TblMarkupTransProd" EntityType="Self.TblMarkupTransProd" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMasterStyleList" EntityType="Self.TblMasterStyleList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMemory" EntityType="Self.TblMemory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMileStoneDetailsReq" EntityType="Self.TblMileStoneDetailsReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMileStoneHdr" EntityType="Self.TblMileStoneHdr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblNewRFQDetail" EntityType="Self.tblNewRFQDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblNewRFQMainHeader" EntityType="Self.tblNewRFQMainHeader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblNewRFQPurchaseOrderHeader" EntityType="Self.tblNewRFQPurchaseOrderHeader" Schema="dbo" store:Type="Tables" />
@@ -13026,7 +13165,9 @@ FROM [dbo].[BarCodeQtyCalc] AS [BarCodeQtyCalc]</DefiningQuery>
 [Brand].[RequireTNA] AS [RequireTNA], 
 [Brand].[CategoryRequired] AS [CategoryRequired], 
 [Brand].[EnableTheme] AS [EnableTheme], 
-[Brand].[ManualCode] AS [ManualCode]
+[Brand].[ManualCode] AS [ManualCode], 
+[Brand].[TBlWFCompany] AS [TBlWFCompany], 
+[Brand].[CanCreateManualProductionOrder] AS [CanCreateManualProductionOrder]
 FROM [dbo].[Brand] AS [Brand]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="DefectsData" EntityType="Self.DefectsData" store:Type="Views" store:Schema="dbo">
@@ -14663,6 +14804,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblContractHeader" EntitySet="TblContractHeader" />
             <End Role="TblContractDetail" EntitySet="TblContractDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_TblContractDetail_TblContractSubHeader" Association="Self.FK_TblContractDetail_TblContractSubHeader">
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeader" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblContractDetail_TblLkpBrandSection" Association="Self.FK_TblContractDetail_TblLkpBrandSection">
             <End Role="TblLkpBrandSection" EntitySet="TblLkpBrandSection" />
             <End Role="TblContractDetail" EntitySet="TblContractDetail" />
@@ -14710,6 +14855,14 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_TblContractPaymentByPeriod_TblContractHeader" Association="Self.FK_TblContractPaymentByPeriod_TblContractHeader">
             <End Role="TblContractHeader" EntitySet="TblContractHeader" />
             <End Role="TblContractPaymentByPeriod" EntitySet="TblContractPaymentByPeriod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractPaymentByPeriod_TblContractSubHeader" Association="Self.FK_TblContractPaymentByPeriod_TblContractSubHeader">
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeader" />
+            <End Role="TblContractPaymentByPeriod" EntitySet="TblContractPaymentByPeriod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractSubHeader_tblContractHeader" Association="Self.FK_TblContractSubHeader_tblContractHeader">
+            <End Role="TblContractHeader" EntitySet="TblContractHeader" />
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeader" />
           </AssociationSet>
           <AssociationSet Name="FK_TblDyeingOrderInvoiceDetail_TblColor" Association="Self.FK_TblDyeingOrderInvoiceDetail_TblColor">
             <End Role="TblColor" EntitySet="TblColor" />
@@ -14958,6 +15111,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_TblMasterStyleList_TblFactoryGroup" Association="Self.FK_TblMasterStyleList_TblFactoryGroup">
             <End Role="TblFactoryGroup" EntitySet="TblFactoryGroup" />
             <End Role="TblMasterStyleList" EntitySet="TblMasterStyleList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMileStoneDetailsReq_TblMileStoneHdr" Association="Self.FK_TblMileStoneDetailsReq_TblMileStoneHdr">
+            <End Role="TblMileStoneHdr" EntitySet="TblMileStoneHdr" />
+            <End Role="TblMileStoneDetailsReq" EntitySet="TblMileStoneDetailsReq" />
           </AssociationSet>
           <AssociationSet Name="FK_tblNewRFQDetail_tblNewRFQMainHeader" Association="Self.FK_tblNewRFQDetail_tblNewRFQMainHeader">
             <End Role="tblNewRFQMainHeader" EntitySet="tblNewRFQMainHeader" />
@@ -17476,37 +17633,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblTradeAgreementTransactions" Role="TblTradeAgreementTransaction" />
           </AssociationSet>
           <EntitySet Name="TblBrandContractReports" EntityType="WorkFlowManagerDBModel.TblBrandContractReport" />
-          <EntitySet Name="TblAdjustmentDetails" EntityType="WorkFlowManagerDBModel.TblAdjustmentDetail" />
-          <EntitySet Name="TblAdjustmentHeaders" EntityType="WorkFlowManagerDBModel.TblAdjustmentHeader" />
-          <EntitySet Name="TblAdjustmentTempDetails" EntityType="WorkFlowManagerDBModel.TblAdjustmentTempDetail" />
-          <AssociationSet Name="FK_TblAdjustmentDetail_TblAdjustmentHeader" Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader">
-            <End EntitySet="TblAdjustmentHeaders" Role="TblAdjustmentHeader" />
-            <End EntitySet="TblAdjustmentDetails" Role="TblAdjustmentDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentDetail_TblItemDim" Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim">
-            <End EntitySet="TblItemDims" Role="TblItemDim" />
-            <End EntitySet="TblAdjustmentDetails" Role="TblAdjustmentDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentHeader_TblAuthUser" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser">
-            <End EntitySet="TblAuthUsers" Role="TblAuthUser" />
-            <End EntitySet="TblAdjustmentHeaders" Role="TblAdjustmentHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentHeader_TblAuthUser1" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1">
-            <End EntitySet="TblAuthUsers" Role="TblAuthUser" />
-            <End EntitySet="TblAdjustmentHeaders" Role="TblAdjustmentHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentHeader_TblWarehouse" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse">
-            <End EntitySet="TblWarehouses" Role="TblWarehouse" />
-            <End EntitySet="TblAdjustmentHeaders" Role="TblAdjustmentHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentTempDetail_TblAdjustmentHeader" Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader">
-            <End EntitySet="TblAdjustmentHeaders" Role="TblAdjustmentHeader" />
-            <End EntitySet="TblAdjustmentTempDetails" Role="TblAdjustmentTempDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblAdjustmentTempDetail_TblItemDim" Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim">
-            <End EntitySet="TblItemDims" Role="TblItemDim" />
-            <End EntitySet="TblAdjustmentTempDetails" Role="TblAdjustmentTempDetail" />
-          </AssociationSet>
           <EntitySet Name="TblContractDetailDels" EntityType="WorkFlowManagerDBModel.TblContractDetailDel" />
           <AssociationSet Name="FK_TblContractDetailDel_TblColor" Association="WorkFlowManagerDBModel.FK_TblContractDetailDel_TblColor">
             <End EntitySet="TblColors" Role="TblColor" />
@@ -17640,7 +17766,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblStyles" Role="TblStyle" />
             <End EntitySet="TblStyleImages" Role="TblStyleImage" />
           </AssociationSet>
-          <EntitySet Name="Brands" EntityType="WorkFlowManagerDBModel.Brand" />
           <EntitySet Name="TblStyleTNAStatusDetails" EntityType="WorkFlowManagerDBModel.TblStyleTNAStatusDetail" />
           <AssociationSet Name="FK_TblStyleTna_TblAuthUser" Association="WorkFlowManagerDBModel.FK_TblStyleTna_TblAuthUser">
             <End EntitySet="TblAuthUsers" Role="TblAuthUser" />
@@ -17747,23 +17872,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblStyleTNAColorDetails" Role="TblStyleTNAColorDetail" />
           </AssociationSet>
           <EntitySet Name="TblAttachments" EntityType="WorkFlowManagerDBModel.TblAttachment" />
-          <EntitySet Name="TblContractDetails" EntityType="WorkFlowManagerDBModel.TblContractDetail" />
           <EntitySet Name="TblContractHeaders" EntityType="WorkFlowManagerDBModel.TblContractHeader" />
           <EntitySet Name="TblContractHeaderDels" EntityType="WorkFlowManagerDBModel.TblContractHeaderDel" />
           <EntitySet Name="TblContractPaymentByPeriods" EntityType="WorkFlowManagerDBModel.TblContractPaymentByPeriod" />
           <EntitySet Name="TblContractPaymentByPeriodDels" EntityType="WorkFlowManagerDBModel.TblContractPaymentByPeriodDel" />
-          <AssociationSet Name="FK_TblContractDetail_TblColor" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor">
-            <End EntitySet="TblColors" Role="TblColor" />
-            <End EntitySet="TblContractDetails" Role="TblContractDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblContractDetail_tblContractHeader" Association="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader">
-            <End EntitySet="TblContractHeaders" Role="TblContractHeader" />
-            <End EntitySet="TblContractDetails" Role="TblContractDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblContractDetail_TblLkpBrandSection" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection">
-            <End EntitySet="TblLkpBrandSections" Role="TblLkpBrandSection" />
-            <End EntitySet="TblContractDetails" Role="TblContractDetail" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblContractHeader_TblLkpBrandSection" Association="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpBrandSection">
             <End EntitySet="TblLkpBrandSections" Role="TblLkpBrandSection" />
             <End EntitySet="TblContractHeaders" Role="TblContractHeader" />
@@ -18058,10 +18170,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblColor" EntitySet="TblColors" />
             <End Role="TblSalesOrderColor" EntitySet="TblSalesOrderColors" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblContractDetail_TblSalesOrder" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder">
-            <End Role="TblSalesOrderColor" EntitySet="TblSalesOrderColors" />
-            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblSalesOrderColor_TblSalesOrder" Association="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrder">
             <End Role="TblSalesOrder" EntitySet="TblSalesOrders" />
             <End Role="TblSalesOrderColor" EntitySet="TblSalesOrderColors" />
@@ -18124,6 +18232,74 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_tblSeasonalMasterListDetail_tblSeasonalMasterListDetail" Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterListDetail_tblSeasonalMasterListDetail">
             <End Role="TblSeasonalMasterList" EntitySet="TblSeasonalMasterLists" />
             <End Role="TblSeasonalMasterListDetail" EntitySet="TblSeasonalMasterListDetails" />
+          </AssociationSet>
+          <EntitySet Name="Brands" EntityType="WorkFlowManagerDBModel.Brand" />
+          <EntitySet Name="TblContractDetails" EntityType="WorkFlowManagerDBModel.TblContractDetail" />
+          <AssociationSet Name="FK_TblContractDetail_TblColor" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor">
+            <End Role="TblColor" EntitySet="TblColors" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractDetail_tblContractHeader" Association="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader">
+            <End Role="TblContractHeader" EntitySet="TblContractHeaders" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractDetail_TblLkpBrandSection" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection">
+            <End Role="TblLkpBrandSection" EntitySet="TblLkpBrandSections" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractDetail_TblSalesOrder" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder">
+            <End Role="TblSalesOrderColor" EntitySet="TblSalesOrderColors" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
+          </AssociationSet>
+          <EntitySet Name="TblContractSubHeaders" EntityType="WorkFlowManagerDBModel.TblContractSubHeader" />
+          <AssociationSet Name="FK_TblContractDetail_TblContractSubHeader" Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblContractSubHeader">
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeaders" />
+            <End Role="TblContractDetail" EntitySet="TblContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractSubHeader_tblContractHeader" Association="WorkFlowManagerDBModel.FK_TblContractSubHeader_tblContractHeader">
+            <End Role="TblContractHeader" EntitySet="TblContractHeaders" />
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblContractPaymentByPeriod_TblContractSubHeader" Association="WorkFlowManagerDBModel.FK_TblContractPaymentByPeriod_TblContractSubHeader">
+            <End Role="TblContractSubHeader" EntitySet="TblContractSubHeaders" />
+            <End Role="TblContractPaymentByPeriod" EntitySet="TblContractPaymentByPeriods" />
+          </AssociationSet>
+          <EntitySet Name="TblMileStoneDetailsReqs" EntityType="WorkFlowManagerDBModel.TblMileStoneDetailsReq" />
+          <EntitySet Name="TblMileStoneHdrs" EntityType="WorkFlowManagerDBModel.TblMileStoneHdr" />
+          <AssociationSet Name="FK_TblMileStoneDetailsReq_TblMileStoneHdr" Association="WorkFlowManagerDBModel.FK_TblMileStoneDetailsReq_TblMileStoneHdr">
+            <End Role="TblMileStoneHdr" EntitySet="TblMileStoneHdrs" />
+            <End Role="TblMileStoneDetailsReq" EntitySet="TblMileStoneDetailsReqs" />
+          </AssociationSet>
+          <EntitySet Name="TblAdjustmentDetails" EntityType="WorkFlowManagerDBModel.TblAdjustmentDetail" />
+          <EntitySet Name="TblAdjustmentHeaders" EntityType="WorkFlowManagerDBModel.TblAdjustmentHeader" />
+          <EntitySet Name="TblAdjustmentTempDetails" EntityType="WorkFlowManagerDBModel.TblAdjustmentTempDetail" />
+          <AssociationSet Name="FK_TblAdjustmentDetail_TblAdjustmentHeader" Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader">
+            <End Role="TblAdjustmentHeader" EntitySet="TblAdjustmentHeaders" />
+            <End Role="TblAdjustmentDetail" EntitySet="TblAdjustmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentDetail_TblItemDim" Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim">
+            <End Role="TblItemDim" EntitySet="TblItemDims" />
+            <End Role="TblAdjustmentDetail" EntitySet="TblAdjustmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentHeader_TblAuthUser" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser">
+            <End Role="TblAuthUser" EntitySet="TblAuthUsers" />
+            <End Role="TblAdjustmentHeader" EntitySet="TblAdjustmentHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentHeader_TblAuthUser1" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1">
+            <End Role="TblAuthUser" EntitySet="TblAuthUsers" />
+            <End Role="TblAdjustmentHeader" EntitySet="TblAdjustmentHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentHeader_TblWarehouse" Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse">
+            <End Role="TblWarehouse" EntitySet="TblWarehouses" />
+            <End Role="TblAdjustmentHeader" EntitySet="TblAdjustmentHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentTempDetail_TblAdjustmentHeader" Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader">
+            <End Role="TblAdjustmentHeader" EntitySet="TblAdjustmentHeaders" />
+            <End Role="TblAdjustmentTempDetail" EntitySet="TblAdjustmentTempDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdjustmentTempDetail_TblItemDim" Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim">
+            <End Role="TblItemDim" EntitySet="TblItemDims" />
+            <End Role="TblAdjustmentTempDetail" EntitySet="TblAdjustmentTempDetails" />
           </AssociationSet>
       
           </EntityContainer>
@@ -19681,8 +19857,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblTransferHeaders2" Relationship="WorkFlowManagerDBModel.FK_TblTransferHeader_TblAuthUser_LastChange" FromRole="TblAuthUser" ToRole="TblTransferHeader" />
           <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
           <NavigationProperty Name="RouteCardHeaders1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
-          <NavigationProperty Name="TblAdjustmentHeaders" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
-          <NavigationProperty Name="TblAdjustmentHeaders1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
           <NavigationProperty Name="TblStyleTNAStatusDetails" Relationship="WorkFlowManagerDBModel.FK_TblStyleTna_TblAuthUser" FromRole="TblAuthUser" ToRole="TblStyleTNAStatusDetail" />
           <NavigationProperty Name="TblUsersApprovalStatus" Relationship="WorkFlowManagerDBModel.FK_TblUsersApprovalStatus_TblAuthUser" FromRole="TblAuthUser" ToRole="TblUsersApprovalStatu" />
           <NavigationProperty Name="TblUsersStyleTNAStatus" Relationship="WorkFlowManagerDBModel.FK_TblUsersStyleTnaStatus_TblAuthUser" FromRole="TblAuthUser" ToRole="TblUsersStyleTNAStatu" />
@@ -19690,6 +19864,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="SID" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <Property Name="QCPosition" Type="Int32" />
+          <NavigationProperty Name="TblAdjustmentHeaders" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
+          <NavigationProperty Name="TblAdjustmentHeaders1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
           </EntityType>
         <EntityType Name="TblAuthUserGroup">
           <Key>
@@ -20228,7 +20404,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblSubFamilies" Relationship="WorkFlowManagerDBModel.FK_TblSubFamily_TblFamily" FromRole="TblFamily" ToRole="TblSubFamily" />
           <NavigationProperty Name="TblStyles" Relationship="WorkFlowManagerDBModel.FK_TblStyle_TblFamily" FromRole="TblFamily" ToRole="TblStyle" />
           <NavigationProperty Name="TblFamilyCategoryLinks" Relationship="WorkFlowManagerDBModel.FK_TblFamilyCategoryLink_TblFamily" FromRole="TblFamily" ToRole="TblFamilyCategoryLink" />
-          <Property Name="StartIserial" Type="Int32" />
+          <Property Name="StartIserial" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblBrandBudgetDetails" Relationship="WorkFlowManagerDBModel.FK_TblBrandBudgetDetail_TblFamily" FromRole="TblFamily" ToRole="TblBrandBudgetDetail" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <Property Name="HasTwin" Type="Boolean" />
@@ -20331,10 +20507,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblPurchaseBudgetDetails" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseBudgetDetail_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblPurchaseBudgetDetail" />
           <NavigationProperty Name="TblLkpBrandSectionLinks" Relationship="WorkFlowManagerDBModel.FK_TblLkpBrandSectionLink_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblLkpBrandSectionLink" />
           <NavigationProperty Name="TblStyles" Relationship="WorkFlowManagerDBModel.FK_TblStyle_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblStyle" />
-          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblContractDetail" />
           <NavigationProperty Name="TblContractHeaders" Relationship="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblContractHeader" />
           <NavigationProperty Name="TblContractHeaderDels" Relationship="WorkFlowManagerDBModel.FK_tblContractHeaderDel_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblContractHeaderDel" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" FromRole="TblLkpBrandSection" ToRole="TblContractDetail" />
         </EntityType>
         <EntityType Name="TblLkpColorGroup">
           <Key>
@@ -21093,7 +21269,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="LastUpdatedBy" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="IsPostedOnAxapta" Type="Boolean" />
           <Property Name="Status" Nullable="false" Type="Int32" />
-          <Property Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="RefStyleCode" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="TargetCostPrice" Nullable="false" Type="Double" />
           <Property Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
@@ -24722,8 +24898,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ProductionIssue" Type="Int32" />
           <Property Name="ProductionReceive" Type="Int32" />
           <NavigationProperty Name="TblPurchaseOrderHeaderRequests" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderHeaderRequest_TblWarehouse" FromRole="TblWarehouse" ToRole="TblPurchaseOrderHeaderRequest" />
-          <NavigationProperty Name="TblAdjustmentHeaders" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" FromRole="TblWarehouse" ToRole="TblAdjustmentHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAdjustmentHeaders" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" FromRole="TblWarehouse" ToRole="TblAdjustmentHeader" />
         </EntityType>
         <Association Name="FK_TblWarehouse_TblSite">
           <End Type="WorkFlowManagerDBModel.TblSite" Multiplicity="0..1" Role="TblSite" />
@@ -25051,7 +25227,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblBOMStyleColorEstimateds2" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColorEstimated" FromRole="TblColor" ToRole="TblBOMStyleColorEstimated" />
           <NavigationProperty Name="TblContractDetailDels" Relationship="WorkFlowManagerDBModel.FK_TblContractDetailDel_TblColor" FromRole="TblColor" ToRole="TblContractDetailDel" />
           <NavigationProperty Name="TblStyleTNAColorDetails" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblColor" FromRole="TblColor" ToRole="TblStyleTNAColorDetail" />
-          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" FromRole="TblColor" ToRole="TblContractDetail" />
           <NavigationProperty Name="TblPurchaseOrderDetailRequests" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailRequest_TblColor" FromRole="TblColor" ToRole="TblPurchaseOrderDetailRequest" />
           <NavigationProperty Name="TblTradeAgreementDetails" Relationship="WorkFlowManagerDBModel.FK_TblTradeAgreementDetail_TblColor" FromRole="TblColor" ToRole="TblTradeAgreementDetail" />
           <NavigationProperty Name="TblRecInvDetailProds" Relationship="WorkFlowManagerDBModel.FK_TblRecInvDetailProd_TblColor" FromRole="TblColor" ToRole="TblRecInvDetailProd" />
@@ -25064,6 +25239,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <Property Name="PantonCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblSeasonalMasterLists" Relationship="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblColor" FromRole="TblColor" ToRole="TblSeasonalMasterList" />
+          <Property Name="ImagePath" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" FromRole="TblColor" ToRole="TblContractDetail" />
         </EntityType>
         <Association Name="FK_RouteCardInvoiceDetail_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
@@ -25402,9 +25580,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblProductionOrderHeaders" Relationship="WorkFlowManagerDBModel.FK_TblProductionOrderHeader_TblItemDim" FromRole="TblItemDim" ToRole="TblProductionOrderHeader" />
           <Property Name="Totqty" Precision="18" Scale="4" Type="Decimal" />
           <Property Name="ItemAvgCost" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TblAdjustmentDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim" FromRole="TblItemDim" ToRole="TblAdjustmentDetail" />
           <NavigationProperty Name="TblAdjustmentTempDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" FromRole="TblItemDim" ToRole="TblAdjustmentTempDetail" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_TblItemDim_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
@@ -28162,149 +28342,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ReportName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblAdjustmentDetail">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="AdjustmentHeaderIserial" Nullable="false" Type="Int32" />
-          <Property Name="ItemDimIserial" Nullable="false" Type="Int32" />
-          <Property Name="AvailableQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="CountedQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="DifferenceQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="Cost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <NavigationProperty Name="TblAdjustmentHeader" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" FromRole="TblAdjustmentDetail" ToRole="TblAdjustmentHeader" />
-          <NavigationProperty Name="TblItemDim" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim" FromRole="TblAdjustmentDetail" ToRole="TblItemDim" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblAdjustmentHeader">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" Type="Int32" />
-          <Property Name="WarehouseIserial" Nullable="false" Type="Int32" />
-          <Property Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="CountReference" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="DocDate" Nullable="false" Precision="3" Type="DateTime" />
-          <Property Name="CreatedBy" Nullable="false" Type="Int32" />
-          <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
-          <Property Name="Approved" Nullable="false" Type="Boolean" />
-          <Property Name="ApprovedBy" Type="Int32" />
-          <Property Name="ApproveDate" Precision="3" Type="DateTime" />
-          <Property Name="LastChangeDate" Precision="3" Type="DateTime" />
-          <Property Name="LastChangeUser" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Notes" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="IsOpeningBalance" Nullable="false" Type="Boolean" />
-          <NavigationProperty Name="TblAdjustmentDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" FromRole="TblAdjustmentHeader" ToRole="TblAdjustmentDetail" />
-          <NavigationProperty Name="TblAuthUser" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" FromRole="TblAdjustmentHeader" ToRole="TblAuthUser" />
-          <NavigationProperty Name="TblAuthUser1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAdjustmentHeader" ToRole="TblAuthUser" />
-          <NavigationProperty Name="TblWarehouse" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" FromRole="TblAdjustmentHeader" ToRole="TblWarehouse" />
-          <NavigationProperty Name="TblAdjustmentTempDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" FromRole="TblAdjustmentHeader" ToRole="TblAdjustmentTempDetail" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblAdjustmentTempDetail">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="AdjustmentHeaderIserial" Nullable="false" Type="Int32" />
-          <Property Name="ItemDimIserial" Nullable="false" Type="Int32" />
-          <Property Name="AvailableQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="CountedQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="DifferenceQuantity" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
-          <Property Name="Cost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <NavigationProperty Name="TblAdjustmentHeader" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" FromRole="TblAdjustmentTempDetail" ToRole="TblAdjustmentHeader" />
-          <NavigationProperty Name="TblItemDim" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" FromRole="TblAdjustmentTempDetail" ToRole="TblItemDim" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_TblAdjustmentDetail_TblAdjustmentHeader">
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Multiplicity="1" Role="TblAdjustmentHeader">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentDetail" Multiplicity="*" Role="TblAdjustmentDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblAdjustmentHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentDetail">
-              <PropertyRef Name="AdjustmentHeaderIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentDetail_TblItemDim">
-          <End Type="WorkFlowManagerDBModel.TblItemDim" Multiplicity="1" Role="TblItemDim" />
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentDetail" Multiplicity="*" Role="TblAdjustmentDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblItemDim">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentDetail">
-              <PropertyRef Name="ItemDimIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentHeader_TblAuthUser">
-          <End Type="WorkFlowManagerDBModel.TblAuthUser" Multiplicity="1" Role="TblAuthUser" />
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Multiplicity="*" Role="TblAdjustmentHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblAuthUser">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentHeader">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentHeader_TblAuthUser1">
-          <End Type="WorkFlowManagerDBModel.TblAuthUser" Multiplicity="1" Role="TblAuthUser" />
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Multiplicity="*" Role="TblAdjustmentHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblAuthUser">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentHeader">
-              <PropertyRef Name="LastChangeUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentHeader_TblWarehouse">
-          <End Type="WorkFlowManagerDBModel.TblWarehouse" Multiplicity="1" Role="TblWarehouse" />
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Multiplicity="*" Role="TblAdjustmentHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblWarehouse">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentHeader">
-              <PropertyRef Name="WarehouseIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentTempDetail_TblAdjustmentHeader">
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Multiplicity="1" Role="TblAdjustmentHeader">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentTempDetail" Multiplicity="*" Role="TblAdjustmentTempDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblAdjustmentHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentTempDetail">
-              <PropertyRef Name="AdjustmentHeaderIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblAdjustmentTempDetail_TblItemDim">
-          <End Type="WorkFlowManagerDBModel.TblItemDim" Multiplicity="1" Role="TblItemDim" />
-          <End Type="WorkFlowManagerDBModel.TblAdjustmentTempDetail" Multiplicity="*" Role="TblAdjustmentTempDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblItemDim">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblAdjustmentTempDetail">
-              <PropertyRef Name="ItemDimIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TblContractDetailDel">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -28496,7 +28533,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ActualCostPrice" Nullable="false" Type="Double" />
           <Property Name="BarcodePrice" Nullable="false" Type="Double" />
           <Property Name="tbl_lkp_FabricMaterials" Type="Int32" />
-          <Property Name="Fabric1" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Fabric1" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Fabric2" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Fabric3" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="FabricCost" Type="Double" />
@@ -28533,6 +28570,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="CCTargetCostPrice" Type="Double" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblSeasonalMasterLists" Relationship="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblStyle" FromRole="TblStyle" ToRole="TblSeasonalMasterList" />
+          <Property Name="TblStyleFitType" Type="Int32" />
+          <Property Name="TblWfFabricAttriputes" Type="Int32" />
+          <Property Name="SeasonalMasterListNotes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_BOM_TblSalesOrder">
           <End Type="WorkFlowManagerDBModel.TblSalesOrder" Multiplicity="1" Role="TblSalesOrder">
@@ -28912,30 +28952,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Brand">
-          <Key>
-            <PropertyRef Name="Iserial" />
-            <PropertyRef Name="Brand_Code" />
-            <PropertyRef Name="Brand_Ename" />
-            <PropertyRef Name="ProfitMargin" />
-            <PropertyRef Name="IsRetailBrand" />
-            <PropertyRef Name="CustomerCode" />
-            <PropertyRef Name="RETAILSUPPLIERCODE" />
-            <PropertyRef Name="RequireTNA" />
-            <PropertyRef Name="CategoryRequired" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Brand_Code" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Brand_Ename" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ProfitMargin" Nullable="false" Precision="28" Scale="12" Type="Decimal" />
-          <Property Name="IsRetailBrand" Nullable="false" Type="Int32" />
-          <Property Name="CustomerCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="RETAILSUPPLIERCODE" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="RequireTNA" Nullable="false" Type="Boolean" />
-          <Property Name="CategoryRequired" Nullable="false" Type="Boolean" />
-          <Property Name="EnableTheme" Type="Boolean" />
-          <Property Name="ManualCode" Type="Boolean" />
-        </EntityType>
         <EntityType Name="TblStyleTNAStatusDetail">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -29049,6 +29065,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="EnableTheme" Type="Boolean" />
           <Property Name="ManualCode" Type="Boolean" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CanCreateManualProductionOrder" Type="Boolean" Nullable="false" />
         </EntityType>
         <ComplexType Name="GetWarehouseQuantitiesByTransaction_Result">
           <Property Type="String" Name="Warehouse" Nullable="true" MaxLength="50" />
@@ -29119,6 +29136,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblStyleTNAColorDetails" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblStyleTNAHeader" FromRole="TblStyleTNAHeader" ToRole="TblStyleTNAColorDetail" />
           <NavigationProperty Name="TblStyleTNAStatu" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNAHeader_TblStyleTNAStatus" FromRole="TblStyleTNAHeader" ToRole="TblStyleTNAStatu" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="TblSubContractor" Type="Int32" />
+          <Property Name="TblInternalShip" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_TblStyleTNAHeader_TblLkpSeason">
           <End Type="WorkFlowManagerDBModel.TblLkpSeason" Multiplicity="0..1" Role="TblLkpSeason">
@@ -29219,6 +29239,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblColor" FromRole="TblStyleTNAColorDetail" ToRole="TblColor" />
           <NavigationProperty Name="TblStyleTNAHeader1" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblStyleTNAHeader" FromRole="TblStyleTNAColorDetail" ToRole="TblStyleTNAHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="ExpectedQty" Type="Int32" />
         </EntityType>
         <Association Name="FK_TblStyleTNAColorDetail_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="0..1" Role="TblColor" />
@@ -29261,37 +29282,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="LastUpdatedDate" Nullable="false" Precision="0" Type="DateTime" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblContractDetail">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="TblContractHeader" Nullable="false" Type="Int32" />
-          <Property Name="TblLkpBrandSection" Type="Int32" />
-          <Property Name="TblSalesOrderColor" Nullable="false" Type="Int32" />
-          <Property Name="TblColor" Nullable="false" Type="Int32" />
-          <Property Name="Qty" Nullable="false" Type="Int32" />
-          <Property Name="ForeignCost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="Cost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="DeliveryDate" Nullable="false" Precision="3" Type="DateTime" />
-          <Property Name="FabricCost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="AccCost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="OperationCost" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="Material" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="CreationDate" Precision="3" Type="DateTime" />
-          <Property Name="LastChangeUser" Type="Int32" />
-          <Property Name="LastChangeDate" Precision="3" Type="DateTime" />
-          <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" FromRole="TblContractDetail" ToRole="TblColor" />
-          <NavigationProperty Name="TblContractHeader1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" FromRole="TblContractDetail" ToRole="TblContractHeader" />
-          <NavigationProperty Name="TblLkpBrandSection1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" FromRole="TblContractDetail" ToRole="TblLkpBrandSection" />
-          <NavigationProperty Name="TblSalesOrderColor1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" FromRole="TblContractDetail" ToRole="TblSalesOrderColor" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-          <Property Name="TblContractSubHeader" Type="Int32" />
-          <Property Name="UpdatedDeliveryDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedQty" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
-        </EntityType>
         <EntityType Name="TblContractHeader">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -29326,7 +29316,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Location" MaxLength="250" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ReSupplyPeriodDays" Type="Int32" />
           <Property Name="PenalClause" Precision="19" Scale="4" Type="Decimal" />
-          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" FromRole="TblContractHeader" ToRole="TblContractDetail" />
           <NavigationProperty Name="TblLkpBrandSection1" Relationship="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpBrandSection" FromRole="TblContractHeader" ToRole="TblLkpBrandSection" />
           <NavigationProperty Name="TblLkpSeason1" Relationship="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpSeason" FromRole="TblContractHeader" ToRole="TblLkpSeason" />
           <NavigationProperty Name="TblRetailOrderProductionType1" Relationship="WorkFlowManagerDBModel.FK_TblContractHeader_TblRetailOrderProductionType" FromRole="TblContractHeader" ToRole="TblRetailOrderProductionType" />
@@ -29334,6 +29323,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblContractPaymentByPeriods" Relationship="WorkFlowManagerDBModel.FK_TblContractPaymentByPeriod_TblContractHeader" FromRole="TblContractHeader" ToRole="TblContractPaymentByPeriod" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" />
+          <Property Name="IsCanceled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" FromRole="TblContractHeader" ToRole="TblContractDetail" />
+          <NavigationProperty Name="TblContractSubHeaders" Relationship="WorkFlowManagerDBModel.FK_TblContractSubHeader_tblContractHeader" FromRole="TblContractHeader" ToRole="TblContractSubHeader" />
         </EntityType>
         <EntityType Name="TblContractHeaderDel">
           <Key>
@@ -29374,7 +29366,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="TblContractHeader" Nullable="false" Type="Int32" />
           <Property Name="DueDate" Nullable="false" Precision="0" Type="DateTime" />
-          <Property Name="Description" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Description" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="AmountPercent" Precision="18" Scale="4" Type="Decimal" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreationDate" Precision="3" Type="DateTime" />
@@ -29384,6 +29376,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
           <Property Name="TblContractSubHeader" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="TblContractSubHeader1" Relationship="WorkFlowManagerDBModel.FK_TblContractPaymentByPeriod_TblContractSubHeader" FromRole="TblContractPaymentByPeriod" ToRole="TblContractSubHeader" />
         </EntityType>
         <EntityType Name="TblContractPaymentByPeriodDel">
           <Key>
@@ -29401,44 +29394,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="LastChangeUser" Type="Int32" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK_TblContractDetail_TblColor">
-          <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
-          <End Type="WorkFlowManagerDBModel.TblContractDetail" Multiplicity="*" Role="TblContractDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblContractDetail">
-              <PropertyRef Name="TblColor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblContractDetail_tblContractHeader">
-          <End Type="WorkFlowManagerDBModel.TblContractHeader" Multiplicity="1" Role="TblContractHeader">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.TblContractDetail" Multiplicity="*" Role="TblContractDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblContractHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblContractDetail">
-              <PropertyRef Name="TblContractHeader" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblContractDetail_TblLkpBrandSection">
-          <End Type="WorkFlowManagerDBModel.TblLkpBrandSection" Multiplicity="0..1" Role="TblLkpBrandSection" />
-          <End Type="WorkFlowManagerDBModel.TblContractDetail" Multiplicity="*" Role="TblContractDetail" />
-          <ReferentialConstraint>
-            <Principal Role="TblLkpBrandSection">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblContractDetail">
-              <PropertyRef Name="TblLkpBrandSection" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblContractHeader_TblLkpBrandSection">
           <End Type="WorkFlowManagerDBModel.TblLkpBrandSection" Multiplicity="0..1" Role="TblLkpBrandSection" />
           <End Type="WorkFlowManagerDBModel.TblContractHeader" Multiplicity="*" Role="TblContractHeader" />
@@ -30419,6 +30374,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="SupplierColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PantoneColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="IsCanceled" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TblTechPackBOMStyleColor_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="0..1" />
@@ -30497,6 +30453,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="FIT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ORGFabric" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="FinishUser" Type="Int32" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_tblTechPackHeader_tblStyle">
           <End Type="WorkFlowManagerDBModel.TblStyle" Role="TblStyle" Multiplicity="0..1" />
@@ -30893,11 +30851,13 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ManualCalculationForProduction" Type="Boolean" Nullable="false" />
           <Property Name="RequestForCancel" Type="Int32" />
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblColor" FromRole="TblSalesOrderColor" ToRole="TblColor" />
-          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" FromRole="TblSalesOrderColor" ToRole="TblContractDetail" />
           <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrder" FromRole="TblSalesOrderColor" ToRole="TblSalesOrder" />
           <NavigationProperty Name="TblSalesOrderColorTheme1" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrderColorTheme" FromRole="TblSalesOrderColor" ToRole="TblSalesOrderColorTheme" />
           <NavigationProperty Name="TblSalesOrderSizeRatios" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrderSizeRatio_TblSalesOrderColor" FromRole="TblSalesOrderColor" ToRole="TblSalesOrderSizeRatio" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="RetailTargetPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Canceled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" FromRole="TblSalesOrderColor" ToRole="TblContractDetail" />
         </EntityType>
         <Association Name="FK_TblSalesOrderColor_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="1" />
@@ -30908,18 +30868,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="TblSalesOrderColor">
               <PropertyRef Name="TblColor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblContractDetail_TblSalesOrder">
-          <End Type="WorkFlowManagerDBModel.TblSalesOrderColor" Role="TblSalesOrderColor" Multiplicity="1" />
-          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblSalesOrderColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblContractDetail">
-              <PropertyRef Name="TblSalesOrderColor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -31236,6 +31184,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblSalesOrderColorTheme1" Relationship="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblSalesOrderColorTheme" FromRole="TblSeasonalMasterList" ToRole="TblSalesOrderColorTheme" />
           <NavigationProperty Name="TblStyle1" Relationship="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblStyle" FromRole="TblSeasonalMasterList" ToRole="TblStyle" />
           <NavigationProperty Name="TblSeasonalMasterListDetails" Relationship="WorkFlowManagerDBModel.FK_tblSeasonalMasterListDetail_tblSeasonalMasterListDetail" FromRole="TblSeasonalMasterList" ToRole="TblSeasonalMasterListDetail" />
+          <Property Name="IsCanceled" Type="Boolean" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="LastChangeDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastChangeUser" Type="Int32" />
         </EntityType>
         <Association Name="FK_tblSeasonalMasterList_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="0..1" />
@@ -31286,6 +31239,373 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="TblSeasonalMasterListDetail">
               <PropertyRef Name="TblSeasonalMasterList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="Brand_Code" />
+            <PropertyRef Name="Brand_Ename" />
+            <PropertyRef Name="ProfitMargin" />
+            <PropertyRef Name="IsRetailBrand" />
+            <PropertyRef Name="CustomerCode" />
+            <PropertyRef Name="RETAILSUPPLIERCODE" />
+            <PropertyRef Name="RequireTNA" />
+            <PropertyRef Name="CategoryRequired" />
+            <PropertyRef Name="TBlWFCompany" />
+            <PropertyRef Name="CanCreateManualProductionOrder" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand_Code" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Brand_Ename" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ProfitMargin" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
+          <Property Name="IsRetailBrand" Type="Int32" Nullable="false" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RETAILSUPPLIERCODE" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="RequireTNA" Type="Boolean" Nullable="false" />
+          <Property Name="CategoryRequired" Type="Boolean" Nullable="false" />
+          <Property Name="EnableTheme" Type="Boolean" />
+          <Property Name="ManualCode" Type="Boolean" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CanCreateManualProductionOrder" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblContractDetail">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblContractHeader" Type="Int32" Nullable="false" />
+          <Property Name="TblLkpBrandSection" Type="Int32" />
+          <Property Name="TblSalesOrderColor" Type="Int32" Nullable="false" />
+          <Property Name="TblColor" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="ForeignCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FabricCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="AccCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="OperationCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="Int32" />
+          <Property Name="LastChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="TblContractSubHeader" Type="Int32" />
+          <Property Name="UpdatedDeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedQty" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="OldTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="UpdateType" Type="Int32" />
+          <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" FromRole="TblContractDetail" ToRole="TblColor" />
+          <NavigationProperty Name="TblContractHeader1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" FromRole="TblContractDetail" ToRole="TblContractHeader" />
+          <NavigationProperty Name="TblLkpBrandSection1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" FromRole="TblContractDetail" ToRole="TblLkpBrandSection" />
+          <NavigationProperty Name="TblSalesOrderColor1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" FromRole="TblContractDetail" ToRole="TblSalesOrderColor" />
+          <NavigationProperty Name="TblContractSubHeader1" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblContractSubHeader" FromRole="TblContractDetail" ToRole="TblContractSubHeader" />
+        </EntityType>
+        <Association Name="FK_TblContractDetail_TblColor">
+          <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractDetail_tblContractHeader">
+          <End Type="WorkFlowManagerDBModel.TblContractHeader" Role="TblContractHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblContractHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractDetail_TblLkpBrandSection">
+          <End Type="WorkFlowManagerDBModel.TblLkpBrandSection" Role="TblLkpBrandSection" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLkpBrandSection">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblLkpBrandSection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractDetail_TblSalesOrder">
+          <End Type="WorkFlowManagerDBModel.TblSalesOrderColor" Role="TblSalesOrderColor" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalesOrderColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblSalesOrderColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblContractSubHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblContractHeader" Type="Int32" />
+          <Property Name="Version" Type="Int32" />
+          <Property Name="Approved" Type="Boolean" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="Int32" />
+          <Property Name="TBlWFCompany" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TblContractSubHeaderStatus" Type="Int32" />
+          <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblContractSubHeader" FromRole="TblContractSubHeader" ToRole="TblContractDetail" />
+          <NavigationProperty Name="TblContractHeader1" Relationship="WorkFlowManagerDBModel.FK_TblContractSubHeader_tblContractHeader" FromRole="TblContractSubHeader" ToRole="TblContractHeader" />
+          <NavigationProperty Name="TblContractPaymentByPeriods" Relationship="WorkFlowManagerDBModel.FK_TblContractPaymentByPeriod_TblContractSubHeader" FromRole="TblContractSubHeader" ToRole="TblContractPaymentByPeriod" />
+        </EntityType>
+        <Association Name="FK_TblContractDetail_TblContractSubHeader">
+          <End Type="WorkFlowManagerDBModel.TblContractSubHeader" Role="TblContractSubHeader" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblContractDetail" Role="TblContractDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractSubHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractDetail">
+              <PropertyRef Name="TblContractSubHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractSubHeader_tblContractHeader">
+          <End Type="WorkFlowManagerDBModel.TblContractHeader" Role="TblContractHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblContractSubHeader" Role="TblContractSubHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractSubHeader">
+              <PropertyRef Name="TblContractHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblContractPaymentByPeriod_TblContractSubHeader">
+          <End Type="WorkFlowManagerDBModel.TblContractSubHeader" Role="TblContractSubHeader" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblContractPaymentByPeriod" Role="TblContractPaymentByPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblContractSubHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblContractPaymentByPeriod">
+              <PropertyRef Name="TblContractSubHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblMileStoneDetailsReq">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblMileStoneHdr" Type="Int32" />
+          <Property Name="TblWF_Fabric" Type="Int32" />
+          <Property Name="REQType" Type="Int32" />
+          <Property Name="RefStyle" Type="Int32" />
+          <Property Name="TblColor" Type="Int32" />
+          <Property Name="SupplierDeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualDeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="ExpectedDeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="RequestedPrice" Type="Double" />
+          <Property Name="TblMileStoneStatus" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepitOrCredit" Type="Int32" />
+          <NavigationProperty Name="TblMileStoneHdr1" Relationship="WorkFlowManagerDBModel.FK_TblMileStoneDetailsReq_TblMileStoneHdr" FromRole="TblMileStoneDetailsReq" ToRole="TblMileStoneHdr" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="ExchangeRate" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="TblMileStoneHdr">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="MileStoneDate" Type="DateTime" Precision="0" />
+          <Property Name="TblUser" Type="Int32" />
+          <Property Name="TblSupplier" Type="Int32" />
+          <Property Name="TblStyleTNA" Type="Int32" />
+          <Property Name="FinancEffect" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="TblMileStoneDetailsReqs" Relationship="WorkFlowManagerDBModel.FK_TblMileStoneDetailsReq_TblMileStoneHdr" FromRole="TblMileStoneHdr" ToRole="TblMileStoneDetailsReq" />
+        </EntityType>
+        <Association Name="FK_TblMileStoneDetailsReq_TblMileStoneHdr">
+          <End Type="WorkFlowManagerDBModel.TblMileStoneHdr" Role="TblMileStoneHdr" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblMileStoneDetailsReq" Role="TblMileStoneDetailsReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMileStoneHdr">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMileStoneDetailsReq">
+              <PropertyRef Name="TblMileStoneHdr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblAdjustmentDetail">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdjustmentHeaderIserial" Type="Int32" Nullable="false" />
+          <Property Name="ItemDimIserial" Type="Int32" Nullable="false" />
+          <Property Name="AvailableQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CountedQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="DifferenceQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAdjustmentHeader" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" FromRole="TblAdjustmentDetail" ToRole="TblAdjustmentHeader" />
+          <NavigationProperty Name="TblItemDim" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim" FromRole="TblAdjustmentDetail" ToRole="TblItemDim" />
+        </EntityType>
+        <EntityType Name="TblAdjustmentHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseIserial" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="LastChangeUser" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsOpeningBalance" Type="Boolean" Nullable="false" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAdjustmentDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" FromRole="TblAdjustmentHeader" ToRole="TblAdjustmentDetail" />
+          <NavigationProperty Name="TblAuthUser" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" FromRole="TblAdjustmentHeader" ToRole="TblAuthUser" />
+          <NavigationProperty Name="TblAuthUser1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAdjustmentHeader" ToRole="TblAuthUser" />
+          <NavigationProperty Name="TblWarehouse" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" FromRole="TblAdjustmentHeader" ToRole="TblWarehouse" />
+          <NavigationProperty Name="TblAdjustmentTempDetails" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" FromRole="TblAdjustmentHeader" ToRole="TblAdjustmentTempDetail" />
+        </EntityType>
+        <EntityType Name="TblAdjustmentTempDetail">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdjustmentHeaderIserial" Type="Int32" Nullable="false" />
+          <Property Name="ItemDimIserial" Type="Int32" Nullable="false" />
+          <Property Name="AvailableQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="CountedQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="DifferenceQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAdjustmentHeader" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" FromRole="TblAdjustmentTempDetail" ToRole="TblAdjustmentHeader" />
+          <NavigationProperty Name="TblItemDim" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" FromRole="TblAdjustmentTempDetail" ToRole="TblItemDim" />
+        </EntityType>
+        <Association Name="FK_TblAdjustmentDetail_TblAdjustmentHeader">
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Role="TblAdjustmentHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentDetail" Role="TblAdjustmentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAdjustmentHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentDetail">
+              <PropertyRef Name="AdjustmentHeaderIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentDetail_TblItemDim">
+          <End Type="WorkFlowManagerDBModel.TblItemDim" Role="TblItemDim" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentDetail" Role="TblAdjustmentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblItemDim">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentDetail">
+              <PropertyRef Name="ItemDimIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentHeader_TblAuthUser">
+          <End Type="WorkFlowManagerDBModel.TblAuthUser" Role="TblAuthUser" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Role="TblAdjustmentHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAuthUser">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentHeader">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentHeader_TblAuthUser1">
+          <End Type="WorkFlowManagerDBModel.TblAuthUser" Role="TblAuthUser" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Role="TblAdjustmentHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAuthUser">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentHeader">
+              <PropertyRef Name="LastChangeUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentHeader_TblWarehouse">
+          <End Type="WorkFlowManagerDBModel.TblWarehouse" Role="TblWarehouse" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Role="TblAdjustmentHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblWarehouse">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentHeader">
+              <PropertyRef Name="WarehouseIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentTempDetail_TblAdjustmentHeader">
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentHeader" Role="TblAdjustmentHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentTempDetail" Role="TblAdjustmentTempDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAdjustmentHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentTempDetail">
+              <PropertyRef Name="AdjustmentHeaderIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdjustmentTempDetail_TblItemDim">
+          <End Type="WorkFlowManagerDBModel.TblItemDim" Role="TblItemDim" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblAdjustmentTempDetail" Role="TblAdjustmentTempDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblItemDim">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblAdjustmentTempDetail">
+              <PropertyRef Name="ItemDimIserial" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -35673,6 +35993,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblColors">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblColor">
               <MappingFragment StoreEntitySet="TblColor">
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="PantonCode" ColumnName="PantonCode" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="ColorItemType" ColumnName="ColorItemType" />
@@ -35791,6 +36113,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblItemDims">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblItemDim">
               <MappingFragment StoreEntitySet="TblItemDim">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="ItemAvgCost" ColumnName="ItemAvgCost" />
                 <ScalarProperty Name="Totqty" ColumnName="Totqty" />
@@ -36950,55 +37274,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblAdjustmentDetails">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentDetail">
-              <MappingFragment StoreEntitySet="TblAdjustmentDetail">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="DifferenceQuantity" ColumnName="DifferenceQuantity" />
-                <ScalarProperty Name="CountedQuantity" ColumnName="CountedQuantity" />
-                <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
-                <ScalarProperty Name="ItemDimIserial" ColumnName="ItemDimIserial" />
-                <ScalarProperty Name="AdjustmentHeaderIserial" ColumnName="AdjustmentHeaderIserial" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblAdjustmentHeaders">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentHeader">
-              <MappingFragment StoreEntitySet="TblAdjustmentHeader">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="IsOpeningBalance" ColumnName="IsOpeningBalance" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
-                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
-                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
-                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
-                <ScalarProperty Name="Approved" ColumnName="Approved" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
-                <ScalarProperty Name="CountReference" ColumnName="CountReference" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="WarehouseIserial" ColumnName="WarehouseIserial" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblAdjustmentTempDetails">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentTempDetail">
-              <MappingFragment StoreEntitySet="TblAdjustmentTempDetail">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="DifferenceQuantity" ColumnName="DifferenceQuantity" />
-                <ScalarProperty Name="CountedQuantity" ColumnName="CountedQuantity" />
-                <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
-                <ScalarProperty Name="ItemDimIserial" ColumnName="ItemDimIserial" />
-                <ScalarProperty Name="AdjustmentHeaderIserial" ColumnName="AdjustmentHeaderIserial" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblContractDetailDels">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblContractDetailDel">
               <MappingFragment StoreEntitySet="TblContractDetailDel">
@@ -37104,6 +37379,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyles">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyle">
               <MappingFragment StoreEntitySet="TblStyle">
+                <ScalarProperty Name="SeasonalMasterListNotes" ColumnName="SeasonalMasterListNotes" />
+                <ScalarProperty Name="TblWfFabricAttriputes" ColumnName="TblWfFabricAttriputes" />
+                <ScalarProperty Name="TblStyleFitType" ColumnName="TblStyleFitType" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="CCTargetCostPrice" ColumnName="CCTargetCostPrice" />
                 <ScalarProperty Name="GenericFabricNotes" ColumnName="GenericFabricNotes" />
@@ -37160,23 +37438,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Brand">
-              <MappingFragment StoreEntitySet="Brand">
-                <ScalarProperty Name="ManualCode" ColumnName="ManualCode" />
-                <ScalarProperty Name="EnableTheme" ColumnName="EnableTheme" />
-                <ScalarProperty Name="CategoryRequired" ColumnName="CategoryRequired" />
-                <ScalarProperty Name="RequireTNA" ColumnName="RequireTNA" />
-                <ScalarProperty Name="RETAILSUPPLIERCODE" ColumnName="RETAILSUPPLIERCODE" />
-                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
-                <ScalarProperty Name="IsRetailBrand" ColumnName="IsRetailBrand" />
-                <ScalarProperty Name="ProfitMargin" ColumnName="ProfitMargin" />
-                <ScalarProperty Name="Brand_Ename" ColumnName="Brand_Ename" />
-                <ScalarProperty Name="Brand_Code" ColumnName="Brand_Code" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblStyleTNAStatusDetails">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyleTNAStatusDetail">
               <MappingFragment StoreEntitySet="TblStyleTNAStatusDetails">
@@ -37227,6 +37488,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblBrands">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBrand">
               <MappingFragment StoreEntitySet="TblBrand">
+                <ScalarProperty Name="CanCreateManualProductionOrder" ColumnName="CanCreateManualProductionOrder" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="ManualCode" ColumnName="ManualCode" />
                 <ScalarProperty Name="EnableTheme" ColumnName="EnableTheme" />
@@ -37311,6 +37573,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyleTNAHeaders">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyleTNAHeader">
               <MappingFragment StoreEntitySet="TblStyleTNAHeader">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="TblInternalShip" ColumnName="TblInternalShip" />
+                <ScalarProperty Name="TblSubContractor" ColumnName="TblSubContractor" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
                 <ScalarProperty Name="AdditionalCost" ColumnName="AdditionalCost" />
@@ -37337,6 +37602,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyleTNAColorDetails">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyleTNAColorDetail">
               <MappingFragment StoreEntitySet="TblStyleTNAColorDetail">
+                <ScalarProperty Name="ExpectedQty" ColumnName="ExpectedQty" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="OperationCost" ColumnName="OperationCost" />
                 <ScalarProperty Name="AccCost" ColumnName="AccCost" />
@@ -37369,37 +37635,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblContractDetails">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblContractDetail">
-              <MappingFragment StoreEntitySet="TblContractDetail">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="UpdatedQty" ColumnName="UpdatedQty" />
-                <ScalarProperty Name="UpdatedDeliveryDate" ColumnName="UpdatedDeliveryDate" />
-                <ScalarProperty Name="TblContractSubHeader" ColumnName="TblContractSubHeader" />
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
-                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Material" ColumnName="Material" />
-                <ScalarProperty Name="OperationCost" ColumnName="OperationCost" />
-                <ScalarProperty Name="AccCost" ColumnName="AccCost" />
-                <ScalarProperty Name="FabricCost" ColumnName="FabricCost" />
-                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="ForeignCost" ColumnName="ForeignCost" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="TblColor" ColumnName="TblColor" />
-                <ScalarProperty Name="TblSalesOrderColor" ColumnName="TblSalesOrderColor" />
-                <ScalarProperty Name="TblLkpBrandSection" ColumnName="TblLkpBrandSection" />
-                <ScalarProperty Name="TblContractHeader" ColumnName="TblContractHeader" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblContractHeaders">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblContractHeader">
               <MappingFragment StoreEntitySet="TblContractHeader">
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="PenalClause" ColumnName="PenalClause" />
@@ -37903,6 +38142,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblTechPackBOMStyleColors">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblTechPackBOMStyleColor">
               <MappingFragment StoreEntitySet="TblTechPackBOMStyleColor">
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="PantoneColorCode" ColumnName="PantoneColorCode" />
                 <ScalarProperty Name="SupplierColorCode" ColumnName="SupplierColorCode" />
@@ -37931,6 +38171,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="tblTechPackHeaders">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.tblTechPackHeader">
               <MappingFragment StoreEntitySet="tblTechPackHeader">
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="FinishUser" ColumnName="FinishUser" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="ORGFabric" ColumnName="ORGFabric" />
                 <ScalarProperty Name="FIT" ColumnName="FIT" />
@@ -38076,6 +38318,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblSalesOrderColors">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblSalesOrderColor">
               <MappingFragment StoreEntitySet="TblSalesOrderColor">
+                <ScalarProperty Name="Canceled" ColumnName="Canceled" />
+                <ScalarProperty Name="RetailTargetPrice" ColumnName="RetailTargetPrice" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="RequestForCancel" ColumnName="RequestForCancel" />
                 <ScalarProperty Name="ManualCalculationForProduction" ColumnName="ManualCalculationForProduction" />
@@ -38254,6 +38498,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblSeasonalMasterLists">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblSeasonalMasterList">
               <MappingFragment StoreEntitySet="TblSeasonalMasterList">
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
                 <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="SupplierColorCode" ColumnName="SupplierColorCode" />
@@ -38264,6 +38513,162 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
                 <ScalarProperty Name="DelivaryDate" ColumnName="DelivaryDate" />
                 <ScalarProperty Name="TblColor" ColumnName="TblColor" />
                 <ScalarProperty Name="TblStyle" ColumnName="TblStyle" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="CanCreateManualProductionOrder" ColumnName="CanCreateManualProductionOrder" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="ManualCode" ColumnName="ManualCode" />
+                <ScalarProperty Name="EnableTheme" ColumnName="EnableTheme" />
+                <ScalarProperty Name="CategoryRequired" ColumnName="CategoryRequired" />
+                <ScalarProperty Name="RequireTNA" ColumnName="RequireTNA" />
+                <ScalarProperty Name="RETAILSUPPLIERCODE" ColumnName="RETAILSUPPLIERCODE" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="IsRetailBrand" ColumnName="IsRetailBrand" />
+                <ScalarProperty Name="ProfitMargin" ColumnName="ProfitMargin" />
+                <ScalarProperty Name="Brand_Ename" ColumnName="Brand_Ename" />
+                <ScalarProperty Name="Brand_Code" ColumnName="Brand_Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblContractDetails">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblContractDetail">
+              <MappingFragment StoreEntitySet="TblContractDetail">
+                <ScalarProperty Name="UpdateType" ColumnName="UpdateType" />
+                <ScalarProperty Name="OldTotal" ColumnName="OldTotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdatedQty" ColumnName="UpdatedQty" />
+                <ScalarProperty Name="UpdatedDeliveryDate" ColumnName="UpdatedDeliveryDate" />
+                <ScalarProperty Name="TblContractSubHeader" ColumnName="TblContractSubHeader" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="OperationCost" ColumnName="OperationCost" />
+                <ScalarProperty Name="AccCost" ColumnName="AccCost" />
+                <ScalarProperty Name="FabricCost" ColumnName="FabricCost" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ForeignCost" ColumnName="ForeignCost" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="TblColor" ColumnName="TblColor" />
+                <ScalarProperty Name="TblSalesOrderColor" ColumnName="TblSalesOrderColor" />
+                <ScalarProperty Name="TblLkpBrandSection" ColumnName="TblLkpBrandSection" />
+                <ScalarProperty Name="TblContractHeader" ColumnName="TblContractHeader" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblContractSubHeaders">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblContractSubHeader">
+              <MappingFragment StoreEntitySet="TblContractSubHeader">
+                <ScalarProperty Name="TblContractSubHeaderStatus" ColumnName="TblContractSubHeaderStatus" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="TblContractHeader" ColumnName="TblContractHeader" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMileStoneDetailsReqs">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblMileStoneDetailsReq">
+              <MappingFragment StoreEntitySet="TblMileStoneDetailsReq">
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="DepitOrCredit" ColumnName="DepitOrCredit" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TblMileStoneStatus" ColumnName="TblMileStoneStatus" />
+                <ScalarProperty Name="RequestedPrice" ColumnName="RequestedPrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ExpectedDeliveryDate" ColumnName="ExpectedDeliveryDate" />
+                <ScalarProperty Name="ActualDeliveryDate" ColumnName="ActualDeliveryDate" />
+                <ScalarProperty Name="SupplierDeliveryDate" ColumnName="SupplierDeliveryDate" />
+                <ScalarProperty Name="TblColor" ColumnName="TblColor" />
+                <ScalarProperty Name="RefStyle" ColumnName="RefStyle" />
+                <ScalarProperty Name="REQType" ColumnName="REQType" />
+                <ScalarProperty Name="TblWF_Fabric" ColumnName="TblWF_Fabric" />
+                <ScalarProperty Name="TblMileStoneHdr" ColumnName="TblMileStoneHdr" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMileStoneHdrs">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblMileStoneHdr">
+              <MappingFragment StoreEntitySet="TblMileStoneHdr">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="FinancEffect" ColumnName="FinancEffect" />
+                <ScalarProperty Name="TblStyleTNA" ColumnName="TblStyleTNA" />
+                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
+                <ScalarProperty Name="TblUser" ColumnName="TblUser" />
+                <ScalarProperty Name="MileStoneDate" ColumnName="MileStoneDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAdjustmentDetails">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentDetail">
+              <MappingFragment StoreEntitySet="TblAdjustmentDetail">
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="DifferenceQuantity" ColumnName="DifferenceQuantity" />
+                <ScalarProperty Name="CountedQuantity" ColumnName="CountedQuantity" />
+                <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
+                <ScalarProperty Name="ItemDimIserial" ColumnName="ItemDimIserial" />
+                <ScalarProperty Name="AdjustmentHeaderIserial" ColumnName="AdjustmentHeaderIserial" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAdjustmentHeaders">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentHeader">
+              <MappingFragment StoreEntitySet="TblAdjustmentHeader">
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="IsOpeningBalance" ColumnName="IsOpeningBalance" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="CountReference" ColumnName="CountReference" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="WarehouseIserial" ColumnName="WarehouseIserial" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAdjustmentTempDetails">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAdjustmentTempDetail">
+              <MappingFragment StoreEntitySet="TblAdjustmentTempDetail">
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="DifferenceQuantity" ColumnName="DifferenceQuantity" />
+                <ScalarProperty Name="CountedQuantity" ColumnName="CountedQuantity" />
+                <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
+                <ScalarProperty Name="ItemDimIserial" ColumnName="ItemDimIserial" />
+                <ScalarProperty Name="AdjustmentHeaderIserial" ColumnName="AdjustmentHeaderIserial" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -38290,7 +38695,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CCWMFEntites" ZoomLevel="82">
+      <Diagram Name="CCWMFEntites" ZoomLevel="71">
         <EntityTypeShape Height="3.0714322916664969" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsDetail" PointX="3.75" PointY="42.625" Width="1.5" />
         <EntityTypeShape Height="2.7427376302084667" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsHeader" PointX="1.5" PointY="39.75" Width="1.5" />
         <EntityTypeShape Height="2.0853483072917243" EntityType="WorkFlowManagerDBModel.BOM_CalcMethod" PointX="3" PointY="93.375" Width="1.5" />
@@ -40898,16 +41303,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStandardBomHeader_TblLkpSeason" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblTradeAgreementTransaction_TblLkpSeason" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblBrandContractReport" PointX="28.75" PointY="39.75" Width="1.5" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentDetail" PointX="22.5" PointY="113.25" Width="1.5" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentHeader" PointX="20.25" PointY="93.25" Width="1.5" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentTempDetail" PointX="22.5" PointY="117.25" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNA" PointX="14.25" PointY="168.625" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNADetail" PointX="16.5" PointY="156" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNADetail_TblStyleTNA" />
@@ -40943,7 +41338,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyle_TblSupplierFabric" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleAttachment_TblStyle" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleImage_TblStyle" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.Brand" PointX="41.75" PointY="25.75" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNAStatusDetail" PointX="19.5" PointY="89.75" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTna_TblAuthUser" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblUsersApprovalStatu" PointX="11.5" PointY="86.375" Width="1.5" />
@@ -40963,14 +41357,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNAColorDetail_TblStyleTNAHeader" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAttachment" PointX="40.75" PointY="3.75" Width="1.5" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractDetail" PointX="16.5" PointY="112.125" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractHeader" PointX="14.25" PointY="80.5" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractHeaderDel" PointX="25.25" PointY="92.625" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractPaymentByPeriod" PointX="16.5" PointY="82" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractPaymentByPeriodDel" PointX="40.75" PointY="17.75" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpBrandSection" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblContractHeader_TblLkpSeason" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractHeader_TblRetailOrderProductionType" />
@@ -41073,7 +41463,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderHeaderRequest_TblGeneratePurchaseHeader" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblSalesOrderColor" Width="1.5" PointX="23.25" PointY="134.25" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblColor" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrder" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrderColorTheme" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblSalesOrderSizeRatio_TblSalesOrderColor" />
@@ -41098,6 +41487,29 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblSalesOrderColorTheme" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblStyle" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterListDetail_tblSeasonalMasterListDetail" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.Brand" Width="1.5" PointX="48.375" PointY="40.75" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractDetail" Width="1.5" PointX="29.5" PointY="104.875" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_tblContractHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblLkpBrandSection" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblSalesOrder" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblContractSubHeader" Width="1.5" PointX="16.5" PointY="60.75" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractDetail_TblContractSubHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractSubHeader_tblContractHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractPaymentByPeriod_TblContractSubHeader" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblMileStoneDetailsReq" Width="1.5" PointX="50.625" PointY="46" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblMileStoneHdr" Width="1.5" PointX="48.375" PointY="46.625" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblMileStoneDetailsReq_TblMileStoneHdr" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentDetail" Width="1.5" PointX="28.25" PointY="91.5" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentHeader" Width="1.5" PointX="19" PointY="68.125" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblAdjustmentTempDetail" Width="1.5" PointX="28.25" PointY="87.5" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblAdjustmentHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentDetail_TblItemDim" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" />
        
         </Diagram>
     </Diagrams>

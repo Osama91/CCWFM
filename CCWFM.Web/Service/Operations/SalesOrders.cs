@@ -89,11 +89,16 @@ namespace CCWFM.Web.Service
             outindex = index;
             using (var context = new WorkFlowManagerDBEntities())
             {
+
+
+
                 var styleCode = context.TblStyles.FirstOrDefault(x => x.Iserial == newRow.TblStyle);
+                var StyleBrand = context.Brands.FirstOrDefault(w => w.Brand_Code == styleCode.Brand);
                 var serial = GetMaxSalesorder(newRow.TblStyle, newRow.SalesOrderType);
 
                 if (save)
                 {
+                
                     //if (newRow.SalesOrderType== (int)Enums.SalesOrderType.RetailPo)
                     //{
                     //    var brandsectionlink = context.TblLkpBrandSectionLinks.FirstOrDefault(w => w.TblBrand == styleCode.Brand && w.TblLkpBrandSection == styleCode.TblLkpBrandSection);
@@ -110,6 +115,20 @@ namespace CCWFM.Web.Service
                     {
                         newRow.TblSupplier = 10000021;
                     }
+
+
+                    //if (newRow.TblSupplier == 10000021)
+                    //{
+                    //    if (!StyleBrand.CanCreateManualProductionOrder)
+                    //    {
+                         
+                    //    if (!context.TblMileStoneDetailsReqs.Any(wde => wde.RefStyle == newRow.TblStyle && wde.TblMileStoneHdr1.TblStyleTNA == 12 && wde.TblMileStoneHdr1.TblSupplier == newRow.TblSupplier)) {
+                    //        throw new Exception("price quotation is required");
+                    //    }
+                          
+                    //    }
+                    //}
+
                     if (newRow.Iserial!=0)
                     {
                         newRow.Iserial = 0;
@@ -198,7 +217,7 @@ namespace CCWFM.Web.Service
             
             using (var context = new WorkFlowManagerDBEntities())
             {
-                var query = context.TblSalesOrderColors.Include("TblSalesOrderSizeRatios").Include("TblColor1").Include("TblSalesOrderColorTheme1").Where(x => x.TblSalesOrder == salesorder).OrderBy(x => x.TblColor);
+                var query = context.TblSalesOrderColors.Include("TblSalesOrderSizeRatios").Include("TblColor1").Include("TblSalesOrderColorTheme1").Where(x => x.Canceled==false&& x.TblSalesOrder == salesorder).OrderBy(x => x.TblColor);
 
                 return query.ToList();
             }
@@ -372,13 +391,13 @@ namespace CCWFM.Web.Service
                                                                          && x.SalesOrderType == 2 && x.PoRef != null).Select(x => x.PoRef).ToList().Cast<int>();
 
                 var salesOrdersNotLinked = context.TblSalesOrders.Include("TblSalesOrderOperations").Include("BOMs").Include("BOMs.TblBOMSizes").Include("BOMs.TblBOMStyleColors").Include("TblSalesOrderColors").Include("TblSalesOrderColors.TblSalesOrderSizeRatios")
-                    .Where(x => x.TblStyle == style && x.SalesOrderType == 1
+                    .Where(x => x.TblStyle == style && x.SalesOrderType == 1 
                     && (poList.All(p => x.Iserial != p))).ToList();
 
                 TNADeliveryDate = null;
                 if (salesOrdersNotLinked.Count <= 0)
                 {
-                     TNADeliveryDate = context.TblSeasonalMasterLists.Where(c => c.TblStyle == style).Min(x => x.DelivaryDate).Value;
+                     //TNADeliveryDate = context.TblSeasonalMasterLists.Where(c => c.TblStyle == style).Min(x => x.DelivaryDate).Value;
                 }
                 return salesOrdersNotLinked;
             }
@@ -497,7 +516,7 @@ namespace CCWFM.Web.Service
                 var style = context.TblSalesOrders.FirstOrDefault(x => x.Iserial == salesOrder);
                 var salesOrderColorsList = context.TblSalesOrderColors.Where(x => x.TblSalesOrder1.TblStyle1.Iserial == style.TblStyle && x.TblSalesOrder1.IsPlannedOrder == true && x.TblSalesOrder1.SalesOrderType == style.SalesOrderType);
 
-                var salesOrdersNotLinked = context.TblSeasonalMasterLists.Include("TblStyle1.TblStyleTNAHeaders").Include("TblSeasonalMasterListDetails").Include("TblColor1").Include("TblSalesOrderColorTheme1").Where(x => x.TblStyle == style.TblStyle && salesOrderColorsList.All(c => c.TblColor != x.TblColor));
+                var salesOrdersNotLinked = context.TblSeasonalMasterLists.Include("TblStyle1.TblStyleTNAHeaders").Include("TblSeasonalMasterListDetails").Include("TblColor1").Include("TblSalesOrderColorTheme1").Where(x => x.TblStyle == style.TblStyle && x.IsCanceled==false && salesOrderColorsList.All(c => c.TblColor != x.TblColor));
 
                 return salesOrdersNotLinked.ToList();
             }

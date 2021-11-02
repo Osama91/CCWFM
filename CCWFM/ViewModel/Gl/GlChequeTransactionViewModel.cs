@@ -1508,7 +1508,7 @@ namespace CCWFM.ViewModel.Gl
                     if (TblCurrency1PerRow != null)
                     {
                         TblCurrency = TblCurrency1PerRow.Iserial;
-                        ExchangeRate = TblCurrency1PerRow.ExchangeRate;
+                        //ExchangeRate = TblCurrency1PerRow.ExchangeRate;
                     }
                 }
             }

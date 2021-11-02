@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
+﻿using System.Runtime.Serialization;
 
 namespace CCWFM.Web.Model
 {
@@ -25,28 +21,28 @@ namespace CCWFM.Web.Model
     }
     public partial class TblContractDetail
     {
-        public decimal Total
-        {
-            get
-            {
-                decimal result = 0;
-                switch (TblContractHeader1.TblRetailOrderProductionType)
-                {
-                    case 1:
-                        result = Qty * Cost;
-                        break;
-                    case 2:
-                        result = Qty * (Cost - AccCost);
-                        break;
-                    case 3:
-                        result = Qty * (Cost - AccCost - FabricCost);
-                        break;
-                    default:
-                        result = Qty * Cost;
-                        break;
-                }
-                return result;
-            }
-        }
+        //public decimal Total
+        //{
+        //    get
+        //    {
+        //        decimal result = 0;
+        //        switch (TblContractHeader1.TblRetailOrderProductionType)
+        //        {
+        //            case 1:
+        //                result = Qty * Cost;
+        //                break;
+        //            case 2:
+        //                result = Qty * (Cost - AccCost);
+        //                break;
+        //            case 3:
+        //                result = Qty * (Cost - AccCost - FabricCost);
+        //                break;
+        //            default:
+        //                result = Qty * Cost;
+        //                break;
+        //        }
+        //        return result;
+        //    }
+        //}
     }
 }
