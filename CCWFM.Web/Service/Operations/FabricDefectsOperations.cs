@@ -7,6 +7,7 @@ using System.Net;
 using System.ServiceModel;
 using CCWFM.Web.Model;
 using Microsoft.Dynamics.BusinessConnectorNet;
+using CCWFM.Web.Service.Operations;
 
 namespace CCWFM.Web.Service
 {
@@ -447,19 +448,30 @@ namespace CCWFM.Web.Service
         [TransactionFlow(TransactionFlowOption.Allowed)]
         public string CreateAxBarcode(int Iserial, int post, int userIserial, int transactionType)
         {
+
             var axapta = new Axapta();
 
-            var credential = new NetworkCredential("bcproxy", "around1");
-            TblAuthUser userToLogin;
-            using (var model = new WorkFlowManagerDBEntities())
+            if (SharedOperation.UseAx())
             {
-                userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-            }
-            if (userToLogin != null)
-                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
 
+
+                var credential = new NetworkCredential("bcproxy", "around1");
+                TblAuthUser userToLogin;
+                using (var model = new WorkFlowManagerDBEntities())
+                {
+                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                }
+
+                if (userToLogin != null)
+                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+            }
+           
             using (var entities = new WorkFlowManagerDBEntities())
             {
+                if (!SharedOperation.UseAx())
+                { 
+                    entities.CreateRollBarcode();
+                }
                 if (transactionType == 0)
                 {
                     entities.FabricInspectionPurchaseOrders.MergeOption = MergeOption.NoTracking;
@@ -572,40 +584,45 @@ namespace CCWFM.Web.Service
                             }
                         }
                     }
-
-                    foreach (var item in listToPost)
+                    var retval = "";
+                    if (SharedOperation.UseAx())
                     {
-                        var siteFinishedWarehouse = entities.GetLocations.SingleOrDefault(x => x.INVENTLOCATIONID == item.FinishedWarehouse);
-                        var axRecord = axapta.CreateAxaptaRecord("CLEBarcodeBCreate");
-                        axRecord.Clear();
-                        axRecord.InitValue();
-                        axRecord.set_Field("REFLINE", Convert.ToSingle(item.Iserial));
-                        axRecord.set_Field("ROLLENUM", item.RollNo);
-                        axRecord.set_Field("REFDATE", item.TransDate);
-                        axRecord.set_Field("REFID", item.TransOrder);
-                        axRecord.set_Field("ITEMID", item.Fabric_Code);
-                        axRecord.set_Field("ROLEQTY", Convert.ToSingle(item.StoreRollQty));
-                        axRecord.set_Field("INSPECTIONNUM", item.HeaderIserial);
-                        axRecord.set_Field("REFTYPE", item.TransactionType);
-                        if (siteFinishedWarehouse != null)
+                        foreach (var item in listToPost)
                         {
-                            axRecord.set_Field("FROMSITE", siteFinishedWarehouse.INVENTSITEID);
-                            axRecord.set_Field("TOSITE", siteFinishedWarehouse.INVENTSITEID);
+                            var siteFinishedWarehouse = entities.GetLocations.SingleOrDefault(x => x.INVENTLOCATIONID == item.FinishedWarehouse);
+                            var axRecord = axapta.CreateAxaptaRecord("CLEBarcodeBCreate");
+                            axRecord.Clear();
+                            axRecord.InitValue();
+                            axRecord.set_Field("REFLINE", Convert.ToSingle(item.Iserial));
+                            axRecord.set_Field("ROLLENUM", item.RollNo);
+                            axRecord.set_Field("REFDATE", item.TransDate);
+                            axRecord.set_Field("REFID", item.TransOrder);
+                            axRecord.set_Field("ITEMID", item.Fabric_Code);
+                            axRecord.set_Field("ROLEQTY", Convert.ToSingle(item.StoreRollQty));
+                            axRecord.set_Field("INSPECTIONNUM", item.HeaderIserial);
+                            axRecord.set_Field("REFTYPE", item.TransactionType);
+                            if (siteFinishedWarehouse != null)
+                            {
+                                axRecord.set_Field("FROMSITE", siteFinishedWarehouse.INVENTSITEID);
+                                axRecord.set_Field("TOSITE", siteFinishedWarehouse.INVENTSITEID);
+                            }
+                            axRecord.set_Field("FROMLOCATION", item.FinishedWarehouse);
+                            axRecord.set_Field("TOLOCATION", item.FinishedWarehouse);
+                            axRecord.set_Field("FROMCONFIG", item.ColorCode);
+                            axRecord.set_Field("TOCONFIG", item.ColorCode);
+                            axRecord.set_Field("FROMBATCH", item.BatchNo);
+                            axRecord.set_Field("TOBATCH", item.BatchNo);
+                            axRecord.set_Field("TOWAREHOUSE", item.FinishedWarehouse);
+                            axRecord.set_Field("FROMWAREHOUSE", item.FinishedWarehouse);
+                            axRecord.set_Field("DATAAREAID", "Ccm");
+                            axRecord.Insert();
                         }
-                        axRecord.set_Field("FROMLOCATION", item.FinishedWarehouse);
-                        axRecord.set_Field("TOLOCATION", item.FinishedWarehouse);
-                        axRecord.set_Field("FROMCONFIG", item.ColorCode);
-                        axRecord.set_Field("TOCONFIG", item.ColorCode);
-                        axRecord.set_Field("FROMBATCH", item.BatchNo);
-                        axRecord.set_Field("TOBATCH", item.BatchNo);
-                        axRecord.set_Field("TOWAREHOUSE", item.FinishedWarehouse);
-                        axRecord.set_Field("FROMWAREHOUSE", item.FinishedWarehouse);
-                        axRecord.set_Field("DATAAREAID", "Ccm");
-                        axRecord.Insert();
+
+
+                        var import = axapta.CreateAxaptaObject("CLEAllTransfer");
+                        retval = import.Call("run", Iserial, post).ToString();
                     }
 
-                    var import = axapta.CreateAxaptaObject("CLEAllTransfer");
-                    var retval = import.Call("run", Iserial, post);
                     var fabricInspectionHeader = (from s in entities.Tbl_fabricInspectionHeader
                                                   where s.Iserial == Iserial
                                                   select s).SingleOrDefault();
@@ -613,11 +630,11 @@ namespace CCWFM.Web.Service
                     {
                         if (fabricInspectionHeader != null) fabricInspectionHeader.PostedToAx = true;
                     }
-                    if (fabricInspectionHeader != null) fabricInspectionHeader.AxTransferTransaction = retval.ToString();
+                    if (fabricInspectionHeader != null) fabricInspectionHeader.AxTransferTransaction = retval;
 
                     foreach (var resRecRow in recList)
                     {
-                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, null).BARCODE;
+                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, entities);
                         var inspectionRow = entities.Tbl_fabricInspectionDetail.SingleOrDefault(x => x.Iserial == resRecRow.Tbl_FabricInspectionDetails);
                         if (inspectionRow != null)
                             inspectionRow.RemainingReservationRollQty = inspectionRow.RemainingReservationRollQty -
@@ -779,7 +796,7 @@ namespace CCWFM.Web.Service
 
                     foreach (var resRecRow in recList)
                     {
-                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, null).BARCODE;
+                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, entities);
 
                         var inspectionRow = entities.Tbl_fabricInspectionDetail.SingleOrDefault(x => x.Iserial == resRecRow.Tbl_FabricInspectionDetails);
                         if (inspectionRow != null)
@@ -788,11 +805,16 @@ namespace CCWFM.Web.Service
                 }
                 entities.SaveChanges();
 
-                axapta.Logoff();
-                entities.CreateRollBarcode();
+                if (SharedOperation.UseAx())
+                {
+                    axapta.Logoff();
+                    entities.CreateRollBarcode();
+                }
             }
             return "Posted Sucessfully Done";
         }
+
+  
 
         [OperationContract]
         public List<string> InventoryReservedJournalsDetail(string dataArea)
@@ -807,78 +829,95 @@ namespace CCWFM.Web.Service
         }
 
         [OperationContract]
-        public CLEBARCODEBCREATE GetBarcodeFromAx(int? inspectionRow, string barcode)
+        public string GetBarcodeFromAx(int? inspectionRow, WorkFlowManagerDBEntities workflow)
         {
-            using (var entities = new ax2009_ccEntities())
+            if (SharedOperation.UseAx())
             {
-                entities.CLEBARCODEBCREATEs.MergeOption = MergeOption.NoTracking;
-                return
-                    entities.CLEBARCODEBCREATEs.FirstOrDefault(x => x.DATAAREAID == "ccm" &&
-                      x.REFLINE == inspectionRow
-                       || (x.BARCODE == barcode && barcode != null));
+                using (var entities = new ax2009_ccEntities())
+                {
+                    entities.CLEBARCODEBCREATEs.MergeOption = MergeOption.NoTracking;
+                    return
+                        entities.CLEBARCODEBCREATEs.FirstOrDefault(x => x.DATAAREAID == "ccm" &&
+                          x.REFLINE == inspectionRow).BARCODE;
+                }
+
+
+            }
+            else {
+              return   workflow.TblRollBarcodes.Where(wde => wde.Tbl_fabricInspectionDetail == inspectionRow).FirstOrDefault().Barcode;
+
             }
         }
 
         private void CreatePackingSlip(string packingSlipId, string purchId, string transactionGuid, int userIserial)
         {
-            var axapta = new Axapta();
-            var credential = new NetworkCredential("bcproxy", "around1");
-            TblAuthUser userToLogin;
-            using (var model = new WorkFlowManagerDBEntities())
+            if (SharedOperation.UseAx())
             {
-                userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                var axapta = new Axapta();
+                var credential = new NetworkCredential("bcproxy", "around1");
+                TblAuthUser userToLogin;
+                using (var model = new WorkFlowManagerDBEntities())
+                {
+                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                }
+                if (userToLogin != null)
+                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+
+                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
+
+                importNew.Call("PostPurchFormLetter", packingSlipId, purchId, transactionGuid);
+
+                axapta.Logoff();
             }
-            if (userToLogin != null)
-                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
-
-            var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-
-            importNew.Call("PostPurchFormLetter", packingSlipId, purchId, transactionGuid);
-
-            axapta.Logoff();
         }
 
         private void CreateOrUpdateMiscCharge(string purchId, decimal lineNum, float value, bool createOk, int userIserial)
         {
-            var axapta = new Axapta();
-            var credential = new NetworkCredential("bcproxy", "around1");
-            TblAuthUser userToLogin;
-            using (var model = new WorkFlowManagerDBEntities())
+            if (SharedOperation.UseAx())
             {
-                userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                var axapta = new Axapta();
+                var credential = new NetworkCredential("bcproxy", "around1");
+                TblAuthUser userToLogin;
+                using (var model = new WorkFlowManagerDBEntities())
+                {
+                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                }
+                if (userToLogin != null)
+                {
+                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+                }
+                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
+                //(packingSlipId packingSlipId,PurchId PurchId,str 200 TransactionGuid)
+                importNew.Call("CreateOrUpdateMiscCharge", purchId, lineNum, value, createOk);
+                axapta.Logoff();
             }
-            if (userToLogin != null)
-            {
-                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
-            }
-            var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-            //(packingSlipId packingSlipId,PurchId PurchId,str 200 TransactionGuid)
-            importNew.Call("CreateOrUpdateMiscCharge", purchId, lineNum, value, createOk);
-            axapta.Logoff();
         }
 
         private void InsertpackingSlipData(decimal lineNum, string location, string transactionGuid, float qty, int fabricInspectionHeader, int userIserial)
         {
-            var axapta = new Axapta();
-            var credential = new NetworkCredential("bcproxy", "around1");
-            TblAuthUser userToLogin;
-            using (var model = new WorkFlowManagerDBEntities())
+            if (SharedOperation.UseAx())
             {
-                userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                var axapta = new Axapta();
+                var credential = new NetworkCredential("bcproxy", "around1");
+                TblAuthUser userToLogin;
+                using (var model = new WorkFlowManagerDBEntities())
+                {
+                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                }
+                if (userToLogin != null)
+                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+                const string tableName = "AutoPICKING";
+                var axaptaRecord = axapta.CreateAxaptaRecord(tableName);
+                axaptaRecord.Clear();
+                axaptaRecord.InitValue();
+                axaptaRecord.set_Field("DATAAREAID", "Ccm");
+                axaptaRecord.set_Field("TransactionGuid", transactionGuid);
+                axaptaRecord.set_Field("FABRICLOCATION", location);
+                axaptaRecord.set_Field("QTY", qty);
+                axaptaRecord.set_Field("WORKFLOWJOURID", fabricInspectionHeader);
+                axaptaRecord.set_Field("LineNum", lineNum);
+                axaptaRecord.Insert();
             }
-            if (userToLogin != null)
-                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
-            const string tableName = "AutoPICKING";
-            var axaptaRecord = axapta.CreateAxaptaRecord(tableName);
-            axaptaRecord.Clear();
-            axaptaRecord.InitValue();
-            axaptaRecord.set_Field("DATAAREAID", "Ccm");
-            axaptaRecord.set_Field("TransactionGuid", transactionGuid);
-            axaptaRecord.set_Field("FABRICLOCATION", location);
-            axaptaRecord.set_Field("QTY", qty);
-            axaptaRecord.set_Field("WORKFLOWJOURID", fabricInspectionHeader);
-            axaptaRecord.set_Field("LineNum", lineNum);
-            axaptaRecord.Insert();
         }
 
         public decimal PurchaseFabricLinesToAx(Tbl_fabricInspectionDetail item, string purchaseOrder, int userIserial)

@@ -45,15 +45,30 @@ namespace CCWFM.Web.Service.AuthOp
                 return query.ToList();
             }
         }
+        static List<TblCompany> Companies = new List<TblCompany>();
+        private static TblCompany GetCompany(string dbName)
+        {
+
+            TblCompany company;
+            if (Companies.Count > 0)
+            {
+                company = Companies.FirstOrDefault(x => x.DbName == dbName);
+                return company;
+            }
+
+            using (var context = new WorkFlowManagerDBEntities())
+            {
+                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
+                Companies = context.TblCompanies.ToList();
+            }
+
+            return company;
+        }
 
         public string GetSqlConnectionStringForUser(string dbName)
         {
             var sqlBuilder = new SqlConnectionStringBuilder();
-            TblCompany company;
-            using (var context = new WorkFlowManagerDBEntities())
-            {
-                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
-            }
+            TblCompany company = GetCompany(dbName);
             // Set the properties for the data source.
             sqlBuilder.DataSource = company.Ip + company.Port;
             sqlBuilder.InitialCatalog = dbName;
