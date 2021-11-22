@@ -6408,36 +6408,26 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ProductionInventDim' does no
 warning 6002: The table/view 'WorkFlowManagerDB.dbo.PurchlineInventDim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PurchlineInventDim">
           <Key>
-            <PropertyRef Name="PURCHID" />
             <PropertyRef Name="DATAAREAID" />
-            <PropertyRef Name="CREATEDDATETIME" />
-            <PropertyRef Name="NAME" />
             <PropertyRef Name="ITEMID" />
-            <PropertyRef Name="PURCHUNIT" />
             <PropertyRef Name="CONFIGID" />
-            <PropertyRef Name="INVENTBATCHID" />
-            <PropertyRef Name="PRICEUNIT" />
-            <PropertyRef Name="LINEAMOUNT" />
             <PropertyRef Name="LINENUM" />
-            <PropertyRef Name="WMSLOCATIONID" />
-            <PropertyRef Name="INVENTLOCATIONID" />
-            <PropertyRef Name="INVENTSITEID" />
           </Key>
-          <Property Name="PURCHID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="CREATEDDATETIME" Type="datetime" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="PURCHID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATAAREAID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CREATEDDATETIME" Type="datetime" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" />
           <Property Name="ITEMID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PURCHUNIT" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="CONFIGID" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="INVENTBATCHID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="PURCHQTY" Type="numeric" Precision="38" Scale="12" />
-          <Property Name="PRICEUNIT" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="LINEAMOUNT" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="LINENUM" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="WMSLOCATIONID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="INVENTLOCATIONID" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="INVENTSITEID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PURCHUNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONFIGID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="INVENTBATCHID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PURCHQTY" Type="float" />
+          <Property Name="PRICEUNIT" Type="float" />
+          <Property Name="LINEAMOUNT" Type="float" />
+          <Property Name="LINENUM" Type="int" Nullable="false" />
+          <Property Name="WMSLOCATIONID" Type="nvarchar" MaxLength="50" />
+          <Property Name="INVENTLOCATIONID" Type="nvarchar" MaxLength="50" />
+          <Property Name="INVENTSITEID" Type="nvarchar" MaxLength="50" />
           <Property Name="WidthAsRawMax" Type="float" />
           <Property Name="WidthAsRawMin" Type="float" />
           <Property Name="DyedFabricWidthMax" Type="float" />
@@ -12502,7 +12492,9 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
         <Function Name="ApproveTempAdjustmentDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="HeaderIserial" Type="int" Mode="In" />
         </Function>
-        <Function Name="CreateRollBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CreateRollBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FabricInsHeader" Type="int" Mode="In" />
+        </Function>
         <Function Name="CreateSAlesOrderFinalEstimated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StyleColor" Type="int" Mode="In" />
           <Parameter Name="SalesOrder" Type="int" Mode="In" />
@@ -17201,7 +17193,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblSalesOrderHeaderRequests" Role="TblSalesOrderHeaderRequest" />
             <End EntitySet="TblSalesOrderRequestInvoiceHeaders" Role="TblSalesOrderRequestInvoiceHeader" />
           </AssociationSet>
-          <FunctionImport Name="CreateRollBarcode" />
           <EntitySet Name="Inspections" EntityType="WorkFlowManagerDBModel.Inspection" />
           <EntitySet Name="TblPurchaseReceiveDetails" EntityType="WorkFlowManagerDBModel.TblPurchaseReceiveDetail" />
           <AssociationSet Name="FK_TblPurchaseReceiveDetail_TblPurchaseReceiveHeader" Association="WorkFlowManagerDBModel.FK_TblPurchaseReceiveDetail_TblPurchaseReceiveHeader">
@@ -18177,7 +18168,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblStyleTNADetail" EntitySet="TblStyleTNADetails" />
             <End Role="TblStyleTNADetailAttachment" EntitySet="TblStyleTNADetailAttachments" />
           </AssociationSet>
-          <EntitySet Name="PurchlineInventDims" EntityType="WorkFlowManagerDBModel.PurchlineInventDim" />
           <EntitySet Name="PurchlineInventDimWithoutRecs" EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" />
           <EntitySet Name="WF_FabricContentsComposition" EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" />
           <EntitySet Name="MarkerPostToRouteStructions" EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" />
@@ -18309,6 +18299,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <FunctionImport Name="RouteCardDetailActualCost_Insert" EntitySet="RouteCardDetailActualCostTypes" ReturnType="Collection(WorkFlowManagerDBModel.RouteCardDetailActualCostType)" />
           <EntitySet Name="Employees" EntityType="WorkFlowManagerDBModel.Employee" />
+          <EntitySet Name="PurchlineInventDims" EntityType="WorkFlowManagerDBModel.PurchlineInventDim" />
+          <FunctionImport Name="CreateRollBarcode">
+            <Parameter Name="FabricInsHeader" Mode="In" Type="Int32" />
+          </FunctionImport>
       
           </EntityContainer>
         <ComplexType Name="FabricStorage_Result">
@@ -30885,49 +30879,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="PurchlineInventDim">
-          <Key>
-            <PropertyRef Name="PURCHID" />
-            <PropertyRef Name="DATAAREAID" />
-            <PropertyRef Name="CREATEDDATETIME" />
-            <PropertyRef Name="NAME" />
-            <PropertyRef Name="ITEMID" />
-            <PropertyRef Name="PURCHUNIT" />
-            <PropertyRef Name="CONFIGID" />
-            <PropertyRef Name="INVENTBATCHID" />
-            <PropertyRef Name="PRICEUNIT" />
-            <PropertyRef Name="LINEAMOUNT" />
-            <PropertyRef Name="LINENUM" />
-            <PropertyRef Name="WMSLOCATIONID" />
-            <PropertyRef Name="INVENTLOCATIONID" />
-            <PropertyRef Name="INVENTSITEID" />
-          </Key>
-          <Property Name="PURCHID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DATAAREAID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="CREATEDDATETIME" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NAME" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="ITEMID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PURCHUNIT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CONFIGID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTBATCHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PURCHQTY" Type="Decimal" Precision="38" Scale="12" />
-          <Property Name="PRICEUNIT" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="LINEAMOUNT" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="LINENUM" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="WMSLOCATIONID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTLOCATIONID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTSITEID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="WidthAsRawMax" Type="Double" />
-          <Property Name="WidthAsRawMin" Type="Double" />
-          <Property Name="DyedFabricWidthMax" Type="Double" />
-          <Property Name="DyedFabricWidthMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterAfterWashMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterAfterWashMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterAsRawMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterAsRawMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterBeforWashMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterBeforWashMin" Type="Double" />
-        </EntityType>
         <EntityType Name="PurchlineInventDimWithoutRec">
           <Key>
             <PropertyRef Name="PURCHID" />
@@ -31619,6 +31570,39 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="MangerEmail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CSPPERIODID" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="EmpOnBehalf" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PurchlineInventDim">
+          <Key>
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="CONFIGID" />
+            <PropertyRef Name="LINENUM" />
+          </Key>
+          <Property Name="PURCHID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATAAREAID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDDATETIME" Type="DateTime" Precision="3" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ITEMID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PURCHUNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONFIGID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTBATCHID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PURCHQTY" Type="Double" />
+          <Property Name="PRICEUNIT" Type="Double" />
+          <Property Name="LINEAMOUNT" Type="Double" />
+          <Property Name="LINENUM" Type="Int32" Nullable="false" />
+          <Property Name="WMSLOCATIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTLOCATIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTSITEID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WidthAsRawMax" Type="Double" />
+          <Property Name="WidthAsRawMin" Type="Double" />
+          <Property Name="DyedFabricWidthMax" Type="Double" />
+          <Property Name="DyedFabricWidthMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterAfterWashMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterAfterWashMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterAsRawMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterAsRawMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterBeforWashMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterBeforWashMin" Type="Double" />
         </EntityType>
        
         </Schema>
@@ -36373,7 +36357,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateRollBarcode" FunctionName="WorkFlowManagerDBModel.Store.CreateRollBarcode" />
           <EntitySetMapping Name="Inspections">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Inspection">
               <MappingFragment StoreEntitySet="Inspections">
@@ -38379,37 +38362,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PurchlineInventDims">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDim">
-              <MappingFragment StoreEntitySet="PurchlineInventDim">
-                <ScalarProperty Name="WeightPerSquarMeterBeforWashMin" ColumnName="WeightPerSquarMeterBeforWashMin" />
-                <ScalarProperty Name="WeightPerSquarMeterBeforWashMax" ColumnName="WeightPerSquarMeterBeforWashMax" />
-                <ScalarProperty Name="WeightPerSquarMeterAsRawMin" ColumnName="WeightPerSquarMeterAsRawMin" />
-                <ScalarProperty Name="WeightPerSquarMeterAsRawMax" ColumnName="WeightPerSquarMeterAsRawMax" />
-                <ScalarProperty Name="WeightPerSquarMeterAfterWashMin" ColumnName="WeightPerSquarMeterAfterWashMin" />
-                <ScalarProperty Name="WeightPerSquarMeterAfterWashMax" ColumnName="WeightPerSquarMeterAfterWashMax" />
-                <ScalarProperty Name="DyedFabricWidthMin" ColumnName="DyedFabricWidthMin" />
-                <ScalarProperty Name="DyedFabricWidthMax" ColumnName="DyedFabricWidthMax" />
-                <ScalarProperty Name="WidthAsRawMin" ColumnName="WidthAsRawMin" />
-                <ScalarProperty Name="WidthAsRawMax" ColumnName="WidthAsRawMax" />
-                <ScalarProperty Name="INVENTSITEID" ColumnName="INVENTSITEID" />
-                <ScalarProperty Name="INVENTLOCATIONID" ColumnName="INVENTLOCATIONID" />
-                <ScalarProperty Name="WMSLOCATIONID" ColumnName="WMSLOCATIONID" />
-                <ScalarProperty Name="LINENUM" ColumnName="LINENUM" />
-                <ScalarProperty Name="LINEAMOUNT" ColumnName="LINEAMOUNT" />
-                <ScalarProperty Name="PRICEUNIT" ColumnName="PRICEUNIT" />
-                <ScalarProperty Name="PURCHQTY" ColumnName="PURCHQTY" />
-                <ScalarProperty Name="INVENTBATCHID" ColumnName="INVENTBATCHID" />
-                <ScalarProperty Name="CONFIGID" ColumnName="CONFIGID" />
-                <ScalarProperty Name="PURCHUNIT" ColumnName="PURCHUNIT" />
-                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
-                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
-                <ScalarProperty Name="PURCHID" ColumnName="PURCHID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PurchlineInventDimWithoutRecs">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec">
               <MappingFragment StoreEntitySet="PurchlineInventDimWithoutRec">
@@ -38691,6 +38643,38 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PurchlineInventDims">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDim">
+              <MappingFragment StoreEntitySet="PurchlineInventDim">
+                <ScalarProperty Name="WeightPerSquarMeterBeforWashMin" ColumnName="WeightPerSquarMeterBeforWashMin" />
+                <ScalarProperty Name="WeightPerSquarMeterBeforWashMax" ColumnName="WeightPerSquarMeterBeforWashMax" />
+                <ScalarProperty Name="WeightPerSquarMeterAsRawMin" ColumnName="WeightPerSquarMeterAsRawMin" />
+                <ScalarProperty Name="WeightPerSquarMeterAsRawMax" ColumnName="WeightPerSquarMeterAsRawMax" />
+                <ScalarProperty Name="WeightPerSquarMeterAfterWashMin" ColumnName="WeightPerSquarMeterAfterWashMin" />
+                <ScalarProperty Name="WeightPerSquarMeterAfterWashMax" ColumnName="WeightPerSquarMeterAfterWashMax" />
+                <ScalarProperty Name="DyedFabricWidthMin" ColumnName="DyedFabricWidthMin" />
+                <ScalarProperty Name="DyedFabricWidthMax" ColumnName="DyedFabricWidthMax" />
+                <ScalarProperty Name="WidthAsRawMin" ColumnName="WidthAsRawMin" />
+                <ScalarProperty Name="WidthAsRawMax" ColumnName="WidthAsRawMax" />
+                <ScalarProperty Name="INVENTSITEID" ColumnName="INVENTSITEID" />
+                <ScalarProperty Name="INVENTLOCATIONID" ColumnName="INVENTLOCATIONID" />
+                <ScalarProperty Name="WMSLOCATIONID" ColumnName="WMSLOCATIONID" />
+                <ScalarProperty Name="LINENUM" ColumnName="LINENUM" />
+                <ScalarProperty Name="LINEAMOUNT" ColumnName="LINEAMOUNT" />
+                <ScalarProperty Name="PRICEUNIT" ColumnName="PRICEUNIT" />
+                <ScalarProperty Name="PURCHQTY" ColumnName="PURCHQTY" />
+                <ScalarProperty Name="INVENTBATCHID" ColumnName="INVENTBATCHID" />
+                <ScalarProperty Name="CONFIGID" ColumnName="CONFIGID" />
+                <ScalarProperty Name="PURCHUNIT" ColumnName="PURCHUNIT" />
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="PURCHID" ColumnName="PURCHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateRollBarcode" FunctionName="WorkFlowManagerDBModel.Store.CreateRollBarcode" />
         
           </EntityContainerMapping>
       </Mapping>
@@ -41484,7 +41468,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblStyleSpecDetails_TblStyle" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNADetailAttachment" Width="1.5" PointX="18.75" PointY="156.75" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNADetailAttachment_TblStyleTNADetail" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDim" Width="1.5" PointX="48.375" PointY="33.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" Width="1.5" PointX="34.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" Width="1.5" PointX="36.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" Width="1.5" PointX="38.375" PointY="48.75" />
@@ -41528,6 +41511,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.Employee" Width="1.5" PointX="49.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDim" Width="1.5" PointX="48.375" PointY="33.75" />
        
         </Diagram>
     </Diagrams>

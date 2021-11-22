@@ -417,7 +417,9 @@ namespace CCWFM.Web.Service
                         GenericUpdate(oldRow, newRow, entity);
                         var row =
                             entity.TblRecInvDetailProds.Where(
-                                x => x.TblRecInvHeaderProd == newRow.TblRecInvHeaderProd && x.Tblitem == newRow.TblItem && x.ItemType == newRow.ItemType).ToList();
+                                x => x.TblRecInvHeaderProd == newRow.TblRecInvHeaderProd && x.Tblitem == newRow.TblItem && x.ItemType == newRow.ItemType
+                                &&x.BatchNo==newRow.BatchNo && x.SizeCode==newRow.SizeCode&&x.TblColor==newRow.TblColor
+                                ).ToList();
 
                         foreach (var TblRecInvMainDetailProd in row)
                         {

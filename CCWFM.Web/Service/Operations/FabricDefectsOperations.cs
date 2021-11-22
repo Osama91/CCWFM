@@ -308,10 +308,13 @@ namespace CCWFM.Web.Service
                         }
                     }
                 }
-                if (transactionHeader.VendorSubtraction)
+                if (SharedOperation.UseAx())
                 {
-                    CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
-                            transactionHeader.TransOrder, transactionGuid, userIserial);
+                    if (transactionHeader.VendorSubtraction)
+                    {
+                        CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
+                                transactionHeader.TransOrder, transactionGuid, userIserial);
+                    }
                 }
                 CreateAxBarcode(transactionHeader.Iserial, 1, userIserial, transactionHeader.TransactionType);
                 return details;
@@ -374,6 +377,7 @@ namespace CCWFM.Web.Service
         private List<Tbl_fabricInspectionHeader> FabricInspectionHeaderList(int skip, int take, string sort, string filter,
             Dictionary<string, object> valuesObjects, out int fullCount)
         {
+        //    CreateAxBarcode(21124, 1, 1180, 0);
             using (var context = new WorkFlowManagerDBEntities())
             {
                 IQueryable<Tbl_fabricInspectionHeader> query;
@@ -470,7 +474,7 @@ namespace CCWFM.Web.Service
             {
                 if (!SharedOperation.UseAx())
                 { 
-                    entities.CreateRollBarcode();
+                    entities.CreateRollBarcode(Iserial);
                 }
                 if (transactionType == 0)
                 {
@@ -634,7 +638,7 @@ namespace CCWFM.Web.Service
 
                     foreach (var resRecRow in recList)
                     {
-                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, entities);
+                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails);
                         var inspectionRow = entities.Tbl_fabricInspectionDetail.SingleOrDefault(x => x.Iserial == resRecRow.Tbl_FabricInspectionDetails);
                         if (inspectionRow != null)
                             inspectionRow.RemainingReservationRollQty = inspectionRow.RemainingReservationRollQty -
@@ -796,7 +800,7 @@ namespace CCWFM.Web.Service
 
                     foreach (var resRecRow in recList)
                     {
-                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails, entities);
+                        resRecRow.BatchNo = GetBarcodeFromAx(resRecRow.Tbl_FabricInspectionDetails);
 
                         var inspectionRow = entities.Tbl_fabricInspectionDetail.SingleOrDefault(x => x.Iserial == resRecRow.Tbl_FabricInspectionDetails);
                         if (inspectionRow != null)
@@ -808,7 +812,7 @@ namespace CCWFM.Web.Service
                 if (SharedOperation.UseAx())
                 {
                     axapta.Logoff();
-                    entities.CreateRollBarcode();
+                    entities.CreateRollBarcode(Iserial);
                 }
             }
             return "Posted Sucessfully Done";
@@ -829,7 +833,7 @@ namespace CCWFM.Web.Service
         }
 
         [OperationContract]
-        public string GetBarcodeFromAx(int? inspectionRow, WorkFlowManagerDBEntities workflow)
+        public string GetBarcodeFromAx(int? inspectionRow)
         {
             if (SharedOperation.UseAx())
             {
@@ -844,8 +848,10 @@ namespace CCWFM.Web.Service
 
             }
             else {
-              return   workflow.TblRollBarcodes.Where(wde => wde.Tbl_fabricInspectionDetail == inspectionRow).FirstOrDefault().Barcode;
-
+                using (var workflow = new WorkFlowManagerDBEntities())
+                {
+                    return workflow.TblRollBarcodes.Where(wde => wde.Tbl_fabricInspectionDetail == inspectionRow).FirstOrDefault().Barcode;
+                }
             }
         }
 

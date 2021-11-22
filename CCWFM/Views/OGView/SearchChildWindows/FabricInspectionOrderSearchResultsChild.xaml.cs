@@ -44,7 +44,7 @@ namespace CCWFM.Views.OGView.SearchChildWindows
         {
             var viewModel = (FabricDefectsViewModel)DataContext;
  
-            if (viewModel.TransactionHeaderList.Count < viewModel.PageSize)
+            if (viewModel.TransactionHeaderList.Count <= viewModel.PageSize)
             {
                 return;
             }
@@ -53,6 +53,9 @@ namespace CCWFM.Views.OGView.SearchChildWindows
                 viewModel.Loading = true;
                 viewModel.SearchHeader();
             }
+
+
+
         }
     }
 }

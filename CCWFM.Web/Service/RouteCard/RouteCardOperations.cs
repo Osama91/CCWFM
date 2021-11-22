@@ -407,10 +407,10 @@ namespace CCWFM.Web.Service.RouteCard
                 {
                     context.DeleteObject(item);
                 }
-                if (SharedOperation.UseAx())
-                {
-                    DeleteAXroute(rch, userIserial);
-                }
+                //if (SharedOperation.UseAx())
+                //{
+                //    DeleteAXroute(rch, userIserial);
+                //}
                     context.DeleteObject(rch);
                 context.SaveChanges();
             }
