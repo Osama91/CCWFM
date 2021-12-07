@@ -428,6 +428,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="SupplierInv" Type="nvarchar(max)" />
           <Property Name="PackingTransID" Type="int" Nullable="false" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="TblLedgerHeader" Type="int" />
         </EntityType>
         <EntityType Name="RouteCardInvoiceDetail">
           <Key>
@@ -2818,19 +2819,22 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TblInventType" Type="int" />
           <Property Name="DocDate" Type="datetime" />
-          <Property Name="Qty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="ItemCost" Type="money" />
+          <Property Name="Qty" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ItemCost" Type="decimal" Precision="19" Scale="4" />
           <Property Name="VotGlSerial" Type="int" />
           <Property Name="VotDoc" Type="nvarchar" MaxLength="50" />
           <Property Name="TblWarehouse" Type="int" Nullable="false" />
           <Property Name="TblItemDim" Type="int" Nullable="false" />
-          <Property Name="AvgCost" Type="money" />
-          <Property Name="LastWarehouseQty" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="AvgCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastWarehouseQty" Type="decimal" Precision="19" Scale="4" />
           <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="OldCost" Type="money" />
-          <Property Name="LastStoreQty" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="LastStoreAvgCost" Type="money" />
+          <Property Name="OldCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastStoreQty" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastStoreAvgCost" Type="decimal" Precision="19" Scale="4" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="ExchangeRate" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LocalItemCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Misc" Type="decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="TblInventType">
           <Key>
@@ -3128,6 +3132,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="TblMileStoneStatus" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="150" />
           <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="TechPackReqDetail" Type="int" />
           <Property Name="DepitOrCredit" Type="int" />
         </EntityType>
         <EntityType Name="TblMileStoneHdr">
@@ -4564,7 +4569,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="AdditionalDescription" Type="nvarchar" MaxLength="500" />
           <Property Name="TblStyleCategory" Type="int" />
           <Property Name="TblStyleFabricComposition" Type="int" />
-          <Property Name="SupplierRef" Type="nvarchar" MaxLength="20" />
+          <Property Name="SupplierRef" Type="nvarchar(max)" />
           <Property Name="ActualCostPrice" Type="float" Nullable="false" />
           <Property Name="BarcodePrice" Type="float" Nullable="false" />
           <Property Name="tbl_lkp_FabricMaterials" Type="int" />
@@ -4591,6 +4596,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="CCTargetCostPrice" Type="float" />
           <Property Name="TblStyleFitType" Type="int" />
           <Property Name="TblWfFabricAttriputes" Type="int" />
+          <Property Name="TblPrintType" Type="int" />
           <Property Name="SeasonalMasterListNotes" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="TblStyleAttachment">
@@ -4840,6 +4846,11 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           </Key>
           <Property Name="TblStyleTNA" Type="int" Nullable="false" />
           <Property Name="TblStyle" Type="int" Nullable="false" />
+          <Property Name="TblMilestoneStatus" Type="int" />
+          <Property Name="CreationDate" Type="date" />
+          <Property Name="LastChangeDate" Type="date" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastChangeUser" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TblStyleTNARouteStatus">
@@ -5460,22 +5471,18 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.Employees' does not have a p
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="EMPLID" />
-            <PropertyRef Name="CSPNoAttendance" />
-            <PropertyRef Name="name" />
-            <PropertyRef Name="OrganizationUnitId" />
             <PropertyRef Name="PARTYID" />
-            <PropertyRef Name="Email" />
             <PropertyRef Name="MangerEmail" />
             <PropertyRef Name="CSPPERIODID" />
           </Key>
-          <Property Name="EMPLID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="CSPNoAttendance" Type="int" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="OrganizationUnitId" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="PARTYID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="MangerEmail" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="CSPPERIODID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMPLID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CSPNoAttendance" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizationUnitId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PARTYID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="MangerEmail" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CSPPERIODID" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="EmpOnBehalf" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -6405,36 +6412,26 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ProductionInventDim' does no
 warning 6002: The table/view 'WorkFlowManagerDB.dbo.PurchlineInventDim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PurchlineInventDim">
           <Key>
-            <PropertyRef Name="PURCHID" />
             <PropertyRef Name="DATAAREAID" />
-            <PropertyRef Name="CREATEDDATETIME" />
-            <PropertyRef Name="NAME" />
             <PropertyRef Name="ITEMID" />
-            <PropertyRef Name="PURCHUNIT" />
             <PropertyRef Name="CONFIGID" />
-            <PropertyRef Name="INVENTBATCHID" />
-            <PropertyRef Name="PRICEUNIT" />
-            <PropertyRef Name="LINEAMOUNT" />
             <PropertyRef Name="LINENUM" />
-            <PropertyRef Name="WMSLOCATIONID" />
-            <PropertyRef Name="INVENTLOCATIONID" />
-            <PropertyRef Name="INVENTSITEID" />
           </Key>
-          <Property Name="PURCHID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="CREATEDDATETIME" Type="datetime" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="PURCHID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATAAREAID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CREATEDDATETIME" Type="datetime" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" />
           <Property Name="ITEMID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PURCHUNIT" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="CONFIGID" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="INVENTBATCHID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="PURCHQTY" Type="numeric" Precision="38" Scale="12" />
-          <Property Name="PRICEUNIT" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="LINEAMOUNT" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="LINENUM" Type="numeric" Precision="28" Scale="12" Nullable="false" />
-          <Property Name="WMSLOCATIONID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="INVENTLOCATIONID" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="INVENTSITEID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PURCHUNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONFIGID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="INVENTBATCHID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PURCHQTY" Type="float" />
+          <Property Name="PRICEUNIT" Type="float" />
+          <Property Name="LINEAMOUNT" Type="float" />
+          <Property Name="LINENUM" Type="int" Nullable="false" />
+          <Property Name="WMSLOCATIONID" Type="nvarchar" MaxLength="50" />
+          <Property Name="INVENTLOCATIONID" Type="nvarchar" MaxLength="50" />
+          <Property Name="INVENTSITEID" Type="nvarchar" MaxLength="50" />
           <Property Name="WidthAsRawMax" Type="float" />
           <Property Name="WidthAsRawMin" Type="float" />
           <Property Name="DyedFabricWidthMax" Type="float" />
@@ -8207,7 +8204,9 @@ warning 6035: The relationship 'FK_TblAccessoryDyeingMapping_TblAccessoryDyeingM
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TblAdjustmentDetail_TblItemDim">
-          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1" />
+          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TblAdjustmentDetail" Type="Self.TblAdjustmentDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TblItemDim">
@@ -8269,7 +8268,9 @@ warning 6035: The relationship 'FK_TblAccessoryDyeingMapping_TblAccessoryDyeingM
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TblAdjustmentTempDetail_TblItemDim">
-          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1" />
+          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TblAdjustmentTempDetail" Type="Self.TblAdjustmentTempDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TblItemDim">
@@ -9709,44 +9710,6 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
             </Principal>
             <Dependent Role="TblGlobalRetailBusinessBudgetMainDetail">
               <PropertyRef Name="TblLkpSeason" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblInventTrans_TblInventType">
-          <End Role="TblInventType" Type="Self.TblInventType" Multiplicity="0..1" />
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblInventType">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblInventType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblInventTrans_TblItemDim">
-          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblItemDim">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblItemDim" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblInventTrans_TblWarehouse">
-          <End Role="TblWarehouse" Type="Self.TblWarehouse" Multiplicity="1" />
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblWarehouse">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblWarehouse" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -12495,7 +12458,9 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
         <Function Name="ApproveTempAdjustmentDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="HeaderIserial" Type="int" Mode="In" />
         </Function>
-        <Function Name="CreateRollBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CreateRollBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FabricInsHeader" Type="int" Mode="In" />
+        </Function>
         <Function Name="CreateSAlesOrderFinalEstimated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StyleColor" Type="int" Mode="In" />
           <Parameter Name="SalesOrder" Type="int" Mode="In" />
@@ -12568,7 +12533,6 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <Parameter Name="FabricType" Type="int" Mode="In" />
         </Function>
         <Function Name="FIXAvgCostDyeingInventTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="FIXAvgCostInventTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="FormatDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
           <Parameter Name="Date" Type="datetime" Mode="In" />
           <Parameter Name="Format" Type="nvarchar" Mode="In" />
@@ -12586,6 +12550,7 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <Parameter Name="ColorCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Size" Type="nvarchar" Mode="In" />
           <Parameter Name="BatchNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Recalc" Type="bit" Mode="In" />
         </Function>
         <Function Name="GetWarehouseItemByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Warehouse" Type="nvarchar" Mode="In" />
@@ -12655,6 +12620,10 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
         <Function Name="RenameColumns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="RouteBomIssueSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="SalesOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RouteCardDetailActualCost_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RouteQuantities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Iserial" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_GenericDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Table_Name" Type="nvarchar" Mode="In" />
@@ -15044,18 +15013,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblLkpSeason" EntitySet="TblLkpSeason" />
             <End Role="TblGlobalRetailBusinessBudgetMainDetail" EntitySet="TblGlobalRetailBusinessBudgetMainDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblInventType" Association="Self.FK_TblInventTrans_TblInventType">
-            <End Role="TblInventType" EntitySet="TblInventType" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblItemDim" Association="Self.FK_TblInventTrans_TblItemDim">
-            <End Role="TblItemDim" EntitySet="TblItemDim" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblWarehouse" Association="Self.FK_TblInventTrans_TblWarehouse">
-            <End Role="TblWarehouse" EntitySet="TblWarehouse" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblIssueJournalDetail_TblColor" Association="Self.FK_TblIssueJournalDetail_TblColor">
             <End Role="TblColor" EntitySet="TblColor" />
             <End Role="TblIssueJournalDetail" EntitySet="TblIssueJournalDetail" />
@@ -17194,7 +17151,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblSalesOrderHeaderRequests" Role="TblSalesOrderHeaderRequest" />
             <End EntitySet="TblSalesOrderRequestInvoiceHeaders" Role="TblSalesOrderRequestInvoiceHeader" />
           </AssociationSet>
-          <FunctionImport Name="CreateRollBarcode" />
           <EntitySet Name="Inspections" EntityType="WorkFlowManagerDBModel.Inspection" />
           <EntitySet Name="TblPurchaseReceiveDetails" EntityType="WorkFlowManagerDBModel.TblPurchaseReceiveDetail" />
           <AssociationSet Name="FK_TblPurchaseReceiveDetail_TblPurchaseReceiveHeader" Association="WorkFlowManagerDBModel.FK_TblPurchaseReceiveDetail_TblPurchaseReceiveHeader">
@@ -17384,43 +17340,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_RouteCardDetails_TblWarehouse" Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblWarehouse">
             <End EntitySet="TblWarehouses" Role="TblWarehouse" />
             <End EntitySet="RouteCardDetails" Role="RouteCardDetail" />
-          </AssociationSet>
-          <EntitySet Name="RouteCardHeaders" EntityType="WorkFlowManagerDBModel.RouteCardHeader" />
-          <AssociationSet Name="FK_RouteCardDetails_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader">
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-            <End EntitySet="RouteCardDetails" Role="RouteCardDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardFabric_RouteCardFabric" Association="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric">
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-            <End EntitySet="RouteCardFabrics" Role="RouteCardFabric" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader">
-            <End EntitySet="Tbl_TransactionType" Role="Tbl_TransactionType" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_TblAuthUser" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser">
-            <End EntitySet="TblAuthUsers" Role="TblAuthUser" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_TblAuthUser1" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1">
-            <End EntitySet="TblAuthUsers" Role="TblAuthUser" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_TblRoute" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute">
-            <End EntitySet="TblRoutes" Role="TblRoute" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_TblRouteDirection" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection">
-            <End EntitySet="TblRouteDirections" Role="TblRouteDirection" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardHeader_TblRouteGroup" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup">
-            <End EntitySet="TblRouteGroups" Role="TblRouteGroup" />
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardInvoiceDetail_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader">
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
-            <End EntitySet="RouteCardInvoiceDetails" Role="RouteCardInvoiceDetail" />
           </AssociationSet>
           <EntitySet Name="TblProductionOrderTransactionTypes" EntityType="WorkFlowManagerDBModel.TblProductionOrderTransactionType" />
           <EntitySet Name="TblProductionOrderFabrics" EntityType="WorkFlowManagerDBModel.TblProductionOrderFabric" />
@@ -17805,6 +17724,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <Parameter Name="ColorCode" Mode="In" Type="String" />
             <Parameter Name="Size" Mode="In" Type="String" />
             <Parameter Name="BatchNo" Mode="In" Type="String" />
+            <Parameter Name="Recalc" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="GetWarehouseQuantitiesByTransaction" ReturnType="Collection(WorkFlowManagerDBModel.GetWarehouseQuantitiesByTransaction_Result)">
             <Parameter Name="warehouse" Mode="In" Type="Int32" />
@@ -17912,7 +17832,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblSubContractors" Role="TblSubContractor" />
             <End EntitySet="TblContractHeaderDels" Role="TblContractHeaderDel" />
           </AssociationSet>
-          <EntitySet Name="Employees" EntityType="WorkFlowManagerDBModel.Employee" />
           <EntitySet Name="TblStyleTNAStatus" EntityType="WorkFlowManagerDBModel.TblStyleTNAStatu" />
           <AssociationSet Name="FK_TblStyleTNAHeader_TblStyleTNAStatus" Association="WorkFlowManagerDBModel.FK_TblStyleTNAHeader_TblStyleTNAStatus">
             <End EntitySet="TblStyleTNAStatus" Role="TblStyleTNAStatu" />
@@ -18005,10 +17924,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <AssociationSet Name="FK_RouteCardDetailActualCost_RouteCardDetails" Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetails">
             <End EntitySet="RouteCardDetails" Role="RouteCardDetail" />
-            <End EntitySet="RouteCardDetailActualCosts" Role="RouteCardDetailActualCost" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RouteCardDetailActualCost_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader">
-            <End EntitySet="RouteCardHeaders" Role="RouteCardHeader" />
             <End EntitySet="RouteCardDetailActualCosts" Role="RouteCardDetailActualCost" />
           </AssociationSet>
           <AssociationSet Name="FK_RouteCardDetailActualCost_TblColor" Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_TblColor">
@@ -18212,7 +18127,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblStyleTNADetail" EntitySet="TblStyleTNADetails" />
             <End Role="TblStyleTNADetailAttachment" EntitySet="TblStyleTNADetailAttachments" />
           </AssociationSet>
-          <EntitySet Name="PurchlineInventDims" EntityType="WorkFlowManagerDBModel.PurchlineInventDim" />
           <EntitySet Name="PurchlineInventDimWithoutRecs" EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" />
           <EntitySet Name="WF_FabricContentsComposition" EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" />
           <EntitySet Name="MarkerPostToRouteStructions" EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" />
@@ -18301,6 +18215,56 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="TblItemDim" EntitySet="TblItemDims" />
             <End Role="TblAdjustmentTempDetail" EntitySet="TblAdjustmentTempDetails" />
           </AssociationSet>
+          <EntitySet Name="RouteCardHeaders" EntityType="WorkFlowManagerDBModel.RouteCardHeader" />
+          <AssociationSet Name="FK_RouteCardDetailActualCost_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader">
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+            <End Role="RouteCardDetailActualCost" EntitySet="RouteCardDetailActualCosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardDetails_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader">
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+            <End Role="RouteCardDetail" EntitySet="RouteCardDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardFabric_RouteCardFabric" Association="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric">
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+            <End Role="RouteCardFabric" EntitySet="RouteCardFabrics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader">
+            <End Role="Tbl_TransactionType" EntitySet="Tbl_TransactionType" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_TblAuthUser" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser">
+            <End Role="TblAuthUser" EntitySet="TblAuthUsers" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_TblAuthUser1" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1">
+            <End Role="TblAuthUser" EntitySet="TblAuthUsers" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_TblRoute" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute">
+            <End Role="TblRoute" EntitySet="TblRoutes" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_TblRouteDirection" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection">
+            <End Role="TblRouteDirection" EntitySet="TblRouteDirections" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardHeader_TblRouteGroup" Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup">
+            <End Role="TblRouteGroup" EntitySet="TblRouteGroups" />
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteCardInvoiceDetail_RouteCardHeader" Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader">
+            <End Role="RouteCardHeader" EntitySet="RouteCardHeaders" />
+            <End Role="RouteCardInvoiceDetail" EntitySet="RouteCardInvoiceDetails" />
+          </AssociationSet>
+          <FunctionImport Name="RouteCardDetailActualCost_Insert" EntitySet="RouteCardDetailActualCostTypes" ReturnType="Collection(WorkFlowManagerDBModel.RouteCardDetailActualCostType)" />
+          <EntitySet Name="Employees" EntityType="WorkFlowManagerDBModel.Employee" />
+          <EntitySet Name="PurchlineInventDims" EntityType="WorkFlowManagerDBModel.PurchlineInventDim" />
+          <FunctionImport Name="CreateRollBarcode">
+          <Parameter Name="FabricInsHeader" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RouteQuantities" ReturnType="Collection(WorkFlowManagerDBModel.RouteQuantities_Result)">
+            <Parameter Name="Iserial" Mode="In" Type="String" />
+          </FunctionImport>
       
           </EntityContainer>
         <ComplexType Name="FabricStorage_Result">
@@ -19497,8 +19461,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="PreProdction" Type="Int16" />
           <Property Name="UpdateInspectedRoll" Type="Boolean" />
           <Property Name="TblInventType" Type="Int32" />
-          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" FromRole="Tbl_TransactionType" ToRole="RouteCardHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" FromRole="Tbl_TransactionType" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="tbl_WF_Brand_Department_ProcessApprovement">
           <Key>
@@ -19855,8 +19819,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblTransferHeaders" Relationship="WorkFlowManagerDBModel.FK_TblTransferHeader_TblAuthUser_Approved" FromRole="TblAuthUser" ToRole="TblTransferHeader" />
           <NavigationProperty Name="TblTransferHeaders1" Relationship="WorkFlowManagerDBModel.FK_TblTransferHeader_TblAuthUser_Created" FromRole="TblAuthUser" ToRole="TblTransferHeader" />
           <NavigationProperty Name="TblTransferHeaders2" Relationship="WorkFlowManagerDBModel.FK_TblTransferHeader_TblAuthUser_LastChange" FromRole="TblAuthUser" ToRole="TblTransferHeader" />
-          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
-          <NavigationProperty Name="RouteCardHeaders1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
           <NavigationProperty Name="TblStyleTNAStatusDetails" Relationship="WorkFlowManagerDBModel.FK_TblStyleTna_TblAuthUser" FromRole="TblAuthUser" ToRole="TblStyleTNAStatusDetail" />
           <NavigationProperty Name="TblUsersApprovalStatus" Relationship="WorkFlowManagerDBModel.FK_TblUsersApprovalStatus_TblAuthUser" FromRole="TblAuthUser" ToRole="TblUsersApprovalStatu" />
           <NavigationProperty Name="TblUsersStyleTNAStatus" Relationship="WorkFlowManagerDBModel.FK_TblUsersStyleTnaStatus_TblAuthUser" FromRole="TblAuthUser" ToRole="TblUsersStyleTNAStatu" />
@@ -19866,6 +19828,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="QCPosition" Type="Int32" />
           <NavigationProperty Name="TblAdjustmentHeaders" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
           <NavigationProperty Name="TblAdjustmentHeaders1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
+          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
+          <NavigationProperty Name="RouteCardHeaders1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
           </EntityType>
         <EntityType Name="TblAuthUserGroup">
           <Key>
@@ -20982,8 +20946,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblRouteGroup1" Relationship="WorkFlowManagerDBModel.FK_TblRoute_TblRouteGroup" FromRole="TblRoute" ToRole="TblRouteGroup" />
           <Property Name="LinkName" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="TblService1" Relationship="WorkFlowManagerDBModel.FK_TblRoute_TblService" FromRole="TblRoute" ToRole="TblService" />
-          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" FromRole="TblRoute" ToRole="RouteCardHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" FromRole="TblRoute" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="TblRouteDirection">
           <Key>
@@ -20993,8 +20957,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Code" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" FromRole="TblRouteDirection" ToRole="RouteCardHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" FromRole="TblRouteDirection" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="TblRouteGroup">
           <Key>
@@ -21017,8 +20981,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblService1" Relationship="WorkFlowManagerDBModel.FK_TblRouteGroup_TblService" FromRole="TblRouteGroup" ToRole="TblService" />
           <Property Name="ord" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="RouteCardDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblRouteGroup" FromRole="TblRouteGroup" ToRole="RouteCardDetail" />
-          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" FromRole="TblRouteGroup" ToRole="RouteCardHeader" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" FromRole="TblRouteGroup" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="TblSalesOrderAttachment">
           <Key>
@@ -24845,9 +24809,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Misc" Type="Double" />
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_TblColor" FromRole="RouteCardInvoiceDetail" ToRole="TblColor" />
           <NavigationProperty Name="RouteCardInvoiceHeader1" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardInvoiceHeader" FromRole="RouteCardInvoiceDetail" ToRole="RouteCardInvoiceHeader" />
-          <NavigationProperty Name="RouteCardHeader1" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" FromRole="RouteCardInvoiceDetail" ToRole="RouteCardHeader" />
           <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_TblSalesOrder" FromRole="RouteCardInvoiceDetail" ToRole="TblSalesOrder" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeader1" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" FromRole="RouteCardInvoiceDetail" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="TblSite">
           <Key>
@@ -25779,22 +25743,25 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="TblInventType" Type="Int32" />
           <Property Name="DocDate" Precision="3" Type="DateTime" />
-          <Property Name="Qty" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="Qty" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="ItemCost" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="VotGlSerial" Type="Int32" />
           <Property Name="TblWarehouse" Nullable="false" Type="Int32" />
           <Property Name="TblItemDim" Nullable="false" Type="Int32" />
           <Property Name="AvgCost" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="LastWarehouseQty" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="LastWarehouseQty" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="CurrencyCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="TblInventType1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblInventType" FromRole="TblInventTran" ToRole="TblInventType" />
           <NavigationProperty Name="TblItemDim1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblItemDim" FromRole="TblInventTran" ToRole="TblItemDim" />
           <NavigationProperty Name="TblWarehouse1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblWarehouse" FromRole="TblInventTran" ToRole="TblWarehouse" />
           <Property Name="VotDoc" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="OldCost" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="LastStoreQty" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="LastStoreQty" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="LastStoreAvgCost" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LocalItemCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="TblInventType">
           <Key>
@@ -26855,9 +26822,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblColor" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_TblColor" FromRole="RouteCardFabric" ToRole="TblColor" />
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_TblColor1" FromRole="RouteCardFabric" ToRole="TblColor" />
           <NavigationProperty Name="TblColor2" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_TblColor2" FromRole="RouteCardFabric" ToRole="TblColor" />
-          <NavigationProperty Name="RouteCardHeader" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" FromRole="RouteCardFabric" ToRole="RouteCardHeader" />
           <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_TblSalesOrder" FromRole="RouteCardFabric" ToRole="TblSalesOrder" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeader" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" FromRole="RouteCardFabric" ToRole="RouteCardHeader" />
         </EntityType>
         <Association Name="FK_RouteCardFabric_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="0..1" Role="TblColor" />
@@ -27034,9 +27001,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblColor" FromRole="RouteCardDetail" ToRole="TblColor" />
           <NavigationProperty Name="TblRouteGroup" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblRouteGroup" FromRole="RouteCardDetail" ToRole="TblRouteGroup" />
           <NavigationProperty Name="TblWarehouse1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblWarehouse" FromRole="RouteCardDetail" ToRole="TblWarehouse" />
-          <NavigationProperty Name="RouteCardHeader" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" FromRole="RouteCardDetail" ToRole="RouteCardHeader" />
           <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblSalesOrder" FromRole="RouteCardDetail" ToRole="TblSalesOrder" />
           <NavigationProperty Name="RouteCardDetailActualCosts" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetails" FromRole="RouteCardDetail" ToRole="RouteCardDetailActualCost" />
+          <NavigationProperty Name="RouteCardHeader" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" FromRole="RouteCardDetail" ToRole="RouteCardHeader" />
         </EntityType>
         <Association Name="FK_RouteCardDetails_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
@@ -27071,161 +27038,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="RouteCardDetail">
               <PropertyRef Name="TblWarehouse" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="RouteCardHeader">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="TransID" Nullable="false" Type="Int32" />
-          <Property Name="DeliveryDate" Precision="0" Type="DateTime" />
-          <Property Name="ProcessID" Type="Int32" />
-          <Property Name="RoutID" Type="Int32" />
-          <Property Name="Vendor" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Direction" Nullable="false" Type="Int32" />
-          <Property Name="RoutGroupID" Nullable="false" Type="Int32" />
-          <Property Name="IsFinalOperation" Type="Boolean" />
-          <Property Name="IsPosted" Type="Boolean" />
-          <Property Name="DocDate" Precision="0" Type="DateTime" />
-          <Property Name="LastUpdateDate" Precision="0" Type="DateTime" />
-          <Property Name="MarkerTransaction" Type="Int32" />
-          <Property Name="AxRouteCardJournalId" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="AxReportAsAFinishedJournalId" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="RouteType" Nullable="false" Type="Int32" />
-          <Property Name="AxRouteCardFabricsJournalId" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="tblTransactionType" Nullable="false" Type="Int32" />
-          <Property Name="Createdby" Type="Int32" />
-          <Property Name="UpdatedBy" Type="Int32" />
-          <Property Name="LastUpdatedDate" Precision="0" Type="DateTime" />
-          <Property Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="LinkIserial" Type="Int32" />
-          <Property Name="RouteIncluded" Type="Boolean" />
-          <Property Name="PostedDate" Precision="0" Type="DateTime" />
-          <Property Name="SupplierInv" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PackingTransID" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="RouteCardDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardDetail" />
-          <NavigationProperty Name="RouteCardFabrics" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" FromRole="RouteCardHeader" ToRole="RouteCardFabric" />
-          <NavigationProperty Name="Tbl_TransactionType" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" FromRole="RouteCardHeader" ToRole="Tbl_TransactionType" />
-          <NavigationProperty Name="TblAuthUser" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="RouteCardHeader" ToRole="TblAuthUser" />
-          <NavigationProperty Name="TblAuthUser1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="RouteCardHeader" ToRole="TblAuthUser" />
-          <NavigationProperty Name="TblRoute" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" FromRole="RouteCardHeader" ToRole="TblRoute" />
-          <NavigationProperty Name="TblRouteDirection" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" FromRole="RouteCardHeader" ToRole="TblRouteDirection" />
-          <NavigationProperty Name="TblRouteGroup" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" FromRole="RouteCardHeader" ToRole="TblRouteGroup" />
-          <NavigationProperty Name="RouteCardInvoiceDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardInvoiceDetail" />
-          <NavigationProperty Name="RouteCardDetailActualCosts" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardDetailActualCost" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_RouteCardDetails_RouteCardHeader">
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="1" Role="RouteCardHeader">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.RouteCardDetail" Multiplicity="*" Role="RouteCardDetail" />
-          <ReferentialConstraint>
-            <Principal Role="RouteCardHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardDetail">
-              <PropertyRef Name="RouteCardHeaderIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardFabric_RouteCardFabric">
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="1" Role="RouteCardHeader">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.RouteCardFabric" Multiplicity="*" Role="RouteCardFabric" />
-          <ReferentialConstraint>
-            <Principal Role="RouteCardHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardFabric">
-              <PropertyRef Name="RouteCardHeaderIserial" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_RouteCardHeader">
-          <End Type="WorkFlowManagerDBModel.Tbl_TransactionType" Multiplicity="1" Role="Tbl_TransactionType" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_TransactionType">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="tblTransactionType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_TblAuthUser">
-          <End Type="WorkFlowManagerDBModel.TblAuthUser" Multiplicity="0..1" Role="TblAuthUser" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblAuthUser">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="UpdatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_TblAuthUser1">
-          <End Type="WorkFlowManagerDBModel.TblAuthUser" Multiplicity="0..1" Role="TblAuthUser" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblAuthUser">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="Createdby" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_TblRoute">
-          <End Type="WorkFlowManagerDBModel.TblRoute" Multiplicity="0..1" Role="TblRoute" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblRoute">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="RoutID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_TblRouteDirection">
-          <End Type="WorkFlowManagerDBModel.TblRouteDirection" Multiplicity="1" Role="TblRouteDirection" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblRouteDirection">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="Direction" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardHeader_TblRouteGroup">
-          <End Type="WorkFlowManagerDBModel.TblRouteGroup" Multiplicity="1" Role="TblRouteGroup" />
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="*" Role="RouteCardHeader" />
-          <ReferentialConstraint>
-            <Principal Role="TblRouteGroup">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardHeader">
-              <PropertyRef Name="RoutGroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardInvoiceDetail_RouteCardHeader">
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="0..1" Role="RouteCardHeader" />
-          <End Type="WorkFlowManagerDBModel.RouteCardInvoiceDetail" Multiplicity="*" Role="RouteCardInvoiceDetail" />
-          <ReferentialConstraint>
-            <Principal Role="RouteCardHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardInvoiceDetail">
-              <PropertyRef Name="RouteCardHeader" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -28529,7 +28341,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="AdditionalDescription" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="TblStyleCategory" Type="Int32" />
           <Property Name="TblStyleFabricComposition" Type="Int32" />
-          <Property Name="SupplierRef" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="SupplierRef" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ActualCostPrice" Nullable="false" Type="Double" />
           <Property Name="BarcodePrice" Nullable="false" Type="Double" />
           <Property Name="tbl_lkp_FabricMaterials" Type="Int32" />
@@ -28573,6 +28385,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TblStyleFitType" Type="Int32" />
           <Property Name="TblWfFabricAttriputes" Type="Int32" />
           <Property Name="SeasonalMasterListNotes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TblPrintType" Type="Int32" />
         </EntityType>
         <Association Name="FK_BOM_TblSalesOrder">
           <End Type="WorkFlowManagerDBModel.TblSalesOrder" Multiplicity="1" Role="TblSalesOrder">
@@ -29504,27 +29317,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="EMPLID" />
-            <PropertyRef Name="CSPNoAttendance" />
-            <PropertyRef Name="name" />
-            <PropertyRef Name="OrganizationUnitId" />
-            <PropertyRef Name="PARTYID" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="MangerEmail" />
-            <PropertyRef Name="CSPPERIODID" />
-          </Key>
-          <Property Name="EMPLID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="CSPNoAttendance" Nullable="false" Type="Int32" />
-          <Property Name="name" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="OrganizationUnitId" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PARTYID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Email" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MangerEmail" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="CSPPERIODID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="EmpOnBehalf" Type="Int32" />
-        </EntityType>
         <EntityType Name="TblStyleTNAStatu">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -29954,10 +29746,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="RouteCardDetailActualCostType" Type="Int32" />
           <NavigationProperty Name="RouteCardDetailActualCostType1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetailActualCostType" FromRole="RouteCardDetailActualCost" ToRole="RouteCardDetailActualCostType" />
           <NavigationProperty Name="RouteCardDetail" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetails" FromRole="RouteCardDetailActualCost" ToRole="RouteCardDetail" />
-          <NavigationProperty Name="RouteCardHeader1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" FromRole="RouteCardDetailActualCost" ToRole="RouteCardHeader" />
           <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_TblColor" FromRole="RouteCardDetailActualCost" ToRole="TblColor" />
           <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_TblSalesOrder" FromRole="RouteCardDetailActualCost" ToRole="TblSalesOrder" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RouteCardHeader1" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" FromRole="RouteCardDetailActualCost" ToRole="RouteCardHeader" />
         </EntityType>
         <EntityType Name="RouteCardDetailActualCostType">
           <Key>
@@ -29991,18 +29783,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="RouteCardDetailActualCost">
               <PropertyRef Name="RouteCardDetails" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RouteCardDetailActualCost_RouteCardHeader">
-          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Multiplicity="0..1" Role="RouteCardHeader" />
-          <End Type="WorkFlowManagerDBModel.RouteCardDetailActualCost" Multiplicity="*" Role="RouteCardDetailActualCost" />
-          <ReferentialConstraint>
-            <Principal Role="RouteCardHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="RouteCardDetailActualCost">
-              <PropertyRef Name="RouteCardHeader" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -30261,6 +30041,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TblStyle" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblStyleTNA1" Relationship="WorkFlowManagerDBModel.FK_TblStyleTNARoute_TblStyleTNA" FromRole="TblStyleTNARoute" ToRole="TblStyleTNA" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="TblMilestoneStatus" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="LastChangeDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastChangeUser" Type="Int32" />
         </EntityType>
         <Association Name="FK_TblStyleTNARoute_TblStyleTNA">
           <End Type="WorkFlowManagerDBModel.TblStyleTNA" Role="TblStyleTNA" Multiplicity="1" />
@@ -31060,49 +30845,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="PurchlineInventDim">
-          <Key>
-            <PropertyRef Name="PURCHID" />
-            <PropertyRef Name="DATAAREAID" />
-            <PropertyRef Name="CREATEDDATETIME" />
-            <PropertyRef Name="NAME" />
-            <PropertyRef Name="ITEMID" />
-            <PropertyRef Name="PURCHUNIT" />
-            <PropertyRef Name="CONFIGID" />
-            <PropertyRef Name="INVENTBATCHID" />
-            <PropertyRef Name="PRICEUNIT" />
-            <PropertyRef Name="LINEAMOUNT" />
-            <PropertyRef Name="LINENUM" />
-            <PropertyRef Name="WMSLOCATIONID" />
-            <PropertyRef Name="INVENTLOCATIONID" />
-            <PropertyRef Name="INVENTSITEID" />
-          </Key>
-          <Property Name="PURCHID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DATAAREAID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="CREATEDDATETIME" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NAME" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="ITEMID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PURCHUNIT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CONFIGID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTBATCHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PURCHQTY" Type="Decimal" Precision="38" Scale="12" />
-          <Property Name="PRICEUNIT" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="LINEAMOUNT" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="LINENUM" Type="Decimal" Nullable="false" Precision="28" Scale="12" />
-          <Property Name="WMSLOCATIONID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTLOCATIONID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="INVENTSITEID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="WidthAsRawMax" Type="Double" />
-          <Property Name="WidthAsRawMin" Type="Double" />
-          <Property Name="DyedFabricWidthMax" Type="Double" />
-          <Property Name="DyedFabricWidthMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterAfterWashMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterAfterWashMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterAsRawMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterAsRawMin" Type="Double" />
-          <Property Name="WeightPerSquarMeterBeforWashMax" Type="Double" />
-          <Property Name="WeightPerSquarMeterBeforWashMin" Type="Double" />
-        </EntityType>
         <EntityType Name="PurchlineInventDimWithoutRec">
           <Key>
             <PropertyRef Name="PURCHID" />
@@ -31436,6 +31178,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblMileStoneHdr1" Relationship="WorkFlowManagerDBModel.FK_TblMileStoneDetailsReq_TblMileStoneHdr" FromRole="TblMileStoneDetailsReq" ToRole="TblMileStoneHdr" />
           <Property Name="TblCurrency" Type="Int32" />
           <Property Name="ExchangeRate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TechPackReqDetail" Type="Int32" />
         </EntityType>
         <EntityType Name="TblMileStoneHdr">
           <Key>
@@ -31609,6 +31352,233 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RouteCardHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="ProcessID" Type="Int32" />
+          <Property Name="RoutID" Type="Int32" />
+          <Property Name="Vendor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Direction" Type="Int32" Nullable="false" />
+          <Property Name="RoutGroupID" Type="Int32" Nullable="false" />
+          <Property Name="IsFinalOperation" Type="Boolean" />
+          <Property Name="IsPosted" Type="Boolean" />
+          <Property Name="DocDate" Type="DateTime" Precision="0" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="MarkerTransaction" Type="Int32" />
+          <Property Name="AxRouteCardJournalId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AxReportAsAFinishedJournalId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RouteType" Type="Int32" Nullable="false" />
+          <Property Name="AxRouteCardFabricsJournalId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="tblTransactionType" Type="Int32" Nullable="false" />
+          <Property Name="Createdby" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkIserial" Type="Int32" />
+          <Property Name="RouteIncluded" Type="Boolean" />
+          <Property Name="PostedDate" Type="DateTime" Precision="0" />
+          <Property Name="SupplierInv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PackingTransID" Type="Int32" Nullable="false" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="TblLedgerHeader" Type="Int32" />
+          <NavigationProperty Name="RouteCardDetailActualCosts" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardDetailActualCost" />
+          <NavigationProperty Name="RouteCardDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardDetail" />
+          <NavigationProperty Name="RouteCardFabrics" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" FromRole="RouteCardHeader" ToRole="RouteCardFabric" />
+          <NavigationProperty Name="Tbl_TransactionType" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" FromRole="RouteCardHeader" ToRole="Tbl_TransactionType" />
+          <NavigationProperty Name="TblAuthUser" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="RouteCardHeader" ToRole="TblAuthUser" />
+          <NavigationProperty Name="TblAuthUser1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="RouteCardHeader" ToRole="TblAuthUser" />
+          <NavigationProperty Name="TblRoute" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" FromRole="RouteCardHeader" ToRole="TblRoute" />
+          <NavigationProperty Name="TblRouteDirection" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" FromRole="RouteCardHeader" ToRole="TblRouteDirection" />
+          <NavigationProperty Name="TblRouteGroup" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" FromRole="RouteCardHeader" ToRole="TblRouteGroup" />
+          <NavigationProperty Name="RouteCardInvoiceDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" FromRole="RouteCardHeader" ToRole="RouteCardInvoiceDetail" />
+        </EntityType>
+        <Association Name="FK_RouteCardDetailActualCost_RouteCardHeader">
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardDetailActualCost" Role="RouteCardDetailActualCost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteCardHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardDetailActualCost">
+              <PropertyRef Name="RouteCardHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardDetails_RouteCardHeader">
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.RouteCardDetail" Role="RouteCardDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteCardHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardDetail">
+              <PropertyRef Name="RouteCardHeaderIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardFabric_RouteCardFabric">
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.RouteCardFabric" Role="RouteCardFabric" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteCardHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardFabric">
+              <PropertyRef Name="RouteCardHeaderIserial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_RouteCardHeader">
+          <End Type="WorkFlowManagerDBModel.Tbl_TransactionType" Role="Tbl_TransactionType" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_TransactionType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="tblTransactionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_TblAuthUser">
+          <End Type="WorkFlowManagerDBModel.TblAuthUser" Role="TblAuthUser" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAuthUser">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_TblAuthUser1">
+          <End Type="WorkFlowManagerDBModel.TblAuthUser" Role="TblAuthUser" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAuthUser">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="Createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_TblRoute">
+          <End Type="WorkFlowManagerDBModel.TblRoute" Role="TblRoute" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRoute">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="RoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_TblRouteDirection">
+          <End Type="WorkFlowManagerDBModel.TblRouteDirection" Role="TblRouteDirection" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRouteDirection">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="Direction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardHeader_TblRouteGroup">
+          <End Type="WorkFlowManagerDBModel.TblRouteGroup" Role="TblRouteGroup" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRouteGroup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardHeader">
+              <PropertyRef Name="RoutGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteCardInvoiceDetail_RouteCardHeader">
+          <End Type="WorkFlowManagerDBModel.RouteCardHeader" Role="RouteCardHeader" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.RouteCardInvoiceDetail" Role="RouteCardInvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteCardHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="RouteCardInvoiceDetail">
+              <PropertyRef Name="RouteCardHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EMPLID" />
+            <PropertyRef Name="PARTYID" />
+            <PropertyRef Name="MangerEmail" />
+            <PropertyRef Name="CSPPERIODID" />
+          </Key>
+          <Property Name="EMPLID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CSPNoAttendance" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationUnitId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PARTYID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MangerEmail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CSPPERIODID" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EmpOnBehalf" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PurchlineInventDim">
+          <Key>
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="CONFIGID" />
+            <PropertyRef Name="LINENUM" />
+          </Key>
+          <Property Name="PURCHID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATAAREAID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDDATETIME" Type="DateTime" Precision="3" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ITEMID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PURCHUNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONFIGID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTBATCHID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PURCHQTY" Type="Double" />
+          <Property Name="PRICEUNIT" Type="Double" />
+          <Property Name="LINEAMOUNT" Type="Double" />
+          <Property Name="LINENUM" Type="Int32" Nullable="false" />
+          <Property Name="WMSLOCATIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTLOCATIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTSITEID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WidthAsRawMax" Type="Double" />
+          <Property Name="WidthAsRawMin" Type="Double" />
+          <Property Name="DyedFabricWidthMax" Type="Double" />
+          <Property Name="DyedFabricWidthMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterAfterWashMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterAfterWashMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterAsRawMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterAsRawMin" Type="Double" />
+          <Property Name="WeightPerSquarMeterBeforWashMax" Type="Double" />
+          <Property Name="WeightPerSquarMeterBeforWashMin" Type="Double" />
+        </EntityType>
+        <ComplexType Name="RouteQuantities_Result">
+          <Property Type="String" Name="itemid" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SIZE" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="BatchNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="TransactionQty" Nullable="true" />
+          <Property Type="Decimal" Name="StockQty" Nullable="false" Precision="18" Scale="4" />
+        </ComplexType>
        
         </Schema>
     </edmx:ConceptualModels>
@@ -36217,6 +36187,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblInventTrans">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblInventTran">
               <MappingFragment StoreEntitySet="TblInventTrans">
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="LocalItemCost" ColumnName="LocalItemCost" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="LastStoreAvgCost" ColumnName="LastStoreAvgCost" />
                 <ScalarProperty Name="LastStoreQty" ColumnName="LastStoreQty" />
@@ -36362,7 +36335,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateRollBarcode" FunctionName="WorkFlowManagerDBModel.Store.CreateRollBarcode" />
           <EntitySetMapping Name="Inspections">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Inspection">
               <MappingFragment StoreEntitySet="Inspections">
@@ -36758,40 +36730,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
                 <ScalarProperty Name="Size" ColumnName="Size" />
                 <ScalarProperty Name="TblColor" ColumnName="TblColor" />
                 <ScalarProperty Name="TblSalesOrder" ColumnName="TblSalesOrder" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RouteCardHeaders">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.RouteCardHeader">
-              <MappingFragment StoreEntitySet="RouteCardHeader">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="PackingTransID" ColumnName="PackingTransID" />
-                <ScalarProperty Name="SupplierInv" ColumnName="SupplierInv" />
-                <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
-                <ScalarProperty Name="RouteIncluded" ColumnName="RouteIncluded" />
-                <ScalarProperty Name="LinkIserial" ColumnName="LinkIserial" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
-                <ScalarProperty Name="tblTransactionType" ColumnName="tblTransactionType" />
-                <ScalarProperty Name="AxRouteCardFabricsJournalId" ColumnName="AxRouteCardFabricsJournalId" />
-                <ScalarProperty Name="RouteType" ColumnName="RouteType" />
-                <ScalarProperty Name="AxReportAsAFinishedJournalId" ColumnName="AxReportAsAFinishedJournalId" />
-                <ScalarProperty Name="AxRouteCardJournalId" ColumnName="AxRouteCardJournalId" />
-                <ScalarProperty Name="MarkerTransaction" ColumnName="MarkerTransaction" />
-                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
-                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
-                <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
-                <ScalarProperty Name="IsFinalOperation" ColumnName="IsFinalOperation" />
-                <ScalarProperty Name="RoutGroupID" ColumnName="RoutGroupID" />
-                <ScalarProperty Name="Direction" ColumnName="Direction" />
-                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
-                <ScalarProperty Name="RoutID" ColumnName="RoutID" />
-                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
-                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="TransID" ColumnName="TransID" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -37379,6 +37317,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyles">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyle">
               <MappingFragment StoreEntitySet="TblStyle">
+                <ScalarProperty Name="TblPrintType" ColumnName="TblPrintType" />
                 <ScalarProperty Name="SeasonalMasterListNotes" ColumnName="SeasonalMasterListNotes" />
                 <ScalarProperty Name="TblWfFabricAttriputes" ColumnName="TblWfFabricAttriputes" />
                 <ScalarProperty Name="TblStyleFitType" ColumnName="TblStyleFitType" />
@@ -37506,7 +37445,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CreateSAlesOrderFinalEstimated" FunctionName="WorkFlowManagerDBModel.Store.CreateSAlesOrderFinalEstimated" />
           <FunctionImportMapping FunctionImportName="FIXAvgCostDyeingInventTrans" FunctionName="WorkFlowManagerDBModel.Store.FIXAvgCostDyeingInventTrans" />
-          <FunctionImportMapping FunctionImportName="FIXAvgCostInventTrans" FunctionName="WorkFlowManagerDBModel.Store.FIXAvgCostInventTrans" />
           <FunctionImportMapping FunctionImportName="GetItemHistoryByItemDim" FunctionName="WorkFlowManagerDBModel.Store.GetItemHistoryByItemDim" />
           <FunctionImportMapping FunctionImportName="GetWarehouseQuantitiesByTransaction" FunctionName="WorkFlowManagerDBModel.Store.GetWarehouseQuantitiesByTransaction">
             <ResultMapping>
@@ -37735,21 +37673,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
                 <ScalarProperty Name="TblContractHeader" ColumnName="TblContractHeader" />
                 <ScalarProperty Name="TblContractPaymentByPeriod" ColumnName="TblContractPaymentByPeriod" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Employee">
-              <MappingFragment StoreEntitySet="Employees">
-                <ScalarProperty Name="EmpOnBehalf" ColumnName="EmpOnBehalf" />
-                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
-                <ScalarProperty Name="MangerEmail" ColumnName="MangerEmail" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="PARTYID" ColumnName="PARTYID" />
-                <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="CSPNoAttendance" ColumnName="CSPNoAttendance" />
-                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -38077,6 +38000,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyleTNARoutes">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyleTNARoute">
               <MappingFragment StoreEntitySet="TblStyleTNARoute">
+                <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TblMilestoneStatus" ColumnName="TblMilestoneStatus" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="TblStyle" ColumnName="TblStyle" />
                 <ScalarProperty Name="TblStyleTNA" ColumnName="TblStyleTNA" />
@@ -38413,37 +38341,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PurchlineInventDims">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDim">
-              <MappingFragment StoreEntitySet="PurchlineInventDim">
-                <ScalarProperty Name="WeightPerSquarMeterBeforWashMin" ColumnName="WeightPerSquarMeterBeforWashMin" />
-                <ScalarProperty Name="WeightPerSquarMeterBeforWashMax" ColumnName="WeightPerSquarMeterBeforWashMax" />
-                <ScalarProperty Name="WeightPerSquarMeterAsRawMin" ColumnName="WeightPerSquarMeterAsRawMin" />
-                <ScalarProperty Name="WeightPerSquarMeterAsRawMax" ColumnName="WeightPerSquarMeterAsRawMax" />
-                <ScalarProperty Name="WeightPerSquarMeterAfterWashMin" ColumnName="WeightPerSquarMeterAfterWashMin" />
-                <ScalarProperty Name="WeightPerSquarMeterAfterWashMax" ColumnName="WeightPerSquarMeterAfterWashMax" />
-                <ScalarProperty Name="DyedFabricWidthMin" ColumnName="DyedFabricWidthMin" />
-                <ScalarProperty Name="DyedFabricWidthMax" ColumnName="DyedFabricWidthMax" />
-                <ScalarProperty Name="WidthAsRawMin" ColumnName="WidthAsRawMin" />
-                <ScalarProperty Name="WidthAsRawMax" ColumnName="WidthAsRawMax" />
-                <ScalarProperty Name="INVENTSITEID" ColumnName="INVENTSITEID" />
-                <ScalarProperty Name="INVENTLOCATIONID" ColumnName="INVENTLOCATIONID" />
-                <ScalarProperty Name="WMSLOCATIONID" ColumnName="WMSLOCATIONID" />
-                <ScalarProperty Name="LINENUM" ColumnName="LINENUM" />
-                <ScalarProperty Name="LINEAMOUNT" ColumnName="LINEAMOUNT" />
-                <ScalarProperty Name="PRICEUNIT" ColumnName="PRICEUNIT" />
-                <ScalarProperty Name="PURCHQTY" ColumnName="PURCHQTY" />
-                <ScalarProperty Name="INVENTBATCHID" ColumnName="INVENTBATCHID" />
-                <ScalarProperty Name="CONFIGID" ColumnName="CONFIGID" />
-                <ScalarProperty Name="PURCHUNIT" ColumnName="PURCHUNIT" />
-                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
-                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
-                <ScalarProperty Name="PURCHID" ColumnName="PURCHID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PurchlineInventDimWithoutRecs">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec">
               <MappingFragment StoreEntitySet="PurchlineInventDimWithoutRec">
@@ -38589,6 +38486,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblMileStoneDetailsReqs">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblMileStoneDetailsReq">
               <MappingFragment StoreEntitySet="TblMileStoneDetailsReq">
+                <ScalarProperty Name="TechPackReqDetail" ColumnName="TechPackReqDetail" />
                 <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
                 <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
                 <ScalarProperty Name="DepitOrCredit" ColumnName="DepitOrCredit" />
@@ -38673,6 +38571,102 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RouteCardHeaders">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.RouteCardHeader">
+              <MappingFragment StoreEntitySet="RouteCardHeader">
+                <ScalarProperty Name="TblLedgerHeader" ColumnName="TblLedgerHeader" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="PackingTransID" ColumnName="PackingTransID" />
+                <ScalarProperty Name="SupplierInv" ColumnName="SupplierInv" />
+                <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+                <ScalarProperty Name="RouteIncluded" ColumnName="RouteIncluded" />
+                <ScalarProperty Name="LinkIserial" ColumnName="LinkIserial" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="tblTransactionType" ColumnName="tblTransactionType" />
+                <ScalarProperty Name="AxRouteCardFabricsJournalId" ColumnName="AxRouteCardFabricsJournalId" />
+                <ScalarProperty Name="RouteType" ColumnName="RouteType" />
+                <ScalarProperty Name="AxReportAsAFinishedJournalId" ColumnName="AxReportAsAFinishedJournalId" />
+                <ScalarProperty Name="AxRouteCardJournalId" ColumnName="AxRouteCardJournalId" />
+                <ScalarProperty Name="MarkerTransaction" ColumnName="MarkerTransaction" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
+                <ScalarProperty Name="IsFinalOperation" ColumnName="IsFinalOperation" />
+                <ScalarProperty Name="RoutGroupID" ColumnName="RoutGroupID" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="RoutID" ColumnName="RoutID" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="TransID" ColumnName="TransID" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RouteCardDetailActualCost_Insert" FunctionName="WorkFlowManagerDBModel.Store.RouteCardDetailActualCost_Insert" />
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmpOnBehalf" ColumnName="EmpOnBehalf" />
+                <ScalarProperty Name="CSPPERIODID" ColumnName="CSPPERIODID" />
+                <ScalarProperty Name="MangerEmail" ColumnName="MangerEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PARTYID" ColumnName="PARTYID" />
+                <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="CSPNoAttendance" ColumnName="CSPNoAttendance" />
+                <ScalarProperty Name="EMPLID" ColumnName="EMPLID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchlineInventDims">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.PurchlineInventDim">
+              <MappingFragment StoreEntitySet="PurchlineInventDim">
+                <ScalarProperty Name="WeightPerSquarMeterBeforWashMin" ColumnName="WeightPerSquarMeterBeforWashMin" />
+                <ScalarProperty Name="WeightPerSquarMeterBeforWashMax" ColumnName="WeightPerSquarMeterBeforWashMax" />
+                <ScalarProperty Name="WeightPerSquarMeterAsRawMin" ColumnName="WeightPerSquarMeterAsRawMin" />
+                <ScalarProperty Name="WeightPerSquarMeterAsRawMax" ColumnName="WeightPerSquarMeterAsRawMax" />
+                <ScalarProperty Name="WeightPerSquarMeterAfterWashMin" ColumnName="WeightPerSquarMeterAfterWashMin" />
+                <ScalarProperty Name="WeightPerSquarMeterAfterWashMax" ColumnName="WeightPerSquarMeterAfterWashMax" />
+                <ScalarProperty Name="DyedFabricWidthMin" ColumnName="DyedFabricWidthMin" />
+                <ScalarProperty Name="DyedFabricWidthMax" ColumnName="DyedFabricWidthMax" />
+                <ScalarProperty Name="WidthAsRawMin" ColumnName="WidthAsRawMin" />
+                <ScalarProperty Name="WidthAsRawMax" ColumnName="WidthAsRawMax" />
+                <ScalarProperty Name="INVENTSITEID" ColumnName="INVENTSITEID" />
+                <ScalarProperty Name="INVENTLOCATIONID" ColumnName="INVENTLOCATIONID" />
+                <ScalarProperty Name="WMSLOCATIONID" ColumnName="WMSLOCATIONID" />
+                <ScalarProperty Name="LINENUM" ColumnName="LINENUM" />
+                <ScalarProperty Name="LINEAMOUNT" ColumnName="LINEAMOUNT" />
+                <ScalarProperty Name="PRICEUNIT" ColumnName="PRICEUNIT" />
+                <ScalarProperty Name="PURCHQTY" ColumnName="PURCHQTY" />
+                <ScalarProperty Name="INVENTBATCHID" ColumnName="INVENTBATCHID" />
+                <ScalarProperty Name="CONFIGID" ColumnName="CONFIGID" />
+                <ScalarProperty Name="PURCHUNIT" ColumnName="PURCHUNIT" />
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="PURCHID" ColumnName="PURCHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateRollBarcode" FunctionName="WorkFlowManagerDBModel.Store.CreateRollBarcode" />
+          <FunctionImportMapping FunctionImportName="RouteQuantities" FunctionName="WorkFlowManagerDBModel.Store.RouteQuantities">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WorkFlowManagerDBModel.RouteQuantities_Result">
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="TransactionQty" ColumnName="TransactionQty" />
+                <ScalarProperty Name="StockQty" ColumnName="StockQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         
           </EntityContainerMapping>
       </Mapping>
@@ -38695,7 +38689,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CCWMFEntites" ZoomLevel="71">
+      <Diagram Name="CCWMFEntites" ZoomLevel="62">
         <EntityTypeShape Height="3.0714322916664969" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsDetail" PointX="3.75" PointY="42.625" Width="1.5" />
         <EntityTypeShape Height="2.7427376302084667" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsHeader" PointX="1.5" PointY="39.75" Width="1.5" />
         <EntityTypeShape Height="2.0853483072917243" EntityType="WorkFlowManagerDBModel.BOM_CalcMethod" PointX="3" PointY="93.375" Width="1.5" />
@@ -41217,16 +41211,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblRouteGroup" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblWarehouse" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.RouteCardHeader" PointX="3" PointY="53.5" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblProductionOrderTransactionType" PointX="22.5" PointY="95.625" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblProductionOrderFabric" PointX="22.5" PointY="105.125" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblProductionOrderHeader" PointX="19.5" PointY="100.625" Width="1.5" />
@@ -41370,7 +41354,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblContractHeaderDel_TblLkpSeason" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractHeaderDel_TblRetailOrderProductionType" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblContractHeaderDel_TblSubContractor" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.Employee" PointX="40.75" PointY="21.75" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNAStatu" PointX="6" PointY="138.125" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNAHeader_TblStyleTNAStatus" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTnaStatusDetails_TblStyleTnaStatus" />
@@ -41402,7 +41385,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.RouteCardDetailActualCostType" PointX="5.25" PointY="89.5" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetailActualCostType" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardDetails" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_TblSalesOrder" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.InspectionsRoute" PointX="44.75" PointY="14.75" Width="1.5" />
@@ -41478,7 +41460,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblStyleSpecDetails_TblStyle" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyleTNADetailAttachment" Width="1.5" PointX="18.75" PointY="156.75" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNADetailAttachment_TblStyleTNADetail" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDim" Width="1.5" PointX="48.375" PointY="33.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" Width="1.5" PointX="34.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" Width="1.5" PointX="36.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" Width="1.5" PointX="38.375" PointY="48.75" />
@@ -41510,6 +41491,19 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblWarehouse" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblAdjustmentHeader" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblAdjustmentTempDetail_TblItemDim" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.RouteCardHeader" Width="1.5" PointX="5.75" PointY="47.375" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetailActualCost_RouteCardHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_RouteCardHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardFabric_RouteCardFabric" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_RouteCardHeader" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRoute" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteDirection" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.Employee" Width="1.5" PointX="49.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDim" Width="1.5" PointX="48.375" PointY="33.75" />
        
         </Diagram>
     </Diagrams>

@@ -157,16 +157,16 @@
                 <RowDefinition Height="1*" />
                
             </Grid.RowDefinitions>
-            <TextBlock MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Item, Source={StaticResource LocalizedStrings}}" Grid.Column="0" Grid.Row="0" />
-            <TextBlock MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ItemCode, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Item, Source={StaticResource LocalizedStrings}}" Grid.Column="0" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ItemCode, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
 
-            <TextBlock MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Item, Source={StaticResource LocalizedStrings}}" Grid.Column="2" Grid.Row="0" />
-            <TextBlock MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ItemName, Mode=TwoWay}" Grid.Column="3" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Item, Source={StaticResource LocalizedStrings}}" Grid.Column="2" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ItemName, Mode=TwoWay}" Grid.Column="3" Grid.Row="0" />
 
-            <TextBlock MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Color, Source={StaticResource LocalizedStrings}}" Grid.Column="4" Grid.Row="0" />
-            <TextBlock MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ColorFromCode, Mode=TwoWay}" Grid.Column="5" Grid.Row="0" />
-            <TextBlock MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Size, Source={StaticResource LocalizedStrings}}" Grid.Column="6" Grid.Row="0" />
-            <TextBlock MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.SizeFrom, Mode=TwoWay}" Grid.Column="7" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Color, Source={StaticResource LocalizedStrings}}" Grid.Column="4" Grid.Row="0" />
+            <TextBlock  Visibility="Collapsed" MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.ColorFromCode, Mode=TwoWay}" Grid.Column="5" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Right" Margin="0,0,5,0" Text="{Binding Path=Size, Source={StaticResource LocalizedStrings}}" Grid.Column="6" Grid.Row="0" />
+            <TextBlock Visibility="Collapsed" MaxWidth="200" TextAlignment="Left" Margin="0,0,5,0" Text="{Binding Path=ItemTransfer.SizeFrom, Mode=TwoWay}" Grid.Column="7" Grid.Row="0" />
 
             <!--<TextBox Text="{Binding Path=ItemTransfer.ColorFromCode, Mode=TwoWay}" IsReadOnly="True"/>
             <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Column="1" />
@@ -184,20 +184,20 @@
             <sdk:DatePicker IsEnabled="{Binding Enabled}" MinHeight="30"    HorizontalAlignment="Stretch" 
 						   Grid.Column="5" SelectedDate="{Binding  DocDate,Mode=TwoWay}" Grid.Row="3" />
 
-            <TextBlock TextAlignment="Right" Margin="0,0,5,0" Grid.Column="6" MinHeight="30" Grid.Row="3" Text="{Binding Path=Qty, Source={StaticResource LocalizedStrings}}" />
-            <TextBox  IsEnabled="{Binding Enabled}" Grid.Row="3"   Grid.Column="7" Text="{Binding Qty,Mode=TwoWay}"/>
+            <TextBlock Visibility="Collapsed" TextAlignment="Right" Margin="0,0,5,0" Grid.Column="6" MinHeight="30" Grid.Row="3" Text="{Binding Path=Qty, Source={StaticResource LocalizedStrings}}" />
+            <TextBox  Visibility="Collapsed"  IsEnabled="{Binding Enabled}" Grid.Row="3"   Grid.Column="7" Text="{Binding Qty,Mode=TwoWay}"/>
 
 
-            <TextBlock TextAlignment="Right"  Margin="0,0,5,0" Grid.Row="3" Text="{Binding Search, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
+            <TextBlock Visibility="Collapsed" TextAlignment="Right"  Margin="0,0,5,0" Grid.Row="3" Text="{Binding Search, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
 					   Grid.Column="0"  />
-            <Button ToolTipService.ToolTip="Search" Grid.Row="3" Grid.Column="1" Cursor="Hand"  IsEnabled="{Binding IsReadOnly, Source={StaticResource ViewModel}, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
+            <Button  Visibility="Collapsed" ToolTipService.ToolTip="Search" Grid.Row="3" Grid.Column="1" Cursor="Hand"  IsEnabled="{Binding IsReadOnly, Source={StaticResource ViewModel}, Mode=TwoWay, Converter={StaticResource ReversedConverter}}"
                                     Command="{Binding Path=OpenItemSearch, Source={StaticResource ViewModel}}">
                 <Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
             </Button>
 
-            <TextBlock TextAlignment="Right"  Margin="0,0,5,0" Grid.Row="3" Text="{Binding WareHouse, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
+            <TextBlock TextAlignment="Right"  Visibility="Collapsed" Margin="0,0,5,0" Grid.Row="3" Text="{Binding WareHouse, Source={StaticResource LocalizedStrings},Mode=TwoWay}"
 					   Grid.Column="2"  />
-            <ComboBox   IsEnabled="{Binding Enabled}"                	  
+            <ComboBox   IsEnabled="{Binding Enabled}"     Visibility="Collapsed"            	  
                       ItemsSource="{Binding Path=DataContext.WareHouseList,RelativeSource={RelativeSource FindAncestor,AncestorType=sdk:Page,AncestorLevel=1}}"
                       Grid.Row="3" Grid.Column="3"
 					  SelectedValuePath="Iserial" DisplayMemberPath="Ename" SelectedItem="{Binding WareHousePerRow,Mode=TwoWay}"

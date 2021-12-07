@@ -259,6 +259,8 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSubContractor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSeasonalMasterList))]
@@ -317,7 +319,6 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.tbl_lkp_YarnSource))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNA))]
@@ -651,6 +652,8 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSubContractor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSeasonalMasterList))]
@@ -709,7 +712,6 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.tbl_lkp_YarnSource))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNA))]
@@ -31807,6 +31809,10 @@ namespace CCWFM.LkpData {
         
         private byte[] ImageField;
         
+        private string ImageNameField;
+        
+        private string ImagePathField;
+        
         private int IserialField;
         
         private string PantonCodeField;
@@ -31971,6 +31977,32 @@ namespace CCWFM.LkpData {
                 if ((object.ReferenceEquals(this.ImageField, value) != true)) {
                     this.ImageField = value;
                     this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageName {
+            get {
+                return this.ImageNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageNameField, value) != true)) {
+                    this.ImageNameField = value;
+                    this.RaisePropertyChanged("ImageName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImagePath {
+            get {
+                return this.ImagePathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagePathField, value) != true)) {
+                    this.ImagePathField = value;
+                    this.RaisePropertyChanged("ImagePath");
                 }
             }
         }
@@ -41427,6 +41459,8 @@ namespace CCWFM.LkpData {
         
         private string BatchNoField;
         
+        private System.DateTime CreationDateField;
+        
         private int IserialField;
         
         private System.Nullable<decimal> ItemAvgCostField;
@@ -41434,6 +41468,8 @@ namespace CCWFM.LkpData {
         private int ItemIserialField;
         
         private string ItemTypeField;
+        
+        private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string SizeField;
         
@@ -41487,6 +41523,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -41534,6 +41583,19 @@ namespace CCWFM.LkpData {
                 if ((object.ReferenceEquals(this.ItemTypeField, value) != true)) {
                     this.ItemTypeField = value;
                     this.RaisePropertyChanged("ItemType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastUpdatedDate {
+            get {
+                return this.LastUpdatedDateField;
+            }
+            set {
+                if ((this.LastUpdatedDateField.Equals(value) != true)) {
+                    this.LastUpdatedDateField = value;
+                    this.RaisePropertyChanged("LastUpdatedDate");
                 }
             }
         }
@@ -56222,6 +56284,8 @@ namespace CCWFM.LkpData {
         
         private System.Nullable<decimal> LocalCostField;
         
+        private string NotesField;
+        
         private System.Nullable<double> OperationCostField;
         
         private int TBlWFCompanyField;
@@ -56229,6 +56293,8 @@ namespace CCWFM.LkpData {
         private double TargetCostPriceField;
         
         private System.Nullable<int> TblCurrencyField;
+        
+        private System.Nullable<int> TblInternalShipField;
         
         private System.Nullable<int> TblLkpSeasonField;
         
@@ -56261,6 +56327,8 @@ namespace CCWFM.LkpData {
         private int TblStyleTNAStatusField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleTNAStatusDetail> TblStyleTNAStatusDetailsField;
+        
+        private System.Nullable<int> TblSubContractorField;
         
         private System.Nullable<int> TblSupplierField;
         
@@ -56408,6 +56476,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> OperationCost {
             get {
                 return this.OperationCostField;
@@ -56455,6 +56536,19 @@ namespace CCWFM.LkpData {
                 if ((this.TblCurrencyField.Equals(value) != true)) {
                     this.TblCurrencyField = value;
                     this.RaisePropertyChanged("TblCurrency");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblInternalShip {
+            get {
+                return this.TblInternalShipField;
+            }
+            set {
+                if ((this.TblInternalShipField.Equals(value) != true)) {
+                    this.TblInternalShipField = value;
+                    this.RaisePropertyChanged("TblInternalShip");
                 }
             }
         }
@@ -56663,6 +56757,19 @@ namespace CCWFM.LkpData {
                 if ((object.ReferenceEquals(this.TblStyleTNAStatusDetailsField, value) != true)) {
                     this.TblStyleTNAStatusDetailsField = value;
                     this.RaisePropertyChanged("TblStyleTNAStatusDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblSubContractor {
+            get {
+                return this.TblSubContractorField;
+            }
+            set {
+                if ((this.TblSubContractorField.Equals(value) != true)) {
+                    this.TblSubContractorField = value;
+                    this.RaisePropertyChanged("TblSubContractor");
                 }
             }
         }
@@ -57435,6 +57542,8 @@ namespace CCWFM.LkpData {
         
         private System.DateTime DocDateField;
         
+        private bool IsCanceledField;
+        
         private int IserialField;
         
         private System.DateTime LastChangeDateField;
@@ -57468,6 +57577,8 @@ namespace CCWFM.LkpData {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractDetail> TblContractDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractPaymentByPeriod> TblContractPaymentByPeriodsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractSubHeader> TblContractSubHeadersField;
         
         private int TblCurrencyField;
         
@@ -57662,6 +57773,19 @@ namespace CCWFM.LkpData {
                 if ((this.DocDateField.Equals(value) != true)) {
                     this.DocDateField = value;
                     this.RaisePropertyChanged("DocDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
                 }
             }
         }
@@ -57888,6 +58012,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractSubHeader> TblContractSubHeaders {
+            get {
+                return this.TblContractSubHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeadersField, value) != true)) {
+                    this.TblContractSubHeadersField = value;
+                    this.RaisePropertyChanged("TblContractSubHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -58097,6 +58234,8 @@ namespace CCWFM.LkpData {
         
         private string MaterialField;
         
+        private decimal OldTotalField;
+        
         private decimal OperationCostField;
         
         private int QtyField;
@@ -58119,6 +58258,10 @@ namespace CCWFM.LkpData {
         
         private System.Nullable<int> TblContractSubHeaderField;
         
+        private CCWFM.LkpData.TblContractSubHeader TblContractSubHeader1Field;
+        
+        private CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1ReferenceField;
+        
         private System.Nullable<int> TblLkpBrandSectionField;
         
         private CCWFM.LkpData.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -58130,6 +58273,10 @@ namespace CCWFM.LkpData {
         private CCWFM.LkpData.TblSalesOrderColor TblSalesOrderColor1Field;
         
         private CCWFM.LkpData.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1ReferenceField;
+        
+        private decimal TotalField;
+        
+        private System.Nullable<int> UpdateTypeField;
         
         private System.Nullable<System.DateTime> UpdatedDeliveryDateField;
         
@@ -58279,6 +58426,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal OldTotal {
+            get {
+                return this.OldTotalField;
+            }
+            set {
+                if ((this.OldTotalField.Equals(value) != true)) {
+                    this.OldTotalField = value;
+                    this.RaisePropertyChanged("OldTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal OperationCost {
             get {
                 return this.OperationCostField;
@@ -58422,6 +58582,32 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.TblContractSubHeader TblContractSubHeader1 {
+            get {
+                return this.TblContractSubHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1Field, value) != true)) {
+                    this.TblContractSubHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1Reference {
+            get {
+                return this.TblContractSubHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1ReferenceField, value) != true)) {
+                    this.TblContractSubHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblLkpBrandSection {
             get {
                 return this.TblLkpBrandSectionField;
@@ -58500,6 +58686,32 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UpdateType {
+            get {
+                return this.UpdateTypeField;
+            }
+            set {
+                if ((this.UpdateTypeField.Equals(value) != true)) {
+                    this.UpdateTypeField = value;
+                    this.RaisePropertyChanged("UpdateType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> UpdatedDeliveryDate {
             get {
                 return this.UpdatedDeliveryDateField;
@@ -58528,10 +58740,519 @@ namespace CCWFM.LkpData {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractSubHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractSubHeader : CCWFM.LkpData.EntityObject {
+        
+        private System.Nullable<decimal> AmountField;
+        
+        private System.Nullable<System.DateTime> ApproveDateField;
+        
+        private System.Nullable<bool> ApprovedField;
+        
+        private System.Nullable<int> ApprovedByField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private System.Nullable<int> TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractDetail> TblContractDetailsField;
+        
+        private System.Nullable<int> TblContractHeaderField;
+        
+        private CCWFM.LkpData.TblContractHeader TblContractHeader1Field;
+        
+        private CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractPaymentByPeriod> TblContractPaymentByPeriodsField;
+        
+        private System.Nullable<int> TblContractSubHeaderStatusField;
+        
+        private System.Nullable<int> VersionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ApproveDate {
+            get {
+                return this.ApproveDateField;
+            }
+            set {
+                if ((this.ApproveDateField.Equals(value) != true)) {
+                    this.ApproveDateField = value;
+                    this.RaisePropertyChanged("ApproveDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ApprovedBy {
+            get {
+                return this.ApprovedByField;
+            }
+            set {
+                if ((this.ApprovedByField.Equals(value) != true)) {
+                    this.ApprovedByField = value;
+                    this.RaisePropertyChanged("ApprovedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractDetail> TblContractDetails {
+            get {
+                return this.TblContractDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractDetailsField, value) != true)) {
+                    this.TblContractDetailsField = value;
+                    this.RaisePropertyChanged("TblContractDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.TblContractHeader TblContractHeader1 {
+            get {
+                return this.TblContractHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
+                    this.TblContractHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
+            get {
+                return this.TblContractHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
+                    this.TblContractHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractPaymentByPeriod> TblContractPaymentByPeriods {
+            get {
+                return this.TblContractPaymentByPeriodsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractPaymentByPeriodsField, value) != true)) {
+                    this.TblContractPaymentByPeriodsField = value;
+                    this.RaisePropertyChanged("TblContractPaymentByPeriods");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeaderStatus {
+            get {
+                return this.TblContractSubHeaderStatusField;
+            }
+            set {
+                if ((this.TblContractSubHeaderStatusField.Equals(value) != true)) {
+                    this.TblContractSubHeaderStatusField = value;
+                    this.RaisePropertyChanged("TblContractSubHeaderStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractPaymentByPeriod", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractPaymentByPeriod : CCWFM.LkpData.EntityObject {
+        
+        private System.Nullable<decimal> AmountPercentField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private string DescriptionField;
+        
+        private System.DateTime DueDateField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblContractHeaderField;
+        
+        private CCWFM.LkpData.TblContractHeader TblContractHeader1Field;
+        
+        private CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
+        
+        private System.Nullable<int> TblContractSubHeaderField;
+        
+        private CCWFM.LkpData.TblContractSubHeader TblContractSubHeader1Field;
+        
+        private CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AmountPercent {
+            get {
+                return this.AmountPercentField;
+            }
+            set {
+                if ((this.AmountPercentField.Equals(value) != true)) {
+                    this.AmountPercentField = value;
+                    this.RaisePropertyChanged("AmountPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DueDate {
+            get {
+                return this.DueDateField;
+            }
+            set {
+                if ((this.DueDateField.Equals(value) != true)) {
+                    this.DueDateField = value;
+                    this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.TblContractHeader TblContractHeader1 {
+            get {
+                return this.TblContractHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
+                    this.TblContractHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
+            get {
+                return this.TblContractHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
+                    this.TblContractHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeader {
+            get {
+                return this.TblContractSubHeaderField;
+            }
+            set {
+                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
+                    this.TblContractSubHeaderField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.TblContractSubHeader TblContractSubHeader1 {
+            get {
+                return this.TblContractSubHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1Field, value) != true)) {
+                    this.TblContractSubHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1Reference {
+            get {
+                return this.TblContractSubHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1ReferenceField, value) != true)) {
+                    this.TblContractSubHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1Reference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSalesOrderColor", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSalesOrderColor : CCWFM.LkpData.EntityObject {
         
         private System.Nullable<decimal> AdditionalCostField;
+        
+        private bool CanceledField;
         
         private System.Nullable<decimal> CostField;
         
@@ -58550,6 +59271,8 @@ namespace CCWFM.LkpData {
         private string NotesField;
         
         private System.Nullable<int> RequestForCancelField;
+        
+        private System.Nullable<decimal> RetailTargetPriceField;
         
         private int TBlWFCompanyField;
         
@@ -58590,6 +59313,19 @@ namespace CCWFM.LkpData {
                 if ((this.AdditionalCostField.Equals(value) != true)) {
                     this.AdditionalCostField = value;
                     this.RaisePropertyChanged("AdditionalCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Canceled {
+            get {
+                return this.CanceledField;
+            }
+            set {
+                if ((this.CanceledField.Equals(value) != true)) {
+                    this.CanceledField = value;
+                    this.RaisePropertyChanged("Canceled");
                 }
             }
         }
@@ -58707,6 +59443,19 @@ namespace CCWFM.LkpData {
                 if ((this.RequestForCancelField.Equals(value) != true)) {
                     this.RequestForCancelField = value;
                     this.RaisePropertyChanged("RequestForCancel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> RetailTargetPrice {
+            get {
+                return this.RetailTargetPriceField;
+            }
+            set {
+                if ((this.RetailTargetPriceField.Equals(value) != true)) {
+                    this.RetailTargetPriceField = value;
+                    this.RaisePropertyChanged("RetailTargetPrice");
                 }
             }
         }
@@ -59145,11 +59894,21 @@ namespace CCWFM.LkpData {
         
         private bool CanceledField;
         
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
         private System.Nullable<System.DateTime> DelivaryDateField;
         
         private System.Nullable<bool> IsApprovedField;
         
+        private System.Nullable<bool> IsCanceledField;
+        
         private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
         
         private bool ManualCalculationField;
         
@@ -59193,6 +59952,32 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> DelivaryDate {
             get {
                 return this.DelivaryDateField;
@@ -59219,6 +60004,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -59227,6 +60025,32 @@ namespace CCWFM.LkpData {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
                 }
             }
         }
@@ -59595,6 +60419,8 @@ namespace CCWFM.LkpData {
         
         private double RetailTargetCostPriceField;
         
+        private string SeasonalMasterListNotesField;
+        
         private string SerialNoField;
         
         private int StatusField;
@@ -59679,6 +60505,8 @@ namespace CCWFM.LkpData {
         
         private CCWFM.LkpData.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO TblStyleFabricComposition1ReferenceField;
         
+        private System.Nullable<int> TblStyleFitTypeField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleImage> TblStyleImagesField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleSpecDetail> TblStyleSpecDetailsField;
@@ -59702,6 +60530,8 @@ namespace CCWFM.LkpData {
         private CCWFM.LkpData.TblSupplierFabric TblSupplierFabric1Field;
         
         private CCWFM.LkpData.EntityReferenceOfTblSupplierFabrico0bgEGGO TblSupplierFabric1ReferenceField;
+        
+        private System.Nullable<int> TblWfFabricAttriputesField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.tblTechPackBOMComment> tblTechPackBOMCommentsField;
         
@@ -60044,6 +60874,19 @@ namespace CCWFM.LkpData {
                 if ((this.RetailTargetCostPriceField.Equals(value) != true)) {
                     this.RetailTargetCostPriceField = value;
                     this.RaisePropertyChanged("RetailTargetCostPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SeasonalMasterListNotes {
+            get {
+                return this.SeasonalMasterListNotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeasonalMasterListNotesField, value) != true)) {
+                    this.SeasonalMasterListNotesField = value;
+                    this.RaisePropertyChanged("SeasonalMasterListNotes");
                 }
             }
         }
@@ -60595,6 +61438,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleFitType {
+            get {
+                return this.TblStyleFitTypeField;
+            }
+            set {
+                if ((this.TblStyleFitTypeField.Equals(value) != true)) {
+                    this.TblStyleFitTypeField = value;
+                    this.RaisePropertyChanged("TblStyleFitType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleImage> TblStyleImages {
             get {
                 return this.TblStyleImagesField;
@@ -60751,6 +61607,19 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblWfFabricAttriputes {
+            get {
+                return this.TblWfFabricAttriputesField;
+            }
+            set {
+                if ((this.TblWfFabricAttriputesField.Equals(value) != true)) {
+                    this.TblWfFabricAttriputesField = value;
+                    this.RaisePropertyChanged("TblWfFabricAttriputes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.tblTechPackBOMComment> tblTechPackBOMComments {
             get {
                 return this.tblTechPackBOMCommentsField;
@@ -60898,7 +61767,7 @@ namespace CCWFM.LkpData {
         
         private int IserialField;
         
-        private System.Nullable<int> StartIserialField;
+        private int StartIserialField;
         
         private int TBlWFCompanyField;
         
@@ -60991,7 +61860,7 @@ namespace CCWFM.LkpData {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> StartIserial {
+        public int StartIserial {
             get {
                 return this.StartIserialField;
             }
@@ -63940,6 +64809,10 @@ namespace CCWFM.LkpData {
         
         private string FITField;
         
+        private System.Nullable<System.DateTime> FinishDateField;
+        
+        private System.Nullable<int> FinishUserField;
+        
         private int IserialField;
         
         private string ORGFabricField;
@@ -63997,6 +64870,32 @@ namespace CCWFM.LkpData {
                 if ((object.ReferenceEquals(this.FITField, value) != true)) {
                     this.FITField = value;
                     this.RaisePropertyChanged("FIT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FinishDate {
+            get {
+                return this.FinishDateField;
+            }
+            set {
+                if ((this.FinishDateField.Equals(value) != true)) {
+                    this.FinishDateField = value;
+                    this.RaisePropertyChanged("FinishDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FinishUser {
+            get {
+                return this.FinishUserField;
+            }
+            set {
+                if ((this.FinishUserField.Equals(value) != true)) {
+                    this.FinishUserField = value;
+                    this.RaisePropertyChanged("FinishUser");
                 }
             }
         }
@@ -68851,222 +69750,6 @@ namespace CCWFM.LkpData {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractPaymentByPeriod", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblContractPaymentByPeriod : CCWFM.LkpData.EntityObject {
-        
-        private System.Nullable<decimal> AmountPercentField;
-        
-        private System.Nullable<int> CreatedByField;
-        
-        private System.Nullable<System.DateTime> CreationDateField;
-        
-        private string DescriptionField;
-        
-        private System.DateTime DueDateField;
-        
-        private int IserialField;
-        
-        private System.Nullable<System.DateTime> LastChangeDateField;
-        
-        private System.Nullable<int> LastChangeUserField;
-        
-        private System.Nullable<int> StatusField;
-        
-        private int TBlWFCompanyField;
-        
-        private int TblContractHeaderField;
-        
-        private CCWFM.LkpData.TblContractHeader TblContractHeader1Field;
-        
-        private CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
-        
-        private System.Nullable<int> TblContractSubHeaderField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AmountPercent {
-            get {
-                return this.AmountPercentField;
-            }
-            set {
-                if ((this.AmountPercentField.Equals(value) != true)) {
-                    this.AmountPercentField = value;
-                    this.RaisePropertyChanged("AmountPercent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((this.CreatedByField.Equals(value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DueDate {
-            get {
-                return this.DueDateField;
-            }
-            set {
-                if ((this.DueDateField.Equals(value) != true)) {
-                    this.DueDateField = value;
-                    this.RaisePropertyChanged("DueDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastChangeDate {
-            get {
-                return this.LastChangeDateField;
-            }
-            set {
-                if ((this.LastChangeDateField.Equals(value) != true)) {
-                    this.LastChangeDateField = value;
-                    this.RaisePropertyChanged("LastChangeDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastChangeUser {
-            get {
-                return this.LastChangeUserField;
-            }
-            set {
-                if ((this.LastChangeUserField.Equals(value) != true)) {
-                    this.LastChangeUserField = value;
-                    this.RaisePropertyChanged("LastChangeUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TBlWFCompany {
-            get {
-                return this.TBlWFCompanyField;
-            }
-            set {
-                if ((this.TBlWFCompanyField.Equals(value) != true)) {
-                    this.TBlWFCompanyField = value;
-                    this.RaisePropertyChanged("TBlWFCompany");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblContractHeader {
-            get {
-                return this.TblContractHeaderField;
-            }
-            set {
-                if ((this.TblContractHeaderField.Equals(value) != true)) {
-                    this.TblContractHeaderField = value;
-                    this.RaisePropertyChanged("TblContractHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LkpData.TblContractHeader TblContractHeader1 {
-            get {
-                return this.TblContractHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
-                    this.TblContractHeader1Field = value;
-                    this.RaisePropertyChanged("TblContractHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
-            get {
-                return this.TblContractHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
-                    this.TblContractHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblContractHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblContractSubHeader {
-            get {
-                return this.TblContractSubHeaderField;
-            }
-            set {
-                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
-                    this.TblContractSubHeaderField = value;
-                    this.RaisePropertyChanged("TblContractSubHeader");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNAColorDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleTNAColorDetail : CCWFM.LkpData.EntityObject {
         
@@ -69079,6 +69762,8 @@ namespace CCWFM.LkpData {
         private System.Nullable<System.DateTime> DeliveryDateField;
         
         private System.Nullable<decimal> ExchangeRateField;
+        
+        private System.Nullable<int> ExpectedQtyField;
         
         private System.Nullable<double> FabricCostField;
         
@@ -69165,6 +69850,19 @@ namespace CCWFM.LkpData {
                 if ((this.ExchangeRateField.Equals(value) != true)) {
                     this.ExchangeRateField = value;
                     this.RaisePropertyChanged("ExchangeRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ExpectedQty {
+            get {
+                return this.ExpectedQtyField;
+            }
+            set {
+                if ((this.ExpectedQtyField.Equals(value) != true)) {
+                    this.ExpectedQtyField = value;
+                    this.RaisePropertyChanged("ExpectedQty");
                 }
             }
         }
@@ -75679,6 +76377,8 @@ namespace CCWFM.LkpData {
         
         private System.Nullable<int> FabricColorField;
         
+        private System.Nullable<bool> IsCanceledField;
+        
         private int IserialField;
         
         private string PantoneColorCodeField;
@@ -75742,6 +76442,19 @@ namespace CCWFM.LkpData {
                 if ((this.FabricColorField.Equals(value) != true)) {
                     this.FabricColorField = value;
                     this.RaisePropertyChanged("FabricColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
                 }
             }
         }
@@ -83939,6 +84652,9 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractPaymentByPeriod>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblSalesOrderColor>))]
@@ -84028,8 +84744,7 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblSalesOrderSizeRatio>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractPaymentByPeriod>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblContractPaymentByPeriod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblContractSubHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleTNAColorDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.LkpData.TblStyleTNADetail>))]
@@ -84311,6 +85026,7 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblLkpSeasono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblFamilyo0bgEGGO))]
@@ -84624,6 +85340,7 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblLkpSeasono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblFamilyo0bgEGGO))]
@@ -84868,6 +85585,7 @@ namespace CCWFM.LkpData {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblLkpSeasono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.LkpData.EntityReferenceOfTblFamilyo0bgEGGO))]
@@ -85744,6 +86462,12 @@ namespace CCWFM.LkpData {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblContractHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblContractHeadero0bgEGGO : CCWFM.LkpData.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblContractSubHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblContractSubHeadero0bgEGGO : CCWFM.LkpData.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

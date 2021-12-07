@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CCWFM.Web.Service.Operations;
+using System;
+using System.Collections.Generic;
 using System.Data.Objects.SqlClient;
 using System.Linq;
 using System.ServiceModel;
@@ -18,53 +20,114 @@ namespace CCWFM.Web.Service
             {
                 valuesObjects = new Dictionary<string, object>();
             }
-            if (type != 1)
+            if (SharedOperation.UseAx())
             {
-                if (filter == null)
+                if (type != 1)
                 {
-                    filter = "it.DATAAREAID ==(@DATAAREAID0)";
-                }
-                else
-                {
-                    filter = filter + " and it.DATAAREAID ==(@DATAAREAID0)";
-                }
+                    if (filter == null)
+                    {
+                        filter = "it.DATAAREAID ==(@DATAAREAID0)";
+                    }
+                    else
+                    {
+                        filter = filter + " and it.DATAAREAID ==(@DATAAREAID0)";
+                    }
 
-                valuesObjects.Add("DATAAREAID0", dataArea);
+                    valuesObjects.Add("DATAAREAID0", dataArea);
+                }
             }
+
+
             var parameterCollection = ConvertToParamters(valuesObjects);
             var searchedItems = new List<PurchaseOrderDto>();
             fullCount = 0;
-
-            using (var context = new _Model.ax2009_ccEntities())
+            if (SharedOperation.UseAx())
             {
-                if (type == 0)
+
+                using (var context = new _Model.ax2009_ccEntities())
                 {
-                    fullCount = context.PURCHTABLEs.Where(filter, parameterCollection.ToArray()).Count();
-                    searchedItems = (from p in context.PURCHTABLEs.Where(filter, parameterCollection.ToArray()).OrderBy(p => p.DATAAREAID).Skip(skip).Take(take)
-                                     select new PurchaseOrderDto
-                                     {
-                                         VendorCode = p.ORDERACCOUNT,
-                                         VendorName = p.PURCHNAME,
-                                         CreatedDate = p.CREATEDDATETIME,
-                                         DataArea = p.DATAAREAID,
-                                         JournalId = p.PURCHID,
-                                         Status = p.PURCHSTATUS,
-                                     }).OrderByDescending(x => x.CreatedDate).Take(30).ToList();
+                    if (type == 0)
+                    {
+
+
+                        fullCount = context.PURCHTABLEs.Where(filter, parameterCollection.ToArray()).Count();
+                        searchedItems = (from p in context.PURCHTABLEs.Where(filter, parameterCollection.ToArray()).OrderBy(p => p.DATAAREAID).Skip(skip).Take(take)
+                                         select new PurchaseOrderDto
+                                         {
+                                             VendorCode = p.ORDERACCOUNT,
+                                             VendorName = p.PURCHNAME,
+                                             CreatedDate = p.CREATEDDATETIME,
+                                             DataArea = p.DATAAREAID,
+                                             JournalId = p.PURCHID,
+                                             Status = p.PURCHSTATUS,
+                                         }).OrderByDescending(x => x.CreatedDate).Take(30).ToList();
+                    }
+
+                    if (type == 2)
+                    {
+                        fullCount = context.INVENTJOURNALTABLEs.Where(filter, parameterCollection.ToArray()).Count();
+                        searchedItems = (from p in context.INVENTJOURNALTABLEs
+                                             .Where(filter, parameterCollection.ToArray()).OrderBy(p => p.DATAAREAID).Skip(skip).Take(take)
+                                         select new PurchaseOrderDto
+                                         {
+                                             VendorCode = "",
+                                             VendorName = "",
+                                             DataArea = p.DATAAREAID,
+                                             JournalId = p.JOURNALID,
+                                         }).OrderByDescending(x => x.DataArea).Take(30).ToList();
+                    }
+                }
+            }
+            else {
+
+                using (var context = new _Model.WorkFlowManagerDBEntities())
+                {
+                    if (type == 0)
+                    {
+                        if (filter == null)
+                        { 
+                        fullCount = context.TblPurchaseOrderHeaderRequests.Count();
+                        searchedItems = (from p in context.TblPurchaseOrderHeaderRequests.OrderByDescending(w=>w.Iserial).Skip(skip).Take(take)
+                                         select new PurchaseOrderDto
+                                         {
+                                             VendorCode = p.Vendor,
+                                             VendorName = p.Vendor,
+                                             CreatedDate = p.CreationDate?? DateTime.Now,
+                                             DataArea = "ccm",
+                                             JournalId = p.Code,
+                                             Status = 1,
+                                         }).OrderByDescending(x => x.CreatedDate).Take(30).ToList();
+                        }
+                        else{
+                            fullCount = context.TblPurchaseOrderHeaderRequests.Where(filter, parameterCollection.ToArray()).Count();
+                            searchedItems = (from p in context.TblPurchaseOrderHeaderRequests.Where(filter, parameterCollection.ToArray()).OrderByDescending(w => w.Iserial).Skip(skip).Take(take)
+                                             select new PurchaseOrderDto
+                                             {
+                                                 VendorCode = p.Vendor,
+                                                 VendorName = p.Vendor,
+                                                 CreatedDate = p.CreationDate ?? DateTime.Now,
+                                                 DataArea = "ccm",
+                                                 JournalId = p.Code,
+                                                 Status = 1,
+                                             }).OrderByDescending(x => x.CreatedDate).Take(30).ToList();
+                        }
+                    }
+
+                    //if (type == 2)
+                    //{
+                    //    fullCount = context.INVENTJOURNALTABLEs.Where(filter, parameterCollection.ToArray()).Count();
+                    //    searchedItems = (from p in context.INVENTJOURNALTABLEs
+                    //                         .Where(filter, parameterCollection.ToArray()).OrderBy(p => p.DATAAREAID).Skip(skip).Take(take)
+                    //                     select new PurchaseOrderDto
+                    //                     {
+                    //                         VendorCode = "",
+                    //                         VendorName = "",
+                    //                         DataArea = p.DATAAREAID,
+                    //                         JournalId = p.JOURNALID,
+                    //                     }).OrderByDescending(x => x.DataArea).Take(30).ToList();
+                    //}
                 }
 
-                if (type == 2)
-                {
-                    fullCount = context.INVENTJOURNALTABLEs.Where(filter, parameterCollection.ToArray()).Count();
-                    searchedItems = (from p in context.INVENTJOURNALTABLEs
-                                         .Where(filter, parameterCollection.ToArray()).OrderBy(p => p.DATAAREAID).Skip(skip).Take(take)
-                                     select new PurchaseOrderDto
-                                     {
-                                         VendorCode = "",
-                                         VendorName = "",
-                                         DataArea = p.DATAAREAID,
-                                         JournalId = p.JOURNALID,
-                                     }).OrderByDescending(x => x.DataArea).Take(30).ToList();
-                }
             }
 
             if (type == 1)
@@ -123,8 +186,8 @@ namespace CCWFM.Web.Service
                 }
 
                 valuesObjects.Add("PURCHID0", journal);
-                filter = filter + " and it.DATAAREAID ==(@DATAAREAID0)";
-                valuesObjects.Add("DATAAREAID0", dataArea);
+                //filter = filter + " and it.DATAAREAID ==(@DATAAREAID0)";
+                //valuesObjects.Add("DATAAREAID0", dataArea);
                 var parameterCollection = ConvertToParamters(valuesObjects);
                 var querytemp = context.PurchlineInventDims.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
                var  query = querytemp.Select(p => new PurchaseOrderDetailDto

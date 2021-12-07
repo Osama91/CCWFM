@@ -32,7 +32,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         int? TblWarehouseField;
 
-        [Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqWarehouse")]
+        //[Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqWarehouse")]
         public int? TblWarehouse
         {
             get
@@ -50,7 +50,7 @@ namespace CCWFM.ViewModel.OGViewModels
         }
 
         CRUDManagerService.TblWarehouse WareHousePerRowField;
-        [Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqWarehouse")]
+        //[Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqWarehouse")]
         public CRUDManagerService.TblWarehouse WareHousePerRow
         {
             get
@@ -1227,8 +1227,8 @@ namespace CCWFM.ViewModel.OGViewModels
                     {
                         var newrow = new TblProductionOrderHeaderModel();
                         newrow.InjectFrom(row);
-                        newrow.WareHousePerRow = new CRUDManagerService.TblWarehouse().InjectFrom(row.TblWarehouse1) as CRUDManagerService.TblWarehouse;
-                        newrow.ItemTransfer.InjectFrom( row.ItemTransfer);
+                        //newrow.WareHousePerRow = new CRUDManagerService.TblWarehouse().InjectFrom(row.TblWarehouse1) as CRUDManagerService.TblWarehouse;
+                        //newrow.ItemTransfer.InjectFrom( row.ItemTransfer);
                         MainRowList.Add(newrow);
                     }
                     Loading = false;

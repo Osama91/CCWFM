@@ -171,30 +171,33 @@ namespace CCWFM.Web.Service
                                     {
                                         totalModified = (decimal)(total * -1);
                                     }
-                                    var markupVendorDiscount = new TblLedgerMainDetail();
 
-                                    markupVendorDiscount = new TblLedgerMainDetail
+                                    if (!rr.TblMarkupProd1.ItemEffect)
                                     {
-                                        Amount = totalModified,
-                                        Description = markupdes,
-                                        ExchangeRate = rr.ExchangeRate,
-                                        TblCurrency = rr.TblCurrency,
-                                        TransDate = row.TransDate,
-                                        TblJournalAccountType = 0,
-                                        EntityAccount = glAccount,
-                                        GlAccount = glAccount,
-                                        TblLedgerHeader = newLedgerHeaderProdRow.Iserial,
-                                        PaymentRef = query.SupplierInv,
-                                        DrOrCr = !drorCr
-                                    };
+                                        var markupVendorDiscount = new TblLedgerMainDetail();
 
-                                    if (row.TblRecInvHeaderTypeProd == 2)
-                                    {
-                                        markupVendorDiscount.DrOrCr = !markupVendorDiscount.DrOrCr;
+                                        markupVendorDiscount = new TblLedgerMainDetail
+                                        {
+                                            Amount = totalModified,
+                                            Description = markupdes,
+                                            ExchangeRate = rr.ExchangeRate,
+                                            TblCurrency = rr.TblCurrency,
+                                            TransDate = row.TransDate,
+                                            TblJournalAccountType = 0,
+                                            EntityAccount = glAccount,
+                                            GlAccount = glAccount,
+                                            TblLedgerHeader = newLedgerHeaderProdRow.Iserial,
+                                            PaymentRef = query.SupplierInv,
+                                            DrOrCr = !drorCr
+                                        };
+
+                                        if (row.TblRecInvHeaderTypeProd == 2)
+                                        {
+                                            markupVendorDiscount.DrOrCr = !markupVendorDiscount.DrOrCr;
+                                        }
+                                        glserive.UpdateOrInsertTblLedgerMainDetails(markupVendorDiscount, true, 000, out temp, company,
+                                             user);
                                     }
-                                    glserive.UpdateOrInsertTblLedgerMainDetails(markupVendorDiscount, true, 000, out temp, company,
-                                         user);
-
                                     if (glAccount != 0)
                                     {
 
@@ -417,7 +420,9 @@ namespace CCWFM.Web.Service
                         GenericUpdate(oldRow, newRow, entity);
                         var row =
                             entity.TblRecInvDetailProds.Where(
-                                x => x.TblRecInvHeaderProd == newRow.TblRecInvHeaderProd && x.Tblitem == newRow.TblItem && x.ItemType == newRow.ItemType).ToList();
+                                x => x.TblRecInvHeaderProd == newRow.TblRecInvHeaderProd && x.Tblitem == newRow.TblItem && x.ItemType == newRow.ItemType
+                                &&x.BatchNo==newRow.BatchNo && x.SizeCode==newRow.SizeCode&&x.TblColor==newRow.TblColor
+                                ).ToList();
 
                         foreach (var TblRecInvMainDetailProd in row)
                         {

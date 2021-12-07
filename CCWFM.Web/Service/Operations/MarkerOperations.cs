@@ -150,6 +150,11 @@ namespace CCWFM.Web.Service
                     valuesObjects.Add("status0", status);
                 }
 
+                //filter = filter +"it.salesordercode "
+
+                filter = filter + " and (it.SalesOrderCode NOT LIKE(@SalesOrderCode000))";
+                valuesObjects.Add("SalesOrderCode000", "%test%");
+                //it.StyleCode LIKE(@StyleCode0)
                 var parameterCollection = ConvertToParamters(valuesObjects);
                 query = context.TblSalesOrders.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
 

@@ -388,11 +388,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                       x => x.sGlobalSettingCode == "GlClosingPeriod")
                       .sSetupValue;
                 var journalint = entity.TblJournals.FirstOrDefault(x => x.Code == ClosingPeriod).Iserial;
-                ClosingMonthly(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
+                //ClosingMonthly(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
                 MaterialsJournal(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
-                ExternalVendorJournal(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
-                OtherExpenses(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
-                ReportAsAFinish(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
+                //ExternalVendorJournal(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
+                //OtherExpenses(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
+                //ReportAsAFinish(user, fromDate, ToDate, journalint, entity, company, DefaultCostCenter);
                 return periodLines;
             }
         }
@@ -775,15 +775,16 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
             using (var WorkFlowcontext = new WorkFlowManagerDBEntities())
             {
+                
                 WorkFlowcontext.CommandTimeout = 0;
                 var FabricUnit = WorkFlowcontext.Fabric_UnitID.Select(wde => new { wde.GroupIserial, wde.Type }).Distinct().ToList();
-                var InventTransList = WorkFlowcontext.TblInventTrans.Include(nameof(TblInventTran.TblItemDim))
+                var InventTransList = WorkFlowcontext.TblInventTrans.Include(nameof(TblInventTran.TblItemDim1)).Include(nameof(TblInventTran.TblInventType1))
                       .Join(WorkFlowcontext.RouteCardFabrics, // the source table of the inner join
       InventTrans => InventTrans.VotGlSerial,        // Select the primary key (the first part of the "on" clause in an sql "join" statement)
       RouteCardFabric => RouteCardFabric.Iserial,   // Select the foreign key (the second part of the "on" clause)
      (InventTrans, RouteCardFabric) => new { InventTrans = InventTrans, RouteCardFabric = RouteCardFabric }) // selection
                     .Where(w => w.InventTrans.DocDate >= fromDate
-                    && w.InventTrans.DocDate <= ToDate && types.Contains(w.InventTrans.TblInventType) && w.InventTrans.LastStoreAvgCost != 0).GroupBy(e =>
+                    && w.InventTrans.DocDate <= ToDate && types.Contains(w.InventTrans.TblInventType) && w.InventTrans.TblItemDim1.ItemAvgCost != 0).GroupBy(e =>
                                   new
                                   {
                                       e.InventTrans.VotGlSerial,
@@ -791,25 +792,43 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                       e.InventTrans.TblItemDim,
                                       e.RouteCardFabric.TblSalesOrder,
                                       e.RouteCardFabric.StyleColor,
-                                      e.RouteCardFabric.ItemGroup
+                                      e.RouteCardFabric.ItemGroup,
+                                      e.RouteCardFabric.RouteCardHeaderIserial
                                       //e.InventTrans.InventTrans.GroupIserial,
                                   })
                                  .Select(p => new
                                  {
                                      TblSalesOrder = p.Key.TblSalesOrder,
                                      StyleColor = p.Key.StyleColor,
-                                     Qty = p.Sum(v => v.InventTrans.Qty * v.InventTrans.LastStoreAvgCost),
-                                     Cost = p.Sum(v => v.InventTrans.Qty * v.InventTrans.LastStoreAvgCost),
+                                    // Qty = p.Sum(v => v.InventTrans.Qty * v.InventTrans.TblItemDim1.ItemAvgCost),
+                                     Cost = p.Sum(v => v.InventTrans.Qty * v.InventTrans.TblItemDim1.ItemAvgCost*v.InventTrans.TblInventType1.Nature),
                                      DocDate = p.Key.DocDate,
                                      ItemGroup = p.Key.ItemGroup,
+                                     RouteCardHeaderIserial=p.Key.RouteCardHeaderIserial,
+                                     VotGlSerial= p.Key.VotGlSerial,
+                                    
                                      //GroupIserial = p.Key.GroupIserial,
                                  }).ToList();
 
+
+
+                //var RouteCardHeaderIserial=   InventTransList.Select(w => w.RouteCardHeaderIserial).Distinct().ToList();
+
+                //   var routecardHeaderList = WorkFlowcontext.RouteCardHeaders.Where(w => RouteCardHeaderIserial.Contains(w.Iserial));
+                //   foreach (var routeCardHeader in routecardHeaderList)
+                //   {
+                //       routeCardHeader.TblLedgerHeader = newLedgerHeaderRow.Iserial;
+                //   }
+
+                var InventPostList = entity.TblInventPostings.Where(
+                    x => x.TblInventAccountType == 60).ToList();
                 foreach (var item in InventTransList)
                 {
                     var Cost = (double)item.Cost;
                     var RouteCardDetailActualCostRow = new RouteCardDetailActualCost()
                     {
+                        RouteCardDetails=item.VotGlSerial,
+                        RouteCardHeader=item.RouteCardHeaderIserial,
                         TblCostCenter = DefaultCostCenter.Iserial,
                         TblSalesOrder = item.TblSalesOrder,
                         TblColor = item.StyleColor,
@@ -818,19 +837,20 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         RouteCardDetailActualCostType = 2
                     };
                     var GroupIserial = FabricUnit.FirstOrDefault(w => w.Type == item.ItemGroup).GroupIserial;
+                    
                     WorkFlowcontext.RouteCardDetailActualCosts.AddObject(RouteCardDetailActualCostRow);
                     var groupAccount =
-                entity.TblInventPostings.FirstOrDefault(
-                    x => x.ItemScopeRelation == GroupIserial && x.TblInventAccountType == 60);
+                InventPostList.FirstOrDefault(
+                    x => x.ItemScopeRelation == GroupIserial);
                     if (groupAccount == null)
                     {
                         groupAccount =
-                        entity.TblInventPostings.FirstOrDefault(x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 60);
+                        InventPostList.FirstOrDefault(x => x.ItemScopeRelation == -1 );
                     }
 
                     var totalRecord = new TblLedgerMainDetail()
                     {
-                        Amount = item.Qty * item.Cost,
+                        Amount =  item.Cost,
                         ExchangeRate = 1,
                         Description = "",
                         DrOrCr = false,
@@ -845,7 +865,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                     totalRecord = new TblLedgerMainDetail()
                     {
-                        Amount = item.Qty * item.Cost,
+                        Amount = item.Cost,
                         ExchangeRate = 1,
                         Description = "",
                         DrOrCr = true,
@@ -1120,7 +1140,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             {
                 var NewRow = new TblLedgerMainDetail()
                 {
-                    Amount = item.Sum(r => r.Amount),
+                    Amount = Math.Abs(item.Sum(r => r.Amount)??0),
                     ExchangeRate = item.Key.ExchangeRate,
                     Description = "",
                     DrOrCr = item.Key.DrOrCr,

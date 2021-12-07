@@ -19,6 +19,7 @@ namespace CCWFM.Web.Service.BankDepositOp
                 return query.ToList();
             }
         }
+
         [OperationContract]
         private List<TblBank> GetLookUpBank( string company)
         {
@@ -30,6 +31,7 @@ namespace CCWFM.Web.Service.BankDepositOp
                 return query.ToList();
             }
         }
+
         [OperationContract]
         private List<TblStore> GetLookUpStore(string company, bool active = false)
         {

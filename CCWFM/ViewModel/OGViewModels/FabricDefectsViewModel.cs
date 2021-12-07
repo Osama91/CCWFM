@@ -1754,7 +1754,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public void SearchHeader()
         {
-            _webService.FabricInspectionHeaderListAsync(TransactionHeaderList.Count, PageSize, "it.Iserial", DetailFilter, DetailValuesObjects);
+            _webService.FabricInspectionHeaderListAsync(TransactionHeaderList.Count, PageSize, "it.Iserial desc", DetailFilter, DetailValuesObjects);
         }
 
 

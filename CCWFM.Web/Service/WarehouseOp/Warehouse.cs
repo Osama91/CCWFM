@@ -191,45 +191,74 @@ namespace CCWFM.Web.Service.WarehouseOp
             using (var entities = new WorkFlowManagerDBEntities())
             {
                 entities.CommandTimeout = 0;
-                var predicate = PredicateBuilder.True<InspectionsRoute>();
 
-                predicate = predicate.And(i => i.FinishedWarehouse == warehouseCode);
+                var SelectedItem =
+                     entities.FabricAccSearches.Where(fas => fas.Code == itemCode).ToList();
+
+
+                var lists = SelectedItem.Select(w => w.Iserial).ToList();
+
+                var predicate = PredicateBuilder.True<TblStock>();
+
+                predicate = predicate.And(i => i.TblWarehouse1.Code == warehouseCode);
                 if (!string.IsNullOrWhiteSpace(itemType))
-                    predicate = predicate.And(i => entities.FabricAccSearches.Any(fas => fas.ItemGroup == itemType && i.Fabric_Code == fas.Code));
+
+                    predicate = predicate.And(i => i.TblItemDim1.ItemType == itemType);
                 if (!string.IsNullOrWhiteSpace(itemCode))
-                    predicate = predicate.And(i => i.Fabric_Code == itemCode);
+                    predicate = predicate.And(i => lists.Contains( i.TblItemDim1.ItemIserial) );
+                //predicate = predicate.And(i => i.Fabric_Code == itemCode);
                 if (!string.IsNullOrWhiteSpace(colorCode))
-                    predicate = predicate.And(i => i.ColorCode == colorCode);
+                    predicate = predicate.And(i => i.TblItemDim1.TblColor1.Code == colorCode);
                 //if (!string.IsNullOrWhiteSpace(size))
                 //    predicate = predicate.And(i => i.size == colorCode);
                 if (!string.IsNullOrWhiteSpace(rollBatch))
-                    predicate = predicate.And(i => i.RollBatch == rollBatch);
+                    predicate = predicate.And(i => i.TblItemDim1.BatchNo == rollBatch);
 
-                IQueryable<InspectionsRoute> query = entities.InspectionsRoutes.AsExpandable().Where(predicate);
+                predicate=predicate.And(e => e.Qty > 0);
+
+                IQueryable<TblStock> query = entities.TblStocks.Include("TblWarehouse1").Include("TblItemDim1.TblColor1").AsExpandable().Where(predicate);
+
+
+
+                //var predicate = PredicateBuilder.True<InspectionsRoute>();
+
+                //predicate = predicate.And(i => i.FinishedWarehouse == warehouseCode);
+                //if (!string.IsNullOrWhiteSpace(itemType))
+                //    predicate = predicate.And(i => entities.FabricAccSearches.Any(fas => fas.ItemGroup == itemType && i.Fabric_Code == fas.Code));
+                //if (!string.IsNullOrWhiteSpace(itemCode))
+                //    predicate = predicate.And(i => i.Fabric_Code == itemCode);
+                //if (!string.IsNullOrWhiteSpace(colorCode))
+                //    predicate = predicate.And(i => i.ColorCode == colorCode);
+                ////if (!string.IsNullOrWhiteSpace(size))
+                ////    predicate = predicate.And(i => i.size == colorCode);
+                //if (!string.IsNullOrWhiteSpace(rollBatch))
+                //    predicate = predicate.And(i => i.RollBatch == rollBatch);
+
+                //IQueryable<InspectionsRoute> query = entities.InspectionsRoutes.AsExpandable().Where(predicate);
 
                 fullCount = query.Count();
                 query = query.OrderBy(sort).Skip(skip).Take(take);
 
                 var result = query.ToList().Select(iR => new DataLayer.ItemDimensionSearchModel()
                 {
-                    ItemId = entities.FabricAccSearches.FirstOrDefault(fa => fa.Code == iR.Fabric_Code).Iserial,
-                    ItemName = entities.FabricAccSearches.FirstOrDefault(fa => fa.Code == iR.Fabric_Code).Name,
-                    ItemType = entities.FabricAccSearches.FirstOrDefault(fa => fa.Code == iR.Fabric_Code).ItemGroup,
-                    ItemCode = iR.Fabric_Code,
-                    AvailableQuantity = Convert.ToDecimal(iR.RemainingMarkerRollQty),
+                    ItemId = GetSelectedItem(iR, SelectedItem).Iserial,
+                    ItemName = GetSelectedItem(iR, SelectedItem).Name,
+                    ItemType = GetSelectedItem(iR, SelectedItem).ItemGroup,
+                    ItemCode = GetSelectedItem(iR, SelectedItem).Code,
+                    AvailableQuantity = Convert.ToDecimal(iR.Qty),
                     TransferredQuantity = 0,
 
-                    BatchNoFrom = iR.RollBatch ?? "",
-                    BatchNoTo = iR.RollBatch ?? "",
+                    BatchNoFrom = iR.TblItemDim1.BatchNo ?? "",
+                    BatchNoTo = iR.TblItemDim1.BatchNo ?? "",
                     SizeFrom = size ?? "",
                     SizeTo = size ?? "",
-                    ColorFromCode = iR.ColorCode,
-                    ColorFromId = iR.fabricColorIserial??0,
-                    ColorToId = iR.fabricColorIserial??0,
-                    SiteFromIserial = entities.TblWarehouses.FirstOrDefault(w => w.Code == iR.FinishedWarehouse).TblSite.Value,
-                    SiteToIserial = entities.TblWarehouses.FirstOrDefault(w => w.Code == iR.FinishedWarehouse).TblSite.Value,
+                    ColorFromCode = iR.TblItemDim1.TblColor1.Code,
+                    ColorFromId = iR.TblItemDim1.TblColor,
+                    ColorToId = iR.TblItemDim1.TblColor,
+                    SiteFromIserial = iR.TblWarehouse1.TblSite??0,
+                    SiteToIserial = iR.TblWarehouse1.TblSite ?? 0,
 
-                    IsAcc = entities.FabricAccSearches.FirstOrDefault(fa => fa.Code == iR.Fabric_Code).ItemGroup.ToLower().Contains("acc"),
+                    IsAcc = iR.TblItemDim1.ItemType.ToLower().Contains("acc"),
                 }).ToList();
                 foreach (var item in result)
                 {
@@ -242,6 +271,11 @@ namespace CCWFM.Web.Service.WarehouseOp
                 }
                 return result.ToList();
             }
+        }
+
+        private static FabricAccSearch GetSelectedItem(TblStock iR, List<FabricAccSearch> SelectedItem)
+        {
+            return SelectedItem.FirstOrDefault(w => w.ItemGroup == iR.TblItemDim1.ItemType);
         }
     }
 }

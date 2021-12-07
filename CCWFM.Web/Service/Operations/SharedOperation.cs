@@ -185,6 +185,7 @@ namespace CCWFM.Web.Service.Operations
                 return false;
             }
         }
+        static List<tblChainSetup> ChainSetupList = new List<tblChainSetup>();
         static internal string GetChainSetup(string Code)
         {
             using (var context = new WorkFlowManagerDBEntities())
@@ -364,6 +365,29 @@ namespace CCWFM.Web.Service.Operations
             }
         }
 
+
+        static List<TblCompany> Companies = new List<TblCompany>();
+
+        private static TblCompany GetCompany(string dbName)
+        {
+
+            TblCompany company;
+            if (Companies.Count > 0)
+            {
+                company = Companies.FirstOrDefault(x => x.DbName == dbName);
+                return company;
+            }
+
+            using (var context = new WorkFlowManagerDBEntities())
+            {
+                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
+                Companies = context.TblCompanies.ToList();
+            }
+
+            return company;
+        }
+
+
         public static void SendMailReport(string reportName, string reportTitle,
                   List<ParameterValue> parameters, string company,
                   string emailTo, string Subject, string body)
@@ -389,11 +413,13 @@ namespace CCWFM.Web.Service.Operations
 
             // Load the report
             ExecutionInfo execInfo = rsExec.LoadReport("/Report/" + reportName, historyId);
-            TblCompany companyRow;
-            using (var context = new WorkFlowManagerDBEntities())
-            {
-                   companyRow = context.TblCompanies.FirstOrDefault(x => x.DbName == company);
-            }
+            TblCompany companyRow=GetCompany(company);
+
+            //TblCompany companyRow;
+            //using (var context = new WorkFlowManagerDBEntities())
+            //{
+            //       companyRow = context.TblCompanies.FirstOrDefault(x => x.DbName == company);
+            //}
             string Ip = companyRow.Ip+ companyRow.Port;
             foreach (var item in execInfo.Parameters)
             {

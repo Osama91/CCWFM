@@ -62,13 +62,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         {
             var sqlBuilder = new SqlConnectionStringBuilder();
 
-            TblCompany company;
-            using (var context = new WorkFlowManagerDBEntities())
-            {
-                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
-            }
+            TblCompany company = GetCompany(dbName);
             // Set the properties for the data source.
-              if (company != null) sqlBuilder.DataSource = company.Ip + company.Port;
+            if (company != null) sqlBuilder.DataSource = company.Ip + company.Port;
             //if (company != null) sqlBuilder.DataSource = "192.168.11.15" + company.Port;
             sqlBuilder.InitialCatalog = company.DbName;
             sqlBuilder.UserID = "Pts";
@@ -92,6 +88,27 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             entityBuilder.Metadata = @"res://*/Model.CCNewEntities.csdl|res://*/Model.CCNewEntities.ssdl|res://*/Model.CCNewEntities.msl";
 
             return entityBuilder.ToString();
+        }
+
+       static List<TblCompany> Companies = new List<TblCompany>();
+
+        private static TblCompany GetCompany(string dbName)
+        {
+
+            TblCompany company;
+            if (Companies.Count>0)
+            {
+                company = Companies.FirstOrDefault(x => x.DbName == dbName);
+                return company;
+            }
+
+            using (var context = new WorkFlowManagerDBEntities())
+            {
+                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
+                Companies = context.TblCompanies.ToList();
+            }
+
+            return company;
         }
 
         private IEnumerable<string> GenericUpdate<T>(T oldValues, T newValues, ObjectContext entities)

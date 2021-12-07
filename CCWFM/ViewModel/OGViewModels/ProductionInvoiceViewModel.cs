@@ -747,7 +747,11 @@ namespace CCWFM.ViewModel.OGViewModels
                     }
                     newrow.JournalAccountTypePerRow = new GlService.GenericTable();
                     newrow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == variable.TblJournalAccountType);
+                    newrow.EntityPerRow = new GlService.Entity();
+                    if (sv.entityList.Count > 0)
+                    { 
                     newrow.EntityPerRow = new GlService.Entity().InjectFrom(sv.entityList.FirstOrDefault(w => w.Iserial == variable.EntityAccount && w.TblJournalAccountType == variable.TblJournalAccountType)) as GlService.Entity;
+                    }
                     newrow.CurrencyPerRow = new GlService.GenericTable().InjectFrom(CurrencyList.FirstOrDefault(w => w.Iserial == newrow.TblCurrency)) as GlService.GenericTable;
                     TransactionHeaderList.Add(newrow);
                 }

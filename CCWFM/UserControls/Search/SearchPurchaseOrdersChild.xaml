@@ -20,11 +20,11 @@
                     OnFilter="MainGrid_OnOnFilter" IsReadOnly="True"
                    SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}" LoadingRow="MainGrid_LoadingRow">
                 <sdk:DataGrid.Columns>
-                    <sdk:DataGridTextColumn  Binding="{Binding Path=JournalId,Mode=TwoWay}" SortMemberPath="PURCHID" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Order, Source={StaticResource LocalizedStrings}}" Width="*" />
-                    <sdk:DataGridTextColumn  Binding="{Binding Path=VendorCode,Mode=TwoWay}" SortMemberPath="ORDERACCOUNT" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*" />
-                    <sdk:DataGridTextColumn  Binding="{Binding Path=VendorName,Mode=TwoWay}" SortMemberPath="PURCHNAME" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*" />
-                    <sdk:DataGridTextColumn  Binding="{Binding Path=CreatedDate,Mode=TwoWay}" SortMemberPath="CREATEDDATETIME" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CreationDate, Source={StaticResource LocalizedStrings}}" Width="*" />
-                    <sdk:DataGridTextColumn  Binding="{Binding Path=Status,Mode=TwoWay}" SortMemberPath="PURCHSTATUS" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Status, Source={StaticResource LocalizedStrings}}" Width="*" />
+                    <sdk:DataGridTextColumn  Binding="{Binding Path=JournalId,Mode=TwoWay}" SortMemberPath="Code" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Order, Source={StaticResource LocalizedStrings}}" Width="*" />
+                    <sdk:DataGridTextColumn  Binding="{Binding Path=VendorCode,Mode=TwoWay}" SortMemberPath="Vendor" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*" />
+                    <sdk:DataGridTextColumn  Binding="{Binding Path=VendorName,Mode=TwoWay}" SortMemberPath="Vendor" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}" Width="*" />
+                    <sdk:DataGridTextColumn  Binding="{Binding Path=CreatedDate,Mode=TwoWay}" SortMemberPath="CreationDate" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CreationDate, Source={StaticResource LocalizedStrings}}" Width="*" />
+                    <sdk:DataGridTextColumn  Binding="{Binding Path=Status,Mode=TwoWay}" SortMemberPath="Status" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Status, Source={StaticResource LocalizedStrings}}" Width="*" />
                 </sdk:DataGrid.Columns>
                 <i:Interaction.Behaviors>
                     <globalExtenders:DoubleClickBehavior DoubleClick="DoubleClickBehavior_DoubleClick" />
