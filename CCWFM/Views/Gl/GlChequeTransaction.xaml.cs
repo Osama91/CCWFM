@@ -65,15 +65,24 @@ namespace CCWFM.Views.Gl
                 DetailGrid.Columns.SingleOrDefault(x => x.SortMemberPath == "CostCenter").Visibility =
                        Visibility.Visible;
             }
+            if (setting.Iserial == 13)
+            {
+                // ReSharper disable once PossibleNullReferenceException
+                DetailGrid.Columns.SingleOrDefault(x => x.SortMemberPath == "TblBank").Visibility =
+                       Visibility.Visible;
+                
+            }
             if (setting.ChequeLockupFilterOnChequeType != 0 && setting.ChequeLockupFilterOnChequeType != null)
             {
                 BtnAddDetails.Visibility = Visibility.Visible;
-                DetailGrid.IsReadOnly = true;
+                // DetailGrid.IsReadOnly = true;
+                DetailGridReadOnly();
             }
             else
             {
                 BtnAddDetails.Visibility = Visibility.Collapsed;
                 DetailGrid.IsReadOnly = false;
+              
             }
             if (!setting.UseEntityDetail1)
             {
@@ -431,6 +440,39 @@ namespace CCWFM.Views.Gl
                             Dp.SelectedDate = DateTime.Now;
                         }
                     }
+                }
+            }
+        }
+
+        private void DetailGridReadOnly()
+        {
+            /*
+                TblJournalAccountType1.Ename
+                EntityDetail1
+                EntityDetail2
+                DueDate
+                BankCollectionDate
+                ChequeNo
+                TblBankCheque
+                TblBank
+                PayTo
+                BankName
+                Description
+                Amount
+                CostCenter
+                TblBankCheque
+                DetailGrid.Columns.SingleOrDefault(x => x.SortMemberPath == "TblBank").IsReadOnly =
+                     false;
+             */
+
+            foreach (var item in DetailGrid.Columns)
+            {
+                if (item.SortMemberPath == "TblBank")
+                {
+                    item.IsReadOnly = false;
+                } else
+                {
+                    item.IsReadOnly = true;
                 }
             }
         }

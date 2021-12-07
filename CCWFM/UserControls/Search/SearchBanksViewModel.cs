@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using CCWFM.CRUDManagerService;
+using CCWFM.GlService;
 using CCWFM.Helpers.AuthenticationHelpers;
 using CCWFM.ViewModel;
 using Os.Controls.DataGrid;
 
-namespace CCWFM.UserControls.Search
+namespace CCWFM.UserControls
 {
     public class SearchBanksViewModel : ViewModelBase
     {
@@ -14,12 +14,12 @@ namespace CCWFM.UserControls.Search
         {
             if (!DesignerProperties.IsInDesignTool)
             {
-                Client = new CRUD_ManagerServiceClient();
+                Glclient = new GlServiceClient();
 
                 MainRowList = new SortableCollectionView<TblBank>();
                 SelectedMainRow = new TblBank();
                 
-                Client.GetBanksCompleted += (s, sv) =>
+                Glclient.GetTblBankCompleted += (s, sv) =>
                 {
                     foreach (var row in sv.Result)
                     {
@@ -37,7 +37,7 @@ namespace CCWFM.UserControls.Search
         public void GetMaindata()
         {
             if (SortBy == null)
-                SortBy = "it.Organization";
+                SortBy = "it.Iserial";
             Loading = true;
             string organization = null;
             if (LoggedUserInfo.Company.Code == "CR")
@@ -53,7 +53,7 @@ namespace CCWFM.UserControls.Search
                 organization = "SW";
             }
 
-            Client.GetBanksAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects,LoggedUserInfo.DatabasEname);
+          Glclient.GetTblBankAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects,LoggedUserInfo.DatabasEname);
         }
 
         #region Prop

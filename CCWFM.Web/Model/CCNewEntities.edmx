@@ -308,10 +308,10 @@
           </Key>
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TblStore" Type="int" Nullable="false" />
-          <Property Name="TransDate" Type="datetime" Nullable="false" />
+          <Property Name="TransDate" Type="date" Nullable="false" />
           <Property Name="Qty" Type="int" Nullable="false" />
           <Property Name="SalesAmount" Type="decimal" Precision="18" Scale="5" />
-          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreationDate" Type="date" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="LastUpdatedBy" Type="int" />
           <Property Name="LastUpdatedDate" Type="datetime" />
@@ -1037,6 +1037,7 @@
           <Property Name="PayTo" Type="nvarchar(max)" />
           <Property Name="TblGlChequeTransactionDetail" Type="int" />
           <Property Name="TblContractHeader" Type="int" />
+          <Property Name="TblBank" Type="int" />
         </EntityType>
         <EntityType Name="TblGlChequeTransactionHeader">
           <Key>
@@ -3317,15 +3318,15 @@ warning 6002: The table/view 'ccnew.dbo.EmpSalesOsama' does not have a primary k
 warning 6002: The table/view 'ccnew.dbo.Entity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Entity">
           <Key>
+            <PropertyRef Name="Iserial" />
             <PropertyRef Name="scope" />
             <PropertyRef Name="TblJournalAccountType" />
             <PropertyRef Name="AccountIserial" />
-            <PropertyRef Name="Iserial" />
           </Key>
           <Property Name="Iserial" Type="int" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ename" Type="nvarchar" MaxLength="60" />
-          <Property Name="Aname" Type="nvarchar" MaxLength="60" />
+          <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
           <Property Name="scope" Type="int" Nullable="false" />
           <Property Name="TblJournalAccountType" Type="int" Nullable="false" />
           <Property Name="AccountIserial" Type="int" Nullable="false" />
@@ -6635,6 +6636,18 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
             </Principal>
             <Dependent Role="TblGlChequeTransactionDetail">
               <PropertyRef Name="EntityDetail2TblAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblGlChequeTransactionDetail_TblBank">
+          <End Role="TblBank" Type="Self.TblBank" Multiplicity="0..1" />
+          <End Role="TblGlChequeTransactionDetail" Type="Self.TblGlChequeTransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBank">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblGlChequeTransactionDetail">
+              <PropertyRef Name="TblBank" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -11142,6 +11155,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblAccount" EntitySet="TblAccount" />
             <End Role="TblGlChequeTransactionDetail" EntitySet="TblGlChequeTransactionDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_TblGlChequeTransactionDetail_TblBank" Association="Self.FK_TblGlChequeTransactionDetail_TblBank">
+            <End Role="TblBank" EntitySet="TblBank" />
+            <End Role="TblGlChequeTransactionDetail" EntitySet="TblGlChequeTransactionDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblGlChequeTransactionDetail_TblBankCheque" Association="Self.FK_TblGlChequeTransactionDetail_TblBankCheque">
             <End Role="TblBankCheque" EntitySet="TblBankCheque" />
             <End Role="TblGlChequeTransactionDetail" EntitySet="TblGlChequeTransactionDetail" />
@@ -12915,6 +12932,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </FunctionImport>
           <EntitySet Name="TblGLTransactionReverse1" EntityType="ccnewModel.TblGLTransactionReverse1" />
           <EntitySet Name="tblCalliopeStoresDailySales" EntityType="ccnewModel.tblCalliopeStoresDailySale" />
+          <AssociationSet Name="FK_TblGlChequeTransactionDetail_TblBank" Association="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank">
+            <End Role="TblBank" EntitySet="TblBanks" />
+            <End Role="TblGlChequeTransactionDetail" EntitySet="TblGlChequeTransactionDetails" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="TblPODetail">
           <Key>
@@ -14432,8 +14453,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Type="Int32" Name="Iserial" Nullable="false" />
           <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ename" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Aname" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="scope" Nullable="false" />
           <Property Type="Int32" Name="TblJournalAccountType" Nullable="false" />
           <Property Type="Int32" Name="AccountIserial" Nullable="false" />
@@ -16663,6 +16684,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblCashDepositDetails" Relationship="ccnewModel.FK_TblCashDepositDetail_TblBank" FromRole="TblBank" ToRole="TblCashDepositDetail" />
           <NavigationProperty Name="TblCashDepositHeaders" Relationship="ccnewModel.FK_TblCashDepositHeader_TblBank" FromRole="TblBank" ToRole="TblCashDepositHeader" />
           <NavigationProperty Name="TblBankStatExcelTemplates" Relationship="ccnewModel.FK_TblBankStatExcelTemplate_TblBank" FromRole="TblBank" ToRole="TblBankStatExcelTemplate" />
+          <NavigationProperty Name="TblGlChequeTransactionDetails" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank" FromRole="TblBank" ToRole="TblGlChequeTransactionDetail" />
         </EntityType>
         <EntityType Name="TblBankAccountType">
           <Key>
@@ -17299,6 +17321,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblGlChequeTransactionHeader1" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblGlChequeTransactionHeader" FromRole="TblGlChequeTransactionDetail" ToRole="TblGlChequeTransactionHeader" />
           <NavigationProperty Name="TblJournalAccountType" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblJournalAccountType" FromRole="TblGlChequeTransactionDetail" ToRole="TblJournalAccountType" />
           <NavigationProperty Name="TblJournalAccountType1" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblJournalAccountType1" FromRole="TblGlChequeTransactionDetail" ToRole="TblJournalAccountType" />
+          <Property Name="TblBank" Type="Int32" />
+          <NavigationProperty Name="TblBank1" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank" FromRole="TblGlChequeTransactionDetail" ToRole="TblBank" />
         </EntityType>
         <Association Name="FK_TblGlChequeTransactionDetail_TblAccount">
           <End Type="ccnewModel.TblAccount" Role="TblAccount" Multiplicity="0..1" />
@@ -21198,14 +21222,26 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TblStore" Type="Int32" Nullable="false" />
-          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Qty" Type="Int32" Nullable="false" />
           <Property Name="SalesAmount" Type="Decimal" Precision="18" Scale="5" />
-          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="LastUpdatedBy" Type="Int32" />
           <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
+        <Association Name="FK_TblGlChequeTransactionDetail_TblBank">
+          <End Type="ccnewModel.TblBank" Role="TblBank" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblGlChequeTransactionDetail" Role="TblGlChequeTransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBank">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblGlChequeTransactionDetail">
+              <PropertyRef Name="TblBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -23544,6 +23580,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblGlChequeTransactionDetails">
             <EntityTypeMapping TypeName="ccnewModel.TblGlChequeTransactionDetail">
               <MappingFragment StoreEntitySet="TblGlChequeTransactionDetail">
+                <ScalarProperty Name="TblBank" ColumnName="TblBank" />
                 <ScalarProperty Name="TblContractHeader" ColumnName="TblContractHeader" />
                 <ScalarProperty Name="TblGlChequeTransactionDetail1" ColumnName="TblGlChequeTransactionDetail" />
                 <ScalarProperty Name="PayTo" ColumnName="PayTo" />
@@ -28558,6 +28595,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_Poh_TblUser" />
         <EntityTypeShape EntityType="ccnewModel.TblGLTransactionReverse1" Width="1.5" PointX="3.375" PointY="32.75" />
         <EntityTypeShape EntityType="ccnewModel.tblCalliopeStoresDailySale" Width="1.5" PointX="28.375" PointY="21.75" />
+        <AssociationConnector Association="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank" />
         </Diagram>
     </Diagrams>
   </Designer>

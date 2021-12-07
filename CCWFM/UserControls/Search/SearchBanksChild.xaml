@@ -1,4 +1,4 @@
-﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.UserControls.Search.SearchBanksChild"
+﻿<controlsOverride:ChildWindowsOverride x:Class="CCWFM.UserControls.SearchBanksChild"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                                        xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"
@@ -6,7 +6,7 @@
            xmlns:controlsOverride="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
            xmlns:globalExtenders="clr-namespace:CCWFM.Helpers.ControlsExtenders.GlobalExtenders" Height="400"
-           Title="Search Store">
+           Title="Search Banks">
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
             <RowDefinition />

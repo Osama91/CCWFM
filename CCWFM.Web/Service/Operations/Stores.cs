@@ -71,29 +71,5 @@ namespace CCWFM.Web.Service
             }
         }
 
-
-        [OperationContract]
-        public List<TblBank> GetBanks(int skip, int take, string sort, string filter,
-            Dictionary<string, object> valuesObjects, out int fullCount, string company)
-        {
-            using (var context = new ccnewEntities(GetSqlConnectionString(company)))
-            {
-                IQueryable<TblBank> query;
-                if (filter != null)
-                {
-                    var parameterCollection = ConvertToParamters(valuesObjects);
-
-                    fullCount = context.TblBanks.Where(filter, parameterCollection.ToArray()).Count();
-                    query = context.TblBanks.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
-                }
-                else
-                {
-                    fullCount = context.TblBanks.Count();
-                    query = context.TblBanks.OrderBy(sort).Skip(skip).Take(take);
-                }
-
-                return query.ToList();
-            }
-        }
     }
 }

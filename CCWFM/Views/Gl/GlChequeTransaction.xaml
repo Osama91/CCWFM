@@ -296,8 +296,45 @@
 					</sdk:DataGridTemplateColumn.CellTemplate>
 				</sdk:DataGridTemplateColumn>
 
+                <sdk:DataGridTemplateColumn SortMemberPath="TblBank" Visibility="Collapsed"
+                                            Header="Bank" Width="SizeToHeader">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <userControls:SearchBanks
+								SearchPerRow="{Binding BankPerRow,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding BankPerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
 
-				<sdk:DataGridTextColumn Binding="{Binding Path=PayTo,Mode=TwoWay}" SortMemberPath="PayTo"
+                <!--<sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="TblBankCheque"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Cheque,
+																								  Source={StaticResource LocalizedStrings}}">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <userControls:SearchChequeUserControl SearchPerRow="{Binding ChequePerRow,Mode=TwoWay}"
+                                                                  DefaultBankPerRow="{Binding Path=DataContext.DefaultBank,Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType=navigation:Page, AncestorLevel=1}}"
+									  ChequeStatusPerRow="{Binding Path=DataContext.ChequeStatusPerRow,Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType=navigation:Page, AncestorLevel=1}}"
+									Width="150"
+									Height="28"
+									Margin="3"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ChequePerRow.Cheque,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+
+                <sdk:DataGridTextColumn Binding="{Binding Path=PayTo,Mode=TwoWay}" SortMemberPath="PayTo"
 										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PayTo, Source={StaticResource LocalizedStrings}}"
 										Width="*" />
 				

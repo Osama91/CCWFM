@@ -23,16 +23,16 @@
     <MetadataSource Address="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service3.wsdl" MetadataType="Wsdl" ID="14493e94-ba94-456c-9c16-4e973be7ab65" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="service4.wsdl" MetadataType="Wsdl" ID="80379ddc-0364-4f17-86ff-31a0a2645191" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="service3.xsd" MetadataType="Schema" ID="265c8b56-471b-406d-9096-460f30738038" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="service4.xsd" MetadataType="Schema" ID="52bc345a-22d3-4de7-8818-91c0fa5da1a1" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="Arrays2.xsd" MetadataType="Schema" ID="4b305008-7c8a-46dd-afcc-b9b7ac3bc347" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="CCWFM.Web.Model2.xsd" MetadataType="Schema" ID="f72226bc-ffa3-43eb-920e-95c9dcd0bc49" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="System.Data.Objects.DataClasses2.xsd" MetadataType="Schema" ID="8932d845-63c2-4754-b7f5-3a4d4e53d155" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="System.Data2.xsd" MetadataType="Schema" ID="9fe75ef2-b6e7-4a99-aac2-95fdf75f3855" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="CCWFM.Web.Service2.xsd" MetadataType="Schema" ID="07616dec-edf3-485e-87b5-2685a10ebd3c" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
-    <MetadataFile FileName="CCWFM.Web.DataLayer2.xsd" MetadataType="Schema" ID="3a99a81a-e4cb-491c-b613-53e01e2799cc" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="service3.wsdl" MetadataType="Wsdl" ID="66a45b29-531a-4f7e-90fa-2d3a57c8d18b" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="service4.wsdl" MetadataType="Wsdl" ID="928e16b0-aef3-4038-8e8a-3452c2bd21ad" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="service3.xsd" MetadataType="Schema" ID="a03ad86b-b6ab-4b2f-96dc-165caabb8cef" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="service4.xsd" MetadataType="Schema" ID="038e5f2e-34b9-4fd2-b0ce-10a08a5f4a24" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="Arrays2.xsd" MetadataType="Schema" ID="56a1aee8-c03f-405a-94b2-f2c51d63a760" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.Model2.xsd" MetadataType="Schema" ID="7bf6c35e-9284-423f-865f-3a610438fe5f" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses2.xsd" MetadataType="Schema" ID="e8c65d5b-4918-471e-bff1-51a614c49592" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="System.Data2.xsd" MetadataType="Schema" ID="cf771eca-594f-470d-b19d-960828c0dfe7" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.Service2.xsd" MetadataType="Schema" ID="fafbe058-715e-441e-a8f7-083b9a3520ea" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
+    <MetadataFile FileName="CCWFM.Web.DataLayer2.xsd" MetadataType="Schema" ID="4fd66221-ee8d-490d-a569-ae6fbc5b4364" SourceId="1" SourceUrl="http://localhost:18559/Service/Operations/GlOperations/GlService.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

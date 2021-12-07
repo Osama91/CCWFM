@@ -2,12 +2,12 @@
 using System.Windows;
 using CCWFM.CRUDManagerService;
 
-namespace CCWFM.UserControls.Search
+namespace CCWFM.UserControls
 {
     public partial class SearchBanks
     {
-        public DependencyProperty SearchPerRowProperty =DependencyProperty.Register("SearchPerRow", typeof(TblBank), typeof(System.Windows.Controls.UserControl),
-                                                                   new PropertyMetadata(null, OnEmpPerRowChanged));
+        public DependencyProperty BankPerRowProperty = DependencyProperty.Register("SearchPerRow", typeof(GlService.TblBank), typeof(System.Windows.Controls.UserControl),
+                                                                   new PropertyMetadata(null, OnBankPerRowChanged));
 
         #region Implement INotifyPropertyChanged
 
@@ -22,12 +22,12 @@ namespace CCWFM.UserControls.Search
 
         #endregion Implement INotifyPropertyChanged
 
-        public CRUDManagerService.TblBank SearchPerRow
+        public GlService.TblBank SearchPerRow
         {
-            get { return (TblBank)GetValue(SearchPerRowProperty); }
+            get { return (GlService.TblBank)GetValue(BankPerRowProperty); }
             set
             {
-                SetValue(SearchPerRowProperty, value);
+                SetValue(BankPerRowProperty, value);
                 if (value != SearchPerRow)
                 {
                     SearchPerRow = value;
@@ -37,12 +37,12 @@ namespace CCWFM.UserControls.Search
             }
         }
 
-        public static void OnEmpPerRowChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        public static void OnBankPerRowChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             var fil = sender as SearchBanks;
             if (args.NewValue != null)
             {
-                fil.SearchPerRow = args.NewValue as TblBank;
+                fil.SearchPerRow = args.NewValue as GlService.TblBank;
             }
         }
 

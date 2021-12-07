@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CCWFM.UserControls.Search.SearchBanks"
+﻿<UserControl x:Class="CCWFM.UserControls.SearchBanks"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,8 +7,8 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <StackPanel x:Name="LayoutRoot" Orientation="Horizontal" Background="White">
-        <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding StorePerRow.code,Mode=TwoWay}"></TextBlock>
-        <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding StorePerRow.ENAME,Mode=TwoWay}"></TextBlock>
+        <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding SearchPerRow.Code,Mode=TwoWay}"></TextBlock>
+        <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding SearchPerRow.Ename,Mode=TwoWay}"></TextBlock>
         <Button  Name="BtnSearch" Click="BtnSearch_OnClick">
             <Image HorizontalAlignment="Stretch"  Width="30" Height="30"
                        VerticalAlignment="Stretch"

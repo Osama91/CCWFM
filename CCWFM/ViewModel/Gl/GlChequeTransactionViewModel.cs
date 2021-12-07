@@ -145,6 +145,9 @@ namespace CCWFM.ViewModel.Gl
                              x => x.TblJournalAccountType == row.EntityDetail1TblJournalAccountType
                              && x.Iserial == row.EntityDetail1);
 
+                            newrow.BankPerRow =
+                            sv.bankList.FirstOrDefault(
+                                   x => x.Iserial == row.TblBank);
                             newrow.OffsetEntityPerRow =
                                  sv.entityList.FirstOrDefault(
                                     x => x.TblJournalAccountType == row.EntityDetail2TblJournalAccountType
@@ -192,6 +195,10 @@ namespace CCWFM.ViewModel.Gl
                         sv.entityList.FirstOrDefault(
                              x => x.TblJournalAccountType == row.EntityDetail1TblJournalAccountType
                              && x.Iserial == row.EntityDetail1);
+
+                            newrow.BankPerRow =
+                               sv.BankList.FirstOrDefault(
+                                 x => x.Iserial == row.TblBank);
 
                             newrow.OffsetEntityPerRow =
                                  sv.entityList.FirstOrDefault(
@@ -267,6 +274,7 @@ namespace CCWFM.ViewModel.Gl
                             CostCenterPerRow = row.TblCostCenter1,
                             CostCenterTypePerRow = new GenericTable(),
                             EntityPerRow = SelectedDetailRow.EntityPerRow,
+                            
                         };
                         if (row.TblCostCenterType1 != null)
                             newrow.CostCenterTypePerRow.InjectFrom(row.TblCostCenterType1);
@@ -1689,6 +1697,8 @@ namespace CCWFM.ViewModel.Gl
 
         private int? _entityDetail1Field;
 
+        private int? _tblBankField;
+
         private bool _entityDetail1PostDrField;
 
         private int? _entityDetail1TblAccountField;
@@ -1727,6 +1737,18 @@ namespace CCWFM.ViewModel.Gl
             {
                 _entityPerRow = value; RaisePropertyChanged("EntityPerRow");
                 if (EntityPerRow != null) EntityDetail1 = EntityPerRow.Iserial;
+            }
+        }
+
+
+        private TblBank _bankPerRow;
+        public TblBank BankPerRow
+        {
+            get { return _bankPerRow; }
+            set
+            {
+                _bankPerRow= value; RaisePropertyChanged("BankPerRow");
+                if (BankPerRow != null) TblBank = BankPerRow.Iserial;
             }
         }
 
@@ -1850,6 +1872,22 @@ namespace CCWFM.ViewModel.Gl
                 {
                     _entityDetail1Field = value;
                     RaisePropertyChanged("EntityDetail1");
+                }
+            }
+        }
+
+        public int? TblBank
+        {
+            get
+            {
+                return _tblBankField;
+            }
+            set
+            {
+                if ((_tblBankField.Equals(value) != true))
+                {
+                    _tblBankField = value;
+                    RaisePropertyChanged("TblBank");
                 }
             }
         }

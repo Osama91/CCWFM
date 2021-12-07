@@ -7,7 +7,7 @@ using CCWFM.CRUDManagerService;
 using Os.Controls.DataGrid;
 using Os.Controls.DataGrid.Events;
 
-namespace CCWFM.UserControls.Search
+namespace CCWFM.UserControls
 {
     public partial class SearchBanksChild
     {
@@ -25,9 +25,9 @@ namespace CCWFM.UserControls.Search
         {
             if (MainGrid.SelectedIndex != -1)
             {
-                var newBank = new TblBank();
+                var newBank = new GlService.TblBank();
 
-                var row = MainGrid.SelectedItem as StoreForAllCompany;
+                var row = MainGrid.SelectedItem as GlService.TblBank;
 
                 if (row != null)
                 {

@@ -268,7 +268,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private List<TblGlChequeTransactionDetail> GetTblGlChequeTransactionDetail(int header, string company, out List<Entity> entityList, out List<TblContractHeader> ContractList)
+        private List<TblGlChequeTransactionDetail> GetTblGlChequeTransactionDetail(int header, string company, out List<Entity> entityList, out List<TblContractHeader> ContractList,out  List<TblBank> BankList)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
@@ -276,6 +276,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                 query = entity.TblGlChequeTransactionDetails.Include(nameof(TblGlChequeTransactionDetail.TblJournalAccountType)).Include(nameof(TblGlChequeTransactionDetail.TblJournalAccountType1))
                     .Include(nameof(TblGlChequeTransactionDetail.TblGlChequeStatu)).Include(nameof(TblGlChequeTransactionDetail.TblBankCheque1)).Where(x => x.TblGlChequeTransactionHeader == header);
+
+                List<int?> intBankList = query.Select(x => x.TblBank).ToList();
 
                 List<int?> intList = query.Select(x => x.EntityDetail1).ToList();
 
@@ -285,6 +287,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                 intTypeList.AddRange(query.Select(x => x.EntityDetail2TblJournalAccountType).ToList());
                 entityList = entity.Entities.Where(x => intList.Contains(x.Iserial) && intTypeList.Contains(x.TblJournalAccountType) && x.scope == 0).ToList();
+                BankList = entity.TblBanks.Where(x => intBankList.Contains(x.Iserial)).ToList();
+
                 var contractlistIserial = query.Select(x => x.TblContractHeader).Where(w => w.HasValue).ToList();
                 using (var context = new WorkFlowManagerDBEntities())
                 {
@@ -651,6 +655,12 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         x.TblJournalAccountType == row.EntityDetail1TblJournalAccountType &&
                                         x.Iserial == row.EntityDetail1).AccountIserial;
 
+                            var accountDetailBank =
+                             entity.Entities.FirstOrDefault(
+                                 x =>
+                                     x.TblJournalAccountType == 6 &&
+                                     x.Iserial == row.TblBank).AccountIserial;
+
                             var newledgerDetailrowd1 = new TblLedgerMainDetail
                             {
                                 Amount = (decimal?)row.Amount,
@@ -668,13 +678,56 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 TblBankCheque = row.TblBankCheque,
                             };
 
+                            var newledgerDetailrowh2 = new TblLedgerMainDetail
+                            {
+                                Amount = (decimal?)row.Amount,
+                                Description = row.Description + " " + row.TblBankCheque1.Cheque,
+                                ExchangeRate = chequeTransactionHeader.ExchangeRate,
+                                TblCurrency = chequeTransactionHeader.TblCurrency,
+                                TransDate = chequeTransactionHeader.DocDate,
+                                TblJournalAccountType = 6,
+                                EntityAccount = row.TblBank,
+                                GlAccount = (int)accountDetailBank,
+                                TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                PaymentRef = row.TblBankCheque1.Cheque.ToString(),
+                                DrOrCr =true,
+                                TblBankCheque = row.TblBankCheque,
+                            };
+                         
+
+                            var newledgerDetailrowd2 = new TblLedgerMainDetail
+                            {
+                                Amount = (decimal?)row.Amount,
+                                Description = row.Description + " " + row.TblBankCheque1.Cheque.ToString(),
+
+                                ExchangeRate = chequeTransactionHeader.ExchangeRate,
+                                TblCurrency = chequeTransactionHeader.TblCurrency,
+                                TransDate = chequeTransactionHeader.DocDate,
+                                TblJournalAccountType = row.EntityDetail1TblJournalAccountType,
+                                EntityAccount = row.EntityDetail1,
+                                GlAccount = accountDetail1,
+                                TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                PaymentRef = row.TblBankCheque1.Cheque.ToString(),
+                                DrOrCr = false,
+                                TblBankCheque = row.TblBankCheque,
+                            };
+
 
                             UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowh1, true, 000, out tempheader, company,
                     (int)chequeTransactionHeader.CreatedBy);
 
                             UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowd1, true, 000, out tempheader, company,
                          (int)chequeTransactionHeader.CreatedBy);
-                        }
+
+
+                            UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowh2, true, 000, out tempheader, company,
+                    (int)chequeTransactionHeader.CreatedBy);
+
+                            UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowd2, true, 000, out tempheader, company,
+                         (int)chequeTransactionHeader.CreatedBy);
+                        
+
+                    }
 
                         #endregion تسليم اوراق دفع من الخزنة للمورد
 
@@ -1203,7 +1256,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         //}
 
         [OperationContract]
-        private List<TblGlChequeTransactionDetail> GetLockupFromPreTransaction(TblGlChequeTypeSetting setting, int tbljournalaccounttype, int vendor, int bank, string code, DateTime? FromDate, DateTime? ToDate, string company, out List<Entity> entityList)
+        private List<TblGlChequeTransactionDetail> GetLockupFromPreTransaction(TblGlChequeTypeSetting setting, int tbljournalaccounttype, int vendor, int bank, string code, DateTime? FromDate, DateTime? ToDate, string company, out List<Entity> entityList, out List<TblBank> bankList)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
@@ -1216,11 +1269,13 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     && (x.DueDate <= ToDate || ToDate == null)
                     && x.TblGlChequeTransactionHeader1.TblGlChequeTypeSetting == setting.ChequeLockupFilterOnChequeType && x.TblBankCheque1.TblGlChequeStatus == setting.ChequeLockupFilterOnChequeStatus);
 
+                List<int?> intBankList = query.Select(x => x.TblBank).ToList();
                 List<int?> intList = query.Select(x => x.EntityDetail1).ToList();
                 intList.AddRange(query.Select(x => x.EntityDetail2).ToList());
                 List<int?> intTypeList = query.Select(x => x.EntityDetail1TblJournalAccountType).ToList();
                 intTypeList.AddRange(query.Select(x => x.EntityDetail2TblJournalAccountType).ToList());
                 entityList = entity.Entities.Where(x => intList.Contains(x.Iserial) && intTypeList.Contains(x.TblJournalAccountType) && x.scope == 0).ToList();
+                bankList = entity.TblBanks.Where(x => intBankList.Contains(x.Iserial)).ToList();
                 return query.ToList();
             }
         }
