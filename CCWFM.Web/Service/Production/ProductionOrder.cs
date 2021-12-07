@@ -33,11 +33,11 @@ namespace CCWFM.Web.Service.Production
 
                 //var codes = query.Select(w => w.Vendor).ToList();
                 //Vendors = context.Vendors.Where(x => codes.Contains(x.vendor_code)).ToList();
-                var result = query.ToList();
-                foreach (var item in result)
-                {
-                    GetTblSalesOrderDetailRequestDetails(context, item);
-                }
+                //var result = query.ToList();
+                //foreach (var item in result)
+                //{
+                //    GetTblSalesOrderDetailRequestDetails(context, item);
+                //}
                 return query.ToList();
             }
         }

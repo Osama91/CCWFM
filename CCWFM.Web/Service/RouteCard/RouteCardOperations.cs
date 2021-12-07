@@ -6,7 +6,6 @@ using System.Linq;
 using System.ServiceModel;
 using CCWFM.Web.Model;
 using CCWFM.Models.Inv;
-using CCWFM.Web.Service.Operations;
 
 namespace CCWFM.Web.Service.RouteCard
 {
@@ -302,6 +301,12 @@ namespace CCWFM.Web.Service.RouteCard
         [TransactionFlow(TransactionFlowOption.Allowed)]
         public RouteCardHeader UpdateRoutCard(RouteCardHeader header, List<RouteCardDetail> details, int postOrNo, string transactionGuid, int userIserial)
         {
+
+
+            //if (header.AxRouteCardFabricsJournalId) {
+
+            //}
+
             header.UpdatedBy = userIserial;
             header.LastUpdatedDate = DateTime.Now;
             using (var context = new WorkFlowManagerDBEntities())

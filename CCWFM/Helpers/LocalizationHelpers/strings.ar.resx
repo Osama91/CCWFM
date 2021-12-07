@@ -321,7 +321,7 @@
     <value>موديل</value>
     <comment>Common</comment>
   </data>
-   <data name="StyleList" xml:space="preserve">
+  <data name="StyleList" xml:space="preserve">
     <value>قائمة الموديلات</value>
     <comment>Common</comment>
   </data>
@@ -882,7 +882,7 @@
     <comment>AccSetups</comment>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>وصف الموديل 2</value>
+    <value>وصف</value>
     <comment>AccSetups</comment>
   </data>
   <data name="DetailsStngs" xml:space="preserve">
@@ -1944,7 +1944,7 @@
     <value>Factory Group is Required !</value>
     <comment>Req Error</comment>
   </data>
-   <data name="ReqComplexityGroup" xml:space="preserve">
+  <data name="ReqComplexityGroup" xml:space="preserve">
     <value>Complexity Group is Required !</value>
     <comment>Req Error</comment>
   </data>

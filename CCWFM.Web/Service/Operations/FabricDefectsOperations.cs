@@ -258,13 +258,13 @@ namespace CCWFM.Web.Service
                         // type equal purchase order
                         if (item.Degree != 1 && transactionHeader.TransactionType == 0)
                         {
-                            InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
-                           item.StoreRollQty * -1, transactionHeader.Iserial, userIserial);
-                            var line = PurchaseFabricLinesToAx(item, transactionHeader.TransOrder, userIserial);
-                            item.LineNum = line;
-                            CreateOrUpdateMiscCharge(transactionHeader.TransOrder, item.LineNum, item.UnitPrice * -1, true, userIserial);
-                            InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
-                            item.StoreRollQty, transactionHeader.Iserial, userIserial);
+                           // InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
+                           //item.StoreRollQty * -1, transactionHeader.Iserial, userIserial);
+                            //var line = PurchaseFabricLinesToAx(item, transactionHeader.TransOrder, userIserial);
+                            //item.LineNum = line;
+                            //CreateOrUpdateMiscCharge(transactionHeader.TransOrder, item.LineNum, item.UnitPrice * -1, true, userIserial);
+                            //InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
+                            //item.StoreRollQty, transactionHeader.Iserial, userIserial);
                         }
 
                         item.RemainingMarkerRollQty = item.StoreRollQty - (item.Tbl_fabricInspectionDetailDefects.Sum(x => x.DefectValue)) * (item.ConsPerPC / item.NoofPCs);
@@ -290,7 +290,7 @@ namespace CCWFM.Web.Service
                     }
                 }
 
-                CreatePackingSlip(String.Format("Insp_{0}_1", transactionHeader.Iserial), transactionHeader.TransOrder, transactionGuid, userIserial);
+                //CreatePackingSlip(String.Format("Insp_{0}_1", transactionHeader.Iserial), transactionHeader.TransOrder, transactionGuid, userIserial);
 
                 transactionGuid = Guid.NewGuid().ToString();
                 if (transactionHeader.TransactionType == 0)
@@ -308,14 +308,14 @@ namespace CCWFM.Web.Service
                         }
                     }
                 }
-                if (SharedOperation.UseAx())
-                {
-                    if (transactionHeader.VendorSubtraction)
-                    {
-                        CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
-                                transactionHeader.TransOrder, transactionGuid, userIserial);
-                    }
-                }
+                //if (SharedOperation.UseAx())
+                //{
+                //    if (transactionHeader.VendorSubtraction)
+                //    {
+                //        CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
+                //                transactionHeader.TransOrder, transactionGuid, userIserial);
+                //    }
+                //}
                 CreateAxBarcode(transactionHeader.Iserial, 1, userIserial, transactionHeader.TransactionType);
                 return details;
             }
@@ -325,7 +325,7 @@ namespace CCWFM.Web.Service
         public void InsertInspectionHeaderTemp(Tbl_fabricInspectionHeader transactionHeader, List<Tbl_fabricInspectionDetail> details, int userIserial)
         {
             var transactionGuid = Guid.NewGuid().ToString();
-            CreatePackingSlip(String.Format("Insp_{0}_1", transactionHeader.Iserial), transactionHeader.TransOrder, transactionGuid, userIserial);
+            //CreatePackingSlip(String.Format("Insp_{0}_1", transactionHeader.Iserial), transactionHeader.TransOrder, transactionGuid, userIserial);
 
             var firstDegreeQty = details.Where(x => x.Degree == 1).GroupBy(x => x.LineNum)
                .Select(t => new FirstDegreeQty
@@ -350,26 +350,26 @@ namespace CCWFM.Web.Service
                     }
                 }
             }
-            foreach (var item in details)
-            {
-                //if (item.Degree != 1 && transactionHeader.TransactionType == 0)
-                //{
-                //    InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
-                //        item.StoreRollQty*-1, transactionHeader.Iserial, userIserial);
-                //    var line = PurchaseFabricLinesToAx(item, transactionHeader.TransOrder, userIserial);
-                //    item.LineNum = line;
-                //    CreateOrUpdateMiscCharge(transactionHeader.TransOrder, item.LineNum, item.UnitPrice*-1, true,
-                //        userIserial);
-                //    InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
-                //        item.StoreRollQty, transactionHeader.Iserial, userIserial);
-                //}
-            }
+            //foreach (var item in details)
+            //{
+            //    //if (item.Degree != 1 && transactionHeader.TransactionType == 0)
+            //    //{
+            //    //    InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
+            //    //        item.StoreRollQty*-1, transactionHeader.Iserial, userIserial);
+            //    //    var line = PurchaseFabricLinesToAx(item, transactionHeader.TransOrder, userIserial);
+            //    //    item.LineNum = line;
+            //    //    CreateOrUpdateMiscCharge(transactionHeader.TransOrder, item.LineNum, item.UnitPrice*-1, true,
+            //    //        userIserial);
+            //    //    InsertpackingSlipData(item.LineNum, item.FinishedLocation, transactionGuid,
+            //    //        item.StoreRollQty, transactionHeader.Iserial, userIserial);
+            //    //}
+            //}
 
-            if (transactionHeader.VendorSubtraction)
-            {
-                CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
-                        transactionHeader.TransOrder, transactionGuid, userIserial);
-            }
+            //if (transactionHeader.VendorSubtraction)
+            //{
+            //    CreatePackingSlip(String.Format("Insp_{0}_2", transactionHeader.Iserial),
+            //            transactionHeader.TransOrder, transactionGuid, userIserial);
+            //}
             CreateAxBarcode(transactionHeader.Iserial, 1, userIserial, transactionHeader.TransactionType);
         }
 
@@ -472,6 +472,7 @@ namespace CCWFM.Web.Service
            
             using (var entities = new WorkFlowManagerDBEntities())
             {
+                entities.CommandTimeout = 0;
                 if (!SharedOperation.UseAx())
                 { 
                     entities.CreateRollBarcode(Iserial);
@@ -855,49 +856,49 @@ namespace CCWFM.Web.Service
             }
         }
 
-        private void CreatePackingSlip(string packingSlipId, string purchId, string transactionGuid, int userIserial)
-        {
-            if (SharedOperation.UseAx())
-            {
-                var axapta = new Axapta();
-                var credential = new NetworkCredential("bcproxy", "around1");
-                TblAuthUser userToLogin;
-                using (var model = new WorkFlowManagerDBEntities())
-                {
-                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-                }
-                if (userToLogin != null)
-                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+        //private void CreatePackingSlip(string packingSlipId, string purchId, string transactionGuid, int userIserial)
+        //{
+        //    if (SharedOperation.UseAx())
+        //    {
+        //        var axapta = new Axapta();
+        //        var credential = new NetworkCredential("bcproxy", "around1");
+        //        TblAuthUser userToLogin;
+        //        using (var model = new WorkFlowManagerDBEntities())
+        //        {
+        //            userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+        //        }
+        //        if (userToLogin != null)
+        //            axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
 
-                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
+        //        var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
 
-                importNew.Call("PostPurchFormLetter", packingSlipId, purchId, transactionGuid);
+        //        importNew.Call("PostPurchFormLetter", packingSlipId, purchId, transactionGuid);
 
-                axapta.Logoff();
-            }
-        }
+        //        axapta.Logoff();
+        //    }
+        //}
 
-        private void CreateOrUpdateMiscCharge(string purchId, decimal lineNum, float value, bool createOk, int userIserial)
-        {
-            if (SharedOperation.UseAx())
-            {
-                var axapta = new Axapta();
-                var credential = new NetworkCredential("bcproxy", "around1");
-                TblAuthUser userToLogin;
-                using (var model = new WorkFlowManagerDBEntities())
-                {
-                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-                }
-                if (userToLogin != null)
-                {
-                    axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
-                }
-                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-                //(packingSlipId packingSlipId,PurchId PurchId,str 200 TransactionGuid)
-                importNew.Call("CreateOrUpdateMiscCharge", purchId, lineNum, value, createOk);
-                axapta.Logoff();
-            }
-        }
+        //private void CreateOrUpdateMiscCharge(string purchId, decimal lineNum, float value, bool createOk, int userIserial)
+        //{
+        //    if (SharedOperation.UseAx())
+        //    {
+        //        var axapta = new Axapta();
+        //        var credential = new NetworkCredential("bcproxy", "around1");
+        //        TblAuthUser userToLogin;
+        //        using (var model = new WorkFlowManagerDBEntities())
+        //        {
+        //            userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+        //        }
+        //        if (userToLogin != null)
+        //        {
+        //            axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+        //        }
+        //        var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
+        //        //(packingSlipId packingSlipId,PurchId PurchId,str 200 TransactionGuid)
+        //        importNew.Call("CreateOrUpdateMiscCharge", purchId, lineNum, value, createOk);
+        //        axapta.Logoff();
+        //    }
+        //}
 
         private void InsertpackingSlipData(decimal lineNum, string location, string transactionGuid, float qty, int fabricInspectionHeader, int userIserial)
         {
@@ -926,27 +927,27 @@ namespace CCWFM.Web.Service
             }
         }
 
-        public decimal PurchaseFabricLinesToAx(Tbl_fabricInspectionDetail item, string purchaseOrder, int userIserial)
-        {
-            using (var axapta = new Axapta())
-            {
-                var credential = new NetworkCredential("bcproxy", "around1");
+        //public decimal PurchaseFabricLinesToAx(Tbl_fabricInspectionDetail item, string purchaseOrder, int userIserial)
+        //{
+        //    using (var axapta = new Axapta())
+        //    {
+        //        var credential = new NetworkCredential("bcproxy", "around1");
 
-                TblAuthUser userToLogin;
-                using (var model = new WorkFlowManagerDBEntities())
-                {
-                    userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-                }
-                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
+        //        TblAuthUser userToLogin;
+        //        using (var model = new WorkFlowManagerDBEntities())
+        //        {
+        //            userToLogin = model.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+        //        }
+        //        axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
 
-                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-                var lineNum = importNew.Call("CreatePurchaseLines", purchaseOrder, item.Fabric_Code, item.StoreRollQty, item.BatchNo,
-                    item.ColorCode, item.FinishedWarehouse, item.UnitPrice, item.FinishedLocation, item.FinishedSite);
+        //        var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
+        //        var lineNum = importNew.Call("CreatePurchaseLines", purchaseOrder, item.Fabric_Code, item.StoreRollQty, item.BatchNo,
+        //            item.ColorCode, item.FinishedWarehouse, item.UnitPrice, item.FinishedLocation, item.FinishedSite);
 
-                axapta.Logoff();
-                return Convert.ToDecimal(lineNum);
-            }
-        }
+        //        axapta.Logoff();
+        //        return Convert.ToDecimal(lineNum);
+        //    }
+        //}
 
         [OperationContract]
         public List<InventoryReservedJournalsDetail> InventoryReservedJournalsDetailPerJournal(string dataArea, string journalid, IEnumerable<decimal> lineNumbers)

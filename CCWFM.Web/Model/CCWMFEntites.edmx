@@ -2819,19 +2819,22 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TblInventType" Type="int" />
           <Property Name="DocDate" Type="datetime" />
-          <Property Name="Qty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="ItemCost" Type="money" />
+          <Property Name="Qty" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ItemCost" Type="decimal" Precision="19" Scale="4" />
           <Property Name="VotGlSerial" Type="int" />
           <Property Name="VotDoc" Type="nvarchar" MaxLength="50" />
           <Property Name="TblWarehouse" Type="int" Nullable="false" />
           <Property Name="TblItemDim" Type="int" Nullable="false" />
-          <Property Name="AvgCost" Type="money" />
-          <Property Name="LastWarehouseQty" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="AvgCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastWarehouseQty" Type="decimal" Precision="19" Scale="4" />
           <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="OldCost" Type="money" />
-          <Property Name="LastStoreQty" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="LastStoreAvgCost" Type="money" />
+          <Property Name="OldCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastStoreQty" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LastStoreAvgCost" Type="decimal" Precision="19" Scale="4" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="ExchangeRate" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="LocalItemCost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Misc" Type="decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="TblInventType">
           <Key>
@@ -4566,7 +4569,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="AdditionalDescription" Type="nvarchar" MaxLength="500" />
           <Property Name="TblStyleCategory" Type="int" />
           <Property Name="TblStyleFabricComposition" Type="int" />
-          <Property Name="SupplierRef" Type="nvarchar" MaxLength="20" />
+          <Property Name="SupplierRef" Type="nvarchar(max)" />
           <Property Name="ActualCostPrice" Type="float" Nullable="false" />
           <Property Name="BarcodePrice" Type="float" Nullable="false" />
           <Property Name="tbl_lkp_FabricMaterials" Type="int" />
@@ -4593,6 +4596,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="CCTargetCostPrice" Type="float" />
           <Property Name="TblStyleFitType" Type="int" />
           <Property Name="TblWfFabricAttriputes" Type="int" />
+          <Property Name="TblPrintType" Type="int" />
           <Property Name="SeasonalMasterListNotes" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="TblStyleAttachment">
@@ -9709,44 +9713,6 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TblInventTrans_TblInventType">
-          <End Role="TblInventType" Type="Self.TblInventType" Multiplicity="0..1" />
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblInventType">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblInventType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblInventTrans_TblItemDim">
-          <End Role="TblItemDim" Type="Self.TblItemDim" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblItemDim">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblItemDim" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblInventTrans_TblWarehouse">
-          <End Role="TblWarehouse" Type="Self.TblWarehouse" Multiplicity="1" />
-          <End Role="TblInventTrans" Type="Self.TblInventTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblWarehouse">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblInventTrans">
-              <PropertyRef Name="TblWarehouse" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblIssueJournalDetail_TblColor">
           <End Role="TblColor" Type="Self.TblColor" Multiplicity="1" />
           <End Role="TblIssueJournalDetail" Type="Self.TblIssueJournalDetail" Multiplicity="*" />
@@ -12584,6 +12550,7 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <Parameter Name="ColorCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Size" Type="nvarchar" Mode="In" />
           <Parameter Name="BatchNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Recalc" Type="bit" Mode="In" />
         </Function>
         <Function Name="GetWarehouseItemByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Warehouse" Type="nvarchar" Mode="In" />
@@ -12655,6 +12622,9 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <Parameter Name="SalesOrder" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="RouteCardDetailActualCost_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RouteQuantities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Iserial" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="sp_GenericDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Table_Name" Type="nvarchar" Mode="In" />
           <Parameter Name="Iserial" Type="nvarchar" Mode="In" />
@@ -15042,18 +15012,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_TblGlobalRetailBusinessBudgetMainDetail_TblLkpSeason" Association="Self.FK_TblGlobalRetailBusinessBudgetMainDetail_TblLkpSeason">
             <End Role="TblLkpSeason" EntitySet="TblLkpSeason" />
             <End Role="TblGlobalRetailBusinessBudgetMainDetail" EntitySet="TblGlobalRetailBusinessBudgetMainDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblInventType" Association="Self.FK_TblInventTrans_TblInventType">
-            <End Role="TblInventType" EntitySet="TblInventType" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblItemDim" Association="Self.FK_TblInventTrans_TblItemDim">
-            <End Role="TblItemDim" EntitySet="TblItemDim" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblInventTrans_TblWarehouse" Association="Self.FK_TblInventTrans_TblWarehouse">
-            <End Role="TblWarehouse" EntitySet="TblWarehouse" />
-            <End Role="TblInventTrans" EntitySet="TblInventTrans" />
           </AssociationSet>
           <AssociationSet Name="FK_TblIssueJournalDetail_TblColor" Association="Self.FK_TblIssueJournalDetail_TblColor">
             <End Role="TblColor" EntitySet="TblColor" />
@@ -17766,6 +17724,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <Parameter Name="ColorCode" Mode="In" Type="String" />
             <Parameter Name="Size" Mode="In" Type="String" />
             <Parameter Name="BatchNo" Mode="In" Type="String" />
+            <Parameter Name="Recalc" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="GetWarehouseQuantitiesByTransaction" ReturnType="Collection(WorkFlowManagerDBModel.GetWarehouseQuantitiesByTransaction_Result)">
             <Parameter Name="warehouse" Mode="In" Type="Int32" />
@@ -18301,7 +18260,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySet Name="Employees" EntityType="WorkFlowManagerDBModel.Employee" />
           <EntitySet Name="PurchlineInventDims" EntityType="WorkFlowManagerDBModel.PurchlineInventDim" />
           <FunctionImport Name="CreateRollBarcode">
-            <Parameter Name="FabricInsHeader" Mode="In" Type="Int32" />
+          <Parameter Name="FabricInsHeader" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RouteQuantities" ReturnType="Collection(WorkFlowManagerDBModel.RouteQuantities_Result)">
+            <Parameter Name="Iserial" Mode="In" Type="String" />
           </FunctionImport>
       
           </EntityContainer>
@@ -25781,22 +25743,25 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="TblInventType" Type="Int32" />
           <Property Name="DocDate" Precision="3" Type="DateTime" />
-          <Property Name="Qty" Nullable="false" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="Qty" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="ItemCost" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="VotGlSerial" Type="Int32" />
           <Property Name="TblWarehouse" Nullable="false" Type="Int32" />
           <Property Name="TblItemDim" Nullable="false" Type="Int32" />
           <Property Name="AvgCost" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="LastWarehouseQty" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="LastWarehouseQty" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="CurrencyCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="TblInventType1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblInventType" FromRole="TblInventTran" ToRole="TblInventType" />
           <NavigationProperty Name="TblItemDim1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblItemDim" FromRole="TblInventTran" ToRole="TblItemDim" />
           <NavigationProperty Name="TblWarehouse1" Relationship="WorkFlowManagerDBModel.FK_TblInventTrans_TblWarehouse" FromRole="TblInventTran" ToRole="TblWarehouse" />
           <Property Name="VotDoc" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="OldCost" Precision="19" Scale="4" Type="Decimal" />
-          <Property Name="LastStoreQty" Precision="18" Scale="4" Type="Decimal" />
+          <Property Name="LastStoreQty" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="LastStoreAvgCost" Precision="19" Scale="4" Type="Decimal" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LocalItemCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="TblInventType">
           <Key>
@@ -28376,7 +28341,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="AdditionalDescription" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="TblStyleCategory" Type="Int32" />
           <Property Name="TblStyleFabricComposition" Type="Int32" />
-          <Property Name="SupplierRef" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="SupplierRef" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ActualCostPrice" Nullable="false" Type="Double" />
           <Property Name="BarcodePrice" Nullable="false" Type="Double" />
           <Property Name="tbl_lkp_FabricMaterials" Type="Int32" />
@@ -28420,6 +28385,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TblStyleFitType" Type="Int32" />
           <Property Name="TblWfFabricAttriputes" Type="Int32" />
           <Property Name="SeasonalMasterListNotes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TblPrintType" Type="Int32" />
         </EntityType>
         <Association Name="FK_BOM_TblSalesOrder">
           <End Type="WorkFlowManagerDBModel.TblSalesOrder" Multiplicity="1" Role="TblSalesOrder">
@@ -31604,6 +31570,15 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="WeightPerSquarMeterBeforWashMax" Type="Double" />
           <Property Name="WeightPerSquarMeterBeforWashMin" Type="Double" />
         </EntityType>
+        <ComplexType Name="RouteQuantities_Result">
+          <Property Type="String" Name="itemid" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SIZE" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="BatchNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="TransactionQty" Nullable="true" />
+          <Property Type="Decimal" Name="StockQty" Nullable="false" Precision="18" Scale="4" />
+        </ComplexType>
        
         </Schema>
     </edmx:ConceptualModels>
@@ -36212,6 +36187,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblInventTrans">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblInventTran">
               <MappingFragment StoreEntitySet="TblInventTrans">
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="LocalItemCost" ColumnName="LocalItemCost" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="LastStoreAvgCost" ColumnName="LastStoreAvgCost" />
                 <ScalarProperty Name="LastStoreQty" ColumnName="LastStoreQty" />
@@ -37339,6 +37317,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblStyles">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblStyle">
               <MappingFragment StoreEntitySet="TblStyle">
+                <ScalarProperty Name="TblPrintType" ColumnName="TblPrintType" />
                 <ScalarProperty Name="SeasonalMasterListNotes" ColumnName="SeasonalMasterListNotes" />
                 <ScalarProperty Name="TblWfFabricAttriputes" ColumnName="TblWfFabricAttriputes" />
                 <ScalarProperty Name="TblStyleFitType" ColumnName="TblStyleFitType" />
@@ -38675,6 +38654,19 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CreateRollBarcode" FunctionName="WorkFlowManagerDBModel.Store.CreateRollBarcode" />
+          <FunctionImportMapping FunctionImportName="RouteQuantities" FunctionName="WorkFlowManagerDBModel.Store.RouteQuantities">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WorkFlowManagerDBModel.RouteQuantities_Result">
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="TransactionQty" ColumnName="TransactionQty" />
+                <ScalarProperty Name="StockQty" ColumnName="StockQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         
           </EntityContainerMapping>
       </Mapping>

@@ -114,76 +114,76 @@ namespace CCWFM.Web.Service.RouteCard
                     }
                     else if (routeHeaderRow.tblTransactionType == 8)
                     {
-                        if (SharedOperation.UseAx())
-                        {
-                            using (var axapta = new Axapta())//Ready To be Dependent from Ax
-                            {
-                                var credential = new NetworkCredential("bcproxy", "around1");
+                        //if (SharedOperation.UseAx())
+                        //{
+                        //    using (var axapta = new Axapta())//Ready To be Dependent from Ax
+                        //    {
+                        //        var credential = new NetworkCredential("bcproxy", "around1");
 
-                                TblAuthUser userToLogin;
+                        //        TblAuthUser userToLogin;
 
-                                userToLogin = context.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-                                var offsetAccount =
-                                    context.tblChainSetups.FirstOrDefault(
-                                        x => x.sGlobalSettingCode == "VendorOffsetAccount").sSetupValue;
-                                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm",
-                                    null, null,
-                                    null);
-                                var importNew = axapta.CreateAxaptaObject("Raj_LedgerJournal");
-                                var price = routeHeaderRow.RouteCardDetails.GroupBy(w => w.ObjectIndex)
-                                       .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
-                                string voucher = importNew.Call("PostingJournal", "مشتريات", "EGP", routeHeaderRow.Vendor, price, offsetAccount, routeHeaderRow.Tbl_TransactionType.Aname + "/" + routeHeaderRow.Iserial.ToString()) as string;
+                        //        userToLogin = context.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                        //        var offsetAccount =
+                        //            context.tblChainSetups.FirstOrDefault(
+                        //                x => x.sGlobalSettingCode == "VendorOffsetAccount").sSetupValue;
+                        //        axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm",
+                        //            null, null,
+                        //            null);
+                        //        var importNew = axapta.CreateAxaptaObject("Raj_LedgerJournal");
+                        //        var price = routeHeaderRow.RouteCardDetails.GroupBy(w => w.ObjectIndex)
+                        //               .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
+                        //        string voucher = importNew.Call("PostingJournal", "مشتريات", "EGP", routeHeaderRow.Vendor, price, offsetAccount, routeHeaderRow.Tbl_TransactionType.Aname + "/" + routeHeaderRow.Iserial.ToString()) as string;
 
-                                routeHeaderRow.AxRouteCardJournalId = voucher;
-                                context.SaveChanges();
-                            }
-                        }
-                        else
-                        {
+                        //        routeHeaderRow.AxRouteCardJournalId = voucher;
+                        //        context.SaveChanges();
+                        //    }
+                        //}
+                        //else
+                        //{
                             routeHeaderRow.AxRouteCardJournalId = "1111";
                             context.SaveChanges();
 
-                        }
+                        //}
 
                     }
                     else if (routeHeaderRow.tblTransactionType == 9)
                     {
-                        if (SharedOperation.UseAx())
-                        {
-                            using (var axapta = new Axapta())//Ready To be Dependent from Ax
-                            {
-                                var credential = new NetworkCredential("bcproxy", "around1");
+                 //       if (SharedOperation.UseAx())
+                 //       {
+                 //           using (var axapta = new Axapta())//Ready To be Dependent from Ax
+                 //           {
+                 //               var credential = new NetworkCredential("bcproxy", "around1");
 
-                                TblAuthUser userToLogin;
+                 //               TblAuthUser userToLogin;
 
-                                userToLogin = context.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
-                                var offsetAccount =
-                                    context.tblChainSetups.FirstOrDefault(
-                                        x => x.sGlobalSettingCode == "VendorOffsetAccount").sSetupValue;
-                                axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm",
-                                    null, null,
-                                    null);
-                                var importNew = axapta.CreateAxaptaObject("Raj_LedgerJournal");
-                                var price = routeHeaderRow.RouteCardDetails.GroupBy(w => w.ObjectIndex)
-                                    .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
-                                var routeHeaderRowOld = context
-                 .RouteCardHeaders.Include("TblRouteGroup").Include("RouteCardDetails").SingleOrDefault(x => x.Iserial == routeHeaderRow.LinkIserial);
+                 //               userToLogin = context.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                 //               var offsetAccount =
+                 //                   context.tblChainSetups.FirstOrDefault(
+                 //                       x => x.sGlobalSettingCode == "VendorOffsetAccount").sSetupValue;
+                 //               axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm",
+                 //                   null, null,
+                 //                   null);
+                 //               var importNew = axapta.CreateAxaptaObject("Raj_LedgerJournal");
+                 //               var price = routeHeaderRow.RouteCardDetails.GroupBy(w => w.ObjectIndex)
+                 //                   .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
+                 //               var routeHeaderRowOld = context
+                 //.RouteCardHeaders.Include("TblRouteGroup").Include("RouteCardDetails").SingleOrDefault(x => x.Iserial == routeHeaderRow.LinkIserial);
 
-                                var priceOld = routeHeaderRowOld.RouteCardDetails.GroupBy(w => w.ObjectIndex)
-                                   .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
-                                var voucher = importNew.Call("PostingJournal", "مشتريات", "EGP", routeHeaderRow.Vendor, price - priceOld,
-                                    offsetAccount, routeHeaderRow.Tbl_TransactionType.Aname + "/" + routeHeaderRow.Iserial.ToString()) as string;
+                 //               var priceOld = routeHeaderRowOld.RouteCardDetails.GroupBy(w => w.ObjectIndex)
+                 //                  .Sum(x => x.Sum(e => e.SizeQuantity) * x.FirstOrDefault().Price);
+                 //               var voucher = importNew.Call("PostingJournal", "مشتريات", "EGP", routeHeaderRow.Vendor, price - priceOld,
+                 //                   offsetAccount, routeHeaderRow.Tbl_TransactionType.Aname + "/" + routeHeaderRow.Iserial.ToString()) as string;
 
-                                routeHeaderRow.AxRouteCardJournalId = voucher;
-                                context.SaveChanges();
-                            }
-                        }
-                        else
-                        {
+                 //               routeHeaderRow.AxRouteCardJournalId = voucher;
+                 //               context.SaveChanges();
+                 //           }
+                 //       }
+                 //       else
+                 //       {
                             routeHeaderRow.AxRouteCardJournalId = "1111";
                             context.SaveChanges();
 
-                        }
+                        //}
                     }
                     //else if (routeHeaderRow.tblTransactionType == 10)
                     //{
@@ -677,9 +677,17 @@ namespace CCWFM.Web.Service.RouteCard
                         entities.SaveChanges();
                     //}
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw new Exception(ex.Message);
+                    var result= entities.RouteQuantities(routeHeaderRow.Iserial.ToString());
+
+                    var NewMsg = "";
+                    foreach (var item in result)
+                    {
+                        NewMsg = NewMsg + item.itemid + "_" + item.Code + "_" + item.SIZE + "_" + item.BatchNo + "_  " + "Transaction Qty =" + item.TransactionQty.ToString() + "Exceed Stock Qty=" + item.StockQty + System.Environment.NewLine;
+                    }
+
+                    throw new Exception(NewMsg);
                 }
             }
         }

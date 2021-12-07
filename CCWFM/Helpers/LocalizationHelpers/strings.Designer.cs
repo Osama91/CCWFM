@@ -1591,7 +1591,7 @@ namespace CCWFM.Helpers.LocalizationHelpers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Style Description 2.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
             get {
@@ -4640,9 +4640,7 @@ namespace CCWFM.Helpers.LocalizationHelpers {
                 return ResourceManager.GetString("ReqFabricCategory", resourceCulture);
             }
         }
-
-       
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Factory Group is Required !.
         /// </summary>
@@ -4651,9 +4649,7 @@ namespace CCWFM.Helpers.LocalizationHelpers {
                 return ResourceManager.GetString("ReqFactoryGroup", resourceCulture);
             }
         }
-
-
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Family Is Required!.
         /// </summary>
