@@ -13,6 +13,96 @@
   <wsdl:binding name="CustomBinding_GlService" type="GlService">
     <wsp:PolicyReference URI="#CustomBinding_GlService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTblJournal">
+      <soap12:operation soapAction="urn:GlService/GetTblJournal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindJournalByCode">
+      <soap12:operation soapAction="urn:GlService/FindJournalByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblJournals">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblJournals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblJournal">
+      <soap12:operation soapAction="urn:GlService/DeleteTblJournal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintLedgerHeader">
+      <soap12:operation soapAction="urn:GlService/PrintLedgerHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTotalLedger">
+      <soap12:operation soapAction="urn:GlService/PostTotalLedger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrectLedgerHeaderRouding">
+      <soap12:operation soapAction="urn:GlService/CorrectLedgerHeaderRouding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerHeader">
+      <soap12:operation soapAction="urn:GlService/GetTblLedgerHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerHeaders">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblLedgerHeaders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerHeader">
+      <soap12:operation soapAction="urn:GlService/DeleteTblLedgerHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTblLedgerMainDetail">
       <soap12:operation soapAction="urn:GlService/GetTblLedgerMainDetail" style="document" />
       <wsdl:input>
@@ -256,6 +346,87 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTblInventPostingType">
+      <soap12:operation soapAction="urn:GlService/GetTblInventPostingType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblInventPostings">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblInventPostings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblInventPosting">
+      <soap12:operation soapAction="urn:GlService/DeleteTblInventPosting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTblLedgerDetailCostCenter">
+      <soap12:operation soapAction="urn:GlService/CreateTblLedgerDetailCostCenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByEntity">
+      <soap12:operation soapAction="urn:GlService/GetAccountByEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostingTimes">
+      <soap12:operation soapAction="urn:GlService/GetPostingTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GlPost">
+      <soap12:operation soapAction="urn:GlService/GlPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcCostCenter">
+      <soap12:operation soapAction="urn:GlService/CalcCostCenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCostCenterByType">
+      <soap12:operation soapAction="urn:GlService/FindCostCenterByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GlOpen">
       <soap12:operation soapAction="urn:GlService/GlOpen" style="document" />
       <wsdl:input>
@@ -393,6 +564,15 @@
     </wsdl:operation>
     <wsdl:operation name="PostInv">
       <soap12:operation soapAction="urn:GlService/PostInv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceRecInvHeader">
+      <soap12:operation soapAction="urn:GlService/InvoiceRecInvHeader" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -688,8 +868,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTblJournal">
-      <soap12:operation soapAction="urn:GlService/GetTblJournal" style="document" />
+    <wsdl:operation name="DeleteTblDepreciationTransactionDetail">
+      <soap12:operation soapAction="urn:GlService/DeleteTblDepreciationTransactionDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -697,8 +877,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FindJournalByCode">
-      <soap12:operation soapAction="urn:GlService/FindJournalByCode" style="document" />
+    <wsdl:operation name="GetTblLedgerDetailForDepreciation">
+      <soap12:operation soapAction="urn:GlService/GetTblLedgerDetailForDepreciation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -706,8 +886,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblJournals">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblJournals" style="document" />
+    <wsdl:operation name="GetTblChequeTypeSettings">
+      <soap12:operation soapAction="urn:GlService/GetTblChequeTypeSettings" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -715,8 +895,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteTblJournal">
-      <soap12:operation soapAction="urn:GlService/DeleteTblJournal" style="document" />
+    <wsdl:operation name="GetTblGlChequeTransactionHeader">
+      <soap12:operation soapAction="urn:GlService/GetTblGlChequeTransactionHeader" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -724,8 +904,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="PrintLedgerHeader">
-      <soap12:operation soapAction="urn:GlService/PrintLedgerHeader" style="document" />
+    <wsdl:operation name="UpdateOrInsertTblGlChequeTransactionHeader">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlChequeTransactionHeader" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -733,8 +913,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="PostTotalLedger">
-      <soap12:operation soapAction="urn:GlService/PostTotalLedger" style="document" />
+    <wsdl:operation name="DeleteTblGlChequeTransactionHeader">
+      <soap12:operation soapAction="urn:GlService/DeleteTblGlChequeTransactionHeader" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -742,8 +922,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CorrectLedgerHeaderRouding">
-      <soap12:operation soapAction="urn:GlService/CorrectLedgerHeaderRouding" style="document" />
+    <wsdl:operation name="GetTblGlChequeTransactionDetail">
+      <soap12:operation soapAction="urn:GlService/GetTblGlChequeTransactionDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -751,8 +931,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTblLedgerHeader">
-      <soap12:operation soapAction="urn:GlService/GetTblLedgerHeader" style="document" />
+    <wsdl:operation name="GetTblContractHeaderForCheque">
+      <soap12:operation soapAction="urn:GlService/GetTblContractHeaderForCheque" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -760,8 +940,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblLedgerHeaders">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblLedgerHeaders" style="document" />
+    <wsdl:operation name="DeleteTblGlChequeTransactionDetail">
+      <soap12:operation soapAction="urn:GlService/DeleteTblGlChequeTransactionDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -769,8 +949,107 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteTblLedgerHeader">
-      <soap12:operation soapAction="urn:GlService/DeleteTblLedgerHeader" style="document" />
+    <wsdl:operation name="PostTblGlChequeTransactionHeader">
+      <soap12:operation soapAction="urn:GlService/PostTblGlChequeTransactionHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLockupFromPreTransaction">
+      <soap12:operation soapAction="urn:GlService/GetLockupFromPreTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblJournalAccountType">
+      <soap12:operation soapAction="urn:GlService/GetTblJournalAccountType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlGenEntityGroup">
+      <soap12:operation soapAction="urn:GlService/GetTblGlGenEntityGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlGenEntityGroup">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlGenEntityGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlGenEntityGroup">
+      <soap12:operation soapAction="urn:GlService/DeleteTblGlGenEntityGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlGenEntity">
+      <soap12:operation soapAction="urn:GlService/GetTblGlGenEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlGenEntity">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlGenEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlGenEntity">
+      <soap12:operation soapAction="urn:GlService/DeleteTblGlGenEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblGlExpensis">
+      <soap12:operation soapAction="urn:GlService/GetTblGlExpensis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblGlExpensis">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlExpensis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblGlExpensis">
+      <soap12:operation soapAction="urn:GlService/DeleteTblGlExpensis" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1354,87 +1633,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTblInventPostingType">
-      <soap12:operation soapAction="urn:GlService/GetTblInventPostingType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblInventPostings">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblInventPostings" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblInventPosting">
-      <soap12:operation soapAction="urn:GlService/DeleteTblInventPosting" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateTblLedgerDetailCostCenter">
-      <soap12:operation soapAction="urn:GlService/CreateTblLedgerDetailCostCenter" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAccountByEntity">
-      <soap12:operation soapAction="urn:GlService/GetAccountByEntity" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPostingTimes">
-      <soap12:operation soapAction="urn:GlService/GetPostingTimes" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GlPost">
-      <soap12:operation soapAction="urn:GlService/GlPost" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CalcCostCenter">
-      <soap12:operation soapAction="urn:GlService/CalcCostCenter" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FindCostCenterByType">
-      <soap12:operation soapAction="urn:GlService/FindCostCenterByType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetTblCashDepositType">
       <soap12:operation soapAction="urn:GlService/GetTblCashDepositType" style="document" />
       <wsdl:input>
@@ -1759,6 +1957,132 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PrintLedgerHeader1">
+      <soap12:operation soapAction="urn:GlService/PrintLedgerHeader1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostTotalLedger1">
+      <soap12:operation soapAction="urn:GlService/PostTotalLedger1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CorrectLedgerHeader1Rouding">
+      <soap12:operation soapAction="urn:GlService/CorrectLedgerHeader1Rouding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerHeader1">
+      <soap12:operation soapAction="urn:GlService/GetTblLedgerHeader1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerHeader1s">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblLedgerHeader1s" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerHeader1">
+      <soap12:operation soapAction="urn:GlService/DeleteTblLedgerHeader1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerMainDetail1">
+      <soap12:operation soapAction="urn:GlService/GetTblLedgerMainDetail1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerMainDetail1">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblLedgerMainDetail1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerMainDetail1">
+      <soap12:operation soapAction="urn:GlService/DeleteTblLedgerMainDetail1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTblLedgerDetail1CostCenter">
+      <soap12:operation soapAction="urn:GlService/GetTblLedgerDetail1CostCenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrInsertTblLedgerDetail1CostCenters">
+      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblLedgerDetail1CostCenters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTblLedgerDetail1CostCenter">
+      <soap12:operation soapAction="urn:GlService/DeleteTblLedgerDetail1CostCenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostGlLedgerHeader1">
+      <soap12:operation soapAction="urn:GlService/PostGlLedgerHeader1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportLedgerMainDetail1">
+      <soap12:operation soapAction="urn:GlService/ImportLedgerMainDetail1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTblPositionRouteHeader">
       <soap12:operation soapAction="urn:GlService/GetTblPositionRouteHeader" style="document" />
       <wsdl:input>
@@ -2004,195 +2328,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetTblDepreciationTransactionDetail">
       <soap12:operation soapAction="urn:GlService/GetTblDepreciationTransactionDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblDepreciationTransactionDetail">
-      <soap12:operation soapAction="urn:GlService/DeleteTblDepreciationTransactionDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblLedgerDetailForDepreciation">
-      <soap12:operation soapAction="urn:GlService/GetTblLedgerDetailForDepreciation" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblChequeTypeSettings">
-      <soap12:operation soapAction="urn:GlService/GetTblChequeTypeSettings" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblGlChequeTransactionHeader">
-      <soap12:operation soapAction="urn:GlService/GetTblGlChequeTransactionHeader" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblGlChequeTransactionHeader">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlChequeTransactionHeader" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblGlChequeTransactionHeader">
-      <soap12:operation soapAction="urn:GlService/DeleteTblGlChequeTransactionHeader" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblGlChequeTransactionDetail">
-      <soap12:operation soapAction="urn:GlService/GetTblGlChequeTransactionDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblContractHeaderForCheque">
-      <soap12:operation soapAction="urn:GlService/GetTblContractHeaderForCheque" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblGlChequeTransactionDetail">
-      <soap12:operation soapAction="urn:GlService/DeleteTblGlChequeTransactionDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PostTblGlChequeTransactionHeader">
-      <soap12:operation soapAction="urn:GlService/PostTblGlChequeTransactionHeader" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetLockupFromPreTransaction">
-      <soap12:operation soapAction="urn:GlService/GetLockupFromPreTransaction" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblJournalAccountType">
-      <soap12:operation soapAction="urn:GlService/GetTblJournalAccountType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblGlGenEntityGroup">
-      <soap12:operation soapAction="urn:GlService/GetTblGlGenEntityGroup" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblGlGenEntityGroup">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlGenEntityGroup" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblGlGenEntityGroup">
-      <soap12:operation soapAction="urn:GlService/DeleteTblGlGenEntityGroup" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblGlGenEntity">
-      <soap12:operation soapAction="urn:GlService/GetTblGlGenEntity" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblGlGenEntity">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlGenEntity" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblGlGenEntity">
-      <soap12:operation soapAction="urn:GlService/DeleteTblGlGenEntity" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTblGlExpensis">
-      <soap12:operation soapAction="urn:GlService/GetTblGlExpensis" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOrInsertTblGlExpensis">
-      <soap12:operation soapAction="urn:GlService/UpdateOrInsertTblGlExpensis" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTblGlExpensis">
-      <soap12:operation soapAction="urn:GlService/DeleteTblGlExpensis" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -180,6 +180,7 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
             row.LastTransaction = item.Iserial;
             row.LinkIserial = item.LinkIserial;
             row.Notes = item.Notes;
+            row.ProductionResidue = item.ProductionResidue;
         }
 
         public static void MapToViewModel(RouteCardHeaderViewModel item, RouteCardService.RouteCardHeader row)
@@ -206,6 +207,7 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
             item.RouteDirectionPerRow = row.TblRouteDirection;
             row.LinkIserial = item.LinkIserial;
             row.Notes = item.Notes;
+            row.ProductionResidue = item.ProductionResidue;
         }
     }
 }

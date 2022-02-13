@@ -126,6 +126,12 @@
   <wsdl:message name="ProductionService_UpdateOrInsertTblStyleTNAHeader_OutputMessage">
     <wsdl:part name="parameters" element="UpdateOrInsertTblStyleTNAHeaderResponse" />
   </wsdl:message>
+  <wsdl:message name="ProductionService_CheckContractDeliveryDate_InputMessage">
+    <wsdl:part name="parameters" element="CheckContractDeliveryDate" />
+  </wsdl:message>
+  <wsdl:message name="ProductionService_CheckContractDeliveryDate_OutputMessage">
+    <wsdl:part name="parameters" element="CheckContractDeliveryDateResponse" />
+  </wsdl:message>
   <wsdl:message name="ProductionService_DownloadAttachFile_InputMessage">
     <wsdl:part name="parameters" element="DownloadAttachFile" />
   </wsdl:message>
@@ -400,6 +406,10 @@
     <wsdl:operation name="UpdateOrInsertTblStyleTNAHeader">
       <wsdl:input wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAHeader" message="ProductionService_UpdateOrInsertTblStyleTNAHeader_InputMessage" />
       <wsdl:output wsaw:Action="urn:ProductionService/UpdateOrInsertTblStyleTNAHeaderResponse" message="ProductionService_UpdateOrInsertTblStyleTNAHeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckContractDeliveryDate">
+      <wsdl:input wsaw:Action="urn:ProductionService/CheckContractDeliveryDate" message="ProductionService_CheckContractDeliveryDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ProductionService/CheckContractDeliveryDateResponse" message="ProductionService_CheckContractDeliveryDate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DownloadAttachFile">
       <wsdl:input wsaw:Action="urn:ProductionService/DownloadAttachFile" message="ProductionService_DownloadAttachFile_InputMessage" />

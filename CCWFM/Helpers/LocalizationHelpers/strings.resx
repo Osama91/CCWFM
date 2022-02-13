@@ -3122,4 +3122,19 @@
   <data name="Dr" xml:space="preserve">
     <value>Dr</value>
   </data>
+  <data name="Invoiced" xml:space="preserve">
+    <value>Invoiced</value>
+  </data>
+  <data name="Contract Total" xml:space="preserve">
+    <value>Contract Total</value>
+  </data>
+  <data name="ContractCost" xml:space="preserve">
+    <value>Contract Cost</value>
+  </data>
+  <data name="ContractQty" xml:space="preserve">
+    <value>Contract Qty</value>
+  </data>
+  <data name="ContractTotal" xml:space="preserve">
+    <value>Contract Total</value>
+  </data>
 </root>

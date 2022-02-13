@@ -46,6 +46,7 @@
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -837,6 +838,7 @@
     <Compile Include="Service\Operations\GlOperations\CostCenterOrganizationUnit.cs" />
     <Compile Include="Service\Operations\GlOperations\CostCenterRouteGroup.cs" />
     <Compile Include="Service\Operations\GlOperations\GlCashTransactionHeader.cs" />
+    <Compile Include="Service\Operations\GlOperations\Ledger1.cs" />
     <Compile Include="Service\Operations\GlOperations\PositionRoute.cs" />
     <Compile Include="Service\Operations\GlOperations\ReverseGLTransactions.cs" />
     <Compile Include="Service\Operations\GlOperations\SalesCommision.cs" />

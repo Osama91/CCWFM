@@ -184,6 +184,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CheckContractDeliveryDate">
+      <soap12:operation soapAction="urn:ProductionService/CheckContractDeliveryDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DownloadAttachFile">
       <soap12:operation soapAction="urn:ProductionService/DownloadAttachFile" style="document" />
       <wsdl:input>

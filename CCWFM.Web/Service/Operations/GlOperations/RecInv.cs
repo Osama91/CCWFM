@@ -97,13 +97,25 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                     variable.Misc = (variable.Cost / cost) * totalWithItemEffect;
                                 }
                             }
-                         
+
+                            var queryRecInvDetail =
+                              entity.TblRecInvDetails.Where(x => x.TblRecInvHeader == row.Iserial).ToList();
+                            if (queryRecInvDetail.All(w => w.Misc == 0))
+                            {
+                                foreach (var variable in queryRecInvDetail)
+                                {
+                                    variable.Misc = (variable.Cost / cost) * totalWithItemEffect;
+                                }
+                            }
+
                         }
                         entity.SaveChanges();
                         if (query != null)
                         {
                             query.Status = 1;
+                            query.Posted = true;
                             query.TblUser = user;
+                            query.PostBy = user;
                             query.PostDate = DateTime.Now;
 
                             // var ledgercode = entity.tblChainSetupTests.FirstOrDefault(x => x.sSetupValue == "GLSalesInventory").sSetupValue;
@@ -861,6 +873,22 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 }
             }
         }
+
+        [OperationContract]
+        private List<RecInvContractValidation_Result> InvoiceRecInvHeader(int RecInvHeader,string company) {
+            using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
+            {
+                var RecInvStyle = entity.RecInvContractValidation(RecInvHeader).ToList();
+                if (RecInvStyle.Count == 0)
+                { 
+             var header=   entity.TblRecInvHeaders.FirstOrDefault(w => w.Iserial == RecInvHeader);
+                header.Invoiced = true;
+
+                }
+                return RecInvStyle;
+            }
+            }
+
         [OperationContract]
         private List<TblRecInvHeader> GetTblRecInvHeader(int skip, int take, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount, string company)
         {
@@ -923,9 +951,15 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                     }
                 }
-                TotalQty = entity.TblRecInvMainDetails.Where(x => x.TblRecInvHeader == RecInvHeader).Sum(x => x.Qty);
-                TotalAmount = entity.TblRecInvMainDetails.Where(x => x.TblRecInvHeader == RecInvHeader).Sum(x => x.Qty * x.Cost);
-
+                if (entity.TblRecInvMainDetails.Any(x => x.TblRecInvHeader == RecInvHeader))
+                {
+                    TotalQty = entity.TblRecInvMainDetails.Where(x => x.TblRecInvHeader == RecInvHeader).Sum(x => x.Qty);
+                    TotalAmount = entity.TblRecInvMainDetails.Where(x => x.TblRecInvHeader == RecInvHeader).Sum(x => x.Qty * x.Cost);
+                }
+                else {
+                    TotalQty = 0;
+                    TotalAmount = 0;
+                }
                 return query;
             }
         }
@@ -1263,12 +1297,14 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private TblRecInvHeader GetTblRecieveDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company)
+        private TblRecInvHeader GetTblRecieveDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
                 tblRecInvHeader.Code = HandelSequence(tblRecInvHeader.Code, company);
                 tblRecInvHeader.CreationDate = DateTime.Now;
+                tblRecInvHeader.CreatedBy = user;
+
                 entity.TblRecInvHeaders.AddObject(tblRecInvHeader);
                 entity.SaveChanges();
                 foreach (var header in headers)
@@ -1332,12 +1368,14 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private TblRecInvHeader GetTblReturnDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company)
+        private TblRecInvHeader GetTblReturnDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
                 tblRecInvHeader.Code = HandelSequence(tblRecInvHeader.Code, company);
                 tblRecInvHeader.CreationDate = DateTime.Now;
+                tblRecInvHeader.CreatedBy =user;
+
                 entity.TblRecInvHeaders.AddObject(tblRecInvHeader);
                 entity.SaveChanges();
                 foreach (var header in headers)

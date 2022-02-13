@@ -79,15 +79,57 @@ namespace CCWFM.Web.Service
                     {
                         query.MiscWithoutItemEffect = totalWithoutItemEffect;
                         query.Misc = totalWithItemEffect;
+
+                                      var queryDetail =
+                                entity.TblRecInvMainDetailProds.Where(x => x.TblRecInvHeaderProd == row.Iserial).ToList();
+             
                         if (totalWithItemEffect != 0)
                         {
-                            var queryDetail =
-                                entity.TblRecInvMainDetailProds.Where(x => x.TblRecInvHeaderProd == row.Iserial).ToList();
-                            foreach (var variable in queryDetail)
+                             foreach (var variable in queryDetail)
                             {
                                 variable.Misc = (variable.Cost / cost) * totalWithItemEffect;
                             }
                         }
+
+                        var queryRecInvDetail =
+                           entity.TblRecInvDetailProds.Where(x => x.TblRecInvHeaderProd == row.Iserial).ToList();
+                        //if (queryRecInvDetail.All(w => w.Misc == 0))
+                        //{
+                        foreach (var variable in queryRecInvDetail)
+                        {
+                            if (totalWithItemEffect != 0)
+                            {
+                                variable.Misc = (variable.Cost / cost) * totalWithItemEffect;
+                            }
+
+                            var RecInvMainDetail =
+                        entity.TblRecInvDetailProds.FirstOrDefault(
+                            x => x.TblRecInvHeaderProd == variable.TblRecInvHeaderProd && x.Tblitem == variable.Tblitem && x.ItemType == variable.ItemType
+                            && x.BatchNo == variable.BatchNo && x.SizeCode == variable.SizeCode && x.TblColor == variable.TblColor
+                            );
+
+                            if (RecInvMainDetail != null) {
+                                variable.Cost = RecInvMainDetail.Cost;
+
+                                variable.ExchangeRate = RecInvMainDetail.ExchangeRate;
+
+                                variable.Misc = RecInvMainDetail.Misc;
+                            }
+                            //foreach (var TblRecInvMainDetailProd in row)
+                            //{
+                            //    TblRecInvMainDetailProd.Cost = newRow.Cost;
+                            //    TblRecInvMainDetailProd.ExchangeRate = newRow.ExchangeRate;
+
+
+                            //}
+
+
+
+                        }
+                        //}
+
+
+
                         entity.SaveChanges();
                         if (query != null)
                         {

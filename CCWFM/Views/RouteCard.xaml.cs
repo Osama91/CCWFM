@@ -596,5 +596,10 @@ namespace CCWFM.Views
                 }
             MyViewModel.RouteCardDetails.Add(row);
         }
+
+        private void chkProductionResidue_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

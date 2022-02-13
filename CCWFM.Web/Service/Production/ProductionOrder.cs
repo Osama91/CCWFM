@@ -23,21 +23,21 @@ namespace CCWFM.Web.Service.Production
                     var parameterCollection = SharedOperation.ConvertToParamters(valuesObjects);
 
                     fullCount = context.TblProductionOrderHeaders.Where(filter, parameterCollection.ToArray()).Count();
-                    query = context.TblProductionOrderHeaders.Include("TblItemDim1.TblColor1").Include("TblWarehouse1").Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
+                    query = context.TblProductionOrderHeaders.Include("TblProductionOrderTransactions.TblProductionOrderFabrics.TblItemDim1.TblColor1").Include("TblItemDim1.TblColor1").Include("TblWarehouse1").Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
                 }
                 else
                 {
                     fullCount = context.TblProductionOrderHeaders.Count();
-                    query = context.TblProductionOrderHeaders.Include("TblItemDim1.TblColor1").Include("TblWarehouse1").OrderBy(sort).Skip(skip).Take(take);
+                    query = context.TblProductionOrderHeaders.Include("TblProductionOrderTransactions.TblProductionOrderServices.TblColor1").Include("TblProductionOrderTransactions.TblProductionOrderFabrics.TblItemDim1.TblColor1").Include("TblItemDim1.TblColor1").Include("TblWarehouse1").OrderBy(sort).Skip(skip).Take(take);
                 }
-
+                //context.TblProductionOrderHeaders.FirstOrDefault().TblProductionOrderTransactions.FirstOrDefault().TblProductionOrderServices.FirstOrDefault().TblColor1
                 //var codes = query.Select(w => w.Vendor).ToList();
                 //Vendors = context.Vendors.Where(x => codes.Contains(x.vendor_code)).ToList();
-                //var result = query.ToList();
-                //foreach (var item in result)
-                //{
-                //    GetTblSalesOrderDetailRequestDetails(context, item);
-                //}
+                var result = query.ToList();
+                foreach (var item in result)
+                {
+                    GetTblSalesOrderDetailRequestDetails(context, item);
+                }
                 return query.ToList();
             }
         }
@@ -45,23 +45,45 @@ namespace CCWFM.Web.Service.Production
         private static void GetTblSalesOrderDetailRequestDetails(WorkFlowManagerDBEntities context, TblProductionOrderHeader item)
         {
             // From
-            var tempFrom = context.GetItemDimDetails(item.TblItemDim);
-            var itemDimFromResult = tempFrom.FirstOrDefault();
+            if (item.TblProductionOrderTransactions.Any(w => w.TblProductionOrderTransactionType == 1))
+            {
+                var prodTransaction = item.TblProductionOrderTransactions.FirstOrDefault(w => w.TblProductionOrderTransactionType == 1);
+                if (prodTransaction.TblProductionOrderFabrics.Any())
+                {
+                    item.Qty= prodTransaction.TblProductionOrderFabrics.FirstOrDefault().Qty;
 
-            item.ItemTransfer.ItemId = itemDimFromResult.ItemIserial;
-            item.ItemTransfer.ItemCode = context.FabricAccSearches.FirstOrDefault(fas =>
-          fas.Iserial == itemDimFromResult.ItemIserial && fas.ItemGroup == itemDimFromResult.ItemType).Code;
-            item.ItemTransfer.ItemName = itemDimFromResult.ItemName;
-            item.ItemTransfer.ItemType = itemDimFromResult.ItemType;
-            item.ItemTransfer.TransferredQuantity = item.Qty ?? 0;
+                    var itemtransfer = prodTransaction.TblProductionOrderFabrics.FirstOrDefault().TblItemDim;
 
-            item.ItemTransfer.ItemDimFromIserial = item.TblItemDim ?? 0;
-            item.ItemTransfer.ColorFromId = itemDimFromResult.ColorIserial;
-            item.ItemTransfer.ColorFromCode = itemDimFromResult.ColorCode;
-            item.ItemTransfer.SizeFrom = itemDimFromResult.Size;
-            item.ItemTransfer.BatchNoFrom = itemDimFromResult.BatchNo;
-            item.ItemTransfer.SiteFromIserial = itemDimFromResult.SiteIserial;
 
+                    var tempFrom = context.GetItemDimDetails(itemtransfer);
+                    var itemDimFromResult = tempFrom.FirstOrDefault();
+
+                    item.ItemTransfer.ItemId = itemDimFromResult.ItemIserial;
+                    item.ItemTransfer.ItemCode = context.FabricAccSearches.FirstOrDefault(fas =>
+                    fas.Iserial == itemDimFromResult.ItemIserial && fas.ItemGroup == itemDimFromResult.ItemType).Code;
+                    item.ItemTransfer.ItemName = itemDimFromResult.ItemName;
+                    item.ItemTransfer.ItemType = itemDimFromResult.ItemType;
+                    item.ItemTransfer.TransferredQuantity = item.Qty ?? 0;
+
+                    item.ItemTransfer.ItemDimFromIserial = item.TblItemDim ?? 0;
+                    item.ItemTransfer.ColorFromId = itemDimFromResult.ColorIserial;
+                    item.ItemTransfer.ColorFromCode = itemDimFromResult.ColorCode;
+                    item.ItemTransfer.SizeFrom = itemDimFromResult.Size;
+                    item.ItemTransfer.BatchNoFrom = itemDimFromResult.BatchNo;
+                    item.ItemTransfer.SiteFromIserial = itemDimFromResult.SiteIserial;
+                }
+
+                if (prodTransaction.TblProductionOrderServices.Any())
+                {
+
+                    var itemtransfer = prodTransaction.TblProductionOrderServices.FirstOrDefault().TblColor1;
+
+                    item.ItemTransfer.ColorToId = itemtransfer.Iserial;
+                    item.ItemTransfer.ColorPerRow.Iserial=  itemtransfer.Iserial;
+                    item.ItemTransfer.ColorPerRow.Code =  itemtransfer.Code;
+                }
+
+            }
             //string warehouseCode = context.TblWarehouses.FirstOrDefault(tw =>
             //tw.Iserial == item.TblWarehouse).Code;
             //var itemdimfrom = context.TblItemDims.FirstOrDefault(id => id.Iserial == item.TblItemDim);

@@ -77,7 +77,7 @@ namespace CCWFM.ViewModel.OGViewModels
                 if ((ReferenceEquals(itemTransfer, value) != true))
                 {
                     itemTransfer = value;
-                    TblItemDim = value.ItemDimFromIserial;
+                  //  TblItemDim = value.ItemDimFromIserial;
                     RaisePropertyChanged("ItemTransfer");
                 }
             }
@@ -123,7 +123,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         private decimal? QtyField;
 
-        private int? TblItemDimField;
+        //private int? TblItemDimField;
 
 
 
@@ -263,21 +263,21 @@ namespace CCWFM.ViewModel.OGViewModels
         }
 
 
-        public int? TblItemDim
-        {
-            get
-            {
-                return TblItemDimField;
-            }
-            set
-            {
-                if ((TblItemDimField.Equals(value) != true))
-                {
-                    TblItemDimField = value;
-                    RaisePropertyChanged("TblItemDim");
-                }
-            }
-        }
+        //public int? TblItemDim
+        //{
+        //    get
+        //    {
+        //        return TblItemDimField;
+        //    }
+        //    set
+        //    {
+        //        if ((TblItemDimField.Equals(value) != true))
+        //        {
+        //            TblItemDimField = value;
+        //            RaisePropertyChanged("TblItemDim");
+        //        }
+        //    }
+        //}
     }
 
     public class TblProductionOrderTransactionModel : CRUDManagerService.PropertiesViewModelBase
@@ -1052,7 +1052,7 @@ namespace CCWFM.ViewModel.OGViewModels
                         {
                             foreach (var item in vm.AppliedSearchResultList)
                             {
-                                SelectedMainRow.ItemTransfer = item;
+                                //SelectedMainRow.ItemTransfer = item;
                                 SelectedMainRow.Qty = item.AvailableQuantity;
                             }
                         };
@@ -1226,10 +1226,44 @@ namespace CCWFM.ViewModel.OGViewModels
                     foreach (var row in sv.Result)
                     {
                         var newrow = new TblProductionOrderHeaderModel();
+
+
                         newrow.InjectFrom(row);
+                      
+                        newrow.ItemTransfer = new Web.DataLayer.ItemDimensionSearchModel().InjectFrom( row.ItemTransfer) as Web.DataLayer.ItemDimensionSearchModel;
+
+                        newrow.ItemTransfer.ColorPerRow = new Web.DataLayer.TblColor().InjectFrom( row.ItemTransfer.ColorPerRow) as Web.DataLayer.TblColor;
+                        //if (row.TblProductionOrderTransactions.Any(w => w.TblProductionOrderTransactionType == 1))
+                        //{ 
+                        //    var prodTransaction = row.TblProductionOrderTransactions.FirstOrDefault(w => w.TblProductionOrderTransactionType == 1);
+
+                        //    if (prodTransaction.TblProductionOrderFabrics.Any())
+                        //    {
+                        //        newrow.ItemTransfer = new Web.DataLayer.ItemDimensionSearchModel();
+
+                        //        var itemtransfer = prodTransaction.TblProductionOrderFabrics.FirstOrDefault().TblItemDim1;
+                        //        //newrow.ItemTransfer.ItemCode = itemtransfer.;
+                        //        //newrow.ItemTransfer.ItemName = itemtransfer.ItemName;
+                        //        newrow.ItemTransfer.ItemType = itemtransfer.ItemType;
+                        //        newrow.ItemTransfer.ColorFromCode = itemtransfer.TblColor1.Code;
+                        //        newrow.ItemTransfer.BatchNoFrom = itemtransfer.BatchNo;
+                        //        newrow.ItemTransfer.SizeFrom = itemtransfer.Size;
+
+
+                        //        //.InjectFrom(prodTransaction.TblProductionOrderFabrics.FirstOrDefault().ItemTransfer) as Web.DataLayer.ItemDimensionSearchModel;
+
+
+
+
+                        //    }
+                        //}
                         //newrow.WareHousePerRow = new CRUDManagerService.TblWarehouse().InjectFrom(row.TblWarehouse1) as CRUDManagerService.TblWarehouse;
                         //newrow.ItemTransfer.InjectFrom( row.ItemTransfer);
                         MainRowList.Add(newrow);
+                        FullCount = sv.fullCount;
+                        if (SearchWindow != null) {
+                            SearchWindow.FullCount = FullCount;
+                        }
                     }
                     Loading = false;
                 };
@@ -1628,8 +1662,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public void GetMaindata()
         {
-            if (SortBy == null)
-                SortBy = "it.Iserial";
+                SortBy = "it.Iserial desc";
             ProductionClient.GetTblProductionOrderHeaderAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects, LoggedUserInfo.DatabasEname);
         }
         public void GetDetailData()
@@ -1864,9 +1897,10 @@ namespace CCWFM.ViewModel.OGViewModels
             if (SearchWindow == null)
                 SearchWindow = new GenericSearchWindow(GetSearchModel());
             GenericSearchViewModel<TblProductionOrderHeaderModel> vm =
-                new GenericSearchViewModel<TblProductionOrderHeaderModel>() { Title = "Transfer Search" };
+                new GenericSearchViewModel<TblProductionOrderHeaderModel>() { Title = "Production Order Search" };
             vm.FilteredItemsList = MainRowList;
             vm.ItemsList = MainRowList;
+            vm.FullCount = FullCount;
             vm.ResultItemsList.CollectionChanged += (s, e) =>
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
@@ -1905,8 +1939,25 @@ namespace CCWFM.ViewModel.OGViewModels
                     },
                    new SearchColumnModel()
                     {
+                        Header=strings.Color,
+                        PropertyPath="ItemTransfer.ColorPerRow.Code",
+                    },
+
+               
+                   new SearchColumnModel()
+                    {
                         Header=strings.Size,
                            PropertyPath="ItemTransfer.SizeFrom",
+                    },
+                         new SearchColumnModel()
+                    {
+                        Header=strings.ItemType,
+                        PropertyPath="ItemTransfer.ItemType",
+                    },
+                                   new SearchColumnModel()
+                    {
+                        Header=strings.BatchNo,
+                        PropertyPath="ItemTransfer.BatchNoFrom",
                     },
                     new SearchColumnModel()
                     {
@@ -1918,6 +1969,14 @@ namespace CCWFM.ViewModel.OGViewModels
                         Header=strings.TransDate,
                         PropertyPath=nameof(TblProductionOrderHeaderModel.DocDate),
                     },
+                    new SearchColumnModel()
+                    {
+                        Header=strings.Code,
+                        PropertyPath=nameof(TblProductionOrderHeaderModel.DocCode),
+                    },
+                    
+                  
+                         
 
                 };
         }

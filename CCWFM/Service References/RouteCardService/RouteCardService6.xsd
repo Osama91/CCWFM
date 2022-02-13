@@ -219,8 +219,11 @@
   <xs:element name="GetAxItemPrice">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="TransactionType" type="xs:int" />
+        <xs:element minOccurs="0" name="ItemGroup" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="fabricCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="batch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Size" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="color" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="inventlocationid" nillable="true" type="xs:string" />
       </xs:sequence>

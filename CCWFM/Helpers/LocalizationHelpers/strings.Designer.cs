@@ -1222,6 +1222,24 @@ namespace CCWFM.Helpers.LocalizationHelpers {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contract Total.
+        /// </summary>
+        public static string Contract_Total {
+            get {
+                return ResourceManager.GetString("Contract Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract Cost.
+        /// </summary>
+        public static string ContractCost {
+            get {
+                return ResourceManager.GetString("ContractCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contract .
         /// </summary>
         public static string ContractHeader {
@@ -1236,6 +1254,24 @@ namespace CCWFM.Helpers.LocalizationHelpers {
         public static string ContractingPercent {
             get {
                 return ResourceManager.GetString("ContractingPercent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract Qty.
+        /// </summary>
+        public static string ContractQty {
+            get {
+                return ResourceManager.GetString("ContractQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract Total.
+        /// </summary>
+        public static string ContractTotal {
+            get {
+                return ResourceManager.GetString("ContractTotal", resourceCulture);
             }
         }
         
@@ -2685,6 +2721,15 @@ namespace CCWFM.Helpers.LocalizationHelpers {
         public static string InvertSign {
             get {
                 return ResourceManager.GetString("InvertSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoiced.
+        /// </summary>
+        public static string Invoiced {
+            get {
+                return ResourceManager.GetString("Invoiced", resourceCulture);
             }
         }
         

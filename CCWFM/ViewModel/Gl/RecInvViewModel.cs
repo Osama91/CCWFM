@@ -23,8 +23,10 @@ using TBLsupplier = CCWFM.CRUDManagerService.TBLsupplier;
 
 namespace CCWFM.ViewModel.Gl
 {
+
     public class RecInvViewModel : ViewModelBase
     {
+        public bool CanPost { get; set; }
         public RecInvViewModel()
         {
             if (!IsDesignTime)
@@ -35,6 +37,16 @@ namespace CCWFM.ViewModel.Gl
                     new GenericTable {Iserial = 1, Code = "Value", Ename = "Value", Aname = "Value"}
                 };
                 GetItemPermissions(PermissionItemName.RecInv.ToString());
+                GetCustomePermissions(PermissionItemName.RecInv.ToString());
+
+
+                this.PremCompleted += (s, sv) =>
+                {
+                    if (this.CustomePermissions.SingleOrDefault(x => x.Code == "RecInvPosting") != null)
+                    {
+                        CanPost = true;
+                    }
+                };
                 Glclient = new GlServiceClient();
                 MainRowList = new SortableCollectionView<TblRecInvHeaderViewModel>();
                 SelectedMainRow = new TblRecInvHeaderViewModel();
@@ -68,6 +80,7 @@ namespace CCWFM.ViewModel.Gl
                      newrow.InjectFrom(row);
                      if (newrow.Status == 0)
                      {
+                         if(CanPost)
                          newrow.VisPosted = true;
                      }
                      newrow.SupplierPerRow = new TBLsupplier();
@@ -176,7 +189,11 @@ namespace CCWFM.ViewModel.Gl
                                 TblColor1 = new TblColorTest { Aname = variable.ColorName, Code = variable.ColorCode, Ename = variable.ColorName }
                             },
                             Qty = variable.Quantity??0,
-                            Cost =variable.Cost??0
+                            Cost =variable.Cost??0,
+                            ContractCost=variable.ContractCost,
+
+                            ContractQty = variable.ContractQty,
+                            ContractTotal=variable.ContractQty*variable.ContractCost,
                         });
                     }
                     Loading = false;
@@ -226,6 +243,8 @@ namespace CCWFM.ViewModel.Gl
                 Glclient.GetTblRecieveDetailCompleted += (s, sv) =>
                 {
                     if (sv.Result != null) SelectedMainRow.InjectFrom(sv.Result);
+
+                    if (CanPost)
                     SelectedMainRow.VisPosted = true;
                     GetDetailData();
                     GetRecInvStyle();
@@ -262,7 +281,9 @@ namespace CCWFM.ViewModel.Gl
                 Glclient.GetTblReturnDetailCompleted += (s, sv) =>
                 {
                     if (sv.Result != null) SelectedMainRow.InjectFrom(sv.Result);
-                    SelectedMainRow.VisPosted = true;
+
+                    if (CanPost)
+                        SelectedMainRow.VisPosted = true;
                     GetDetailData();
                     GetRecInvStyle();
                     GetRecInvStyleColor();
@@ -326,7 +347,35 @@ namespace CCWFM.ViewModel.Gl
 
                     Loading = false;
                 };
+
+                Glclient.InvoiceRecInvHeaderCompleted += (s, x) =>
+                {
+                    var msg = "";
+
+                    if (x.Result.Any())
+                    {
+                        foreach (var item in x.Result)
+                        {
+                            msg = "Style :" + item.Style + " Color :" + item.ColorCode + " Total Invoiced Qty :" + item.Quantity + " ContractQty :" + item.ContractQty + " Difference :" + item.Difference + "/n";
+                        }
+                        MessageBox.Show(msg);
+
+                    }
+                    else {
+
+                        this.SelectedMainRow.Invoiced = true;
+                    }
+
+                };
             }
+        }
+
+        internal void Invoice()
+        {
+        
+            Glclient.InvoiceRecInvHeaderAsync(SelectedMainRow.Iserial, LoggedUserInfo.DatabasEname);
+
+            //GlService.invoice();
         }
 
         private ObservableCollection<TblMarkup> _markupList;
@@ -893,11 +942,11 @@ namespace CCWFM.ViewModel.Gl
             var headers = new ObservableCollection<int>(RecieveHeaderChoosedList.Select(x => x.glserial));
             if (SelectedMainRow.TblRecInvHeaderType == 1)
             {
-                Glclient.GetTblRecieveDetailAsync(headers, row, LoggedUserInfo.DatabasEname);
+                Glclient.GetTblRecieveDetailAsync(headers, row, LoggedUserInfo.DatabasEname, LoggedUserInfo.Iserial);
             }
             else
             {
-                Glclient.GetTblReturnDetailAsync(headers, row, LoggedUserInfo.DatabasEname);
+                Glclient.GetTblReturnDetailAsync(headers, row, LoggedUserInfo.DatabasEname, LoggedUserInfo.Iserial);
             }
         }
 
@@ -917,9 +966,17 @@ namespace CCWFM.ViewModel.Gl
 
         public void Post()
         {
-            var saveRow = new TblRecInvHeader();
-            saveRow.InjectFrom(SelectedMainRow);
-            Glclient.PostInvAsync(saveRow, LoggedUserInfo.Iserial, LoggedUserInfo.DatabasEname);
+
+            if (SelectedMainRow.Invoiced)
+            {
+
+                var saveRow = new TblRecInvHeader();
+                saveRow.InjectFrom(SelectedMainRow);
+                Glclient.PostInvAsync(saveRow, LoggedUserInfo.Iserial, LoggedUserInfo.DatabasEname);
+            }
+            else {
+                MessageBox.Show("Transaction Must Be Invoiced First");
+}
         }
 
         public void GetRecFromTo()
@@ -945,6 +1002,14 @@ namespace CCWFM.ViewModel.Gl
 
     public class TblRecInvHeaderViewModel : Web.DataLayer.PropertiesViewModelBase
     {
+        private bool _Invoiced;
+
+        public bool Invoiced
+        {
+            get { return _Invoiced; }
+            set { _Invoiced = value; RaisePropertyChanged("Invoiced"); }
+        }
+
         private int? _TblAccount;
 
         public int? TblAccount
@@ -1033,6 +1098,30 @@ namespace CCWFM.ViewModel.Gl
         {
             get { return _status; }
             set { _status = value; RaisePropertyChanged("Status"); }
+        }
+
+        private int _CreatedBy;
+
+        public int CreatedBy
+        {
+            get { return _CreatedBy; }
+            set { _CreatedBy = value; RaisePropertyChanged("CreatedBy"); }
+        }
+
+        private int _PostBy;
+
+        public int PostBy
+        {
+            get { return _PostBy; }
+            set { _PostBy = value; RaisePropertyChanged("PostBy"); }
+        }
+
+        private bool _Posted;
+
+        public bool Posted
+        {
+            get { return _Posted; }
+            set { _Posted = value; RaisePropertyChanged("Posted"); }
         }
 
         private bool _visPosted;
@@ -1438,6 +1527,65 @@ namespace CCWFM.ViewModel.Gl
                 }
             }
         }
+
+
+        decimal _ContractQty;
+        [ReadOnly(true)]
+        public decimal ContractQty
+        {
+            get
+            {
+                return _ContractQty;
+            }
+            set
+            {
+                //if ((_ContractQty.Equals(value) != true))
+                //{
+                    _ContractQty = value;
+                    RaisePropertyChanged("ContractQty");
+                   
+                //}
+            }
+        }
+        decimal _ContractCost;
+        [ReadOnly(true)]
+        public decimal ContractCost
+        {
+            get
+            {
+                return _ContractCost;
+            }
+            set
+            {
+                //if ((_ContractQty.Equals(value) != true))
+                //{
+                _ContractCost = value;
+                RaisePropertyChanged("ContractCost");
+
+                //}
+            }
+        }
+
+        decimal _ContractTotal;
+        [ReadOnly(true)]
+        public decimal ContractTotal
+        {
+            get
+            {
+                return _ContractTotal;
+            }
+            set
+            {
+                //if ((_ContractQty.Equals(value) != true))
+                //{
+                _ContractTotal = value;
+                RaisePropertyChanged("ContractTotal");
+
+                //}
+            }
+        }
+
+
     }
 
     public class TblRecInvDetailViewModel : Web.DataLayer.PropertiesViewModelBase

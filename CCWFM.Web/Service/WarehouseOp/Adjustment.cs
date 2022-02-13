@@ -75,7 +75,7 @@ namespace CCWFM.Web.Service.WarehouseOp
             }
         }
         [OperationContract]
-        private TblAdjustmentHeader UpdateOrInsertAdjustmentHeader(TblAdjustmentHeader newRow, int index, int userIserial, out int outindex)// )
+        public TblAdjustmentHeader UpdateOrInsertAdjustmentHeader(TblAdjustmentHeader newRow, int index, int userIserial, out int outindex)// )
         {
             outindex = index;
             using (var context = new WorkFlowManagerDBEntities())
@@ -609,7 +609,7 @@ namespace CCWFM.Web.Service.WarehouseOp
             }
         }
         [OperationContract]
-        private void ApproveAdjustmentByIserial(int headerIserial, int userIserial, int CountingHeaderIserial)
+        public void ApproveAdjustmentByIserial(int headerIserial, int userIserial, int CountingHeaderIserial)
         {
             using (var entities = new WorkFlowManagerDBEntities())
             {

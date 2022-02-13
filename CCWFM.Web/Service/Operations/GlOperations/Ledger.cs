@@ -77,9 +77,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             {
                 var ledgerHeader = entity.TblLedgerHeaders.Include("TblLedgerMainDetails").FirstOrDefault(x => x.Iserial == tblledgerheader);
 
-                var totaldebit = ledgerHeader.TblLedgerMainDetails.Where(x => x.DrOrCr == true && x.OffsetEntityAccount == null).Sum(x => x.Amount);
+                var totaldebit = ledgerHeader.TblLedgerMainDetails.Where(x => x.DrOrCr == true && x.OffsetEntityAccount == null).Sum(x => x.Amount * (decimal)x.ExchangeRate);
 
-                var totalCredit = ledgerHeader.TblLedgerMainDetails.Where(x => x.DrOrCr == false && x.OffsetEntityAccount == null).Sum(x => x.Amount);
+                var totalCredit = ledgerHeader.TblLedgerMainDetails.Where(x => x.DrOrCr == false && x.OffsetEntityAccount == null).Sum(x => x.Amount* (decimal)x.ExchangeRate);
 
                 if (totaldebit - totalCredit != 0)
                 {
@@ -731,7 +731,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 IQueryable<TblLedgerDetailCostCenter> query;
                 if (filter != null)
                 {
-                    filter = filter + " and it.TblLedgerDetail ==(@Group0)";
+                    filter = filter + " and it.TblLedgerMainDetail ==(@Group0)";
                     valuesObjects.Add("Group0", ledgerHeader);
                     var parameterCollection = ConvertToParamters(valuesObjects);
                     fullCount = entity.TblLedgerDetailCostCenters.Where(filter, parameterCollection).Count();

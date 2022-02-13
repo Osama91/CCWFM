@@ -75,6 +75,22 @@
                     </sdk:DataGridTemplateColumn.CellTemplate>
                 </sdk:DataGridTemplateColumn>
 
+                <sdk:DataGridCheckBoxColumn Width="SizeToHeader" 
+                                            SortMemberPath="Posted" Binding="{Binding Path=Posted}" 
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Posted,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+
+                  
+                </sdk:DataGridCheckBoxColumn>
+
+                <sdk:DataGridCheckBoxColumn Width="SizeToHeader" 
+                                            SortMemberPath="Invoiced" Binding="{Binding Path=Invoiced}" 
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Invoiced,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+
+
+                </sdk:DataGridCheckBoxColumn>
+
                 <sdk:DataGridTemplateColumn Width="SizeToHeader"
                                             SortMemberPath="CreationDate"
                                             dataGrid:DataGridColumnHelper.HeaderBinding="{Binding CreationDate,

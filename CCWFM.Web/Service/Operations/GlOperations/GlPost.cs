@@ -1638,7 +1638,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             CreatedBy = user,
                             CreationDate = DateTime.Now,
                             Description = "Sales Man",
-                            DocDate = fromDate,
+                            DocDate = toDate,
                             TblJournal = journalint,
                             TblTransactionType = Type,
                             TblJournalLink = 0,
@@ -1795,97 +1795,98 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             }
                         }
 
-                        foreach (var group in list.GroupBy(x => x.CustIserial))
-                        {
+                        // 1% tax 2/2/2022
+                        //foreach (var group in list.GroupBy(x => x.CustIserial))
+                        //{
 
-                            var groupAccount = 0;
-                            GetAccountByEntity(@group.Key, 1, company, 0, out groupAccount);
-                            var newledgerDetailrow = new TblLedgerMainDetail
-                            {
-                                Amount  = @group.Sum(x => x.NetSales)*(decimal)0.01,//* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01),
+                        //    var groupAccount = 0;
+                        //    GetAccountByEntity(@group.Key, 1, company, 0, out groupAccount);
+                        //    var newledgerDetailrow = new TblLedgerMainDetail
+                        //    {
+                        //        Amount  = @group.Sum(x => x.NetSales)*(decimal)0.01,//* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01),
 
-                                Description = "Sales Man tax",
-                                ExchangeRate = 1,
-                                TblCurrency = currency,
-                                TransDate = fromDate,
-                                TblJournalAccountType = 1,
-                                EntityAccount = group.Key,
-                                GlAccount = groupAccount,
-                                TblLedgerHeader = newLedgerHeaderRow.Iserial,
-                                PaymentRef = "",
-                                DrOrCr = false
-                            };
-                            UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
-                                user);
+                        //        Description = "Sales Man tax",
+                        //        ExchangeRate = 1,
+                        //        TblCurrency = currency,
+                        //        TransDate = fromDate,
+                        //        TblJournalAccountType = 1,
+                        //        EntityAccount = group.Key,
+                        //        GlAccount = groupAccount,
+                        //        TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                        //        PaymentRef = "",
+                        //        DrOrCr = false
+                        //    };
+                        //    UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
+                        //        user);
 
-                            foreach (var rr in list.Where(x => x.CustIserial == @group.Key).GroupBy(w => w.GroupIserial))
-                            {
-                                var costcenter = new TblGlRuleDetail();
-                                costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
+                        //    foreach (var rr in list.Where(x => x.CustIserial == @group.Key).GroupBy(w => w.GroupIserial))
+                        //    {
+                        //        var costcenter = new TblGlRuleDetail();
+                        //        costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
 
-                                if (group.Key != 0)
-                                {
-                                    CreateTblLedgerDetailCostCenter(company, rr.Sum(x => x.NetSales) * (decimal)0.01 //* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01)
-                                        , newledgerDetailrow,
-                                        costcenter);
-                                }
-                            }
-                        }
-
-
-                        foreach (var group in list.GroupBy(x => x.CustIserial))
-                        {
-                            var temproww = entity.TblInventPostings.FirstOrDefault(
-                                x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 104);
-                            var salesgroupAccount = 0;
-                            if (temproww != null)
-                            {
-                                salesgroupAccount = temproww.TblAccount;
-                            }
-
-                            if (salesgroupAccount == 0)
-                            {
-                                salesgroupAccount = entity.TblInventPostings.FirstOrDefault(
-                                    x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 104).TblAccount;
-                            }
+                        //        if (group.Key != 0)
+                        //        {
+                        //            CreateTblLedgerDetailCostCenter(company, rr.Sum(x => x.NetSales) * (decimal)0.01 //* (decimal)taxPercentage) - (@group.Sum(x => x.NetSales) * (decimal)0.01)
+                        //                , newledgerDetailrow,
+                        //                costcenter);
+                        //        }
+                        //    }
+                        //}
 
 
-                            foreach (var variable in list.Where(x => x.CustIserial == group.Key))
-                            {
-                                variable.AccountTemp = salesgroupAccount;
-                            }
-                        }
+                        //foreach (var group in list.GroupBy(x => x.CustIserial))
+                        //{
+                        //    var temproww = entity.TblInventPostings.FirstOrDefault(
+                        //        x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 104);
+                        //    var salesgroupAccount = 0;
+                        //    if (temproww != null)
+                        //    {
+                        //        salesgroupAccount = temproww.TblAccount;
+                        //    }
 
-                        foreach (var group in list.GroupBy(x => x.AccountTemp))
-                        {
-                            //101 SalesTax Account
-                            var newledgerDetailrowtax = new TblLedgerMainDetail
-                            {
-                                Amount = @group.Sum(x => x.NetSales) * (decimal)0.01,
-                                Description = "Tax",
-                                ExchangeRate = 1,
-                                TblCurrency = currency,
-                                TransDate = fromDate,
-                                TblJournalAccountType = 0,
-                                EntityAccount = group.Key,
-                                GlAccount = group.Key,
-                                TblLedgerHeader = newLedgerHeaderRow.Iserial,
-                                PaymentRef = "",
-                                DrOrCr = true
-                            };
-                            UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowtax, true, 000, out temp,
-                                company, user);
+                        //    if (salesgroupAccount == 0)
+                        //    {
+                        //        salesgroupAccount = entity.TblInventPostings.FirstOrDefault(
+                        //            x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 104).TblAccount;
+                        //    }
 
-                            foreach (var rr in list.Where(x => x.AccountTemp == @group.Key).GroupBy(w => w.GroupIserial))
-                            {
-                                var costcenter = new TblGlRuleDetail();
 
-                                costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
+                        //    foreach (var variable in list.Where(x => x.CustIserial == group.Key))
+                        //    {
+                        //        variable.AccountTemp = salesgroupAccount;
+                        //    }
+                        //}
 
-                                CreateTblLedgerDetailCostCenter(company, rr.Sum(e => e.NetSales) * (decimal)0.01,
-                                    newledgerDetailrowtax, costcenter);
-                            }
-                        }
+                        //foreach (var group in list.GroupBy(x => x.AccountTemp))
+                        //{
+                        //    //101 SalesTax Account
+                        //    var newledgerDetailrowtax = new TblLedgerMainDetail
+                        //    {
+                        //        Amount = @group.Sum(x => x.NetSales) * (decimal)0.01,
+                        //        Description = "Tax",
+                        //        ExchangeRate = 1,
+                        //        TblCurrency = currency,
+                        //        TransDate = fromDate,
+                        //        TblJournalAccountType = 0,
+                        //        EntityAccount = group.Key,
+                        //        GlAccount = group.Key,
+                        //        TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                        //        PaymentRef = "",
+                        //        DrOrCr = true
+                        //    };
+                        //    UpdateOrInsertTblLedgerMainDetails(newledgerDetailrowtax, true, 000, out temp,
+                        //        company, user);
+
+                        //    foreach (var rr in list.Where(x => x.AccountTemp == @group.Key).GroupBy(w => w.GroupIserial))
+                        //    {
+                        //        var costcenter = new TblGlRuleDetail();
+
+                        //        costcenter = FindCostCenterByType(costcenter, 0, rr.Key, company);
+
+                        //        CreateTblLedgerDetailCostCenter(company, rr.Sum(e => e.NetSales) * (decimal)0.01,
+                        //            newledgerDetailrowtax, costcenter);
+                        //    }
+                        //}
 
                         #endregion NetSales
 

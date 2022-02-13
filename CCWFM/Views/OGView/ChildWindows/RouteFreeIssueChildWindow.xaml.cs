@@ -91,16 +91,22 @@ namespace CCWFM.Views.OGView.ChildWindows
                     variable.ItemGroup = variable.ItemPerRow.ItemGroup;
                     _viewModel.RouteCardFabricViewModelList.Add(variable);
                     string batch = "";
+                    if (!string.IsNullOrEmpty(variable.Batch))
+                    {
+                        batch = variable.Batch;
+                    }
                     if (!string.IsNullOrEmpty(variable.Barcode))
                     {
                         batch = variable.Barcode;
                     }
-                    else
-                    {
-                        batch = variable.Size;
-                    }
 
-                    _viewModel.RouteCardService.GetAxItemPriceAsync(variable.ItemId, batch, variable.FabricColorPerRow.Code, variable.Warehouse);
+
+                    //else
+                    //{
+                    //    batch = variable.Size;
+                    //}
+
+                    _viewModel.RouteCardService.GetAxItemPriceAsync(_viewModel.TransactionType, variable.ItemGroup ?? "", variable.ItemId ?? "", batch ?? "", variable.Size??"", variable.FabricColorPerRow.Code ?? "", variable.Warehouse ?? "");
                 }
             }
 

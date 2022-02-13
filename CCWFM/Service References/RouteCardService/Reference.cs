@@ -4990,14 +4990,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblProductionOrderService))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblProductionOrderTransactionType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlan))]
@@ -5140,8 +5132,9 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblInventAccountType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSeasonalMasterList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSeasonalMasterListDetail))]
@@ -5152,6 +5145,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamily))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirectionLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSizeGroup))]
@@ -5162,12 +5156,17 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatusDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblUsersStyleTNAStatu))]
@@ -5203,7 +5202,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tbl_lkp_YarnSource))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubContractor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeaderAcc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanACC))]
@@ -5245,8 +5243,16 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblFactoryDelivery))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeaderCurrency))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPlanType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseHeaderType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequestPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPaymentScheduleSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPaymentScheduleDetail))]
@@ -5296,6 +5302,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalReceiveHeader))]
@@ -5792,14 +5799,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblProductionOrderService))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblProductionOrderTransactionType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlan))]
@@ -5942,8 +5941,9 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblInventAccountType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSeasonalMasterList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSeasonalMasterListDetail))]
@@ -5954,6 +5954,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamily))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirectionLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSizeGroup))]
@@ -5964,12 +5965,17 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAColorDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNADetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatusDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblUsersStyleTNAStatu))]
@@ -6005,7 +6011,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tbl_lkp_YarnSource))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubContractor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeaderAcc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanACC))]
@@ -6047,8 +6052,16 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblFactoryDelivery))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeaderCurrency))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPlanType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseHeaderType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequestPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPaymentScheduleSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPaymentScheduleDetail))]
@@ -6098,6 +6111,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalReceiveHeader))]
@@ -6153,6 +6167,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -6304,6 +6320,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -6367,6 +6396,8 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.RouteCardInvoiceHeader RouteCardInvoiceHeader1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO RouteCardInvoiceHeader1ReferenceField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -6513,6 +6544,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -6645,6 +6689,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> ProcessIDField;
         
+        private bool ProductionResidueField;
+        
         private int RoutGroupIDField;
         
         private System.Nullable<int> RoutIDField;
@@ -6663,6 +6709,8 @@ namespace CCWFM.RouteCardService {
         
         private string SupplierInvField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUserField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUser1Field;
@@ -6670,6 +6718,8 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.EntityReferenceOfTblAuthUsero0bgEGGO TblAuthUser1ReferenceField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblAuthUsero0bgEGGO TblAuthUserReferenceField;
+        
+        private System.Nullable<int> TblLedgerHeaderField;
         
         private CCWFM.RouteCardService.TblRoute TblRouteField;
         
@@ -6930,6 +6980,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ProductionResidue {
+            get {
+                return this.ProductionResidueField;
+            }
+            set {
+                if ((this.ProductionResidueField.Equals(value) != true)) {
+                    this.ProductionResidueField = value;
+                    this.RaisePropertyChanged("ProductionResidue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int RoutGroupID {
             get {
                 return this.RoutGroupIDField;
@@ -7047,6 +7110,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblAuthUser1 TblAuthUser {
             get {
                 return this.TblAuthUserField;
@@ -7094,6 +7170,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblAuthUserReferenceField, value) != true)) {
                     this.TblAuthUserReferenceField = value;
                     this.RaisePropertyChanged("TblAuthUserReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblLedgerHeader {
+            get {
+                return this.TblLedgerHeaderField;
+            }
+            set {
+                if ((this.TblLedgerHeaderField.Equals(value) != true)) {
+                    this.TblLedgerHeaderField = value;
+                    this.RaisePropertyChanged("TblLedgerHeader");
                 }
             }
         }
@@ -7284,6 +7373,8 @@ namespace CCWFM.RouteCardService {
         
         private int StatusField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -7452,6 +7543,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -8004,7 +8108,13 @@ namespace CCWFM.RouteCardService {
         
         private byte[] ImageField;
         
+        private string ImageNameField;
+        
+        private string ImagePathField;
+        
         private int IserialField;
+        
+        private string PantonCodeField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardDetailActualCost> RouteCardDetailActualCostsField;
         
@@ -8017,6 +8127,8 @@ namespace CCWFM.RouteCardService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardFabric> RouteCardFabrics2Field;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardInvoiceDetail> RouteCardInvoiceDetailsField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
         
@@ -8169,6 +8281,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageName {
+            get {
+                return this.ImageNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageNameField, value) != true)) {
+                    this.ImageNameField = value;
+                    this.RaisePropertyChanged("ImageName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImagePath {
+            get {
+                return this.ImagePathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagePathField, value) != true)) {
+                    this.ImagePathField = value;
+                    this.RaisePropertyChanged("ImagePath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -8177,6 +8315,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantonCode {
+            get {
+                return this.PantonCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantonCodeField, value) != true)) {
+                    this.PantonCodeField = value;
+                    this.RaisePropertyChanged("PantonCode");
                 }
             }
         }
@@ -8255,6 +8406,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceDetailsField, value) != true)) {
                     this.RouteCardInvoiceDetailsField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -8773,6 +8937,8 @@ namespace CCWFM.RouteCardService {
         
         private int StyleColorField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblColor1 TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -9058,6 +9224,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblColor1 TblColor {
             get {
                 return this.TblColorField;
@@ -9287,11 +9466,19 @@ namespace CCWFM.RouteCardService {
         
         private int StatusField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblApprovalStatu TblApprovalStatuField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblApprovalStatuo0bgEGGO TblApprovalStatuReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblApproval> TblApprovalsField;
+        
+        private System.Nullable<int> TblComplexityGroupField;
+        
+        private CCWFM.RouteCardService.TblComplexityGroup TblComplexityGroup1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblComplexityGroupo0bgEGGO TblComplexityGroup1ReferenceField;
         
         private System.Nullable<int> TblFactoryGroupField;
         
@@ -9788,6 +9975,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblApprovalStatu TblApprovalStatu {
             get {
                 return this.TblApprovalStatuField;
@@ -9822,6 +10022,45 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblApprovalsField, value) != true)) {
                     this.TblApprovalsField = value;
                     this.RaisePropertyChanged("TblApprovals");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblComplexityGroup {
+            get {
+                return this.TblComplexityGroupField;
+            }
+            set {
+                if ((this.TblComplexityGroupField.Equals(value) != true)) {
+                    this.TblComplexityGroupField = value;
+                    this.RaisePropertyChanged("TblComplexityGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblComplexityGroup TblComplexityGroup1 {
+            get {
+                return this.TblComplexityGroup1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblComplexityGroup1Field, value) != true)) {
+                    this.TblComplexityGroup1Field = value;
+                    this.RaisePropertyChanged("TblComplexityGroup1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblComplexityGroupo0bgEGGO TblComplexityGroup1Reference {
+            get {
+                return this.TblComplexityGroup1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblComplexityGroup1ReferenceField, value) != true)) {
+                    this.TblComplexityGroup1ReferenceField = value;
+                    this.RaisePropertyChanged("TblComplexityGroup1Reference");
                 }
             }
         }
@@ -10210,6 +10449,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMSizeEstimated> TblBOMSizeEstimatedsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
@@ -10481,6 +10722,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMSizeEstimated> TblBOMSizeEstimateds {
             get {
                 return this.TblBOMSizeEstimatedsField;
@@ -10562,6 +10816,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStandardBOM> TblStandardBOMsField;
         
@@ -10646,6 +10902,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStandardBOM> TblStandardBOMs {
             get {
                 return this.TblStandardBOMsField;
@@ -10724,6 +10993,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private bool OnStockField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMSize> TblBOMSizesField;
         
@@ -11052,6 +11323,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMSize> TblBOMSizes {
             get {
                 return this.TblBOMSizesField;
@@ -11177,6 +11461,8 @@ namespace CCWFM.RouteCardService {
         private int StyleColorField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.BOM BOM1 {
@@ -11372,6 +11658,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11396,6 +11695,8 @@ namespace CCWFM.RouteCardService {
         private double MaterialUsageField;
         
         private System.Nullable<double> RowIndexField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblRouteGroup TblRouteGroupField;
         
@@ -11519,6 +11820,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblRouteGroup TblRouteGroup {
             get {
                 return this.TblRouteGroupField;
@@ -11571,6 +11885,8 @@ namespace CCWFM.RouteCardService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeadersField;
         
         private System.Nullable<bool> SubFabricProcessField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRouteGroupBomBase> TblRouteGroupBomBasesField;
         
@@ -11732,6 +12048,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRouteGroupBomBase> TblRouteGroupBomBases {
             get {
                 return this.TblRouteGroupBomBasesField;
@@ -11845,6 +12174,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRouteGroupField;
         
         private CCWFM.RouteCardService.TblRouteGroup TblRouteGroup1Field;
@@ -11873,6 +12204,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -11937,6 +12281,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> RouteCapacityField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         private int TblRouteGroupField;
         
@@ -12058,6 +12404,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RouteCardHeadersField, value) != true)) {
                     this.RouteCardHeadersField = value;
                     this.RaisePropertyChanged("RouteCardHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12210,6 +12569,8 @@ namespace CCWFM.RouteCardService {
         
         private string ServiceGroupField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingOrderInvoiceDetail> TblDyeingOrderInvoiceDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderInvoiceDetail> TblProductionOrderInvoiceDetailsField;
@@ -12296,6 +12657,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.ServiceGroupField, value) != true)) {
                     this.ServiceGroupField = value;
                     this.RaisePropertyChanged("ServiceGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12397,6 +12771,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> QtyField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -12507,6 +12883,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
                     this.SupplierInvField = value;
                     this.RaisePropertyChanged("SupplierInv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -12678,6 +13067,8 @@ namespace CCWFM.RouteCardService {
         
         private string SupplierInvField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingOrderInvoiceDetail> TblDyeingOrderInvoiceDetailsField;
@@ -12806,6 +13197,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -12884,6 +13288,8 @@ namespace CCWFM.RouteCardService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblDyeingOrderInvoiceHeaderField;
@@ -12952,6 +13358,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13104,6 +13523,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardInvoiceMarkupTransProd> RouteCardInvoiceMarkupTransProdsField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingOrderInvoiceMarkupTransProd> TblDyeingOrderInvoiceMarkupTransProdsField;
         
         private System.Nullable<int> TblMarkupGroupProdField;
@@ -13192,6 +13613,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceMarkupTransProdsField, value) != true)) {
                     this.RouteCardInvoiceMarkupTransProdsField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceMarkupTransProds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13307,6 +13741,8 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfRouteCardInvoiceHeadero0bgEGGO RouteCardInvoiceHeader1ReferenceField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -13408,6 +13844,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RouteCardInvoiceHeader1ReferenceField, value) != true)) {
                     this.RouteCardInvoiceHeader1ReferenceField = value;
                     this.RaisePropertyChanged("RouteCardInvoiceHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13519,6 +13968,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblMarkupProd> TblMarkupProdsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -13587,6 +14038,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblMarkupProd> TblMarkupProds {
             get {
                 return this.TblMarkupProdsField;
@@ -13614,6 +14078,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> MiscValueField;
         
         private int MiscValueTypeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -13696,6 +14162,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -13852,6 +14331,8 @@ namespace CCWFM.RouteCardService {
         
         private string SupplierInvField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblMarkupTransProd> TblMarkupTransProdsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRecInvDetailProd> TblRecInvDetailProdsField;
@@ -13972,6 +14453,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
                     this.SupplierInvField = value;
                     this.RaisePropertyChanged("SupplierInv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14130,6 +14624,8 @@ namespace CCWFM.RouteCardService {
         
         private string SizeCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -14262,6 +14758,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -14360,6 +14869,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblPurchaseReceiveHeaderField;
         
         private CCWFM.RouteCardService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1Field;
@@ -14383,6 +14894,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14501,6 +15025,8 @@ namespace CCWFM.RouteCardService {
         private string NotesField;
         
         private string RefNoField;
+        
+        private int TBlWFCompanyField;
         
         private int TblInventTypeField;
         
@@ -14639,6 +15165,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RefNoField, value) != true)) {
                     this.RefNoField = value;
                     this.RaisePropertyChanged("RefNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -14817,6 +15356,8 @@ namespace CCWFM.RouteCardService {
         
         private string ShortCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblInventTran1> TblInventTransField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveHeader> TblPurchaseReceiveHeadersField;
@@ -14902,6 +15443,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblInventTran1> TblInventTrans {
             get {
                 return this.TblInventTransField;
@@ -14952,6 +15506,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<System.DateTime> DocDateField;
         
+        private System.Nullable<decimal> ExchangeRateField;
+        
         private int IserialField;
         
         private System.Nullable<decimal> ItemCostField;
@@ -14962,9 +15518,15 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> LastWarehouseQtyField;
         
+        private System.Nullable<decimal> LocalItemCostField;
+        
+        private System.Nullable<decimal> MiscField;
+        
         private System.Nullable<decimal> OldCostField;
         
         private decimal QtyField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblInventTypeField;
         
@@ -15023,6 +15585,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.DocDateField.Equals(value) != true)) {
                     this.DocDateField = value;
                     this.RaisePropertyChanged("DocDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ExchangeRate {
+            get {
+                return this.ExchangeRateField;
+            }
+            set {
+                if ((this.ExchangeRateField.Equals(value) != true)) {
+                    this.ExchangeRateField = value;
+                    this.RaisePropertyChanged("ExchangeRate");
                 }
             }
         }
@@ -15093,6 +15668,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LocalItemCost {
+            get {
+                return this.LocalItemCostField;
+            }
+            set {
+                if ((this.LocalItemCostField.Equals(value) != true)) {
+                    this.LocalItemCostField = value;
+                    this.RaisePropertyChanged("LocalItemCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Misc {
+            get {
+                return this.MiscField;
+            }
+            set {
+                if ((this.MiscField.Equals(value) != true)) {
+                    this.MiscField = value;
+                    this.RaisePropertyChanged("Misc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> OldCost {
             get {
                 return this.OldCostField;
@@ -15114,6 +15715,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -15269,6 +15883,8 @@ namespace CCWFM.RouteCardService {
         
         private string BatchNoField;
         
+        private System.DateTime CreationDateField;
+        
         private int IserialField;
         
         private System.Nullable<decimal> ItemAvgCostField;
@@ -15277,7 +15893,11 @@ namespace CCWFM.RouteCardService {
         
         private string ItemTypeField;
         
+        private System.Nullable<System.DateTime> LastUpdatedDateField;
+        
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentDetail1> TblAdjustmentDetailsField;
         
@@ -15322,6 +15942,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
                     this.BatchNoField = value;
                     this.RaisePropertyChanged("BatchNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
                 }
             }
         }
@@ -15379,6 +16012,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastUpdatedDate {
+            get {
+                return this.LastUpdatedDateField;
+            }
+            set {
+                if ((this.LastUpdatedDateField.Equals(value) != true)) {
+                    this.LastUpdatedDateField = value;
+                    this.RaisePropertyChanged("LastUpdatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Size {
             get {
                 return this.SizeField;
@@ -15387,6 +16033,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SizeField, value) != true)) {
                     this.SizeField = value;
                     this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -15634,6 +16293,8 @@ namespace CCWFM.RouteCardService {
         
         private int ItemDimIserialField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblAdjustmentHeader1 TblAdjustmentHeaderField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblAdjustmentHeadero0bgEGGO TblAdjustmentHeaderReferenceField;
@@ -15747,6 +16408,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblAdjustmentHeader1 TblAdjustmentHeader {
             get {
                 return this.TblAdjustmentHeaderField;
@@ -15829,6 +16503,8 @@ namespace CCWFM.RouteCardService {
         private int LastChangeUserField;
         
         private string NotesField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentDetail1> TblAdjustmentDetailsField;
         
@@ -16018,6 +16694,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentDetail1> TblAdjustmentDetails {
             get {
                 return this.TblAdjustmentDetailsField;
@@ -16160,6 +16849,8 @@ namespace CCWFM.RouteCardService {
         
         private decimal OldQuantityField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblAdjustmentHeader1 TblAdjustmentHeaderField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblAdjustmentHeadero0bgEGGO TblAdjustmentHeaderReferenceField;
@@ -16299,6 +16990,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblAdjustmentHeader1 TblAdjustmentHeader {
             get {
                 return this.TblAdjustmentHeaderField;
@@ -16392,6 +17096,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> PrintingCodeField;
         
+        private System.Nullable<int> QCPositionField;
+        
         private System.Nullable<int> RegNoField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeadersField;
@@ -16399,6 +17105,8 @@ namespace CCWFM.RouteCardService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeaders1Field;
         
         private string SIDField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentHeader1> TblAdjustmentHeadersField;
         
@@ -16701,6 +17409,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> QCPosition {
+            get {
+                return this.QCPositionField;
+            }
+            set {
+                if ((this.QCPositionField.Equals(value) != true)) {
+                    this.QCPositionField = value;
+                    this.RaisePropertyChanged("QCPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> RegNo {
             get {
                 return this.RegNoField;
@@ -16748,6 +17469,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SIDField, value) != true)) {
                     this.SIDField = value;
                     this.RaisePropertyChanged("SID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -17207,6 +17941,8 @@ namespace CCWFM.RouteCardService {
         
         private string PrintingBarcodeFormateField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -17340,6 +18076,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -17383,6 +18132,8 @@ namespace CCWFM.RouteCardService {
         private string PropertyNameArabicField;
         
         private string PropertyTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> printingPropertiesIserialField;
         
@@ -17556,6 +18307,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> printingPropertiesIserial {
             get {
                 return this.printingPropertiesIserialField;
@@ -17583,6 +18347,8 @@ namespace CCWFM.RouteCardService {
         private string CommentField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblApprovalType TblApprovalTypeField;
         
@@ -17661,6 +18427,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -17783,6 +18562,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblApproval> TblApprovalsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -17838,6 +18619,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblApproval> TblApprovals {
             get {
                 return this.TblApprovalsField;
@@ -17863,6 +18657,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsersField;
         
@@ -17919,6 +18715,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -17942,6 +18751,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private short PermissionTypeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUserField;
         
@@ -17992,6 +18803,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.PermissionTypeField.Equals(value) != true)) {
                     this.PermissionTypeField = value;
                     this.RaisePropertyChanged("PermissionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -18099,6 +18923,8 @@ namespace CCWFM.RouteCardService {
         
         private short IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthWarehouse1> TblAuthWarehousesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -18136,6 +18962,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -18192,6 +19031,8 @@ namespace CCWFM.RouteCardService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardDetail> RouteCardDetailsField;
         
         private System.Nullable<int> SalesField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentHeader1> TblAdjustmentHeadersField;
         
@@ -18451,6 +19292,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAdjustmentHeader1> TblAdjustmentHeaders {
             get {
                 return this.TblAdjustmentHeadersField;
@@ -18700,13 +19554,15 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblItemDimField;
         
         private CCWFM.RouteCardService.TblItemDim1 TblItemDim1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblItemDimo0bgEGGO TblItemDim1ReferenceField;
         
-        private System.Nullable<int> TblProductionOrderTransactionField;
+        private int TblProductionOrderTransactionField;
         
         private CCWFM.RouteCardService.TblProductionOrderTransaction TblProductionOrderTransaction1Field;
         
@@ -18784,6 +19640,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblItemDim {
             get {
                 return this.TblItemDimField;
@@ -18823,7 +19692,7 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblProductionOrderTransaction {
+        public int TblProductionOrderTransaction {
             get {
                 return this.TblProductionOrderTransactionField;
             }
@@ -18914,7 +19783,7 @@ namespace CCWFM.RouteCardService {
         
         private string DocCodeField;
         
-        private System.Nullable<System.DateTime> DocDateField;
+        private System.DateTime DocDateField;
         
         private int IserialField;
         
@@ -18928,9 +19797,11 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<System.DateTime> PostedDateField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderFabric> TblProductionOrderFabricsField;
         
-        private System.Nullable<int> TblProductionOrderHeaderField;
+        private int TblProductionOrderHeaderField;
         
         private CCWFM.RouteCardService.TblProductionOrderHeader TblProductionOrderHeader1Field;
         
@@ -19005,7 +19876,7 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DocDate {
+        public System.DateTime DocDate {
             get {
                 return this.DocDateField;
             }
@@ -19096,6 +19967,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderFabric> TblProductionOrderFabrics {
             get {
                 return this.TblProductionOrderFabricsField;
@@ -19109,7 +19993,7 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblProductionOrderHeader {
+        public int TblProductionOrderHeader {
             get {
                 return this.TblProductionOrderHeaderField;
             }
@@ -19277,6 +20161,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblItemDimField;
         
         private CCWFM.RouteCardService.TblItemDim1 TblItemDim1Field;
@@ -19424,6 +20310,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblItemDim {
             get {
                 return this.TblItemDimField;
@@ -19560,6 +20459,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -19758,6 +20659,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -19862,6 +20776,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -19934,6 +20850,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -20108,6 +21037,8 @@ namespace CCWFM.RouteCardService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -20172,6 +21103,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -20296,6 +21240,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -20304,7 +21250,7 @@ namespace CCWFM.RouteCardService {
         
         private int TblJournalAccountTypeField;
         
-        private System.Nullable<int> TblProductionOrderTransactionField;
+        private int TblProductionOrderTransactionField;
         
         private CCWFM.RouteCardService.TblProductionOrderTransaction TblProductionOrderTransaction1Field;
         
@@ -20382,6 +21328,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -20434,7 +21393,7 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblProductionOrderTransaction {
+        public int TblProductionOrderTransaction {
             get {
                 return this.TblProductionOrderTransactionField;
             }
@@ -20525,6 +21484,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderTransaction> TblProductionOrderTransactionsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -20580,6 +21541,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderTransaction> TblProductionOrderTransactions {
             get {
                 return this.TblProductionOrderTransactionsField;
@@ -20623,6 +21597,12 @@ namespace CCWFM.RouteCardService {
         private bool StatusField;
         
         private System.Nullable<int> TblCurrencyField;
+        
+        private System.Nullable<int> TblGeneratePurchaseHeaderField;
+        
+        private CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1ReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailRequest> TblPurchaseOrderDetailRequestsField;
         
@@ -20812,6 +21792,45 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblGeneratePurchaseHeader {
+            get {
+                return this.TblGeneratePurchaseHeaderField;
+            }
+            set {
+                if ((this.TblGeneratePurchaseHeaderField.Equals(value) != true)) {
+                    this.TblGeneratePurchaseHeaderField = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1 {
+            get {
+                return this.TblGeneratePurchaseHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1Field, value) != true)) {
+                    this.TblGeneratePurchaseHeader1Field = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1Reference {
+            get {
+                return this.TblGeneratePurchaseHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1ReferenceField, value) != true)) {
+                    this.TblGeneratePurchaseHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailRequest> TblPurchaseOrderDetailRequests {
             get {
                 return this.TblPurchaseOrderDetailRequestsField;
@@ -20931,1899 +21950,6 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetailRequest", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseOrderDetailRequest : CCWFM.RouteCardService.EntityObject {
-        
-        private System.Nullable<double> BasicPriceField;
-        
-        private string BatchNoField;
-        
-        private System.Nullable<double> BomQtyField;
-        
-        private System.Nullable<System.DateTime> DeliveryDateField;
-        
-        private System.Nullable<int> FabricColorField;
-        
-        private int IserialField;
-        
-        private string ItemIdField;
-        
-        private string ItemTypeField;
-        
-        private System.Nullable<double> PriceField;
-        
-        private System.Nullable<double> QtyField;
-        
-        private System.Nullable<double> ReceiveNowField;
-        
-        private System.Nullable<double> RemaningQtyField;
-        
-        private System.Nullable<System.DateTime> ShippingDateField;
-        
-        private string SizeField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColorField;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
-        
-        private System.Nullable<int> TblPurchaseOrderHeaderRequestField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest TblPurchaseOrderHeaderRequest1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO TblPurchaseOrderHeaderRequest1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail> TblPurchaseReceiveDetailsField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinksField;
-        
-        private string UnitField;
-        
-        private double VendorPriceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> BasicPrice {
-            get {
-                return this.BasicPriceField;
-            }
-            set {
-                if ((this.BasicPriceField.Equals(value) != true)) {
-                    this.BasicPriceField = value;
-                    this.RaisePropertyChanged("BasicPrice");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BatchNo {
-            get {
-                return this.BatchNoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
-                    this.BatchNoField = value;
-                    this.RaisePropertyChanged("BatchNo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> BomQty {
-            get {
-                return this.BomQtyField;
-            }
-            set {
-                if ((this.BomQtyField.Equals(value) != true)) {
-                    this.BomQtyField = value;
-                    this.RaisePropertyChanged("BomQty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DeliveryDate {
-            get {
-                return this.DeliveryDateField;
-            }
-            set {
-                if ((this.DeliveryDateField.Equals(value) != true)) {
-                    this.DeliveryDateField = value;
-                    this.RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> FabricColor {
-            get {
-                return this.FabricColorField;
-            }
-            set {
-                if ((this.FabricColorField.Equals(value) != true)) {
-                    this.FabricColorField = value;
-                    this.RaisePropertyChanged("FabricColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemId {
-            get {
-                return this.ItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
-                    this.ItemIdField = value;
-                    this.RaisePropertyChanged("ItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemType {
-            get {
-                return this.ItemTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemTypeField, value) != true)) {
-                    this.ItemTypeField = value;
-                    this.RaisePropertyChanged("ItemType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> ReceiveNow {
-            get {
-                return this.ReceiveNowField;
-            }
-            set {
-                if ((this.ReceiveNowField.Equals(value) != true)) {
-                    this.ReceiveNowField = value;
-                    this.RaisePropertyChanged("ReceiveNow");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> RemaningQty {
-            get {
-                return this.RemaningQtyField;
-            }
-            set {
-                if ((this.RemaningQtyField.Equals(value) != true)) {
-                    this.RemaningQtyField = value;
-                    this.RaisePropertyChanged("RemaningQty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ShippingDate {
-            get {
-                return this.ShippingDateField;
-            }
-            set {
-                if ((this.ShippingDateField.Equals(value) != true)) {
-                    this.ShippingDateField = value;
-                    this.RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SizeField, value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor {
-            get {
-                return this.TblColorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
-                    this.TblColorField = value;
-                    this.RaisePropertyChanged("TblColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
-            get {
-                return this.TblColorReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
-                    this.TblColorReferenceField = value;
-                    this.RaisePropertyChanged("TblColorReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblPurchaseOrderHeaderRequest {
-            get {
-                return this.TblPurchaseOrderHeaderRequestField;
-            }
-            set {
-                if ((this.TblPurchaseOrderHeaderRequestField.Equals(value) != true)) {
-                    this.TblPurchaseOrderHeaderRequestField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest TblPurchaseOrderHeaderRequest1 {
-            get {
-                return this.TblPurchaseOrderHeaderRequest1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeaderRequest1Field, value) != true)) {
-                    this.TblPurchaseOrderHeaderRequest1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO TblPurchaseOrderHeaderRequest1Reference {
-            get {
-                return this.TblPurchaseOrderHeaderRequest1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeaderRequest1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderHeaderRequest1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail> TblPurchaseReceiveDetails {
-            get {
-                return this.TblPurchaseReceiveDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseReceiveDetailsField, value) != true)) {
-                    this.TblPurchaseReceiveDetailsField = value;
-                    this.RaisePropertyChanged("TblPurchaseReceiveDetails");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinks {
-            get {
-                return this.TblPurchaseRequestLinksField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseRequestLinksField, value) != true)) {
-                    this.TblPurchaseRequestLinksField = value;
-                    this.RaisePropertyChanged("TblPurchaseRequestLinks");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Unit {
-            get {
-                return this.UnitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
-                    this.UnitField = value;
-                    this.RaisePropertyChanged("Unit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double VendorPrice {
-            get {
-                return this.VendorPriceField;
-            }
-            set {
-                if ((this.VendorPriceField.Equals(value) != true)) {
-                    this.VendorPriceField = value;
-                    this.RaisePropertyChanged("VendorPrice");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseReceiveDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseReceiveDetail : CCWFM.RouteCardService.EntityObject {
-        
-        private string BatchNoField;
-        
-        private System.Nullable<double> CostField;
-        
-        private int IserialField;
-        
-        private System.Nullable<double> OldCostField;
-        
-        private System.Nullable<double> QtyField;
-        
-        private System.Nullable<int> TblPurchaseOrderDetailRequestField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1ReferenceField;
-        
-        private System.Nullable<int> TblPurchaseReceiveHeaderField;
-        
-        private CCWFM.RouteCardService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO TblPurchaseReceiveHeader1ReferenceField;
-        
-        private int TypeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BatchNo {
-            get {
-                return this.BatchNoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
-                    this.BatchNoField = value;
-                    this.RaisePropertyChanged("BatchNo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> OldCost {
-            get {
-                return this.OldCostField;
-            }
-            set {
-                if ((this.OldCostField.Equals(value) != true)) {
-                    this.OldCostField = value;
-                    this.RaisePropertyChanged("OldCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblPurchaseOrderDetailRequest {
-            get {
-                return this.TblPurchaseOrderDetailRequestField;
-            }
-            set {
-                if ((this.TblPurchaseOrderDetailRequestField.Equals(value) != true)) {
-                    this.TblPurchaseOrderDetailRequestField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1 {
-            get {
-                return this.TblPurchaseOrderDetailRequest1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1Field, value) != true)) {
-                    this.TblPurchaseOrderDetailRequest1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1Reference {
-            get {
-                return this.TblPurchaseOrderDetailRequest1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderDetailRequest1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblPurchaseReceiveHeader {
-            get {
-                return this.TblPurchaseReceiveHeaderField;
-            }
-            set {
-                if ((this.TblPurchaseReceiveHeaderField.Equals(value) != true)) {
-                    this.TblPurchaseReceiveHeaderField = value;
-                    this.RaisePropertyChanged("TblPurchaseReceiveHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1 {
-            get {
-                return this.TblPurchaseReceiveHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseReceiveHeader1Field, value) != true)) {
-                    this.TblPurchaseReceiveHeader1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseReceiveHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO TblPurchaseReceiveHeader1Reference {
-            get {
-                return this.TblPurchaseReceiveHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseReceiveHeader1ReferenceField, value) != true)) {
-                    this.TblPurchaseReceiveHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseReceiveHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((this.TypeField.Equals(value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseRequestLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseRequestLink : CCWFM.RouteCardService.EntityObject {
-        
-        private int IserialField;
-        
-        private int TblPurchaseOrderDetailField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1ReferenceField;
-        
-        private int TblPurchaseOrderDetailRequestField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblPurchaseOrderDetail {
-            get {
-                return this.TblPurchaseOrderDetailField;
-            }
-            set {
-                if ((this.TblPurchaseOrderDetailField.Equals(value) != true)) {
-                    this.TblPurchaseOrderDetailField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1 {
-            get {
-                return this.TblPurchaseOrderDetail1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1Field, value) != true)) {
-                    this.TblPurchaseOrderDetail1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1Reference {
-            get {
-                return this.TblPurchaseOrderDetail1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderDetail1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblPurchaseOrderDetailRequest {
-            get {
-                return this.TblPurchaseOrderDetailRequestField;
-            }
-            set {
-                if ((this.TblPurchaseOrderDetailRequestField.Equals(value) != true)) {
-                    this.TblPurchaseOrderDetailRequestField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1 {
-            get {
-                return this.TblPurchaseOrderDetailRequest1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1Field, value) != true)) {
-                    this.TblPurchaseOrderDetailRequest1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1Reference {
-            get {
-                return this.TblPurchaseOrderDetailRequest1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderDetailRequest1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1Reference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseOrderDetail : CCWFM.RouteCardService.EntityObject {
-        
-        private System.Nullable<double> BasicPriceField;
-        
-        private string BatchNoField;
-        
-        private System.Nullable<double> BomQtyField;
-        
-        private bool CanceledField;
-        
-        private System.Nullable<int> FabricColorField;
-        
-        private int IserialField;
-        
-        private string ItemIdField;
-        
-        private string ItemTypeField;
-        
-        private System.Nullable<double> PriceField;
-        
-        private System.Nullable<double> QtyField;
-        
-        private System.Nullable<double> ReceiveNowField;
-        
-        private System.Nullable<double> RemaningQtyField;
-        
-        private string SizeField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColorField;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
-        
-        private System.Nullable<int> TblPurchaseOrderHeaderField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinksField;
-        
-        private string UnitField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> BasicPrice {
-            get {
-                return this.BasicPriceField;
-            }
-            set {
-                if ((this.BasicPriceField.Equals(value) != true)) {
-                    this.BasicPriceField = value;
-                    this.RaisePropertyChanged("BasicPrice");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BatchNo {
-            get {
-                return this.BatchNoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
-                    this.BatchNoField = value;
-                    this.RaisePropertyChanged("BatchNo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> BomQty {
-            get {
-                return this.BomQtyField;
-            }
-            set {
-                if ((this.BomQtyField.Equals(value) != true)) {
-                    this.BomQtyField = value;
-                    this.RaisePropertyChanged("BomQty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Canceled {
-            get {
-                return this.CanceledField;
-            }
-            set {
-                if ((this.CanceledField.Equals(value) != true)) {
-                    this.CanceledField = value;
-                    this.RaisePropertyChanged("Canceled");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> FabricColor {
-            get {
-                return this.FabricColorField;
-            }
-            set {
-                if ((this.FabricColorField.Equals(value) != true)) {
-                    this.FabricColorField = value;
-                    this.RaisePropertyChanged("FabricColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemId {
-            get {
-                return this.ItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
-                    this.ItemIdField = value;
-                    this.RaisePropertyChanged("ItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemType {
-            get {
-                return this.ItemTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemTypeField, value) != true)) {
-                    this.ItemTypeField = value;
-                    this.RaisePropertyChanged("ItemType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> ReceiveNow {
-            get {
-                return this.ReceiveNowField;
-            }
-            set {
-                if ((this.ReceiveNowField.Equals(value) != true)) {
-                    this.ReceiveNowField = value;
-                    this.RaisePropertyChanged("ReceiveNow");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> RemaningQty {
-            get {
-                return this.RemaningQtyField;
-            }
-            set {
-                if ((this.RemaningQtyField.Equals(value) != true)) {
-                    this.RemaningQtyField = value;
-                    this.RaisePropertyChanged("RemaningQty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SizeField, value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor {
-            get {
-                return this.TblColorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
-                    this.TblColorField = value;
-                    this.RaisePropertyChanged("TblColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
-            get {
-                return this.TblColorReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
-                    this.TblColorReferenceField = value;
-                    this.RaisePropertyChanged("TblColorReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
-            get {
-                return this.TblPurchaseOrderDetailBreakDownsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
-                    this.TblPurchaseOrderDetailBreakDownsField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblPurchaseOrderHeader {
-            get {
-                return this.TblPurchaseOrderHeaderField;
-            }
-            set {
-                if ((this.TblPurchaseOrderHeaderField.Equals(value) != true)) {
-                    this.TblPurchaseOrderHeaderField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader1 {
-            get {
-                return this.TblPurchaseOrderHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1Field, value) != true)) {
-                    this.TblPurchaseOrderHeader1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader1Reference {
-            get {
-                return this.TblPurchaseOrderHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinks {
-            get {
-                return this.TblPurchaseRequestLinksField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseRequestLinksField, value) != true)) {
-                    this.TblPurchaseRequestLinksField = value;
-                    this.RaisePropertyChanged("TblPurchaseRequestLinks");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Unit {
-            get {
-                return this.UnitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
-                    this.UnitField = value;
-                    this.RaisePropertyChanged("Unit");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetailBreakDown", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseOrderDetailBreakDown : CCWFM.RouteCardService.EntityObject {
-        
-        private CCWFM.RouteCardService.BOM BOM1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
-        
-        private int BomField;
-        
-        private int IserialField;
-        
-        private System.Nullable<double> QtyField;
-        
-        private System.Nullable<int> TblBOMSizeField;
-        
-        private CCWFM.RouteCardService.TblBOMSize TblBOMSize1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO TblBOMSize1ReferenceField;
-        
-        private System.Nullable<int> TblBOMStyleColorField;
-        
-        private CCWFM.RouteCardService.TblBOMStyleColor TblBOMStyleColor1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO TblBOMStyleColor1ReferenceField;
-        
-        private int TblPurchaseOrderDetailField;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.BOM BOM1 {
-            get {
-                return this.BOM1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
-                    this.BOM1Field = value;
-                    this.RaisePropertyChanged("BOM1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
-            get {
-                return this.BOM1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
-                    this.BOM1ReferenceField = value;
-                    this.RaisePropertyChanged("BOM1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Bom {
-            get {
-                return this.BomField;
-            }
-            set {
-                if ((this.BomField.Equals(value) != true)) {
-                    this.BomField = value;
-                    this.RaisePropertyChanged("Bom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblBOMSize {
-            get {
-                return this.TblBOMSizeField;
-            }
-            set {
-                if ((this.TblBOMSizeField.Equals(value) != true)) {
-                    this.TblBOMSizeField = value;
-                    this.RaisePropertyChanged("TblBOMSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblBOMSize TblBOMSize1 {
-            get {
-                return this.TblBOMSize1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBOMSize1Field, value) != true)) {
-                    this.TblBOMSize1Field = value;
-                    this.RaisePropertyChanged("TblBOMSize1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO TblBOMSize1Reference {
-            get {
-                return this.TblBOMSize1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBOMSize1ReferenceField, value) != true)) {
-                    this.TblBOMSize1ReferenceField = value;
-                    this.RaisePropertyChanged("TblBOMSize1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblBOMStyleColor {
-            get {
-                return this.TblBOMStyleColorField;
-            }
-            set {
-                if ((this.TblBOMStyleColorField.Equals(value) != true)) {
-                    this.TblBOMStyleColorField = value;
-                    this.RaisePropertyChanged("TblBOMStyleColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblBOMStyleColor TblBOMStyleColor1 {
-            get {
-                return this.TblBOMStyleColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBOMStyleColor1Field, value) != true)) {
-                    this.TblBOMStyleColor1Field = value;
-                    this.RaisePropertyChanged("TblBOMStyleColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO TblBOMStyleColor1Reference {
-            get {
-                return this.TblBOMStyleColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBOMStyleColor1ReferenceField, value) != true)) {
-                    this.TblBOMStyleColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblBOMStyleColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblPurchaseOrderDetail {
-            get {
-                return this.TblPurchaseOrderDetailField;
-            }
-            set {
-                if ((this.TblPurchaseOrderDetailField.Equals(value) != true)) {
-                    this.TblPurchaseOrderDetailField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1 {
-            get {
-                return this.TblPurchaseOrderDetail1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1Field, value) != true)) {
-                    this.TblPurchaseOrderDetail1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1Reference {
-            get {
-                return this.TblPurchaseOrderDetail1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderDetail1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetail1Reference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblBOMSize", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblBOMSize : CCWFM.RouteCardService.EntityObject {
-        
-        private CCWFM.RouteCardService.BOM BOM1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
-        
-        private int BomField;
-        
-        private string FabricSizeField;
-        
-        private int IserialField;
-        
-        private double MaterialUsageField;
-        
-        private string SizeFabricRatioField;
-        
-        private string StyleSizeField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.BOM BOM1 {
-            get {
-                return this.BOM1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
-                    this.BOM1Field = value;
-                    this.RaisePropertyChanged("BOM1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
-            get {
-                return this.BOM1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
-                    this.BOM1ReferenceField = value;
-                    this.RaisePropertyChanged("BOM1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Bom {
-            get {
-                return this.BomField;
-            }
-            set {
-                if ((this.BomField.Equals(value) != true)) {
-                    this.BomField = value;
-                    this.RaisePropertyChanged("Bom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FabricSize {
-            get {
-                return this.FabricSizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FabricSizeField, value) != true)) {
-                    this.FabricSizeField = value;
-                    this.RaisePropertyChanged("FabricSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double MaterialUsage {
-            get {
-                return this.MaterialUsageField;
-            }
-            set {
-                if ((this.MaterialUsageField.Equals(value) != true)) {
-                    this.MaterialUsageField = value;
-                    this.RaisePropertyChanged("MaterialUsage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SizeFabricRatio {
-            get {
-                return this.SizeFabricRatioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SizeFabricRatioField, value) != true)) {
-                    this.SizeFabricRatioField = value;
-                    this.RaisePropertyChanged("SizeFabricRatio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StyleSize {
-            get {
-                return this.StyleSizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StyleSizeField, value) != true)) {
-                    this.StyleSizeField = value;
-                    this.RaisePropertyChanged("StyleSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
-            get {
-                return this.TblPurchaseOrderDetailBreakDownsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
-                    this.TblPurchaseOrderDetailBreakDownsField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblBOMStyleColor", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblBOMStyleColor : CCWFM.RouteCardService.EntityObject {
-        
-        private CCWFM.RouteCardService.BOM BOM1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
-        
-        private int BomField;
-        
-        private System.Nullable<int> DummyColorField;
-        
-        private System.Nullable<int> DyedColorField;
-        
-        private System.Nullable<int> FabricColorField;
-        
-        private int IserialField;
-        
-        private int StyleColorField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColorField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColor1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColor2Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor2ReferenceField;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.BOM BOM1 {
-            get {
-                return this.BOM1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
-                    this.BOM1Field = value;
-                    this.RaisePropertyChanged("BOM1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
-            get {
-                return this.BOM1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
-                    this.BOM1ReferenceField = value;
-                    this.RaisePropertyChanged("BOM1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Bom {
-            get {
-                return this.BomField;
-            }
-            set {
-                if ((this.BomField.Equals(value) != true)) {
-                    this.BomField = value;
-                    this.RaisePropertyChanged("Bom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DummyColor {
-            get {
-                return this.DummyColorField;
-            }
-            set {
-                if ((this.DummyColorField.Equals(value) != true)) {
-                    this.DummyColorField = value;
-                    this.RaisePropertyChanged("DummyColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DyedColor {
-            get {
-                return this.DyedColorField;
-            }
-            set {
-                if ((this.DyedColorField.Equals(value) != true)) {
-                    this.DyedColorField = value;
-                    this.RaisePropertyChanged("DyedColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> FabricColor {
-            get {
-                return this.FabricColorField;
-            }
-            set {
-                if ((this.FabricColorField.Equals(value) != true)) {
-                    this.FabricColorField = value;
-                    this.RaisePropertyChanged("FabricColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StyleColor {
-            get {
-                return this.StyleColorField;
-            }
-            set {
-                if ((this.StyleColorField.Equals(value) != true)) {
-                    this.StyleColorField = value;
-                    this.RaisePropertyChanged("StyleColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor {
-            get {
-                return this.TblColorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
-                    this.TblColorField = value;
-                    this.RaisePropertyChanged("TblColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor1 {
-            get {
-                return this.TblColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
-                    this.TblColor1Field = value;
-                    this.RaisePropertyChanged("TblColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
-            get {
-                return this.TblColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
-                    this.TblColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor2 {
-            get {
-                return this.TblColor2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor2Field, value) != true)) {
-                    this.TblColor2Field = value;
-                    this.RaisePropertyChanged("TblColor2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor2Reference {
-            get {
-                return this.TblColor2ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor2ReferenceField, value) != true)) {
-                    this.TblColor2ReferenceField = value;
-                    this.RaisePropertyChanged("TblColor2Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
-            get {
-                return this.TblColorReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
-                    this.TblColorReferenceField = value;
-                    this.RaisePropertyChanged("TblColorReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
-            get {
-                return this.TblPurchaseOrderDetailBreakDownsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
-                    this.TblPurchaseOrderDetailBreakDownsField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseOrderHeader : CCWFM.RouteCardService.EntityObject {
-        
-        private string AxMethodOfPaymentCodeField;
-        
-        private string AxPurchaseField;
-        
-        private string AxTermOfPaymentCodeField;
-        
-        private string CurrencyCodeField;
-        
-        private System.Nullable<System.DateTime> DeliveryDateField;
-        
-        private int IserialField;
-        
-        private System.Nullable<System.DateTime> ShippingDateField;
-        
-        private bool StatusField;
-        
-        private System.Nullable<int> TblGeneratePurchaseHeaderField;
-        
-        private CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1ReferenceField;
-        
-        private System.Nullable<int> TblPurchaseHeaderField;
-        
-        private int TblPurchaseHeaderTypeField;
-        
-        private CCWFM.RouteCardService.TblPurchaseHeaderType TblPurchaseHeaderType1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO TblPurchaseHeaderType1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetail> TblPurchaseOrderDetailsField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeader1Field;
-        
-        private CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader2Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader2ReferenceField;
-        
-        private System.DateTime TransDateField;
-        
-        private string VendorField;
-        
-        private string WarehouseField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AxMethodOfPaymentCode {
-            get {
-                return this.AxMethodOfPaymentCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AxMethodOfPaymentCodeField, value) != true)) {
-                    this.AxMethodOfPaymentCodeField = value;
-                    this.RaisePropertyChanged("AxMethodOfPaymentCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AxPurchase {
-            get {
-                return this.AxPurchaseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AxPurchaseField, value) != true)) {
-                    this.AxPurchaseField = value;
-                    this.RaisePropertyChanged("AxPurchase");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AxTermOfPaymentCode {
-            get {
-                return this.AxTermOfPaymentCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AxTermOfPaymentCodeField, value) != true)) {
-                    this.AxTermOfPaymentCodeField = value;
-                    this.RaisePropertyChanged("AxTermOfPaymentCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CurrencyCode {
-            get {
-                return this.CurrencyCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true)) {
-                    this.CurrencyCodeField = value;
-                    this.RaisePropertyChanged("CurrencyCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DeliveryDate {
-            get {
-                return this.DeliveryDateField;
-            }
-            set {
-                if ((this.DeliveryDateField.Equals(value) != true)) {
-                    this.DeliveryDateField = value;
-                    this.RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ShippingDate {
-            get {
-                return this.ShippingDateField;
-            }
-            set {
-                if ((this.ShippingDateField.Equals(value) != true)) {
-                    this.ShippingDateField = value;
-                    this.RaisePropertyChanged("ShippingDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblGeneratePurchaseHeader {
-            get {
-                return this.TblGeneratePurchaseHeaderField;
-            }
-            set {
-                if ((this.TblGeneratePurchaseHeaderField.Equals(value) != true)) {
-                    this.TblGeneratePurchaseHeaderField = value;
-                    this.RaisePropertyChanged("TblGeneratePurchaseHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1 {
-            get {
-                return this.TblGeneratePurchaseHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1Field, value) != true)) {
-                    this.TblGeneratePurchaseHeader1Field = value;
-                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1Reference {
-            get {
-                return this.TblGeneratePurchaseHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1ReferenceField, value) != true)) {
-                    this.TblGeneratePurchaseHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblPurchaseHeader {
-            get {
-                return this.TblPurchaseHeaderField;
-            }
-            set {
-                if ((this.TblPurchaseHeaderField.Equals(value) != true)) {
-                    this.TblPurchaseHeaderField = value;
-                    this.RaisePropertyChanged("TblPurchaseHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblPurchaseHeaderType {
-            get {
-                return this.TblPurchaseHeaderTypeField;
-            }
-            set {
-                if ((this.TblPurchaseHeaderTypeField.Equals(value) != true)) {
-                    this.TblPurchaseHeaderTypeField = value;
-                    this.RaisePropertyChanged("TblPurchaseHeaderType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseHeaderType TblPurchaseHeaderType1 {
-            get {
-                return this.TblPurchaseHeaderType1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseHeaderType1Field, value) != true)) {
-                    this.TblPurchaseHeaderType1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseHeaderType1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO TblPurchaseHeaderType1Reference {
-            get {
-                return this.TblPurchaseHeaderType1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseHeaderType1ReferenceField, value) != true)) {
-                    this.TblPurchaseHeaderType1ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseHeaderType1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetail> TblPurchaseOrderDetails {
-            get {
-                return this.TblPurchaseOrderDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailsField, value) != true)) {
-                    this.TblPurchaseOrderDetailsField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderDetails");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeader1 {
-            get {
-                return this.TblPurchaseOrderHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1Field, value) != true)) {
-                    this.TblPurchaseOrderHeader1Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader2 {
-            get {
-                return this.TblPurchaseOrderHeader2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader2Field, value) != true)) {
-                    this.TblPurchaseOrderHeader2Field = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader2Reference {
-            get {
-                return this.TblPurchaseOrderHeader2ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader2ReferenceField, value) != true)) {
-                    this.TblPurchaseOrderHeader2ReferenceField = value;
-                    this.RaisePropertyChanged("TblPurchaseOrderHeader2Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TransDate {
-            get {
-                return this.TransDateField;
-            }
-            set {
-                if ((this.TransDateField.Equals(value) != true)) {
-                    this.TransDateField = value;
-                    this.RaisePropertyChanged("TransDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Vendor {
-            get {
-                return this.VendorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VendorField, value) != true)) {
-                    this.VendorField = value;
-                    this.RaisePropertyChanged("Vendor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Warehouse {
-            get {
-                return this.WarehouseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WarehouseField, value) != true)) {
-                    this.WarehouseField = value;
-                    this.RaisePropertyChanged("Warehouse");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblGeneratePurchaseHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblGeneratePurchaseHeader : CCWFM.RouteCardService.EntityObject {
         
@@ -22834,6 +21960,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<bool> ModifiedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanHeader> TblDyeingPlanHeadersField;
         
@@ -22862,6 +21990,8 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblPlanType TblPlanType1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblPlanTypeo0bgEGGO TblPlanType1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest> TblPurchaseOrderHeaderRequestsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeadersField;
         
@@ -22921,6 +22051,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.ModifiedField.Equals(value) != true)) {
                     this.ModifiedField = value;
                     this.RaisePropertyChanged("Modified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -23108,6 +22251,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest> TblPurchaseOrderHeaderRequests {
+            get {
+                return this.TblPurchaseOrderHeaderRequestsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeaderRequestsField, value) != true)) {
+                    this.TblPurchaseOrderHeaderRequestsField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequests");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeaders {
             get {
                 return this.TblPurchaseOrderHeadersField;
@@ -23189,6 +22345,8 @@ namespace CCWFM.RouteCardService {
         private string LocationField;
         
         private bool PlanGeneratedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlan> TblDyeingPlansField;
         
@@ -23296,6 +22454,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.PlanGeneratedField.Equals(value) != true)) {
                     this.PlanGeneratedField = value;
                     this.RaisePropertyChanged("PlanGenerated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -23530,6 +22701,8 @@ namespace CCWFM.RouteCardService {
         
         private string StyleField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanDetail> TblDyeingPlanDetailsField;
         
         private CCWFM.RouteCardService.TblDyeingPlanHeader TblDyeingPlanHeaderField;
@@ -23643,6 +22816,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanDetail> TblDyeingPlanDetails {
             get {
                 return this.TblDyeingPlanDetailsField;
@@ -23709,6 +22895,8 @@ namespace CCWFM.RouteCardService {
         private double FabricColorValueField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlan TblDyeingPlanField;
         
@@ -23782,6 +22970,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlan TblDyeingPlan {
             get {
                 return this.TblDyeingPlanField;
@@ -23843,6 +23044,8 @@ namespace CCWFM.RouteCardService {
         private string FabricCodeField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlanHeader TblDyeingPlanHeaderField;
         
@@ -23972,6 +23175,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlanHeader TblDyeingPlanHeader {
             get {
                 return this.TblDyeingPlanHeaderField;
@@ -24053,6 +23269,8 @@ namespace CCWFM.RouteCardService {
         private string ServiceNameField;
         
         private int SummaryRowIserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingSummary TblDyeingSummaryField;
         
@@ -24137,6 +23355,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingSummary TblDyeingSummary {
             get {
                 return this.TblDyeingSummaryField;
@@ -24183,6 +23414,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private double RequiredQuantityField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanLotsDetail> TblDyeingPlanLotsDetailsField;
         
@@ -24297,6 +23530,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanLotsDetail> TblDyeingPlanLotsDetails {
             get {
                 return this.TblDyeingPlanLotsDetailsField;
@@ -24365,6 +23611,8 @@ namespace CCWFM.RouteCardService {
         private string SalesOrderField;
         
         private bool SavedField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlanLotsMaster TblDyeingPlanLotsMasterField;
         
@@ -24449,6 +23697,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlanLotsMaster TblDyeingPlanLotsMaster {
             get {
                 return this.TblDyeingPlanLotsMasterField;
@@ -24487,6 +23748,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanHeader> TblDyeingPlanHeadersField;
         
@@ -24543,6 +23806,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanHeader> TblDyeingPlanHeaders {
             get {
                 return this.TblDyeingPlanHeadersField;
@@ -24568,6 +23844,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetHeader> TblBrandBudgetHeadersField;
         
@@ -24653,6 +23931,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -24909,6 +24200,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
         private int TblLkpBrandSectionField;
@@ -25001,6 +24294,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.LastUpdatedDateField.Equals(value) != true)) {
                     this.LastUpdatedDateField = value;
                     this.RaisePropertyChanged("LastUpdatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -25142,6 +24448,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<double> RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblBrandBudgetHeaderField;
         
         private CCWFM.RouteCardService.TblBrandBudgetHeader TblBrandBudgetHeader1Field;
@@ -25265,6 +24573,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -25521,6 +24842,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<double> ProfitPercentageField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblMasterStyleList> TblMasterStyleListsField;
@@ -25608,6 +24931,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -25673,6 +25009,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblFactoryGroupField;
         
         private CCWFM.RouteCardService.TblFactoryGroup TblFactoryGroup1Field;
@@ -25729,6 +25067,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -25797,6 +25148,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpBrandSectionField;
         
         private CCWFM.RouteCardService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -25856,6 +25209,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -26040,6 +25406,8 @@ namespace CCWFM.RouteCardService {
         
         private string SubSeasonCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetHeader> TblBrandBudgetHeadersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblColorLink> TblColorLinksField;
@@ -26187,6 +25555,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SubSeasonCodeField, value) != true)) {
                     this.SubSeasonCodeField = value;
                     this.RaisePropertyChanged("SubSeasonCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -26418,6 +25799,10 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblColorLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblColorLink : CCWFM.RouteCardService.EntityObject {
         
+        private string PantonCodeField;
+        
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblColorField;
@@ -26437,6 +25822,32 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblLkpSeason TblLkpSeason1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblLkpSeasono0bgEGGO TblLkpSeason1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantonCode {
+            get {
+                return this.PantonCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantonCodeField, value) != true)) {
+                    this.PantonCodeField = value;
+                    this.RaisePropertyChanged("PantonCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -26607,6 +26018,8 @@ namespace CCWFM.RouteCardService {
         private decimal SecondClassRatioField;
         
         private int SupplierIserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblContractHeaderField;
         
@@ -26856,6 +26269,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblContractHeader {
             get {
                 return this.TblContractHeaderField;
@@ -27038,6 +26464,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractHeaderDel> TblContractHeaderDelsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractHeader> TblContractHeadersField;
@@ -27094,6 +26522,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -27182,6 +26623,8 @@ namespace CCWFM.RouteCardService {
         
         private System.DateTime DocDateField;
         
+        private bool IsCanceledField;
+        
         private int IserialField;
         
         private System.DateTime LastChangeDateField;
@@ -27204,13 +26647,19 @@ namespace CCWFM.RouteCardService {
         
         private decimal SecondClassRatioField;
         
+        private System.Nullable<int> StatusField;
+        
         private CCWFM.RouteCardService.TBLsupplier SupplierField;
         
         private int SupplierIserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail> TblContractDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractPaymentByPeriod> TblContractPaymentByPeriodsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractSubHeader> TblContractSubHeadersField;
         
         private int TblCurrencyField;
         
@@ -27410,6 +26859,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -27553,6 +27015,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TBLsupplier Supplier {
             get {
                 return this.SupplierField;
@@ -27579,6 +27054,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail> TblContractDetails {
             get {
                 return this.TblContractDetailsField;
@@ -27600,6 +27088,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblContractPaymentByPeriodsField, value) != true)) {
                     this.TblContractPaymentByPeriodsField = value;
                     this.RaisePropertyChanged("TblContractPaymentByPeriods");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractSubHeader> TblContractSubHeaders {
+            get {
+                return this.TblContractSubHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeadersField, value) != true)) {
+                    this.TblContractSubHeadersField = value;
+                    this.RaisePropertyChanged("TblContractSubHeaders");
                 }
             }
         }
@@ -30973,6 +30474,8 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGlChequeTransactionDetail> TblGlChequeTransactionDetailsField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblVisaMachine> TblVisaMachinesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -31231,6 +30734,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblCurrency1ReferenceField, value) != true)) {
                     this.TblCurrency1ReferenceField = value;
                     this.RaisePropertyChanged("TblCurrency1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGlChequeTransactionDetail> TblGlChequeTransactionDetails {
+            get {
+                return this.TblGlChequeTransactionDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGlChequeTransactionDetailsField, value) != true)) {
+                    this.TblGlChequeTransactionDetailsField = value;
+                    this.RaisePropertyChanged("TblGlChequeTransactionDetails");
                 }
             }
         }
@@ -33211,6 +32727,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> Dserial1Field;
         
+        private System.Nullable<float> EODQTYField;
+        
         private System.Nullable<System.DateTime> ExdateField;
         
         private System.Nullable<int> FlgField;
@@ -33226,6 +32744,10 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<float> LastStoreQtyField;
         
         private System.Nullable<float> OldCostField;
+        
+        private System.Nullable<float> RPrice1Field;
+        
+        private System.Nullable<float> RPrice3Field;
         
         private System.Nullable<float> SalespriceField;
         
@@ -33277,6 +32799,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.Dserial1Field.Equals(value) != true)) {
                     this.Dserial1Field = value;
                     this.RaisePropertyChanged("Dserial1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> EODQTY {
+            get {
+                return this.EODQTYField;
+            }
+            set {
+                if ((this.EODQTYField.Equals(value) != true)) {
+                    this.EODQTYField = value;
+                    this.RaisePropertyChanged("EODQTY");
                 }
             }
         }
@@ -33381,6 +32916,32 @@ namespace CCWFM.RouteCardService {
                 if ((this.OldCostField.Equals(value) != true)) {
                     this.OldCostField = value;
                     this.RaisePropertyChanged("OldCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> RPrice1 {
+            get {
+                return this.RPrice1Field;
+            }
+            set {
+                if ((this.RPrice1Field.Equals(value) != true)) {
+                    this.RPrice1Field = value;
+                    this.RaisePropertyChanged("RPrice1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> RPrice3 {
+            get {
+                return this.RPrice3Field;
+            }
+            set {
+                if ((this.RPrice3Field.Equals(value) != true)) {
+                    this.RPrice3Field = value;
+                    this.RaisePropertyChanged("RPrice3");
                 }
             }
         }
@@ -42345,6 +41906,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblPromoDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblPromoDetail : CCWFM.RouteCardService.EntityObject {
         
+        private System.Nullable<decimal> AvailableLimitField;
+        
         private string CodeField;
         
         private int GlserialField;
@@ -42370,6 +41933,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.EntityReferenceOfTblPromoHeadero0bgEGGO TblPromoHeader1ReferenceField;
         
         private System.Nullable<System.DateTime> UseDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AvailableLimit {
+            get {
+                return this.AvailableLimitField;
+            }
+            set {
+                if ((this.AvailableLimitField.Equals(value) != true)) {
+                    this.AvailableLimitField = value;
+                    this.RaisePropertyChanged("AvailableLimit");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Code {
@@ -43563,8 +43139,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblTenderType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblTenderType : CCWFM.RouteCardService.EntityObject {
         
-        private System.Nullable<int> AllowOneBenefitOnlyField;
-        
         private System.Nullable<decimal> CardSalsDiscPField;
         
         private System.Nullable<decimal> GLBankComPField;
@@ -43594,19 +43168,6 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<byte> duetypeField;
         
         private string enameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> AllowOneBenefitOnly {
-            get {
-                return this.AllowOneBenefitOnlyField;
-            }
-            set {
-                if ((this.AllowOneBenefitOnlyField.Equals(value) != true)) {
-                    this.AllowOneBenefitOnlyField = value;
-                    this.RaisePropertyChanged("AllowOneBenefitOnly");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> CardSalsDiscP {
@@ -44057,6 +43618,8 @@ namespace CCWFM.RouteCardService {
         
         private string AnameField;
         
+        private System.Nullable<int> DepositeTypeGroupField;
+        
         private string EnameField;
         
         private int IserialField;
@@ -44084,6 +43647,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.AnameField, value) != true)) {
                     this.AnameField = value;
                     this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DepositeTypeGroup {
+            get {
+                return this.DepositeTypeGroupField;
+            }
+            set {
+                if ((this.DepositeTypeGroupField.Equals(value) != true)) {
+                    this.DepositeTypeGroupField = value;
+                    this.RaisePropertyChanged("DepositeTypeGroup");
                 }
             }
         }
@@ -47968,6 +47544,12 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReferenceField;
         
+        private System.Nullable<int> TblBankField;
+        
+        private CCWFM.RouteCardService.TblBank TblBank1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblBanko0bgEGGO TblBank1ReferenceField;
+        
         private System.Nullable<int> TblBankChequeField;
         
         private CCWFM.RouteCardService.TblBankCheque TblBankCheque1Field;
@@ -48262,6 +47844,45 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblAccountReferenceField, value) != true)) {
                     this.TblAccountReferenceField = value;
                     this.RaisePropertyChanged("TblAccountReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBank {
+            get {
+                return this.TblBankField;
+            }
+            set {
+                if ((this.TblBankField.Equals(value) != true)) {
+                    this.TblBankField = value;
+                    this.RaisePropertyChanged("TblBank");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblBank TblBank1 {
+            get {
+                return this.TblBank1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBank1Field, value) != true)) {
+                    this.TblBank1Field = value;
+                    this.RaisePropertyChanged("TblBank1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblBanko0bgEGGO TblBank1Reference {
+            get {
+                return this.TblBank1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBank1ReferenceField, value) != true)) {
+                    this.TblBank1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBank1Reference");
                 }
             }
         }
@@ -54880,9 +54501,15 @@ namespace CCWFM.RouteCardService {
         
         private string MaterialField;
         
+        private decimal OldTotalField;
+        
         private decimal OperationCostField;
         
         private int QtyField;
+        
+        private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -54896,6 +54523,12 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
         
+        private System.Nullable<int> TblContractSubHeaderField;
+        
+        private CCWFM.RouteCardService.TblContractSubHeader TblContractSubHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1ReferenceField;
+        
         private System.Nullable<int> TblLkpBrandSectionField;
         
         private CCWFM.RouteCardService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -54907,6 +54540,14 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblSalesOrderColor TblSalesOrderColor1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1ReferenceField;
+        
+        private decimal TotalField;
+        
+        private System.Nullable<int> UpdateTypeField;
+        
+        private System.Nullable<System.DateTime> UpdatedDeliveryDateField;
+        
+        private System.Nullable<int> UpdatedQtyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal AccCost {
@@ -55052,6 +54693,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal OldTotal {
+            get {
+                return this.OldTotalField;
+            }
+            set {
+                if ((this.OldTotalField.Equals(value) != true)) {
+                    this.OldTotalField = value;
+                    this.RaisePropertyChanged("OldTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public decimal OperationCost {
             get {
                 return this.OperationCostField;
@@ -55073,6 +54727,32 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -55156,6 +54836,45 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeader {
+            get {
+                return this.TblContractSubHeaderField;
+            }
+            set {
+                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
+                    this.TblContractSubHeaderField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblContractSubHeader TblContractSubHeader1 {
+            get {
+                return this.TblContractSubHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1Field, value) != true)) {
+                    this.TblContractSubHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1Reference {
+            get {
+                return this.TblContractSubHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1ReferenceField, value) != true)) {
+                    this.TblContractSubHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblLkpBrandSection {
             get {
                 return this.TblLkpBrandSectionField;
@@ -55232,6 +54951,565 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UpdateType {
+            get {
+                return this.UpdateTypeField;
+            }
+            set {
+                if ((this.UpdateTypeField.Equals(value) != true)) {
+                    this.UpdateTypeField = value;
+                    this.RaisePropertyChanged("UpdateType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UpdatedDeliveryDate {
+            get {
+                return this.UpdatedDeliveryDateField;
+            }
+            set {
+                if ((this.UpdatedDeliveryDateField.Equals(value) != true)) {
+                    this.UpdatedDeliveryDateField = value;
+                    this.RaisePropertyChanged("UpdatedDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UpdatedQty {
+            get {
+                return this.UpdatedQtyField;
+            }
+            set {
+                if ((this.UpdatedQtyField.Equals(value) != true)) {
+                    this.UpdatedQtyField = value;
+                    this.RaisePropertyChanged("UpdatedQty");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractSubHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractSubHeader : CCWFM.RouteCardService.EntityObject {
+        
+        private System.Nullable<decimal> AmountField;
+        
+        private System.Nullable<System.DateTime> ApproveDateField;
+        
+        private System.Nullable<bool> ApprovedField;
+        
+        private System.Nullable<int> ApprovedByField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private System.Nullable<int> TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail> TblContractDetailsField;
+        
+        private System.Nullable<int> TblContractHeaderField;
+        
+        private CCWFM.RouteCardService.TblContractHeader TblContractHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractPaymentByPeriod> TblContractPaymentByPeriodsField;
+        
+        private System.Nullable<int> TblContractSubHeaderStatusField;
+        
+        private System.Nullable<int> VersionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ApproveDate {
+            get {
+                return this.ApproveDateField;
+            }
+            set {
+                if ((this.ApproveDateField.Equals(value) != true)) {
+                    this.ApproveDateField = value;
+                    this.RaisePropertyChanged("ApproveDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ApprovedBy {
+            get {
+                return this.ApprovedByField;
+            }
+            set {
+                if ((this.ApprovedByField.Equals(value) != true)) {
+                    this.ApprovedByField = value;
+                    this.RaisePropertyChanged("ApprovedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail> TblContractDetails {
+            get {
+                return this.TblContractDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractDetailsField, value) != true)) {
+                    this.TblContractDetailsField = value;
+                    this.RaisePropertyChanged("TblContractDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblContractHeader TblContractHeader1 {
+            get {
+                return this.TblContractHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
+                    this.TblContractHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
+            get {
+                return this.TblContractHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
+                    this.TblContractHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractPaymentByPeriod> TblContractPaymentByPeriods {
+            get {
+                return this.TblContractPaymentByPeriodsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractPaymentByPeriodsField, value) != true)) {
+                    this.TblContractPaymentByPeriodsField = value;
+                    this.RaisePropertyChanged("TblContractPaymentByPeriods");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeaderStatus {
+            get {
+                return this.TblContractSubHeaderStatusField;
+            }
+            set {
+                if ((this.TblContractSubHeaderStatusField.Equals(value) != true)) {
+                    this.TblContractSubHeaderStatusField = value;
+                    this.RaisePropertyChanged("TblContractSubHeaderStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((this.VersionField.Equals(value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractPaymentByPeriod", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractPaymentByPeriod : CCWFM.RouteCardService.EntityObject {
+        
+        private System.Nullable<decimal> AmountPercentField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private string DescriptionField;
+        
+        private System.DateTime DueDateField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblContractHeaderField;
+        
+        private CCWFM.RouteCardService.TblContractHeader TblContractHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
+        
+        private System.Nullable<int> TblContractSubHeaderField;
+        
+        private CCWFM.RouteCardService.TblContractSubHeader TblContractSubHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AmountPercent {
+            get {
+                return this.AmountPercentField;
+            }
+            set {
+                if ((this.AmountPercentField.Equals(value) != true)) {
+                    this.AmountPercentField = value;
+                    this.RaisePropertyChanged("AmountPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DueDate {
+            get {
+                return this.DueDateField;
+            }
+            set {
+                if ((this.DueDateField.Equals(value) != true)) {
+                    this.DueDateField = value;
+                    this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblContractHeader TblContractHeader1 {
+            get {
+                return this.TblContractHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
+                    this.TblContractHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
+            get {
+                return this.TblContractHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
+                    this.TblContractHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblContractSubHeader {
+            get {
+                return this.TblContractSubHeaderField;
+            }
+            set {
+                if ((this.TblContractSubHeaderField.Equals(value) != true)) {
+                    this.TblContractSubHeaderField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblContractSubHeader TblContractSubHeader1 {
+            get {
+                return this.TblContractSubHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1Field, value) != true)) {
+                    this.TblContractSubHeader1Field = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO TblContractSubHeader1Reference {
+            get {
+                return this.TblContractSubHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblContractSubHeader1ReferenceField, value) != true)) {
+                    this.TblContractSubHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblContractSubHeader1Reference");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -55240,6 +55518,8 @@ namespace CCWFM.RouteCardService {
     public partial class TblSalesOrderColor : CCWFM.RouteCardService.EntityObject {
         
         private System.Nullable<decimal> AdditionalCostField;
+        
+        private bool CanceledField;
         
         private System.Nullable<decimal> CostField;
         
@@ -55257,13 +55537,17 @@ namespace CCWFM.RouteCardService {
         
         private string NotesField;
         
+        private System.Nullable<int> RequestForCancelField;
+        
+        private System.Nullable<decimal> RetailTargetPriceField;
+        
+        private int TBlWFCompanyField;
+        
         private int TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetailDel> TblContractDetailDelsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail> TblContractDetailsField;
         
@@ -55296,6 +55580,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.AdditionalCostField.Equals(value) != true)) {
                     this.AdditionalCostField = value;
                     this.RaisePropertyChanged("AdditionalCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Canceled {
+            get {
+                return this.CanceledField;
+            }
+            set {
+                if ((this.CanceledField.Equals(value) != true)) {
+                    this.CanceledField = value;
+                    this.RaisePropertyChanged("Canceled");
                 }
             }
         }
@@ -55405,6 +55702,45 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> RequestForCancel {
+            get {
+                return this.RequestForCancelField;
+            }
+            set {
+                if ((this.RequestForCancelField.Equals(value) != true)) {
+                    this.RequestForCancelField = value;
+                    this.RaisePropertyChanged("RequestForCancel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> RetailTargetPrice {
+            get {
+                return this.RetailTargetPriceField;
+            }
+            set {
+                if ((this.RetailTargetPriceField.Equals(value) != true)) {
+                    this.RetailTargetPriceField = value;
+                    this.RaisePropertyChanged("RetailTargetPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -55439,19 +55775,6 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
                     this.TblColor1ReferenceField = value;
                     this.RaisePropertyChanged("TblColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetailDel> TblContractDetailDels {
-            get {
-                return this.TblContractDetailDelsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractDetailDelsField, value) != true)) {
-                    this.TblContractDetailDelsField = value;
-                    this.RaisePropertyChanged("TblContractDetailDels");
                 }
             }
         }
@@ -55602,312 +55925,6 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractDetailDel", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblContractDetailDel : CCWFM.RouteCardService.EntityObject {
-        
-        private decimal AccCostField;
-        
-        private decimal CostField;
-        
-        private int CreatedByField;
-        
-        private System.DateTime CreationDateField;
-        
-        private System.DateTime DeliveryDateField;
-        
-        private decimal FabricCostField;
-        
-        private int IserialField;
-        
-        private System.Nullable<System.DateTime> LastChangeDateField;
-        
-        private System.Nullable<int> LastChangeUserField;
-        
-        private string MaterialField;
-        
-        private decimal OperationCostField;
-        
-        private int QtyField;
-        
-        private int TblColorField;
-        
-        private CCWFM.RouteCardService.TblColor1 TblColor1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
-        
-        private int TblContractHeaderField;
-        
-        private System.Nullable<int> TblLkpBrandSectionField;
-        
-        private int TblSalesOrderColorField;
-        
-        private CCWFM.RouteCardService.TblSalesOrderColor TblSalesOrderColor1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal AccCost {
-            get {
-                return this.AccCostField;
-            }
-            set {
-                if ((this.AccCostField.Equals(value) != true)) {
-                    this.AccCostField = value;
-                    this.RaisePropertyChanged("AccCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((this.CreatedByField.Equals(value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DeliveryDate {
-            get {
-                return this.DeliveryDateField;
-            }
-            set {
-                if ((this.DeliveryDateField.Equals(value) != true)) {
-                    this.DeliveryDateField = value;
-                    this.RaisePropertyChanged("DeliveryDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal FabricCost {
-            get {
-                return this.FabricCostField;
-            }
-            set {
-                if ((this.FabricCostField.Equals(value) != true)) {
-                    this.FabricCostField = value;
-                    this.RaisePropertyChanged("FabricCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastChangeDate {
-            get {
-                return this.LastChangeDateField;
-            }
-            set {
-                if ((this.LastChangeDateField.Equals(value) != true)) {
-                    this.LastChangeDateField = value;
-                    this.RaisePropertyChanged("LastChangeDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastChangeUser {
-            get {
-                return this.LastChangeUserField;
-            }
-            set {
-                if ((this.LastChangeUserField.Equals(value) != true)) {
-                    this.LastChangeUserField = value;
-                    this.RaisePropertyChanged("LastChangeUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Material {
-            get {
-                return this.MaterialField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MaterialField, value) != true)) {
-                    this.MaterialField = value;
-                    this.RaisePropertyChanged("Material");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal OperationCost {
-            get {
-                return this.OperationCostField;
-            }
-            set {
-                if ((this.OperationCostField.Equals(value) != true)) {
-                    this.OperationCostField = value;
-                    this.RaisePropertyChanged("OperationCost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblColor {
-            get {
-                return this.TblColorField;
-            }
-            set {
-                if ((this.TblColorField.Equals(value) != true)) {
-                    this.TblColorField = value;
-                    this.RaisePropertyChanged("TblColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblColor1 TblColor1 {
-            get {
-                return this.TblColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
-                    this.TblColor1Field = value;
-                    this.RaisePropertyChanged("TblColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
-            get {
-                return this.TblColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
-                    this.TblColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblColor1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblContractHeader {
-            get {
-                return this.TblContractHeaderField;
-            }
-            set {
-                if ((this.TblContractHeaderField.Equals(value) != true)) {
-                    this.TblContractHeaderField = value;
-                    this.RaisePropertyChanged("TblContractHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblLkpBrandSection {
-            get {
-                return this.TblLkpBrandSectionField;
-            }
-            set {
-                if ((this.TblLkpBrandSectionField.Equals(value) != true)) {
-                    this.TblLkpBrandSectionField = value;
-                    this.RaisePropertyChanged("TblLkpBrandSection");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblSalesOrderColor {
-            get {
-                return this.TblSalesOrderColorField;
-            }
-            set {
-                if ((this.TblSalesOrderColorField.Equals(value) != true)) {
-                    this.TblSalesOrderColorField = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblSalesOrderColor TblSalesOrderColor1 {
-            get {
-                return this.TblSalesOrderColor1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblSalesOrderColor1Field, value) != true)) {
-                    this.TblSalesOrderColor1Field = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO TblSalesOrderColor1Reference {
-            get {
-                return this.TblSalesOrderColor1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblSalesOrderColor1ReferenceField, value) != true)) {
-                    this.TblSalesOrderColor1ReferenceField = value;
-                    this.RaisePropertyChanged("TblSalesOrderColor1Reference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSalesOrderColorTheme", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSalesOrderColorTheme : CCWFM.RouteCardService.EntityObject {
         
@@ -55922,6 +55939,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<System.DateTime> ShopDeliveryDateField;
+        
+        private int TBlWFCompanyField;
         
         private string TblBrandField;
         
@@ -56013,6 +56032,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.ShopDeliveryDateField.Equals(value) != true)) {
                     this.ShopDeliveryDateField = value;
                     this.RaisePropertyChanged("ShopDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56129,15 +56161,29 @@ namespace CCWFM.RouteCardService {
         
         private bool CanceledField;
         
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
         private System.Nullable<System.DateTime> DelivaryDateField;
         
+        private System.Nullable<bool> IsApprovedField;
+        
+        private System.Nullable<bool> IsCanceledField;
+        
         private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
         
         private bool ManualCalculationField;
         
         private int QtyField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -56173,6 +56219,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> DelivaryDate {
             get {
                 return this.DelivaryDateField;
@@ -56186,6 +56258,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsApproved {
+            get {
+                return this.IsApprovedField;
+            }
+            set {
+                if ((this.IsApprovedField.Equals(value) != true)) {
+                    this.IsApprovedField = value;
+                    this.RaisePropertyChanged("IsApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -56194,6 +56292,32 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
                 }
             }
         }
@@ -56233,6 +56357,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
                     this.SupplierColorCodeField = value;
                     this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -56381,6 +56518,8 @@ namespace CCWFM.RouteCardService {
         
         private string SizeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblSeasonalMasterListField;
         
         private CCWFM.RouteCardService.TblSeasonalMasterList TblSeasonalMasterList1Field;
@@ -56440,6 +56579,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSeasonalMasterList {
             get {
                 return this.TblSeasonalMasterListField;
@@ -56494,6 +56646,8 @@ namespace CCWFM.RouteCardService {
         
         private string BrandField;
         
+        private System.Nullable<double> CCTargetCostPriceField;
+        
         private bool CanceledField;
         
         private string CreatedByField;
@@ -56511,6 +56665,8 @@ namespace CCWFM.RouteCardService {
         private string Fabric3Field;
         
         private System.Nullable<double> FabricCostField;
+        
+        private string GenericFabricNotesField;
         
         private System.Nullable<bool> IsPostedOnAxaptaField;
         
@@ -56530,6 +56686,8 @@ namespace CCWFM.RouteCardService {
         
         private double RetailTargetCostPriceField;
         
+        private string SeasonalMasterListNotesField;
+        
         private string SerialNoField;
         
         private int StatusField;
@@ -56540,6 +56698,8 @@ namespace CCWFM.RouteCardService {
         
         private string SupplierRefField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<System.DateTime> TNACreationDateField;
         
         private double TargetCostPriceField;
@@ -56549,6 +56709,12 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblFamily TblFamily1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblFamilyo0bgEGGO TblFamily1ReferenceField;
+        
+        private System.Nullable<int> TblGenericFabricField;
+        
+        private CCWFM.RouteCardService.TblGenericFabric TblGenericFabric1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblGenericFabrico0bgEGGO TblGenericFabric1ReferenceField;
         
         private int TblGroup1Field;
         
@@ -56578,6 +56744,8 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfTblLkpSeasono0bgEGGO TblLkpSeason1ReferenceField;
         
+        private System.Nullable<int> TblPrintTypeField;
+        
         private CCWFM.RouteCardService.TblSalesOrderColorTheme TblSalesOrderColorThemeField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO TblSalesOrderColorThemeReferenceField;
@@ -56606,7 +56774,11 @@ namespace CCWFM.RouteCardService {
         
         private CCWFM.RouteCardService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO TblStyleFabricComposition1ReferenceField;
         
+        private System.Nullable<int> TblStyleFitTypeField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleImage> TblStyleImagesField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleSpecDetail> TblStyleSpecDetailsField;
         
         private CCWFM.RouteCardService.TblStyleStatu TblStyleStatuField;
         
@@ -56627,6 +56799,8 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblSupplierFabric TblSupplierFabric1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSupplierFabrico0bgEGGO TblSupplierFabric1ReferenceField;
+        
+        private System.Nullable<int> TblWfFabricAttriputesField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackBOMComment> tblTechPackBOMCommentsField;
         
@@ -56709,6 +56883,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.BrandField, value) != true)) {
                     this.BrandField = value;
                     this.RaisePropertyChanged("Brand");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> CCTargetCostPrice {
+            get {
+                return this.CCTargetCostPriceField;
+            }
+            set {
+                if ((this.CCTargetCostPriceField.Equals(value) != true)) {
+                    this.CCTargetCostPriceField = value;
+                    this.RaisePropertyChanged("CCTargetCostPrice");
                 }
             }
         }
@@ -56831,6 +57018,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GenericFabricNotes {
+            get {
+                return this.GenericFabricNotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenericFabricNotesField, value) != true)) {
+                    this.GenericFabricNotesField = value;
+                    this.RaisePropertyChanged("GenericFabricNotes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> IsPostedOnAxapta {
             get {
                 return this.IsPostedOnAxaptaField;
@@ -56948,6 +57148,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SeasonalMasterListNotes {
+            get {
+                return this.SeasonalMasterListNotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeasonalMasterListNotesField, value) != true)) {
+                    this.SeasonalMasterListNotesField = value;
+                    this.RaisePropertyChanged("SeasonalMasterListNotes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string SerialNo {
             get {
                 return this.SerialNoField;
@@ -57013,6 +57226,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> TNACreationDate {
             get {
                 return this.TNACreationDateField;
@@ -57073,6 +57299,45 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblFamily1ReferenceField, value) != true)) {
                     this.TblFamily1ReferenceField = value;
                     this.RaisePropertyChanged("TblFamily1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblGenericFabric {
+            get {
+                return this.TblGenericFabricField;
+            }
+            set {
+                if ((this.TblGenericFabricField.Equals(value) != true)) {
+                    this.TblGenericFabricField = value;
+                    this.RaisePropertyChanged("TblGenericFabric");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblGenericFabric TblGenericFabric1 {
+            get {
+                return this.TblGenericFabric1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGenericFabric1Field, value) != true)) {
+                    this.TblGenericFabric1Field = value;
+                    this.RaisePropertyChanged("TblGenericFabric1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblGenericFabrico0bgEGGO TblGenericFabric1Reference {
+            get {
+                return this.TblGenericFabric1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGenericFabric1ReferenceField, value) != true)) {
+                    this.TblGenericFabric1ReferenceField = value;
+                    this.RaisePropertyChanged("TblGenericFabric1Reference");
                 }
             }
         }
@@ -57260,6 +57525,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPrintType {
+            get {
+                return this.TblPrintTypeField;
+            }
+            set {
+                if ((this.TblPrintTypeField.Equals(value) != true)) {
+                    this.TblPrintTypeField = value;
+                    this.RaisePropertyChanged("TblPrintType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblSalesOrderColorTheme TblSalesOrderColorTheme {
             get {
                 return this.TblSalesOrderColorThemeField;
@@ -57442,6 +57720,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleFitType {
+            get {
+                return this.TblStyleFitTypeField;
+            }
+            set {
+                if ((this.TblStyleFitTypeField.Equals(value) != true)) {
+                    this.TblStyleFitTypeField = value;
+                    this.RaisePropertyChanged("TblStyleFitType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleImage> TblStyleImages {
             get {
                 return this.TblStyleImagesField;
@@ -57450,6 +57741,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblStyleImagesField, value) != true)) {
                     this.TblStyleImagesField = value;
                     this.RaisePropertyChanged("TblStyleImages");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleSpecDetail> TblStyleSpecDetails {
+            get {
+                return this.TblStyleSpecDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailsField, value) != true)) {
+                    this.TblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetails");
                 }
             }
         }
@@ -57580,6 +57884,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblSupplierFabric1ReferenceField, value) != true)) {
                     this.TblSupplierFabric1ReferenceField = value;
                     this.RaisePropertyChanged("TblSupplierFabric1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblWfFabricAttriputes {
+            get {
+                return this.TblWfFabricAttriputesField;
+            }
+            set {
+                if ((this.TblWfFabricAttriputesField.Equals(value) != true)) {
+                    this.TblWfFabricAttriputesField = value;
+                    this.RaisePropertyChanged("TblWfFabricAttriputes");
                 }
             }
         }
@@ -57726,11 +58043,15 @@ namespace CCWFM.RouteCardService {
         
         private string EnameField;
         
+        private System.Nullable<bool> HasTwinField;
+        
         private bool IncludeSubField;
         
         private int IserialField;
         
-        private System.Nullable<int> StartIserialField;
+        private int StartIserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -57782,6 +58103,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> HasTwin {
+            get {
+                return this.HasTwinField;
+            }
+            set {
+                if ((this.HasTwinField.Equals(value) != true)) {
+                    this.HasTwinField = value;
+                    this.RaisePropertyChanged("HasTwin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IncludeSub {
             get {
                 return this.IncludeSubField;
@@ -57808,7 +58142,7 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> StartIserial {
+        public int StartIserial {
             get {
                 return this.StartIserialField;
             }
@@ -57816,6 +58150,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StartIserialField.Equals(value) != true)) {
                     this.StartIserialField = value;
                     this.RaisePropertyChanged("StartIserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -57891,6 +58238,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblFamilyCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblFamilyCategoryLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -57904,6 +58253,19 @@ namespace CCWFM.RouteCardService {
         private int TblLkpDirectionField;
         
         private int TblStyleCategoryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58002,6 +58364,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblFamilyLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblFamilyLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -58013,6 +58377,19 @@ namespace CCWFM.RouteCardService {
         private int TblLkpBrandSectionField;
         
         private System.Nullable<int> TblStyleCategoryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58108,6 +58485,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> SubFamilyLinkField;
         
+        private int TBlWFCompanyField;
+        
         private int TblFamilyField;
         
         private CCWFM.RouteCardService.TblFamily TblFamily1Field;
@@ -58181,6 +58560,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.SubFamilyLinkField.Equals(value) != true)) {
                     this.SubFamilyLinkField = value;
                     this.RaisePropertyChanged("SubFamilyLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -58269,6 +58661,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSubFamilyCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSubFamilyCategoryLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -58284,6 +58678,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblSubFamily TblSubFamily1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSubFamilyo0bgEGGO TblSubFamily1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58395,6 +58802,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSubFamilyLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSubFamilyLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblFamilyField;
@@ -58406,6 +58815,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblSubFamily TblSubFamily1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSubFamilyo0bgEGGO TblSubFamily1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58488,6 +58910,117 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblGenericFabric", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblGenericFabric : CCWFM.RouteCardService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
+        
+        private string TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
+            get {
+                return this.TblStylesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStylesField, value) != true)) {
+                    this.TblStylesField = value;
+                    this.RaisePropertyChanged("TblStyles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblLkpDirection", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblLkpDirection : CCWFM.RouteCardService.EntityObject {
         
@@ -58498,6 +59031,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -58558,6 +59093,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -58602,6 +59150,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblLkpDirectionLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblLkpDirectionLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -58611,6 +59161,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblLkpDirection TblLkpDirection1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblLkpDirectiono0bgEGGO TblLkpDirection1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58694,6 +59257,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<int> SizeGroupTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSizeGroupLink> TblSizeGroupLinksField;
         
@@ -58780,6 +59345,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSizeGroupLink> TblSizeGroupLinks {
             get {
                 return this.TblSizeGroupLinksField;
@@ -58824,6 +59402,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSizeGroupLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSizeGroupLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -58833,6 +59413,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblSizeGroup TblSizeGroup1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblSizeGroupo0bgEGGO TblSizeGroup1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -58911,6 +59504,8 @@ namespace CCWFM.RouteCardService {
         
         private string SizeCodeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblSizeGroupField;
         
         private CCWFM.RouteCardService.TblSizeGroup TblSizeGroup1Field;
@@ -58952,6 +59547,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SizeCodeField, value) != true)) {
                     this.SizeCodeField = value;
                     this.RaisePropertyChanged("SizeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59012,6 +59620,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private int TblStyleField;
         
@@ -59098,6 +59708,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblStyle {
             get {
                 return this.TblStyleField;
@@ -59149,6 +59772,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetailsField;
         
@@ -59209,6 +59834,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandBudgetDetail> TblBrandBudgetDetails {
             get {
                 return this.TblBrandBudgetDetailsField;
@@ -59253,6 +59891,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleCategoryLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleCategoryLink : CCWFM.RouteCardService.EntityObject {
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private int TblLkpBrandSectionField;
@@ -59264,6 +59904,19 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblStyleCategory TblStyleCategory1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblStyleCategoryo0bgEGGO TblStyleCategory1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TblBrand {
@@ -59357,6 +60010,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -59412,6 +60067,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -59449,6 +60117,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -59593,6 +60263,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -59673,6 +60356,444 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleSpecDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleSpecDetail : CCWFM.RouteCardService.EntityObject {
+        
+        private string AccessoryCodeField;
+        
+        private string DescriptionField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblStyleField;
+        
+        private CCWFM.RouteCardService.TblStyle TblStyle1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblStyleo0bgEGGO TblStyle1ReferenceField;
+        
+        private CCWFM.RouteCardService.TblStyleSpecType TblStyleSpecTypeField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO TblStyleSpecTypeReferenceField;
+        
+        private System.Nullable<int> TblStyleSpecTypesField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblStyleSpecDetailAttachment> tblStyleSpecDetailAttachmentsField;
+        
+        private System.Nullable<int> tblWFAccessoryAttributesHeaderField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccessoryCode {
+            get {
+                return this.AccessoryCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AccessoryCodeField, value) != true)) {
+                    this.AccessoryCodeField = value;
+                    this.RaisePropertyChanged("AccessoryCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblStyle {
+            get {
+                return this.TblStyleField;
+            }
+            set {
+                if ((this.TblStyleField.Equals(value) != true)) {
+                    this.TblStyleField = value;
+                    this.RaisePropertyChanged("TblStyle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblStyle TblStyle1 {
+            get {
+                return this.TblStyle1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyle1Field, value) != true)) {
+                    this.TblStyle1Field = value;
+                    this.RaisePropertyChanged("TblStyle1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblStyleo0bgEGGO TblStyle1Reference {
+            get {
+                return this.TblStyle1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyle1ReferenceField, value) != true)) {
+                    this.TblStyle1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStyle1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblStyleSpecType TblStyleSpecType {
+            get {
+                return this.TblStyleSpecTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecTypeField, value) != true)) {
+                    this.TblStyleSpecTypeField = value;
+                    this.RaisePropertyChanged("TblStyleSpecType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO TblStyleSpecTypeReference {
+            get {
+                return this.TblStyleSpecTypeReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecTypeReferenceField, value) != true)) {
+                    this.TblStyleSpecTypeReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleSpecTypeReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleSpecTypes {
+            get {
+                return this.TblStyleSpecTypesField;
+            }
+            set {
+                if ((this.TblStyleSpecTypesField.Equals(value) != true)) {
+                    this.TblStyleSpecTypesField = value;
+                    this.RaisePropertyChanged("TblStyleSpecTypes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblStyleSpecDetailAttachment> tblStyleSpecDetailAttachments {
+            get {
+                return this.tblStyleSpecDetailAttachmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblStyleSpecDetailAttachmentsField, value) != true)) {
+                    this.tblStyleSpecDetailAttachmentsField = value;
+                    this.RaisePropertyChanged("tblStyleSpecDetailAttachments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblWFAccessoryAttributesHeader {
+            get {
+                return this.tblWFAccessoryAttributesHeaderField;
+            }
+            set {
+                if ((this.tblWFAccessoryAttributesHeaderField.Equals(value) != true)) {
+                    this.tblWFAccessoryAttributesHeaderField = value;
+                    this.RaisePropertyChanged("tblWFAccessoryAttributesHeader");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleSpecType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleSpecType : CCWFM.RouteCardService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleSpecDetail> TblStyleSpecDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleSpecDetail> TblStyleSpecDetails {
+            get {
+                return this.TblStyleSpecDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailsField, value) != true)) {
+                    this.TblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblStyleSpecDetailAttachment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class tblStyleSpecDetailAttachment : CCWFM.RouteCardService.EntityObject {
+        
+        private string FileNameField;
+        
+        private byte[] ImageThumbField;
+        
+        private int IserialField;
+        
+        private string NotesField;
+        
+        private int TBlWFCompanyField;
+        
+        private CCWFM.RouteCardService.TblStyleSpecDetail TblStyleSpecDetailField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO TblStyleSpecDetailReferenceField;
+        
+        private string galaryLinkField;
+        
+        private string galaryLintField;
+        
+        private System.Nullable<int> tblStyleSpecDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ImageThumb {
+            get {
+                return this.ImageThumbField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageThumbField, value) != true)) {
+                    this.ImageThumbField = value;
+                    this.RaisePropertyChanged("ImageThumb");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblStyleSpecDetail TblStyleSpecDetail {
+            get {
+                return this.TblStyleSpecDetailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailField, value) != true)) {
+                    this.TblStyleSpecDetailField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO TblStyleSpecDetailReference {
+            get {
+                return this.TblStyleSpecDetailReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleSpecDetailReferenceField, value) != true)) {
+                    this.TblStyleSpecDetailReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleSpecDetailReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLink {
+            get {
+                return this.galaryLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLinkField, value) != true)) {
+                    this.galaryLinkField = value;
+                    this.RaisePropertyChanged("galaryLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLint {
+            get {
+                return this.galaryLintField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLintField, value) != true)) {
+                    this.galaryLintField = value;
+                    this.RaisePropertyChanged("galaryLint");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblStyleSpecDetails {
+            get {
+                return this.tblStyleSpecDetailsField;
+            }
+            set {
+                if ((this.tblStyleSpecDetailsField.Equals(value) != true)) {
+                    this.tblStyleSpecDetailsField = value;
+                    this.RaisePropertyChanged("tblStyleSpecDetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleStatu : CCWFM.RouteCardService.EntityObject {
         
@@ -59683,6 +60804,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
         
@@ -59739,6 +60862,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -59779,11 +60915,17 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> LocalCostField;
         
+        private string NotesField;
+        
         private System.Nullable<double> OperationCostField;
+        
+        private int TBlWFCompanyField;
         
         private double TargetCostPriceField;
         
         private System.Nullable<int> TblCurrencyField;
+        
+        private System.Nullable<int> TblInternalShipField;
         
         private System.Nullable<int> TblLkpSeasonField;
         
@@ -59816,6 +60958,8 @@ namespace CCWFM.RouteCardService {
         private int TblStyleTNAStatusField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNAStatusDetail> TblStyleTNAStatusDetailsField;
+        
+        private System.Nullable<int> TblSubContractorField;
         
         private System.Nullable<int> TblSupplierField;
         
@@ -59963,6 +61107,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> OperationCost {
             get {
                 return this.OperationCostField;
@@ -59971,6 +61128,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.OperationCostField.Equals(value) != true)) {
                     this.OperationCostField = value;
                     this.RaisePropertyChanged("OperationCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -59997,6 +61167,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.TblCurrencyField.Equals(value) != true)) {
                     this.TblCurrencyField = value;
                     this.RaisePropertyChanged("TblCurrency");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblInternalShip {
+            get {
+                return this.TblInternalShipField;
+            }
+            set {
+                if ((this.TblInternalShipField.Equals(value) != true)) {
+                    this.TblInternalShipField = value;
+                    this.RaisePropertyChanged("TblInternalShip");
                 }
             }
         }
@@ -60210,6 +61393,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblSubContractor {
+            get {
+                return this.TblSubContractorField;
+            }
+            set {
+                if ((this.TblSubContractorField.Equals(value) != true)) {
+                    this.TblSubContractorField = value;
+                    this.RaisePropertyChanged("TblSubContractor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblSupplier {
             get {
                 return this.TblSupplierField;
@@ -60238,6 +61434,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> ExchangeRateField;
         
+        private System.Nullable<int> ExpectedQtyField;
+        
         private System.Nullable<double> FabricCostField;
         
         private int IserialField;
@@ -60245,6 +61443,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<decimal> LocalCostField;
         
         private System.Nullable<double> OperationCostField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -60326,6 +61526,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ExpectedQty {
+            get {
+                return this.ExpectedQtyField;
+            }
+            set {
+                if ((this.ExpectedQtyField.Equals(value) != true)) {
+                    this.ExpectedQtyField = value;
+                    this.RaisePropertyChanged("ExpectedQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> FabricCost {
             get {
                 return this.FabricCostField;
@@ -60373,6 +61586,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.OperationCostField.Equals(value) != true)) {
                     this.OperationCostField = value;
                     this.RaisePropertyChanged("OperationCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -60490,17 +61716,27 @@ namespace CCWFM.RouteCardService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblStyleTNAField;
         
         private CCWFM.RouteCardService.TblStyleTNA TblStyleTNA1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAo0bgEGGO TblStyleTNA1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetailAttachment> TblStyleTNADetailAttachmentsField;
+        
         private System.Nullable<int> TblStyleTNAHeaderField;
         
         private CCWFM.RouteCardService.TblStyleTNAHeader TblStyleTNAHeader1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO TblStyleTNAHeader1ReferenceField;
+        
+        private CCWFM.RouteCardService.TblStyleTNARouteStatu TblStyleTNARouteStatuField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO TblStyleTNARouteStatuReferenceField;
+        
+        private System.Nullable<int> TblStyleTNARouteStatusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> ActualDeliveryDate {
@@ -60607,6 +61843,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblStyleTNA {
             get {
                 return this.TblStyleTNAField;
@@ -60641,6 +61890,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblStyleTNA1ReferenceField, value) != true)) {
                     this.TblStyleTNA1ReferenceField = value;
                     this.RaisePropertyChanged("TblStyleTNA1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetailAttachment> TblStyleTNADetailAttachments {
+            get {
+                return this.TblStyleTNADetailAttachmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetailAttachmentsField, value) != true)) {
+                    this.TblStyleTNADetailAttachmentsField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetailAttachments");
                 }
             }
         }
@@ -60683,6 +61945,45 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblStyleTNARouteStatu TblStyleTNARouteStatu {
+            get {
+                return this.TblStyleTNARouteStatuField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNARouteStatuField, value) != true)) {
+                    this.TblStyleTNARouteStatuField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatu");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO TblStyleTNARouteStatuReference {
+            get {
+                return this.TblStyleTNARouteStatuReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNARouteStatuReferenceField, value) != true)) {
+                    this.TblStyleTNARouteStatuReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatuReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleTNARouteStatus {
+            get {
+                return this.TblStyleTNARouteStatusField;
+            }
+            set {
+                if ((this.TblStyleTNARouteStatusField.Equals(value) != true)) {
+                    this.TblStyleTNARouteStatusField = value;
+                    this.RaisePropertyChanged("TblStyleTNARouteStatus");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -60698,15 +61999,21 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> EstimatedDatesField;
         
+        private bool IsFixedField;
+        
         private int IserialField;
         
         private System.Nullable<int> MaxRepeatedField;
         
         private System.Nullable<int> OrderNoField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetail> TblStyleTNADetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNARoute> TblStyleTNARoutesField;
+        
+        private System.Nullable<int> TypeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -60761,6 +62068,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsFixed {
+            get {
+                return this.IsFixedField;
+            }
+            set {
+                if ((this.IsFixedField.Equals(value) != true)) {
+                    this.IsFixedField = value;
+                    this.RaisePropertyChanged("IsFixed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -60800,6 +62120,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetail> TblStyleTNADetails {
             get {
                 return this.TblStyleTNADetailsField;
@@ -60824,12 +62157,37 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNARoute", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleTNARoute : CCWFM.RouteCardService.EntityObject {
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Nullable<int> TblMilestoneStatusField;
         
         private int TblStyleField;
         
@@ -60838,6 +62196,84 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.TblStyleTNA TblStyleTNA1Field;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAo0bgEGGO TblStyleTNA1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblMilestoneStatus {
+            get {
+                return this.TblMilestoneStatusField;
+            }
+            set {
+                if ((this.TblMilestoneStatusField.Equals(value) != true)) {
+                    this.TblMilestoneStatusField = value;
+                    this.RaisePropertyChanged("TblMilestoneStatus");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblStyle {
@@ -60894,6 +62330,228 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNADetailAttachment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleTNADetailAttachment : CCWFM.RouteCardService.EntityObject {
+        
+        private string FileNameField;
+        
+        private byte[] ImageThumbField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Nullable<int> TblStyleTNADetailField;
+        
+        private CCWFM.RouteCardService.TblStyleTNADetail TblStyleTNADetail1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblStyleTNADetailo0bgEGGO TblStyleTNADetail1ReferenceField;
+        
+        private string galaryLinkField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ImageThumb {
+            get {
+                return this.ImageThumbField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageThumbField, value) != true)) {
+                    this.ImageThumbField = value;
+                    this.RaisePropertyChanged("ImageThumb");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStyleTNADetail {
+            get {
+                return this.TblStyleTNADetailField;
+            }
+            set {
+                if ((this.TblStyleTNADetailField.Equals(value) != true)) {
+                    this.TblStyleTNADetailField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblStyleTNADetail TblStyleTNADetail1 {
+            get {
+                return this.TblStyleTNADetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetail1Field, value) != true)) {
+                    this.TblStyleTNADetail1Field = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblStyleTNADetailo0bgEGGO TblStyleTNADetail1Reference {
+            get {
+                return this.TblStyleTNADetail1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetail1ReferenceField, value) != true)) {
+                    this.TblStyleTNADetail1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetail1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string galaryLink {
+            get {
+                return this.galaryLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.galaryLinkField, value) != true)) {
+                    this.galaryLinkField = value;
+                    this.RaisePropertyChanged("galaryLink");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNARouteStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblStyleTNARouteStatu : CCWFM.RouteCardService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetail> TblStyleTNADetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetail> TblStyleTNADetails {
+            get {
+                return this.TblStyleTNADetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStyleTNADetailsField, value) != true)) {
+                    this.TblStyleTNADetailsField = value;
+                    this.RaisePropertyChanged("TblStyleTNADetails");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblStyleTNAStatu", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblStyleTNAStatu : CCWFM.RouteCardService.EntityObject {
         
@@ -60908,6 +62566,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNAHeader> TblStyleTNAHeadersField;
         
@@ -60994,6 +62654,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNAHeader> TblStyleTNAHeaders {
             get {
                 return this.TblStyleTNAHeadersField;
@@ -61043,6 +62716,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.DateTime RequestDateField;
+        
+        private int TBlWFCompanyField;
         
         private int TblAuthUserField;
         
@@ -61097,6 +62772,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RequestDateField.Equals(value) != true)) {
                     this.RequestDateField = value;
                     this.RaisePropertyChanged("RequestDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -61226,6 +62914,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblAuthUserField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUser1Field;
@@ -61247,6 +62937,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -61343,6 +63046,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -61398,6 +63103,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -61419,6 +63137,8 @@ namespace CCWFM.RouteCardService {
         private string CommentField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblStyle TblStyle1Field;
         
@@ -61448,6 +63168,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -61503,6 +63236,10 @@ namespace CCWFM.RouteCardService {
         
         private string FITField;
         
+        private System.Nullable<System.DateTime> FinishDateField;
+        
+        private System.Nullable<int> FinishUserField;
+        
         private int IserialField;
         
         private string ORGFabricField;
@@ -61512,6 +63249,8 @@ namespace CCWFM.RouteCardService {
         private CCWFM.RouteCardService.EntityReferenceOfTBLTechPackStatuo0bgEGGO TBLTechPackStatuReferenceField;
         
         private System.Nullable<int> TBLTechPackStatusField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblStyle TblStyle1Field;
         
@@ -61558,6 +63297,32 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.FITField, value) != true)) {
                     this.FITField = value;
                     this.RaisePropertyChanged("FIT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FinishDate {
+            get {
+                return this.FinishDateField;
+            }
+            set {
+                if ((this.FinishDateField.Equals(value) != true)) {
+                    this.FinishDateField = value;
+                    this.RaisePropertyChanged("FinishDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FinishUser {
+            get {
+                return this.FinishUserField;
+            }
+            set {
+                if ((this.FinishUserField.Equals(value) != true)) {
+                    this.FinishUserField = value;
+                    this.RaisePropertyChanged("FinishUser");
                 }
             }
         }
@@ -61623,6 +63388,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.TBLTechPackStatusField.Equals(value) != true)) {
                     this.TBLTechPackStatusField = value;
                     this.RaisePropertyChanged("TBLTechPackStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -61706,6 +63484,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackHeader> tblTechPackHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -61761,6 +63541,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackHeader> tblTechPackHeaders {
             get {
                 return this.tblTechPackHeadersField;
@@ -61788,6 +63581,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private int TBlWFCompanyField;
         
         private string galaryLinkField;
         
@@ -61868,6 +63663,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.LastChangeDateField.Equals(value) != true)) {
                     this.LastChangeDateField = value;
                     this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -61999,6 +63807,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private string descriptionField;
         
         private string galaryLinkField;
@@ -62039,6 +63849,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -62174,6 +63997,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackDetail> tblTechPackDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackLog> tblTechPackLogsField;
@@ -62231,6 +64056,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblTechPackDetail> tblTechPackDetails {
             get {
                 return this.tblTechPackDetailsField;
@@ -62269,6 +64107,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
         
@@ -62327,6 +64167,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -62372,6 +64225,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.FabricContentsComposition> FabricContentsCompositionsField;
         
+        private System.Nullable<double> FabricCostField;
+        
         private string FabricDescriptionField;
         
         private string FabricDescriptionARField;
@@ -62407,6 +64262,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> StatusField;
         
         private string SupplierRefField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> ThreadNumbersIDField;
         
@@ -62583,6 +64440,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.FabricContentsCompositionsField, value) != true)) {
                     this.FabricContentsCompositionsField = value;
                     this.RaisePropertyChanged("FabricContentsCompositions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> FabricCost {
+            get {
+                return this.FabricCostField;
+            }
+            set {
+                if ((this.FabricCostField.Equals(value) != true)) {
+                    this.FabricCostField = value;
+                    this.RaisePropertyChanged("FabricCost");
                 }
             }
         }
@@ -62817,6 +64687,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SupplierRefField, value) != true)) {
                     this.SupplierRefField = value;
                     this.RaisePropertyChanged("SupplierRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63409,6 +65292,8 @@ namespace CCWFM.RouteCardService {
         
         private float PercentageField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.tbl_FabricAttriputes tbl_FabricAttriputesField;
         
         private CCWFM.RouteCardService.EntityReferenceOftbl_FabricAttriputeso0bgEGGO tbl_FabricAttriputesReferenceField;
@@ -63482,6 +65367,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.PercentageField.Equals(value) != true)) {
                     this.PercentageField = value;
                     this.RaisePropertyChanged("Percentage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63580,6 +65478,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.tbl_FabricCodingConfigurations tbl_FabricCodingConfigurationsField;
         
         private CCWFM.RouteCardService.EntityReferenceOftbl_FabricCodingConfigurationso0bgEGGO tbl_FabricCodingConfigurationsReferenceField;
@@ -63652,6 +65552,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.tbl_FabricCodingConfigurations tbl_FabricCodingConfigurations {
             get {
                 return this.tbl_FabricCodingConfigurationsField;
@@ -63702,6 +65615,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> NextFabIDField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.tbl_FabricCategories tbl_FabricCategoriesField;
         
         private CCWFM.RouteCardService.EntityReferenceOftbl_FabricCategorieso0bgEGGO tbl_FabricCategoriesReferenceField;
@@ -63746,6 +65661,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.tbl_FabricCategories tbl_FabricCategories {
             get {
                 return this.tbl_FabricCategoriesField;
@@ -63784,6 +65712,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
@@ -63841,6 +65771,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -63913,6 +65856,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
             get {
@@ -63977,6 +65922,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -63991,6 +65949,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
@@ -64047,6 +66007,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputes {
             get {
                 return this.tbl_FabricAttriputesField;
@@ -64072,6 +66045,10 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private System.Nullable<int> ProfitMarginPercentageField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStylesField;
         
@@ -64130,6 +66107,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ProfitMarginPercentage {
+            get {
+                return this.ProfitMarginPercentageField;
+            }
+            set {
+                if ((this.ProfitMarginPercentageField.Equals(value) != true)) {
+                    this.ProfitMarginPercentageField = value;
+                    this.RaisePropertyChanged("ProfitMarginPercentage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyle> TblStyles {
             get {
                 return this.TblStylesField;
@@ -64169,6 +66172,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -64219,6 +66224,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64250,6 +66268,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -64300,6 +66320,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64331,6 +66364,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -64381,6 +66416,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64412,6 +66460,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -64467,6 +66517,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputes {
             get {
                 return this.tbl_FabricAttriputesField;
@@ -64492,6 +66555,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_AccessoryAttributesHeader> tbl_AccessoryAttributesHeaderField;
         
@@ -64545,6 +66610,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -64606,6 +66684,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<int> ItemTypeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblSizeField;
         
@@ -64791,6 +66871,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblSize {
             get {
                 return this.TblSizeField;
@@ -64899,6 +66992,8 @@ namespace CCWFM.RouteCardService {
         
         private string SubCodeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblAccSizeGroupField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_AccessoryAttributesHeader> tbl_AccessoryAttributesHeaderField;
@@ -64986,6 +67081,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblAccSizeGroup {
             get {
                 return this.TblAccSizeGroupField;
@@ -65051,6 +67159,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAccessoryDyeingMapping> TblAccessoryDyeingMappingsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_AccessoriesSubGroup> tbl_AccessoriesSubGroupField;
@@ -65109,6 +67219,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65186,6 +67309,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int tbl_AccessoryAttributesHeaderField;
         
         private int tbl_lkp_AccessoryGroupField;
@@ -65203,6 +67328,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65273,6 +67411,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_lkp_AccessoryGroup> tbl_lkp_AccessoryGroupField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65328,6 +67468,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_lkp_AccessoryGroup> tbl_lkp_AccessoryGroup {
             get {
                 return this.tbl_lkp_AccessoryGroupField;
@@ -65359,6 +67512,8 @@ namespace CCWFM.RouteCardService {
         private string NotesField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.tbl_AccessoryAttributesHeader tbl_AccessoryAttributesHeaderField;
         
@@ -65456,6 +67611,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.tbl_AccessoryAttributesHeader tbl_AccessoryAttributesHeader {
             get {
                 return this.tbl_AccessoryAttributesHeaderField;
@@ -65495,6 +67663,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65545,6 +67715,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65576,6 +67759,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65626,6 +67811,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65657,6 +67855,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65707,6 +67907,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65738,6 +67951,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_FabricAttriputes> tbl_FabricAttriputesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -65788,6 +68003,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -65822,6 +68050,8 @@ namespace CCWFM.RouteCardService {
         private double RatioForProductionField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblSalesOrderColorField;
         
@@ -65908,6 +68138,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSalesOrderColor {
             get {
                 return this.TblSalesOrderColorField;
@@ -65949,177 +68192,6 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractPaymentByPeriod", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblContractPaymentByPeriod : CCWFM.RouteCardService.EntityObject {
-        
-        private System.Nullable<decimal> AmountPercentField;
-        
-        private System.Nullable<int> CreatedByField;
-        
-        private System.Nullable<System.DateTime> CreationDateField;
-        
-        private string DescriptionField;
-        
-        private System.DateTime DueDateField;
-        
-        private int IserialField;
-        
-        private System.Nullable<System.DateTime> LastChangeDateField;
-        
-        private System.Nullable<int> LastChangeUserField;
-        
-        private int TblContractHeaderField;
-        
-        private CCWFM.RouteCardService.TblContractHeader TblContractHeader1Field;
-        
-        private CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1ReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AmountPercent {
-            get {
-                return this.AmountPercentField;
-            }
-            set {
-                if ((this.AmountPercentField.Equals(value) != true)) {
-                    this.AmountPercentField = value;
-                    this.RaisePropertyChanged("AmountPercent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((this.CreatedByField.Equals(value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DueDate {
-            get {
-                return this.DueDateField;
-            }
-            set {
-                if ((this.DueDateField.Equals(value) != true)) {
-                    this.DueDateField = value;
-                    this.RaisePropertyChanged("DueDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastChangeDate {
-            get {
-                return this.LastChangeDateField;
-            }
-            set {
-                if ((this.LastChangeDateField.Equals(value) != true)) {
-                    this.LastChangeDateField = value;
-                    this.RaisePropertyChanged("LastChangeDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastChangeUser {
-            get {
-                return this.LastChangeUserField;
-            }
-            set {
-                if ((this.LastChangeUserField.Equals(value) != true)) {
-                    this.LastChangeUserField = value;
-                    this.RaisePropertyChanged("LastChangeUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblContractHeader {
-            get {
-                return this.TblContractHeaderField;
-            }
-            set {
-                if ((this.TblContractHeaderField.Equals(value) != true)) {
-                    this.TblContractHeaderField = value;
-                    this.RaisePropertyChanged("TblContractHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.TblContractHeader TblContractHeader1 {
-            get {
-                return this.TblContractHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractHeader1Field, value) != true)) {
-                    this.TblContractHeader1Field = value;
-                    this.RaisePropertyChanged("TblContractHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO TblContractHeader1Reference {
-            get {
-                return this.TblContractHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblContractHeader1ReferenceField, value) != true)) {
-                    this.TblContractHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblContractHeader1Reference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblSubContractor", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblSubContractor : CCWFM.RouteCardService.EntityObject {
         
@@ -66130,6 +68202,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractHeaderDel> TblContractHeaderDelsField;
         
@@ -66188,6 +68262,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractHeaderDel> TblContractHeaderDels {
             get {
                 return this.TblContractHeaderDelsField;
@@ -66230,6 +68317,8 @@ namespace CCWFM.RouteCardService {
         private string LocationField;
         
         private bool PlanGeneratedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanACC> TblDyeingPlanACCsField;
         
@@ -66325,6 +68414,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.PlanGeneratedField.Equals(value) != true)) {
                     this.PlanGeneratedField = value;
                     this.RaisePropertyChanged("PlanGenerated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -66477,6 +68579,8 @@ namespace CCWFM.RouteCardService {
         
         private string SalesOrderField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanDetailsAcc> TblDyeingPlanDetailsAccsField;
         
         private CCWFM.RouteCardService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAccField;
@@ -66564,6 +68668,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanDetailsAcc> TblDyeingPlanDetailsAccs {
             get {
                 return this.TblDyeingPlanDetailsAccsField;
@@ -66634,6 +68751,8 @@ namespace CCWFM.RouteCardService {
         private string OldColorField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlanACC TblDyeingPlanACCField;
         
@@ -66731,6 +68850,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlanACC TblDyeingPlanACC {
             get {
                 return this.TblDyeingPlanACCField;
@@ -66775,6 +68907,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAccField;
         
@@ -66878,6 +69012,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlanHeaderAcc TblDyeingPlanHeaderAcc {
             get {
                 return this.TblDyeingPlanHeaderAccField;
@@ -66961,6 +69108,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private double RequiredQuantityField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanLotsDetailsAcc> TblDyeingPlanLotsDetailsAccsField;
         
@@ -67062,6 +69211,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanLotsDetailsAcc> TblDyeingPlanLotsDetailsAccs {
             get {
                 return this.TblDyeingPlanLotsDetailsAccsField;
@@ -67130,6 +69292,8 @@ namespace CCWFM.RouteCardService {
         private string SalesOrderField;
         
         private bool SavedField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblDyeingPlanLotsMasterAcc TblDyeingPlanLotsMasterAccField;
         
@@ -67214,6 +69378,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblDyeingPlanLotsMasterAcc TblDyeingPlanLotsMasterAcc {
             get {
                 return this.TblDyeingPlanLotsMasterAccField;
@@ -67248,6 +69425,8 @@ namespace CCWFM.RouteCardService {
         private string BrandField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblBudgetItemField;
         
@@ -67297,6 +69476,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67484,6 +69676,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblBudgetTypeField;
         
         private CCWFM.RouteCardService.TblBudgetType TblBudgetType1Field;
@@ -67540,6 +69734,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67612,6 +69819,8 @@ namespace CCWFM.RouteCardService {
         
         private int NatureField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBudgetItem> TblBudgetItemsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -67680,6 +69889,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBudgetItem> TblBudgetItems {
             get {
                 return this.TblBudgetItemsField;
@@ -67700,6 +69922,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGlobalRetailBusinessBudgetMainDetail> TblGlobalRetailBusinessBudgetMainDetailsField;
         
         private System.DateTime TransDateField;
@@ -67717,6 +69941,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67785,6 +70022,8 @@ namespace CCWFM.RouteCardService {
         
         private int MonthField;
         
+        private int TBlWFCompanyField;
+        
         private int TblGlobalRetailBusinessBudgetMainDetailField;
         
         private CCWFM.RouteCardService.TblGlobalRetailBusinessBudgetMainDetail TblGlobalRetailBusinessBudgetMainDetail1Field;
@@ -67826,6 +70065,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MonthField.Equals(value) != true)) {
                     this.MonthField = value;
                     this.RaisePropertyChanged("Month");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -67881,6 +70133,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpBrandSectionField;
         
         private CCWFM.RouteCardService.TblLkpBrandSection TblLkpBrandSection1Field;
@@ -67934,6 +70188,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68069,6 +70336,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseBudgetDetail> TblPurchaseBudgetDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -68124,6 +70393,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseBudgetDetail> TblPurchaseBudgetDetails {
             get {
                 return this.TblPurchaseBudgetDetailsField;
@@ -68147,6 +70429,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> ExRateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblLkpSeasonField;
         
@@ -68189,6 +70473,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68243,6 +70540,8 @@ namespace CCWFM.RouteCardService {
         private System.DateTime FromDateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private int TblLkpBrandSectionField;
         
@@ -68299,6 +70598,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68447,6 +70759,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSeasonTrack> TblSeasonTracksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -68502,6 +70816,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSeasonTrack> TblSeasonTracks {
             get {
                 return this.TblSeasonTracksField;
@@ -68529,6 +70856,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblComplexityGroupField;
         
@@ -68617,6 +70946,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -68808,6 +71150,10 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<double> ProfitPercentageField;
         
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrder> TblSalesOrdersField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStandardBomHeader> TblStandardBomHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -68889,6 +71235,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrder> TblSalesOrders {
+            get {
+                return this.TblSalesOrdersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblSalesOrdersField, value) != true)) {
+                    this.TblSalesOrdersField = value;
+                    this.RaisePropertyChanged("TblSalesOrders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStandardBomHeader> TblStandardBomHeaders {
             get {
                 return this.TblStandardBomHeadersField;
@@ -68938,6 +71310,8 @@ namespace CCWFM.RouteCardService {
         private bool IsSupplierMaterialField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -69160,6 +71534,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -69276,6 +71663,8 @@ namespace CCWFM.RouteCardService {
         private double ShippingPercentageField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimatedsField;
         
@@ -69529,6 +71918,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBOMStyleColorEstimated> TblBOMStyleColorEstimateds {
             get {
                 return this.TblBOMStyleColorEstimatedsField;
@@ -69749,6 +72151,8 @@ namespace CCWFM.RouteCardService {
         
         private int StyleColorField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblColor1 TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -69898,6 +72302,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblColor1 TblColor {
             get {
                 return this.TblColorField;
@@ -70024,6 +72441,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblTradeAgreementDetail1> TblTradeAgreementDetailsField;
         
         private System.Nullable<int> TblTradeAgreementTransactionField;
@@ -70058,6 +72477,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70154,6 +72586,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> SerialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblLkpSeasonField;
         
         private CCWFM.RouteCardService.TblLkpSeason TblLkpSeason1Field;
@@ -70212,6 +72646,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.SerialField.Equals(value) != true)) {
                     this.SerialField = value;
                     this.RaisePropertyChanged("Serial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70295,6 +72742,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblTradeAgreementDetail1> TblTradeAgreementDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -70350,6 +72799,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblTradeAgreementDetail1> TblTradeAgreementDetails {
             get {
                 return this.TblTradeAgreementDetailsField;
@@ -70371,6 +72833,8 @@ namespace CCWFM.RouteCardService {
         private string EmpField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private string TblBrandField;
         
@@ -70408,6 +72872,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70519,6 +72996,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<bool> LastEventField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandSectionMailSample> TblBrandSectionMailSamplesField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRequestForSampleEvent> TblRequestForSampleEventsField;
@@ -70591,6 +73070,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblBrandSectionMailSample> TblBrandSectionMailSamples {
             get {
                 return this.TblBrandSectionMailSamplesField;
@@ -70644,6 +73136,8 @@ namespace CCWFM.RouteCardService {
         private string NotesField;
         
         private System.DateTime RequestDateField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUserField;
         
@@ -70724,6 +73218,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RequestDateField.Equals(value) != true)) {
                     this.RequestDateField = value;
                     this.RaisePropertyChanged("RequestDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -70870,6 +73377,8 @@ namespace CCWFM.RouteCardService {
         private string SerialNoField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -71021,6 +73530,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SizeField, value) != true)) {
                     this.SizeField = value;
                     this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71205,6 +73727,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRequestForSampleField;
         
         private CCWFM.RouteCardService.TblRequestForSample TblRequestForSample1Field;
@@ -71329,6 +73853,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblRequestForSample {
             get {
                 return this.TblRequestForSampleField;
@@ -71390,6 +73927,8 @@ namespace CCWFM.RouteCardService {
         private string NameField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -71521,6 +74060,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -71612,6 +74164,8 @@ namespace CCWFM.RouteCardService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private int TblRequestForSampleField;
         
         private CCWFM.RouteCardService.TblRequestForSample TblRequestForSample1Field;
@@ -71672,6 +74226,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71768,6 +74335,8 @@ namespace CCWFM.RouteCardService {
         
         private bool RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthPermissionField;
         
         private CCWFM.RouteCardService.TblAuthPermission TblAuthPermission1Field;
@@ -71830,6 +74399,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -71939,9 +74521,17 @@ namespace CCWFM.RouteCardService {
         
         private string EnameField;
         
+        private string IconField;
+        
         private System.Nullable<bool> InVisibleField;
         
+        private bool IsStitchSystemField;
+        
+        private System.Nullable<bool> IsTfkField;
+        
         private int IserialField;
+        
+        private string ItemLinkField;
         
         private string MenuLinkField;
         
@@ -71952,6 +74542,8 @@ namespace CCWFM.RouteCardService {
         private string PermissionTypField;
         
         private string ReportServerField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthJobPermission> TblAuthJobPermissionsField;
         
@@ -72016,6 +74608,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Icon {
+            get {
+                return this.IconField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IconField, value) != true)) {
+                    this.IconField = value;
+                    this.RaisePropertyChanged("Icon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> InVisible {
             get {
                 return this.InVisibleField;
@@ -72029,6 +74634,32 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsStitchSystem {
+            get {
+                return this.IsStitchSystemField;
+            }
+            set {
+                if ((this.IsStitchSystemField.Equals(value) != true)) {
+                    this.IsStitchSystemField = value;
+                    this.RaisePropertyChanged("IsStitchSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsTfk {
+            get {
+                return this.IsTfkField;
+            }
+            set {
+                if ((this.IsTfkField.Equals(value) != true)) {
+                    this.IsTfkField = value;
+                    this.RaisePropertyChanged("IsTfk");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -72037,6 +74668,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemLink {
+            get {
+                return this.ItemLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemLinkField, value) != true)) {
+                    this.ItemLinkField = value;
+                    this.RaisePropertyChanged("ItemLink");
                 }
             }
         }
@@ -72102,6 +74746,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.ReportServerField, value) != true)) {
                     this.ReportServerField = value;
                     this.RaisePropertyChanged("ReportServer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72183,6 +74840,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<bool> AllowUpdateField;
         
+        private int TBlWFCompanyField;
+        
         private CCWFM.RouteCardService.TblAuthPermission TblAuthPermissionField;
         
         private CCWFM.RouteCardService.EntityReferenceOfTblAuthPermissiono0bgEGGO TblAuthPermissionReferenceField;
@@ -72230,6 +74889,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.AllowUpdateField.Equals(value) != true)) {
                     this.AllowUpdateField = value;
                     this.RaisePropertyChanged("AllowUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72324,6 +74996,8 @@ namespace CCWFM.RouteCardService {
         
         private bool RetailField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthPermissionField;
         
         private CCWFM.RouteCardService.TblAuthPermission TblAuthPermission1Field;
@@ -72373,6 +75047,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RetailField.Equals(value) != true)) {
                     this.RetailField = value;
                     this.RaisePropertyChanged("Retail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72478,6 +75165,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthUserField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUser1Field;
@@ -72514,6 +75203,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72623,6 +75325,8 @@ namespace CCWFM.RouteCardService {
         
         private string ShortCodeField;
         
+        private int TBlWFCompanyField;
+        
         private string TblBrandField;
         
         private string TblItemDownLoadDefField;
@@ -72685,6 +75389,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.ShortCodeField, value) != true)) {
                     this.ShortCodeField = value;
                     this.RaisePropertyChanged("ShortCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -72796,6 +75513,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
         
         private System.DateTime ToDateField;
@@ -72866,6 +75585,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
             get {
                 return this.TblGeneratePurchaseHeadersField;
@@ -72902,6 +75634,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> CustomerExRateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblGeneratePurchaseHeaderField;
         
@@ -72946,6 +75680,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73016,6 +75763,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -73066,6 +75815,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73086,54 +75848,116 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPurchaseType : CCWFM.RouteCardService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseOrderHeader : CCWFM.RouteCardService.EntityObject {
         
-        private string AnameField;
+        private string AxMethodOfPaymentCodeField;
         
-        private string CodeField;
+        private string AxPurchaseField;
         
-        private string EnameField;
+        private string AxTermOfPaymentCodeField;
+        
+        private string CurrencyCodeField;
+        
+        private System.Nullable<System.DateTime> DeliveryDateField;
         
         private int IserialField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
+        private System.Nullable<System.DateTime> ShippingDateField;
+        
+        private bool StatusField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Nullable<int> TblGeneratePurchaseHeaderField;
+        
+        private CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1ReferenceField;
+        
+        private System.Nullable<int> TblPurchaseHeaderField;
+        
+        private int TblPurchaseHeaderTypeField;
+        
+        private CCWFM.RouteCardService.TblPurchaseHeaderType TblPurchaseHeaderType1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO TblPurchaseHeaderType1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetail> TblPurchaseOrderDetailsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeader1Field;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader2Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader2ReferenceField;
+        
+        private System.DateTime TransDateField;
+        
+        private string VendorField;
+        
+        private string WarehouseField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
+        public string AxMethodOfPaymentCode {
             get {
-                return this.AnameField;
+                return this.AxMethodOfPaymentCodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
+                if ((object.ReferenceEquals(this.AxMethodOfPaymentCodeField, value) != true)) {
+                    this.AxMethodOfPaymentCodeField = value;
+                    this.RaisePropertyChanged("AxMethodOfPaymentCode");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
+        public string AxPurchase {
             get {
-                return this.CodeField;
+                return this.AxPurchaseField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
+                if ((object.ReferenceEquals(this.AxPurchaseField, value) != true)) {
+                    this.AxPurchaseField = value;
+                    this.RaisePropertyChanged("AxPurchase");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
+        public string AxTermOfPaymentCode {
             get {
-                return this.EnameField;
+                return this.AxTermOfPaymentCodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
+                if ((object.ReferenceEquals(this.AxTermOfPaymentCodeField, value) != true)) {
+                    this.AxTermOfPaymentCodeField = value;
+                    this.RaisePropertyChanged("AxTermOfPaymentCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CurrencyCode {
+            get {
+                return this.CurrencyCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true)) {
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DeliveryDate {
+            get {
+                return this.DeliveryDateField;
+            }
+            set {
+                if ((this.DeliveryDateField.Equals(value) != true)) {
+                    this.DeliveryDateField = value;
+                    this.RaisePropertyChanged("DeliveryDate");
                 }
             }
         }
@@ -73152,14 +75976,222 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
+        public System.Nullable<System.DateTime> ShippingDate {
             get {
-                return this.TblGeneratePurchaseHeadersField;
+                return this.ShippingDateField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeadersField, value) != true)) {
-                    this.TblGeneratePurchaseHeadersField = value;
-                    this.RaisePropertyChanged("TblGeneratePurchaseHeaders");
+                if ((this.ShippingDateField.Equals(value) != true)) {
+                    this.ShippingDateField = value;
+                    this.RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblGeneratePurchaseHeader {
+            get {
+                return this.TblGeneratePurchaseHeaderField;
+            }
+            set {
+                if ((this.TblGeneratePurchaseHeaderField.Equals(value) != true)) {
+                    this.TblGeneratePurchaseHeaderField = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblGeneratePurchaseHeader TblGeneratePurchaseHeader1 {
+            get {
+                return this.TblGeneratePurchaseHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1Field, value) != true)) {
+                    this.TblGeneratePurchaseHeader1Field = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblGeneratePurchaseHeadero0bgEGGO TblGeneratePurchaseHeader1Reference {
+            get {
+                return this.TblGeneratePurchaseHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeader1ReferenceField, value) != true)) {
+                    this.TblGeneratePurchaseHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPurchaseHeader {
+            get {
+                return this.TblPurchaseHeaderField;
+            }
+            set {
+                if ((this.TblPurchaseHeaderField.Equals(value) != true)) {
+                    this.TblPurchaseHeaderField = value;
+                    this.RaisePropertyChanged("TblPurchaseHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblPurchaseHeaderType {
+            get {
+                return this.TblPurchaseHeaderTypeField;
+            }
+            set {
+                if ((this.TblPurchaseHeaderTypeField.Equals(value) != true)) {
+                    this.TblPurchaseHeaderTypeField = value;
+                    this.RaisePropertyChanged("TblPurchaseHeaderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseHeaderType TblPurchaseHeaderType1 {
+            get {
+                return this.TblPurchaseHeaderType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseHeaderType1Field, value) != true)) {
+                    this.TblPurchaseHeaderType1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseHeaderType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO TblPurchaseHeaderType1Reference {
+            get {
+                return this.TblPurchaseHeaderType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseHeaderType1ReferenceField, value) != true)) {
+                    this.TblPurchaseHeaderType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseHeaderType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetail> TblPurchaseOrderDetails {
+            get {
+                return this.TblPurchaseOrderDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailsField, value) != true)) {
+                    this.TblPurchaseOrderDetailsField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeader1 {
+            get {
+                return this.TblPurchaseOrderHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1Field, value) != true)) {
+                    this.TblPurchaseOrderHeader1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader2 {
+            get {
+                return this.TblPurchaseOrderHeader2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader2Field, value) != true)) {
+                    this.TblPurchaseOrderHeader2Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader2Reference {
+            get {
+                return this.TblPurchaseOrderHeader2ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader2ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderHeader2ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader2Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TransDate {
+            get {
+                return this.TransDateField;
+            }
+            set {
+                if ((this.TransDateField.Equals(value) != true)) {
+                    this.TransDateField = value;
+                    this.RaisePropertyChanged("TransDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Vendor {
+            get {
+                return this.VendorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VendorField, value) != true)) {
+                    this.VendorField = value;
+                    this.RaisePropertyChanged("Vendor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Warehouse {
+            get {
+                return this.WarehouseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WarehouseField, value) != true)) {
+                    this.WarehouseField = value;
+                    this.RaisePropertyChanged("Warehouse");
                 }
             }
         }
@@ -73177,6 +76209,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeadersField;
         
@@ -73233,6 +76267,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader> TblPurchaseOrderHeaders {
             get {
                 return this.TblPurchaseOrderHeadersField;
@@ -73241,6 +76288,1734 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblPurchaseOrderHeadersField, value) != true)) {
                     this.TblPurchaseOrderHeadersField = value;
                     this.RaisePropertyChanged("TblPurchaseOrderHeaders");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseOrderDetail : CCWFM.RouteCardService.EntityObject {
+        
+        private System.Nullable<double> BasicPriceField;
+        
+        private string BatchNoField;
+        
+        private System.Nullable<double> BomQtyField;
+        
+        private bool CanceledField;
+        
+        private System.Nullable<int> FabricColorField;
+        
+        private int IserialField;
+        
+        private string ItemIdField;
+        
+        private string ItemTypeField;
+        
+        private System.Nullable<double> PriceField;
+        
+        private System.Nullable<double> QtyField;
+        
+        private System.Nullable<double> ReceiveNowField;
+        
+        private System.Nullable<double> RemaningQtyField;
+        
+        private string SizeField;
+        
+        private int TBlWFCompanyField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColorField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
+        
+        private System.Nullable<int> TblPurchaseOrderHeaderField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinksField;
+        
+        private string UnitField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BasicPrice {
+            get {
+                return this.BasicPriceField;
+            }
+            set {
+                if ((this.BasicPriceField.Equals(value) != true)) {
+                    this.BasicPriceField = value;
+                    this.RaisePropertyChanged("BasicPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BatchNo {
+            get {
+                return this.BatchNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
+                    this.BatchNoField = value;
+                    this.RaisePropertyChanged("BatchNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BomQty {
+            get {
+                return this.BomQtyField;
+            }
+            set {
+                if ((this.BomQtyField.Equals(value) != true)) {
+                    this.BomQtyField = value;
+                    this.RaisePropertyChanged("BomQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Canceled {
+            get {
+                return this.CanceledField;
+            }
+            set {
+                if ((this.CanceledField.Equals(value) != true)) {
+                    this.CanceledField = value;
+                    this.RaisePropertyChanged("Canceled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FabricColor {
+            get {
+                return this.FabricColorField;
+            }
+            set {
+                if ((this.FabricColorField.Equals(value) != true)) {
+                    this.FabricColorField = value;
+                    this.RaisePropertyChanged("FabricColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemType {
+            get {
+                return this.ItemTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemTypeField, value) != true)) {
+                    this.ItemTypeField = value;
+                    this.RaisePropertyChanged("ItemType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ReceiveNow {
+            get {
+                return this.ReceiveNowField;
+            }
+            set {
+                if ((this.ReceiveNowField.Equals(value) != true)) {
+                    this.ReceiveNowField = value;
+                    this.RaisePropertyChanged("ReceiveNow");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> RemaningQty {
+            get {
+                return this.RemaningQtyField;
+            }
+            set {
+                if ((this.RemaningQtyField.Equals(value) != true)) {
+                    this.RemaningQtyField = value;
+                    this.RaisePropertyChanged("RemaningQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SizeField, value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor {
+            get {
+                return this.TblColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
+                    this.TblColorField = value;
+                    this.RaisePropertyChanged("TblColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
+            get {
+                return this.TblColorReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
+                    this.TblColorReferenceField = value;
+                    this.RaisePropertyChanged("TblColorReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
+            get {
+                return this.TblPurchaseOrderDetailBreakDownsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
+                    this.TblPurchaseOrderDetailBreakDownsField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPurchaseOrderHeader {
+            get {
+                return this.TblPurchaseOrderHeaderField;
+            }
+            set {
+                if ((this.TblPurchaseOrderHeaderField.Equals(value) != true)) {
+                    this.TblPurchaseOrderHeaderField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderHeader TblPurchaseOrderHeader1 {
+            get {
+                return this.TblPurchaseOrderHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1Field, value) != true)) {
+                    this.TblPurchaseOrderHeader1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO TblPurchaseOrderHeader1Reference {
+            get {
+                return this.TblPurchaseOrderHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeader1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinks {
+            get {
+                return this.TblPurchaseRequestLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseRequestLinksField, value) != true)) {
+                    this.TblPurchaseRequestLinksField = value;
+                    this.RaisePropertyChanged("TblPurchaseRequestLinks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetailBreakDown", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseOrderDetailBreakDown : CCWFM.RouteCardService.EntityObject {
+        
+        private CCWFM.RouteCardService.BOM BOM1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
+        
+        private int BomField;
+        
+        private int IserialField;
+        
+        private System.Nullable<double> QtyField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Nullable<int> TblBOMSizeField;
+        
+        private CCWFM.RouteCardService.TblBOMSize TblBOMSize1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO TblBOMSize1ReferenceField;
+        
+        private System.Nullable<int> TblBOMStyleColorField;
+        
+        private CCWFM.RouteCardService.TblBOMStyleColor TblBOMStyleColor1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO TblBOMStyleColor1ReferenceField;
+        
+        private int TblPurchaseOrderDetailField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.BOM BOM1 {
+            get {
+                return this.BOM1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
+                    this.BOM1Field = value;
+                    this.RaisePropertyChanged("BOM1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
+            get {
+                return this.BOM1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
+                    this.BOM1ReferenceField = value;
+                    this.RaisePropertyChanged("BOM1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Bom {
+            get {
+                return this.BomField;
+            }
+            set {
+                if ((this.BomField.Equals(value) != true)) {
+                    this.BomField = value;
+                    this.RaisePropertyChanged("Bom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBOMSize {
+            get {
+                return this.TblBOMSizeField;
+            }
+            set {
+                if ((this.TblBOMSizeField.Equals(value) != true)) {
+                    this.TblBOMSizeField = value;
+                    this.RaisePropertyChanged("TblBOMSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblBOMSize TblBOMSize1 {
+            get {
+                return this.TblBOMSize1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBOMSize1Field, value) != true)) {
+                    this.TblBOMSize1Field = value;
+                    this.RaisePropertyChanged("TblBOMSize1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO TblBOMSize1Reference {
+            get {
+                return this.TblBOMSize1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBOMSize1ReferenceField, value) != true)) {
+                    this.TblBOMSize1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBOMSize1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBOMStyleColor {
+            get {
+                return this.TblBOMStyleColorField;
+            }
+            set {
+                if ((this.TblBOMStyleColorField.Equals(value) != true)) {
+                    this.TblBOMStyleColorField = value;
+                    this.RaisePropertyChanged("TblBOMStyleColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblBOMStyleColor TblBOMStyleColor1 {
+            get {
+                return this.TblBOMStyleColor1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBOMStyleColor1Field, value) != true)) {
+                    this.TblBOMStyleColor1Field = value;
+                    this.RaisePropertyChanged("TblBOMStyleColor1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO TblBOMStyleColor1Reference {
+            get {
+                return this.TblBOMStyleColor1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBOMStyleColor1ReferenceField, value) != true)) {
+                    this.TblBOMStyleColor1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBOMStyleColor1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblPurchaseOrderDetail {
+            get {
+                return this.TblPurchaseOrderDetailField;
+            }
+            set {
+                if ((this.TblPurchaseOrderDetailField.Equals(value) != true)) {
+                    this.TblPurchaseOrderDetailField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1 {
+            get {
+                return this.TblPurchaseOrderDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1Field, value) != true)) {
+                    this.TblPurchaseOrderDetail1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1Reference {
+            get {
+                return this.TblPurchaseOrderDetail1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderDetail1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail1Reference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblBOMSize", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblBOMSize : CCWFM.RouteCardService.EntityObject {
+        
+        private CCWFM.RouteCardService.BOM BOM1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
+        
+        private int BomField;
+        
+        private string FabricSizeField;
+        
+        private int IserialField;
+        
+        private double MaterialUsageField;
+        
+        private string SizeFabricRatioField;
+        
+        private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.BOM BOM1 {
+            get {
+                return this.BOM1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
+                    this.BOM1Field = value;
+                    this.RaisePropertyChanged("BOM1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
+            get {
+                return this.BOM1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
+                    this.BOM1ReferenceField = value;
+                    this.RaisePropertyChanged("BOM1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Bom {
+            get {
+                return this.BomField;
+            }
+            set {
+                if ((this.BomField.Equals(value) != true)) {
+                    this.BomField = value;
+                    this.RaisePropertyChanged("Bom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FabricSize {
+            get {
+                return this.FabricSizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FabricSizeField, value) != true)) {
+                    this.FabricSizeField = value;
+                    this.RaisePropertyChanged("FabricSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double MaterialUsage {
+            get {
+                return this.MaterialUsageField;
+            }
+            set {
+                if ((this.MaterialUsageField.Equals(value) != true)) {
+                    this.MaterialUsageField = value;
+                    this.RaisePropertyChanged("MaterialUsage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SizeFabricRatio {
+            get {
+                return this.SizeFabricRatioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SizeFabricRatioField, value) != true)) {
+                    this.SizeFabricRatioField = value;
+                    this.RaisePropertyChanged("SizeFabricRatio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StyleSize {
+            get {
+                return this.StyleSizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StyleSizeField, value) != true)) {
+                    this.StyleSizeField = value;
+                    this.RaisePropertyChanged("StyleSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
+            get {
+                return this.TblPurchaseOrderDetailBreakDownsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
+                    this.TblPurchaseOrderDetailBreakDownsField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblBOMStyleColor", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblBOMStyleColor : CCWFM.RouteCardService.EntityObject {
+        
+        private CCWFM.RouteCardService.BOM BOM1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1ReferenceField;
+        
+        private int BomField;
+        
+        private System.Nullable<int> DummyColorField;
+        
+        private System.Nullable<int> DyedColorField;
+        
+        private System.Nullable<int> FabricColorField;
+        
+        private int IserialField;
+        
+        private int StyleColorField;
+        
+        private int TBlWFCompanyField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColorField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColor1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColor2Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor2ReferenceField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDownsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.BOM BOM1 {
+            get {
+                return this.BOM1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1Field, value) != true)) {
+                    this.BOM1Field = value;
+                    this.RaisePropertyChanged("BOM1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfBOMo0bgEGGO BOM1Reference {
+            get {
+                return this.BOM1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BOM1ReferenceField, value) != true)) {
+                    this.BOM1ReferenceField = value;
+                    this.RaisePropertyChanged("BOM1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Bom {
+            get {
+                return this.BomField;
+            }
+            set {
+                if ((this.BomField.Equals(value) != true)) {
+                    this.BomField = value;
+                    this.RaisePropertyChanged("Bom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DummyColor {
+            get {
+                return this.DummyColorField;
+            }
+            set {
+                if ((this.DummyColorField.Equals(value) != true)) {
+                    this.DummyColorField = value;
+                    this.RaisePropertyChanged("DummyColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DyedColor {
+            get {
+                return this.DyedColorField;
+            }
+            set {
+                if ((this.DyedColorField.Equals(value) != true)) {
+                    this.DyedColorField = value;
+                    this.RaisePropertyChanged("DyedColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FabricColor {
+            get {
+                return this.FabricColorField;
+            }
+            set {
+                if ((this.FabricColorField.Equals(value) != true)) {
+                    this.FabricColorField = value;
+                    this.RaisePropertyChanged("FabricColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StyleColor {
+            get {
+                return this.StyleColorField;
+            }
+            set {
+                if ((this.StyleColorField.Equals(value) != true)) {
+                    this.StyleColorField = value;
+                    this.RaisePropertyChanged("StyleColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor {
+            get {
+                return this.TblColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
+                    this.TblColorField = value;
+                    this.RaisePropertyChanged("TblColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor1 {
+            get {
+                return this.TblColor1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
+                    this.TblColor1Field = value;
+                    this.RaisePropertyChanged("TblColor1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
+            get {
+                return this.TblColor1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
+                    this.TblColor1ReferenceField = value;
+                    this.RaisePropertyChanged("TblColor1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor2 {
+            get {
+                return this.TblColor2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor2Field, value) != true)) {
+                    this.TblColor2Field = value;
+                    this.RaisePropertyChanged("TblColor2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor2Reference {
+            get {
+                return this.TblColor2ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor2ReferenceField, value) != true)) {
+                    this.TblColor2ReferenceField = value;
+                    this.RaisePropertyChanged("TblColor2Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
+            get {
+                return this.TblColorReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
+                    this.TblColorReferenceField = value;
+                    this.RaisePropertyChanged("TblColorReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown> TblPurchaseOrderDetailBreakDowns {
+            get {
+                return this.TblPurchaseOrderDetailBreakDownsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailBreakDownsField, value) != true)) {
+                    this.TblPurchaseOrderDetailBreakDownsField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailBreakDowns");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseRequestLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseRequestLink : CCWFM.RouteCardService.EntityObject {
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblPurchaseOrderDetailField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1ReferenceField;
+        
+        private int TblPurchaseOrderDetailRequestField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblPurchaseOrderDetail {
+            get {
+                return this.TblPurchaseOrderDetailField;
+            }
+            set {
+                if ((this.TblPurchaseOrderDetailField.Equals(value) != true)) {
+                    this.TblPurchaseOrderDetailField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderDetail TblPurchaseOrderDetail1 {
+            get {
+                return this.TblPurchaseOrderDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1Field, value) != true)) {
+                    this.TblPurchaseOrderDetail1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO TblPurchaseOrderDetail1Reference {
+            get {
+                return this.TblPurchaseOrderDetail1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetail1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderDetail1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetail1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblPurchaseOrderDetailRequest {
+            get {
+                return this.TblPurchaseOrderDetailRequestField;
+            }
+            set {
+                if ((this.TblPurchaseOrderDetailRequestField.Equals(value) != true)) {
+                    this.TblPurchaseOrderDetailRequestField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1 {
+            get {
+                return this.TblPurchaseOrderDetailRequest1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1Field, value) != true)) {
+                    this.TblPurchaseOrderDetailRequest1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1Reference {
+            get {
+                return this.TblPurchaseOrderDetailRequest1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderDetailRequest1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1Reference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseOrderDetailRequest", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseOrderDetailRequest : CCWFM.RouteCardService.EntityObject {
+        
+        private System.Nullable<double> BasicPriceField;
+        
+        private string BatchNoField;
+        
+        private System.Nullable<double> BomQtyField;
+        
+        private System.Nullable<System.DateTime> DeliveryDateField;
+        
+        private System.Nullable<int> FabricColorField;
+        
+        private int IserialField;
+        
+        private string ItemIdField;
+        
+        private string ItemTypeField;
+        
+        private System.Nullable<double> PriceField;
+        
+        private System.Nullable<double> QtyField;
+        
+        private System.Nullable<double> ReceiveNowField;
+        
+        private System.Nullable<double> RemaningQtyField;
+        
+        private System.Nullable<System.DateTime> ShippingDateField;
+        
+        private string SizeField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColorField;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReferenceField;
+        
+        private System.Nullable<int> TblPurchaseOrderHeaderRequestField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest TblPurchaseOrderHeaderRequest1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO TblPurchaseOrderHeaderRequest1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail> TblPurchaseReceiveDetailsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinksField;
+        
+        private string UnitField;
+        
+        private double VendorPriceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BasicPrice {
+            get {
+                return this.BasicPriceField;
+            }
+            set {
+                if ((this.BasicPriceField.Equals(value) != true)) {
+                    this.BasicPriceField = value;
+                    this.RaisePropertyChanged("BasicPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BatchNo {
+            get {
+                return this.BatchNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
+                    this.BatchNoField = value;
+                    this.RaisePropertyChanged("BatchNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BomQty {
+            get {
+                return this.BomQtyField;
+            }
+            set {
+                if ((this.BomQtyField.Equals(value) != true)) {
+                    this.BomQtyField = value;
+                    this.RaisePropertyChanged("BomQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DeliveryDate {
+            get {
+                return this.DeliveryDateField;
+            }
+            set {
+                if ((this.DeliveryDateField.Equals(value) != true)) {
+                    this.DeliveryDateField = value;
+                    this.RaisePropertyChanged("DeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FabricColor {
+            get {
+                return this.FabricColorField;
+            }
+            set {
+                if ((this.FabricColorField.Equals(value) != true)) {
+                    this.FabricColorField = value;
+                    this.RaisePropertyChanged("FabricColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemType {
+            get {
+                return this.ItemTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemTypeField, value) != true)) {
+                    this.ItemTypeField = value;
+                    this.RaisePropertyChanged("ItemType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ReceiveNow {
+            get {
+                return this.ReceiveNowField;
+            }
+            set {
+                if ((this.ReceiveNowField.Equals(value) != true)) {
+                    this.ReceiveNowField = value;
+                    this.RaisePropertyChanged("ReceiveNow");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> RemaningQty {
+            get {
+                return this.RemaningQtyField;
+            }
+            set {
+                if ((this.RemaningQtyField.Equals(value) != true)) {
+                    this.RemaningQtyField = value;
+                    this.RaisePropertyChanged("RemaningQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ShippingDate {
+            get {
+                return this.ShippingDateField;
+            }
+            set {
+                if ((this.ShippingDateField.Equals(value) != true)) {
+                    this.ShippingDateField = value;
+                    this.RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SizeField, value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor {
+            get {
+                return this.TblColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorField, value) != true)) {
+                    this.TblColorField = value;
+                    this.RaisePropertyChanged("TblColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColorReference {
+            get {
+                return this.TblColorReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColorReferenceField, value) != true)) {
+                    this.TblColorReferenceField = value;
+                    this.RaisePropertyChanged("TblColorReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPurchaseOrderHeaderRequest {
+            get {
+                return this.TblPurchaseOrderHeaderRequestField;
+            }
+            set {
+                if ((this.TblPurchaseOrderHeaderRequestField.Equals(value) != true)) {
+                    this.TblPurchaseOrderHeaderRequestField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest TblPurchaseOrderHeaderRequest1 {
+            get {
+                return this.TblPurchaseOrderHeaderRequest1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeaderRequest1Field, value) != true)) {
+                    this.TblPurchaseOrderHeaderRequest1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO TblPurchaseOrderHeaderRequest1Reference {
+            get {
+                return this.TblPurchaseOrderHeaderRequest1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderHeaderRequest1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderHeaderRequest1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderHeaderRequest1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail> TblPurchaseReceiveDetails {
+            get {
+                return this.TblPurchaseReceiveDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseReceiveDetailsField, value) != true)) {
+                    this.TblPurchaseReceiveDetailsField = value;
+                    this.RaisePropertyChanged("TblPurchaseReceiveDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink> TblPurchaseRequestLinks {
+            get {
+                return this.TblPurchaseRequestLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseRequestLinksField, value) != true)) {
+                    this.TblPurchaseRequestLinksField = value;
+                    this.RaisePropertyChanged("TblPurchaseRequestLinks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double VendorPrice {
+            get {
+                return this.VendorPriceField;
+            }
+            set {
+                if ((this.VendorPriceField.Equals(value) != true)) {
+                    this.VendorPriceField = value;
+                    this.RaisePropertyChanged("VendorPrice");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseReceiveDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseReceiveDetail : CCWFM.RouteCardService.EntityObject {
+        
+        private string BatchNoField;
+        
+        private System.Nullable<double> CostField;
+        
+        private int IserialField;
+        
+        private System.Nullable<double> OldCostField;
+        
+        private System.Nullable<double> QtyField;
+        
+        private System.Nullable<int> TblPurchaseOrderDetailRequestField;
+        
+        private CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1ReferenceField;
+        
+        private System.Nullable<int> TblPurchaseReceiveHeaderField;
+        
+        private CCWFM.RouteCardService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO TblPurchaseReceiveHeader1ReferenceField;
+        
+        private int TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BatchNo {
+            get {
+                return this.BatchNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BatchNoField, value) != true)) {
+                    this.BatchNoField = value;
+                    this.RaisePropertyChanged("BatchNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> OldCost {
+            get {
+                return this.OldCostField;
+            }
+            set {
+                if ((this.OldCostField.Equals(value) != true)) {
+                    this.OldCostField = value;
+                    this.RaisePropertyChanged("OldCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPurchaseOrderDetailRequest {
+            get {
+                return this.TblPurchaseOrderDetailRequestField;
+            }
+            set {
+                if ((this.TblPurchaseOrderDetailRequestField.Equals(value) != true)) {
+                    this.TblPurchaseOrderDetailRequestField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseOrderDetailRequest TblPurchaseOrderDetailRequest1 {
+            get {
+                return this.TblPurchaseOrderDetailRequest1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1Field, value) != true)) {
+                    this.TblPurchaseOrderDetailRequest1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO TblPurchaseOrderDetailRequest1Reference {
+            get {
+                return this.TblPurchaseOrderDetailRequest1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseOrderDetailRequest1ReferenceField, value) != true)) {
+                    this.TblPurchaseOrderDetailRequest1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseOrderDetailRequest1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblPurchaseReceiveHeader {
+            get {
+                return this.TblPurchaseReceiveHeaderField;
+            }
+            set {
+                if ((this.TblPurchaseReceiveHeaderField.Equals(value) != true)) {
+                    this.TblPurchaseReceiveHeaderField = value;
+                    this.RaisePropertyChanged("TblPurchaseReceiveHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblPurchaseReceiveHeader TblPurchaseReceiveHeader1 {
+            get {
+                return this.TblPurchaseReceiveHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseReceiveHeader1Field, value) != true)) {
+                    this.TblPurchaseReceiveHeader1Field = value;
+                    this.RaisePropertyChanged("TblPurchaseReceiveHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO TblPurchaseReceiveHeader1Reference {
+            get {
+                return this.TblPurchaseReceiveHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPurchaseReceiveHeader1ReferenceField, value) != true)) {
+                    this.TblPurchaseReceiveHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblPurchaseReceiveHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPurchaseType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPurchaseType : CCWFM.RouteCardService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int TBlWFCompanyField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeadersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblGeneratePurchaseHeader> TblGeneratePurchaseHeaders {
+            get {
+                return this.TblGeneratePurchaseHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGeneratePurchaseHeadersField, value) != true)) {
+                    this.TblGeneratePurchaseHeadersField = value;
+                    this.RaisePropertyChanged("TblGeneratePurchaseHeaders");
                 }
             }
         }
@@ -73260,6 +78035,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Nullable<int> StatusField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblPaymentScheduleSetting TblPaymentScheduleSettingField;
         
@@ -73334,6 +78111,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73437,6 +78227,8 @@ namespace CCWFM.RouteCardService {
         private bool PercentageIncludedField;
         
         private bool StartingDaysIncludedField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPaymentScheduleDetail> TblPaymentScheduleDetailsField;
         
@@ -73547,6 +78339,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPaymentScheduleDetail> TblPaymentScheduleDetails {
             get {
                 return this.TblPaymentScheduleDetailsField;
@@ -73587,6 +78392,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> PercentageField;
         
         private System.Nullable<double> StartingDaysField;
+        
+        private int TBlWFCompanyField;
         
         private int TblPaymentScheduleField;
         
@@ -73661,6 +78468,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StartingDaysField.Equals(value) != true)) {
                     this.StartingDaysField = value;
                     this.RaisePropertyChanged("StartingDays");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -73759,6 +78579,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPaymentScheduleDetail> TblPaymentScheduleDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrder> TblSalesOrdersField;
@@ -73829,6 +78651,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPaymentScheduleDetail> TblPaymentScheduleDetails {
             get {
                 return this.TblPaymentScheduleDetailsField;
@@ -73879,6 +78714,8 @@ namespace CCWFM.RouteCardService {
         private string NotesField;
         
         private string RefNoField;
+        
+        private int TBlWFCompanyField;
         
         private int TblInventTypeField;
         
@@ -74030,6 +78867,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RefNoField, value) != true)) {
                     this.RefNoField = value;
                     this.RaisePropertyChanged("RefNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74202,6 +79052,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblSalesIssueHeaderField;
         
         private CCWFM.RouteCardService.TblSalesIssueHeader1 TblSalesIssueHeader1Field;
@@ -74251,6 +79103,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74368,6 +79233,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<System.DateTime> ShippingDateField;
         
+        private int TBlWFCompanyField;
+        
         private int TblItemDimField;
         
         private CCWFM.RouteCardService.TblItemDim1 TblItemDim1Field;
@@ -74484,6 +79351,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.ShippingDateField.Equals(value) != true)) {
                     this.ShippingDateField = value;
                     this.RaisePropertyChanged("ShippingDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74621,6 +79501,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<System.DateTime> ShippingDateField;
         
         private bool StatusField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -74798,6 +79680,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -74991,6 +79886,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> StatusField;
         
         private string SupplierInvField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCurrencyField;
         
@@ -75189,6 +80086,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -75293,6 +80203,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<decimal> QtyField;
         
+        private int TBlWFCompanyField;
+        
         private int TblItemDimField;
         
         private CCWFM.RouteCardService.TblItemDim1 TblItemDim1Field;
@@ -75359,6 +80271,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -75494,6 +80419,8 @@ namespace CCWFM.RouteCardService {
         
         private int MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCurrencyField;
         
         private int TblJournalAccountTypeField;
@@ -75558,6 +80485,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -75680,6 +80620,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderHeaderRequest1> TblSalesOrderHeaderRequestsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -75735,6 +80677,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderHeaderRequest1> TblSalesOrderHeaderRequests {
             get {
                 return this.TblSalesOrderHeaderRequestsField;
@@ -75760,6 +80715,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblItemDim1> TblItemDimsField;
         
@@ -75818,6 +80775,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblItemDim1> TblItemDims {
             get {
                 return this.TblItemDimsField;
@@ -75856,6 +80826,8 @@ namespace CCWFM.RouteCardService {
         private decimal PendingQtyField;
         
         private decimal QtyField;
+        
+        private int TBlWFCompanyField;
         
         private int TblItemDimField;
         
@@ -75917,6 +80889,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QtyField.Equals(value) != true)) {
                     this.QtyField = value;
                     this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76028,6 +81013,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<int> LastChangeUserField;
         
         private string NotesField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUserField;
         
@@ -76207,6 +81194,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76392,9 +81392,17 @@ namespace CCWFM.RouteCardService {
         
         private int ItemDimToField;
         
+        private string ItemFPCodeField;
+        
+        private System.Nullable<int> ItemFPIserialField;
+        
+        private string ItemFPNameField;
+        
         private CCWFM.RouteCardService.ItemDimensionSearchModel ItemTransferField;
         
         private decimal QuantityField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblItemDim1 TblItemDimField;
         
@@ -76450,6 +81458,45 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemFPCode {
+            get {
+                return this.ItemFPCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemFPCodeField, value) != true)) {
+                    this.ItemFPCodeField = value;
+                    this.RaisePropertyChanged("ItemFPCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ItemFPIserial {
+            get {
+                return this.ItemFPIserialField;
+            }
+            set {
+                if ((this.ItemFPIserialField.Equals(value) != true)) {
+                    this.ItemFPIserialField = value;
+                    this.RaisePropertyChanged("ItemFPIserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemFPName {
+            get {
+                return this.ItemFPNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemFPNameField, value) != true)) {
+                    this.ItemFPNameField = value;
+                    this.RaisePropertyChanged("ItemFPName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.ItemDimensionSearchModel ItemTransfer {
             get {
                 return this.ItemTransferField;
@@ -76471,6 +81518,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.QuantityField.Equals(value) != true)) {
                     this.QuantityField = value;
                     this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76582,6 +81642,8 @@ namespace CCWFM.RouteCardService {
         
         private string StoreField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthUserField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUser1Field;
@@ -76659,6 +81721,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.StoreField, value) != true)) {
                     this.StoreField = value;
                     this.RaisePropertyChanged("Store");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -76781,6 +81856,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinksField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListTransaction> TblCheckListTransactionsField;
@@ -76838,6 +81915,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -76870,6 +81960,8 @@ namespace CCWFM.RouteCardService {
     public partial class TblCheckListLink : CCWFM.RouteCardService.EntityObject {
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblCheckListDesignGroupHeader1Field;
         
@@ -76904,6 +81996,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77078,6 +82183,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -77128,6 +82235,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77159,6 +82279,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinksField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -77214,6 +82336,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -77239,6 +82374,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinksField;
         
@@ -77299,6 +82436,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblCheckListLink> TblCheckListLinks {
             get {
                 return this.TblCheckListLinksField;
@@ -77347,6 +82497,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private int TblCheckListGroupField;
         
         private CCWFM.RouteCardService.TblCheckListGroup TblCheckListGroup1Field;
@@ -77375,6 +82527,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77428,6 +82593,8 @@ namespace CCWFM.RouteCardService {
         
         private string SendToField;
         
+        private int TBlWFCompanyField;
+        
         private int TblAuthUserField;
         
         private CCWFM.RouteCardService.TblAuthUser1 TblAuthUser1Field;
@@ -77462,6 +82629,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SendToField, value) != true)) {
                     this.SendToField = value;
                     this.RaisePropertyChanged("SendTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77564,6 +82744,8 @@ namespace CCWFM.RouteCardService {
         
         private string PortField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsers1Field;
@@ -77660,6 +82842,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -77698,6 +82893,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsersField;
         
@@ -77754,6 +82951,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblAuthUser1> TblAuthUsers {
             get {
                 return this.TblAuthUsersField;
@@ -77773,6 +82983,8 @@ namespace CCWFM.RouteCardService {
     public partial class TblUsersApprovalStatu : CCWFM.RouteCardService.EntityObject {
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblApprovalStatu TblApprovalStatuField;
         
@@ -77795,6 +83007,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -77893,6 +83118,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrder> TblSalesOrdersField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblUsersApprovalStatu> TblUsersApprovalStatusField;
@@ -77963,6 +83190,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrder> TblSalesOrders {
             get {
                 return this.TblSalesOrdersField;
@@ -78001,6 +83241,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRecInvHeaderProd> TblRecInvHeaderProdsField;
         
@@ -78057,6 +83299,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblRecInvHeaderProd> TblRecInvHeaderProds {
             get {
                 return this.TblRecInvHeaderProdsField;
@@ -78090,6 +83345,8 @@ namespace CCWFM.RouteCardService {
         private double QtyField;
         
         private string SizeCodeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -78209,6 +83466,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SizeCodeField, value) != true)) {
                     this.SizeCodeField = value;
                     this.RaisePropertyChanged("SizeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -78342,6 +83612,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> MiscValueTypeField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblCurrencyField;
         
         private CCWFM.RouteCardService.TblCurrency TblCurrency1Field;
@@ -78397,6 +83669,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -78547,6 +83832,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<bool> LocalCurrencyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseMarkupTransProd> TblPurchaseMarkupTransProdsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderRequestMarkupTransProd> TblSalesOrderRequestMarkupTransProdsField;
@@ -78617,6 +83904,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseMarkupTransProd> TblPurchaseMarkupTransProds {
             get {
                 return this.TblPurchaseMarkupTransProdsField;
@@ -78655,6 +83955,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> MiscValueField;
         
         private int MiscValueTypeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblCurrencyField;
         
@@ -78724,6 +84026,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.MiscValueTypeField.Equals(value) != true)) {
                     this.MiscValueTypeField = value;
                     this.RaisePropertyChanged("MiscValueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -78872,6 +84187,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> StatusField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblMarkerTypeField;
         
         private CCWFM.RouteCardService.TblMarkerType TblMarkerType1Field;
@@ -78944,6 +84261,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -79118,6 +84448,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_MarkerTransactionHeader> tbl_MarkerTransactionHeaderField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -79173,6 +84505,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tbl_MarkerTransactionHeader> tbl_MarkerTransactionHeader {
             get {
                 return this.tbl_MarkerTransactionHeaderField;
@@ -79218,6 +84563,8 @@ namespace CCWFM.RouteCardService {
         private int StyleColorCodeField;
         
         private string StyleNoField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblColor1 TblColorField;
         
@@ -79420,6 +84767,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.TblColor1 TblColor {
             get {
                 return this.TblColorField;
@@ -79560,6 +84920,8 @@ namespace CCWFM.RouteCardService {
         
         private string RollUnitField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblMarkerTypeField;
         
         private CCWFM.RouteCardService.tbl_MarkerDetail tbl_MarkerDetailField;
@@ -79684,6 +85046,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblMarkerType {
             get {
                 return this.TblMarkerTypeField;
@@ -79735,6 +85110,8 @@ namespace CCWFM.RouteCardService {
         private double MeterPerSizeValueField;
         
         private int SizeCode_IdField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.tbl_MarkerDetail tbl_MarkerDetailField;
         
@@ -79793,6 +85170,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.tbl_MarkerDetail tbl_MarkerDetail {
             get {
                 return this.tbl_MarkerDetailField;
@@ -79831,6 +85221,8 @@ namespace CCWFM.RouteCardService {
         private float OprCostField;
         
         private System.Nullable<double> RowIndexField;
+        
+        private int TBlWFCompanyField;
         
         private int TblOperationField;
         
@@ -79894,6 +85286,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.RowIndexField.Equals(value) != true)) {
                     this.RowIndexField = value;
                     this.RaisePropertyChanged("RowIndex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -79999,6 +85404,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<float> OprCostField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblColorField;
         
         private CCWFM.RouteCardService.TblColor1 TblColor1Field;
@@ -80033,6 +85440,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.OprCostField.Equals(value) != true)) {
                     this.OprCostField = value;
                     this.RaisePropertyChanged("OprCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -80159,6 +85579,8 @@ namespace CCWFM.RouteCardService {
         
         private string CompositionField;
         
+        private string ConfigurationField;
+        
         private string ConsumptionField;
         
         private System.Nullable<bool> DyedField;
@@ -80166,6 +85588,10 @@ namespace CCWFM.RouteCardService {
         private string ExcelPathField;
         
         private string FabricCodeField;
+        
+        private string FabricExternalCodeField;
+        
+        private System.Nullable<int> FabricIDField;
         
         private System.Nullable<int> FabricTypeField;
         
@@ -80179,6 +85605,8 @@ namespace CCWFM.RouteCardService {
         
         private byte[] ImageThumbField;
         
+        private System.Nullable<bool> IsCompletedField;
+        
         private bool IsSupplierMaterialField;
         
         private int IserialField;
@@ -80187,9 +85615,13 @@ namespace CCWFM.RouteCardService {
         
         private string PlacementField;
         
+        private string PriceField;
+        
         private string SupplierCodeField;
         
         private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblStyleField;
         
@@ -80202,6 +85634,8 @@ namespace CCWFM.RouteCardService {
         private string WeightField;
         
         private string WidthField;
+        
+        private System.Nullable<int> tblWF_AccessoryAttributesDetailsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BOMHorizontalShrinkage {
@@ -80451,6 +85885,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Configuration {
+            get {
+                return this.ConfigurationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConfigurationField, value) != true)) {
+                    this.ConfigurationField = value;
+                    this.RaisePropertyChanged("Configuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Consumption {
             get {
                 return this.ConsumptionField;
@@ -80498,6 +85945,32 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.FabricCodeField, value) != true)) {
                     this.FabricCodeField = value;
                     this.RaisePropertyChanged("FabricCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FabricExternalCode {
+            get {
+                return this.FabricExternalCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FabricExternalCodeField, value) != true)) {
+                    this.FabricExternalCodeField = value;
+                    this.RaisePropertyChanged("FabricExternalCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FabricID {
+            get {
+                return this.FabricIDField;
+            }
+            set {
+                if ((this.FabricIDField.Equals(value) != true)) {
+                    this.FabricIDField = value;
+                    this.RaisePropertyChanged("FabricID");
                 }
             }
         }
@@ -80581,6 +86054,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCompleted {
+            get {
+                return this.IsCompletedField;
+            }
+            set {
+                if ((this.IsCompletedField.Equals(value) != true)) {
+                    this.IsCompletedField = value;
+                    this.RaisePropertyChanged("IsCompleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsSupplierMaterial {
             get {
                 return this.IsSupplierMaterialField;
@@ -80633,6 +86119,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriceField, value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string SupplierCode {
             get {
                 return this.SupplierCodeField;
@@ -80654,6 +86153,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
                     this.SupplierColorCodeField = value;
                     this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -80735,6 +86247,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblWF_AccessoryAttributesDetails {
+            get {
+                return this.tblWF_AccessoryAttributesDetailsField;
+            }
+            set {
+                if ((this.tblWF_AccessoryAttributesDetailsField.Equals(value) != true)) {
+                    this.tblWF_AccessoryAttributesDetailsField = value;
+                    this.RaisePropertyChanged("tblWF_AccessoryAttributesDetails");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -80749,6 +86274,8 @@ namespace CCWFM.RouteCardService {
         private string EnameField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TechPackBOM> TechPackBOMsField;
         
@@ -80805,6 +86332,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TechPackBOM> TechPackBOMs {
             get {
                 return this.TechPackBOMsField;
@@ -80832,6 +86372,8 @@ namespace CCWFM.RouteCardService {
         private string SizeFabricRatioField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TechPackBOMField;
         
@@ -80905,6 +86447,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TechPackBOM {
             get {
                 return this.TechPackBOMField;
@@ -80955,9 +86510,17 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<int> FabricColorField;
         
+        private System.Nullable<bool> IsCanceledField;
+        
         private int IserialField;
         
+        private string PantoneColorCodeField;
+        
         private int StyleColorField;
+        
+        private string SupplierColorCodeField;
+        
+        private int TBlWFCompanyField;
         
         private CCWFM.RouteCardService.TblColor1 TblColorField;
         
@@ -81017,6 +86580,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsCanceled {
+            get {
+                return this.IsCanceledField;
+            }
+            set {
+                if ((this.IsCanceledField.Equals(value) != true)) {
+                    this.IsCanceledField = value;
+                    this.RaisePropertyChanged("IsCanceled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -81030,6 +86606,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PantoneColorCode {
+            get {
+                return this.PantoneColorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PantoneColorCodeField, value) != true)) {
+                    this.PantoneColorCodeField = value;
+                    this.RaisePropertyChanged("PantoneColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int StyleColor {
             get {
                 return this.StyleColorField;
@@ -81038,6 +86627,32 @@ namespace CCWFM.RouteCardService {
                 if ((this.StyleColorField.Equals(value) != true)) {
                     this.StyleColorField = value;
                     this.RaisePropertyChanged("StyleColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SupplierColorCode {
+            get {
+                return this.SupplierColorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SupplierColorCodeField, value) != true)) {
+                    this.SupplierColorCodeField = value;
+                    this.RaisePropertyChanged("SupplierColorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -81194,6 +86809,8 @@ namespace CCWFM.RouteCardService {
         private int StyleColorField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.BOMEstimated BOMEstimated {
@@ -81389,6 +87006,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -81411,6 +87041,8 @@ namespace CCWFM.RouteCardService {
         private string SizeFabricRatioField;
         
         private string StyleSizeField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.RouteCardService.BOMEstimated BOMEstimated {
@@ -81515,6 +87147,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -81533,6 +87178,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<System.DateTime> LastUpdatedDateField;
         
         private string OrginalFileNameField;
+        
+        private int TBlWFCompanyField;
         
         private int TblSalesOrderField;
         
@@ -81619,6 +87266,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblSalesOrder {
             get {
                 return this.TblSalesOrderField;
@@ -81667,6 +87327,8 @@ namespace CCWFM.RouteCardService {
         
         private string NotesField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblSalesOrderField;
         
         private CCWFM.RouteCardService.TblSalesOrder TblSalesOrder1Field;
@@ -81701,6 +87363,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.NotesField, value) != true)) {
                     this.NotesField = value;
                     this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -81797,6 +87472,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderNote> TblSalesOrderNotesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -81852,6 +87529,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderNote> TblSalesOrderNotes {
             get {
                 return this.TblSalesOrderNotesField;
@@ -81860,6 +87550,297 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.TblSalesOrderNotesField, value) != true)) {
                     this.TblSalesOrderNotesField = value;
                     this.RaisePropertyChanged("TblSalesOrderNotes");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblContractDetailDel", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblContractDetailDel : CCWFM.RouteCardService.EntityObject {
+        
+        private decimal AccCostField;
+        
+        private decimal CostField;
+        
+        private int CreatedByField;
+        
+        private System.DateTime CreationDateField;
+        
+        private System.DateTime DeliveryDateField;
+        
+        private decimal FabricCostField;
+        
+        private int IserialField;
+        
+        private System.Nullable<System.DateTime> LastChangeDateField;
+        
+        private System.Nullable<int> LastChangeUserField;
+        
+        private string MaterialField;
+        
+        private decimal OperationCostField;
+        
+        private int QtyField;
+        
+        private int TBlWFCompanyField;
+        
+        private int TblColorField;
+        
+        private CCWFM.RouteCardService.TblColor1 TblColor1Field;
+        
+        private CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1ReferenceField;
+        
+        private int TblContractHeaderField;
+        
+        private System.Nullable<int> TblLkpBrandSectionField;
+        
+        private int TblSalesOrderColorField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal AccCost {
+            get {
+                return this.AccCostField;
+            }
+            set {
+                if ((this.AccCostField.Equals(value) != true)) {
+                    this.AccCostField = value;
+                    this.RaisePropertyChanged("AccCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DeliveryDate {
+            get {
+                return this.DeliveryDateField;
+            }
+            set {
+                if ((this.DeliveryDateField.Equals(value) != true)) {
+                    this.DeliveryDateField = value;
+                    this.RaisePropertyChanged("DeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal FabricCost {
+            get {
+                return this.FabricCostField;
+            }
+            set {
+                if ((this.FabricCostField.Equals(value) != true)) {
+                    this.FabricCostField = value;
+                    this.RaisePropertyChanged("FabricCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastChangeDate {
+            get {
+                return this.LastChangeDateField;
+            }
+            set {
+                if ((this.LastChangeDateField.Equals(value) != true)) {
+                    this.LastChangeDateField = value;
+                    this.RaisePropertyChanged("LastChangeDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastChangeUser {
+            get {
+                return this.LastChangeUserField;
+            }
+            set {
+                if ((this.LastChangeUserField.Equals(value) != true)) {
+                    this.LastChangeUserField = value;
+                    this.RaisePropertyChanged("LastChangeUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Material {
+            get {
+                return this.MaterialField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaterialField, value) != true)) {
+                    this.MaterialField = value;
+                    this.RaisePropertyChanged("Material");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal OperationCost {
+            get {
+                return this.OperationCostField;
+            }
+            set {
+                if ((this.OperationCostField.Equals(value) != true)) {
+                    this.OperationCostField = value;
+                    this.RaisePropertyChanged("OperationCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Qty {
+            get {
+                return this.QtyField;
+            }
+            set {
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblColor {
+            get {
+                return this.TblColorField;
+            }
+            set {
+                if ((this.TblColorField.Equals(value) != true)) {
+                    this.TblColorField = value;
+                    this.RaisePropertyChanged("TblColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.TblColor1 TblColor1 {
+            get {
+                return this.TblColor1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1Field, value) != true)) {
+                    this.TblColor1Field = value;
+                    this.RaisePropertyChanged("TblColor1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.RouteCardService.EntityReferenceOfTblColoro0bgEGGO TblColor1Reference {
+            get {
+                return this.TblColor1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblColor1ReferenceField, value) != true)) {
+                    this.TblColor1ReferenceField = value;
+                    this.RaisePropertyChanged("TblColor1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblContractHeader {
+            get {
+                return this.TblContractHeaderField;
+            }
+            set {
+                if ((this.TblContractHeaderField.Equals(value) != true)) {
+                    this.TblContractHeaderField = value;
+                    this.RaisePropertyChanged("TblContractHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblLkpBrandSection {
+            get {
+                return this.TblLkpBrandSectionField;
+            }
+            set {
+                if ((this.TblLkpBrandSectionField.Equals(value) != true)) {
+                    this.TblLkpBrandSectionField = value;
+                    this.RaisePropertyChanged("TblLkpBrandSection");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblSalesOrderColor {
+            get {
+                return this.TblSalesOrderColorField;
+            }
+            set {
+                if ((this.TblSalesOrderColorField.Equals(value) != true)) {
+                    this.TblSalesOrderColorField = value;
+                    this.RaisePropertyChanged("TblSalesOrderColor");
                 }
             }
         }
@@ -81887,6 +87868,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> RemQtyField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private int TblColorField;
         
@@ -82020,6 +88003,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblColor {
             get {
                 return this.TblColorField;
@@ -82130,6 +88126,8 @@ namespace CCWFM.RouteCardService {
         
         private int IserialField;
         
+        private int TBlWFCompanyField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblIssueJournalDetail> TblIssueJournalDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblIssueJournalReceiveHeader> TblIssueJournalReceiveHeadersField;
@@ -82228,6 +88226,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblIssueJournalDetail> TblIssueJournalDetails {
             get {
                 return this.TblIssueJournalDetailsField;
@@ -82283,6 +88294,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<System.DateTime> DateField;
         
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblIssueJournalHeaderField;
         
@@ -82371,6 +88384,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblIssueJournalHeader {
             get {
                 return this.TblIssueJournalHeaderField;
@@ -82436,6 +88462,8 @@ namespace CCWFM.RouteCardService {
         
         private System.Nullable<double> NewQtyField;
         
+        private int TBlWFCompanyField;
+        
         private System.Nullable<int> TblIssueJournalDetailField;
         
         private CCWFM.RouteCardService.TblIssueJournalDetail TblIssueJournalDetail1Field;
@@ -82498,6 +88526,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.NewQtyField.Equals(value) != true)) {
                     this.NewQtyField = value;
                     this.RaisePropertyChanged("NewQty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -82607,6 +88648,8 @@ namespace CCWFM.RouteCardService {
         
         private string ServiceCodeField;
         
+        private int TBlWFCompanyField;
+        
         private int TblIssueJournalReceiveDetailField;
         
         private CCWFM.RouteCardService.TblIssueJournalReceiveDetail TblIssueJournalReceiveDetail1Field;
@@ -82666,6 +88709,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblIssueJournalReceiveDetail {
             get {
                 return this.TblIssueJournalReceiveDetailField;
@@ -82718,7 +88774,11 @@ namespace CCWFM.RouteCardService {
         
         private string EnameField;
         
+        private string HTMLColorField;
+        
         private int IserialField;
+        
+        private int TBlWFCompanyField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblColor1> TblColorsField;
         
@@ -82775,6 +88835,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HTMLColor {
+            get {
+                return this.HTMLColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HTMLColorField, value) != true)) {
+                    this.HTMLColorField = value;
+                    this.RaisePropertyChanged("HTMLColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -82783,6 +88856,19 @@ namespace CCWFM.RouteCardService {
                 if ((this.IserialField.Equals(value) != true)) {
                     this.IserialField = value;
                     this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -82823,6 +88909,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<double> RemField;
         
         private string SizeField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblColorField;
         
@@ -82948,6 +89036,19 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblColor {
             get {
                 return this.TblColorField;
@@ -83001,6 +89102,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardDetailActualCost> RouteCardDetailActualCostsField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -83066,6 +89169,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -83082,6 +89198,8 @@ namespace CCWFM.RouteCardService {
         private int IserialField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -83147,6 +89265,19 @@ namespace CCWFM.RouteCardService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -83167,6 +89298,8 @@ namespace CCWFM.RouteCardService {
         private System.Nullable<short> PreProdctionField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.RouteCardHeader> RouteCardHeadersField;
+        
+        private int TBlWFCompanyField;
         
         private System.Nullable<int> TblInventTypeField;
         
@@ -83259,6 +89392,19 @@ namespace CCWFM.RouteCardService {
                 if ((object.ReferenceEquals(this.RouteCardHeadersField, value) != true)) {
                     this.RouteCardHeadersField = value;
                     this.RaisePropertyChanged("RouteCardHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TBlWFCompany {
+            get {
+                return this.TBlWFCompanyField;
+            }
+            set {
+                if ((this.TBlWFCompanyField.Equals(value) != true)) {
+                    this.TBlWFCompanyField = value;
+                    this.RaisePropertyChanged("TBlWFCompany");
                 }
             }
         }
@@ -83530,12 +89676,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblServiceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblWarehouseo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlano0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingSummaryo0bgEGGO))]
@@ -83616,20 +89756,25 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -83657,6 +89802,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -83682,9 +89828,15 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblUserBrandSectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFactoryDeliveryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPlanTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesIssueHeadero0bgEGGO))]
@@ -83813,18 +89965,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblProductionOrderHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailRequest>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeader))]
@@ -84074,9 +90214,10 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractSubHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractPaymentByPeriod>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColor))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetailDel>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderColorTheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderColor>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSeasonalMasterList>))]
@@ -84096,6 +90237,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyCategoryLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSubFamilyLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubFamilyLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGenericFabric))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblLkpDirectionLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblLkpDirectionLink))]
@@ -84113,6 +90255,11 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleFabricComposition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleImage>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleImage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleSpecDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleSpecType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.tblStyleSpecDetailAttachment>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tblStyleSpecDetailAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNAHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAHeader))]
@@ -84123,6 +90270,9 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNA))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNARoute>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARoute))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNADetailAttachment>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNADetailAttachment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNARouteStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblStyleTNAStatusDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblStyleTNAStatusDetail))]
@@ -84173,8 +90323,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.tbl_lkp_YarnStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderSizeRatio>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderSizeRatio))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractPaymentByPeriod>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractPaymentByPeriod))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractSubHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSubContractor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblDyeingPlanHeaderAcc>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblDyeingPlanHeaderAcc))]
@@ -84248,9 +90397,21 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblGeneratePurchaseHeaderCurrency))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPlanType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeader>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseHeaderType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailBreakDown))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMSize))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblBOMStyleColor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseRequestLink>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseRequestLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderDetailRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseReceiveDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseReceiveDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderDetailRequest>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblPurchaseOrderHeaderRequestPayment>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPurchaseOrderHeaderRequestPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblPaymentScheduleSetting))]
@@ -84340,6 +90501,8 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblSalesOrderNote>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNote))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblSalesOrderNotesType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblContractDetailDel>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblContractDetailDel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.RouteCardService.TblIssueJournalDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.TblIssueJournalHeader))]
@@ -84440,12 +90603,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblServiceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblWarehouseo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlano0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingSummaryo0bgEGGO))]
@@ -84526,20 +90683,25 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -84567,6 +90729,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -84592,9 +90755,15 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblUserBrandSectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFactoryDeliveryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPlanTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesIssueHeadero0bgEGGO))]
@@ -84678,12 +90847,6 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblServiceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblWarehouseo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlano0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingSummaryo0bgEGGO))]
@@ -84764,20 +90927,25 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblContractSubHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColorThemeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSeasonalMasterListo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFamilyo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubFamilyo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblGenericFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblLkpDirectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSizeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleCategoryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleFabricCompositiono0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleSpecDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblRetailOrderProductionTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNADetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblStyleTNAStatuo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSupplierFabrico0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTBLTechPackStatuo0bgEGGO))]
@@ -84805,6 +90973,7 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnFinisho0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnSourceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOftbl_lkp_YarnStatuso0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesOrderColoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSubContractoro0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanACCo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblDyeingPlanHeaderAcco0bgEGGO))]
@@ -84830,9 +90999,15 @@ namespace CCWFM.RouteCardService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblUserBrandSectiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblFactoryDeliveryo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPlanTypeo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMSizeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblBOMStyleColoro0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPurchaseTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblPaymentScheduleSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.RouteCardService.EntityReferenceOfTblSalesIssueHeadero0bgEGGO))]
@@ -85024,42 +91199,6 @@ namespace CCWFM.RouteCardService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblProductionOrderTransactionTypeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblBOMSizeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblBOMSizeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblBOMStyleColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblBOMStyleColoro0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85544,8 +91683,8 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalesOrderColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblSalesOrderColoro0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblContractSubHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblContractSubHeadero0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85570,6 +91709,12 @@ namespace CCWFM.RouteCardService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSubFamilyo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblSubFamilyo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblGenericFabrico0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblGenericFabrico0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85604,6 +91749,18 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleSpecTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleSpecTypeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleSpecDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleSpecDetailo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleStatuo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblStyleStatuo0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
@@ -85624,6 +91781,18 @@ namespace CCWFM.RouteCardService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNAo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblStyleTNAo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNADetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleTNADetailo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblStyleTNARouteStatuo0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -85790,6 +91959,12 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalesOrderColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblSalesOrderColoro0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSubContractoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblSubContractoro0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
@@ -85940,20 +92115,56 @@ namespace CCWFM.RouteCardService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPurchaseTypeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblPurchaseHeaderTypeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblBOMSizeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblBOMSizeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblBOMStyleColoro0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblBOMStyleColoro0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPurchaseOrderDetailo0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblPurchaseOrderHeadero0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPurchaseOrderHeaderRequesto0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPurchaseOrderDetailRequesto0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPurchaseReceiveHeadero0bgEGGO : CCWFM.RouteCardService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPurchaseTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPurchaseTypeo0bgEGGO : CCWFM.RouteCardService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -86451,7 +92662,7 @@ namespace CCWFM.RouteCardService {
         void EndPurchaseRouteItemByNegativeToAx(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:RouteCardService/GetAxItemPrice", ReplyAction="urn:RouteCardService/GetAxItemPriceResponse")]
-        System.IAsyncResult BeginGetAxItemPrice(string fabricCode, string batch, string color, string inventlocationid, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetAxItemPrice(int TransactionType, string ItemGroup, string fabricCode, string batch, string Size, string color, string inventlocationid, System.AsyncCallback callback, object asyncState);
         
         System.Nullable<decimal> EndGetAxItemPrice(System.IAsyncResult result);
         
@@ -87951,8 +94162,8 @@ namespace CCWFM.RouteCardService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult CCWFM.RouteCardService.RouteCardService.BeginGetAxItemPrice(string fabricCode, string batch, string color, string inventlocationid, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetAxItemPrice(fabricCode, batch, color, inventlocationid, callback, asyncState);
+        System.IAsyncResult CCWFM.RouteCardService.RouteCardService.BeginGetAxItemPrice(int TransactionType, string ItemGroup, string fabricCode, string batch, string Size, string color, string inventlocationid, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAxItemPrice(TransactionType, ItemGroup, fabricCode, batch, Size, color, inventlocationid, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -87961,11 +94172,14 @@ namespace CCWFM.RouteCardService {
         }
         
         private System.IAsyncResult OnBeginGetAxItemPrice(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string fabricCode = ((string)(inValues[0]));
-            string batch = ((string)(inValues[1]));
-            string color = ((string)(inValues[2]));
-            string inventlocationid = ((string)(inValues[3]));
-            return ((CCWFM.RouteCardService.RouteCardService)(this)).BeginGetAxItemPrice(fabricCode, batch, color, inventlocationid, callback, asyncState);
+            int TransactionType = ((int)(inValues[0]));
+            string ItemGroup = ((string)(inValues[1]));
+            string fabricCode = ((string)(inValues[2]));
+            string batch = ((string)(inValues[3]));
+            string Size = ((string)(inValues[4]));
+            string color = ((string)(inValues[5]));
+            string inventlocationid = ((string)(inValues[6]));
+            return ((CCWFM.RouteCardService.RouteCardService)(this)).BeginGetAxItemPrice(TransactionType, ItemGroup, fabricCode, batch, Size, color, inventlocationid, callback, asyncState);
         }
         
         private object[] OnEndGetAxItemPrice(System.IAsyncResult result) {
@@ -87981,11 +94195,11 @@ namespace CCWFM.RouteCardService {
             }
         }
         
-        public void GetAxItemPriceAsync(string fabricCode, string batch, string color, string inventlocationid) {
-            this.GetAxItemPriceAsync(fabricCode, batch, color, inventlocationid, null);
+        public void GetAxItemPriceAsync(int TransactionType, string ItemGroup, string fabricCode, string batch, string Size, string color, string inventlocationid) {
+            this.GetAxItemPriceAsync(TransactionType, ItemGroup, fabricCode, batch, Size, color, inventlocationid, null);
         }
         
-        public void GetAxItemPriceAsync(string fabricCode, string batch, string color, string inventlocationid, object userState) {
+        public void GetAxItemPriceAsync(int TransactionType, string ItemGroup, string fabricCode, string batch, string Size, string color, string inventlocationid, object userState) {
             if ((this.onBeginGetAxItemPriceDelegate == null)) {
                 this.onBeginGetAxItemPriceDelegate = new BeginOperationDelegate(this.OnBeginGetAxItemPrice);
             }
@@ -87996,8 +94210,11 @@ namespace CCWFM.RouteCardService {
                 this.onGetAxItemPriceCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAxItemPriceCompleted);
             }
             base.InvokeAsync(this.onBeginGetAxItemPriceDelegate, new object[] {
+                        TransactionType,
+                        ItemGroup,
                         fabricCode,
                         batch,
+                        Size,
                         color,
                         inventlocationid}, this.onEndGetAxItemPriceDelegate, this.onGetAxItemPriceCompletedDelegate, userState);
         }
@@ -89012,12 +95229,15 @@ namespace CCWFM.RouteCardService {
                 base.EndInvoke("PurchaseRouteItemByNegativeToAx", _args, result);
             }
             
-            public System.IAsyncResult BeginGetAxItemPrice(string fabricCode, string batch, string color, string inventlocationid, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = fabricCode;
-                _args[1] = batch;
-                _args[2] = color;
-                _args[3] = inventlocationid;
+            public System.IAsyncResult BeginGetAxItemPrice(int TransactionType, string ItemGroup, string fabricCode, string batch, string Size, string color, string inventlocationid, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = TransactionType;
+                _args[1] = ItemGroup;
+                _args[2] = fabricCode;
+                _args[3] = batch;
+                _args[4] = Size;
+                _args[5] = color;
+                _args[6] = inventlocationid;
                 System.IAsyncResult _result = base.BeginInvoke("GetAxItemPrice", _args, callback, asyncState);
                 return _result;
             }

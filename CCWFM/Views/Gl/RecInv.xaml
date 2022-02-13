@@ -63,8 +63,12 @@
 				</Button.Style>
 			</Button>
 
-	   
-		</StackPanel>
+            <Button Content="Invoice" Name="BtnInvoice" Visibility="{Binding SelectedMainRow.Invoiced,Converter={StaticResource VisibilityConverter},ConverterParameter=123}" ToolTipService.ToolTip="Invoice" Click="btnInvoice_Click"  FontWeight="Bold">
+                
+            </Button>
+
+
+        </StackPanel>
 		<Grid Grid.Row="1" Margin="0,20,0,0" DataContext="{Binding SelectedMainRow,Mode=TwoWay}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
@@ -396,7 +400,27 @@
 														 Mode=TwoWay, StringFormat=\{0:N3\}}"
 										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Total,
 																							  Source={StaticResource LocalizedStrings}}" />
-						<sdk:DataGridTemplateColumn SortMemberPath="Iserial" Visibility="Collapsed"
+
+                        <sdk:DataGridTextColumn Width="*"  SortMemberPath="ContractCost"
+										Binding="{Binding Path=ContractCost,
+														 Mode=TwoWay, StringFormat=\{0:N3\}}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ContractCost,
+																							  Source={StaticResource LocalizedStrings}}" />
+
+                        <sdk:DataGridTextColumn Width="*"  SortMemberPath="ContractQty"
+										Binding="{Binding Path=ContractQty,
+														 Mode=TwoWay, StringFormat=\{0:N3\}}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ContractQty,
+																							  Source={StaticResource LocalizedStrings}}" />
+
+                        <sdk:DataGridTextColumn Width="*"  SortMemberPath="ContractTotal"
+										Binding="{Binding Path=ContractTotal,
+														 Mode=TwoWay, StringFormat=\{0:N3\}}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ContractTotal,
+																							  Source={StaticResource LocalizedStrings}}" />
+                        
+
+                        <sdk:DataGridTemplateColumn SortMemberPath="Iserial" Visibility="Collapsed"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MiscValue, Source={StaticResource LocalizedStrings}}"
 											Width="*">
 

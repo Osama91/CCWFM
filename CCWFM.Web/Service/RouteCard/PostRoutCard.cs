@@ -6,6 +6,8 @@ using System.ServiceModel;
 using CCWFM.Web.Model;
 using Microsoft.Dynamics.BusinessConnectorNet;
 using CCWFM.Web.Service.Operations;
+using System.Collections.Generic;
+using CCWFM.Web.Service.WarehouseOp;
 
 namespace CCWFM.Web.Service.RouteCard
 {
@@ -39,7 +41,7 @@ namespace CCWFM.Web.Service.RouteCard
 
                     try
                     {
-
+                       
                         routeHeaderRow.AxRouteCardJournalId = "111";//retval.ToString();
 
                         if (postPostOrNo == 1)
@@ -1004,161 +1006,105 @@ namespace CCWFM.Web.Service.RouteCard
 
         [OperationContract]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        public void PurchaseRouteItemByNegativeToAx(RouteCardHeader headerObjToPost, int postPostOrNo, int userIserial)
+        public void PurchaseRouteItemByNegativeToAx(RouteCardHeader header, int postPostOrNo, int userIserial)
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
+                var headerObjToPost = context.RouteCardHeaders.Include("RouteCardFabrics").SingleOrDefault(x => x.Iserial == header.Iserial);
 
-                var headerRoute = context.RouteCardHeaders.SingleOrDefault(x => x.Iserial == headerObjToPost.Iserial);
-                //if (SharedOperation.UseAx())
-                //{
-                //    var detailsObjToPost = context.RouteCardFabrics.Include("TblSalesOrder1.TblStyle1").Where(x => x.RouteCardHeaderIserial == headerObjToPost.Iserial);
+                if (headerObjToPost.ProductionResidue)
+                {
+                    var WarehouseCodes = headerObjToPost.RouteCardFabrics.Select(w => w.Warehouse).Distinct().ToList();
+
+                    var warehouses = context.TblWarehouses.Where(w => WarehouseCodes.Contains(w.Code));
 
 
-                //    using (var axapta = new Axapta())//Ready To be Dependent from Ax
-                //    {
-                //        var credential = new NetworkCredential("bcproxy", "around1");
+                    foreach (var warehouse in warehouses)
+                    {
 
-                //        TblAuthUser userToLogin;
 
-                //        userToLogin = context.TblAuthUsers.SingleOrDefault(x => x.Iserial == userIserial);
+                        var adjustmenHeader = new TblAdjustmentHeader()
+                        {
+                            DocDate = headerObjToPost.DocDate ?? DateTime.Now,
+                            CreationDate = DateTime.Now,
+                            WarehouseIserial = warehouse.Iserial,
+                            CountReference = headerObjToPost.Iserial.ToString(),
 
-                //        axapta.LogonAs(userToLogin.User_Win_Login, userToLogin.User_Domain, credential, "Ccm", null, null, null);
 
-                //        var inventTable = axapta.CreateAxaptaRecord("InventDim");
-                //        try
-                //        {
-                //            var purchId = "Vendor_ " + headerObjToPost.Iserial.ToString();
-                //            var tableName = "PurchTable";
-                //            var purchTableRecord = axapta.CreateAxaptaRecord(tableName);
-                //            purchTableRecord.Clear();
-                //            purchTableRecord.InitValue();
+                        };
+                        adjustmenHeader.TblAdjustmentDetails = new System.Data.Objects.DataClasses.EntityCollection<TblAdjustmentDetail>();
+                        var routeList = headerObjToPost.RouteCardFabrics.Where(w => w.Warehouse == warehouse.Code).ToList();
 
-                //            purchTableRecord.set_Field("PurchId", purchId);
-                //            purchTableRecord.set_Field("DeliveryDate", headerObjToPost.DeliveryDate ?? DateTime.Now);
-                //            //   axaptaRecord.set_Field("PurchId", _PurchID);
+                        var NewAdjustList = new List<TblAdjustmentDetail>();
+                        foreach (var RouteDetailList in routeList)
+                        {
+                            var detail = new TblAdjustmentDetail();
+                            detail.ItemAdjustment.DifferenceQuantity = Convert.ToDecimal(RouteDetailList.Qty);
+                            var fabric = context.FabricAccSearches.FirstOrDefault(w => w.ItemGroup == RouteDetailList.ItemGroup && w.Code == RouteDetailList.ItemId);
+                            detail.ItemDimIserial = context.FindOrCreateItemDim(fabric.Iserial, RouteDetailList.ItemGroup, RouteDetailList.FabricColor,
+                    RouteDetailList.Size, RouteDetailList.Batch, warehouse.TblSite).FirstOrDefault().Iserial;
 
-                //            var header = axapta.CallStaticRecordMethod("VendTable", "find", headerObjToPost.Vendor) as AxaptaRecord;
-                //            purchTableRecord.Call("initFromVendTable", header);
+                            NewAdjustList.Add(detail);
+                        }
 
-                //            purchTableRecord.Insert();
+                        var GroupedList=   NewAdjustList.GroupBy(w => w.ItemDimIserial).Select(e => new TblAdjustmentDetail {
+                            ItemAdjustment = new DataLayer.ItemDimensionAdjustmentSearchModel() {
+                                DifferenceQuantity = e.Sum(w => w.ItemAdjustment.DifferenceQuantity)
+                            },
+                            ItemDimIserial=e.Key
+                        } );
 
-                //            tableName = "PurchLine";
-                //            foreach (var item in detailsObjToPost)
-                //            {
-                //                var firstOrDefault = context.TblColors.FirstOrDefault(x => x.Iserial == item.FabricColor);
-                //                var colorcode = "Free";
-                //                if (firstOrDefault != null)
-                //                {
-                //                    colorcode =
-                //                       firstOrDefault.Code;
-                //                }
-                //                var axaptaRecord = axapta.CreateAxaptaRecord(tableName);
-                //                axaptaRecord.Clear();
-                //                axaptaRecord.InitValue();
+                        foreach (var item in GroupedList)
+                        {
+                            adjustmenHeader.TblAdjustmentDetails.Add(item);
+                        }
+                      
+                      WarehouseService srv = new WarehouseService();
+                        int index = 0;
+                        srv.UpdateOrInsertAdjustmentHeader(adjustmenHeader, 0, userIserial, out index);
+                        srv.ApproveAdjustmentByIserial(adjustmenHeader.Iserial, userIserial, 0);
+                    }
+                }
 
-                //                inventTable.Clear();
-                //                inventTable.set_Field("InventLocationId", item.Warehouse);
-                //                inventTable.set_Field("wMSLocationId", item.Warehouse);
-                //                inventTable.set_Field("InventSiteId", item.Site);
-                //                if (item.FabricColor != null)
-                //                    inventTable.set_Field("InventColorId",
-                //                        colorcode);
-                //                if (item.Size != null) inventTable.set_Field("InventSizeId", item.Size);
-
-                //                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-                //                //var producationOrder = importNew.Call("GetProdIdFromSalesorderAndColor",
-                //                //    item.TblSalesOrder1.TblStyle1.StyleCode,
-                //                //    context.TblColors.FirstOrDefault(x => x.Iserial == item.StyleColor).Code,
-                //                //    item.TblSalesOrder1.SalesOrderCode);
-                //                var Batch = "";
-                //                if (item.Barcode != "" && item.Barcode != null)
-                //                {
-                //                    Batch = item.Barcode;
-                //                }
-                //                else
-                //                {
-                //                    Batch = item.Batch;
-                //                }
-                //                try
-                //                {
-                //                    if (Batch != "")
-                //                    {
-                //                        importNew.Call("CreateBatch", item.ItemId, Batch);
-                //                    }
-
-                //                    importNew.Call("CreateConfig", item.ItemId.ToString(CultureInfo.InvariantCulture), colorcode);
-                //                }
-                //                catch (Exception)
-                //                {
-                //                }
-                //                inventTable.set_Field("configId", colorcode);
-                //                if (!string.IsNullOrWhiteSpace(Batch))
-                //                {
-                //                    inventTable.set_Field("inventBatchId", Batch);
-                //                }
-                //                inventTable =
-                //                    axapta.CallStaticRecordMethod("InventDim", "findOrCreate", inventTable) as
-                //                        AxaptaRecord;
-
-                //                if (inventTable != null)
-                //                {
-                //                    var tempx = inventTable.get_Field("inventDimId").ToString();
-                //                    axaptaRecord.set_Field("InventDimId", tempx);
-                //                }
-
-                //                axaptaRecord.set_Field("ItemId", item.ItemId);
-                //                axaptaRecord.set_Field("purchId", purchId);
-                //                axaptaRecord.set_Field("PurchUnit", item.Unit);
-                //                axaptaRecord.set_Field("QtyOrdered", Convert.ToDecimal(item.Qty.ToString()) * -1);
-                //                axaptaRecord.set_Field("PurchPrice", item.CostPerUnit);
-                //                axaptaRecord.set_Field("PurchQty", Convert.ToDecimal(item.Qty.ToString()) * -1);
-                //                axaptaRecord.set_Field("LineAmount", Convert.ToDecimal(item.Qty * item.CostPerUnit) * -1);
-                //                axaptaRecord.Call("createLine", true, true, false, true, true, false);
-                //            }
-
-                //            //No errors occured, Commit!
-                //            //Axapta.TTSCommit();
-
-                //            if (postPostOrNo == 1)
-                //            {
-                //                var importNew = axapta.CreateAxaptaObject("CreateProductionJournals");
-                //                importNew.Call("PostPurchaseOrder", purchId, headerObjToPost.DocDate);
-                //                headerRoute.AxRouteCardFabricsJournalId = purchId;
-                //                context.SaveChanges();
-                //            }
-                //        }
-
-                //        catch (Exception ex)
-                //        {
-                //            //There was some errors, Abort transaction and Raise error!
-                //            //Axapta.TTSAbort();
-                //            throw new Exception(ex.Message);
-                //        }
-                //        finally
-                //        {
-                //            //Finally logoff the Axapta Session
-                //            axapta.Logoff();
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                    headerRoute.AxRouteCardFabricsJournalId = "111";
+                headerObjToPost.AxRouteCardFabricsJournalId = "111";
                     context.SaveChanges();
-                //}
-
+               
             }
         }
 
         [OperationContract]
-        public decimal? GetAxItemPrice(string fabricCode, string batch, string color, string inventlocationid)
+        public decimal? GetAxItemPrice(int TransactionType,string ItemGroup, string fabricCode, string batch,string Size, string color, string inventlocationid)
         {
-            using (var context = new ax2009_ccEntities())
+            using (var context = new WorkFlowManagerDBEntities())
             {
-                var tt = context.GetItemPriceAx(fabricCode, DateTime.Now, batch, color, inventlocationid).FirstOrDefault();
-                return tt;
+               // var 
+                var tt = context.view_GetItemPrice.Where(w=>w.LastStoreAvgCost!=null).OrderByDescending(w => w.DocDate).FirstOrDefault(w => w.Code == fabricCode &&w.Size== Size && w.ColorCode == color && w.BatchNo == batch
+                //&& w.WarehouseCode == inventlocationid
+                );
+                //(fabricCode, DateTime.Now, batch, color, inventlocationid).FirstOrDefault();
+
+                if (tt != null)
+                {
+                    //Transfer To Vendor Sales
+                    //بيع
+                    if (TransactionType == 10 || TransactionType == 7)
+                    {
+                        if (tt.ProfitMarginPercentage > 0)
+                        {
+                          var Percentage=  tt.ProfitMarginPercentage / 100.00;
+                            var percentageValues =  tt.LastStoreAvgCost*Convert.ToDecimal(Percentage);
+                            return tt.LastStoreAvgCost+ percentageValues;
+                        }
+                    }
+                    else {
+                        return tt.LastStoreAvgCost;
+
+                    }
+                }
+
+                return 0;
             }
+    
         }
     }
 }

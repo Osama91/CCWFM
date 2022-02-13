@@ -877,6 +877,13 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
             set { _PackingTransID = value; RaisePropertyChanged("PackingTransID"); }
         }
 
+        private bool _ProductionResidue;
+
+        public bool ProductionResidue
+        {
+            get { return _ProductionResidue; }
+            set { _ProductionResidue = value; RaisePropertyChanged("ProductionResidue"); }
+        }
 
         private string _SupplierInv;
 

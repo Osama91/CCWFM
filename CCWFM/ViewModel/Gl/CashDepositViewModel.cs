@@ -136,7 +136,7 @@ namespace CCWFM.ViewModel.Gl
 
         public bool NoBank
         {
-            get { return TblCashDepositType == 4 || TblCashDepositType == 5 || TblCashDepositType == 6 || TblCashDepositType == 7 || TblCashDepositType == 8 || TblCashDepositType == 10 || TblCashDepositType == 11 || IsSubSafe || TblCashDepositType == 12; }
+            get { return TblCashDepositType == 4 || TblCashDepositType == 5 || TblCashDepositType == 6 || TblCashDepositType == 7 || TblCashDepositType == 8 || TblCashDepositType == 10 || TblCashDepositType == 11 || IsSubSafe || TblCashDepositType == 12 || TblCashDepositType == 13; }
         }
 
         public new string LedgerDescription
@@ -489,6 +489,14 @@ namespace CCWFM.ViewModel.Gl
                                     break;
 
                                 case CashDepositType.DSquaresCIB:
+                                    SelectedDetailRow.TblBank = null;
+                                    SelectedDetailRow.TblBank1 = null;
+                                    SelectedDetailRow.TblJournalAccountType = lastRow.TblJournalAccountType;
+                                    SelectedDetailRow.JournalAccountTypePerRow = lastRow.JournalAccountTypePerRow;
+                                    SelectedDetailRow.EntityAccount = lastRow.EntityAccount;
+                                    SelectedDetailRow.EntityPerRow = lastRow.EntityPerRow;
+                                    break;
+                                case CashDepositType.VALU:
                                     SelectedDetailRow.TblBank = null;
                                     SelectedDetailRow.TblBank1 = null;
                                     SelectedDetailRow.TblJournalAccountType = lastRow.TblJournalAccountType;
@@ -1107,7 +1115,9 @@ namespace CCWFM.ViewModel.Gl
                 SelectedMainRow.TblCashDepositType != 5 &&
                 SelectedMainRow.TblCashDepositType != 6 &&
                 SelectedMainRow.TblCashDepositType != 7 &&
-                SelectedMainRow.TblCashDepositType != 12)
+                SelectedMainRow.TblCashDepositType != 12 &&
+                SelectedMainRow.TblCashDepositType != 13
+                )
             {
                 MessageBox.Show(strings.ReqBankAccountNo);
                 return false;
@@ -1339,6 +1349,22 @@ namespace CCWFM.ViewModel.Gl
                         SelectedDetailRow.DiscountPercent = CashDepositRow.DiscountPercent;
                     }                 
                 }
+                else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.VALU)
+                {
+                    var CashDepositRow = CashDepositSetting.FirstOrDefault(w => w.TblTenderTypes == SelectedMainRow.TblTenderType && w.TblCashDepositType.Value == SelectedMainRow.TblCashDepositType);
+                    if (CashDepositRow != null)
+                    {
+                        SelectedDetailRow.TblJournalAccountType = CashDepositRow.TblJournalAccountType;
+                        SelectedDetailRow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType);
+                        //new gene().InjectFrom(
+                        // as TblJournalAccountType;
+                        //SelectedDetailRow.JournalAccountTypePerRow = new TblJournalAccountType().InjectFrom(JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType)) as TblJournalAccountType;
+                        SelectedDetailRow.EntityAccount = CashDepositRow.EntityAccount;
+                        SelectedDetailRow.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
+                        SelectedDetailRow.DiscountPercent = CashDepositRow.DiscountPercent;
+                    }
+                }
+
                 else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.DsquaresLuckyWallet)
                 {
                     var CashDepositRow = CashDepositSetting.FirstOrDefault(w => w.TblTenderTypes == SelectedMainRow.TblTenderType && w.TblCashDepositType.Value == SelectedMainRow.TblCashDepositType);

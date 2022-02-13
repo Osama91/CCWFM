@@ -29,4 +29,16 @@ namespace CCWFM.Web.DataLayer
         public Nullable<double> Total { get; set; }
         public string Size { get; set; }
     }
+
+    public partial class RecInvContractValidation_Result : PropertiesViewModelBase
+    {
+
+        public string Style { get; set; }
+        public string ColorCode { get; set; }
+        public float Quantity { get; set; }
+        public float ContractQty { get; set; }
+        public float ContractCost { get; set; }
+        public float Difference { get; set; }
+
+    }
 }

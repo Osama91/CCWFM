@@ -1510,6 +1510,104 @@
           <Property Name="DueDate" Type="date" />
           <Property Name="TblBankCheque" Type="int" />
         </EntityType>
+        <EntityType Name="TblLedgerDetail1">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblLedgerHeader1" Type="int" Nullable="false" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblCostDimHeader" Type="int" />
+          <Property Name="TblJournalAccountType" Type="int" />
+          <Property Name="EntityAccount" Type="int" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="ExchangeRate" Type="float" />
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OffsetAccountType" Type="int" />
+          <Property Name="OffsetEntityAccount" Type="int" />
+          <Property Name="EntityRef" Type="int" />
+          <Property Name="DrOrCr" Type="bit" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="int" Nullable="false" />
+          <Property Name="PaymentRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblBankTransactionType" Type="int" />
+          <Property Name="TblMethodOfPayment" Type="int" />
+          <Property Name="GlAccount" Type="int" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="int" Nullable="false" />
+          <Property Name="BankDeposit" Type="bit" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="TblBankCheque" Type="int" />
+        </EntityType>
+        <EntityType Name="TblLedgerDetail1CostCenter">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="int" Nullable="false" />
+          <Property Name="TblCostCenter" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Ratio" Type="float" Nullable="false" />
+          <Property Name="TblCostCenterType" Type="int" />
+          <Property Name="Calculated" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ccnew.dbo.TblLedgerDetail1CostCenterDel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblLedgerDetail1CostCenterDel">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerMainDetail1" />
+            <PropertyRef Name="TblCostCenter" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="Ratio" />
+            <PropertyRef Name="Calculated" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="int" Nullable="false" />
+          <Property Name="TblCostCenter" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Ratio" Type="float" Nullable="false" />
+          <Property Name="TblCostCenterType" Type="int" />
+          <Property Name="Calculated" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ccnew.dbo.TblLedgerDetail1Del' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblLedgerDetail1Del">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerHeader1" />
+            <PropertyRef Name="DrOrCr" />
+            <PropertyRef Name="TblLedgerMainDetail1" />
+            <PropertyRef Name="GlAccount" />
+            <PropertyRef Name="OffsetGlAccount" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblLedgerHeader1" Type="int" Nullable="false" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblCostDimHeader" Type="int" />
+          <Property Name="TblJournalAccountType" Type="int" />
+          <Property Name="EntityAccount" Type="int" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="ExchangeRate" Type="float" />
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OffsetAccountType" Type="int" />
+          <Property Name="OffsetEntityAccount" Type="int" />
+          <Property Name="EntityRef" Type="int" />
+          <Property Name="DrOrCr" Type="bit" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="int" Nullable="false" />
+          <Property Name="PaymentRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblBankTransactionType" Type="int" />
+          <Property Name="TblMethodOfPayment" Type="int" />
+          <Property Name="GlAccount" Type="int" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="int" Nullable="false" />
+          <Property Name="BankDeposit" Type="bit" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="TblBankCheque" Type="int" />
+        </EntityType>
         <EntityType Name="TblLedgerDetailCostCenter">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -1523,6 +1621,30 @@
           <Property Name="Calculated" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblLedgerHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblJournal" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Posted" Type="bit" Nullable="false" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="DocDate" Type="date" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="PostBy" Type="int" />
+          <Property Name="ApprovedBy" Type="int" />
+          <Property Name="TblJournalLink" Type="int" />
+          <Property Name="TblTransactionType" Type="int" />
+          <Property Name="balanced" Type="bit" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="TblSequence" Type="int" />
+          <Property Name="TblCompany" Type="int" />
+        </EntityType>
+        <EntityType Name="TblLedgerHeader1">
           <Key>
             <PropertyRef Name="Iserial" />
           </Key>
@@ -1565,6 +1687,70 @@
           <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="50" />
           <Property Name="TblLedgerHeader" Type="int" Nullable="false" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblCostDimHeader" Type="int" />
+          <Property Name="TblJournalAccountType" Type="int" />
+          <Property Name="EntityAccount" Type="int" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="ExchangeRate" Type="float" />
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OffsetAccountType" Type="int" />
+          <Property Name="OffsetEntityAccount" Type="int" />
+          <Property Name="EntityRef" Type="int" />
+          <Property Name="DrOrCr" Type="bit" Nullable="false" />
+          <Property Name="PaymentRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblBankTransactionType" Type="int" />
+          <Property Name="TblMethodOfPayment" Type="int" />
+          <Property Name="GlAccount" Type="int" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="int" Nullable="false" />
+          <Property Name="BankDeposit" Type="bit" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="TblBankCheque" Type="int" />
+        </EntityType>
+        <EntityType Name="TblLedgerMainDetail1">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblLedgerHeader1" Type="int" Nullable="false" />
+          <Property Name="TblCurrency" Type="int" />
+          <Property Name="TblCostDimHeader" Type="int" />
+          <Property Name="TblJournalAccountType" Type="int" />
+          <Property Name="EntityAccount" Type="int" />
+          <Property Name="LineNumber" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="ExchangeRate" Type="float" />
+          <Property Name="TransDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OffsetAccountType" Type="int" />
+          <Property Name="OffsetEntityAccount" Type="int" />
+          <Property Name="EntityRef" Type="int" />
+          <Property Name="DrOrCr" Type="bit" Nullable="false" />
+          <Property Name="PaymentRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblBankTransactionType" Type="int" />
+          <Property Name="TblMethodOfPayment" Type="int" />
+          <Property Name="GlAccount" Type="int" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="int" Nullable="false" />
+          <Property Name="BankDeposit" Type="bit" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="TblBankCheque" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ccnew.dbo.TblLedgerMainDetail1Del' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblLedgerMainDetail1Del">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerHeader1" />
+            <PropertyRef Name="DrOrCr" />
+            <PropertyRef Name="GlAccount" />
+            <PropertyRef Name="OffsetGlAccount" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblLedgerHeader1" Type="int" Nullable="false" />
           <Property Name="TblCurrency" Type="int" />
           <Property Name="TblCostDimHeader" Type="int" />
           <Property Name="TblJournalAccountType" Type="int" />
@@ -1823,6 +2009,7 @@
           <Property Name="ApplyCommDiscOnItem" Type="int" />
           <Property Name="PoStatus" Type="int" />
           <Property Name="Ddate" Type="datetime" />
+          <Property Name="FromStore" Type="int" />
         </EntityType>
         <EntityType Name="TblPOMainDetail">
           <Key>
@@ -1847,6 +2034,7 @@
           <Property Name="QtyRec" Type="real" />
           <Property Name="Status" Type="int" />
           <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TblPositionRoute">
           <Key>
@@ -2000,6 +2188,10 @@
           <Property Name="MiscWithoutItemEffect" Type="decimal" Precision="19" Scale="4" />
           <Property Name="TblStore" Type="int" />
           <Property Name="TblAccount" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="PostBy" Type="int" />
+          <Property Name="Posted" Type="bit" Nullable="false" />
+          <Property Name="Invoiced" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblRecInvHeaderLink">
           <Key>
@@ -2018,6 +2210,7 @@
           <Property Name="Code" Type="nvarchar" MaxLength="50" />
           <Property Name="Aname" Type="nvarchar" MaxLength="50" />
           <Property Name="Ename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Natural" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TblRecInvMainDetail">
           <Key>
@@ -4616,6 +4809,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesPersonCustomerSales' d
           <Property Name="Dserial1" Type="int" />
           <Property Name="Wholesalesprice" Type="real" />
           <Property Name="salesprice" Type="real" />
+          <Property Name="SalesheaderTotal" Type="money" />
           <Property Name="tblCustomer" Type="int" />
           <Property Name="CustomerCode" Type="nvarchar" MaxLength="50" />
           <Property Name="tblsalesperson" Type="int" />
@@ -4639,6 +4833,8 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesPersonCustomerSales' d
           <Property Name="COUPONSDATE" Type="datetime" />
           <Property Name="tblGtype" Type="int" Nullable="false" />
           <Property Name="tblGtypeRef" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="LoyaltyCustomerIserial" Type="int" />
+          <Property Name="loyaltyRef" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesPersonCustomerSalesbag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4800,20 +4996,26 @@ warning 6002: The table/view 'ccnew.dbo.RecInvStyle' does not have a primary key
           <Property Name="Misc" Type="decimal" Precision="38" Scale="6" />
           <Property Name="TblUser" Type="int" />
           <Property Name="postdate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.RecInvStyleColor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RecInvStyleColor">
           <Key>
             <PropertyRef Name="ColorCode" />
+            <PropertyRef Name="ContractQty" />
+            <PropertyRef Name="ContractCost" />
           </Key>
           <Property Name="TblRecInvHeader" Type="int" />
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="ColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="ColorName" Type="varchar" MaxLength="25" />
           <Property Name="Cost" Type="decimal" Precision="38" Scale="6" />
           <Property Name="Quantity" Type="decimal" Precision="38" Scale="4" />
           <Property Name="Misc" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="ContractQty" Type="int" Nullable="false" />
+          <Property Name="ContractCost" Type="money" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.RecInvStyleSizeColor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5284,6 +5486,12 @@ warning 6002: The table/view 'ccnew.dbo.tblitem' does not have a primary key def
           <Property Name="lcost" Type="money" />
           <Property Name="SpecialFld1" Type="varchar" MaxLength="50" />
           <Property Name="SpecialFld2" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld3" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld4" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld5" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld6" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld7" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialFld8" Type="varchar" MaxLength="50" />
           <Property Name="DiscPer" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -7283,6 +7491,58 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TblLedgerDetail1_TblLedgerMainDetail1">
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblLedgerDetail1" Type="Self.TblLedgerDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerMainDetail1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1">
+              <PropertyRef Name="TblLedgerMainDetail1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblCostCenter">
+          <End Role="TblCostCenter" Type="Self.TblCostCenter" Multiplicity="1" />
+          <End Role="TblLedgerDetail1CostCenter" Type="Self.TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCostCenter">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblCostCenter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblCostCenterType">
+          <End Role="TblCostCenterType" Type="Self.TblCostCenterType" Multiplicity="0..1" />
+          <End Role="TblLedgerDetail1CostCenter" Type="Self.TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCostCenterType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblCostCenterType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblLedgerDetail1">
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblLedgerDetail1CostCenter" Type="Self.TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerMainDetail1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblLedgerMainDetail1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblLedgerDetailCostCenter_TblCostCenter">
           <End Role="TblCostCenter" Type="Self.TblCostCenter" Multiplicity="1" />
           <End Role="TblLedgerDetailCostCenter" Type="Self.TblLedgerDetailCostCenter" Multiplicity="*" />
@@ -7341,6 +7601,30 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
               <PropertyRef Name="Iserial" />
             </Principal>
             <Dependent Role="TblLedgerHeader">
+              <PropertyRef Name="TblSequence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerHeader1_TblJournal">
+          <End Role="TblJournal" Type="Self.TblJournal" Multiplicity="1" />
+          <End Role="TblLedgerHeader1" Type="Self.TblLedgerHeader1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournal">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerHeader1">
+              <PropertyRef Name="TblJournal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerHeader1_TblSequence">
+          <End Role="TblSequence" Type="Self.TblSequence" Multiplicity="0..1" />
+          <End Role="TblLedgerHeader1" Type="Self.TblLedgerHeader1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSequence">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerHeader1">
               <PropertyRef Name="TblSequence" />
             </Dependent>
           </ReferentialConstraint>
@@ -7451,6 +7735,104 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
               <PropertyRef Name="Iserial" />
             </Principal>
             <Dependent Role="TblLedgerMainDetail">
+              <PropertyRef Name="TblMethodOfPayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblAccount">
+          <End Role="TblAccount" Type="Self.TblAccount" Multiplicity="1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAccount">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="GlAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblBankCheque">
+          <End Role="TblBankCheque" Type="Self.TblBankCheque" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBankCheque">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblBankCheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblBankTransactionType">
+          <End Role="TblBankTransactionType" Type="Self.TblBankTransactionType" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBankTransactionType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblBankTransactionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblCurrency">
+          <End Role="TblCurrency" Type="Self.TblCurrency" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurrency">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblJournalAccountType">
+          <End Role="TblJournalAccountType" Type="Self.TblJournalAccountType" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournalAccountType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblJournalAccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblJournalAccountType2">
+          <End Role="TblJournalAccountType" Type="Self.TblJournalAccountType" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournalAccountType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="OffsetAccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblLedgerHeader1">
+          <End Role="TblLedgerHeader1" Type="Self.TblLedgerHeader1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerHeader1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblLedgerHeader1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblMethodOfPayment">
+          <End Role="TblMethodOfPayment" Type="Self.TblMethodOfPayment" Multiplicity="0..1" />
+          <End Role="TblLedgerMainDetail1" Type="Self.TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMethodOfPayment">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
               <PropertyRef Name="TblMethodOfPayment" />
             </Dependent>
           </ReferentialConstraint>
@@ -8235,6 +8617,9 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <Parameter Name="Enddate" Type="datetime" Mode="In" />
           <Parameter Name="store" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="RecInvContractValidation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Iserial" Type="int" Mode="In" />
+        </Function>
         <Function Name="ReverseLedgerTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tblJournlLink" Type="int" Mode="In" />
           <Parameter Name="TblTransactionType" Type="int" Mode="In" />
@@ -8404,10 +8789,14 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <EntitySet Name="TblJournalSettingEntity" EntityType="Self.TblJournalSettingEntity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblJournalType" EntityType="Self.TblJournalType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerDetail" EntityType="Self.TblLedgerDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLedgerDetail1" EntityType="Self.TblLedgerDetail1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLedgerDetail1CostCenter" EntityType="Self.TblLedgerDetail1CostCenter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerDetailCostCenter" EntityType="Self.TblLedgerDetailCostCenter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerHeader" EntityType="Self.TblLedgerHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLedgerHeader1" EntityType="Self.TblLedgerHeader1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerHeaderAttachment" EntityType="Self.TblLedgerHeaderAttachment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerMainDetail" EntityType="Self.TblLedgerMainDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLedgerMainDetail1" EntityType="Self.TblLedgerMainDetail1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerTemplate" EntityType="Self.TblLedgerTemplate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblLedgerTemplateGroup" EntityType="Self.TblLedgerTemplateGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMarkup" EntityType="Self.TblMarkup" Schema="dbo" store:Type="Tables" />
@@ -8469,6 +8858,74 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblVisaMachine" EntityType="Self.TblVisaMachine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TempQuery" EntityType="Self.TempQuery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblLedgerDetail1CostCenterDel" EntityType="Self.TblLedgerDetail1CostCenterDel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblLedgerDetail1CostCenterDel].[Iserial] AS [Iserial], 
+[TblLedgerDetail1CostCenterDel].[TblLedgerMainDetail1] AS [TblLedgerMainDetail1], 
+[TblLedgerDetail1CostCenterDel].[TblCostCenter] AS [TblCostCenter], 
+[TblLedgerDetail1CostCenterDel].[Amount] AS [Amount], 
+[TblLedgerDetail1CostCenterDel].[Ratio] AS [Ratio], 
+[TblLedgerDetail1CostCenterDel].[TblCostCenterType] AS [TblCostCenterType], 
+[TblLedgerDetail1CostCenterDel].[Calculated] AS [Calculated]
+FROM [dbo].[TblLedgerDetail1CostCenterDel] AS [TblLedgerDetail1CostCenterDel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblLedgerDetail1Del" EntityType="Self.TblLedgerDetail1Del" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblLedgerDetail1Del].[Iserial] AS [Iserial], 
+[TblLedgerDetail1Del].[Code] AS [Code], 
+[TblLedgerDetail1Del].[TblLedgerHeader1] AS [TblLedgerHeader1], 
+[TblLedgerDetail1Del].[TblCurrency] AS [TblCurrency], 
+[TblLedgerDetail1Del].[TblCostDimHeader] AS [TblCostDimHeader], 
+[TblLedgerDetail1Del].[TblJournalAccountType] AS [TblJournalAccountType], 
+[TblLedgerDetail1Del].[EntityAccount] AS [EntityAccount], 
+[TblLedgerDetail1Del].[LineNumber] AS [LineNumber], 
+[TblLedgerDetail1Del].[Amount] AS [Amount], 
+[TblLedgerDetail1Del].[ExchangeRate] AS [ExchangeRate], 
+[TblLedgerDetail1Del].[TransDate] AS [TransDate], 
+[TblLedgerDetail1Del].[Description] AS [Description], 
+[TblLedgerDetail1Del].[OffsetAccountType] AS [OffsetAccountType], 
+[TblLedgerDetail1Del].[OffsetEntityAccount] AS [OffsetEntityAccount], 
+[TblLedgerDetail1Del].[EntityRef] AS [EntityRef], 
+[TblLedgerDetail1Del].[DrOrCr] AS [DrOrCr], 
+[TblLedgerDetail1Del].[TblLedgerMainDetail1] AS [TblLedgerMainDetail1], 
+[TblLedgerDetail1Del].[PaymentRef] AS [PaymentRef], 
+[TblLedgerDetail1Del].[TblBankTransactionType] AS [TblBankTransactionType], 
+[TblLedgerDetail1Del].[TblMethodOfPayment] AS [TblMethodOfPayment], 
+[TblLedgerDetail1Del].[GlAccount] AS [GlAccount], 
+[TblLedgerDetail1Del].[OffsetGlAccount] AS [OffsetGlAccount], 
+[TblLedgerDetail1Del].[BankDeposit] AS [BankDeposit], 
+[TblLedgerDetail1Del].[DueDate] AS [DueDate], 
+[TblLedgerDetail1Del].[TblBankCheque] AS [TblBankCheque]
+FROM [dbo].[TblLedgerDetail1Del] AS [TblLedgerDetail1Del]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblLedgerMainDetail1Del" EntityType="Self.TblLedgerMainDetail1Del" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TblLedgerMainDetail1Del].[Iserial] AS [Iserial], 
+[TblLedgerMainDetail1Del].[Code] AS [Code], 
+[TblLedgerMainDetail1Del].[TblLedgerHeader1] AS [TblLedgerHeader1], 
+[TblLedgerMainDetail1Del].[TblCurrency] AS [TblCurrency], 
+[TblLedgerMainDetail1Del].[TblCostDimHeader] AS [TblCostDimHeader], 
+[TblLedgerMainDetail1Del].[TblJournalAccountType] AS [TblJournalAccountType], 
+[TblLedgerMainDetail1Del].[EntityAccount] AS [EntityAccount], 
+[TblLedgerMainDetail1Del].[LineNumber] AS [LineNumber], 
+[TblLedgerMainDetail1Del].[Amount] AS [Amount], 
+[TblLedgerMainDetail1Del].[ExchangeRate] AS [ExchangeRate], 
+[TblLedgerMainDetail1Del].[TransDate] AS [TransDate], 
+[TblLedgerMainDetail1Del].[Description] AS [Description], 
+[TblLedgerMainDetail1Del].[OffsetAccountType] AS [OffsetAccountType], 
+[TblLedgerMainDetail1Del].[OffsetEntityAccount] AS [OffsetEntityAccount], 
+[TblLedgerMainDetail1Del].[EntityRef] AS [EntityRef], 
+[TblLedgerMainDetail1Del].[DrOrCr] AS [DrOrCr], 
+[TblLedgerMainDetail1Del].[PaymentRef] AS [PaymentRef], 
+[TblLedgerMainDetail1Del].[TblBankTransactionType] AS [TblBankTransactionType], 
+[TblLedgerMainDetail1Del].[TblMethodOfPayment] AS [TblMethodOfPayment], 
+[TblLedgerMainDetail1Del].[GlAccount] AS [GlAccount], 
+[TblLedgerMainDetail1Del].[OffsetGlAccount] AS [OffsetGlAccount], 
+[TblLedgerMainDetail1Del].[BankDeposit] AS [BankDeposit], 
+[TblLedgerMainDetail1Del].[DueDate] AS [DueDate], 
+[TblLedgerMainDetail1Del].[TblBankCheque] AS [TblBankCheque]
+FROM [dbo].[TblLedgerMainDetail1Del] AS [TblLedgerMainDetail1Del]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ssss" EntityType="Self.ssss" store:Type="Views" store:Schema="ccnew_goma41">
             <DefiningQuery>SELECT 
 [ssss].[ISERIAL] AS [ISERIAL], 
@@ -10018,6 +10475,7 @@ FROM [dbo].[QRYStoreTransSalesperson] AS [QRYStoreTransSalesperson]</DefiningQue
 [QRYStoreTransSalesPersonCustomerSales].[Dserial1] AS [Dserial1], 
 [QRYStoreTransSalesPersonCustomerSales].[Wholesalesprice] AS [Wholesalesprice], 
 [QRYStoreTransSalesPersonCustomerSales].[salesprice] AS [salesprice], 
+[QRYStoreTransSalesPersonCustomerSales].[SalesheaderTotal] AS [SalesheaderTotal], 
 [QRYStoreTransSalesPersonCustomerSales].[tblCustomer] AS [tblCustomer], 
 [QRYStoreTransSalesPersonCustomerSales].[CustomerCode] AS [CustomerCode], 
 [QRYStoreTransSalesPersonCustomerSales].[tblsalesperson] AS [tblsalesperson], 
@@ -10040,7 +10498,9 @@ FROM [dbo].[QRYStoreTransSalesperson] AS [QRYStoreTransSalesperson]</DefiningQue
 [QRYStoreTransSalesPersonCustomerSales].[couponglserial] AS [couponglserial], 
 [QRYStoreTransSalesPersonCustomerSales].[COUPONSDATE] AS [COUPONSDATE], 
 [QRYStoreTransSalesPersonCustomerSales].[tblGtype] AS [tblGtype], 
-[QRYStoreTransSalesPersonCustomerSales].[tblGtypeRef] AS [tblGtypeRef]
+[QRYStoreTransSalesPersonCustomerSales].[tblGtypeRef] AS [tblGtypeRef], 
+[QRYStoreTransSalesPersonCustomerSales].[LoyaltyCustomerIserial] AS [LoyaltyCustomerIserial], 
+[QRYStoreTransSalesPersonCustomerSales].[loyaltyRef] AS [loyaltyRef]
 FROM [dbo].[QRYStoreTransSalesPersonCustomerSales] AS [QRYStoreTransSalesPersonCustomerSales]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="QRYStoreTransSalesPersonCustomerSalesbag" EntityType="Self.QRYStoreTransSalesPersonCustomerSalesbag" store:Type="Views" store:Schema="dbo">
@@ -10168,7 +10628,9 @@ FROM [dbo].[RecInvItem] AS [RecInvItem]</DefiningQuery>
 [RecInvStyle].[Quantity] AS [Quantity], 
 [RecInvStyle].[Misc] AS [Misc], 
 [RecInvStyle].[TblUser] AS [TblUser], 
-[RecInvStyle].[postdate] AS [postdate]
+[RecInvStyle].[postdate] AS [postdate], 
+[RecInvStyle].[CreatedBy] AS [CreatedBy], 
+[RecInvStyle].[CreationDate] AS [CreationDate]
 FROM [dbo].[RecInvStyle] AS [RecInvStyle]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecInvStyleColor" EntityType="Self.RecInvStyleColor" store:Type="Views" store:Schema="dbo">
@@ -10179,7 +10641,9 @@ FROM [dbo].[RecInvStyle] AS [RecInvStyle]</DefiningQuery>
 [RecInvStyleColor].[ColorName] AS [ColorName], 
 [RecInvStyleColor].[Cost] AS [Cost], 
 [RecInvStyleColor].[Quantity] AS [Quantity], 
-[RecInvStyleColor].[Misc] AS [Misc]
+[RecInvStyleColor].[Misc] AS [Misc], 
+[RecInvStyleColor].[ContractQty] AS [ContractQty], 
+[RecInvStyleColor].[ContractCost] AS [ContractCost]
 FROM [dbo].[RecInvStyleColor] AS [RecInvStyleColor]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecInvStyleSizeColor" EntityType="Self.RecInvStyleSizeColor" store:Type="Views" store:Schema="dbo">
@@ -10602,6 +11066,12 @@ FROM [dbo].[tblglobalsetting] AS [tblglobalsetting]</DefiningQuery>
 [tblitem].[lcost] AS [lcost], 
 [tblitem].[SpecialFld1] AS [SpecialFld1], 
 [tblitem].[SpecialFld2] AS [SpecialFld2], 
+[tblitem].[SpecialFld3] AS [SpecialFld3], 
+[tblitem].[SpecialFld4] AS [SpecialFld4], 
+[tblitem].[SpecialFld5] AS [SpecialFld5], 
+[tblitem].[SpecialFld6] AS [SpecialFld6], 
+[tblitem].[SpecialFld7] AS [SpecialFld7], 
+[tblitem].[SpecialFld8] AS [SpecialFld8], 
 [tblitem].[DiscPer] AS [DiscPer]
 FROM [dbo].[tblitem] AS [tblitem]</DefiningQuery>
           </EntitySet>
@@ -11367,6 +11837,22 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblLedgerMainDetail" EntitySet="TblLedgerMainDetail" />
             <End Role="TblLedgerDetail" EntitySet="TblLedgerDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1_TblLedgerMainDetail1" Association="Self.FK_TblLedgerDetail1_TblLedgerMainDetail1">
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+            <End Role="TblLedgerDetail1" EntitySet="TblLedgerDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblCostCenter" Association="Self.FK_TblLedgerDetail1CostCenter_TblCostCenter">
+            <End Role="TblCostCenter" EntitySet="TblCostCenter" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblCostCenterType" Association="Self.FK_TblLedgerDetail1CostCenter_TblCostCenterType">
+            <End Role="TblCostCenterType" EntitySet="TblCostCenterType" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblLedgerDetail1" Association="Self.FK_TblLedgerDetail1CostCenter_TblLedgerDetail1">
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblLedgerDetailCostCenter_TblCostCenter" Association="Self.FK_TblLedgerDetailCostCenter_TblCostCenter">
             <End Role="TblCostCenter" EntitySet="TblCostCenter" />
             <End Role="TblLedgerDetailCostCenter" EntitySet="TblLedgerDetailCostCenter" />
@@ -11386,6 +11872,14 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <AssociationSet Name="FK_TblLedgerHeader_TblSequence" Association="Self.FK_TblLedgerHeader_TblSequence">
             <End Role="TblSequence" EntitySet="TblSequence" />
             <End Role="TblLedgerHeader" EntitySet="TblLedgerHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerHeader1_TblJournal" Association="Self.FK_TblLedgerHeader1_TblJournal">
+            <End Role="TblJournal" EntitySet="TblJournal" />
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerHeader1_TblSequence" Association="Self.FK_TblLedgerHeader1_TblSequence">
+            <End Role="TblSequence" EntitySet="TblSequence" />
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
           </AssociationSet>
           <AssociationSet Name="FK_TblLedgerHeaderAttachment_TblLedgerHeader" Association="Self.FK_TblLedgerHeaderAttachment_TblLedgerHeader">
             <End Role="TblLedgerHeader" EntitySet="TblLedgerHeader" />
@@ -11422,6 +11916,38 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <AssociationSet Name="FK_TblLedgerMainDetail_TblMethodOfPayment" Association="Self.FK_TblLedgerMainDetail_TblMethodOfPayment">
             <End Role="TblMethodOfPayment" EntitySet="TblMethodOfPayment" />
             <End Role="TblLedgerMainDetail" EntitySet="TblLedgerMainDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblAccount" Association="Self.FK_TblLedgerMainDetail1_TblAccount">
+            <End Role="TblAccount" EntitySet="TblAccount" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblBankCheque" Association="Self.FK_TblLedgerMainDetail1_TblBankCheque">
+            <End Role="TblBankCheque" EntitySet="TblBankCheque" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblBankTransactionType" Association="Self.FK_TblLedgerMainDetail1_TblBankTransactionType">
+            <End Role="TblBankTransactionType" EntitySet="TblBankTransactionType" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblCurrency" Association="Self.FK_TblLedgerMainDetail1_TblCurrency">
+            <End Role="TblCurrency" EntitySet="TblCurrency" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblJournalAccountType" Association="Self.FK_TblLedgerMainDetail1_TblJournalAccountType">
+            <End Role="TblJournalAccountType" EntitySet="TblJournalAccountType" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblJournalAccountType2" Association="Self.FK_TblLedgerMainDetail1_TblJournalAccountType2">
+            <End Role="TblJournalAccountType" EntitySet="TblJournalAccountType" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblLedgerHeader1" Association="Self.FK_TblLedgerMainDetail1_TblLedgerHeader1">
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblMethodOfPayment" Association="Self.FK_TblLedgerMainDetail1_TblMethodOfPayment">
+            <End Role="TblMethodOfPayment" EntitySet="TblMethodOfPayment" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
           </AssociationSet>
           <AssociationSet Name="FK_TblLedgerTemplate_TblLedgerTemplateGroup" Association="Self.FK_TblLedgerTemplate_TblLedgerTemplateGroup">
             <End Role="TblLedgerTemplateGroup" EntitySet="TblLedgerTemplateGroup" />
@@ -12845,12 +13371,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySet Name="RecieveViews" EntityType="ccnewModel.RecieveView" />
           <EntitySet Name="ReturnRecieveViews" EntityType="ccnewModel.ReturnRecieveView" />
           <EntitySet Name="ReturnDetailViews" EntityType="ccnewModel.ReturnDetailView" />
-          <EntitySet Name="TblRecInvHeaders" EntityType="ccnewModel.TblRecInvHeader" />
           <EntitySet Name="TblRecInvMainDetails" EntityType="ccnewModel.TblRecInvMainDetail" />
-          <AssociationSet Name="FK_TblRecInvHeader_TblAccount" Association="ccnewModel.FK_TblRecInvHeader_TblAccount">
-            <End Role="TblAccount" EntitySet="TblAccounts" />
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblRecInvDetail_TblCurrency" Association="ccnewModel.FK_TblRecInvDetail_TblCurrency">
             <End Role="TblCurrencyTest" EntitySet="TblCurrencyTests" />
             <End Role="TblRecInvMainDetail" EntitySet="TblRecInvMainDetails" />
@@ -12859,37 +13380,12 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TBLITEMprice" EntitySet="TBLITEMprices" />
             <End Role="TblRecInvMainDetail" EntitySet="TblRecInvMainDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader">
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-            <End Role="TblRecInvMainDetail" EntitySet="TblRecInvMainDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvHeader_TblRecInvHeaderType" Association="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType">
-            <End Role="TblRecInvHeaderType" EntitySet="TblRecInvHeaderTypes" />
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvHeader_TblStore" Association="ccnewModel.FK_TblRecInvHeader_TblStore">
-            <End Role="TblStore" EntitySet="TblStores" />
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvHeader_TBLsupplier" Association="ccnewModel.FK_TblRecInvHeader_TBLsupplier">
-            <End Role="TBLsupplier" EntitySet="TBLsuppliers" />
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvHeaderLink_TblRecInvHeader" Association="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader">
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-            <End Role="TblRecInvHeaderLink" EntitySet="TblRecInvHeaderLinks" />
-          </AssociationSet>
           <EntitySet Name="RecInvItems" EntityType="ccnewModel.RecInvItem" />
           <EntitySet Name="RecInvStyles" EntityType="ccnewModel.RecInvStyle" />
-          <EntitySet Name="RecInvStyleColors" EntityType="ccnewModel.RecInvStyleColor" />
           <EntitySet Name="RecInvStyleSizeColors" EntityType="ccnewModel.RecInvStyleSizeColor" />
           <EntitySet Name="TblRecInvDetails" EntityType="ccnewModel.TblRecInvDetail" />
           <AssociationSet Name="FK_TblRecInvDetail_TBLITEMprice" Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice">
             <End Role="TBLITEMprice" EntitySet="TBLITEMprices" />
-            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader1" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1">
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
             <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
           </AssociationSet>
           <EntitySet Name="RecieveDetailViews" EntityType="ccnewModel.RecieveDetailView" />
@@ -12935,6 +13431,102 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <AssociationSet Name="FK_TblGlChequeTransactionDetail_TblBank" Association="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank">
             <End Role="TblBank" EntitySet="TblBanks" />
             <End Role="TblGlChequeTransactionDetail" EntitySet="TblGlChequeTransactionDetails" />
+          </AssociationSet>
+          <EntitySet Name="TblRecInvHeaders" EntityType="ccnewModel.TblRecInvHeader" />
+          <AssociationSet Name="FK_TblRecInvHeader_TblAccount" Association="ccnewModel.FK_TblRecInvHeader_TblAccount">
+            <End Role="TblAccount" EntitySet="TblAccounts" />
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader1" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1">
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader">
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+            <End Role="TblRecInvMainDetail" EntitySet="TblRecInvMainDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvHeader_TblRecInvHeaderType" Association="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType">
+            <End Role="TblRecInvHeaderType" EntitySet="TblRecInvHeaderTypes" />
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvHeader_TblStore" Association="ccnewModel.FK_TblRecInvHeader_TblStore">
+            <End Role="TblStore" EntitySet="TblStores" />
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvHeader_TBLsupplier" Association="ccnewModel.FK_TblRecInvHeader_TBLsupplier">
+            <End Role="TBLsupplier" EntitySet="TBLsuppliers" />
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvHeaderLink_TblRecInvHeader" Association="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader">
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+            <End Role="TblRecInvHeaderLink" EntitySet="TblRecInvHeaderLinks" />
+          </AssociationSet>
+          <EntitySet Name="RecInvStyleColors" EntityType="ccnewModel.RecInvStyleColor" />
+          <FunctionImport Name="RecInvContractValidation" ReturnType="Collection(ccnewModel.RecInvContractValidation_Result)">
+          <Parameter Name="Iserial" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TblLedgerDetail1" EntityType="ccnewModel.TblLedgerDetail1" />
+          <EntitySet Name="TblLedgerDetail1CostCenter" EntityType="ccnewModel.TblLedgerDetail1CostCenter" />
+          <EntitySet Name="TblLedgerHeader1" EntityType="ccnewModel.TblLedgerHeader1" />
+          <EntitySet Name="TblLedgerMainDetail1" EntityType="ccnewModel.TblLedgerMainDetail1" />
+          <EntitySet Name="TblLedgerDetail1CostCenterDel" EntityType="ccnewModel.TblLedgerDetail1CostCenterDel" />
+          <EntitySet Name="TblLedgerDetail1Del" EntityType="ccnewModel.TblLedgerDetail1Del" />
+          <EntitySet Name="TblLedgerMainDetail1Del" EntityType="ccnewModel.TblLedgerMainDetail1Del" />
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblAccount" Association="ccnewModel.FK_TblLedgerMainDetail1_TblAccount">
+            <End Role="TblAccount" EntitySet="TblAccounts" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblBankCheque" Association="ccnewModel.FK_TblLedgerMainDetail1_TblBankCheque">
+            <End Role="TblBankCheque" EntitySet="TblBankCheques" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblBankTransactionType" Association="ccnewModel.FK_TblLedgerMainDetail1_TblBankTransactionType">
+            <End Role="TblBankTransactionType" EntitySet="TblBankTransactionTypes" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblCostCenter" Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenter">
+            <End Role="TblCostCenter" EntitySet="TblCostCenters" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblCostCenterType" Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenterType">
+            <End Role="TblCostCenterType" EntitySet="TblCostCenterTypes" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblCurrency" Association="ccnewModel.FK_TblLedgerMainDetail1_TblCurrency">
+            <End Role="TblCurrencyTest" EntitySet="TblCurrencyTests" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerHeader1_TblJournal" Association="ccnewModel.FK_TblLedgerHeader1_TblJournal">
+            <End Role="TblJournal" EntitySet="TblJournals" />
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblJournalAccountType" Association="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType">
+            <End Role="TblJournalAccountType" EntitySet="TblJournalAccountTypes" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblJournalAccountType2" Association="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType2">
+            <End Role="TblJournalAccountType" EntitySet="TblJournalAccountTypes" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1_TblLedgerMainDetail1" Association="ccnewModel.FK_TblLedgerDetail1_TblLedgerMainDetail1">
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+            <End Role="TblLedgerDetail1" EntitySet="TblLedgerDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerDetail1CostCenter_TblLedgerDetail1" Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblLedgerDetail1">
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+            <End Role="TblLedgerDetail1CostCenter" EntitySet="TblLedgerDetail1CostCenter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerHeader1_TblSequence" Association="ccnewModel.FK_TblLedgerHeader1_TblSequence">
+            <End Role="TblSequence" EntitySet="TblSequences" />
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblLedgerHeader1" Association="ccnewModel.FK_TblLedgerMainDetail1_TblLedgerHeader1">
+            <End Role="TblLedgerHeader1" EntitySet="TblLedgerHeader1" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblLedgerMainDetail1_TblMethodOfPayment" Association="ccnewModel.FK_TblLedgerMainDetail1_TblMethodOfPayment">
+            <End Role="TblMethodOfPayment" EntitySet="TblMethodOfPayments" />
+            <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="TblPODetail">
@@ -13163,6 +13755,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblGlCashTypeSettings" Relationship="ccnewModel.FK_TblGlCashTypeSetting_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblGlCashTypeSetting" />
           <NavigationProperty Name="TblMarkupTrans" Relationship="ccnewModel.FK_TblMarkupTrans_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblMarkupTran" />
           <NavigationProperty Name="TblRecInvMainDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblRecInvMainDetail" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblLedgerMainDetail1" />
         </EntityType>
         <EntityType Name="tblcurrencydailyexchange">
           <Key>
@@ -13640,6 +14233,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Type="String" Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblRecInvHeaders" Relationship="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" FromRole="TblRecInvHeaderType" ToRole="TblRecInvHeader" />
+          <Property Name="Natural" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblRecInvHeaderLink">
           <Key>
@@ -13689,6 +14283,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Type="DateTime" Name="DeliveryDate" Precision="3" />
           <NavigationProperty Name="TblPOHeader" Relationship="ccnewModel.FK_TBPo_tblpoHeader1" FromRole="TblPOMainDetail" ToRole="TblPOHeader" />
           <NavigationProperty Name="TBLITEMprice" Relationship="ccnewModel.FK_TBPo_TBLITEM" FromRole="TblPOMainDetail" ToRole="TBLITEMprice" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblPostingProfileDetail">
           <Key>
@@ -13878,6 +14473,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblCostCenterOrganizationUnits" Relationship="ccnewModel.FK_TblCostCenterOrganizationUnit_TblCostCenter" FromRole="TblCostCenter" ToRole="TblCostCenterOrganizationUnit" />
           <NavigationProperty Name="TblCostCenterRouteGroups" Relationship="ccnewModel.FK_TblCostCenterRouteGroup_TblCostCenter" FromRole="TblCostCenter" ToRole="TblCostCenterRouteGroup" />
           <NavigationProperty Name="TblJournalSettingCostCenters" Relationship="ccnewModel.FK_TblJournalSettingCostCenter_TblCostCenter" FromRole="TblCostCenter" ToRole="TblJournalSettingCostCenter" />
+          <NavigationProperty Name="TblLedgerDetail1CostCenter" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenter" FromRole="TblCostCenter" ToRole="TblLedgerDetail1CostCenter" />
         </EntityType>
         <Association Name="FK_TblCostCenter_TblCostCenter">
           <End Type="ccnewModel.TblCostCenter" Role="TblCostCenter" Multiplicity="0..1" />
@@ -14052,6 +14648,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblLedgerMainDetails" Relationship="ccnewModel.FK_TblLedgerMainDetail_TblMethodOfPayment" FromRole="TblMethodOfPayment" ToRole="TblLedgerMainDetail" />
           <NavigationProperty Name="TblJournalAccountType1" Relationship="ccnewModel.FK_TblMethodOfPayment_TblJournalAccountType" FromRole="TblMethodOfPayment" ToRole="TblJournalAccountType" />
           <NavigationProperty Name="TblAccount" Relationship="ccnewModel.FK_TblMethodOfPayment_TblAccount" FromRole="TblMethodOfPayment" ToRole="TblAccount" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblMethodOfPayment" FromRole="TblMethodOfPayment" ToRole="TblLedgerMainDetail1" />
         </EntityType>
         <EntityType Name="TblAccountCostCenterRule">
           <Key>
@@ -14313,6 +14910,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblLedgerMainDetails" Relationship="ccnewModel.FK_TblLedgerMainDetail_TblBankTransactionType" FromRole="TblBankTransactionType" ToRole="TblLedgerMainDetail" />
           <NavigationProperty Name="TblAccount1" Relationship="ccnewModel.FK_TblBankTransactionType_TblAccount" FromRole="TblBankTransactionType" ToRole="TblAccount" />
           <NavigationProperty Name="TblBankStatDetails" Relationship="ccnewModel.FK_TblBankStatDetail_TblBankTransactionType" FromRole="TblBankTransactionType" ToRole="TblBankStatDetail" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblBankTransactionType" FromRole="TblBankTransactionType" ToRole="TblLedgerMainDetail1" />
         </EntityType>
         <EntityType Name="TblBankTransactionTypeGroup">
           <Key>
@@ -14419,6 +15017,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblStore1" Relationship="ccnewModel.FK_Poh_TblStore" FromRole="TblPOHeader" ToRole="TblStore" />
           <NavigationProperty Name="TblPOMainDetails" Relationship="ccnewModel.FK_TBPo_tblpoHeader1" FromRole="TblPOHeader" ToRole="TblPOMainDetail" />
           <NavigationProperty Name="TblUser1" Relationship="ccnewModel.FK_Poh_TblUser" FromRole="TblPOHeader" ToRole="TblUser" />
+          <Property Name="FromStore" Type="Int32" />
         </EntityType>
         <Association Name="FK_Poh_TblStore">
           <End Type="ccnewModel.TblStore" Role="TblStore" Multiplicity="0..1" />
@@ -15133,6 +15732,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblJournalSettingEntities" Relationship="ccnewModel.FK_TblJournalSettingAccount_TblJournalAccountType" FromRole="TblJournalAccountType" ToRole="TblJournalSettingEntity" />
           <NavigationProperty Name="TblCashDepositSettings" Relationship="ccnewModel.FK_TblCashDepositSetting_TblJournalAccountType" FromRole="TblJournalAccountType" ToRole="TblCashDepositSetting" />
           <NavigationProperty Name="TblCashDepositSettings1" Relationship="ccnewModel.FK_TblCashDepositSetting_TblJournalAccountType1" FromRole="TblJournalAccountType" ToRole="TblCashDepositSetting" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType" FromRole="TblJournalAccountType" ToRole="TblLedgerMainDetail1" />
+          <NavigationProperty Name="TblLedgerMainDetail11" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType2" FromRole="TblJournalAccountType" ToRole="TblLedgerMainDetail1" />
           </EntityType>
         <Association Name="FK_TblCostDimSetupHeader_TblJournalAccountType">
           <End Type="ccnewModel.TblJournalAccountType" Role="TblJournalAccountType" Multiplicity="1" />
@@ -15284,6 +15885,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblCashDepositTypes" Relationship="ccnewModel.FK_TblCashDepositType_TblSequence" FromRole="TblSequence" ToRole="TblCashDepositType" />
           <NavigationProperty Name="TblGlChequeTypeSettings" Relationship="ccnewModel.FK_TblGlChequeTypeSetting_TblSequence" FromRole="TblSequence" ToRole="TblGlChequeTypeSetting" />
           <NavigationProperty Name="TblGlCashTypeSettings" Relationship="ccnewModel.FK_TblGlCashTypeSetting_TblSequence" FromRole="TblSequence" ToRole="TblGlCashTypeSetting" />
+          <NavigationProperty Name="TblLedgerHeader1" Relationship="ccnewModel.FK_TblLedgerHeader1_TblSequence" FromRole="TblSequence" ToRole="TblLedgerHeader1" />
         </EntityType>
         <EntityType Name="TblLedgerHeader">
           <Key>
@@ -15388,6 +15990,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="AutoJournal" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblGlCashTypeSettings" Relationship="ccnewModel.FK_TblGlCashTypeSetting_TblJournal" FromRole="TblJournal" ToRole="TblGlCashTypeSetting" />
           <NavigationProperty Name="TblJournalSettingEntities" Relationship="ccnewModel.FK_TblJournalSettingEntity_TblJournal" FromRole="TblJournal" ToRole="TblJournalSettingEntity" />
+          <NavigationProperty Name="TblLedgerHeader1" Relationship="ccnewModel.FK_TblLedgerHeader1_TblJournal" FromRole="TblJournal" ToRole="TblLedgerHeader1" />
         </EntityType>
         <Association Name="FK_TblJournal_TblCurrency">
           <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="0..1" />
@@ -15682,6 +16285,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblGlChequeTransactionDetails1" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblAccount1" FromRole="TblAccount" ToRole="TblGlChequeTransactionDetail" />
           <NavigationProperty Name="TblGlPeriods" Relationship="ccnewModel.FK_TblGlPeriod_TblAccount" FromRole="TblAccount" ToRole="TblGlPeriod" />
           <NavigationProperty Name="TblRecInvHeaders" Relationship="ccnewModel.FK_TblRecInvHeader_TblAccount" FromRole="TblAccount" ToRole="TblRecInvHeader" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblAccount" FromRole="TblAccount" ToRole="TblLedgerMainDetail1" />
         </EntityType>
         <Association Name="FK_TblAccount_TblAccountType">
           <End Type="ccnewModel.TblAccountType" Role="TblAccountType" Multiplicity="1" />
@@ -16104,6 +16708,12 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Type="String" Name="SpecialFld1" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SpecialFld2" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DiscPer" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SpecialFld3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialFld4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialFld5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialFld6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialFld7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialFld8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_TBLITEMprice_TblColor">
           <End Type="ccnewModel.TblColorTest" Role="TblColorTest" Multiplicity="0..1" />
@@ -16228,6 +16838,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblLedgerMainDetails" Relationship="ccnewModel.FK_TblLedgerMainDetail_TblBankCheque" FromRole="TblBankCheque" ToRole="TblLedgerMainDetail" />
           <NavigationProperty Name="TblBank1" Relationship="ccnewModel.FK_TblBankCheque_TblBank" FromRole="TblBankCheque" ToRole="TblBank" />
           <NavigationProperty Name="TblGlChequeTransactionDetails" Relationship="ccnewModel.FK_TblGlChequeTransactionDetail_TblBankCheque" FromRole="TblBankCheque" ToRole="TblGlChequeTransactionDetail" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblBankCheque" FromRole="TblBankCheque" ToRole="TblLedgerMainDetail1" />
         </EntityType>
         <Association Name="FK_TblBankCheque_TblCurrency">
           <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="1" />
@@ -16402,6 +17013,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblGlRuleMainDetails" Relationship="ccnewModel.FK_TblGlJobRuleMainDetail_TblCostCenterType" FromRole="TblCostCenterType" ToRole="TblGlRuleMainDetail" />
           <NavigationProperty Name="TblLedgerDetailCostCenters" Relationship="ccnewModel.FK_TblLedgerDetailCostCenter_TblCostCenterType" FromRole="TblCostCenterType" ToRole="TblLedgerDetailCostCenter" />
           <NavigationProperty Name="TblGlCashTransactionDetailCostCenters" Relationship="ccnewModel.FK_TblCashCostCenter_TblCostCenterType" FromRole="TblCostCenterType" ToRole="TblGlCashTransactionDetailCostCenter" />
+          <NavigationProperty Name="TblLedgerDetail1CostCenter" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenterType" FromRole="TblCostCenterType" ToRole="TblLedgerDetail1CostCenter" />
         </EntityType>
         <Association Name="FK_TblBankChequeCostCenter_TblCostCenterType">
           <End Type="ccnewModel.TblCostCenterType" Role="TblCostCenterType" Multiplicity="0..1" />
@@ -19632,6 +20244,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="COUPONSDATE" Type="DateTime" Precision="3" />
           <Property Name="tblGtype" Type="Int32" Nullable="false" />
           <Property Name="tblGtypeRef" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SalesheaderTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LoyaltyCustomerIserial" Type="Int32" />
+          <Property Name="loyaltyRef" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="QRYStoreTransSalesPersonCustomerSalesbag">
           <Key>
@@ -20894,32 +21509,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="ucostwot" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="tblitem" Type="Int32" />
         </EntityType>
-        <EntityType Name="TblRecInvHeader">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="TblSupplier" Type="Int32" Nullable="false" />
-          <Property Name="SupplierInv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TransDate" Type="DateTime" Precision="3" />
-          <Property Name="TblUser" Type="Int32" />
-          <Property Name="PostDate" Type="DateTime" Precision="3" />
-          <Property Name="CreationDate" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="TblRecInvHeaderType" Type="Int32" Nullable="false" />
-          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="MiscWithoutItemEffect" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="TblStore" Type="Int32" />
-          <Property Name="TblAccount" Type="Int32" />
-          <NavigationProperty Name="TblAccount1" Relationship="ccnewModel.FK_TblRecInvHeader_TblAccount" FromRole="TblRecInvHeader" ToRole="TblAccount" />
-          <NavigationProperty Name="TblRecInvMainDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvMainDetail" />
-          <NavigationProperty Name="TblRecInvHeaderType1" Relationship="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderType" />
-          <NavigationProperty Name="TblStore1" Relationship="ccnewModel.FK_TblRecInvHeader_TblStore" FromRole="TblRecInvHeader" ToRole="TblStore" />
-          <NavigationProperty Name="TBLsupplier1" Relationship="ccnewModel.FK_TblRecInvHeader_TBLsupplier" FromRole="TblRecInvHeader" ToRole="TBLsupplier" />
-          <NavigationProperty Name="TblRecInvHeaderLinks" Relationship="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderLink" />
-          <NavigationProperty Name="TblRecInvDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvHeader" ToRole="TblRecInvDetail" />
-        </EntityType>
         <EntityType Name="TblRecInvMainDetail">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -20936,18 +21525,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TBLITEMprice" Relationship="ccnewModel.FK_TblRecInvMainDetail_TBLITEMprice" FromRole="TblRecInvMainDetail" ToRole="TBLITEMprice" />
           <NavigationProperty Name="TblRecInvHeader1" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" FromRole="TblRecInvMainDetail" ToRole="TblRecInvHeader" />
         </EntityType>
-        <Association Name="FK_TblRecInvHeader_TblAccount">
-          <End Type="ccnewModel.TblAccount" Role="TblAccount" Multiplicity="0..1" />
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblAccount">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvHeader">
-              <PropertyRef Name="TblAccount" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblRecInvDetail_TblCurrency">
           <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="0..1" />
           <End Type="ccnewModel.TblRecInvMainDetail" Role="TblRecInvMainDetail" Multiplicity="*" />
@@ -20969,72 +21546,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Principal>
             <Dependent Role="TblRecInvMainDetail">
               <PropertyRef Name="TblItem" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvDetail_TblRecInvHeader">
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ccnewModel.TblRecInvMainDetail" Role="TblRecInvMainDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblRecInvHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvMainDetail">
-              <PropertyRef Name="TblRecInvHeader" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvHeader_TblRecInvHeaderType">
-          <End Type="ccnewModel.TblRecInvHeaderType" Role="TblRecInvHeaderType" Multiplicity="1" />
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblRecInvHeaderType">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvHeader">
-              <PropertyRef Name="TblRecInvHeaderType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvHeader_TblStore">
-          <End Type="ccnewModel.TblStore" Role="TblStore" Multiplicity="0..1" />
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblStore">
-              <PropertyRef Name="iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvHeader">
-              <PropertyRef Name="TblStore" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvHeader_TBLsupplier">
-          <End Type="ccnewModel.TBLsupplier" Role="TBLsupplier" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBLsupplier">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvHeader">
-              <PropertyRef Name="TblSupplier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvHeaderLink_TblRecInvHeader">
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ccnewModel.TblRecInvHeaderLink" Role="TblRecInvHeaderLink" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblRecInvHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvHeaderLink">
-              <PropertyRef Name="TblRecInvHeader" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -21067,18 +21578,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Misc" Type="Decimal" Precision="38" Scale="6" />
           <Property Name="TblUser" Type="Int32" />
           <Property Name="postdate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="RecInvStyleColor">
-          <Key>
-            <PropertyRef Name="ColorCode" />
-          </Key>
-          <Property Name="TblRecInvHeader" Type="Int32" />
-          <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Cost" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="Quantity" Type="Decimal" Precision="38" Scale="4" />
-          <Property Name="Misc" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="RecInvStyleSizeColor">
           <Key>
@@ -21116,20 +21617,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Principal>
             <Dependent Role="TblRecInvDetail">
               <PropertyRef Name="Tblitem" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvDetail_TblRecInvHeader1">
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblRecInvHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvDetail">
-              <PropertyRef Name="TblRecInvHeader" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -21239,6 +21726,523 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Principal>
             <Dependent Role="TblGlChequeTransactionDetail">
               <PropertyRef Name="TblBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblRecInvHeader">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="TblSupplier" Type="Int32" Nullable="false" />
+          <Property Name="SupplierInv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="TblUser" Type="Int32" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="TblRecInvHeaderType" Type="Int32" Nullable="false" />
+          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MiscWithoutItemEffect" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TblStore" Type="Int32" />
+          <Property Name="TblAccount" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="PostBy" Type="Int32" />
+          <Property Name="Posted" Type="Boolean" Nullable="false" />
+          <Property Name="Invoiced" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblAccount1" Relationship="ccnewModel.FK_TblRecInvHeader_TblAccount" FromRole="TblRecInvHeader" ToRole="TblAccount" />
+          <NavigationProperty Name="TblRecInvDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvHeader" ToRole="TblRecInvDetail" />
+          <NavigationProperty Name="TblRecInvMainDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvMainDetail" />
+          <NavigationProperty Name="TblRecInvHeaderType1" Relationship="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderType" />
+          <NavigationProperty Name="TblStore1" Relationship="ccnewModel.FK_TblRecInvHeader_TblStore" FromRole="TblRecInvHeader" ToRole="TblStore" />
+          <NavigationProperty Name="TBLsupplier1" Relationship="ccnewModel.FK_TblRecInvHeader_TBLsupplier" FromRole="TblRecInvHeader" ToRole="TBLsupplier" />
+          <NavigationProperty Name="TblRecInvHeaderLinks" Relationship="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderLink" />
+        </EntityType>
+        <Association Name="FK_TblRecInvHeader_TblAccount">
+          <End Type="ccnewModel.TblAccount" Role="TblAccount" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAccount">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvHeader">
+              <PropertyRef Name="TblAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvDetail_TblRecInvHeader1">
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvDetail">
+              <PropertyRef Name="TblRecInvHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvDetail_TblRecInvHeader">
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblRecInvMainDetail" Role="TblRecInvMainDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvMainDetail">
+              <PropertyRef Name="TblRecInvHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvHeader_TblRecInvHeaderType">
+          <End Type="ccnewModel.TblRecInvHeaderType" Role="TblRecInvHeaderType" Multiplicity="1" />
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeaderType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvHeader">
+              <PropertyRef Name="TblRecInvHeaderType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvHeader_TblStore">
+          <End Type="ccnewModel.TblStore" Role="TblStore" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblStore">
+              <PropertyRef Name="iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvHeader">
+              <PropertyRef Name="TblStore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvHeader_TBLsupplier">
+          <End Type="ccnewModel.TBLsupplier" Role="TBLsupplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLsupplier">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvHeader">
+              <PropertyRef Name="TblSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvHeaderLink_TblRecInvHeader">
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblRecInvHeaderLink" Role="TblRecInvHeaderLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvHeaderLink">
+              <PropertyRef Name="TblRecInvHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RecInvStyleColor">
+          <Key>
+            <PropertyRef Name="ColorCode" />
+            <PropertyRef Name="ContractQty" />
+            <PropertyRef Name="ContractCost" />
+          </Key>
+          <Property Name="TblRecInvHeader" Type="Int32" />
+          <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Quantity" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="Misc" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="ContractQty" Type="Int32" Nullable="false" />
+          <Property Name="ContractCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <ComplexType Name="RecInvContractValidation_Result" >
+          <Property Type="String" Name="Style" Nullable="false" />
+          <Property Type="String" Name="ColorCode" Nullable="false" />
+          <Property Type="Decimal" Name="Quantity" Nullable="false" />
+          <Property Type="Decimal" Name="ContractQty" Nullable="false" />
+          <Property Type="Decimal" Name="ContractCost" Nullable="false" />
+          <Property Type="Decimal" Name="Difference" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="TblLedgerDetail1">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblLedgerHeader1" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="TblCostDimHeader" Type="Int32" />
+          <Property Name="TblJournalAccountType" Type="Int32" />
+          <Property Name="EntityAccount" Type="Int32" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ExchangeRate" Type="Double" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OffsetAccountType" Type="Int32" />
+          <Property Name="OffsetEntityAccount" Type="Int32" />
+          <Property Name="EntityRef" Type="Int32" />
+          <Property Name="DrOrCr" Type="Boolean" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="Int32" Nullable="false" />
+          <Property Name="PaymentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblBankTransactionType" Type="Int32" />
+          <Property Name="TblMethodOfPayment" Type="Int32" />
+          <Property Name="GlAccount" Type="Int32" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="Int32" Nullable="false" />
+          <Property Name="BankDeposit" Type="Boolean" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="TblBankCheque" Type="Int32" />
+          <NavigationProperty Name="TblLedgerMainDetail11" Relationship="ccnewModel.FK_TblLedgerDetail1_TblLedgerMainDetail1" FromRole="TblLedgerDetail1" ToRole="TblLedgerMainDetail1" />
+        </EntityType>
+        <EntityType Name="TblLedgerDetail1CostCenter">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblLedgerMainDetail1" Type="Int32" Nullable="false" />
+          <Property Name="TblCostCenter" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Ratio" Type="Double" Nullable="false" />
+          <Property Name="TblCostCenterType" Type="Int32" />
+          <Property Name="Calculated" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblCostCenter1" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenter" FromRole="TblLedgerDetail1CostCenter" ToRole="TblCostCenter" />
+          <NavigationProperty Name="TblCostCenterType1" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenterType" FromRole="TblLedgerDetail1CostCenter" ToRole="TblCostCenterType" />
+          <NavigationProperty Name="TblLedgerMainDetail11" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblLedgerDetail1" FromRole="TblLedgerDetail1CostCenter" ToRole="TblLedgerMainDetail1" />
+        </EntityType>
+        <EntityType Name="TblLedgerHeader1">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblJournal" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Posted" Type="Boolean" Nullable="false" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="DocDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="PostBy" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int32" />
+          <Property Name="TblJournalLink" Type="Int32" />
+          <Property Name="TblTransactionType" Type="Int32" />
+          <Property Name="balanced" Type="Boolean" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="TblSequence" Type="Int32" />
+          <Property Name="TblCompany" Type="Int32" />
+          <NavigationProperty Name="TblJournal1" Relationship="ccnewModel.FK_TblLedgerHeader1_TblJournal" FromRole="TblLedgerHeader1" ToRole="TblJournal" />
+          <NavigationProperty Name="TblSequence1" Relationship="ccnewModel.FK_TblLedgerHeader1_TblSequence" FromRole="TblLedgerHeader1" ToRole="TblSequence" />
+          <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblLedgerHeader1" FromRole="TblLedgerHeader1" ToRole="TblLedgerMainDetail1" />
+        </EntityType>
+        <EntityType Name="TblLedgerMainDetail1">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblLedgerHeader1" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="TblCostDimHeader" Type="Int32" />
+          <Property Name="TblJournalAccountType" Type="Int32" />
+          <Property Name="EntityAccount" Type="Int32" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ExchangeRate" Type="Double" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OffsetAccountType" Type="Int32" />
+          <Property Name="OffsetEntityAccount" Type="Int32" />
+          <Property Name="EntityRef" Type="Int32" />
+          <Property Name="DrOrCr" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblBankTransactionType" Type="Int32" />
+          <Property Name="TblMethodOfPayment" Type="Int32" />
+          <Property Name="GlAccount" Type="Int32" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="Int32" Nullable="false" />
+          <Property Name="BankDeposit" Type="Boolean" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="TblBankCheque" Type="Int32" />
+          <NavigationProperty Name="TblAccount" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblAccount" FromRole="TblLedgerMainDetail1" ToRole="TblAccount" />
+          <NavigationProperty Name="TblBankCheque1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblBankCheque" FromRole="TblLedgerMainDetail1" ToRole="TblBankCheque" />
+          <NavigationProperty Name="TblBankTransactionType1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblBankTransactionType" FromRole="TblLedgerMainDetail1" ToRole="TblBankTransactionType" />
+          <NavigationProperty Name="TblCurrency1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblCurrency" FromRole="TblLedgerMainDetail1" ToRole="TblCurrencyTest" />
+          <NavigationProperty Name="TblJournalAccountType1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType" FromRole="TblLedgerMainDetail1" ToRole="TblJournalAccountType" />
+          <NavigationProperty Name="TblJournalAccountType2" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType2" FromRole="TblLedgerMainDetail1" ToRole="TblJournalAccountType" />
+          <NavigationProperty Name="TblLedgerDetail1" Relationship="ccnewModel.FK_TblLedgerDetail1_TblLedgerMainDetail1" FromRole="TblLedgerMainDetail1" ToRole="TblLedgerDetail1" />
+          <NavigationProperty Name="TblLedgerDetail1CostCenter" Relationship="ccnewModel.FK_TblLedgerDetail1CostCenter_TblLedgerDetail1" FromRole="TblLedgerMainDetail1" ToRole="TblLedgerDetail1CostCenter" />
+          <NavigationProperty Name="TblLedgerHeader11" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblLedgerHeader1" FromRole="TblLedgerMainDetail1" ToRole="TblLedgerHeader1" />
+          <NavigationProperty Name="TblMethodOfPayment1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblMethodOfPayment" FromRole="TblLedgerMainDetail1" ToRole="TblMethodOfPayment" />
+        </EntityType>
+        <EntityType Name="TblLedgerDetail1CostCenterDel">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerMainDetail1" />
+            <PropertyRef Name="TblCostCenter" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="Ratio" />
+            <PropertyRef Name="Calculated" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblLedgerMainDetail1" Type="Int32" Nullable="false" />
+          <Property Name="TblCostCenter" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Ratio" Type="Double" Nullable="false" />
+          <Property Name="TblCostCenterType" Type="Int32" />
+          <Property Name="Calculated" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblLedgerDetail1Del">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerHeader1" />
+            <PropertyRef Name="DrOrCr" />
+            <PropertyRef Name="TblLedgerMainDetail1" />
+            <PropertyRef Name="GlAccount" />
+            <PropertyRef Name="OffsetGlAccount" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblLedgerHeader1" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="TblCostDimHeader" Type="Int32" />
+          <Property Name="TblJournalAccountType" Type="Int32" />
+          <Property Name="EntityAccount" Type="Int32" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ExchangeRate" Type="Double" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OffsetAccountType" Type="Int32" />
+          <Property Name="OffsetEntityAccount" Type="Int32" />
+          <Property Name="EntityRef" Type="Int32" />
+          <Property Name="DrOrCr" Type="Boolean" Nullable="false" />
+          <Property Name="TblLedgerMainDetail1" Type="Int32" Nullable="false" />
+          <Property Name="PaymentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblBankTransactionType" Type="Int32" />
+          <Property Name="TblMethodOfPayment" Type="Int32" />
+          <Property Name="GlAccount" Type="Int32" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="Int32" Nullable="false" />
+          <Property Name="BankDeposit" Type="Boolean" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="TblBankCheque" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblLedgerMainDetail1Del">
+          <Key>
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblLedgerHeader1" />
+            <PropertyRef Name="DrOrCr" />
+            <PropertyRef Name="GlAccount" />
+            <PropertyRef Name="OffsetGlAccount" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblLedgerHeader1" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" />
+          <Property Name="TblCostDimHeader" Type="Int32" />
+          <Property Name="TblJournalAccountType" Type="Int32" />
+          <Property Name="EntityAccount" Type="Int32" />
+          <Property Name="LineNumber" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ExchangeRate" Type="Double" />
+          <Property Name="TransDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OffsetAccountType" Type="Int32" />
+          <Property Name="OffsetEntityAccount" Type="Int32" />
+          <Property Name="EntityRef" Type="Int32" />
+          <Property Name="DrOrCr" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblBankTransactionType" Type="Int32" />
+          <Property Name="TblMethodOfPayment" Type="Int32" />
+          <Property Name="GlAccount" Type="Int32" Nullable="false" />
+          <Property Name="OffsetGlAccount" Type="Int32" Nullable="false" />
+          <Property Name="BankDeposit" Type="Boolean" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="TblBankCheque" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_TblLedgerMainDetail1_TblAccount">
+          <End Type="ccnewModel.TblAccount" Role="TblAccount" Multiplicity="1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAccount">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="GlAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblBankCheque">
+          <End Type="ccnewModel.TblBankCheque" Role="TblBankCheque" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBankCheque">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblBankCheque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblBankTransactionType">
+          <End Type="ccnewModel.TblBankTransactionType" Role="TblBankTransactionType" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBankTransactionType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblBankTransactionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblCostCenter">
+          <End Type="ccnewModel.TblCostCenter" Role="TblCostCenter" Multiplicity="1" />
+          <End Type="ccnewModel.TblLedgerDetail1CostCenter" Role="TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCostCenter">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblCostCenter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblCostCenterType">
+          <End Type="ccnewModel.TblCostCenterType" Role="TblCostCenterType" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerDetail1CostCenter" Role="TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCostCenterType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblCostCenterType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblCurrency">
+          <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurrencyTest">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerHeader1_TblJournal">
+          <End Type="ccnewModel.TblJournal" Role="TblJournal" Multiplicity="1" />
+          <End Type="ccnewModel.TblLedgerHeader1" Role="TblLedgerHeader1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournal">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerHeader1">
+              <PropertyRef Name="TblJournal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblJournalAccountType">
+          <End Type="ccnewModel.TblJournalAccountType" Role="TblJournalAccountType" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournalAccountType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblJournalAccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblJournalAccountType2">
+          <End Type="ccnewModel.TblJournalAccountType" Role="TblJournalAccountType" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblJournalAccountType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="OffsetAccountType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1_TblLedgerMainDetail1">
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblLedgerDetail1" Role="TblLedgerDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerMainDetail1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1">
+              <PropertyRef Name="TblLedgerMainDetail1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerDetail1CostCenter_TblLedgerDetail1">
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblLedgerDetail1CostCenter" Role="TblLedgerDetail1CostCenter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerMainDetail1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerDetail1CostCenter">
+              <PropertyRef Name="TblLedgerMainDetail1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerHeader1_TblSequence">
+          <End Type="ccnewModel.TblSequence" Role="TblSequence" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerHeader1" Role="TblLedgerHeader1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSequence">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerHeader1">
+              <PropertyRef Name="TblSequence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblLedgerHeader1">
+          <End Type="ccnewModel.TblLedgerHeader1" Role="TblLedgerHeader1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLedgerHeader1">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblLedgerHeader1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblLedgerMainDetail1_TblMethodOfPayment">
+          <End Type="ccnewModel.TblMethodOfPayment" Role="TblMethodOfPayment" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblLedgerMainDetail1" Role="TblLedgerMainDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMethodOfPayment">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblLedgerMainDetail1">
+              <PropertyRef Name="TblMethodOfPayment" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -21845,6 +22849,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblRecInvHeaderTypes">
             <EntityTypeMapping TypeName="ccnewModel.TblRecInvHeaderType">
               <MappingFragment StoreEntitySet="TblRecInvHeaderType">
+                <ScalarProperty Name="Natural" ColumnName="Natural" />
                 <ScalarProperty Name="Ename" ColumnName="Ename" />
                 <ScalarProperty Name="Aname" ColumnName="Aname" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
@@ -21878,6 +22883,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblPOMainDetails">
             <EntityTypeMapping TypeName="ccnewModel.TblPOMainDetail">
               <MappingFragment StoreEntitySet="TblPOMainDetail">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="QtyRec" ColumnName="QtyRec" />
@@ -22284,6 +23290,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblPOHeaders">
             <EntityTypeMapping TypeName="ccnewModel.TblPOHeader">
               <MappingFragment StoreEntitySet="TblPOHeader">
+                <ScalarProperty Name="FromStore" ColumnName="FromStore" />
                 <ScalarProperty Name="Ddate" ColumnName="Ddate" />
                 <ScalarProperty Name="PoStatus" ColumnName="PoStatus" />
                 <ScalarProperty Name="ApplyCommDiscOnItem" ColumnName="ApplyCommDiscOnItem" />
@@ -23067,6 +24074,12 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="tblitems">
             <EntityTypeMapping TypeName="ccnewModel.tblitem">
               <MappingFragment StoreEntitySet="tblitem">
+                <ScalarProperty Name="SpecialFld8" ColumnName="SpecialFld8" />
+                <ScalarProperty Name="SpecialFld7" ColumnName="SpecialFld7" />
+                <ScalarProperty Name="SpecialFld6" ColumnName="SpecialFld6" />
+                <ScalarProperty Name="SpecialFld5" ColumnName="SpecialFld5" />
+                <ScalarProperty Name="SpecialFld4" ColumnName="SpecialFld4" />
+                <ScalarProperty Name="SpecialFld3" ColumnName="SpecialFld3" />
                 <ScalarProperty Name="DiscPer" ColumnName="DiscPer" />
                 <ScalarProperty Name="SpecialFld2" ColumnName="SpecialFld2" />
                 <ScalarProperty Name="SpecialFld1" ColumnName="SpecialFld1" />
@@ -25414,6 +26427,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="QRYStoreTransSalesPersonCustomerSales">
             <EntityTypeMapping TypeName="ccnewModel.QRYStoreTransSalesPersonCustomerSale">
               <MappingFragment StoreEntitySet="QRYStoreTransSalesPersonCustomerSales">
+                <ScalarProperty Name="loyaltyRef" ColumnName="loyaltyRef" />
+                <ScalarProperty Name="LoyaltyCustomerIserial" ColumnName="LoyaltyCustomerIserial" />
+                <ScalarProperty Name="SalesheaderTotal" ColumnName="SalesheaderTotal" />
                 <ScalarProperty Name="tblGtypeRef" ColumnName="tblGtypeRef" />
                 <ScalarProperty Name="tblGtype" ColumnName="tblGtype" />
                 <ScalarProperty Name="COUPONSDATE" ColumnName="COUPONSDATE" />
@@ -26363,26 +27379,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblRecInvHeaders">
-            <EntityTypeMapping TypeName="ccnewModel.TblRecInvHeader">
-              <MappingFragment StoreEntitySet="TblRecInvHeader">
-                <ScalarProperty Name="TblAccount" ColumnName="TblAccount" />
-                <ScalarProperty Name="TblStore" ColumnName="TblStore" />
-                <ScalarProperty Name="MiscWithoutItemEffect" ColumnName="MiscWithoutItemEffect" />
-                <ScalarProperty Name="Misc" ColumnName="Misc" />
-                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-                <ScalarProperty Name="TblUser" ColumnName="TblUser" />
-                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
-                <ScalarProperty Name="SupplierInv" ColumnName="SupplierInv" />
-                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblRecInvMainDetails">
             <EntityTypeMapping TypeName="ccnewModel.TblRecInvMainDetail">
               <MappingFragment StoreEntitySet="TblRecInvMainDetail">
@@ -26411,6 +27407,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="RecInvStyles">
             <EntityTypeMapping TypeName="ccnewModel.RecInvStyle">
               <MappingFragment StoreEntitySet="RecInvStyle">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="postdate" ColumnName="postdate" />
                 <ScalarProperty Name="TblUser" ColumnName="TblUser" />
                 <ScalarProperty Name="Misc" ColumnName="Misc" />
@@ -26424,19 +27422,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
                 <ScalarProperty Name="Itemname" ColumnName="Itemname" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecInvStyleColors">
-            <EntityTypeMapping TypeName="ccnewModel.RecInvStyleColor">
-              <MappingFragment StoreEntitySet="RecInvStyleColor">
-                <ScalarProperty Name="Misc" ColumnName="Misc" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
-                <ScalarProperty Name="Style" ColumnName="Style" />
-                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -26539,6 +27524,230 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
                 <ScalarProperty Name="TransDate" ColumnName="TransDate" />
                 <ScalarProperty Name="TblStore" ColumnName="TblStore" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRecInvHeaders">
+            <EntityTypeMapping TypeName="ccnewModel.TblRecInvHeader">
+              <MappingFragment StoreEntitySet="TblRecInvHeader">
+                <ScalarProperty Name="Invoiced" ColumnName="Invoiced" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="PostBy" ColumnName="PostBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="TblAccount" ColumnName="TblAccount" />
+                <ScalarProperty Name="TblStore" ColumnName="TblStore" />
+                <ScalarProperty Name="MiscWithoutItemEffect" ColumnName="MiscWithoutItemEffect" />
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="TblUser" ColumnName="TblUser" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="SupplierInv" ColumnName="SupplierInv" />
+                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecInvStyleColors">
+            <EntityTypeMapping TypeName="ccnewModel.RecInvStyleColor">
+              <MappingFragment StoreEntitySet="RecInvStyleColor">
+                <ScalarProperty Name="ContractCost" ColumnName="ContractCost" />
+                <ScalarProperty Name="ContractQty" ColumnName="ContractQty" />
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RecInvContractValidation" FunctionName="ccnewModel.Store.RecInvContractValidation" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ccnewModel.RecInvContractValidation_Result">
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ContractQty" ColumnName="ContractQty" />
+                <ScalarProperty Name="ContractCost" ColumnName="ContractCost" />
+                <ScalarProperty Name="Difference" ColumnName="Difference" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TblLedgerDetail1">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerDetail1">
+              <MappingFragment StoreEntitySet="TblLedgerDetail1">
+                <ScalarProperty Name="TblBankCheque" ColumnName="TblBankCheque" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="BankDeposit" ColumnName="BankDeposit" />
+                <ScalarProperty Name="OffsetGlAccount" ColumnName="OffsetGlAccount" />
+                <ScalarProperty Name="GlAccount" ColumnName="GlAccount" />
+                <ScalarProperty Name="TblMethodOfPayment" ColumnName="TblMethodOfPayment" />
+                <ScalarProperty Name="TblBankTransactionType" ColumnName="TblBankTransactionType" />
+                <ScalarProperty Name="PaymentRef" ColumnName="PaymentRef" />
+                <ScalarProperty Name="TblLedgerMainDetail1" ColumnName="TblLedgerMainDetail1" />
+                <ScalarProperty Name="DrOrCr" ColumnName="DrOrCr" />
+                <ScalarProperty Name="EntityRef" ColumnName="EntityRef" />
+                <ScalarProperty Name="OffsetEntityAccount" ColumnName="OffsetEntityAccount" />
+                <ScalarProperty Name="OffsetAccountType" ColumnName="OffsetAccountType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="EntityAccount" ColumnName="EntityAccount" />
+                <ScalarProperty Name="TblJournalAccountType" ColumnName="TblJournalAccountType" />
+                <ScalarProperty Name="TblCostDimHeader" ColumnName="TblCostDimHeader" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblLedgerHeader1" ColumnName="TblLedgerHeader1" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerDetail1CostCenter">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerDetail1CostCenter">
+              <MappingFragment StoreEntitySet="TblLedgerDetail1CostCenter">
+                <ScalarProperty Name="Calculated" ColumnName="Calculated" />
+                <ScalarProperty Name="TblCostCenterType" ColumnName="TblCostCenterType" />
+                <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TblCostCenter" ColumnName="TblCostCenter" />
+                <ScalarProperty Name="TblLedgerMainDetail1" ColumnName="TblLedgerMainDetail1" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerHeader1">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerHeader1">
+              <MappingFragment StoreEntitySet="TblLedgerHeader1">
+                <ScalarProperty Name="TblCompany" ColumnName="TblCompany" />
+                <ScalarProperty Name="TblSequence" ColumnName="TblSequence" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="balanced" ColumnName="balanced" />
+                <ScalarProperty Name="TblTransactionType" ColumnName="TblTransactionType" />
+                <ScalarProperty Name="TblJournalLink" ColumnName="TblJournalLink" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="PostBy" ColumnName="PostBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TblJournal" ColumnName="TblJournal" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerMainDetail1">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerMainDetail1">
+              <MappingFragment StoreEntitySet="TblLedgerMainDetail1">
+                <ScalarProperty Name="TblBankCheque" ColumnName="TblBankCheque" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="BankDeposit" ColumnName="BankDeposit" />
+                <ScalarProperty Name="OffsetGlAccount" ColumnName="OffsetGlAccount" />
+                <ScalarProperty Name="GlAccount" ColumnName="GlAccount" />
+                <ScalarProperty Name="TblMethodOfPayment" ColumnName="TblMethodOfPayment" />
+                <ScalarProperty Name="TblBankTransactionType" ColumnName="TblBankTransactionType" />
+                <ScalarProperty Name="PaymentRef" ColumnName="PaymentRef" />
+                <ScalarProperty Name="DrOrCr" ColumnName="DrOrCr" />
+                <ScalarProperty Name="EntityRef" ColumnName="EntityRef" />
+                <ScalarProperty Name="OffsetEntityAccount" ColumnName="OffsetEntityAccount" />
+                <ScalarProperty Name="OffsetAccountType" ColumnName="OffsetAccountType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="EntityAccount" ColumnName="EntityAccount" />
+                <ScalarProperty Name="TblJournalAccountType" ColumnName="TblJournalAccountType" />
+                <ScalarProperty Name="TblCostDimHeader" ColumnName="TblCostDimHeader" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblLedgerHeader1" ColumnName="TblLedgerHeader1" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerDetail1CostCenterDel">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerDetail1CostCenterDel">
+              <MappingFragment StoreEntitySet="TblLedgerDetail1CostCenterDel">
+                <ScalarProperty Name="Calculated" ColumnName="Calculated" />
+                <ScalarProperty Name="TblCostCenterType" ColumnName="TblCostCenterType" />
+                <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TblCostCenter" ColumnName="TblCostCenter" />
+                <ScalarProperty Name="TblLedgerMainDetail1" ColumnName="TblLedgerMainDetail1" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerDetail1Del">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerDetail1Del">
+              <MappingFragment StoreEntitySet="TblLedgerDetail1Del">
+                <ScalarProperty Name="TblBankCheque" ColumnName="TblBankCheque" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="BankDeposit" ColumnName="BankDeposit" />
+                <ScalarProperty Name="OffsetGlAccount" ColumnName="OffsetGlAccount" />
+                <ScalarProperty Name="GlAccount" ColumnName="GlAccount" />
+                <ScalarProperty Name="TblMethodOfPayment" ColumnName="TblMethodOfPayment" />
+                <ScalarProperty Name="TblBankTransactionType" ColumnName="TblBankTransactionType" />
+                <ScalarProperty Name="PaymentRef" ColumnName="PaymentRef" />
+                <ScalarProperty Name="TblLedgerMainDetail1" ColumnName="TblLedgerMainDetail1" />
+                <ScalarProperty Name="DrOrCr" ColumnName="DrOrCr" />
+                <ScalarProperty Name="EntityRef" ColumnName="EntityRef" />
+                <ScalarProperty Name="OffsetEntityAccount" ColumnName="OffsetEntityAccount" />
+                <ScalarProperty Name="OffsetAccountType" ColumnName="OffsetAccountType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="EntityAccount" ColumnName="EntityAccount" />
+                <ScalarProperty Name="TblJournalAccountType" ColumnName="TblJournalAccountType" />
+                <ScalarProperty Name="TblCostDimHeader" ColumnName="TblCostDimHeader" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblLedgerHeader1" ColumnName="TblLedgerHeader1" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLedgerMainDetail1Del">
+            <EntityTypeMapping TypeName="ccnewModel.TblLedgerMainDetail1Del">
+              <MappingFragment StoreEntitySet="TblLedgerMainDetail1Del">
+                <ScalarProperty Name="TblBankCheque" ColumnName="TblBankCheque" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="BankDeposit" ColumnName="BankDeposit" />
+                <ScalarProperty Name="OffsetGlAccount" ColumnName="OffsetGlAccount" />
+                <ScalarProperty Name="GlAccount" ColumnName="GlAccount" />
+                <ScalarProperty Name="TblMethodOfPayment" ColumnName="TblMethodOfPayment" />
+                <ScalarProperty Name="TblBankTransactionType" ColumnName="TblBankTransactionType" />
+                <ScalarProperty Name="PaymentRef" ColumnName="PaymentRef" />
+                <ScalarProperty Name="DrOrCr" ColumnName="DrOrCr" />
+                <ScalarProperty Name="EntityRef" ColumnName="EntityRef" />
+                <ScalarProperty Name="OffsetEntityAccount" ColumnName="OffsetEntityAccount" />
+                <ScalarProperty Name="OffsetAccountType" ColumnName="OffsetAccountType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="EntityAccount" ColumnName="EntityAccount" />
+                <ScalarProperty Name="TblJournalAccountType" ColumnName="TblJournalAccountType" />
+                <ScalarProperty Name="TblCostDimHeader" ColumnName="TblCostDimHeader" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblLedgerHeader1" ColumnName="TblLedgerHeader1" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -28571,23 +29780,14 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <EntityTypeShape EntityType="ccnewModel.RecieveView" Width="1.5" PointX="53.375" PointY="49" />
         <EntityTypeShape EntityType="ccnewModel.ReturnRecieveView" Width="1.5" PointX="53.375" PointY="54.125" />
         <EntityTypeShape EntityType="ccnewModel.ReturnDetailView" Width="1.5" PointX="24.375" PointY="7.75" />
-        <EntityTypeShape EntityType="ccnewModel.TblRecInvHeader" Width="1.5" PointX="36.75" PointY="103.875" />
         <EntityTypeShape EntityType="ccnewModel.TblRecInvMainDetail" Width="1.5" PointX="39" PointY="56.25" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblAccount" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblCurrency" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvMainDetail_TBLITEMprice" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblStore" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TBLsupplier" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" />
         <EntityTypeShape EntityType="ccnewModel.RecInvItem" Width="1.5" PointX="12.375" PointY="24.125" />
         <EntityTypeShape EntityType="ccnewModel.RecInvStyle" Width="1.5" PointX="24.375" PointY="11.125" />
-        <EntityTypeShape EntityType="ccnewModel.RecInvStyleColor" Width="1.5" PointX="14.375" PointY="24.125" />
         <EntityTypeShape EntityType="ccnewModel.RecInvStyleSizeColor" Width="1.5" PointX="26.375" PointY="8.125" />
         <EntityTypeShape EntityType="ccnewModel.TblRecInvDetail" Width="1.5" PointX="39" PointY="72.375" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" />
         <EntityTypeShape EntityType="ccnewModel.RecieveDetailView" Width="1.5" PointX="26.375" PointY="12.125" />
         <EntityTypeShape EntityType="ccnewModel.TBLSalesPerson" Width="1.5" PointX="21.375" PointY="27.875" />
         <EntityTypeShape EntityType="ccnewModel.TblUser" Width="1.5" PointX="54.375" PointY="1.625" />
@@ -28596,6 +29796,36 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <EntityTypeShape EntityType="ccnewModel.TblGLTransactionReverse1" Width="1.5" PointX="3.375" PointY="32.75" />
         <EntityTypeShape EntityType="ccnewModel.tblCalliopeStoresDailySale" Width="1.5" PointX="28.375" PointY="21.75" />
         <AssociationConnector Association="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank" />
+        <EntityTypeShape EntityType="ccnewModel.TblRecInvHeader" Width="1.5" PointX="36.75" PointY="103.875" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblAccount" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblStore" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TBLsupplier" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" />
+        <EntityTypeShape EntityType="ccnewModel.RecInvStyleColor" Width="1.5" PointX="54.375" PointY="19.375" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1" Width="1.5" PointX="44" PointY="203.125" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1CostCenter" Width="1.5" PointX="44" PointY="120.625" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerHeader1" Width="1.5" PointX="29.75" PointY="106.875" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerMainDetail1" Width="1.5" PointX="41.75" PointY="198.625" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1CostCenterDel" Width="1.5" PointX="14.375" PointY="24.375" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1Del" Width="1.5" PointX="55.375" PointY="8.375" />
+        <EntityTypeShape EntityType="ccnewModel.TblLedgerMainDetail1Del" Width="1.5" PointX="55.375" PointY="24.375" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblAccount" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblBankCheque" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblBankTransactionType" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenter" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblCostCenterType" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblCurrency" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerHeader1_TblJournal" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblJournalAccountType2" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerDetail1_TblLedgerMainDetail1" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerDetail1CostCenter_TblLedgerDetail1" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerHeader1_TblSequence" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblLedgerHeader1" />
+        <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblMethodOfPayment" />
         </Diagram>
     </Diagrams>
   </Designer>

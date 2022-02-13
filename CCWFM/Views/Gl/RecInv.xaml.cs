@@ -26,14 +26,8 @@ namespace CCWFM.Views.Gl
             DataContext = _viewModel;
             _FormMode = FormMode.Add;
             SwitchFormMode(_FormMode);
-            //_viewModel.PremCompleted += (s, sv) =>
-            //{
-            //    if (_viewModel.CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithApproval") != null || _viewModel.CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithoutApproval") != null)
-            //    {
-            //        BtnPost.Visibility = Visibility.Visible;
-            //    }
-            //};
-           
+            
+
             //AccountControl
         }
 
@@ -139,6 +133,16 @@ namespace CCWFM.Views.Gl
 
             BtnAddNewOrder.Visibility = Visibility.Visible;
         }
+
+        private void btnInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Invoice();
+      
+        }
+
+
+
+        
 
         public FormMode _FormMode { get; set; }
 
@@ -323,7 +327,14 @@ namespace CCWFM.Views.Gl
 
         private void BtnPost_OnClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.Post();
+
+          
+                _viewModel.Post();
+          
+
+
+
+            
         }
 
         private void MainGrid_OnRowEditEnded(object sender, DataGridRowEditEndedEventArgs e)

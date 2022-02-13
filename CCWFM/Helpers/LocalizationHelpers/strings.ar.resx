@@ -2832,4 +2832,10 @@
   <data name="Dr" xml:space="preserve">
     <value>Dr</value>
   </data>
+  <data name="Invoiced" xml:space="preserve">
+    <value>Invoiced</value>
+  </data>
+  <data name="ContractTotal" xml:space="preserve">
+    <value>Contract Total</value>
+  </data>
 </root>

@@ -60,6 +60,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -4345,6 +4346,9 @@
     <None Include="Service References\GlService\CCWFM.GlService.RecieveView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\GlService\CCWFM.GlService.RecInvContractValidation_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GlService\CCWFM.GlService.RecInvItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -4528,16 +4532,25 @@
     <None Include="Service References\GlService\CCWFM.GlService.TblJournalSettingEntity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\GlService\CCWFM.GlService.TblLedgerDetail1CostCenter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GlService\CCWFM.GlService.TblLedgerDetailCostCenter.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\GlService\CCWFM.GlService.TblLedgerHeader.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\GlService\CCWFM.GlService.TblLedgerHeader1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GlService\CCWFM.GlService.TblLedgerHeaderAttachment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\GlService\CCWFM.GlService.TblLedgerMainDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GlService\CCWFM.GlService.TblLedgerMainDetail1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\GlService\CCWFM.GlService.TblMarkup.datasource">
