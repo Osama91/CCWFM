@@ -83,6 +83,7 @@ namespace CCWFM.Web.Service.Production
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
+                context.CommandTimeout = 0;
                 IQueryable<TblTradeAgreementDetail> temp =
                     context.TblTradeAgreementDetails.Include(nameof(TblTradeAgreementDetail.TblVendorPurchaseGroup1)).Include(
                         nameof(TblTradeAgreementDetail.TblTradeAgreementHeader1)).Include(string.Format("{0}.{1}",
@@ -121,7 +122,7 @@ namespace CCWFM.Web.Service.Production
                 //fabricInventList = temp.Where(x => lineNumbers.All(l => x.LINENUM != l));
                 var itemsquery = context.tbl_FabricAttriputes.Include(nameof(tbl_FabricAttriputes.tbl_lkp_UoM)).Include(
                     nameof(tbl_FabricAttriputes.tbl_lkp_FabricMaterials))
-                                  .Where(x => fabricsIserial.Any(l => x.Iserial == l)).
+                                  .Where(x => fabricsIserial.Contains(x.Iserial)).
                                   Select(x => new ItemsDto
                                   {
                                       Iserial = x.Iserial,
@@ -133,7 +134,7 @@ namespace CCWFM.Web.Service.Production
 
 
                 var tempQuery = context.tbl_AccessoryAttributesHeader.Include(nameof(tbl_AccessoryAttributesHeader.tbl_lkp_UoM))
-                     .Where(x => accIserial.Any(l => x.Iserial == l)).
+                     .Where(x => accIserial.Contains(x.Iserial)).
 
                                      Select(x => new ItemsDto
                                      {
@@ -149,11 +150,11 @@ namespace CCWFM.Web.Service.Production
                 itemsList = itemsquery;
 
                 VendorList = context.Vendors.Where(x => vendors.Contains(x.vendor_code) && x.DATAAREAID == "CCM").ToList();
-                var listofiserial = query.Select(x => x.Iserial);
-                TransactionExist = context.TblBOMStyleColorEstimateds.Where(x => listofiserial.Any(l => x.TblTradeAgreementDetail == l))
+                var listofiserial = query.Select(x => x.Iserial).ToList();
+                TransactionExist = context.TblBOMStyleColorEstimateds.Where(x => listofiserial.Contains(x.TblTradeAgreementDetail??0))
                     .GroupBy(x => x.TblTradeAgreementDetail).ToDictionary(t => t.Key, t => true);
 
-                return query;
+                return query.ToList();
             }
         }
 

@@ -34,8 +34,9 @@ namespace CCWFM.ViewModel
                     {
                         var qtemp = iR.AvailableQuantity;
                         iR.AvailableQuantity = 0;
-                        iR.CountedQuantity = 0;
+                     
                         iR.AvailableQuantity = qtemp;
+                        iR.CountedQuantity = qtemp;
                         SearchResultList.Add(iR);
                     }
                 }
@@ -63,8 +64,8 @@ namespace CCWFM.ViewModel
                     {
                         var qtemp = iR.AvailableQuantity;
                         iR.AvailableQuantity = 0;
-                        iR.CountedQuantity = 0;
                         iR.AvailableQuantity = qtemp;
+                        iR.CountedQuantity = qtemp;
                         SearchResultList.Add(iR);
                     }
                 }
@@ -101,7 +102,7 @@ namespace CCWFM.ViewModel
             ObservableCollection<ItemDimensionAdjustmentSearchModel> temp =
                 new ObservableCollection<ItemDimensionAdjustmentSearchModel>();
             IsWorking = true;
-            foreach (var item in this.SearchResultList.Where(t => t.DifferenceQuantity != 0))
+            foreach (var item in this.SearchResultList)
             {
                 item.SiteFromIserial = SiteIserial.HasValue ? SiteIserial.Value : 1;
                 item.SiteToIserial = SiteIserial.HasValue ? SiteIserial.Value : 1;

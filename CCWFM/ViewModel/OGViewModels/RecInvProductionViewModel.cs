@@ -259,7 +259,14 @@ namespace CCWFM.ViewModel.OGViewModels
                         newrow.TblMarkupProd1.InjectFrom(MarkupList.FirstOrDefault(w => w.Iserial == row.TblMarkupProd));
                         newrow.TblMarkupProd = row.TblMarkupProd;
                         newrow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == newrow.TblJournalAccountType);
-                        newrow.EntityPerRow = new GlService.Entity().InjectFrom(sv.entityList.FirstOrDefault(w => w.Iserial == row.EntityAccount && w.TblJournalAccountType == row.TblJournalAccountType)) as GlService.Entity;
+                        var entity = sv.entityList.FirstOrDefault(w => w.Iserial == row.EntityAccount && w.TblJournalAccountType == row.TblJournalAccountType);
+                        newrow.EntityPerRow = new GlService.Entity();
+
+                        if (entity != null)
+                        {
+
+                            newrow.EntityPerRow= new GlService.Entity().InjectFrom(entity) as GlService.Entity;
+                        }
                         newrow.TblJournalAccountType = row.TblJournalAccountType;
                         newrow.EntityAccount = row.EntityAccount;
                         SelectedMainRow.MarkUpTransList.Add(newrow);
@@ -1786,6 +1793,7 @@ public class TblMarkupTranProdViewModel : PropertiesViewModelBase
         }
     }
 }
+
 
     #endregion Models
 }

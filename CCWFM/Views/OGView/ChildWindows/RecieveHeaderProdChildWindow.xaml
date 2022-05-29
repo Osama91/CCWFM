@@ -66,6 +66,17 @@
                         </sdk:DataGridTemplateColumn.CellTemplate>
                     </sdk:DataGridTemplateColumn>
 
+                    <sdk:DataGridTemplateColumn SortMemberPath="TblInventType1.Ename"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Type, Source={StaticResource LocalizedStrings}}"
+                                            Width="*">
+
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TblInventType1.Ename,Mode=TwoWay}" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+
                     <sdk:DataGridTemplateColumn Width="SizeToHeader"
                                             SortMemberPath="Checked"
                                             dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Saved,
@@ -118,6 +129,16 @@
                     </sdk:DataGridTemplateColumn.CellTemplate>
                 </sdk:DataGridTemplateColumn>
 
+                <sdk:DataGridTemplateColumn SortMemberPath="TblInventType1.Ename"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Type, Source={StaticResource LocalizedStrings}}"
+                                            Width="*">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TblInventType1.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
 
                 <sdk:DataGridTemplateColumn Width="SizeToHeader"
                                             SortMemberPath="Checked"

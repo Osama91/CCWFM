@@ -130,6 +130,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetForsaBankIserialIserial">
+      <soap12:operation soapAction="urn:BankDepositService/GetForsaBankIserialIserial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTFKDiscountBankIserial">
       <soap12:operation soapAction="urn:BankDepositService/GetTFKDiscountBankIserial" style="document" />
       <wsdl:input>

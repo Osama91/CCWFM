@@ -3553,7 +3553,7 @@
     <None Include="Service References\ContractService\ContractService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\Arrays1.xsd">
+    <None Include="Service References\CRUDManagerService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.BarcodeDisplaySettingsDetail.datasource">
@@ -3575,9 +3575,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.Brand.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.CLEBARCODEBCREATE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.CONFIGTABLE.datasource">
@@ -3755,9 +3752,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblAuthUser.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblBank.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.TblBankDeposit.datasource">
@@ -4249,33 +4243,33 @@
     <None Include="Service References\CRUDManagerService\CCWFM.CRUDManagerService.WRKCTRTABLE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.Web.DataLayer1.xsd">
+    <None Include="Service References\CRUDManagerService\CCWFM.Web.DataLayer.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.Web.Model1.xsd">
+    <None Include="Service References\CRUDManagerService\CCWFM.Web.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.Web.Service.Dto_s1.xsd">
+    <None Include="Service References\CRUDManagerService\CCWFM.Web.Service.Dto_s.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\CCWFM.Web.Service1.xsd">
+    <None Include="Service References\CRUDManagerService\CCWFM.Web.Service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\service2.wsdl" />
-    <None Include="Service References\CRUDManagerService\service2.xsd">
+    <None Include="Service References\CRUDManagerService\service.wsdl" />
+    <None Include="Service References\CRUDManagerService\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\service21.wsdl" />
-    <None Include="Service References\CRUDManagerService\service21.xsd">
+    <None Include="Service References\CRUDManagerService\service1.wsdl" />
+    <None Include="Service References\CRUDManagerService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\System.Data.Objects.DataClasses1.xsd">
+    <None Include="Service References\CRUDManagerService\System.Data.Objects.DataClasses.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\System.Data1.xsd">
+    <None Include="Service References\CRUDManagerService\System.Data.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CRUDManagerService\System1.xsd">
+    <None Include="Service References\CRUDManagerService\System.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DyeingService\CCWFM.DyeingService.DyeingServiceDyeingOrderInvoiceDetailDto.datasource">
@@ -4344,9 +4338,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\GlService\CCWFM.GlService.RecieveView.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\GlService\CCWFM.GlService.RecInvContractValidation_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\GlService\CCWFM.GlService.RecInvItem.datasource">

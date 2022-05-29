@@ -139,9 +139,7 @@ namespace CCWFM.Views.Gl
             _viewModel.Invoice();
       
         }
-
-
-
+        
         
 
         public FormMode _FormMode { get; set; }

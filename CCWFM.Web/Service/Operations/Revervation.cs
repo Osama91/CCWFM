@@ -299,7 +299,8 @@ namespace CCWFM.Web.Service
 
                 var salesOrders = (from bom in workFlowEntities.BOMs.Include("TblBOMStyleColors.TblColor").Include("TblBOMSizes").Include("TblSalesOrder1.TblStyle1").Include("TblSalesOrder1.TblSalesOrderColors.TblColor1")
                                    where bom.BOM_Fabric == itemiserial && bom.TblBOMStyleColors.Any(w => w.TblColor.Code == searchedItems.FabricColor)
-                                   && bom.TblSalesOrder1.SalesOrderType == 2 && bom.TblSalesOrder1.TblStyle1.TblLkpSeason == searchedItems.TblSeason
+                                   && bom.TblSalesOrder1.SalesOrderType == 2 && bom.TblSalesOrder1.TblStyle1.TblLkpSeason == searchedItems.TblSeason && bom.TblSalesOrder1.TblStyle1.Canceled == false&&bom.TblSalesOrder1.Status<=1
+
                                    && bom.TblSalesOrder1.TblStyle1.Brand == searchedItems.Brand && bom.TblSalesOrder1.TblStyle1.TblLkpBrandSection == searchedItems.TblBrandSection
                                    select bom);
                 var querylist = new List<SalesOrderDto>();
@@ -320,13 +321,19 @@ namespace CCWFM.Web.Service
                     {
                         if (!reservedSalesOrders.Any(x => x.SalesOrderColor == row.TblColor1.Code && x.SalesOrder == row.BOM1.TblSalesOrder1.SalesOrderCode))
                         {
-                            querylist.Add(new SalesOrderDto
+                            var colorRecord = bom.TblSalesOrder1.TblSalesOrderColors.Where(x => x.Canceled==false && bom.TblSalesOrder1.Status <= 1 && x.TblColor1.Code.ToLower() == row.TblColor1.Code.ToLower());
+                            if (colorRecord.Any())
                             {
-                                SalesOrder = row.BOM1.TblSalesOrder1.SalesOrderCode,
-                                SalesOrderColor = row.TblColor1.Code,
-                                IntialQty =
-                                   (float)(bom.TblSalesOrder1.TblSalesOrderColors.Where(x => x.TblColor1.Code.ToLower() == row.TblColor1.Code.ToLower()).Sum(x => x.Total) * Temp)
-                            });
+                                querylist.Add(new SalesOrderDto
+                                {
+                                    SalesOrder = row.BOM1.TblSalesOrder1.SalesOrderCode,
+                                    SalesOrderColor = row.TblColor1.Code,
+                                    IntialQty =
+                                    (float)(colorRecord.Sum(x => x.Total) * Temp)
+                                });
+
+                            }
+                          
                         }
                     }
                 }
@@ -355,8 +362,8 @@ namespace CCWFM.Web.Service
 
                 var salesOrders = (from bom in workFlowEntities.BOMs.Include("TblBOMStyleColors.TblColor").Include("TblBOMSizes").Include("TblSalesOrder1.TblStyle1").Include("TblSalesOrder1.TblSalesOrderColors.TblColor1")
                                    where bom.BOM_Fabric == itemiserial && bom.TblBOMStyleColors.Any(w => w.TblColor.Code == FabricColor)
-                                   && bom.TblSalesOrder1.SalesOrderType == 2 && bom.BOM_Fabric == itemiserial && bom.TblSalesOrder == tblsalesorder
-                                   && (bom.TblSalesOrder1.Status == 0 || bom.TblSalesOrder1.Status == 1)
+                                   && bom.TblSalesOrder1.SalesOrderType == 2 && bom.BOM_Fabric == itemiserial && bom.TblSalesOrder == tblsalesorder 
+                                   && (bom.TblSalesOrder1.Status == 0 || bom.TblSalesOrder1.Status == 1) 
                                    select bom);
                 var querylist = new List<SalesOrderDto>();
                 foreach (var bom in salesOrders.ToList())

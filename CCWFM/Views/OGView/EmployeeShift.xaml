@@ -212,6 +212,7 @@
 					 Grid.Row="1"
 					 Grid.RowSpan="3"
 					 Grid.Column="4"
+                     BorderBrush="Red"
 					 IsEnabled="False"
 					 Text="{Binding selectedExcuse.Description,
 									Mode=TwoWay,

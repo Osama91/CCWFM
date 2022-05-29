@@ -140,7 +140,7 @@ namespace CCWFM.Web.Service.Operations.PurchasePlan
 
             using (var entity = new WorkFlowManagerDBEntities())
             {
-                IQueryable<TblMarkupTransProd> query = entity.TblMarkupTransProds.Where(x => x.TblRecInv == tblRecInv && x.Type == type);
+                var query = entity.TblMarkupTransProds.Where(x => x.TblRecInv == tblRecInv && x.Type == type).ToList();
 
                 List<int> intList = query.Select(x => x.EntityAccount).ToList();
 
@@ -152,7 +152,7 @@ namespace CCWFM.Web.Service.Operations.PurchasePlan
                     entityList = context.Entities.Where(x => x.scope == 0 && intList.Contains(x.Iserial) && intTypeList.Contains(x.TblJournalAccountType)).ToList();
                     var listOfStyles = query.Select(x => x.Iserial);
                 }
-                return query.ToList();
+                return query;
             }
         }
 

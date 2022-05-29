@@ -9,6 +9,7 @@ using System.Linq.Dynamic;
 using System.ServiceModel;
 using System.Transactions;
 using CCWFM.Web.Model;
+using System.Data.Objects.SqlClient;
 
 namespace CCWFM.Web.Service.Operations.GlOperations
 {
@@ -33,22 +34,21 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                     string desc = "Purchase TransNo " + row.SupplierInv;
 
-                    if (row.TblRecInvHeaderType == 2)
-                    {
-                        desc = "Return Purchase TransNo " + row.SupplierInv;
-                    }
+                    //if (row.TblRecInvHeaderType == 2)
+                    //{
+                    //    desc = "Return Purchase TransNo " + row.SupplierInv;
+                    //}
                     if (Lang == 0)
                     {
                         desc = "فاتورة المشتريات رقم " + row.SupplierInv;
 
-                        if (row.TblRecInvHeaderType == 2)
-                        {
-                            desc = " فاتورة مرتجع المشتريات رقم " + row.SupplierInv;
-                        }
+                        //if (row.TblRecInvHeaderType == 2)
+                        //{
+                        //    desc = " فاتورة مرتجع المشتريات رقم " + row.SupplierInv;
+                        //}
                     }
                     var markuptrans =
                         entity.TblMarkupTrans.Include("TblMarkup1.TblMarkupGroup1")
-                            .Include("TBLsupplier1")
                             .Where(x => x.TblRecInv == row.Iserial && x.Type == 0);
 
                     var cost =
@@ -168,12 +168,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             var list =
                                 entity.ExecuteStoreQuery<GlGroupsDtp>("exec GlRecinvPostingToGl @Table_Name, @Iserial",
                                     sqlParam.ToArray()).ToList();
-                            //var store =
-                            //    entity.Entities.FirstOrDefault(
-                            //        x => x.Iserial == query.TblStore && x.TblJournalAccountType == 8);
+                       
 
-                            //var storeCostcenter = new TblGlRuleDetail();
-                            //storeCostcenter = FindCostCenterByType(storeCostcenter, 8, (int)store.Iserial, company);
                             #region MarkupTrans
                             foreach (var rr in markuptrans)
                             {
@@ -182,7 +178,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         x => x.Iserial == rr.TblMarkup && x.TblJournalAccountType == 9).AccountIserial;
                                 var vendorAccountMarkUp =
                                     entity.Entities.FirstOrDefault(
-                                        x => x.Iserial == rr.TblSupplier && x.TblJournalAccountType == 2);
+                                        x => x.Iserial == rr.EntityAccount && x.TblJournalAccountType == rr.TblJournalAccountType);
 
                                 var drorCr = true;
                                 decimal? total = 0;
@@ -225,7 +221,51 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                     DrOrCr = !drorCr
                                 };
 
-                                if (row.TblRecInvHeaderType == 2)
+
+
+                                if (rr.TblMarkup1.ItemEffect)
+                                {
+
+                                    var groupAccount =
+                                   entity.TblInventPostings.FirstOrDefault(
+                                            x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 60);
+
+
+                                    var salesgroupAccount = entity.TblInventPostings.FirstOrDefault(
+                                                x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 87).TblAccount;
+
+                                    var vendorAccount = entity.Entities.FirstOrDefault(x => x.Iserial == query.TblSupplier && x.TblJournalAccountType == 2).AccountIserial;
+
+                                    var Acc = 0;
+                                    if (groupAccount != null)
+                                    {
+                                        Acc = groupAccount.TblAccount;
+                                    }
+
+                                    if (query.TblAccount != null)
+                                    {
+                                        Acc = query.TblAccount ?? 0;
+                                    }
+
+                                    markupVendorDiscount = new TblLedgerMainDetail
+                                    {
+                                        Amount = totalModified,
+                                        Description = markupdes,
+                                        ExchangeRate = rr.ExchangeRate,
+                                        TblCurrency = rr.TblCurrency,
+                                        TransDate = row.TransDate,
+                                        TblJournalAccountType = 0,
+                                        EntityAccount = Acc,
+                                        GlAccount = Acc,
+                                        TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                        PaymentRef = query.SupplierInv,
+                                        DrOrCr = !drorCr
+                                    };
+                                   
+                                }
+                                
+
+                                if (totalModified <0)
                                 {
                                     markupVendorDiscount.DrOrCr = !markupVendorDiscount.DrOrCr;
                                 }
@@ -243,14 +283,14 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         ExchangeRate = rr.ExchangeRate,
                                         TblCurrency = rr.TblCurrency,
                                         TransDate = row.TransDate,
-                                        TblJournalAccountType = 2,
+                                        TblJournalAccountType = vendorAccountMarkUp.TblJournalAccountType,
                                         EntityAccount = vendorAccountMarkUp.Iserial,
                                         GlAccount = vendorAccountMarkUp.AccountIserial,
                                         TblLedgerHeader = newLedgerHeaderRow.Iserial,
                                         PaymentRef = query.SupplierInv,
                                         DrOrCr = drorCr
                                     };
-                                    if (row.TblRecInvHeaderType == 2)
+                                    if (totalModified < 0)
                                     {
                                         markupVendor.DrOrCr = !markupVendor.DrOrCr;
                                     }
@@ -875,14 +915,16 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private List<RecInvContractValidation_Result> InvoiceRecInvHeader(int RecInvHeader,string company) {
+        private List<RecInvStyleColor> InvoiceRecInvHeader(int RecInvHeader,string company) {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
-                var RecInvStyle = entity.RecInvContractValidation(RecInvHeader).ToList();
+
+                var RecInvStyle = entity.RecInvContractValidation(RecInvHeader,true).ToList();
                 if (RecInvStyle.Count == 0)
                 { 
              var header=   entity.TblRecInvHeaders.FirstOrDefault(w => w.Iserial == RecInvHeader);
                 header.Invoiced = true;
+                    entity.SaveChanges();
 
                 }
                 return RecInvStyle;
@@ -1126,31 +1168,33 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private List<RecieveView> GetTblRecieveHeader(int skip, int take, int type, int supplier, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount, string company)
+        private List<RecieveView> GetTblRecieveHeader(int skip, int take, int supplier, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount, string company)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
                 var iserials =
-                    entity.TblRecInvHeaderLinks.Where(x => x.TblRecInvHeader1.TblRecInvHeaderType == type && x.TblRecInvHeader1.TblSupplier == supplier)
+                    entity.TblRecInvHeaderLinks.Where(x =>  x.TblRecInvHeader1.TblSupplier == supplier)
                         .Select(x => x.tblrecieveHeader);
+
+
                 IQueryable<RecieveView> query;
 
                 if (filter != null)
                 {
-                    foreach (var variable in iserials)
-                    {
-                        filter = filter + " and it.glserial !=(@Group" + variable + ")";
-                        valuesObjects.Add("Group" + variable + "", variable);
-                    }
+                    //foreach (var variable in iserials)
+                    //{
+                    //    filter = filter + " and it.glserial !=(@Group" + variable + ")";
+                    //    valuesObjects.Add("Group" + variable + "", variable);
+                    //}
                     filter = filter + " and it.tblsupplier ==(@Sup)";
                     valuesObjects.Add("Sup", supplier);
 
                     var parameterCollection = ConvertToParamters(valuesObjects);
 
-                    fullCount = entity.RecieveViews.Where(filter, parameterCollection.ToArray()).Count();
+                    fullCount = entity.RecieveViews.Where(filter, parameterCollection.ToArray()).Where(x => !iserials.Contains(x.glserial)).Count();
                     query =
                         entity.RecieveViews
-                            .Where(filter, parameterCollection.ToArray())
+                            .Where(filter, parameterCollection.ToArray()).Where(x => !iserials.Contains(x.glserial))
                             .OrderBy(sort)
                             .Skip(skip)
                             .Take(take);
@@ -1227,7 +1271,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             {
                 To = To.AddDays(1);
                 var iserials =
-                    entity.TblRecInvHeaderLinks.Where(x => x.TblRecInvHeader1.TblRecInvHeaderType == type)
+                    entity.TblRecInvHeaderLinks
                         .Select(x => x.tblrecieveHeader);
                 IQueryable<RecieveView> query;
 
@@ -1235,7 +1279,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     entity.RecieveViews
 
                         .Where(x => !iserials.Contains(x.glserial) && x.tblsupplier == supplier
-                        && x.votdate >= From && x.votdate < To);
+                        && x.votdate >= From && x.votdate < To).OrderByDescending(w=>w.glserial);
 
                 return query.ToList();
             }
@@ -1296,26 +1340,37 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             return temp;
         }
 
+        class InvoiceModel {
+            
+            public string Value { get; set; }
+        }
+
         [OperationContract]
-        private TblRecInvHeader GetTblRecieveDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
+        private TblRecInvHeader GetTblRecieveDetail(Dictionary<int,int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
+                entity.CommandTimeout = 0;
                 tblRecInvHeader.Code = HandelSequence(tblRecInvHeader.Code, company);
                 tblRecInvHeader.CreationDate = DateTime.Now;
                 tblRecInvHeader.CreatedBy = user;
 
                 entity.TblRecInvHeaders.AddObject(tblRecInvHeader);
                 entity.SaveChanges();
+
+                var invoiceHeader = new List<InvoiceModel>();
                 foreach (var header in headers)
                 {
                     entity.TblRecInvHeaderLinks.AddObject(new TblRecInvHeaderLink
                     {
                         TblRecInvHeader = tblRecInvHeader.Iserial,
-                        tblrecieveHeader = header,
-                        TblRecInvHeaderType = tblRecInvHeader.TblRecInvHeaderType
+                        tblrecieveHeader = header.Key,
+                        TblRecInvHeaderType = header.Value,
                     });
+                    invoiceHeader.Add(new InvoiceModel() { Value = header.Key.ToString()+ header.Value.ToString() });
                 }
+
+                var listofValues = invoiceHeader.Select(e => e.Value).ToList();
                 var tblChainSetting = entity.TblChainSettings.FirstOrDefault();
                 if (tblChainSetting != null)
                 {
@@ -1323,29 +1378,31 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     {
                         var currency = (int)tblChainSetting.CurrCurrency;
 
-                        string comand = "SELECT '' BatchNo,Style,ccitemview.TblColorCode ColorCode,ccitemview.TblColorEname ColorName,TblsizeCode SizeCode,cast(SUM(TBLrecieveDetail.Quantity* TBLrecieveDetail.ucostwot)/SUM(TBLrecieveDetail.Quantity) as decimal(19,4)) Cost , cast(SUM(TBLrecieveDetail.Quantity) as decimal(19,4))" +
-                                      " Quantity,ccitemview.Iserial FROM TBLrecieveDetail inner join ccitemview on ccitemview.ISerial= TBLrecieveDetail.tblitem  where TBLrecieveDetail.glserial in" +
-                                      " ({0}) group by ccitemview.Style,TblColorCode,TblColorEname,ccitemview.TblsizeCode,ccitemview.Iserial";
+                        var ListQuery= entity.RecieveStyleViews.Where(w => listofValues.Contains(SqlFunctions.StringConvert((double)w.glserial).Trim() + SqlFunctions.StringConvert((double)w.TblRecInvHeaderType).Trim()));
 
-                        comand = comand.Replace("{0}", string.Join(",", headers));
-
-                        List<RecInvDataTable> List = entity.ExecuteStoreQuery<RecInvDataTable>(comand).ToList();
+                        //if (ListQuery.Any)
+                        //{
+                        //    throw  new Exception("Check RecieveStyleViews");                        }
+                        var List = ListQuery.ToList();
+                     
+                        
                         foreach (var row in List)
                         {                        
                                 var newRow = new TblRecInvMainDetail
                                 {
-                                    Cost = row.Cost,
+                                    Cost = row.Cost??0,
                                     Misc=0,
                                     TblCurrency = currency,
-                                    Qty = row.Quantity,
+                                    Qty = row.Quantity??0,
                                     TblItem = row.Iserial,
                                     TblRecInvHeader = tblRecInvHeader.Iserial,
                                 };
                                 entity.TblRecInvMainDetails.AddObject(newRow);                         
                         }                       
                     }
+
                     entity.RecieveDetailViews.MergeOption = MergeOption.NoTracking;
-                    var query = entity.RecieveDetailViews.Where(x => headers.Contains(x.glserial)).ToList();
+                    var query = entity.RecieveDetailViews.Where(w => listofValues.Contains(SqlFunctions.StringConvert((double)w.glserial).Trim() + SqlFunctions.StringConvert((double)w.TblRecInvHeaderType).Trim())).ToList();
 
                     foreach (var row in query)
                     {
@@ -1355,9 +1412,12 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             TblRecInvHeader = tblRecInvHeader.Iserial,
                             Dserial = (int)row.Dserial,
                             Flg = 0,
-                            Misc=0,
+                            Misc = 0,
                             Glserial = row.glserial,
-                            Tblitem = (int)row.tblitem
+                            Tblitem = (int)row.tblitem,
+                            TblRecInvHeaderType=row.TblRecInvHeaderType,
+
+                            
                         };
                         entity.TblRecInvDetails.AddObject(recDetail);
                     }
@@ -1367,95 +1427,97 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             return tblRecInvHeader;
         }
 
-        [OperationContract]
-        private TblRecInvHeader GetTblReturnDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
-        {
-            using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
-            {
-                tblRecInvHeader.Code = HandelSequence(tblRecInvHeader.Code, company);
-                tblRecInvHeader.CreationDate = DateTime.Now;
-                tblRecInvHeader.CreatedBy =user;
+        //[OperationContract]
+        //private TblRecInvHeader GetTblReturnDetail(List<int> headers, TblRecInvHeader tblRecInvHeader, string company,int user)
+        //{
+        //    using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
+        //    {
+        //        tblRecInvHeader.Code = HandelSequence(tblRecInvHeader.Code, company);
+        //        tblRecInvHeader.CreationDate = DateTime.Now;
+        //        tblRecInvHeader.CreatedBy =user;
 
-                entity.TblRecInvHeaders.AddObject(tblRecInvHeader);
-                entity.SaveChanges();
-                foreach (var header in headers)
-                {
-                    entity.TblRecInvHeaderLinks.AddObject(new TblRecInvHeaderLink
-                    {
-                        TblRecInvHeader = tblRecInvHeader.Iserial,
-                        tblrecieveHeader = header,
-                        TblRecInvHeaderType = tblRecInvHeader.TblRecInvHeaderType
-                    });
-                }
-                var tblChainSetting = entity.TblChainSettings.FirstOrDefault();
-                if (tblChainSetting != null)
-                {
-                    if (tblChainSetting.CurrCurrency != null)
-                    {
-                        var currency = (int)tblChainSetting.CurrCurrency;
+        //        entity.TblRecInvHeaders.AddObject(tblRecInvHeader);
+        //        entity.SaveChanges();
+        //        foreach (var header in headers)
+        //        {
+        //            entity.TblRecInvHeaderLinks.AddObject(new TblRecInvHeaderLink
+        //            {
+        //                TblRecInvHeader = tblRecInvHeader.Iserial,
+        //                tblrecieveHeader = header,
+        //                TblRecInvHeaderType = tblRecInvHeader.TblRecInvHeaderType
+        //            });
+        //        }
+        //        var tblChainSetting = entity.TblChainSettings.FirstOrDefault();
+        //        if (tblChainSetting != null)
+        //        {
+        //            if (tblChainSetting.CurrCurrency != null)
+        //            {
+        //                var currency = (int)tblChainSetting.CurrCurrency;
 
-                        string comand = "SELECT '' BatchNo,Style,ccitemview.TblColorCode ColorCode,ccitemview.TblColorEname ColorName,TblsizeCode SizeCode,cast(SUM(TblReturnDetail.Quantity* TblReturnDetail.ucostwot)/SUM(TblReturnDetail.Quantity) as decimal(19,4)) Cost ,cast( SUM(TblReturnDetail.Quantity) as decimal(19,4))" +
-                                      " Quantity,ccitemview.Iserial FROM TblReturnDetail inner join ccitemview on ccitemview.ISerial= TblReturnDetail.tblitem  where TblReturnDetail.glserial in" +
-                                      " ({0}) group by ccitemview.Style,TblColorCode,TblColorEname,ccitemview.TblsizeCode,ccitemview.Iserial";
+        //                string comand = "SELECT '' BatchNo,Style,ccitemview.TblColorCode ColorCode,ccitemview.TblColorEname ColorName,TblsizeCode SizeCode,ISNULL(cast(MAX(TblContractDetail.cost) as decimal(19,4)),  cast(SUM(TblReturnDetail.Quantity* TblReturnDetail.ucostwot)/SUM(TblReturnDetail.Quantity) as decimal(19,4))) Cost , cast(SUM(TblReturnDetail.Quantity) as decimal(19,4))" +
+        //                              " Quantity,ccitemview.Iserial FROM TblReturnDetail inner join ccitemview on ccitemview.ISerial= TblReturnDetail.tblitem " +
+        //                                 "    LEFT outer join websrv.WorkFlowManagerDB.dbo.tblcolor WFtblcolor on WFtblcolor.code= ccitemview.TblColorCode COLLATE Database_default AND tbllkpcolorgroup<>24 " +
+        //"LEFT outer join websrv.WorkFlowManagerDB.dbo.TblStyle TblStyle on TblStyle.stylecode=ccitemview.Style  COLLATE Database_default " +
+        //"LEFT outer join websrv.WorkFlowManagerDB.dbo.tblsalesorder tblsalesorder on tblsalesorder.tblstyle=TblStyle.iserial " +
+        //"LEFT outer join websrv.WorkFlowManagerDB.dbo.tblsalesordercolor tblsalesordercolor on tblsalesordercolor.tblcolor= WFtblcolor.iserial " +
+        //"AND tblsalesordercolor.tblsalesorder=tblsalesorder.iserial AND tblsalesordercolor.canceled=0 " +
+        //"LEFT outer join websrv.WorkFlowManagerDB.dbo.TblContractDetail as TblContractDetail on TblContractDetail.tblsalesordercolor=tblsalesordercolor.iserial " +
+        //"AND TblContractDetail.Status <> 2  " +
+        //    "LEFT outer join websrv.WorkFlowManagerDB.dbo.TblContractHeader as TblContractHeader on TblContractHeader.iserial=TblContractDetail.TblContractHeader " +
+        //    "and TblContractHeader.approved=1 " +
+        //                              "  where TblReturnDetail.glserial in" +
+        //                              " ({0}) group by ccitemview.Style,TblColorCode,TblColorEname,ccitemview.TblsizeCode,ccitemview.Iserial";
 
-                        comand = comand.Replace("{0}", string.Join(",", headers));
+        //                comand = comand.Replace("{0}", string.Join(",", headers));
 
-                        List<RecInvDataTable> List = entity.ExecuteStoreQuery<RecInvDataTable>(comand).ToList();
-                        foreach (var row in List)
-                        {                                                           
-                                var newRow = new TblRecInvMainDetail
-                                {
-                                    Cost = row.Cost,
-                                    TblCurrency = currency,
-                                    Qty = row.Quantity,
-                                    TblItem = row.Iserial,
-                                    TblRecInvHeader = tblRecInvHeader.Iserial,
-                                };
-                                entity.TblRecInvMainDetails.AddObject(newRow);                            
-                        }
-                    }
-                    entity.ReturnDetailViews.MergeOption = MergeOption.NoTracking;
-                    var query = entity.ReturnDetailViews.Where(x => headers.Contains(x.glserial));
+        //                List<RecInvDataTable> List = entity.ExecuteStoreQuery<RecInvDataTable>(comand).ToList();
+        //                foreach (var row in List)
+        //                {                                                           
+        //                        var newRow = new TblRecInvMainDetail
+        //                        {
+        //                            Cost = row.Cost,
+        //                            TblCurrency = currency,
+        //                            Qty = row.Quantity,
+        //                            TblItem = row.Iserial,
+        //                            TblRecInvHeader = tblRecInvHeader.Iserial,
+        //                        };
+        //                        entity.TblRecInvMainDetails.AddObject(newRow);                            
+        //                }
+        //            }
+        //            entity.ReturnDetailViews.MergeOption = MergeOption.NoTracking;
+        //            var query = entity.ReturnDetailViews.Where(x => headers.Contains(x.glserial));
 
-                    foreach (var row in query)
-                    {
-                        var recDetail = new TblRecInvDetail
-                        {
-                            Cost = row.ucostwot,
-                            TblRecInvHeader = tblRecInvHeader.Iserial,
-                            Dserial = (int)row.Dserial,
-                            Flg = 0,
-                            Glserial = row.glserial,
-                            Tblitem = (int)row.tblitem
-                        };
-                        entity.TblRecInvDetails.AddObject(recDetail);
-                    }
-                    entity.SaveChanges();
-                }
-            }
-            return tblRecInvHeader;
-        }
+        //            foreach (var row in query)
+        //            {
+        //                var recDetail = new TblRecInvDetail
+        //                {
+        //                    Cost = row.ucostwot,
+        //                    TblRecInvHeader = tblRecInvHeader.Iserial,
+        //                    Dserial = (int)row.Dserial,
+        //                    Flg = 0,
+        //                    Glserial = row.glserial,
+        //                    Tblitem = (int)row.tblitem
+        //                };
+        //                entity.TblRecInvDetails.AddObject(recDetail);
+        //            }
+        //            entity.SaveChanges();
+        //        }
+        //    }
+        //    return tblRecInvHeader;
+        //}
 
         [OperationContract]
         private List<RecInvStyleColor> GetRecInvStyleColor(int skip, int take, int recInvHeader, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount, string company)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
-                entity.RecInvStyleColors.MergeOption = MergeOption.NoTracking;
-                IQueryable<RecInvStyleColor> query;
-                if (filter != null)
-                {
-                    filter = filter + " and it.TblRecInvHeader ==(@Group0)";
-                    valuesObjects.Add("Group0", recInvHeader);
-                    var parameterCollection = ConvertToParamters(valuesObjects);
-                    fullCount = entity.RecInvStyleColors.Where(filter, parameterCollection.ToArray()).Count();
-                    query = entity.RecInvStyleColors.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
-                }
-                else
-                {
-                    fullCount = entity.RecInvStyleColors.Count(v => v.TblRecInvHeader == recInvHeader);
-                    query = entity.RecInvStyleColors.OrderBy(sort).Where(v => v.TblRecInvHeader == recInvHeader).Skip(skip).Take(take);
-                }
+                entity.CommandTimeout = 0;
+
+            
+                    fullCount = 0;
+
+               
+                    var query = entity.RecInvContractValidation(recInvHeader, false);
                 return query.ToList();
             }
         }

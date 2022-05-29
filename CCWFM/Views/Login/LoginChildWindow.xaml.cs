@@ -26,7 +26,7 @@ namespace CCWFM.Views.Login
             InitializeComponent();
             _loginMain = loginMainWindow;
             grdUpdatePassword.Visibility = Visibility.Collapsed;
-            pnlName.Text = "Login";
+            pnlName.Text = "Login v1.1";
             LoginServiceClient _client = new LoginServiceClient();
         }
 

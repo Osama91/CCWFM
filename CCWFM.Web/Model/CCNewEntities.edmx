@@ -1708,6 +1708,7 @@ warning 6002: The table/view 'ccnew.dbo.TblLedgerDetail1Del' does not have a pri
           <Property Name="BankDeposit" Type="bit" />
           <Property Name="DueDate" Type="date" />
           <Property Name="TblBankCheque" Type="int" />
+          <Property Name="TblLedgerMainDetail1" Type="int" />
         </EntityType>
         <EntityType Name="TblLedgerMainDetail1">
           <Key>
@@ -1825,8 +1826,9 @@ warning 6002: The table/view 'ccnew.dbo.TblLedgerMainDetail1Del' does not have a
           <Property Name="VendorEffect" Type="bit" Nullable="false" />
           <Property Name="MiscValue" Type="float" />
           <Property Name="MiscValueType" Type="int" Nullable="false" />
-          <Property Name="TblSupplier" Type="int" />
           <Property Name="ExchangeRate" Type="float" />
+          <Property Name="TblJournalAccountType" Type="int" Nullable="false" />
+          <Property Name="EntityAccount" Type="int" />
         </EntityType>
         <EntityType Name="TblMethodOfPayment">
           <Key>
@@ -2169,6 +2171,7 @@ warning 6002: The table/view 'ccnew.dbo.TblLedgerMainDetail1Del' does not have a
           <Property Name="Cost" Type="decimal" Precision="19" Scale="4" />
           <Property Name="Misc" Type="decimal" Precision="19" Scale="4" />
           <Property Name="TblRecInvHeader" Type="int" />
+          <Property Name="TblRecInvHeaderType" Type="int" />
         </EntityType>
         <EntityType Name="TblRecInvHeader">
           <Key>
@@ -2454,6 +2457,10 @@ warning 6002: The table/view 'ccnew.dbo.TblLedgerMainDetail1Del' does not have a
           <Property Name="tblcustomer" Type="int" />
           <Property Name="GlCode" Type="nvarchar" MaxLength="50" />
           <Property Name="issuestore" Type="int" />
+          <Property Name="TblSupplier" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="TblTfkWarehouse" Type="int" />
+          <Property Name="Online" Type="bit" />
         </EntityType>
         <EntityType Name="TblStoreCommission">
           <Key>
@@ -3221,7 +3228,7 @@ warning 6002: The table/view 'ccnew.dbo.CityStars_143' does not have a primary k
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="DayDate" Type="datetime" />
           <Property Name="NETSALES" Type="numeric" Precision="10" Scale="2" />
           <Property Name="TAX" Type="numeric" Precision="10" Scale="2" />
@@ -4934,11 +4941,40 @@ warning 6002: The table/view 'ccnew.dbo.RecieveDetailView' does not have a prima
         <EntityType Name="RecieveDetailView">
           <Key>
             <PropertyRef Name="glserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
           </Key>
           <Property Name="glserial" Type="int" Nullable="false" />
           <Property Name="Dserial" Type="int" />
           <Property Name="ucostwot" Type="decimal" Precision="19" Scale="4" />
           <Property Name="tblitem" Type="int" />
+          <Property Name="TblRecInvHeaderType" Type="int" Nullable="false" />
+          <Property Name="RecTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Natural" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ccnew.dbo.RecieveStyleView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecieveStyleView">
+          <Key>
+            <PropertyRef Name="BatchNo" />
+            <PropertyRef Name="ColorCode" />
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
+            <PropertyRef Name="glserial" />
+          </Key>
+          <Property Name="BatchNo" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Style" Type="varchar" MaxLength="25" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ColorName" Type="varchar" MaxLength="25" />
+          <Property Name="SizeCode" Type="varchar" MaxLength="10" />
+          <Property Name="Cost" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Quantity" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Iserial" Type="int" Nullable="false" />
+          <Property Name="TblRecInvHeaderType" Type="int" Nullable="false" />
+          <Property Name="RecTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Natural" Type="int" Nullable="false" />
+          <Property Name="glserial" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.RecieveView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4947,6 +4983,8 @@ warning 6002: The table/view 'ccnew.dbo.RecieveView' does not have a primary key
             <PropertyRef Name="glserial" />
             <PropertyRef Name="SupplierIserial" />
             <PropertyRef Name="StoreIserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
           </Key>
           <Property Name="glserial" Type="int" Nullable="false" />
           <Property Name="Code" Type="varchar" MaxLength="10" />
@@ -4962,6 +5000,9 @@ warning 6002: The table/view 'ccnew.dbo.RecieveView' does not have a primary key
           <Property Name="StoreCode" Type="nvarchar" MaxLength="50" />
           <Property Name="StoreEName" Type="nvarchar" MaxLength="50" />
           <Property Name="StoreAname" Type="nvarchar" MaxLength="50" />
+          <Property Name="TblRecInvHeaderType" Type="int" Nullable="false" />
+          <Property Name="RecTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Natural" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.RecInvItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5013,6 +5054,7 @@ warning 6002: The table/view 'ccnew.dbo.RecInvStyleColor' does not have a primar
           <Property Name="ColorName" Type="varchar" MaxLength="25" />
           <Property Name="Cost" Type="decimal" Precision="38" Scale="6" />
           <Property Name="Quantity" Type="decimal" Precision="38" Scale="4" />
+          <Property Name="ContractCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Misc" Type="decimal" Precision="38" Scale="6" />
           <Property Name="ContractQty" Type="int" Nullable="false" />
           <Property Name="ContractCost" Type="money" Nullable="false" />
@@ -5024,7 +5066,7 @@ warning 6002: The table/view 'ccnew.dbo.RecInvStyleSizeColor' does not have a pr
             <PropertyRef Name="ColorCode" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="ColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="ColorName" Type="varchar" MaxLength="25" />
           <Property Name="SizeCode" Type="varchar" MaxLength="10" />
           <Property Name="Cost" Type="float" />
@@ -7885,18 +7927,6 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TblMarkupTrans_TBLsupplier">
-          <End Role="TBLsupplier" Type="Self.TBLsupplier" Multiplicity="0..1" />
-          <End Role="TblMarkupTrans" Type="Self.TblMarkupTrans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBLsupplier">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblMarkupTrans">
-              <PropertyRef Name="TblSupplier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblMethodOfPayment_TblAccount">
           <End Role="TblAccount" Type="Self.TblAccount" Multiplicity="0..1" />
           <End Role="TblMethodOfPayment" Type="Self.TblMethodOfPayment" Multiplicity="*" />
@@ -8164,6 +8194,18 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
             </Principal>
             <Dependent Role="TblRecInvDetail">
               <PropertyRef Name="TblRecInvHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvDetail_TblRecInvHeaderType">
+          <End Role="TblRecInvHeaderType" Type="Self.TblRecInvHeaderType" Multiplicity="0..1" />
+          <End Role="TblRecInvDetail" Type="Self.TblRecInvDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeaderType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvDetail">
+              <PropertyRef Name="TblRecInvHeaderType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8619,6 +8661,7 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
         </Function>
         <Function Name="RecInvContractValidation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Iserial" Type="int" Mode="In" />
+          <Parameter Name="Validate" Type="bit" Mode="In" />
         </Function>
         <Function Name="ReverseLedgerTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tblJournlLink" Type="int" Mode="In" />
@@ -10584,8 +10627,27 @@ FROM [dbo].[ReceiveStatus] AS [ReceiveStatus]</DefiningQuery>
 [RecieveDetailView].[glserial] AS [glserial], 
 [RecieveDetailView].[Dserial] AS [Dserial], 
 [RecieveDetailView].[ucostwot] AS [ucostwot], 
-[RecieveDetailView].[tblitem] AS [tblitem]
+[RecieveDetailView].[tblitem] AS [tblitem], 
+[RecieveDetailView].[TblRecInvHeaderType] AS [TblRecInvHeaderType], 
+[RecieveDetailView].[RecTypeName] AS [RecTypeName], 
+[RecieveDetailView].[Natural] AS [Natural]
 FROM [dbo].[RecieveDetailView] AS [RecieveDetailView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecieveStyleView" EntityType="Self.RecieveStyleView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[RecieveStyleView].[BatchNo] AS [BatchNo], 
+[RecieveStyleView].[Style] AS [Style], 
+[RecieveStyleView].[ColorCode] AS [ColorCode], 
+[RecieveStyleView].[ColorName] AS [ColorName], 
+[RecieveStyleView].[SizeCode] AS [SizeCode], 
+[RecieveStyleView].[Cost] AS [Cost], 
+[RecieveStyleView].[Quantity] AS [Quantity], 
+[RecieveStyleView].[Iserial] AS [Iserial], 
+[RecieveStyleView].[TblRecInvHeaderType] AS [TblRecInvHeaderType], 
+[RecieveStyleView].[RecTypeName] AS [RecTypeName], 
+[RecieveStyleView].[Natural] AS [Natural], 
+[RecieveStyleView].[glserial] AS [glserial]
+FROM [dbo].[RecieveStyleView] AS [RecieveStyleView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecieveView" EntityType="Self.RecieveView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -10602,7 +10664,10 @@ FROM [dbo].[RecieveDetailView] AS [RecieveDetailView]</DefiningQuery>
 [RecieveView].[StoreIserial] AS [StoreIserial], 
 [RecieveView].[StoreCode] AS [StoreCode], 
 [RecieveView].[StoreEName] AS [StoreEName], 
-[RecieveView].[StoreAname] AS [StoreAname]
+[RecieveView].[StoreAname] AS [StoreAname], 
+[RecieveView].[TblRecInvHeaderType] AS [TblRecInvHeaderType], 
+[RecieveView].[RecTypeName] AS [RecTypeName], 
+[RecieveView].[Natural] AS [Natural]
 FROM [dbo].[RecieveView] AS [RecieveView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecInvItem" EntityType="Self.RecInvItem" store:Type="Views" store:Schema="dbo">
@@ -10641,6 +10706,7 @@ FROM [dbo].[RecInvStyle] AS [RecInvStyle]</DefiningQuery>
 [RecInvStyleColor].[ColorName] AS [ColorName], 
 [RecInvStyleColor].[Cost] AS [Cost], 
 [RecInvStyleColor].[Quantity] AS [Quantity], 
+[RecInvStyleColor].[ContractCode] AS [ContractCode], 
 [RecInvStyleColor].[Misc] AS [Misc], 
 [RecInvStyleColor].[ContractQty] AS [ContractQty], 
 [RecInvStyleColor].[ContractCost] AS [ContractCost]
@@ -11965,10 +12031,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblMarkup" EntitySet="TblMarkup" />
             <End Role="TblMarkupTrans" EntitySet="TblMarkupTrans" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblMarkupTrans_TBLsupplier" Association="Self.FK_TblMarkupTrans_TBLsupplier">
-            <End Role="TBLsupplier" EntitySet="TBLsupplier" />
-            <End Role="TblMarkupTrans" EntitySet="TblMarkupTrans" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblMethodOfPayment_TblAccount" Association="Self.FK_TblMethodOfPayment_TblAccount">
             <End Role="TblAccount" EntitySet="TblAccount" />
             <End Role="TblMethodOfPayment" EntitySet="TblMethodOfPayment" />
@@ -12051,6 +12113,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader1" Association="Self.FK_TblRecInvDetail_TblRecInvHeader1">
             <End Role="TblRecInvHeader" EntitySet="TblRecInvHeader" />
+            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeaderType" Association="Self.FK_TblRecInvDetail_TblRecInvHeaderType">
+            <End Role="TblRecInvHeaderType" EntitySet="TblRecInvHeaderType" />
             <End Role="TblRecInvDetail" EntitySet="TblRecInvDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_TblRecInvHeader_TblAccount" Association="Self.FK_TblRecInvHeader_TblAccount">
@@ -13355,20 +13421,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblTenderType" EntitySet="TblTenderTypes" />
             <End Role="TblCashDepositSetting" EntitySet="TblCashDepositSettings" />
           </AssociationSet>
-          <EntitySet Name="TblMarkupTrans" EntityType="ccnewModel.TblMarkupTran" />
-          <AssociationSet Name="FK_TblMarkupTrans_TblCurrency" Association="ccnewModel.FK_TblMarkupTrans_TblCurrency">
-            <End Role="TblCurrencyTest" EntitySet="TblCurrencyTests" />
-            <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblMarkUpTrans_TblMarkup" Association="ccnewModel.FK_TblMarkUpTrans_TblMarkup">
-            <End Role="TblMarkup" EntitySet="TblMarkups" />
-            <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblMarkupTrans_TBLsupplier" Association="ccnewModel.FK_TblMarkupTrans_TBLsupplier">
-            <End Role="TBLsupplier" EntitySet="TBLsuppliers" />
-            <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
-          </AssociationSet>
-          <EntitySet Name="RecieveViews" EntityType="ccnewModel.RecieveView" />
           <EntitySet Name="ReturnRecieveViews" EntityType="ccnewModel.ReturnRecieveView" />
           <EntitySet Name="ReturnDetailViews" EntityType="ccnewModel.ReturnDetailView" />
           <EntitySet Name="TblRecInvMainDetails" EntityType="ccnewModel.TblRecInvMainDetail" />
@@ -13383,12 +13435,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySet Name="RecInvItems" EntityType="ccnewModel.RecInvItem" />
           <EntitySet Name="RecInvStyles" EntityType="ccnewModel.RecInvStyle" />
           <EntitySet Name="RecInvStyleSizeColors" EntityType="ccnewModel.RecInvStyleSizeColor" />
-          <EntitySet Name="TblRecInvDetails" EntityType="ccnewModel.TblRecInvDetail" />
-          <AssociationSet Name="FK_TblRecInvDetail_TBLITEMprice" Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice">
-            <End Role="TBLITEMprice" EntitySet="TBLITEMprices" />
-            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
-          </AssociationSet>
-          <EntitySet Name="RecieveDetailViews" EntityType="ccnewModel.RecieveDetailView" />
           <EntitySet Name="TBLSalesPersons" EntityType="ccnewModel.TBLSalesPerson" />
           <EntitySet Name="TblUsers" EntityType="ccnewModel.TblUser" />
           <AssociationSet Name="FK_Poh1_TblUser" Association="ccnewModel.FK_Poh1_TblUser">
@@ -13437,10 +13483,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblAccount" EntitySet="TblAccounts" />
             <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader1" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1">
-            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
-            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader">
             <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
             <End Role="TblRecInvMainDetail" EntitySet="TblRecInvMainDetails" />
@@ -13461,10 +13503,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
             <End Role="TblRecInvHeaderLink" EntitySet="TblRecInvHeaderLinks" />
           </AssociationSet>
-          <EntitySet Name="RecInvStyleColors" EntityType="ccnewModel.RecInvStyleColor" />
-          <FunctionImport Name="RecInvContractValidation" ReturnType="Collection(ccnewModel.RecInvContractValidation_Result)">
-          <Parameter Name="Iserial" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="TblLedgerDetail1" EntityType="ccnewModel.TblLedgerDetail1" />
           <EntitySet Name="TblLedgerDetail1CostCenter" EntityType="ccnewModel.TblLedgerDetail1CostCenter" />
           <EntitySet Name="TblLedgerHeader1" EntityType="ccnewModel.TblLedgerHeader1" />
@@ -13528,6 +13566,36 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblMethodOfPayment" EntitySet="TblMethodOfPayments" />
             <End Role="TblLedgerMainDetail1" EntitySet="TblLedgerMainDetail1" />
           </AssociationSet>
+          <FunctionImport Name="RecInvContractValidation" EntitySet="RecInvStyleColors" ReturnType="Collection(ccnewModel.RecInvStyleColor)">
+            <Parameter Name="Iserial" Mode="In" Type="Int32" />
+            <Parameter Name="Validate" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="RecieveViews" EntityType="ccnewModel.RecieveView" />
+          <EntitySet Name="RecieveStyleViews" EntityType="ccnewModel.RecieveStyleView" />
+          <EntitySet Name="RecieveDetailViews" EntityType="ccnewModel.RecieveDetailView" />
+          <EntitySet Name="TblRecInvDetails" EntityType="ccnewModel.TblRecInvDetail" />
+          <AssociationSet Name="FK_TblRecInvDetail_TBLITEMprice" Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice">
+            <End Role="TBLITEMprice" EntitySet="TBLITEMprices" />
+            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeader1" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1">
+            <End Role="TblRecInvHeader" EntitySet="TblRecInvHeaders" />
+            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblRecInvDetail_TblRecInvHeaderType" Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeaderType">
+            <End Role="TblRecInvHeaderType" EntitySet="TblRecInvHeaderTypes" />
+            <End Role="TblRecInvDetail" EntitySet="TblRecInvDetails" />
+          </AssociationSet>
+          <EntitySet Name="TblMarkupTrans" EntityType="ccnewModel.TblMarkupTran" />
+          <AssociationSet Name="FK_TblMarkupTrans_TblCurrency" Association="ccnewModel.FK_TblMarkupTrans_TblCurrency">
+            <End Role="TblCurrencyTest" EntitySet="TblCurrencyTests" />
+            <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMarkUpTrans_TblMarkup" Association="ccnewModel.FK_TblMarkUpTrans_TblMarkup">
+            <End Role="TblMarkup" EntitySet="TblMarkups" />
+            <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
+          </AssociationSet>
+          <EntitySet Name="RecInvStyleColors" EntityType="ccnewModel.RecInvStyleColor" />
           </EntityContainer>
         <EntityType Name="TblPODetail">
           <Key>
@@ -13753,9 +13821,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblGlCashTransactionHeaders" Relationship="ccnewModel.FK_TblGlCashTransactionHeader_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblGlCashTransactionHeader" />
           <NavigationProperty Name="TblGlChequeTypeSettings" Relationship="ccnewModel.FK_TblGlChequeTypeSetting_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblGlChequeTypeSetting" />
           <NavigationProperty Name="TblGlCashTypeSettings" Relationship="ccnewModel.FK_TblGlCashTypeSetting_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblGlCashTypeSetting" />
-          <NavigationProperty Name="TblMarkupTrans" Relationship="ccnewModel.FK_TblMarkupTrans_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblMarkupTran" />
           <NavigationProperty Name="TblRecInvMainDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblRecInvMainDetail" />
           <NavigationProperty Name="TblLedgerMainDetail1" Relationship="ccnewModel.FK_TblLedgerMainDetail1_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblLedgerMainDetail1" />
+          <NavigationProperty Name="TblMarkupTrans" Relationship="ccnewModel.FK_TblMarkupTrans_TblCurrency" FromRole="TblCurrencyTest" ToRole="TblMarkupTran" />
         </EntityType>
         <EntityType Name="tblcurrencydailyexchange">
           <Key>
@@ -13802,7 +13870,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Type="String" Name="glcode" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Type="Byte" Name="DelvryType" />
           <NavigationProperty Name="TblPO1Header" Relationship="ccnewModel.FK_Poh1_TBLsupplier" FromRole="TBLsupplier" ToRole="TblPO1Header" />
-          <NavigationProperty Name="TblMarkupTrans" Relationship="ccnewModel.FK_TblMarkupTrans_TBLsupplier" FromRole="TBLsupplier" ToRole="TblMarkupTran" />
           <NavigationProperty Name="TblRecInvHeaders" Relationship="ccnewModel.FK_TblRecInvHeader_TBLsupplier" FromRole="TBLsupplier" ToRole="TblRecInvHeader" />
         </EntityType>
         <EntityType Name="TblSeason">
@@ -14234,6 +14301,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Type="String" Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblRecInvHeaders" Relationship="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" FromRole="TblRecInvHeaderType" ToRole="TblRecInvHeader" />
           <Property Name="Natural" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblRecInvDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeaderType" FromRole="TblRecInvHeaderType" ToRole="TblRecInvDetail" />
         </EntityType>
         <EntityType Name="TblRecInvHeaderLink">
           <Key>
@@ -14791,6 +14859,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblPromoHeaders" Relationship="ccnewModel.FK_TblPromoHeader_TblStore" FromRole="TblStore" ToRole="TblPromoHeader" />
           <NavigationProperty Name="TblSalaryApprovalHeaders" Relationship="ccnewModel.FK_TblSalaryApprovalHeader_TblStore" FromRole="TblStore" ToRole="TblSalaryApprovalHeader" />
           <NavigationProperty Name="TblRecInvHeaders" Relationship="ccnewModel.FK_TblRecInvHeader_TblStore" FromRole="TblStore" ToRole="TblRecInvHeader" />
+          <Property Name="TblSupplier" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TblTfkWarehouse" Type="Int32" />
+          <Property Name="Online" Type="Boolean" />
           </EntityType>
         <Association Name="FK_Po1h_TblStore">
           <End Type="ccnewModel.TblStore" Role="TblStore" Multiplicity="0..1" />
@@ -15134,6 +15206,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <NavigationProperty Name="TblLedgerDetailCostCenters" Relationship="ccnewModel.FK_TblLedgerDetailCostCenter_TblLedgerDetail" FromRole="TblLedgerMainDetail" ToRole="TblLedgerDetailCostCenter" />
           <NavigationProperty Name="TblBankStatDetailTblLedgerDetails" Relationship="ccnewModel.FK_TblBankStatDetailTblLedgerDetail_TblLedgerMainDetail" FromRole="TblLedgerMainDetail" ToRole="TblBankStatDetailTblLedgerDetail" />
           <NavigationProperty Name="TblGlBankDeposits" Relationship="ccnewModel.FK_TblGlBankDeposit_TblLedgerMainDetail" FromRole="TblLedgerMainDetail" ToRole="TblGlBankDeposit" />
+          <Property Name="TblLedgerMainDetail1" Type="Int32" />
         </EntityType>
         <Association Name="FK_TblLedgerMainDetail_TblBankTransactionType">
           <End Type="ccnewModel.TblBankTransactionType" Role="TblBankTransactionType" Multiplicity="0..1" />
@@ -18832,7 +18905,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="DayDate" Type="DateTime" Precision="3" />
           <Property Name="NETSALES" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="TAX" Type="Decimal" Precision="10" Scale="2" />
@@ -21404,81 +21477,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="TblMarkupTran">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TblMarkup" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="TblRecInv" Type="Int32" Nullable="false" />
-          <Property Name="TblCurrency" Type="Int32" Nullable="false" />
-          <Property Name="VendorEffect" Type="Boolean" Nullable="false" />
-          <Property Name="MiscValue" Type="Double" />
-          <Property Name="MiscValueType" Type="Int32" Nullable="false" />
-          <Property Name="TblSupplier" Type="Int32" />
-          <Property Name="ExchangeRate" Type="Double" />
-          <NavigationProperty Name="TblCurrency1" Relationship="ccnewModel.FK_TblMarkupTrans_TblCurrency" FromRole="TblMarkupTran" ToRole="TblCurrencyTest" />
-          <NavigationProperty Name="TblMarkup1" Relationship="ccnewModel.FK_TblMarkUpTrans_TblMarkup" FromRole="TblMarkupTran" ToRole="TblMarkup" />
-          <NavigationProperty Name="TBLsupplier1" Relationship="ccnewModel.FK_TblMarkupTrans_TBLsupplier" FromRole="TblMarkupTran" ToRole="TBLsupplier" />
-        </EntityType>
-        <Association Name="FK_TblMarkupTrans_TblCurrency">
-          <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="1" />
-          <End Type="ccnewModel.TblMarkupTran" Role="TblMarkupTran" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblCurrencyTest">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblMarkupTran">
-              <PropertyRef Name="TblCurrency" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblMarkUpTrans_TblMarkup">
-          <End Type="ccnewModel.TblMarkup" Role="TblMarkup" Multiplicity="1" />
-          <End Type="ccnewModel.TblMarkupTran" Role="TblMarkupTran" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMarkup">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblMarkupTran">
-              <PropertyRef Name="TblMarkup" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblMarkupTrans_TBLsupplier">
-          <End Type="ccnewModel.TBLsupplier" Role="TBLsupplier" Multiplicity="0..1" />
-          <End Type="ccnewModel.TblMarkupTran" Role="TblMarkupTran" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBLsupplier">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblMarkupTran">
-              <PropertyRef Name="TblSupplier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="RecieveView">
-          <Key>
-            <PropertyRef Name="glserial" />
-            <PropertyRef Name="SupplierIserial" />
-            <PropertyRef Name="StoreIserial" />
-          </Key>
-          <Property Name="glserial" Type="Int32" Nullable="false" />
-          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="tblstore" Type="Int32" />
-          <Property Name="supplierInvno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="tblsupplier" Type="Int32" />
-          <Property Name="votdate" Type="DateTime" Precision="3" />
-          <Property Name="SupplierIserial" Type="Int32" Nullable="false" />
-          <Property Name="SupplierCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SupplierEname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SupplierAname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="StoreIserial" Type="Int32" Nullable="false" />
-          <Property Name="StoreCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StoreEName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StoreAname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ReturnRecieveView">
           <Key>
             <PropertyRef Name="glserial" />
@@ -21586,48 +21584,11 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="ColorCode" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="SizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Cost" Type="Double" />
           <Property Name="Quantity" Type="Double" />
-        </EntityType>
-        <EntityType Name="TblRecInvDetail">
-          <Key>
-            <PropertyRef Name="Glserial" />
-            <PropertyRef Name="Dserial" />
-            <PropertyRef Name="Tblitem" />
-          </Key>
-          <Property Name="Glserial" Type="Int32" Nullable="false" />
-          <Property Name="Dserial" Type="Int32" Nullable="false" />
-          <Property Name="Tblitem" Type="Int32" Nullable="false" />
-          <Property Name="Flg" Type="Int32" />
-          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="TblRecInvHeader" Type="Int32" />
-          <NavigationProperty Name="TBLITEMprice" Relationship="ccnewModel.FK_TblRecInvDetail_TBLITEMprice" FromRole="TblRecInvDetail" ToRole="TBLITEMprice" />
-          <NavigationProperty Name="TblRecInvHeader1" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvDetail" ToRole="TblRecInvHeader" />
-        </EntityType>
-        <Association Name="FK_TblRecInvDetail_TBLITEMprice">
-          <End Type="ccnewModel.TBLITEMprice" Role="TBLITEMprice" Multiplicity="1" />
-          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBLITEMprice">
-              <PropertyRef Name="ISerial" />
-            </Principal>
-            <Dependent Role="TblRecInvDetail">
-              <PropertyRef Name="Tblitem" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="RecieveDetailView">
-          <Key>
-            <PropertyRef Name="glserial" />
-          </Key>
-          <Property Name="glserial" Type="Int32" Nullable="false" />
-          <Property Name="Dserial" Type="Int32" />
-          <Property Name="ucostwot" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="tblitem" Type="Int32" />
         </EntityType>
         <EntityType Name="TBLSalesPerson">
           <Key>
@@ -21752,12 +21713,12 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Posted" Type="Boolean" Nullable="false" />
           <Property Name="Invoiced" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblAccount1" Relationship="ccnewModel.FK_TblRecInvHeader_TblAccount" FromRole="TblRecInvHeader" ToRole="TblAccount" />
-          <NavigationProperty Name="TblRecInvDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvHeader" ToRole="TblRecInvDetail" />
           <NavigationProperty Name="TblRecInvMainDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvMainDetail" />
           <NavigationProperty Name="TblRecInvHeaderType1" Relationship="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderType" />
           <NavigationProperty Name="TblStore1" Relationship="ccnewModel.FK_TblRecInvHeader_TblStore" FromRole="TblRecInvHeader" ToRole="TblStore" />
           <NavigationProperty Name="TBLsupplier1" Relationship="ccnewModel.FK_TblRecInvHeader_TBLsupplier" FromRole="TblRecInvHeader" ToRole="TBLsupplier" />
           <NavigationProperty Name="TblRecInvHeaderLinks" Relationship="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" FromRole="TblRecInvHeader" ToRole="TblRecInvHeaderLink" />
+          <NavigationProperty Name="TblRecInvDetails" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvHeader" ToRole="TblRecInvDetail" />
         </EntityType>
         <Association Name="FK_TblRecInvHeader_TblAccount">
           <End Type="ccnewModel.TblAccount" Role="TblAccount" Multiplicity="0..1" />
@@ -21768,20 +21729,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Principal>
             <Dependent Role="TblRecInvHeader">
               <PropertyRef Name="TblAccount" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblRecInvDetail_TblRecInvHeader1">
-          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblRecInvHeader">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblRecInvDetail">
-              <PropertyRef Name="TblRecInvHeader" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -21851,22 +21798,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="RecInvStyleColor">
-          <Key>
-            <PropertyRef Name="ColorCode" />
-            <PropertyRef Name="ContractQty" />
-            <PropertyRef Name="ContractCost" />
-          </Key>
-          <Property Name="TblRecInvHeader" Type="Int32" />
-          <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Cost" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="Quantity" Type="Decimal" Precision="38" Scale="4" />
-          <Property Name="Misc" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="ContractQty" Type="Int32" Nullable="false" />
-          <Property Name="ContractCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-        </EntityType>
         <ComplexType Name="RecInvContractValidation_Result" >
           <Property Type="String" Name="Style" Nullable="false" />
           <Property Type="String" Name="ColorCode" Nullable="false" />
@@ -22246,6 +22177,183 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RecieveView">
+          <Key>
+            <PropertyRef Name="glserial" />
+            <PropertyRef Name="SupplierIserial" />
+            <PropertyRef Name="StoreIserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
+          </Key>
+          <Property Name="glserial" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tblstore" Type="Int32" />
+          <Property Name="supplierInvno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tblsupplier" Type="Int32" />
+          <Property Name="votdate" Type="DateTime" Precision="3" />
+          <Property Name="SupplierIserial" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierEname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierAname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StoreIserial" Type="Int32" Nullable="false" />
+          <Property Name="StoreCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreEName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreAname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TblRecInvHeaderType" Type="Int32" Nullable="false" />
+          <Property Name="RecTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Natural" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecieveStyleView">
+          <Key>
+            <PropertyRef Name="BatchNo" />
+            <PropertyRef Name="ColorCode" />
+            <PropertyRef Name="Iserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
+            <PropertyRef Name="glserial" />
+          </Key>
+          <Property Name="BatchNo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Quantity" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" />
+          <Property Name="TblRecInvHeaderType" Type="Int32" Nullable="false" />
+          <Property Name="RecTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Natural" Type="Int32" Nullable="false" />
+          <Property Name="glserial" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecieveDetailView">
+          <Key>
+            <PropertyRef Name="glserial" />
+            <PropertyRef Name="TblRecInvHeaderType" />
+            <PropertyRef Name="Natural" />
+          </Key>
+          <Property Name="glserial" Type="Int32" Nullable="false" />
+          <Property Name="Dserial" Type="Int32" />
+          <Property Name="ucostwot" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tblitem" Type="Int32" />
+          <Property Name="TblRecInvHeaderType" Type="Int32" Nullable="false" />
+          <Property Name="RecTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Natural" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRecInvDetail">
+          <Key>
+            <PropertyRef Name="Glserial" />
+            <PropertyRef Name="Dserial" />
+            <PropertyRef Name="Tblitem" />
+          </Key>
+          <Property Name="Glserial" Type="Int32" Nullable="false" />
+          <Property Name="Dserial" Type="Int32" Nullable="false" />
+          <Property Name="Tblitem" Type="Int32" Nullable="false" />
+          <Property Name="Flg" Type="Int32" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Misc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TblRecInvHeader" Type="Int32" />
+          <Property Name="TblRecInvHeaderType" Type="Int32" />
+          <NavigationProperty Name="TBLITEMprice" Relationship="ccnewModel.FK_TblRecInvDetail_TBLITEMprice" FromRole="TblRecInvDetail" ToRole="TBLITEMprice" />
+          <NavigationProperty Name="TblRecInvHeader1" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" FromRole="TblRecInvDetail" ToRole="TblRecInvHeader" />
+          <NavigationProperty Name="TblRecInvHeaderType1" Relationship="ccnewModel.FK_TblRecInvDetail_TblRecInvHeaderType" FromRole="TblRecInvDetail" ToRole="TblRecInvHeaderType" />
+        </EntityType>
+        <Association Name="FK_TblRecInvDetail_TBLITEMprice">
+          <End Type="ccnewModel.TBLITEMprice" Role="TBLITEMprice" Multiplicity="1" />
+          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLITEMprice">
+              <PropertyRef Name="ISerial" />
+            </Principal>
+            <Dependent Role="TblRecInvDetail">
+              <PropertyRef Name="Tblitem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvDetail_TblRecInvHeader1">
+          <End Type="ccnewModel.TblRecInvHeader" Role="TblRecInvHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeader">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvDetail">
+              <PropertyRef Name="TblRecInvHeader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblRecInvDetail_TblRecInvHeaderType">
+          <End Type="ccnewModel.TblRecInvHeaderType" Role="TblRecInvHeaderType" Multiplicity="0..1" />
+          <End Type="ccnewModel.TblRecInvDetail" Role="TblRecInvDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRecInvHeaderType">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblRecInvDetail">
+              <PropertyRef Name="TblRecInvHeaderType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblMarkupTran">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TblMarkup" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="TblRecInv" Type="Int32" Nullable="false" />
+          <Property Name="TblCurrency" Type="Int32" Nullable="false" />
+          <Property Name="VendorEffect" Type="Boolean" Nullable="false" />
+          <Property Name="MiscValue" Type="Double" />
+          <Property Name="MiscValueType" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Double" />
+          <Property Name="TblJournalAccountType" Type="Int32" Nullable="false" />
+          <Property Name="EntityAccount" Type="Int32" />
+          <NavigationProperty Name="TblCurrency1" Relationship="ccnewModel.FK_TblMarkupTrans_TblCurrency" FromRole="TblMarkupTran" ToRole="TblCurrencyTest" />
+          <NavigationProperty Name="TblMarkup1" Relationship="ccnewModel.FK_TblMarkUpTrans_TblMarkup" FromRole="TblMarkupTran" ToRole="TblMarkup" />
+        </EntityType>
+        <Association Name="FK_TblMarkupTrans_TblCurrency">
+          <End Type="ccnewModel.TblCurrencyTest" Role="TblCurrencyTest" Multiplicity="1" />
+          <End Type="ccnewModel.TblMarkupTran" Role="TblMarkupTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCurrencyTest">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMarkupTran">
+              <PropertyRef Name="TblCurrency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMarkUpTrans_TblMarkup">
+          <End Type="ccnewModel.TblMarkup" Role="TblMarkup" Multiplicity="1" />
+          <End Type="ccnewModel.TblMarkupTran" Role="TblMarkupTran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMarkup">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblMarkupTran">
+              <PropertyRef Name="TblMarkup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RecInvStyleColor">
+          <Key>
+            <PropertyRef Name="ColorCode" />
+            <PropertyRef Name="ContractQty" />
+            <PropertyRef Name="ContractCost" />
+          </Key>
+          <Property Name="TblRecInvHeader" Type="Int32" />
+          <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Quantity" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="ContractCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Misc" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="ContractQty" Type="Int32" Nullable="false" />
+          <Property Name="ContractCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -23160,6 +23268,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblStores">
             <EntityTypeMapping TypeName="ccnewModel.TblStore">
               <MappingFragment StoreEntitySet="TblStore">
+                <ScalarProperty Name="Online" ColumnName="Online" />
+                <ScalarProperty Name="TblTfkWarehouse" ColumnName="TblTfkWarehouse" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
                 <ScalarProperty Name="GlCode" ColumnName="GlCode" />
                 <ScalarProperty Name="tblcustomer" ColumnName="tblcustomer" />
                 <ScalarProperty Name="TblCompany" ColumnName="TblCompany" />
@@ -23366,6 +23478,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblLedgerMainDetails">
             <EntityTypeMapping TypeName="ccnewModel.TblLedgerMainDetail">
               <MappingFragment StoreEntitySet="TblLedgerMainDetail">
+                <ScalarProperty Name="TblLedgerMainDetail1" ColumnName="TblLedgerMainDetail1" />
                 <ScalarProperty Name="TblBankCheque" ColumnName="TblBankCheque" />
                 <ScalarProperty Name="DueDate" ColumnName="DueDate" />
                 <ScalarProperty Name="BankDeposit" ColumnName="BankDeposit" />
@@ -27313,42 +27426,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblMarkupTrans">
-            <EntityTypeMapping TypeName="ccnewModel.TblMarkupTran">
-              <MappingFragment StoreEntitySet="TblMarkupTrans">
-                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
-                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
-                <ScalarProperty Name="MiscValueType" ColumnName="MiscValueType" />
-                <ScalarProperty Name="MiscValue" ColumnName="MiscValue" />
-                <ScalarProperty Name="VendorEffect" ColumnName="VendorEffect" />
-                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
-                <ScalarProperty Name="TblRecInv" ColumnName="TblRecInv" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="TblMarkup" ColumnName="TblMarkup" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecieveViews">
-            <EntityTypeMapping TypeName="ccnewModel.RecieveView">
-              <MappingFragment StoreEntitySet="RecieveView">
-                <ScalarProperty Name="StoreAname" ColumnName="StoreAname" />
-                <ScalarProperty Name="StoreEName" ColumnName="StoreEName" />
-                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
-                <ScalarProperty Name="StoreIserial" ColumnName="StoreIserial" />
-                <ScalarProperty Name="SupplierAname" ColumnName="SupplierAname" />
-                <ScalarProperty Name="SupplierEname" ColumnName="SupplierEname" />
-                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
-                <ScalarProperty Name="SupplierIserial" ColumnName="SupplierIserial" />
-                <ScalarProperty Name="votdate" ColumnName="votdate" />
-                <ScalarProperty Name="tblsupplier" ColumnName="tblsupplier" />
-                <ScalarProperty Name="supplierInvno" ColumnName="supplierInvno" />
-                <ScalarProperty Name="tblstore" ColumnName="tblstore" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="glserial" ColumnName="glserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ReturnRecieveViews">
             <EntityTypeMapping TypeName="ccnewModel.ReturnRecieveView">
               <MappingFragment StoreEntitySet="ReturnRecieveView">
@@ -27434,29 +27511,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
                 <ScalarProperty Name="ColorName" ColumnName="ColorName" />
                 <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
                 <ScalarProperty Name="Style" ColumnName="Style" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblRecInvDetails">
-            <EntityTypeMapping TypeName="ccnewModel.TblRecInvDetail">
-              <MappingFragment StoreEntitySet="TblRecInvDetail">
-                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
-                <ScalarProperty Name="Misc" ColumnName="Misc" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Flg" ColumnName="Flg" />
-                <ScalarProperty Name="Tblitem" ColumnName="Tblitem" />
-                <ScalarProperty Name="Dserial" ColumnName="Dserial" />
-                <ScalarProperty Name="Glserial" ColumnName="Glserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecieveDetailViews">
-            <EntityTypeMapping TypeName="ccnewModel.RecieveDetailView">
-              <MappingFragment StoreEntitySet="RecieveDetailView">
-                <ScalarProperty Name="tblitem" ColumnName="tblitem" />
-                <ScalarProperty Name="ucostwot" ColumnName="ucostwot" />
-                <ScalarProperty Name="Dserial" ColumnName="Dserial" />
-                <ScalarProperty Name="glserial" ColumnName="glserial" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -27552,33 +27606,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RecInvStyleColors">
-            <EntityTypeMapping TypeName="ccnewModel.RecInvStyleColor">
-              <MappingFragment StoreEntitySet="RecInvStyleColor">
-                <ScalarProperty Name="ContractCost" ColumnName="ContractCost" />
-                <ScalarProperty Name="ContractQty" ColumnName="ContractQty" />
-                <ScalarProperty Name="Misc" ColumnName="Misc" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
-                <ScalarProperty Name="Style" ColumnName="Style" />
-                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="RecInvContractValidation" FunctionName="ccnewModel.Store.RecInvContractValidation" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ccnewModel.RecInvContractValidation_Result">
-                <ScalarProperty Name="Style" ColumnName="Style" />
-                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ContractQty" ColumnName="ContractQty" />
-                <ScalarProperty Name="ContractCost" ColumnName="ContractCost" />
-                <ScalarProperty Name="Difference" ColumnName="Difference" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="TblLedgerDetail1">
             <EntityTypeMapping TypeName="ccnewModel.TblLedgerDetail1">
               <MappingFragment StoreEntitySet="TblLedgerDetail1">
@@ -27749,6 +27776,108 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
                 <ScalarProperty Name="TblLedgerHeader1" ColumnName="TblLedgerHeader1" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RecInvContractValidation" FunctionName="ccnewModel.Store.RecInvContractValidation" />
+          <EntitySetMapping Name="RecieveViews">
+            <EntityTypeMapping TypeName="ccnewModel.RecieveView">
+              <MappingFragment StoreEntitySet="RecieveView">
+                <ScalarProperty Name="Natural" ColumnName="Natural" />
+                <ScalarProperty Name="RecTypeName" ColumnName="RecTypeName" />
+                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
+                <ScalarProperty Name="StoreAname" ColumnName="StoreAname" />
+                <ScalarProperty Name="StoreEName" ColumnName="StoreEName" />
+                <ScalarProperty Name="StoreCode" ColumnName="StoreCode" />
+                <ScalarProperty Name="StoreIserial" ColumnName="StoreIserial" />
+                <ScalarProperty Name="SupplierAname" ColumnName="SupplierAname" />
+                <ScalarProperty Name="SupplierEname" ColumnName="SupplierEname" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierIserial" ColumnName="SupplierIserial" />
+                <ScalarProperty Name="votdate" ColumnName="votdate" />
+                <ScalarProperty Name="tblsupplier" ColumnName="tblsupplier" />
+                <ScalarProperty Name="supplierInvno" ColumnName="supplierInvno" />
+                <ScalarProperty Name="tblstore" ColumnName="tblstore" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="glserial" ColumnName="glserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecieveStyleViews">
+            <EntityTypeMapping TypeName="ccnewModel.RecieveStyleView">
+              <MappingFragment StoreEntitySet="RecieveStyleView">
+                <ScalarProperty Name="glserial" ColumnName="glserial" />
+                <ScalarProperty Name="Natural" ColumnName="Natural" />
+                <ScalarProperty Name="RecTypeName" ColumnName="RecTypeName" />
+                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="SizeCode" ColumnName="SizeCode" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecieveDetailViews">
+            <EntityTypeMapping TypeName="ccnewModel.RecieveDetailView">
+              <MappingFragment StoreEntitySet="RecieveDetailView">
+                <ScalarProperty Name="Natural" ColumnName="Natural" />
+                <ScalarProperty Name="RecTypeName" ColumnName="RecTypeName" />
+                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
+                <ScalarProperty Name="tblitem" ColumnName="tblitem" />
+                <ScalarProperty Name="ucostwot" ColumnName="ucostwot" />
+                <ScalarProperty Name="Dserial" ColumnName="Dserial" />
+                <ScalarProperty Name="glserial" ColumnName="glserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRecInvDetails">
+            <EntityTypeMapping TypeName="ccnewModel.TblRecInvDetail">
+              <MappingFragment StoreEntitySet="TblRecInvDetail">
+                <ScalarProperty Name="TblRecInvHeaderType" ColumnName="TblRecInvHeaderType" />
+                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Flg" ColumnName="Flg" />
+                <ScalarProperty Name="Tblitem" ColumnName="Tblitem" />
+                <ScalarProperty Name="Dserial" ColumnName="Dserial" />
+                <ScalarProperty Name="Glserial" ColumnName="Glserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMarkupTrans">
+            <EntityTypeMapping TypeName="ccnewModel.TblMarkupTran">
+              <MappingFragment StoreEntitySet="TblMarkupTrans">
+                <ScalarProperty Name="EntityAccount" ColumnName="EntityAccount" />
+                <ScalarProperty Name="TblJournalAccountType" ColumnName="TblJournalAccountType" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="MiscValueType" ColumnName="MiscValueType" />
+                <ScalarProperty Name="MiscValue" ColumnName="MiscValue" />
+                <ScalarProperty Name="VendorEffect" ColumnName="VendorEffect" />
+                <ScalarProperty Name="TblCurrency" ColumnName="TblCurrency" />
+                <ScalarProperty Name="TblRecInv" ColumnName="TblRecInv" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TblMarkup" ColumnName="TblMarkup" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecInvStyleColors">
+            <EntityTypeMapping TypeName="ccnewModel.RecInvStyleColor">
+              <MappingFragment StoreEntitySet="RecInvStyleColor">
+                <ScalarProperty Name="ContractCost" ColumnName="ContractCost" />
+                <ScalarProperty Name="ContractQty" ColumnName="ContractQty" />
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="ContractCode" ColumnName="ContractCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="TblRecInvHeader" ColumnName="TblRecInvHeader" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -29773,11 +29902,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_TblCashDepositSetting_TblJournalAccountType" />
         <AssociationConnector Association="ccnewModel.FK_TblCashDepositSetting_TblJournalAccountType1" />
         <AssociationConnector Association="ccnewModel.FK_TblCashDepositSetting_TblTenderTypes" />
-        <EntityTypeShape EntityType="ccnewModel.TblMarkupTran" Width="1.5" PointX="33.875" PointY="0.75" />
-        <AssociationConnector Association="ccnewModel.FK_TblMarkupTrans_TblCurrency" />
-        <AssociationConnector Association="ccnewModel.FK_TblMarkUpTrans_TblMarkup" />
-        <AssociationConnector Association="ccnewModel.FK_TblMarkupTrans_TBLsupplier" />
-        <EntityTypeShape EntityType="ccnewModel.RecieveView" Width="1.5" PointX="53.375" PointY="49" />
         <EntityTypeShape EntityType="ccnewModel.ReturnRecieveView" Width="1.5" PointX="53.375" PointY="54.125" />
         <EntityTypeShape EntityType="ccnewModel.ReturnDetailView" Width="1.5" PointX="24.375" PointY="7.75" />
         <EntityTypeShape EntityType="ccnewModel.TblRecInvMainDetail" Width="1.5" PointX="39" PointY="56.25" />
@@ -29786,9 +29910,6 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <EntityTypeShape EntityType="ccnewModel.RecInvItem" Width="1.5" PointX="12.375" PointY="24.125" />
         <EntityTypeShape EntityType="ccnewModel.RecInvStyle" Width="1.5" PointX="24.375" PointY="11.125" />
         <EntityTypeShape EntityType="ccnewModel.RecInvStyleSizeColor" Width="1.5" PointX="26.375" PointY="8.125" />
-        <EntityTypeShape EntityType="ccnewModel.TblRecInvDetail" Width="1.5" PointX="39" PointY="72.375" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice" />
-        <EntityTypeShape EntityType="ccnewModel.RecieveDetailView" Width="1.5" PointX="26.375" PointY="12.125" />
         <EntityTypeShape EntityType="ccnewModel.TBLSalesPerson" Width="1.5" PointX="21.375" PointY="27.875" />
         <EntityTypeShape EntityType="ccnewModel.TblUser" Width="1.5" PointX="54.375" PointY="1.625" />
         <AssociationConnector Association="ccnewModel.FK_Poh1_TblUser" />
@@ -29798,13 +29919,11 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_TblGlChequeTransactionDetail_TblBank" />
         <EntityTypeShape EntityType="ccnewModel.TblRecInvHeader" Width="1.5" PointX="36.75" PointY="103.875" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblAccount" />
-        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblRecInvHeaderType" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TblStore" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvHeader_TBLsupplier" />
         <AssociationConnector Association="ccnewModel.FK_TblRecInvHeaderLink_TblRecInvHeader" />
-        <EntityTypeShape EntityType="ccnewModel.RecInvStyleColor" Width="1.5" PointX="54.375" PointY="19.375" />
         <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1" Width="1.5" PointX="44" PointY="203.125" />
         <EntityTypeShape EntityType="ccnewModel.TblLedgerDetail1CostCenter" Width="1.5" PointX="44" PointY="120.625" />
         <EntityTypeShape EntityType="ccnewModel.TblLedgerHeader1" Width="1.5" PointX="29.75" PointY="106.875" />
@@ -29826,6 +29945,17 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_TblLedgerHeader1_TblSequence" />
         <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblLedgerHeader1" />
         <AssociationConnector Association="ccnewModel.FK_TblLedgerMainDetail1_TblMethodOfPayment" />
+        <EntityTypeShape EntityType="ccnewModel.RecieveView" Width="1.5" PointX="55.375" PointY="31.75" />
+        <EntityTypeShape EntityType="ccnewModel.RecieveStyleView" Width="1.5" PointX="53.375" PointY="49.75" />
+        <EntityTypeShape EntityType="ccnewModel.RecieveDetailView" Width="1.5" PointX="26.375" PointY="12.25" />
+        <EntityTypeShape EntityType="ccnewModel.TblRecInvDetail" Width="1.5" PointX="39" PointY="67.375" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TBLITEMprice" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeader1" />
+        <AssociationConnector Association="ccnewModel.FK_TblRecInvDetail_TblRecInvHeaderType" />
+        <EntityTypeShape EntityType="ccnewModel.TblMarkupTran" Width="1.5" PointX="38.875" PointY="0.75" />
+        <AssociationConnector Association="ccnewModel.FK_TblMarkupTrans_TblCurrency" />
+        <AssociationConnector Association="ccnewModel.FK_TblMarkUpTrans_TblMarkup" />
+        <EntityTypeShape EntityType="ccnewModel.RecInvStyleColor" Width="1.5" PointX="54.375" PointY="19.25" />
         </Diagram>
     </Diagrams>
   </Designer>

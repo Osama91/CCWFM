@@ -152,8 +152,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
 
                 }
+                query = query.Where(w => w.Posted != true);
                 query = query.OrderByDescending(w => w.DocDate);
-
+               
                 return query.ToList();
             }
         }
@@ -218,6 +219,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     }
                     newRow.CreatedBy = oldRow.CreatedBy;
                     newRow.CreationDate = oldRow.CreationDate;
+                    if (oldRow.Posted!=newRow.Posted){
+                        newRow.PostDate = DateTime.Now;
+                        newRow.PostBy = user;
+                    }
                     GenericUpdate(oldRow, newRow, entity);
                 }
             }

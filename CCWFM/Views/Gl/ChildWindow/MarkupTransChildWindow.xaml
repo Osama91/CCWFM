@@ -8,6 +8,7 @@
 									xmlns:dataGrid="clr-namespace:Os.Controls.DataGrid;assembly=Os.Controls"                                   
 									xmlns:controlsOverride1="clr-namespace:CCWFM.ViewModel.OGViewModels.ControlsOverride"
 									xmlns:utilities="clr-namespace:CCWFM.Helpers.Utilities"
+                                        xmlns:userControls="clr-namespace:CCWFM.UserControls"
 									xmlns:search="clr-namespace:CCWFM.UserControls.Search">
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
@@ -102,19 +103,39 @@
                 </sdk:DataGridTemplateColumn>
 
 
-                <sdk:DataGridTemplateColumn Width="SizeToHeader"
-															SortMemberPath="TblSupplier"
-															utilities:GlobalMethods.PathForExport="SupplierPerRow.Ename"
-															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Supplier,
-																												  Source={StaticResource LocalizedStrings}}">
+                <sdk:DataGridTemplateColumn SortMemberPath="TblJournalAccountType1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding JournalAccountType, Source={StaticResource LocalizedStrings}}"
+													utilities:GlobalMethods.PathForExport="JournalAccountTypePerRow.Ename"
+											Width="80">
                     <sdk:DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <search:SearchSupplier SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+                            <ComboBox DisplayMemberPath="{Binding Converter={StaticResource DisplayItemPathByLang}}"
+									  SelectedValuePath="Iserial"
+									  ItemsSource="{Binding Path=DataContext.JournalAccountTypeList, RelativeSource={RelativeSource FindAncestor, AncestorType=sdk:ChildWindow, AncestorLevel=1}}"
+									  SelectedValue="{Binding TblJournalAccountType,Mode=TwoWay}"
+									  SelectedItem="{Binding JournalAccountTypePerRow,Mode=TwoWay}" />
                         </DataTemplate>
                     </sdk:DataGridTemplateColumn.CellEditingTemplate>
                     <sdk:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <search:SearchSupplier IsEnabled="False" SearchPerRow="{Binding SupplierPerRow,Mode=TwoWay}"></search:SearchSupplier>
+                            <TextBlock Text="{Binding JournalAccountTypePerRow.Ename,Mode=TwoWay}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn SortMemberPath="EntityAccount"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Entity, Source={StaticResource LocalizedStrings}}" utilities:GlobalMethods.PathForExport="EntityPerRow.Ename"
+											Width="180">
+                    <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <userControls:SearchEntityUserControl 
+								JournalAccountType="{Binding JournalAccountTypePerRow, Mode=TwoWay}"
+								SearchPerRow="{Binding EntityPerRow,Mode=TwoWay}"  />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EntityPerRow.Ename,Mode=TwoWay}" />
                         </DataTemplate>
                     </sdk:DataGridTemplateColumn.CellTemplate>
                 </sdk:DataGridTemplateColumn>

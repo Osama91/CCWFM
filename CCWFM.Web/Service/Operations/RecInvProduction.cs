@@ -576,7 +576,7 @@ namespace CCWFM.Web.Service
             using (var entity = new WorkFlowManagerDBEntities())
             {
                 var iserials =
-                    entity.TblRecInvHeaderLinkProds.Where(x => x.TblRecInvHeaderTypeProd == type && x.TblPurchaseReceiveHeader1.Vendor == supplier)
+                    entity.TblRecInvHeaderLinkProds.Where(x =>  x.TblPurchaseReceiveHeader1.Vendor == supplier)
                         .Select(x => x.TblPurchaseReceiveHeader);
                 IQueryable<TblPurchaseReceiveHeader> query;
 
@@ -589,14 +589,14 @@ namespace CCWFM.Web.Service
                     }
                     filter = filter + " and it.Vendor ==(@Sup)";
                     valuesObjects.Add("Sup", supplier);
-                    filter = filter + " and it.TblInventType ==(@s)";
-                    valuesObjects.Add("s", type);
+                    //filter = filter + " and it.TblInventType ==(@s)";
+                    //valuesObjects.Add("s", type);
 
                     var parameterCollection = ConvertToParamters(valuesObjects);
 
                     fullCount = entity.TblPurchaseReceiveHeaders.Where(filter, parameterCollection.ToArray()).Count();
                     query =
-                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1")
+                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
                             .Where(filter, parameterCollection.ToArray())
                             .OrderBy(sort)
                             .Skip(skip)
@@ -606,11 +606,11 @@ namespace CCWFM.Web.Service
                 {
                     fullCount =
                         entity.TblPurchaseReceiveHeaders.Count(
-                            x => !iserials.Contains(x.Iserial) && x.Vendor == supplier && x.TblInventType == type);
+                            x => !iserials.Contains(x.Iserial) && x.Vendor == supplier );
                     query =
-                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1")
+                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
                             .OrderBy(sort)
-                            .Where(x => !iserials.Contains(x.Iserial) && x.Vendor == supplier && x.TblInventType == type)
+                            .Where(x => !iserials.Contains(x.Iserial) && x.Vendor == supplier )
                             .Skip(skip)
                             .Take(take);
                 }
@@ -625,12 +625,12 @@ namespace CCWFM.Web.Service
             {
                 To = To.AddDays(1);
                 var iserials =
-                      entity.TblRecInvHeaderLinkProds.Where(x => x.TblRecInvHeaderTypeProd == type && x.TblPurchaseReceiveHeader1.Vendor == supplier)
+                      entity.TblRecInvHeaderLinkProds.Where(x => x.TblPurchaseReceiveHeader1.Vendor == supplier)
                           .Select(x => x.TblPurchaseReceiveHeader);
                 IQueryable<TblPurchaseReceiveHeader> query;
 
                 query =
-                    entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1")
+                    entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
                         .Where(x => !iserials.Contains(x.Iserial) && x.Vendor == supplier
                         && x.DocDate >= From && x.DocDate < To);
 
@@ -702,7 +702,8 @@ namespace CCWFM.Web.Service
                     });
                 }
                 string comand = "select tblPurchaseReceiveDetail.BatchNo,TblPurchaseOrderDetailRequest.ItemId Style,TblPurchaseOrderDetailRequest.FabricColor TblColor,TblPurchaseOrderDetailRequest.Size SizeCode,TblPurchaseOrderHeaderRequest.TblCurrency Currency" +
-",CAST( isnull(SUM(TblPurchaseReceiveDetail.Qty*TblPurchaseReceiveDetail.Cost)/SUM(TblPurchaseReceiveDetail.Qty),0) AS DECIMAL(19,4)) Cost" +
+",case SUM(TblPurchaseReceiveDetail.Qty) when 0 then 0 else CAST( isnull(SUM(TblPurchaseReceiveDetail.Qty*TblPurchaseReceiveDetail.Cost)/SUM(TblPurchaseReceiveDetail.Qty),0) AS DECIMAL(19,4)) end Cost " +
+
 ",CAST(sum(TblPurchaseReceiveDetail.Qty) AS DECIMAL(19,4)) Quantity  from TblPurchaseReceiveDetail" +
 " inner join TblPurchaseOrderDetailRequest on TblPurchaseOrderDetailRequest.Iserial= TblPurchaseReceiveDetail.TblPurchaseOrderDetailRequest" +
 " inner join TblPurchaseOrderHeaderRequest on TblPurchaseOrderDetailRequest.TblPurchaseOrderHeaderRequest=TblPurchaseOrderHeaderRequest.Iserial" +

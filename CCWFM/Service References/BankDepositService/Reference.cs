@@ -703,6 +703,11 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblAuthUserJournalSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalSettingCostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerMainDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1CostCenter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeaderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblTenderType))]
@@ -713,13 +718,12 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlGenEntityGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlRuleDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGroupAccountLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupTran))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLITEMprice))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLSTORETRAN))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblColorTest))]
@@ -736,16 +740,16 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblSizeLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMultipleBc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Detail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOMainDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOHeader))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeader))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlBankDeposit))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetailCostCenter))]
@@ -841,6 +845,11 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblAuthUserJournalSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalSettingCostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerMainDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1CostCenter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeaderAttachment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblTenderType))]
@@ -851,13 +860,12 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlGenEntityGroup))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlRuleDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGroupAccountLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupTran))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLITEMprice))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLSTORETRAN))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblColorTest))]
@@ -874,16 +882,16 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblSizeLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMultipleBc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Detail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOMainDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOHeader))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeader))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGlBankDeposit))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetailCostCenter))]
@@ -1405,6 +1413,8 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlChequeTransactionDetail> TblGlChequeTransactionDetailsField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblVisaMachine> TblVisaMachinesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -1668,6 +1678,19 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlChequeTransactionDetail> TblGlChequeTransactionDetails {
+            get {
+                return this.TblGlChequeTransactionDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblGlChequeTransactionDetailsField, value) != true)) {
+                    this.TblGlChequeTransactionDetailsField = value;
+                    this.RaisePropertyChanged("TblGlChequeTransactionDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblVisaMachine> TblVisaMachines {
             get {
                 return this.TblVisaMachinesField;
@@ -1804,6 +1827,8 @@ namespace CCWFM.BankDepositService {
         private CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1Field;
         
         private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
         
@@ -2052,6 +2077,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalAccountType1ReferenceField, value) != true)) {
                     this.TblJournalAccountType1ReferenceField = value;
                     this.RaisePropertyChanged("TblJournalAccountType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
                 }
             }
         }
@@ -2317,6 +2355,8 @@ namespace CCWFM.BankDepositService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlRuleDetail> TblGlRuleDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblJournalSettingCostCenter> TblJournalSettingCostCentersField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenterField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetailCostCenter> TblLedgerDetailCostCentersField;
         
@@ -2604,6 +2644,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalSettingCostCentersField, value) != true)) {
                     this.TblJournalSettingCostCentersField = value;
                     this.RaisePropertyChanged("TblJournalSettingCostCenters");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenter {
+            get {
+                return this.TblLedgerDetail1CostCenterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerDetail1CostCenterField, value) != true)) {
+                    this.TblLedgerDetail1CostCenterField = value;
+                    this.RaisePropertyChanged("TblLedgerDetail1CostCenter");
                 }
             }
         }
@@ -2939,6 +2992,8 @@ namespace CCWFM.BankDepositService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlRuleMainDetail> TblGlRuleMainDetailsField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenterField;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetailCostCenter> TblLedgerDetailCostCentersField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -3106,6 +3161,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblGlRuleMainDetailsField, value) != true)) {
                     this.TblGlRuleMainDetailsField = value;
                     this.RaisePropertyChanged("TblGlRuleMainDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenter {
+            get {
+                return this.TblLedgerDetail1CostCenterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerDetail1CostCenterField, value) != true)) {
+                    this.TblLedgerDetail1CostCenterField = value;
+                    this.RaisePropertyChanged("TblLedgerDetail1CostCenter");
                 }
             }
         }
@@ -3933,6 +4001,8 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMethodOfPayment> TblMethodOfPaymentsField;
@@ -4524,6 +4594,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalAccountType1ReferenceField, value) != true)) {
                     this.TblJournalAccountType1ReferenceField = value;
                     this.RaisePropertyChanged("TblJournalAccountType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
                 }
             }
         }
@@ -5185,6 +5268,8 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO TblBankTransactionTypeGroup1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMethodOfPayment> TblMethodOfPaymentsField;
@@ -5328,6 +5413,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblBankTransactionTypeGroup1ReferenceField, value) != true)) {
                     this.TblBankTransactionTypeGroup1ReferenceField = value;
                     this.RaisePropertyChanged("TblBankTransactionTypeGroup1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
                 }
             }
         }
@@ -5757,6 +5855,8 @@ namespace CCWFM.BankDepositService {
         private CCWFM.BankDepositService.TblLedgerHeader TblLedgerHeader1Field;
         
         private CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeadero0bgEGGO TblLedgerHeader1ReferenceField;
+        
+        private System.Nullable<int> TblLedgerMainDetail1Field;
         
         private System.Nullable<int> TblMethodOfPaymentField;
         
@@ -6300,6 +6400,19 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((this.TblLedgerMainDetail1Field.Equals(value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TblMethodOfPayment {
             get {
                 return this.TblMethodOfPaymentField;
@@ -6386,6 +6499,8 @@ namespace CCWFM.BankDepositService {
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlChequeTypeSetting> TblGlChequeTypeSettingsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblJournal> TblJournalsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
         
@@ -6588,6 +6703,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalsField, value) != true)) {
                     this.TblJournalsField = value;
                     this.RaisePropertyChanged("TblJournals");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
                 }
             }
         }
@@ -8383,6 +8511,10 @@ namespace CCWFM.BankDepositService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblJournal> TblJournalsField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail11Field;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetails1Field;
@@ -8764,6 +8896,32 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalsField, value) != true)) {
                     this.TblJournalsField = value;
                     this.RaisePropertyChanged("TblJournals");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail11 {
+            get {
+                return this.TblLedgerMainDetail11Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail11Field, value) != true)) {
+                    this.TblLedgerMainDetail11Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail11");
                 }
             }
         }
@@ -9635,6 +9793,8 @@ namespace CCWFM.BankDepositService {
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblJournal> TblJournals1Field;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader1> TblLedgerHeader1Field;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader> TblLedgerHeadersField;
         
         private bool UseDateTimeField;
@@ -9804,6 +9964,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournals1Field, value) != true)) {
                     this.TblJournals1Field = value;
                     this.RaisePropertyChanged("TblJournals1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader1> TblLedgerHeader1 {
+            get {
+                return this.TblLedgerHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerHeader1Field, value) != true)) {
+                    this.TblLedgerHeader1Field = value;
+                    this.RaisePropertyChanged("TblLedgerHeader1");
                 }
             }
         }
@@ -10203,6 +10376,8 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTblJournalTypeo0bgEGGO TblJournalType1ReferenceField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader1> TblLedgerHeader1Field;
+        
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader> TblLedgerHeadersField;
         
         private CCWFM.BankDepositService.TblSequence TblSequenceField;
@@ -10482,6 +10657,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalType1ReferenceField, value) != true)) {
                     this.TblJournalType1ReferenceField = value;
                     this.RaisePropertyChanged("TblJournalType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader1> TblLedgerHeader1 {
+            get {
+                return this.TblLedgerHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerHeader1Field, value) != true)) {
+                    this.TblLedgerHeader1Field = value;
+                    this.RaisePropertyChanged("TblLedgerHeader1");
                 }
             }
         }
@@ -11974,6 +12162,12 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReferenceField;
         
+        private System.Nullable<int> TblBankField;
+        
+        private CCWFM.BankDepositService.TblBank TblBank1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblBanko0bgEGGO TblBank1ReferenceField;
+        
         private System.Nullable<int> TblBankChequeField;
         
         private CCWFM.BankDepositService.TblBankCheque TblBankCheque1Field;
@@ -12268,6 +12462,45 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblAccountReferenceField, value) != true)) {
                     this.TblAccountReferenceField = value;
                     this.RaisePropertyChanged("TblAccountReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBank {
+            get {
+                return this.TblBankField;
+            }
+            set {
+                if ((this.TblBankField.Equals(value) != true)) {
+                    this.TblBankField = value;
+                    this.RaisePropertyChanged("TblBank");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblBank TblBank1 {
+            get {
+                return this.TblBank1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBank1Field, value) != true)) {
+                    this.TblBank1Field = value;
+                    this.RaisePropertyChanged("TblBank1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblBanko0bgEGGO TblBank1Reference {
+            get {
+                return this.TblBank1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBank1ReferenceField, value) != true)) {
+                    this.TblBank1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBank1Reference");
                 }
             }
         }
@@ -13277,6 +13510,1881 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblJournalsField, value) != true)) {
                     this.TblJournalsField = value;
                     this.RaisePropertyChanged("TblJournals");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblLedgerHeader1", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblLedgerHeader1 : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<System.DateTime> ApproveDateField;
+        
+        private bool ApprovedField;
+        
+        private System.Nullable<int> ApprovedByField;
+        
+        private string CodeField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private string DescriptionField;
+        
+        private System.Nullable<System.DateTime> DocDateField;
+        
+        private int IserialField;
+        
+        private System.Nullable<int> PostByField;
+        
+        private System.Nullable<System.DateTime> PostDateField;
+        
+        private bool PostedField;
+        
+        private int SequenceField;
+        
+        private System.Nullable<int> TblCompanyField;
+        
+        private int TblJournalField;
+        
+        private CCWFM.BankDepositService.TblJournal TblJournal1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblJournalo0bgEGGO TblJournal1ReferenceField;
+        
+        private System.Nullable<int> TblJournalLinkField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
+        
+        private System.Nullable<int> TblSequenceField;
+        
+        private CCWFM.BankDepositService.TblSequence TblSequence1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblSequenceo0bgEGGO TblSequence1ReferenceField;
+        
+        private System.Nullable<int> TblTransactionTypeField;
+        
+        private bool balancedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ApproveDate {
+            get {
+                return this.ApproveDateField;
+            }
+            set {
+                if ((this.ApproveDateField.Equals(value) != true)) {
+                    this.ApproveDateField = value;
+                    this.RaisePropertyChanged("ApproveDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ApprovedBy {
+            get {
+                return this.ApprovedByField;
+            }
+            set {
+                if ((this.ApprovedByField.Equals(value) != true)) {
+                    this.ApprovedByField = value;
+                    this.RaisePropertyChanged("ApprovedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DocDate {
+            get {
+                return this.DocDateField;
+            }
+            set {
+                if ((this.DocDateField.Equals(value) != true)) {
+                    this.DocDateField = value;
+                    this.RaisePropertyChanged("DocDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PostBy {
+            get {
+                return this.PostByField;
+            }
+            set {
+                if ((this.PostByField.Equals(value) != true)) {
+                    this.PostByField = value;
+                    this.RaisePropertyChanged("PostBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PostDate {
+            get {
+                return this.PostDateField;
+            }
+            set {
+                if ((this.PostDateField.Equals(value) != true)) {
+                    this.PostDateField = value;
+                    this.RaisePropertyChanged("PostDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Posted {
+            get {
+                return this.PostedField;
+            }
+            set {
+                if ((this.PostedField.Equals(value) != true)) {
+                    this.PostedField = value;
+                    this.RaisePropertyChanged("Posted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Sequence {
+            get {
+                return this.SequenceField;
+            }
+            set {
+                if ((this.SequenceField.Equals(value) != true)) {
+                    this.SequenceField = value;
+                    this.RaisePropertyChanged("Sequence");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCompany {
+            get {
+                return this.TblCompanyField;
+            }
+            set {
+                if ((this.TblCompanyField.Equals(value) != true)) {
+                    this.TblCompanyField = value;
+                    this.RaisePropertyChanged("TblCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblJournal {
+            get {
+                return this.TblJournalField;
+            }
+            set {
+                if ((this.TblJournalField.Equals(value) != true)) {
+                    this.TblJournalField = value;
+                    this.RaisePropertyChanged("TblJournal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblJournal TblJournal1 {
+            get {
+                return this.TblJournal1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournal1Field, value) != true)) {
+                    this.TblJournal1Field = value;
+                    this.RaisePropertyChanged("TblJournal1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblJournalo0bgEGGO TblJournal1Reference {
+            get {
+                return this.TblJournal1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournal1ReferenceField, value) != true)) {
+                    this.TblJournal1ReferenceField = value;
+                    this.RaisePropertyChanged("TblJournal1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblJournalLink {
+            get {
+                return this.TblJournalLinkField;
+            }
+            set {
+                if ((this.TblJournalLinkField.Equals(value) != true)) {
+                    this.TblJournalLinkField = value;
+                    this.RaisePropertyChanged("TblJournalLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblSequence {
+            get {
+                return this.TblSequenceField;
+            }
+            set {
+                if ((this.TblSequenceField.Equals(value) != true)) {
+                    this.TblSequenceField = value;
+                    this.RaisePropertyChanged("TblSequence");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblSequence TblSequence1 {
+            get {
+                return this.TblSequence1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblSequence1Field, value) != true)) {
+                    this.TblSequence1Field = value;
+                    this.RaisePropertyChanged("TblSequence1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblSequenceo0bgEGGO TblSequence1Reference {
+            get {
+                return this.TblSequence1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblSequence1ReferenceField, value) != true)) {
+                    this.TblSequence1ReferenceField = value;
+                    this.RaisePropertyChanged("TblSequence1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblTransactionType {
+            get {
+                return this.TblTransactionTypeField;
+            }
+            set {
+                if ((this.TblTransactionTypeField.Equals(value) != true)) {
+                    this.TblTransactionTypeField = value;
+                    this.RaisePropertyChanged("TblTransactionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool balanced {
+            get {
+                return this.balancedField;
+            }
+            set {
+                if ((this.balancedField.Equals(value) != true)) {
+                    this.balancedField = value;
+                    this.RaisePropertyChanged("balanced");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblLedgerMainDetail1", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblLedgerMainDetail1 : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<decimal> AmountField;
+        
+        private System.Nullable<bool> BankDepositField;
+        
+        private string CodeField;
+        
+        private string DescriptionField;
+        
+        private bool DrOrCrField;
+        
+        private System.Nullable<System.DateTime> DueDateField;
+        
+        private System.Nullable<int> EntityAccountField;
+        
+        private System.Nullable<int> EntityRefField;
+        
+        private System.Nullable<double> ExchangeRateField;
+        
+        private int GlAccountField;
+        
+        private int IserialField;
+        
+        private System.Nullable<int> LineNumberField;
+        
+        private System.Nullable<int> OffsetAccountTypeField;
+        
+        private System.Nullable<int> OffsetEntityAccountField;
+        
+        private int OffsetGlAccountField;
+        
+        private string PaymentRefField;
+        
+        private CCWFM.BankDepositService.TblAccount TblAccountField;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReferenceField;
+        
+        private System.Nullable<int> TblBankChequeField;
+        
+        private CCWFM.BankDepositService.TblBankCheque TblBankCheque1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblBankChequeo0bgEGGO TblBankCheque1ReferenceField;
+        
+        private System.Nullable<int> TblBankTransactionTypeField;
+        
+        private CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1ReferenceField;
+        
+        private System.Nullable<int> TblCostDimHeaderField;
+        
+        private System.Nullable<int> TblCurrencyField;
+        
+        private CCWFM.BankDepositService.TblCurrencyTest TblCurrency1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
+        
+        private System.Nullable<int> TblJournalAccountTypeField;
+        
+        private CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1ReferenceField;
+        
+        private CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType2Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType2ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1> TblLedgerDetail1Field;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenterField;
+        
+        private int TblLedgerHeader1Field;
+        
+        private CCWFM.BankDepositService.TblLedgerHeader1 TblLedgerHeader11Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeader1o0bgEGGO TblLedgerHeader11ReferenceField;
+        
+        private System.Nullable<int> TblMethodOfPaymentField;
+        
+        private CCWFM.BankDepositService.TblMethodOfPayment TblMethodOfPayment1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO TblMethodOfPayment1ReferenceField;
+        
+        private System.Nullable<System.DateTime> TransDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> BankDeposit {
+            get {
+                return this.BankDepositField;
+            }
+            set {
+                if ((this.BankDepositField.Equals(value) != true)) {
+                    this.BankDepositField = value;
+                    this.RaisePropertyChanged("BankDeposit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DrOrCr {
+            get {
+                return this.DrOrCrField;
+            }
+            set {
+                if ((this.DrOrCrField.Equals(value) != true)) {
+                    this.DrOrCrField = value;
+                    this.RaisePropertyChanged("DrOrCr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DueDate {
+            get {
+                return this.DueDateField;
+            }
+            set {
+                if ((this.DueDateField.Equals(value) != true)) {
+                    this.DueDateField = value;
+                    this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EntityAccount {
+            get {
+                return this.EntityAccountField;
+            }
+            set {
+                if ((this.EntityAccountField.Equals(value) != true)) {
+                    this.EntityAccountField = value;
+                    this.RaisePropertyChanged("EntityAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EntityRef {
+            get {
+                return this.EntityRefField;
+            }
+            set {
+                if ((this.EntityRefField.Equals(value) != true)) {
+                    this.EntityRefField = value;
+                    this.RaisePropertyChanged("EntityRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ExchangeRate {
+            get {
+                return this.ExchangeRateField;
+            }
+            set {
+                if ((this.ExchangeRateField.Equals(value) != true)) {
+                    this.ExchangeRateField = value;
+                    this.RaisePropertyChanged("ExchangeRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GlAccount {
+            get {
+                return this.GlAccountField;
+            }
+            set {
+                if ((this.GlAccountField.Equals(value) != true)) {
+                    this.GlAccountField = value;
+                    this.RaisePropertyChanged("GlAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LineNumber {
+            get {
+                return this.LineNumberField;
+            }
+            set {
+                if ((this.LineNumberField.Equals(value) != true)) {
+                    this.LineNumberField = value;
+                    this.RaisePropertyChanged("LineNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OffsetAccountType {
+            get {
+                return this.OffsetAccountTypeField;
+            }
+            set {
+                if ((this.OffsetAccountTypeField.Equals(value) != true)) {
+                    this.OffsetAccountTypeField = value;
+                    this.RaisePropertyChanged("OffsetAccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OffsetEntityAccount {
+            get {
+                return this.OffsetEntityAccountField;
+            }
+            set {
+                if ((this.OffsetEntityAccountField.Equals(value) != true)) {
+                    this.OffsetEntityAccountField = value;
+                    this.RaisePropertyChanged("OffsetEntityAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OffsetGlAccount {
+            get {
+                return this.OffsetGlAccountField;
+            }
+            set {
+                if ((this.OffsetGlAccountField.Equals(value) != true)) {
+                    this.OffsetGlAccountField = value;
+                    this.RaisePropertyChanged("OffsetGlAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaymentRef {
+            get {
+                return this.PaymentRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentRefField, value) != true)) {
+                    this.PaymentRefField = value;
+                    this.RaisePropertyChanged("PaymentRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblAccount TblAccount {
+            get {
+                return this.TblAccountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccountField, value) != true)) {
+                    this.TblAccountField = value;
+                    this.RaisePropertyChanged("TblAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReference {
+            get {
+                return this.TblAccountReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccountReferenceField, value) != true)) {
+                    this.TblAccountReferenceField = value;
+                    this.RaisePropertyChanged("TblAccountReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBankCheque {
+            get {
+                return this.TblBankChequeField;
+            }
+            set {
+                if ((this.TblBankChequeField.Equals(value) != true)) {
+                    this.TblBankChequeField = value;
+                    this.RaisePropertyChanged("TblBankCheque");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblBankCheque TblBankCheque1 {
+            get {
+                return this.TblBankCheque1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankCheque1Field, value) != true)) {
+                    this.TblBankCheque1Field = value;
+                    this.RaisePropertyChanged("TblBankCheque1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblBankChequeo0bgEGGO TblBankCheque1Reference {
+            get {
+                return this.TblBankCheque1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankCheque1ReferenceField, value) != true)) {
+                    this.TblBankCheque1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBankCheque1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBankTransactionType {
+            get {
+                return this.TblBankTransactionTypeField;
+            }
+            set {
+                if ((this.TblBankTransactionTypeField.Equals(value) != true)) {
+                    this.TblBankTransactionTypeField = value;
+                    this.RaisePropertyChanged("TblBankTransactionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1 {
+            get {
+                return this.TblBankTransactionType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankTransactionType1Field, value) != true)) {
+                    this.TblBankTransactionType1Field = value;
+                    this.RaisePropertyChanged("TblBankTransactionType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1Reference {
+            get {
+                return this.TblBankTransactionType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankTransactionType1ReferenceField, value) != true)) {
+                    this.TblBankTransactionType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBankTransactionType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCostDimHeader {
+            get {
+                return this.TblCostDimHeaderField;
+            }
+            set {
+                if ((this.TblCostDimHeaderField.Equals(value) != true)) {
+                    this.TblCostDimHeaderField = value;
+                    this.RaisePropertyChanged("TblCostDimHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCurrency {
+            get {
+                return this.TblCurrencyField;
+            }
+            set {
+                if ((this.TblCurrencyField.Equals(value) != true)) {
+                    this.TblCurrencyField = value;
+                    this.RaisePropertyChanged("TblCurrency");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblCurrencyTest TblCurrency1 {
+            get {
+                return this.TblCurrency1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCurrency1Field, value) != true)) {
+                    this.TblCurrency1Field = value;
+                    this.RaisePropertyChanged("TblCurrency1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1Reference {
+            get {
+                return this.TblCurrency1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCurrency1ReferenceField, value) != true)) {
+                    this.TblCurrency1ReferenceField = value;
+                    this.RaisePropertyChanged("TblCurrency1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblJournalAccountType {
+            get {
+                return this.TblJournalAccountTypeField;
+            }
+            set {
+                if ((this.TblJournalAccountTypeField.Equals(value) != true)) {
+                    this.TblJournalAccountTypeField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1 {
+            get {
+                return this.TblJournalAccountType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType1Field, value) != true)) {
+                    this.TblJournalAccountType1Field = value;
+                    this.RaisePropertyChanged("TblJournalAccountType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1Reference {
+            get {
+                return this.TblJournalAccountType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType1ReferenceField, value) != true)) {
+                    this.TblJournalAccountType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType2 {
+            get {
+                return this.TblJournalAccountType2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType2Field, value) != true)) {
+                    this.TblJournalAccountType2Field = value;
+                    this.RaisePropertyChanged("TblJournalAccountType2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType2Reference {
+            get {
+                return this.TblJournalAccountType2ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType2ReferenceField, value) != true)) {
+                    this.TblJournalAccountType2ReferenceField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType2Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1> TblLedgerDetail1 {
+            get {
+                return this.TblLedgerDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerDetail1Field, value) != true)) {
+                    this.TblLedgerDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter> TblLedgerDetail1CostCenter {
+            get {
+                return this.TblLedgerDetail1CostCenterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerDetail1CostCenterField, value) != true)) {
+                    this.TblLedgerDetail1CostCenterField = value;
+                    this.RaisePropertyChanged("TblLedgerDetail1CostCenter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblLedgerHeader1 {
+            get {
+                return this.TblLedgerHeader1Field;
+            }
+            set {
+                if ((this.TblLedgerHeader1Field.Equals(value) != true)) {
+                    this.TblLedgerHeader1Field = value;
+                    this.RaisePropertyChanged("TblLedgerHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblLedgerHeader1 TblLedgerHeader11 {
+            get {
+                return this.TblLedgerHeader11Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerHeader11Field, value) != true)) {
+                    this.TblLedgerHeader11Field = value;
+                    this.RaisePropertyChanged("TblLedgerHeader11");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeader1o0bgEGGO TblLedgerHeader11Reference {
+            get {
+                return this.TblLedgerHeader11ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerHeader11ReferenceField, value) != true)) {
+                    this.TblLedgerHeader11ReferenceField = value;
+                    this.RaisePropertyChanged("TblLedgerHeader11Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblMethodOfPayment {
+            get {
+                return this.TblMethodOfPaymentField;
+            }
+            set {
+                if ((this.TblMethodOfPaymentField.Equals(value) != true)) {
+                    this.TblMethodOfPaymentField = value;
+                    this.RaisePropertyChanged("TblMethodOfPayment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblMethodOfPayment TblMethodOfPayment1 {
+            get {
+                return this.TblMethodOfPayment1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblMethodOfPayment1Field, value) != true)) {
+                    this.TblMethodOfPayment1Field = value;
+                    this.RaisePropertyChanged("TblMethodOfPayment1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO TblMethodOfPayment1Reference {
+            get {
+                return this.TblMethodOfPayment1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblMethodOfPayment1ReferenceField, value) != true)) {
+                    this.TblMethodOfPayment1ReferenceField = value;
+                    this.RaisePropertyChanged("TblMethodOfPayment1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> TransDate {
+            get {
+                return this.TransDateField;
+            }
+            set {
+                if ((this.TransDateField.Equals(value) != true)) {
+                    this.TransDateField = value;
+                    this.RaisePropertyChanged("TransDate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblLedgerDetail1", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblLedgerDetail1 : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<decimal> AmountField;
+        
+        private System.Nullable<bool> BankDepositField;
+        
+        private string CodeField;
+        
+        private string DescriptionField;
+        
+        private bool DrOrCrField;
+        
+        private System.Nullable<System.DateTime> DueDateField;
+        
+        private System.Nullable<int> EntityAccountField;
+        
+        private System.Nullable<int> EntityRefField;
+        
+        private System.Nullable<double> ExchangeRateField;
+        
+        private int GlAccountField;
+        
+        private int IserialField;
+        
+        private System.Nullable<int> LineNumberField;
+        
+        private System.Nullable<int> OffsetAccountTypeField;
+        
+        private System.Nullable<int> OffsetEntityAccountField;
+        
+        private int OffsetGlAccountField;
+        
+        private string PaymentRefField;
+        
+        private System.Nullable<int> TblBankChequeField;
+        
+        private System.Nullable<int> TblBankTransactionTypeField;
+        
+        private System.Nullable<int> TblCostDimHeaderField;
+        
+        private System.Nullable<int> TblCurrencyField;
+        
+        private System.Nullable<int> TblJournalAccountTypeField;
+        
+        private int TblLedgerHeader1Field;
+        
+        private int TblLedgerMainDetail1Field;
+        
+        private CCWFM.BankDepositService.TblLedgerMainDetail1 TblLedgerMainDetail11Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO TblLedgerMainDetail11ReferenceField;
+        
+        private System.Nullable<int> TblMethodOfPaymentField;
+        
+        private System.Nullable<System.DateTime> TransDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> BankDeposit {
+            get {
+                return this.BankDepositField;
+            }
+            set {
+                if ((this.BankDepositField.Equals(value) != true)) {
+                    this.BankDepositField = value;
+                    this.RaisePropertyChanged("BankDeposit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DrOrCr {
+            get {
+                return this.DrOrCrField;
+            }
+            set {
+                if ((this.DrOrCrField.Equals(value) != true)) {
+                    this.DrOrCrField = value;
+                    this.RaisePropertyChanged("DrOrCr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DueDate {
+            get {
+                return this.DueDateField;
+            }
+            set {
+                if ((this.DueDateField.Equals(value) != true)) {
+                    this.DueDateField = value;
+                    this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EntityAccount {
+            get {
+                return this.EntityAccountField;
+            }
+            set {
+                if ((this.EntityAccountField.Equals(value) != true)) {
+                    this.EntityAccountField = value;
+                    this.RaisePropertyChanged("EntityAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EntityRef {
+            get {
+                return this.EntityRefField;
+            }
+            set {
+                if ((this.EntityRefField.Equals(value) != true)) {
+                    this.EntityRefField = value;
+                    this.RaisePropertyChanged("EntityRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ExchangeRate {
+            get {
+                return this.ExchangeRateField;
+            }
+            set {
+                if ((this.ExchangeRateField.Equals(value) != true)) {
+                    this.ExchangeRateField = value;
+                    this.RaisePropertyChanged("ExchangeRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GlAccount {
+            get {
+                return this.GlAccountField;
+            }
+            set {
+                if ((this.GlAccountField.Equals(value) != true)) {
+                    this.GlAccountField = value;
+                    this.RaisePropertyChanged("GlAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LineNumber {
+            get {
+                return this.LineNumberField;
+            }
+            set {
+                if ((this.LineNumberField.Equals(value) != true)) {
+                    this.LineNumberField = value;
+                    this.RaisePropertyChanged("LineNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OffsetAccountType {
+            get {
+                return this.OffsetAccountTypeField;
+            }
+            set {
+                if ((this.OffsetAccountTypeField.Equals(value) != true)) {
+                    this.OffsetAccountTypeField = value;
+                    this.RaisePropertyChanged("OffsetAccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OffsetEntityAccount {
+            get {
+                return this.OffsetEntityAccountField;
+            }
+            set {
+                if ((this.OffsetEntityAccountField.Equals(value) != true)) {
+                    this.OffsetEntityAccountField = value;
+                    this.RaisePropertyChanged("OffsetEntityAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OffsetGlAccount {
+            get {
+                return this.OffsetGlAccountField;
+            }
+            set {
+                if ((this.OffsetGlAccountField.Equals(value) != true)) {
+                    this.OffsetGlAccountField = value;
+                    this.RaisePropertyChanged("OffsetGlAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaymentRef {
+            get {
+                return this.PaymentRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentRefField, value) != true)) {
+                    this.PaymentRefField = value;
+                    this.RaisePropertyChanged("PaymentRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBankCheque {
+            get {
+                return this.TblBankChequeField;
+            }
+            set {
+                if ((this.TblBankChequeField.Equals(value) != true)) {
+                    this.TblBankChequeField = value;
+                    this.RaisePropertyChanged("TblBankCheque");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBankTransactionType {
+            get {
+                return this.TblBankTransactionTypeField;
+            }
+            set {
+                if ((this.TblBankTransactionTypeField.Equals(value) != true)) {
+                    this.TblBankTransactionTypeField = value;
+                    this.RaisePropertyChanged("TblBankTransactionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCostDimHeader {
+            get {
+                return this.TblCostDimHeaderField;
+            }
+            set {
+                if ((this.TblCostDimHeaderField.Equals(value) != true)) {
+                    this.TblCostDimHeaderField = value;
+                    this.RaisePropertyChanged("TblCostDimHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCurrency {
+            get {
+                return this.TblCurrencyField;
+            }
+            set {
+                if ((this.TblCurrencyField.Equals(value) != true)) {
+                    this.TblCurrencyField = value;
+                    this.RaisePropertyChanged("TblCurrency");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblJournalAccountType {
+            get {
+                return this.TblJournalAccountTypeField;
+            }
+            set {
+                if ((this.TblJournalAccountTypeField.Equals(value) != true)) {
+                    this.TblJournalAccountTypeField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblLedgerHeader1 {
+            get {
+                return this.TblLedgerHeader1Field;
+            }
+            set {
+                if ((this.TblLedgerHeader1Field.Equals(value) != true)) {
+                    this.TblLedgerHeader1Field = value;
+                    this.RaisePropertyChanged("TblLedgerHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((this.TblLedgerMainDetail1Field.Equals(value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblLedgerMainDetail1 TblLedgerMainDetail11 {
+            get {
+                return this.TblLedgerMainDetail11Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail11Field, value) != true)) {
+                    this.TblLedgerMainDetail11Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail11");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO TblLedgerMainDetail11Reference {
+            get {
+                return this.TblLedgerMainDetail11ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail11ReferenceField, value) != true)) {
+                    this.TblLedgerMainDetail11ReferenceField = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail11Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblMethodOfPayment {
+            get {
+                return this.TblMethodOfPaymentField;
+            }
+            set {
+                if ((this.TblMethodOfPaymentField.Equals(value) != true)) {
+                    this.TblMethodOfPaymentField = value;
+                    this.RaisePropertyChanged("TblMethodOfPayment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> TransDate {
+            get {
+                return this.TransDateField;
+            }
+            set {
+                if ((this.TransDateField.Equals(value) != true)) {
+                    this.TransDateField = value;
+                    this.RaisePropertyChanged("TransDate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblLedgerDetail1CostCenter", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblLedgerDetail1CostCenter : CCWFM.BankDepositService.EntityObject {
+        
+        private double AmountField;
+        
+        private bool CalculatedField;
+        
+        private int IserialField;
+        
+        private double RatioField;
+        
+        private int TblCostCenterField;
+        
+        private CCWFM.BankDepositService.TblCostCenter TblCostCenter1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblCostCentero0bgEGGO TblCostCenter1ReferenceField;
+        
+        private System.Nullable<int> TblCostCenterTypeField;
+        
+        private CCWFM.BankDepositService.TblCostCenterType TblCostCenterType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblCostCenterTypeo0bgEGGO TblCostCenterType1ReferenceField;
+        
+        private int TblLedgerMainDetail1Field;
+        
+        private CCWFM.BankDepositService.TblLedgerMainDetail1 TblLedgerMainDetail11Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO TblLedgerMainDetail11ReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Calculated {
+            get {
+                return this.CalculatedField;
+            }
+            set {
+                if ((this.CalculatedField.Equals(value) != true)) {
+                    this.CalculatedField = value;
+                    this.RaisePropertyChanged("Calculated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Ratio {
+            get {
+                return this.RatioField;
+            }
+            set {
+                if ((this.RatioField.Equals(value) != true)) {
+                    this.RatioField = value;
+                    this.RaisePropertyChanged("Ratio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblCostCenter {
+            get {
+                return this.TblCostCenterField;
+            }
+            set {
+                if ((this.TblCostCenterField.Equals(value) != true)) {
+                    this.TblCostCenterField = value;
+                    this.RaisePropertyChanged("TblCostCenter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblCostCenter TblCostCenter1 {
+            get {
+                return this.TblCostCenter1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCostCenter1Field, value) != true)) {
+                    this.TblCostCenter1Field = value;
+                    this.RaisePropertyChanged("TblCostCenter1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblCostCentero0bgEGGO TblCostCenter1Reference {
+            get {
+                return this.TblCostCenter1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCostCenter1ReferenceField, value) != true)) {
+                    this.TblCostCenter1ReferenceField = value;
+                    this.RaisePropertyChanged("TblCostCenter1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblCostCenterType {
+            get {
+                return this.TblCostCenterTypeField;
+            }
+            set {
+                if ((this.TblCostCenterTypeField.Equals(value) != true)) {
+                    this.TblCostCenterTypeField = value;
+                    this.RaisePropertyChanged("TblCostCenterType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblCostCenterType TblCostCenterType1 {
+            get {
+                return this.TblCostCenterType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCostCenterType1Field, value) != true)) {
+                    this.TblCostCenterType1Field = value;
+                    this.RaisePropertyChanged("TblCostCenterType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblCostCenterTypeo0bgEGGO TblCostCenterType1Reference {
+            get {
+                return this.TblCostCenterType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblCostCenterType1ReferenceField, value) != true)) {
+                    this.TblCostCenterType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblCostCenterType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((this.TblLedgerMainDetail1Field.Equals(value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblLedgerMainDetail1 TblLedgerMainDetail11 {
+            get {
+                return this.TblLedgerMainDetail11Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail11Field, value) != true)) {
+                    this.TblLedgerMainDetail11Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail11");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO TblLedgerMainDetail11Reference {
+            get {
+                return this.TblLedgerMainDetail11ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail11ReferenceField, value) != true)) {
+                    this.TblLedgerMainDetail11ReferenceField = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail11Reference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblMethodOfPayment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblMethodOfPayment : CCWFM.BankDepositService.EntityObject {
+        
+        private string AnameField;
+        
+        private System.Nullable<int> BridgingAccountField;
+        
+        private System.Nullable<bool> BridgingPostingField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private System.Nullable<int> EntityField;
+        
+        private int IserialField;
+        
+        private CCWFM.BankDepositService.TblAccount TblAccountField;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReferenceField;
+        
+        private System.Nullable<int> TblBankTransactionTypeField;
+        
+        private CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1ReferenceField;
+        
+        private System.Nullable<int> TblJournalAccountTypeField;
+        
+        private CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1Field;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> BridgingAccount {
+            get {
+                return this.BridgingAccountField;
+            }
+            set {
+                if ((this.BridgingAccountField.Equals(value) != true)) {
+                    this.BridgingAccountField = value;
+                    this.RaisePropertyChanged("BridgingAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> BridgingPosting {
+            get {
+                return this.BridgingPostingField;
+            }
+            set {
+                if ((this.BridgingPostingField.Equals(value) != true)) {
+                    this.BridgingPostingField = value;
+                    this.RaisePropertyChanged("BridgingPosting");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Entity {
+            get {
+                return this.EntityField;
+            }
+            set {
+                if ((this.EntityField.Equals(value) != true)) {
+                    this.EntityField = value;
+                    this.RaisePropertyChanged("Entity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblAccount TblAccount {
+            get {
+                return this.TblAccountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccountField, value) != true)) {
+                    this.TblAccountField = value;
+                    this.RaisePropertyChanged("TblAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReference {
+            get {
+                return this.TblAccountReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccountReferenceField, value) != true)) {
+                    this.TblAccountReferenceField = value;
+                    this.RaisePropertyChanged("TblAccountReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblBankTransactionType {
+            get {
+                return this.TblBankTransactionTypeField;
+            }
+            set {
+                if ((this.TblBankTransactionTypeField.Equals(value) != true)) {
+                    this.TblBankTransactionTypeField = value;
+                    this.RaisePropertyChanged("TblBankTransactionType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1 {
+            get {
+                return this.TblBankTransactionType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankTransactionType1Field, value) != true)) {
+                    this.TblBankTransactionType1Field = value;
+                    this.RaisePropertyChanged("TblBankTransactionType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1Reference {
+            get {
+                return this.TblBankTransactionType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblBankTransactionType1ReferenceField, value) != true)) {
+                    this.TblBankTransactionType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblBankTransactionType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblJournalAccountType {
+            get {
+                return this.TblJournalAccountTypeField;
+            }
+            set {
+                if ((this.TblJournalAccountTypeField.Equals(value) != true)) {
+                    this.TblJournalAccountTypeField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1 {
+            get {
+                return this.TblJournalAccountType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType1Field, value) != true)) {
+                    this.TblJournalAccountType1Field = value;
+                    this.RaisePropertyChanged("TblJournalAccountType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1Reference {
+            get {
+                return this.TblJournalAccountType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblJournalAccountType1ReferenceField, value) != true)) {
+                    this.TblJournalAccountType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1> TblLedgerMainDetail1 {
+            get {
+                return this.TblLedgerMainDetail1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetail1Field, value) != true)) {
+                    this.TblLedgerMainDetail1Field = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetails {
+            get {
+                return this.TblLedgerMainDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblLedgerMainDetailsField, value) != true)) {
+                    this.TblLedgerMainDetailsField = value;
+                    this.RaisePropertyChanged("TblLedgerMainDetails");
                 }
             }
         }
@@ -14934,252 +17042,6 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblMethodOfPayment", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblMethodOfPayment : CCWFM.BankDepositService.EntityObject {
-        
-        private string AnameField;
-        
-        private System.Nullable<int> BridgingAccountField;
-        
-        private System.Nullable<bool> BridgingPostingField;
-        
-        private string CodeField;
-        
-        private string EnameField;
-        
-        private System.Nullable<int> EntityField;
-        
-        private int IserialField;
-        
-        private CCWFM.BankDepositService.TblAccount TblAccountField;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReferenceField;
-        
-        private System.Nullable<int> TblBankTransactionTypeField;
-        
-        private CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1ReferenceField;
-        
-        private System.Nullable<int> TblJournalAccountTypeField;
-        
-        private CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetailsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> BridgingAccount {
-            get {
-                return this.BridgingAccountField;
-            }
-            set {
-                if ((this.BridgingAccountField.Equals(value) != true)) {
-                    this.BridgingAccountField = value;
-                    this.RaisePropertyChanged("BridgingAccount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> BridgingPosting {
-            get {
-                return this.BridgingPostingField;
-            }
-            set {
-                if ((this.BridgingPostingField.Equals(value) != true)) {
-                    this.BridgingPostingField = value;
-                    this.RaisePropertyChanged("BridgingPosting");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
-            get {
-                return this.EnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Entity {
-            get {
-                return this.EntityField;
-            }
-            set {
-                if ((this.EntityField.Equals(value) != true)) {
-                    this.EntityField = value;
-                    this.RaisePropertyChanged("Entity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblAccount TblAccount {
-            get {
-                return this.TblAccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblAccountField, value) != true)) {
-                    this.TblAccountField = value;
-                    this.RaisePropertyChanged("TblAccount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccountReference {
-            get {
-                return this.TblAccountReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblAccountReferenceField, value) != true)) {
-                    this.TblAccountReferenceField = value;
-                    this.RaisePropertyChanged("TblAccountReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblBankTransactionType {
-            get {
-                return this.TblBankTransactionTypeField;
-            }
-            set {
-                if ((this.TblBankTransactionTypeField.Equals(value) != true)) {
-                    this.TblBankTransactionTypeField = value;
-                    this.RaisePropertyChanged("TblBankTransactionType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblBankTransactionType TblBankTransactionType1 {
-            get {
-                return this.TblBankTransactionType1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBankTransactionType1Field, value) != true)) {
-                    this.TblBankTransactionType1Field = value;
-                    this.RaisePropertyChanged("TblBankTransactionType1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeo0bgEGGO TblBankTransactionType1Reference {
-            get {
-                return this.TblBankTransactionType1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblBankTransactionType1ReferenceField, value) != true)) {
-                    this.TblBankTransactionType1ReferenceField = value;
-                    this.RaisePropertyChanged("TblBankTransactionType1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblJournalAccountType {
-            get {
-                return this.TblJournalAccountTypeField;
-            }
-            set {
-                if ((this.TblJournalAccountTypeField.Equals(value) != true)) {
-                    this.TblJournalAccountTypeField = value;
-                    this.RaisePropertyChanged("TblJournalAccountType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblJournalAccountType TblJournalAccountType1 {
-            get {
-                return this.TblJournalAccountType1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblJournalAccountType1Field, value) != true)) {
-                    this.TblJournalAccountType1Field = value;
-                    this.RaisePropertyChanged("TblJournalAccountType1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblJournalAccountTypeo0bgEGGO TblJournalAccountType1Reference {
-            get {
-                return this.TblJournalAccountType1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblJournalAccountType1ReferenceField, value) != true)) {
-                    this.TblJournalAccountType1ReferenceField = value;
-                    this.RaisePropertyChanged("TblJournalAccountType1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail> TblLedgerMainDetails {
-            get {
-                return this.TblLedgerMainDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblLedgerMainDetailsField, value) != true)) {
-                    this.TblLedgerMainDetailsField = value;
-                    this.RaisePropertyChanged("TblLedgerMainDetails");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblPostingProfileDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblPostingProfileDetail : CCWFM.BankDepositService.EntityObject {
         
@@ -15450,6 +17312,8 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblMarkupTran", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblMarkupTran : CCWFM.BankDepositService.EntityObject {
         
+        private System.Nullable<int> EntityAccountField;
+        
         private System.Nullable<double> ExchangeRateField;
         
         private int IserialField;
@@ -15458,15 +17322,13 @@ namespace CCWFM.BankDepositService {
         
         private int MiscValueTypeField;
         
-        private CCWFM.BankDepositService.TBLsupplier TBLsupplier1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1ReferenceField;
-        
         private int TblCurrencyField;
         
         private CCWFM.BankDepositService.TblCurrencyTest TblCurrency1Field;
         
         private CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
+        
+        private int TblJournalAccountTypeField;
         
         private int TblMarkupField;
         
@@ -15476,11 +17338,22 @@ namespace CCWFM.BankDepositService {
         
         private int TblRecInvField;
         
-        private System.Nullable<int> TblSupplierField;
-        
         private int TypeField;
         
         private bool VendorEffectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EntityAccount {
+            get {
+                return this.EntityAccountField;
+            }
+            set {
+                if ((this.EntityAccountField.Equals(value) != true)) {
+                    this.EntityAccountField = value;
+                    this.RaisePropertyChanged("EntityAccount");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> ExchangeRate {
@@ -15535,32 +17408,6 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TBLsupplier TBLsupplier1 {
-            get {
-                return this.TBLsupplier1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1Field, value) != true)) {
-                    this.TBLsupplier1Field = value;
-                    this.RaisePropertyChanged("TBLsupplier1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1Reference {
-            get {
-                return this.TBLsupplier1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1ReferenceField, value) != true)) {
-                    this.TBLsupplier1ReferenceField = value;
-                    this.RaisePropertyChanged("TBLsupplier1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int TblCurrency {
             get {
                 return this.TblCurrencyField;
@@ -15595,6 +17442,19 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.TblCurrency1ReferenceField, value) != true)) {
                     this.TblCurrency1ReferenceField = value;
                     this.RaisePropertyChanged("TblCurrency1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblJournalAccountType {
+            get {
+                return this.TblJournalAccountTypeField;
+            }
+            set {
+                if ((this.TblJournalAccountTypeField.Equals(value) != true)) {
+                    this.TblJournalAccountTypeField = value;
+                    this.RaisePropertyChanged("TblJournalAccountType");
                 }
             }
         }
@@ -15652,19 +17512,6 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblSupplier {
-            get {
-                return this.TblSupplierField;
-            }
-            set {
-                if ((this.TblSupplierField.Equals(value) != true)) {
-                    this.TblSupplierField = value;
-                    this.RaisePropertyChanged("TblSupplier");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Type {
             get {
                 return this.TypeField;
@@ -15693,76 +17540,26 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TBLsupplier", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TBLsupplier : CCWFM.BankDepositService.EntityObject {
-        
-        private string Address1Field;
-        
-        private string Address2Field;
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblMarkup", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblMarkup : CCWFM.BankDepositService.EntityObject {
         
         private string AnameField;
         
-        private System.Nullable<float> CashDiscountField;
-        
         private string CodeField;
-        
-        private string ContPerson2Field;
-        
-        private System.Nullable<byte> DelvryTypeField;
-        
-        private string DliryField;
         
         private string EnameField;
         
-        private System.Nullable<float> InvoiceDiscountField;
-        
         private int IserialField;
         
-        private System.Nullable<int> SupplierGroupField;
+        private bool ItemEffectField;
+        
+        private System.Nullable<int> TblMarkupGroupField;
+        
+        private CCWFM.BankDepositService.TblMarkupGroup TblMarkupGroup1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO TblMarkupGroup1ReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkupTran> TblMarkupTransField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1HeaderField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeadersField;
-        
-        private System.Nullable<int> TrmsCoditionField;
-        
-        private System.Nullable<float> additionaltaxField;
-        
-        private System.Nullable<float> cashdiscField;
-        
-        private System.Nullable<float> commericaldscField;
-        
-        private string contperson1Field;
-        
-        private string glcodeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address1 {
-            get {
-                return this.Address1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Address1Field, value) != true)) {
-                    this.Address1Field = value;
-                    this.RaisePropertyChanged("Address1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address2 {
-            get {
-                return this.Address2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Address2Field, value) != true)) {
-                    this.Address2Field = value;
-                    this.RaisePropertyChanged("Address2");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Aname {
@@ -15778,19 +17575,6 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> CashDiscount {
-            get {
-                return this.CashDiscountField;
-            }
-            set {
-                if ((this.CashDiscountField.Equals(value) != true)) {
-                    this.CashDiscountField = value;
-                    this.RaisePropertyChanged("CashDiscount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Code {
             get {
                 return this.CodeField;
@@ -15799,45 +17583,6 @@ namespace CCWFM.BankDepositService {
                 if ((object.ReferenceEquals(this.CodeField, value) != true)) {
                     this.CodeField = value;
                     this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ContPerson2 {
-            get {
-                return this.ContPerson2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContPerson2Field, value) != true)) {
-                    this.ContPerson2Field = value;
-                    this.RaisePropertyChanged("ContPerson2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<byte> DelvryType {
-            get {
-                return this.DelvryTypeField;
-            }
-            set {
-                if ((this.DelvryTypeField.Equals(value) != true)) {
-                    this.DelvryTypeField = value;
-                    this.RaisePropertyChanged("DelvryType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dliry {
-            get {
-                return this.DliryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DliryField, value) != true)) {
-                    this.DliryField = value;
-                    this.RaisePropertyChanged("Dliry");
                 }
             }
         }
@@ -15856,19 +17601,6 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> InvoiceDiscount {
-            get {
-                return this.InvoiceDiscountField;
-            }
-            set {
-                if ((this.InvoiceDiscountField.Equals(value) != true)) {
-                    this.InvoiceDiscountField = value;
-                    this.RaisePropertyChanged("InvoiceDiscount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Iserial {
             get {
                 return this.IserialField;
@@ -15882,14 +17614,53 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> SupplierGroup {
+        public bool ItemEffect {
             get {
-                return this.SupplierGroupField;
+                return this.ItemEffectField;
             }
             set {
-                if ((this.SupplierGroupField.Equals(value) != true)) {
-                    this.SupplierGroupField = value;
-                    this.RaisePropertyChanged("SupplierGroup");
+                if ((this.ItemEffectField.Equals(value) != true)) {
+                    this.ItemEffectField = value;
+                    this.RaisePropertyChanged("ItemEffect");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblMarkupGroup {
+            get {
+                return this.TblMarkupGroupField;
+            }
+            set {
+                if ((this.TblMarkupGroupField.Equals(value) != true)) {
+                    this.TblMarkupGroupField = value;
+                    this.RaisePropertyChanged("TblMarkupGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblMarkupGroup TblMarkupGroup1 {
+            get {
+                return this.TblMarkupGroup1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblMarkupGroup1Field, value) != true)) {
+                    this.TblMarkupGroup1Field = value;
+                    this.RaisePropertyChanged("TblMarkupGroup1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO TblMarkupGroup1Reference {
+            get {
+                return this.TblMarkupGroup1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblMarkupGroup1ReferenceField, value) != true)) {
+                    this.TblMarkupGroup1ReferenceField = value;
+                    this.RaisePropertyChanged("TblMarkupGroup1Reference");
                 }
             }
         }
@@ -15906,230 +17677,34 @@ namespace CCWFM.BankDepositService {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1Header {
-            get {
-                return this.TblPO1HeaderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
-                    this.TblPO1HeaderField = value;
-                    this.RaisePropertyChanged("TblPO1Header");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeaders {
-            get {
-                return this.TblRecInvHeadersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeadersField, value) != true)) {
-                    this.TblRecInvHeadersField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaders");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TrmsCodition {
-            get {
-                return this.TrmsCoditionField;
-            }
-            set {
-                if ((this.TrmsCoditionField.Equals(value) != true)) {
-                    this.TrmsCoditionField = value;
-                    this.RaisePropertyChanged("TrmsCodition");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> additionaltax {
-            get {
-                return this.additionaltaxField;
-            }
-            set {
-                if ((this.additionaltaxField.Equals(value) != true)) {
-                    this.additionaltaxField = value;
-                    this.RaisePropertyChanged("additionaltax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> cashdisc {
-            get {
-                return this.cashdiscField;
-            }
-            set {
-                if ((this.cashdiscField.Equals(value) != true)) {
-                    this.cashdiscField = value;
-                    this.RaisePropertyChanged("cashdisc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> commericaldsc {
-            get {
-                return this.commericaldscField;
-            }
-            set {
-                if ((this.commericaldscField.Equals(value) != true)) {
-                    this.commericaldscField = value;
-                    this.RaisePropertyChanged("commericaldsc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string contperson1 {
-            get {
-                return this.contperson1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.contperson1Field, value) != true)) {
-                    this.contperson1Field = value;
-                    this.RaisePropertyChanged("contperson1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string glcode {
-            get {
-                return this.glcodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.glcodeField, value) != true)) {
-                    this.glcodeField = value;
-                    this.RaisePropertyChanged("glcode");
-                }
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPO1Header", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPO1Header : CCWFM.BankDepositService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblMarkupGroup", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblMarkupGroup : CCWFM.BankDepositService.EntityObject {
         
-        private System.Nullable<int> ApplyCommDiscOnItemField;
-        
-        private System.Nullable<decimal> BeforeInvoiceField;
-        
-        private System.Nullable<int> CashNoField;
+        private string AnameField;
         
         private string CodeField;
         
-        private System.Nullable<System.DateTime> DdateField;
+        private int DirectionField;
         
-        private System.Nullable<byte> INVOICEField;
+        private string EnameField;
         
-        private System.Nullable<int> PoStatusField;
+        private int IserialField;
         
-        private string PurchNumField;
-        
-        private CCWFM.BankDepositService.TBLsupplier TBLsupplier1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail> TblPO1MainDetailField;
-        
-        private CCWFM.BankDepositService.TblStore TblStore1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1ReferenceField;
-        
-        private System.Nullable<int> TblUserField;
-        
-        private CCWFM.BankDepositService.TblUser TblUser1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO TblUser1ReferenceField;
-        
-        private System.Nullable<int> VotypeField;
-        
-        private System.Nullable<float> VouchSalesTaxField;
-        
-        private System.Nullable<decimal> additionaltaxField;
-        
-        private System.Nullable<decimal> cashdiscField;
-        
-        private System.Nullable<decimal> cashinvototalField;
-        
-        private string chequedateField;
-        
-        private System.Nullable<decimal> commericaldiscField;
-        
-        private string contactpersonField;
-        
-        private System.Nullable<System.DateTime> creationdateField;
-        
-        private int glserialField;
-        
-        private System.Nullable<decimal> grosscostField;
-        
-        private System.Nullable<decimal> miscdiscField;
-        
-        private System.Nullable<decimal> miscexpField;
-        
-        private System.Nullable<float> periodField;
-        
-        private string supplierInvnoField;
-        
-        private System.Nullable<int> tblseasonField;
-        
-        private System.Nullable<int> tblstoreField;
-        
-        private System.Nullable<int> tblsupplierField;
-        
-        private System.Nullable<float> totblstoreField;
-        
-        private System.Nullable<decimal> totpricewvatField;
-        
-        private System.Nullable<decimal> totvatField;
-        
-        private System.Nullable<decimal> totvochnotaxField;
-        
-        private System.Nullable<System.DateTime> votdateField;
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup> TblMarkupsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> ApplyCommDiscOnItem {
+        public string Aname {
             get {
-                return this.ApplyCommDiscOnItemField;
+                return this.AnameField;
             }
             set {
-                if ((this.ApplyCommDiscOnItemField.Equals(value) != true)) {
-                    this.ApplyCommDiscOnItemField = value;
-                    this.RaisePropertyChanged("ApplyCommDiscOnItem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> BeforeInvoice {
-            get {
-                return this.BeforeInvoiceField;
-            }
-            set {
-                if ((this.BeforeInvoiceField.Equals(value) != true)) {
-                    this.BeforeInvoiceField = value;
-                    this.RaisePropertyChanged("BeforeInvoice");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> CashNo {
-            get {
-                return this.CashNoField;
-            }
-            set {
-                if ((this.CashNoField.Equals(value) != true)) {
-                    this.CashNoField = value;
-                    this.RaisePropertyChanged("CashNo");
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
                 }
             }
         }
@@ -16148,456 +17723,53 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Ddate {
+        public int Direction {
             get {
-                return this.DdateField;
+                return this.DirectionField;
             }
             set {
-                if ((this.DdateField.Equals(value) != true)) {
-                    this.DdateField = value;
-                    this.RaisePropertyChanged("Ddate");
+                if ((this.DirectionField.Equals(value) != true)) {
+                    this.DirectionField = value;
+                    this.RaisePropertyChanged("Direction");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<byte> INVOICE {
+        public string Ename {
             get {
-                return this.INVOICEField;
+                return this.EnameField;
             }
             set {
-                if ((this.INVOICEField.Equals(value) != true)) {
-                    this.INVOICEField = value;
-                    this.RaisePropertyChanged("INVOICE");
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PoStatus {
+        public int Iserial {
             get {
-                return this.PoStatusField;
+                return this.IserialField;
             }
             set {
-                if ((this.PoStatusField.Equals(value) != true)) {
-                    this.PoStatusField = value;
-                    this.RaisePropertyChanged("PoStatus");
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PurchNum {
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup> TblMarkups {
             get {
-                return this.PurchNumField;
+                return this.TblMarkupsField;
             }
             set {
-                if ((object.ReferenceEquals(this.PurchNumField, value) != true)) {
-                    this.PurchNumField = value;
-                    this.RaisePropertyChanged("PurchNum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TBLsupplier TBLsupplier1 {
-            get {
-                return this.TBLsupplier1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1Field, value) != true)) {
-                    this.TBLsupplier1Field = value;
-                    this.RaisePropertyChanged("TBLsupplier1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1Reference {
-            get {
-                return this.TBLsupplier1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1ReferenceField, value) != true)) {
-                    this.TBLsupplier1ReferenceField = value;
-                    this.RaisePropertyChanged("TBLsupplier1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail> TblPO1MainDetail {
-            get {
-                return this.TblPO1MainDetailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPO1MainDetailField, value) != true)) {
-                    this.TblPO1MainDetailField = value;
-                    this.RaisePropertyChanged("TblPO1MainDetail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblStore TblStore1 {
-            get {
-                return this.TblStore1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblStore1Field, value) != true)) {
-                    this.TblStore1Field = value;
-                    this.RaisePropertyChanged("TblStore1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1Reference {
-            get {
-                return this.TblStore1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblStore1ReferenceField, value) != true)) {
-                    this.TblStore1ReferenceField = value;
-                    this.RaisePropertyChanged("TblStore1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblUser {
-            get {
-                return this.TblUserField;
-            }
-            set {
-                if ((this.TblUserField.Equals(value) != true)) {
-                    this.TblUserField = value;
-                    this.RaisePropertyChanged("TblUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblUser TblUser1 {
-            get {
-                return this.TblUser1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblUser1Field, value) != true)) {
-                    this.TblUser1Field = value;
-                    this.RaisePropertyChanged("TblUser1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO TblUser1Reference {
-            get {
-                return this.TblUser1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblUser1ReferenceField, value) != true)) {
-                    this.TblUser1ReferenceField = value;
-                    this.RaisePropertyChanged("TblUser1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Votype {
-            get {
-                return this.VotypeField;
-            }
-            set {
-                if ((this.VotypeField.Equals(value) != true)) {
-                    this.VotypeField = value;
-                    this.RaisePropertyChanged("Votype");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> VouchSalesTax {
-            get {
-                return this.VouchSalesTaxField;
-            }
-            set {
-                if ((this.VouchSalesTaxField.Equals(value) != true)) {
-                    this.VouchSalesTaxField = value;
-                    this.RaisePropertyChanged("VouchSalesTax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> additionaltax {
-            get {
-                return this.additionaltaxField;
-            }
-            set {
-                if ((this.additionaltaxField.Equals(value) != true)) {
-                    this.additionaltaxField = value;
-                    this.RaisePropertyChanged("additionaltax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> cashdisc {
-            get {
-                return this.cashdiscField;
-            }
-            set {
-                if ((this.cashdiscField.Equals(value) != true)) {
-                    this.cashdiscField = value;
-                    this.RaisePropertyChanged("cashdisc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> cashinvototal {
-            get {
-                return this.cashinvototalField;
-            }
-            set {
-                if ((this.cashinvototalField.Equals(value) != true)) {
-                    this.cashinvototalField = value;
-                    this.RaisePropertyChanged("cashinvototal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string chequedate {
-            get {
-                return this.chequedateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.chequedateField, value) != true)) {
-                    this.chequedateField = value;
-                    this.RaisePropertyChanged("chequedate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> commericaldisc {
-            get {
-                return this.commericaldiscField;
-            }
-            set {
-                if ((this.commericaldiscField.Equals(value) != true)) {
-                    this.commericaldiscField = value;
-                    this.RaisePropertyChanged("commericaldisc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string contactperson {
-            get {
-                return this.contactpersonField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.contactpersonField, value) != true)) {
-                    this.contactpersonField = value;
-                    this.RaisePropertyChanged("contactperson");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> creationdate {
-            get {
-                return this.creationdateField;
-            }
-            set {
-                if ((this.creationdateField.Equals(value) != true)) {
-                    this.creationdateField = value;
-                    this.RaisePropertyChanged("creationdate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int glserial {
-            get {
-                return this.glserialField;
-            }
-            set {
-                if ((this.glserialField.Equals(value) != true)) {
-                    this.glserialField = value;
-                    this.RaisePropertyChanged("glserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> grosscost {
-            get {
-                return this.grosscostField;
-            }
-            set {
-                if ((this.grosscostField.Equals(value) != true)) {
-                    this.grosscostField = value;
-                    this.RaisePropertyChanged("grosscost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> miscdisc {
-            get {
-                return this.miscdiscField;
-            }
-            set {
-                if ((this.miscdiscField.Equals(value) != true)) {
-                    this.miscdiscField = value;
-                    this.RaisePropertyChanged("miscdisc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> miscexp {
-            get {
-                return this.miscexpField;
-            }
-            set {
-                if ((this.miscexpField.Equals(value) != true)) {
-                    this.miscexpField = value;
-                    this.RaisePropertyChanged("miscexp");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> period {
-            get {
-                return this.periodField;
-            }
-            set {
-                if ((this.periodField.Equals(value) != true)) {
-                    this.periodField = value;
-                    this.RaisePropertyChanged("period");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string supplierInvno {
-            get {
-                return this.supplierInvnoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.supplierInvnoField, value) != true)) {
-                    this.supplierInvnoField = value;
-                    this.RaisePropertyChanged("supplierInvno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> tblseason {
-            get {
-                return this.tblseasonField;
-            }
-            set {
-                if ((this.tblseasonField.Equals(value) != true)) {
-                    this.tblseasonField = value;
-                    this.RaisePropertyChanged("tblseason");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> tblstore {
-            get {
-                return this.tblstoreField;
-            }
-            set {
-                if ((this.tblstoreField.Equals(value) != true)) {
-                    this.tblstoreField = value;
-                    this.RaisePropertyChanged("tblstore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> tblsupplier {
-            get {
-                return this.tblsupplierField;
-            }
-            set {
-                if ((this.tblsupplierField.Equals(value) != true)) {
-                    this.tblsupplierField = value;
-                    this.RaisePropertyChanged("tblsupplier");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> totblstore {
-            get {
-                return this.totblstoreField;
-            }
-            set {
-                if ((this.totblstoreField.Equals(value) != true)) {
-                    this.totblstoreField = value;
-                    this.RaisePropertyChanged("totblstore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totpricewvat {
-            get {
-                return this.totpricewvatField;
-            }
-            set {
-                if ((this.totpricewvatField.Equals(value) != true)) {
-                    this.totpricewvatField = value;
-                    this.RaisePropertyChanged("totpricewvat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totvat {
-            get {
-                return this.totvatField;
-            }
-            set {
-                if ((this.totvatField.Equals(value) != true)) {
-                    this.totvatField = value;
-                    this.RaisePropertyChanged("totvat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totvochnotax {
-            get {
-                return this.totvochnotaxField;
-            }
-            set {
-                if ((this.totvochnotaxField.Equals(value) != true)) {
-                    this.totvochnotaxField = value;
-                    this.RaisePropertyChanged("totvochnotax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> votdate {
-            get {
-                return this.votdateField;
-            }
-            set {
-                if ((this.votdateField.Equals(value) != true)) {
-                    this.votdateField = value;
-                    this.RaisePropertyChanged("votdate");
+                if ((object.ReferenceEquals(this.TblMarkupsField, value) != true)) {
+                    this.TblMarkupsField = value;
+                    this.RaisePropertyChanged("TblMarkups");
                 }
             }
         }
@@ -16605,170 +17777,85 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPO1MainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPO1MainDetail : CCWFM.BankDepositService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvMainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblRecInvMainDetail : CCWFM.BankDepositService.EntityObject {
         
-        private System.Nullable<decimal> AddExpField;
+        private decimal CostField;
         
-        private System.Nullable<System.DateTime> DeliveryDateField;
+        private int IserialField;
         
-        private int DserialField;
+        private System.Nullable<decimal> MiscField;
         
-        private System.Nullable<float> ItemSalesTaxField;
-        
-        private System.Nullable<float> ItmCommericalDiscField;
-        
-        private System.Nullable<decimal> ItmDisField;
-        
-        private System.Nullable<float> QtyRecField;
-        
-        private System.Nullable<float> QuantityField;
-        
-        private System.Nullable<int> StatusField;
+        private decimal QtyField;
         
         private CCWFM.BankDepositService.TBLITEMprice TBLITEMpriceField;
         
         private CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReferenceField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1DetailField;
+        private System.Nullable<int> TblCurrencyField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail1Field;
+        private CCWFM.BankDepositService.TblCurrencyTest TblCurrency1Field;
         
-        private CCWFM.BankDepositService.TblPO1Header TblPO1HeaderField;
+        private CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
         
-        private CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO TblPO1HeaderReferenceField;
+        private System.Nullable<int> TblItemField;
         
-        private string barcodeField;
+        private System.Nullable<int> TblRecInvHeaderField;
         
-        private int glserialField;
+        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
         
-        private System.Nullable<int> tblitemField;
+        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
         
-        private System.Nullable<decimal> totpricewvatField;
-        
-        private System.Nullable<decimal> totvatField;
-        
-        private System.Nullable<decimal> totwotField;
-        
-        private System.Nullable<decimal> ucostwotField;
-        
-        private System.Nullable<decimal> ucostwvatField;
-        
-        private System.Nullable<decimal> unitvatField;
+        private System.Nullable<int> TblSTaxField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AddExp {
+        public decimal Cost {
             get {
-                return this.AddExpField;
+                return this.CostField;
             }
             set {
-                if ((this.AddExpField.Equals(value) != true)) {
-                    this.AddExpField = value;
-                    this.RaisePropertyChanged("AddExp");
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DeliveryDate {
+        public int Iserial {
             get {
-                return this.DeliveryDateField;
+                return this.IserialField;
             }
             set {
-                if ((this.DeliveryDateField.Equals(value) != true)) {
-                    this.DeliveryDateField = value;
-                    this.RaisePropertyChanged("DeliveryDate");
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Dserial {
+        public System.Nullable<decimal> Misc {
             get {
-                return this.DserialField;
+                return this.MiscField;
             }
             set {
-                if ((this.DserialField.Equals(value) != true)) {
-                    this.DserialField = value;
-                    this.RaisePropertyChanged("Dserial");
+                if ((this.MiscField.Equals(value) != true)) {
+                    this.MiscField = value;
+                    this.RaisePropertyChanged("Misc");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> ItemSalesTax {
+        public decimal Qty {
             get {
-                return this.ItemSalesTaxField;
+                return this.QtyField;
             }
             set {
-                if ((this.ItemSalesTaxField.Equals(value) != true)) {
-                    this.ItemSalesTaxField = value;
-                    this.RaisePropertyChanged("ItemSalesTax");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> ItmCommericalDisc {
-            get {
-                return this.ItmCommericalDiscField;
-            }
-            set {
-                if ((this.ItmCommericalDiscField.Equals(value) != true)) {
-                    this.ItmCommericalDiscField = value;
-                    this.RaisePropertyChanged("ItmCommericalDisc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ItmDis {
-            get {
-                return this.ItmDisField;
-            }
-            set {
-                if ((this.ItmDisField.Equals(value) != true)) {
-                    this.ItmDisField = value;
-                    this.RaisePropertyChanged("ItmDis");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> QtyRec {
-            get {
-                return this.QtyRecField;
-            }
-            set {
-                if ((this.QtyRecField.Equals(value) != true)) {
-                    this.QtyRecField = value;
-                    this.RaisePropertyChanged("QtyRec");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> Quantity {
-            get {
-                return this.QuantityField;
-            }
-            set {
-                if ((this.QuantityField.Equals(value) != true)) {
-                    this.QuantityField = value;
-                    this.RaisePropertyChanged("Quantity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((this.QtyField.Equals(value) != true)) {
+                    this.QtyField = value;
+                    this.RaisePropertyChanged("Qty");
                 }
             }
         }
@@ -16800,170 +17887,105 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail {
+        public System.Nullable<int> TblCurrency {
             get {
-                return this.TblPO1DetailField;
+                return this.TblCurrencyField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPO1DetailField, value) != true)) {
-                    this.TblPO1DetailField = value;
-                    this.RaisePropertyChanged("TblPO1Detail");
+                if ((this.TblCurrencyField.Equals(value) != true)) {
+                    this.TblCurrencyField = value;
+                    this.RaisePropertyChanged("TblCurrency");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail1 {
+        public CCWFM.BankDepositService.TblCurrencyTest TblCurrency1 {
             get {
-                return this.TblPO1Detail1Field;
+                return this.TblCurrency1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPO1Detail1Field, value) != true)) {
-                    this.TblPO1Detail1Field = value;
-                    this.RaisePropertyChanged("TblPO1Detail1");
+                if ((object.ReferenceEquals(this.TblCurrency1Field, value) != true)) {
+                    this.TblCurrency1Field = value;
+                    this.RaisePropertyChanged("TblCurrency1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblPO1Header TblPO1Header {
+        public CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1Reference {
             get {
-                return this.TblPO1HeaderField;
+                return this.TblCurrency1ReferenceField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
-                    this.TblPO1HeaderField = value;
-                    this.RaisePropertyChanged("TblPO1Header");
+                if ((object.ReferenceEquals(this.TblCurrency1ReferenceField, value) != true)) {
+                    this.TblCurrency1ReferenceField = value;
+                    this.RaisePropertyChanged("TblCurrency1Reference");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO TblPO1HeaderReference {
+        public System.Nullable<int> TblItem {
             get {
-                return this.TblPO1HeaderReferenceField;
+                return this.TblItemField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPO1HeaderReferenceField, value) != true)) {
-                    this.TblPO1HeaderReferenceField = value;
-                    this.RaisePropertyChanged("TblPO1HeaderReference");
+                if ((this.TblItemField.Equals(value) != true)) {
+                    this.TblItemField = value;
+                    this.RaisePropertyChanged("TblItem");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string barcode {
+        public System.Nullable<int> TblRecInvHeader {
             get {
-                return this.barcodeField;
+                return this.TblRecInvHeaderField;
             }
             set {
-                if ((object.ReferenceEquals(this.barcodeField, value) != true)) {
-                    this.barcodeField = value;
-                    this.RaisePropertyChanged("barcode");
+                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
+                    this.TblRecInvHeaderField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int glserial {
+        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
             get {
-                return this.glserialField;
+                return this.TblRecInvHeader1Field;
             }
             set {
-                if ((this.glserialField.Equals(value) != true)) {
-                    this.glserialField = value;
-                    this.RaisePropertyChanged("glserial");
+                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
+                    this.TblRecInvHeader1Field = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> tblitem {
+        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
             get {
-                return this.tblitemField;
+                return this.TblRecInvHeader1ReferenceField;
             }
             set {
-                if ((this.tblitemField.Equals(value) != true)) {
-                    this.tblitemField = value;
-                    this.RaisePropertyChanged("tblitem");
+                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
+                    this.TblRecInvHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totpricewvat {
+        public System.Nullable<int> TblSTax {
             get {
-                return this.totpricewvatField;
+                return this.TblSTaxField;
             }
             set {
-                if ((this.totpricewvatField.Equals(value) != true)) {
-                    this.totpricewvatField = value;
-                    this.RaisePropertyChanged("totpricewvat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totvat {
-            get {
-                return this.totvatField;
-            }
-            set {
-                if ((this.totvatField.Equals(value) != true)) {
-                    this.totvatField = value;
-                    this.RaisePropertyChanged("totvat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> totwot {
-            get {
-                return this.totwotField;
-            }
-            set {
-                if ((this.totwotField.Equals(value) != true)) {
-                    this.totwotField = value;
-                    this.RaisePropertyChanged("totwot");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ucostwot {
-            get {
-                return this.ucostwotField;
-            }
-            set {
-                if ((this.ucostwotField.Equals(value) != true)) {
-                    this.ucostwotField = value;
-                    this.RaisePropertyChanged("ucostwot");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ucostwvat {
-            get {
-                return this.ucostwvatField;
-            }
-            set {
-                if ((this.ucostwvatField.Equals(value) != true)) {
-                    this.ucostwvatField = value;
-                    this.RaisePropertyChanged("ucostwvat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> unitvat {
-            get {
-                return this.unitvatField;
-            }
-            set {
-                if ((this.unitvatField.Equals(value) != true)) {
-                    this.unitvatField = value;
-                    this.RaisePropertyChanged("unitvat");
+                if ((this.TblSTaxField.Equals(value) != true)) {
+                    this.TblSTaxField = value;
+                    this.RaisePropertyChanged("TblSTax");
                 }
             }
         }
@@ -20622,8 +21644,8 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblPOMainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblPOMainDetail : CCWFM.BankDepositService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPO1MainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPO1MainDetail : CCWFM.BankDepositService.EntityObject {
         
         private System.Nullable<decimal> AddExpField;
         
@@ -20647,9 +21669,13 @@ namespace CCWFM.BankDepositService {
         
         private CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReferenceField;
         
-        private CCWFM.BankDepositService.TblPOHeader TblPOHeaderField;
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1DetailField;
         
-        private CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO TblPOHeaderReferenceField;
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail1Field;
+        
+        private CCWFM.BankDepositService.TblPO1Header TblPO1HeaderField;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO TblPO1HeaderReferenceField;
         
         private string barcodeField;
         
@@ -20813,27 +21839,53 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblPOHeader TblPOHeader {
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail {
             get {
-                return this.TblPOHeaderField;
+                return this.TblPO1DetailField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPOHeaderField, value) != true)) {
-                    this.TblPOHeaderField = value;
-                    this.RaisePropertyChanged("TblPOHeader");
+                if ((object.ReferenceEquals(this.TblPO1DetailField, value) != true)) {
+                    this.TblPO1DetailField = value;
+                    this.RaisePropertyChanged("TblPO1Detail");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO TblPOHeaderReference {
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail> TblPO1Detail1 {
             get {
-                return this.TblPOHeaderReferenceField;
+                return this.TblPO1Detail1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.TblPOHeaderReferenceField, value) != true)) {
-                    this.TblPOHeaderReferenceField = value;
-                    this.RaisePropertyChanged("TblPOHeaderReference");
+                if ((object.ReferenceEquals(this.TblPO1Detail1Field, value) != true)) {
+                    this.TblPO1Detail1Field = value;
+                    this.RaisePropertyChanged("TblPO1Detail1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblPO1Header TblPO1Header {
+            get {
+                return this.TblPO1HeaderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
+                    this.TblPO1HeaderField = value;
+                    this.RaisePropertyChanged("TblPO1Header");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO TblPO1HeaderReference {
+            get {
+                return this.TblPO1HeaderReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPO1HeaderReferenceField, value) != true)) {
+                    this.TblPO1HeaderReferenceField = value;
+                    this.RaisePropertyChanged("TblPO1HeaderReference");
                 }
             }
         }
@@ -20958,6 +22010,2073 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPO1Header", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPO1Header : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<int> ApplyCommDiscOnItemField;
+        
+        private System.Nullable<decimal> BeforeInvoiceField;
+        
+        private System.Nullable<int> CashNoField;
+        
+        private string CodeField;
+        
+        private System.Nullable<System.DateTime> DdateField;
+        
+        private System.Nullable<byte> INVOICEField;
+        
+        private System.Nullable<int> PoStatusField;
+        
+        private string PurchNumField;
+        
+        private CCWFM.BankDepositService.TBLsupplier TBLsupplier1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail> TblPO1MainDetailField;
+        
+        private CCWFM.BankDepositService.TblStore TblStore1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1ReferenceField;
+        
+        private System.Nullable<int> TblUserField;
+        
+        private CCWFM.BankDepositService.TblUser TblUser1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO TblUser1ReferenceField;
+        
+        private System.Nullable<int> VotypeField;
+        
+        private System.Nullable<float> VouchSalesTaxField;
+        
+        private System.Nullable<decimal> additionaltaxField;
+        
+        private System.Nullable<decimal> cashdiscField;
+        
+        private System.Nullable<decimal> cashinvototalField;
+        
+        private string chequedateField;
+        
+        private System.Nullable<decimal> commericaldiscField;
+        
+        private string contactpersonField;
+        
+        private System.Nullable<System.DateTime> creationdateField;
+        
+        private int glserialField;
+        
+        private System.Nullable<decimal> grosscostField;
+        
+        private System.Nullable<decimal> miscdiscField;
+        
+        private System.Nullable<decimal> miscexpField;
+        
+        private System.Nullable<float> periodField;
+        
+        private string supplierInvnoField;
+        
+        private System.Nullable<int> tblseasonField;
+        
+        private System.Nullable<int> tblstoreField;
+        
+        private System.Nullable<int> tblsupplierField;
+        
+        private System.Nullable<float> totblstoreField;
+        
+        private System.Nullable<decimal> totpricewvatField;
+        
+        private System.Nullable<decimal> totvatField;
+        
+        private System.Nullable<decimal> totvochnotaxField;
+        
+        private System.Nullable<System.DateTime> votdateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ApplyCommDiscOnItem {
+            get {
+                return this.ApplyCommDiscOnItemField;
+            }
+            set {
+                if ((this.ApplyCommDiscOnItemField.Equals(value) != true)) {
+                    this.ApplyCommDiscOnItemField = value;
+                    this.RaisePropertyChanged("ApplyCommDiscOnItem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> BeforeInvoice {
+            get {
+                return this.BeforeInvoiceField;
+            }
+            set {
+                if ((this.BeforeInvoiceField.Equals(value) != true)) {
+                    this.BeforeInvoiceField = value;
+                    this.RaisePropertyChanged("BeforeInvoice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CashNo {
+            get {
+                return this.CashNoField;
+            }
+            set {
+                if ((this.CashNoField.Equals(value) != true)) {
+                    this.CashNoField = value;
+                    this.RaisePropertyChanged("CashNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Ddate {
+            get {
+                return this.DdateField;
+            }
+            set {
+                if ((this.DdateField.Equals(value) != true)) {
+                    this.DdateField = value;
+                    this.RaisePropertyChanged("Ddate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> INVOICE {
+            get {
+                return this.INVOICEField;
+            }
+            set {
+                if ((this.INVOICEField.Equals(value) != true)) {
+                    this.INVOICEField = value;
+                    this.RaisePropertyChanged("INVOICE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PoStatus {
+            get {
+                return this.PoStatusField;
+            }
+            set {
+                if ((this.PoStatusField.Equals(value) != true)) {
+                    this.PoStatusField = value;
+                    this.RaisePropertyChanged("PoStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PurchNum {
+            get {
+                return this.PurchNumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PurchNumField, value) != true)) {
+                    this.PurchNumField = value;
+                    this.RaisePropertyChanged("PurchNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TBLsupplier TBLsupplier1 {
+            get {
+                return this.TBLsupplier1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLsupplier1Field, value) != true)) {
+                    this.TBLsupplier1Field = value;
+                    this.RaisePropertyChanged("TBLsupplier1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1Reference {
+            get {
+                return this.TBLsupplier1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLsupplier1ReferenceField, value) != true)) {
+                    this.TBLsupplier1ReferenceField = value;
+                    this.RaisePropertyChanged("TBLsupplier1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail> TblPO1MainDetail {
+            get {
+                return this.TblPO1MainDetailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPO1MainDetailField, value) != true)) {
+                    this.TblPO1MainDetailField = value;
+                    this.RaisePropertyChanged("TblPO1MainDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblStore TblStore1 {
+            get {
+                return this.TblStore1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStore1Field, value) != true)) {
+                    this.TblStore1Field = value;
+                    this.RaisePropertyChanged("TblStore1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1Reference {
+            get {
+                return this.TblStore1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStore1ReferenceField, value) != true)) {
+                    this.TblStore1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStore1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblUser {
+            get {
+                return this.TblUserField;
+            }
+            set {
+                if ((this.TblUserField.Equals(value) != true)) {
+                    this.TblUserField = value;
+                    this.RaisePropertyChanged("TblUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblUser TblUser1 {
+            get {
+                return this.TblUser1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblUser1Field, value) != true)) {
+                    this.TblUser1Field = value;
+                    this.RaisePropertyChanged("TblUser1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO TblUser1Reference {
+            get {
+                return this.TblUser1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblUser1ReferenceField, value) != true)) {
+                    this.TblUser1ReferenceField = value;
+                    this.RaisePropertyChanged("TblUser1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Votype {
+            get {
+                return this.VotypeField;
+            }
+            set {
+                if ((this.VotypeField.Equals(value) != true)) {
+                    this.VotypeField = value;
+                    this.RaisePropertyChanged("Votype");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> VouchSalesTax {
+            get {
+                return this.VouchSalesTaxField;
+            }
+            set {
+                if ((this.VouchSalesTaxField.Equals(value) != true)) {
+                    this.VouchSalesTaxField = value;
+                    this.RaisePropertyChanged("VouchSalesTax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> additionaltax {
+            get {
+                return this.additionaltaxField;
+            }
+            set {
+                if ((this.additionaltaxField.Equals(value) != true)) {
+                    this.additionaltaxField = value;
+                    this.RaisePropertyChanged("additionaltax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> cashdisc {
+            get {
+                return this.cashdiscField;
+            }
+            set {
+                if ((this.cashdiscField.Equals(value) != true)) {
+                    this.cashdiscField = value;
+                    this.RaisePropertyChanged("cashdisc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> cashinvototal {
+            get {
+                return this.cashinvototalField;
+            }
+            set {
+                if ((this.cashinvototalField.Equals(value) != true)) {
+                    this.cashinvototalField = value;
+                    this.RaisePropertyChanged("cashinvototal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string chequedate {
+            get {
+                return this.chequedateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.chequedateField, value) != true)) {
+                    this.chequedateField = value;
+                    this.RaisePropertyChanged("chequedate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> commericaldisc {
+            get {
+                return this.commericaldiscField;
+            }
+            set {
+                if ((this.commericaldiscField.Equals(value) != true)) {
+                    this.commericaldiscField = value;
+                    this.RaisePropertyChanged("commericaldisc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string contactperson {
+            get {
+                return this.contactpersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contactpersonField, value) != true)) {
+                    this.contactpersonField = value;
+                    this.RaisePropertyChanged("contactperson");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> creationdate {
+            get {
+                return this.creationdateField;
+            }
+            set {
+                if ((this.creationdateField.Equals(value) != true)) {
+                    this.creationdateField = value;
+                    this.RaisePropertyChanged("creationdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int glserial {
+            get {
+                return this.glserialField;
+            }
+            set {
+                if ((this.glserialField.Equals(value) != true)) {
+                    this.glserialField = value;
+                    this.RaisePropertyChanged("glserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> grosscost {
+            get {
+                return this.grosscostField;
+            }
+            set {
+                if ((this.grosscostField.Equals(value) != true)) {
+                    this.grosscostField = value;
+                    this.RaisePropertyChanged("grosscost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> miscdisc {
+            get {
+                return this.miscdiscField;
+            }
+            set {
+                if ((this.miscdiscField.Equals(value) != true)) {
+                    this.miscdiscField = value;
+                    this.RaisePropertyChanged("miscdisc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> miscexp {
+            get {
+                return this.miscexpField;
+            }
+            set {
+                if ((this.miscexpField.Equals(value) != true)) {
+                    this.miscexpField = value;
+                    this.RaisePropertyChanged("miscexp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> period {
+            get {
+                return this.periodField;
+            }
+            set {
+                if ((this.periodField.Equals(value) != true)) {
+                    this.periodField = value;
+                    this.RaisePropertyChanged("period");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string supplierInvno {
+            get {
+                return this.supplierInvnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.supplierInvnoField, value) != true)) {
+                    this.supplierInvnoField = value;
+                    this.RaisePropertyChanged("supplierInvno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblseason {
+            get {
+                return this.tblseasonField;
+            }
+            set {
+                if ((this.tblseasonField.Equals(value) != true)) {
+                    this.tblseasonField = value;
+                    this.RaisePropertyChanged("tblseason");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblstore {
+            get {
+                return this.tblstoreField;
+            }
+            set {
+                if ((this.tblstoreField.Equals(value) != true)) {
+                    this.tblstoreField = value;
+                    this.RaisePropertyChanged("tblstore");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> tblsupplier {
+            get {
+                return this.tblsupplierField;
+            }
+            set {
+                if ((this.tblsupplierField.Equals(value) != true)) {
+                    this.tblsupplierField = value;
+                    this.RaisePropertyChanged("tblsupplier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> totblstore {
+            get {
+                return this.totblstoreField;
+            }
+            set {
+                if ((this.totblstoreField.Equals(value) != true)) {
+                    this.totblstoreField = value;
+                    this.RaisePropertyChanged("totblstore");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> totpricewvat {
+            get {
+                return this.totpricewvatField;
+            }
+            set {
+                if ((this.totpricewvatField.Equals(value) != true)) {
+                    this.totpricewvatField = value;
+                    this.RaisePropertyChanged("totpricewvat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> totvat {
+            get {
+                return this.totvatField;
+            }
+            set {
+                if ((this.totvatField.Equals(value) != true)) {
+                    this.totvatField = value;
+                    this.RaisePropertyChanged("totvat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> totvochnotax {
+            get {
+                return this.totvochnotaxField;
+            }
+            set {
+                if ((this.totvochnotaxField.Equals(value) != true)) {
+                    this.totvochnotaxField = value;
+                    this.RaisePropertyChanged("totvochnotax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> votdate {
+            get {
+                return this.votdateField;
+            }
+            set {
+                if ((this.votdateField.Equals(value) != true)) {
+                    this.votdateField = value;
+                    this.RaisePropertyChanged("votdate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TBLsupplier", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TBLsupplier : CCWFM.BankDepositService.EntityObject {
+        
+        private string Address1Field;
+        
+        private string Address2Field;
+        
+        private string AnameField;
+        
+        private System.Nullable<float> CashDiscountField;
+        
+        private string CodeField;
+        
+        private string ContPerson2Field;
+        
+        private System.Nullable<byte> DelvryTypeField;
+        
+        private string DliryField;
+        
+        private string EnameField;
+        
+        private System.Nullable<float> InvoiceDiscountField;
+        
+        private int IserialField;
+        
+        private System.Nullable<int> SupplierGroupField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1HeaderField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeadersField;
+        
+        private System.Nullable<int> TrmsCoditionField;
+        
+        private System.Nullable<float> additionaltaxField;
+        
+        private System.Nullable<float> cashdiscField;
+        
+        private System.Nullable<float> commericaldscField;
+        
+        private string contperson1Field;
+        
+        private string glcodeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address1 {
+            get {
+                return this.Address1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address1Field, value) != true)) {
+                    this.Address1Field = value;
+                    this.RaisePropertyChanged("Address1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address2 {
+            get {
+                return this.Address2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address2Field, value) != true)) {
+                    this.Address2Field = value;
+                    this.RaisePropertyChanged("Address2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> CashDiscount {
+            get {
+                return this.CashDiscountField;
+            }
+            set {
+                if ((this.CashDiscountField.Equals(value) != true)) {
+                    this.CashDiscountField = value;
+                    this.RaisePropertyChanged("CashDiscount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContPerson2 {
+            get {
+                return this.ContPerson2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContPerson2Field, value) != true)) {
+                    this.ContPerson2Field = value;
+                    this.RaisePropertyChanged("ContPerson2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> DelvryType {
+            get {
+                return this.DelvryTypeField;
+            }
+            set {
+                if ((this.DelvryTypeField.Equals(value) != true)) {
+                    this.DelvryTypeField = value;
+                    this.RaisePropertyChanged("DelvryType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Dliry {
+            get {
+                return this.DliryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DliryField, value) != true)) {
+                    this.DliryField = value;
+                    this.RaisePropertyChanged("Dliry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> InvoiceDiscount {
+            get {
+                return this.InvoiceDiscountField;
+            }
+            set {
+                if ((this.InvoiceDiscountField.Equals(value) != true)) {
+                    this.InvoiceDiscountField = value;
+                    this.RaisePropertyChanged("InvoiceDiscount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> SupplierGroup {
+            get {
+                return this.SupplierGroupField;
+            }
+            set {
+                if ((this.SupplierGroupField.Equals(value) != true)) {
+                    this.SupplierGroupField = value;
+                    this.RaisePropertyChanged("SupplierGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1Header {
+            get {
+                return this.TblPO1HeaderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
+                    this.TblPO1HeaderField = value;
+                    this.RaisePropertyChanged("TblPO1Header");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeaders {
+            get {
+                return this.TblRecInvHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeadersField, value) != true)) {
+                    this.TblRecInvHeadersField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TrmsCodition {
+            get {
+                return this.TrmsCoditionField;
+            }
+            set {
+                if ((this.TrmsCoditionField.Equals(value) != true)) {
+                    this.TrmsCoditionField = value;
+                    this.RaisePropertyChanged("TrmsCodition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> additionaltax {
+            get {
+                return this.additionaltaxField;
+            }
+            set {
+                if ((this.additionaltaxField.Equals(value) != true)) {
+                    this.additionaltaxField = value;
+                    this.RaisePropertyChanged("additionaltax");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> cashdisc {
+            get {
+                return this.cashdiscField;
+            }
+            set {
+                if ((this.cashdiscField.Equals(value) != true)) {
+                    this.cashdiscField = value;
+                    this.RaisePropertyChanged("cashdisc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> commericaldsc {
+            get {
+                return this.commericaldscField;
+            }
+            set {
+                if ((this.commericaldscField.Equals(value) != true)) {
+                    this.commericaldscField = value;
+                    this.RaisePropertyChanged("commericaldsc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string contperson1 {
+            get {
+                return this.contperson1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contperson1Field, value) != true)) {
+                    this.contperson1Field = value;
+                    this.RaisePropertyChanged("contperson1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string glcode {
+            get {
+                return this.glcodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.glcodeField, value) != true)) {
+                    this.glcodeField = value;
+                    this.RaisePropertyChanged("glcode");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblRecInvHeader : CCWFM.BankDepositService.EntityObject {
+        
+        private string CodeField;
+        
+        private System.Nullable<int> CreatedByField;
+        
+        private System.Nullable<System.DateTime> CreationDateField;
+        
+        private bool InvoicedField;
+        
+        private int IserialField;
+        
+        private System.Nullable<decimal> MiscField;
+        
+        private System.Nullable<decimal> MiscWithoutItemEffectField;
+        
+        private System.Nullable<int> PostByField;
+        
+        private System.Nullable<System.DateTime> PostDateField;
+        
+        private bool PostedField;
+        
+        private System.Nullable<int> StatusField;
+        
+        private string SupplierInvField;
+        
+        private CCWFM.BankDepositService.TBLsupplier TBLsupplier1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1ReferenceField;
+        
+        private System.Nullable<int> TblAccountField;
+        
+        private CCWFM.BankDepositService.TblAccount TblAccount1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccount1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetailsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink> TblRecInvHeaderLinksField;
+        
+        private int TblRecInvHeaderTypeField;
+        
+        private CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail> TblRecInvMainDetailsField;
+        
+        private System.Nullable<int> TblStoreField;
+        
+        private CCWFM.BankDepositService.TblStore TblStore1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1ReferenceField;
+        
+        private int TblSupplierField;
+        
+        private System.Nullable<int> TblUserField;
+        
+        private System.Nullable<System.DateTime> TransDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Invoiced {
+            get {
+                return this.InvoicedField;
+            }
+            set {
+                if ((this.InvoicedField.Equals(value) != true)) {
+                    this.InvoicedField = value;
+                    this.RaisePropertyChanged("Invoiced");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Misc {
+            get {
+                return this.MiscField;
+            }
+            set {
+                if ((this.MiscField.Equals(value) != true)) {
+                    this.MiscField = value;
+                    this.RaisePropertyChanged("Misc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> MiscWithoutItemEffect {
+            get {
+                return this.MiscWithoutItemEffectField;
+            }
+            set {
+                if ((this.MiscWithoutItemEffectField.Equals(value) != true)) {
+                    this.MiscWithoutItemEffectField = value;
+                    this.RaisePropertyChanged("MiscWithoutItemEffect");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PostBy {
+            get {
+                return this.PostByField;
+            }
+            set {
+                if ((this.PostByField.Equals(value) != true)) {
+                    this.PostByField = value;
+                    this.RaisePropertyChanged("PostBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PostDate {
+            get {
+                return this.PostDateField;
+            }
+            set {
+                if ((this.PostDateField.Equals(value) != true)) {
+                    this.PostDateField = value;
+                    this.RaisePropertyChanged("PostDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Posted {
+            get {
+                return this.PostedField;
+            }
+            set {
+                if ((this.PostedField.Equals(value) != true)) {
+                    this.PostedField = value;
+                    this.RaisePropertyChanged("Posted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SupplierInv {
+            get {
+                return this.SupplierInvField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
+                    this.SupplierInvField = value;
+                    this.RaisePropertyChanged("SupplierInv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TBLsupplier TBLsupplier1 {
+            get {
+                return this.TBLsupplier1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLsupplier1Field, value) != true)) {
+                    this.TBLsupplier1Field = value;
+                    this.RaisePropertyChanged("TBLsupplier1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1Reference {
+            get {
+                return this.TBLsupplier1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLsupplier1ReferenceField, value) != true)) {
+                    this.TBLsupplier1ReferenceField = value;
+                    this.RaisePropertyChanged("TBLsupplier1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblAccount {
+            get {
+                return this.TblAccountField;
+            }
+            set {
+                if ((this.TblAccountField.Equals(value) != true)) {
+                    this.TblAccountField = value;
+                    this.RaisePropertyChanged("TblAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblAccount TblAccount1 {
+            get {
+                return this.TblAccount1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccount1Field, value) != true)) {
+                    this.TblAccount1Field = value;
+                    this.RaisePropertyChanged("TblAccount1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccount1Reference {
+            get {
+                return this.TblAccount1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblAccount1ReferenceField, value) != true)) {
+                    this.TblAccount1ReferenceField = value;
+                    this.RaisePropertyChanged("TblAccount1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetails {
+            get {
+                return this.TblRecInvDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvDetailsField, value) != true)) {
+                    this.TblRecInvDetailsField = value;
+                    this.RaisePropertyChanged("TblRecInvDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink> TblRecInvHeaderLinks {
+            get {
+                return this.TblRecInvHeaderLinksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeaderLinksField, value) != true)) {
+                    this.TblRecInvHeaderLinksField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderLinks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblRecInvHeaderType {
+            get {
+                return this.TblRecInvHeaderTypeField;
+            }
+            set {
+                if ((this.TblRecInvHeaderTypeField.Equals(value) != true)) {
+                    this.TblRecInvHeaderTypeField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1 {
+            get {
+                return this.TblRecInvHeaderType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeaderType1Field, value) != true)) {
+                    this.TblRecInvHeaderType1Field = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1Reference {
+            get {
+                return this.TblRecInvHeaderType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeaderType1ReferenceField, value) != true)) {
+                    this.TblRecInvHeaderType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail> TblRecInvMainDetails {
+            get {
+                return this.TblRecInvMainDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvMainDetailsField, value) != true)) {
+                    this.TblRecInvMainDetailsField = value;
+                    this.RaisePropertyChanged("TblRecInvMainDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblStore {
+            get {
+                return this.TblStoreField;
+            }
+            set {
+                if ((this.TblStoreField.Equals(value) != true)) {
+                    this.TblStoreField = value;
+                    this.RaisePropertyChanged("TblStore");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblStore TblStore1 {
+            get {
+                return this.TblStore1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStore1Field, value) != true)) {
+                    this.TblStore1Field = value;
+                    this.RaisePropertyChanged("TblStore1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1Reference {
+            get {
+                return this.TblStore1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblStore1ReferenceField, value) != true)) {
+                    this.TblStore1ReferenceField = value;
+                    this.RaisePropertyChanged("TblStore1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblSupplier {
+            get {
+                return this.TblSupplierField;
+            }
+            set {
+                if ((this.TblSupplierField.Equals(value) != true)) {
+                    this.TblSupplierField = value;
+                    this.RaisePropertyChanged("TblSupplier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblUser {
+            get {
+                return this.TblUserField;
+            }
+            set {
+                if ((this.TblUserField.Equals(value) != true)) {
+                    this.TblUserField = value;
+                    this.RaisePropertyChanged("TblUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> TransDate {
+            get {
+                return this.TransDateField;
+            }
+            set {
+                if ((this.TransDateField.Equals(value) != true)) {
+                    this.TransDateField = value;
+                    this.RaisePropertyChanged("TransDate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblRecInvDetail : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<decimal> CostField;
+        
+        private int DserialField;
+        
+        private System.Nullable<int> FlgField;
+        
+        private int GlserialField;
+        
+        private System.Nullable<decimal> MiscField;
+        
+        private CCWFM.BankDepositService.TBLITEMprice TBLITEMpriceField;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReferenceField;
+        
+        private System.Nullable<int> TblRecInvHeaderField;
+        
+        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
+        
+        private System.Nullable<int> TblRecInvHeaderTypeField;
+        
+        private CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1ReferenceField;
+        
+        private int TblitemField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Dserial {
+            get {
+                return this.DserialField;
+            }
+            set {
+                if ((this.DserialField.Equals(value) != true)) {
+                    this.DserialField = value;
+                    this.RaisePropertyChanged("Dserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Flg {
+            get {
+                return this.FlgField;
+            }
+            set {
+                if ((this.FlgField.Equals(value) != true)) {
+                    this.FlgField = value;
+                    this.RaisePropertyChanged("Flg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Glserial {
+            get {
+                return this.GlserialField;
+            }
+            set {
+                if ((this.GlserialField.Equals(value) != true)) {
+                    this.GlserialField = value;
+                    this.RaisePropertyChanged("Glserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Misc {
+            get {
+                return this.MiscField;
+            }
+            set {
+                if ((this.MiscField.Equals(value) != true)) {
+                    this.MiscField = value;
+                    this.RaisePropertyChanged("Misc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TBLITEMprice TBLITEMprice {
+            get {
+                return this.TBLITEMpriceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLITEMpriceField, value) != true)) {
+                    this.TBLITEMpriceField = value;
+                    this.RaisePropertyChanged("TBLITEMprice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReference {
+            get {
+                return this.TBLITEMpriceReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TBLITEMpriceReferenceField, value) != true)) {
+                    this.TBLITEMpriceReferenceField = value;
+                    this.RaisePropertyChanged("TBLITEMpriceReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblRecInvHeader {
+            get {
+                return this.TblRecInvHeaderField;
+            }
+            set {
+                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
+                    this.TblRecInvHeaderField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
+            get {
+                return this.TblRecInvHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
+                    this.TblRecInvHeader1Field = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
+            get {
+                return this.TblRecInvHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
+                    this.TblRecInvHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblRecInvHeaderType {
+            get {
+                return this.TblRecInvHeaderTypeField;
+            }
+            set {
+                if ((this.TblRecInvHeaderTypeField.Equals(value) != true)) {
+                    this.TblRecInvHeaderTypeField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1 {
+            get {
+                return this.TblRecInvHeaderType1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeaderType1Field, value) != true)) {
+                    this.TblRecInvHeaderType1Field = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1Reference {
+            get {
+                return this.TblRecInvHeaderType1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeaderType1ReferenceField, value) != true)) {
+                    this.TblRecInvHeaderType1ReferenceField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Tblitem {
+            get {
+                return this.TblitemField;
+            }
+            set {
+                if ((this.TblitemField.Equals(value) != true)) {
+                    this.TblitemField = value;
+                    this.RaisePropertyChanged("Tblitem");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeaderType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblRecInvHeaderType : CCWFM.BankDepositService.EntityObject {
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string EnameField;
+        
+        private int IserialField;
+        
+        private int NaturalField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetailsField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeadersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Natural {
+            get {
+                return this.NaturalField;
+            }
+            set {
+                if ((this.NaturalField.Equals(value) != true)) {
+                    this.NaturalField = value;
+                    this.RaisePropertyChanged("Natural");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetails {
+            get {
+                return this.TblRecInvDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvDetailsField, value) != true)) {
+                    this.TblRecInvDetailsField = value;
+                    this.RaisePropertyChanged("TblRecInvDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeaders {
+            get {
+                return this.TblRecInvHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeadersField, value) != true)) {
+                    this.TblRecInvHeadersField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaders");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeaderLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblRecInvHeaderLink : CCWFM.BankDepositService.EntityObject {
+        
+        private int IserialField;
+        
+        private int TblRecInvHeaderField;
+        
+        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
+        
+        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
+        
+        private System.Nullable<int> TblRecInvHeaderTypeField;
+        
+        private int tblrecieveHeaderField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Iserial {
+            get {
+                return this.IserialField;
+            }
+            set {
+                if ((this.IserialField.Equals(value) != true)) {
+                    this.IserialField = value;
+                    this.RaisePropertyChanged("Iserial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TblRecInvHeader {
+            get {
+                return this.TblRecInvHeaderField;
+            }
+            set {
+                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
+                    this.TblRecInvHeaderField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
+            get {
+                return this.TblRecInvHeader1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
+                    this.TblRecInvHeader1Field = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
+            get {
+                return this.TblRecInvHeader1ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
+                    this.TblRecInvHeader1ReferenceField = value;
+                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblRecInvHeaderType {
+            get {
+                return this.TblRecInvHeaderTypeField;
+            }
+            set {
+                if ((this.TblRecInvHeaderTypeField.Equals(value) != true)) {
+                    this.TblRecInvHeaderTypeField = value;
+                    this.RaisePropertyChanged("TblRecInvHeaderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int tblrecieveHeader {
+            get {
+                return this.tblrecieveHeaderField;
+            }
+            set {
+                if ((this.tblrecieveHeaderField.Equals(value) != true)) {
+                    this.tblrecieveHeaderField = value;
+                    this.RaisePropertyChanged("tblrecieveHeader");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblUser", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblUser : CCWFM.BankDepositService.EntityObject {
+        
+        private System.Nullable<int> ActiveField;
+        
+        private string ActiveCashMachField;
+        
+        private string ActiveStoreField;
+        
+        private string AddressField;
+        
+        private string AllowedStoresField;
+        
+        private string AllowedStoresToField;
+        
+        private string AnameField;
+        
+        private string CodeField;
+        
+        private string CommentField;
+        
+        private System.Nullable<byte> CurrLangField;
+        
+        private string EnameField;
+        
+        private System.Nullable<int> RegNoField;
+        
+        private System.Nullable<int> ReportFontField;
+        
+        private System.Nullable<int> TblJobField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1HeaderField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOHeader> TblPOHeadersField;
+        
+        private string Tel1Field;
+        
+        private string Tel2Field;
+        
+        private string UserPasswordField;
+        
+        private int iserialField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActiveCashMach {
+            get {
+                return this.ActiveCashMachField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActiveCashMachField, value) != true)) {
+                    this.ActiveCashMachField = value;
+                    this.RaisePropertyChanged("ActiveCashMach");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActiveStore {
+            get {
+                return this.ActiveStoreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActiveStoreField, value) != true)) {
+                    this.ActiveStoreField = value;
+                    this.RaisePropertyChanged("ActiveStore");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AllowedStores {
+            get {
+                return this.AllowedStoresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AllowedStoresField, value) != true)) {
+                    this.AllowedStoresField = value;
+                    this.RaisePropertyChanged("AllowedStores");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AllowedStoresTo {
+            get {
+                return this.AllowedStoresToField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AllowedStoresToField, value) != true)) {
+                    this.AllowedStoresToField = value;
+                    this.RaisePropertyChanged("AllowedStoresTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Aname {
+            get {
+                return this.AnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
+                    this.AnameField = value;
+                    this.RaisePropertyChanged("Aname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comment {
+            get {
+                return this.CommentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentField, value) != true)) {
+                    this.CommentField = value;
+                    this.RaisePropertyChanged("Comment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> CurrLang {
+            get {
+                return this.CurrLangField;
+            }
+            set {
+                if ((this.CurrLangField.Equals(value) != true)) {
+                    this.CurrLangField = value;
+                    this.RaisePropertyChanged("CurrLang");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ename {
+            get {
+                return this.EnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
+                    this.EnameField = value;
+                    this.RaisePropertyChanged("Ename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> RegNo {
+            get {
+                return this.RegNoField;
+            }
+            set {
+                if ((this.RegNoField.Equals(value) != true)) {
+                    this.RegNoField = value;
+                    this.RaisePropertyChanged("RegNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ReportFont {
+            get {
+                return this.ReportFontField;
+            }
+            set {
+                if ((this.ReportFontField.Equals(value) != true)) {
+                    this.ReportFontField = value;
+                    this.RaisePropertyChanged("ReportFont");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TblJob {
+            get {
+                return this.TblJobField;
+            }
+            set {
+                if ((this.TblJobField.Equals(value) != true)) {
+                    this.TblJobField = value;
+                    this.RaisePropertyChanged("TblJob");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1Header {
+            get {
+                return this.TblPO1HeaderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
+                    this.TblPO1HeaderField = value;
+                    this.RaisePropertyChanged("TblPO1Header");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOHeader> TblPOHeaders {
+            get {
+                return this.TblPOHeadersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TblPOHeadersField, value) != true)) {
+                    this.TblPOHeadersField = value;
+                    this.RaisePropertyChanged("TblPOHeaders");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tel1 {
+            get {
+                return this.Tel1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Tel1Field, value) != true)) {
+                    this.Tel1Field = value;
+                    this.RaisePropertyChanged("Tel1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tel2 {
+            get {
+                return this.Tel2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Tel2Field, value) != true)) {
+                    this.Tel2Field = value;
+                    this.RaisePropertyChanged("Tel2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserPassword {
+            get {
+                return this.UserPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserPasswordField, value) != true)) {
+                    this.UserPasswordField = value;
+                    this.RaisePropertyChanged("UserPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int iserial {
+            get {
+                return this.iserialField;
+            }
+            set {
+                if ((this.iserialField.Equals(value) != true)) {
+                    this.iserialField = value;
+                    this.RaisePropertyChanged("iserial");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TblPOHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblPOHeader : CCWFM.BankDepositService.EntityObject {
         
@@ -20970,6 +24089,8 @@ namespace CCWFM.BankDepositService {
         private string CodeField;
         
         private System.Nullable<System.DateTime> DdateField;
+        
+        private System.Nullable<int> FromStoreField;
         
         private System.Nullable<byte> INVOICEField;
         
@@ -21098,6 +24219,19 @@ namespace CCWFM.BankDepositService {
                 if ((this.DdateField.Equals(value) != true)) {
                     this.DdateField = value;
                     this.RaisePropertyChanged("Ddate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> FromStore {
+            get {
+                return this.FromStoreField;
+            }
+            set {
+                if ((this.FromStoreField.Equals(value) != true)) {
+                    this.FromStoreField = value;
+                    this.RaisePropertyChanged("FromStore");
                 }
             }
         }
@@ -21534,346 +24668,77 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblUser", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblUser : CCWFM.BankDepositService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="TblPOMainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
+    public partial class TblPOMainDetail : CCWFM.BankDepositService.EntityObject {
         
-        private System.Nullable<int> ActiveField;
+        private System.Nullable<decimal> AddExpField;
         
-        private string ActiveCashMachField;
-        
-        private string ActiveStoreField;
-        
-        private string AddressField;
-        
-        private string AllowedStoresField;
-        
-        private string AllowedStoresToField;
-        
-        private string AnameField;
-        
-        private string CodeField;
-        
-        private string CommentField;
-        
-        private System.Nullable<byte> CurrLangField;
-        
-        private string EnameField;
-        
-        private System.Nullable<int> RegNoField;
-        
-        private System.Nullable<int> ReportFontField;
-        
-        private System.Nullable<int> TblJobField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1HeaderField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOHeader> TblPOHeadersField;
-        
-        private string Tel1Field;
-        
-        private string Tel2Field;
-        
-        private string UserPasswordField;
-        
-        private int iserialField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Active {
-            get {
-                return this.ActiveField;
-            }
-            set {
-                if ((this.ActiveField.Equals(value) != true)) {
-                    this.ActiveField = value;
-                    this.RaisePropertyChanged("Active");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ActiveCashMach {
-            get {
-                return this.ActiveCashMachField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActiveCashMachField, value) != true)) {
-                    this.ActiveCashMachField = value;
-                    this.RaisePropertyChanged("ActiveCashMach");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ActiveStore {
-            get {
-                return this.ActiveStoreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActiveStoreField, value) != true)) {
-                    this.ActiveStoreField = value;
-                    this.RaisePropertyChanged("ActiveStore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address {
-            get {
-                return this.AddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
-                    this.AddressField = value;
-                    this.RaisePropertyChanged("Address");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AllowedStores {
-            get {
-                return this.AllowedStoresField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AllowedStoresField, value) != true)) {
-                    this.AllowedStoresField = value;
-                    this.RaisePropertyChanged("AllowedStores");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AllowedStoresTo {
-            get {
-                return this.AllowedStoresToField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AllowedStoresToField, value) != true)) {
-                    this.AllowedStoresToField = value;
-                    this.RaisePropertyChanged("AllowedStoresTo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comment {
-            get {
-                return this.CommentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CommentField, value) != true)) {
-                    this.CommentField = value;
-                    this.RaisePropertyChanged("Comment");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<byte> CurrLang {
-            get {
-                return this.CurrLangField;
-            }
-            set {
-                if ((this.CurrLangField.Equals(value) != true)) {
-                    this.CurrLangField = value;
-                    this.RaisePropertyChanged("CurrLang");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
-            get {
-                return this.EnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> RegNo {
-            get {
-                return this.RegNoField;
-            }
-            set {
-                if ((this.RegNoField.Equals(value) != true)) {
-                    this.RegNoField = value;
-                    this.RaisePropertyChanged("RegNo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> ReportFont {
-            get {
-                return this.ReportFontField;
-            }
-            set {
-                if ((this.ReportFontField.Equals(value) != true)) {
-                    this.ReportFontField = value;
-                    this.RaisePropertyChanged("ReportFont");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblJob {
-            get {
-                return this.TblJobField;
-            }
-            set {
-                if ((this.TblJobField.Equals(value) != true)) {
-                    this.TblJobField = value;
-                    this.RaisePropertyChanged("TblJob");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header> TblPO1Header {
-            get {
-                return this.TblPO1HeaderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPO1HeaderField, value) != true)) {
-                    this.TblPO1HeaderField = value;
-                    this.RaisePropertyChanged("TblPO1Header");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOHeader> TblPOHeaders {
-            get {
-                return this.TblPOHeadersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblPOHeadersField, value) != true)) {
-                    this.TblPOHeadersField = value;
-                    this.RaisePropertyChanged("TblPOHeaders");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tel1 {
-            get {
-                return this.Tel1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tel1Field, value) != true)) {
-                    this.Tel1Field = value;
-                    this.RaisePropertyChanged("Tel1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tel2 {
-            get {
-                return this.Tel2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tel2Field, value) != true)) {
-                    this.Tel2Field = value;
-                    this.RaisePropertyChanged("Tel2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserPassword {
-            get {
-                return this.UserPasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserPasswordField, value) != true)) {
-                    this.UserPasswordField = value;
-                    this.RaisePropertyChanged("UserPassword");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int iserial {
-            get {
-                return this.iserialField;
-            }
-            set {
-                if ((this.iserialField.Equals(value) != true)) {
-                    this.iserialField = value;
-                    this.RaisePropertyChanged("iserial");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblRecInvDetail : CCWFM.BankDepositService.EntityObject {
-        
-        private System.Nullable<decimal> CostField;
+        private System.Nullable<System.DateTime> DeliveryDateField;
         
         private int DserialField;
         
-        private System.Nullable<int> FlgField;
+        private System.Nullable<float> ItemSalesTaxField;
         
-        private int GlserialField;
+        private System.Nullable<float> ItmCommericalDiscField;
         
-        private System.Nullable<decimal> MiscField;
+        private System.Nullable<decimal> ItmDisField;
+        
+        private string NotesField;
+        
+        private System.Nullable<float> QtyRecField;
+        
+        private System.Nullable<float> QuantityField;
+        
+        private System.Nullable<int> StatusField;
         
         private CCWFM.BankDepositService.TBLITEMprice TBLITEMpriceField;
         
         private CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReferenceField;
         
-        private System.Nullable<int> TblRecInvHeaderField;
+        private CCWFM.BankDepositService.TblPOHeader TblPOHeaderField;
         
-        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
+        private CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO TblPOHeaderReferenceField;
         
-        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
+        private string barcodeField;
         
-        private int TblitemField;
+        private int glserialField;
+        
+        private System.Nullable<int> tblitemField;
+        
+        private System.Nullable<decimal> totpricewvatField;
+        
+        private System.Nullable<decimal> totvatField;
+        
+        private System.Nullable<decimal> totwotField;
+        
+        private System.Nullable<decimal> ucostwotField;
+        
+        private System.Nullable<decimal> ucostwvatField;
+        
+        private System.Nullable<decimal> unitvatField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Cost {
+        public System.Nullable<decimal> AddExp {
             get {
-                return this.CostField;
+                return this.AddExpField;
             }
             set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
+                if ((this.AddExpField.Equals(value) != true)) {
+                    this.AddExpField = value;
+                    this.RaisePropertyChanged("AddExp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DeliveryDate {
+            get {
+                return this.DeliveryDateField;
+            }
+            set {
+                if ((this.DeliveryDateField.Equals(value) != true)) {
+                    this.DeliveryDateField = value;
+                    this.RaisePropertyChanged("DeliveryDate");
                 }
             }
         }
@@ -21892,252 +24757,79 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Flg {
+        public System.Nullable<float> ItemSalesTax {
             get {
-                return this.FlgField;
+                return this.ItemSalesTaxField;
             }
             set {
-                if ((this.FlgField.Equals(value) != true)) {
-                    this.FlgField = value;
-                    this.RaisePropertyChanged("Flg");
+                if ((this.ItemSalesTaxField.Equals(value) != true)) {
+                    this.ItemSalesTaxField = value;
+                    this.RaisePropertyChanged("ItemSalesTax");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Glserial {
+        public System.Nullable<float> ItmCommericalDisc {
             get {
-                return this.GlserialField;
+                return this.ItmCommericalDiscField;
             }
             set {
-                if ((this.GlserialField.Equals(value) != true)) {
-                    this.GlserialField = value;
-                    this.RaisePropertyChanged("Glserial");
+                if ((this.ItmCommericalDiscField.Equals(value) != true)) {
+                    this.ItmCommericalDiscField = value;
+                    this.RaisePropertyChanged("ItmCommericalDisc");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Misc {
+        public System.Nullable<decimal> ItmDis {
             get {
-                return this.MiscField;
+                return this.ItmDisField;
             }
             set {
-                if ((this.MiscField.Equals(value) != true)) {
-                    this.MiscField = value;
-                    this.RaisePropertyChanged("Misc");
+                if ((this.ItmDisField.Equals(value) != true)) {
+                    this.ItmDisField = value;
+                    this.RaisePropertyChanged("ItmDis");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TBLITEMprice TBLITEMprice {
+        public string Notes {
             get {
-                return this.TBLITEMpriceField;
+                return this.NotesField;
             }
             set {
-                if ((object.ReferenceEquals(this.TBLITEMpriceField, value) != true)) {
-                    this.TBLITEMpriceField = value;
-                    this.RaisePropertyChanged("TBLITEMprice");
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReference {
+        public System.Nullable<float> QtyRec {
             get {
-                return this.TBLITEMpriceReferenceField;
+                return this.QtyRecField;
             }
             set {
-                if ((object.ReferenceEquals(this.TBLITEMpriceReferenceField, value) != true)) {
-                    this.TBLITEMpriceReferenceField = value;
-                    this.RaisePropertyChanged("TBLITEMpriceReference");
+                if ((this.QtyRecField.Equals(value) != true)) {
+                    this.QtyRecField = value;
+                    this.RaisePropertyChanged("QtyRec");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblRecInvHeader {
+        public System.Nullable<float> Quantity {
             get {
-                return this.TblRecInvHeaderField;
+                return this.QuantityField;
             }
             set {
-                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
-                    this.TblRecInvHeaderField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
-            get {
-                return this.TblRecInvHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
-                    this.TblRecInvHeader1Field = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
-            get {
-                return this.TblRecInvHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
-                    this.TblRecInvHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Tblitem {
-            get {
-                return this.TblitemField;
-            }
-            set {
-                if ((this.TblitemField.Equals(value) != true)) {
-                    this.TblitemField = value;
-                    this.RaisePropertyChanged("Tblitem");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeader", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblRecInvHeader : CCWFM.BankDepositService.EntityObject {
-        
-        private string CodeField;
-        
-        private System.Nullable<System.DateTime> CreationDateField;
-        
-        private int IserialField;
-        
-        private System.Nullable<decimal> MiscField;
-        
-        private System.Nullable<decimal> MiscWithoutItemEffectField;
-        
-        private System.Nullable<System.DateTime> PostDateField;
-        
-        private System.Nullable<int> StatusField;
-        
-        private string SupplierInvField;
-        
-        private CCWFM.BankDepositService.TBLsupplier TBLsupplier1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1ReferenceField;
-        
-        private System.Nullable<int> TblAccountField;
-        
-        private CCWFM.BankDepositService.TblAccount TblAccount1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccount1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetailsField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink> TblRecInvHeaderLinksField;
-        
-        private int TblRecInvHeaderTypeField;
-        
-        private CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail> TblRecInvMainDetailsField;
-        
-        private System.Nullable<int> TblStoreField;
-        
-        private CCWFM.BankDepositService.TblStore TblStore1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1ReferenceField;
-        
-        private int TblSupplierField;
-        
-        private System.Nullable<int> TblUserField;
-        
-        private System.Nullable<System.DateTime> TransDateField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreationDate {
-            get {
-                return this.CreationDateField;
-            }
-            set {
-                if ((this.CreationDateField.Equals(value) != true)) {
-                    this.CreationDateField = value;
-                    this.RaisePropertyChanged("CreationDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Misc {
-            get {
-                return this.MiscField;
-            }
-            set {
-                if ((this.MiscField.Equals(value) != true)) {
-                    this.MiscField = value;
-                    this.RaisePropertyChanged("Misc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> MiscWithoutItemEffect {
-            get {
-                return this.MiscWithoutItemEffectField;
-            }
-            set {
-                if ((this.MiscWithoutItemEffectField.Equals(value) != true)) {
-                    this.MiscWithoutItemEffectField = value;
-                    this.RaisePropertyChanged("MiscWithoutItemEffect");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> PostDate {
-            get {
-                return this.PostDateField;
-            }
-            set {
-                if ((this.PostDateField.Equals(value) != true)) {
-                    this.PostDateField = value;
-                    this.RaisePropertyChanged("PostDate");
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
                 }
             }
         }
@@ -22156,503 +24848,6 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SupplierInv {
-            get {
-                return this.SupplierInvField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SupplierInvField, value) != true)) {
-                    this.SupplierInvField = value;
-                    this.RaisePropertyChanged("SupplierInv");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TBLsupplier TBLsupplier1 {
-            get {
-                return this.TBLsupplier1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1Field, value) != true)) {
-                    this.TBLsupplier1Field = value;
-                    this.RaisePropertyChanged("TBLsupplier1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO TBLsupplier1Reference {
-            get {
-                return this.TBLsupplier1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TBLsupplier1ReferenceField, value) != true)) {
-                    this.TBLsupplier1ReferenceField = value;
-                    this.RaisePropertyChanged("TBLsupplier1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblAccount {
-            get {
-                return this.TblAccountField;
-            }
-            set {
-                if ((this.TblAccountField.Equals(value) != true)) {
-                    this.TblAccountField = value;
-                    this.RaisePropertyChanged("TblAccount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblAccount TblAccount1 {
-            get {
-                return this.TblAccount1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblAccount1Field, value) != true)) {
-                    this.TblAccount1Field = value;
-                    this.RaisePropertyChanged("TblAccount1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblAccounto0bgEGGO TblAccount1Reference {
-            get {
-                return this.TblAccount1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblAccount1ReferenceField, value) != true)) {
-                    this.TblAccount1ReferenceField = value;
-                    this.RaisePropertyChanged("TblAccount1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail> TblRecInvDetails {
-            get {
-                return this.TblRecInvDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvDetailsField, value) != true)) {
-                    this.TblRecInvDetailsField = value;
-                    this.RaisePropertyChanged("TblRecInvDetails");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink> TblRecInvHeaderLinks {
-            get {
-                return this.TblRecInvHeaderLinksField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeaderLinksField, value) != true)) {
-                    this.TblRecInvHeaderLinksField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaderLinks");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblRecInvHeaderType {
-            get {
-                return this.TblRecInvHeaderTypeField;
-            }
-            set {
-                if ((this.TblRecInvHeaderTypeField.Equals(value) != true)) {
-                    this.TblRecInvHeaderTypeField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaderType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblRecInvHeaderType TblRecInvHeaderType1 {
-            get {
-                return this.TblRecInvHeaderType1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeaderType1Field, value) != true)) {
-                    this.TblRecInvHeaderType1Field = value;
-                    this.RaisePropertyChanged("TblRecInvHeaderType1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO TblRecInvHeaderType1Reference {
-            get {
-                return this.TblRecInvHeaderType1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeaderType1ReferenceField, value) != true)) {
-                    this.TblRecInvHeaderType1ReferenceField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaderType1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail> TblRecInvMainDetails {
-            get {
-                return this.TblRecInvMainDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvMainDetailsField, value) != true)) {
-                    this.TblRecInvMainDetailsField = value;
-                    this.RaisePropertyChanged("TblRecInvMainDetails");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblStore {
-            get {
-                return this.TblStoreField;
-            }
-            set {
-                if ((this.TblStoreField.Equals(value) != true)) {
-                    this.TblStoreField = value;
-                    this.RaisePropertyChanged("TblStore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblStore TblStore1 {
-            get {
-                return this.TblStore1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblStore1Field, value) != true)) {
-                    this.TblStore1Field = value;
-                    this.RaisePropertyChanged("TblStore1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO TblStore1Reference {
-            get {
-                return this.TblStore1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblStore1ReferenceField, value) != true)) {
-                    this.TblStore1ReferenceField = value;
-                    this.RaisePropertyChanged("TblStore1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblSupplier {
-            get {
-                return this.TblSupplierField;
-            }
-            set {
-                if ((this.TblSupplierField.Equals(value) != true)) {
-                    this.TblSupplierField = value;
-                    this.RaisePropertyChanged("TblSupplier");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblUser {
-            get {
-                return this.TblUserField;
-            }
-            set {
-                if ((this.TblUserField.Equals(value) != true)) {
-                    this.TblUserField = value;
-                    this.RaisePropertyChanged("TblUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> TransDate {
-            get {
-                return this.TransDateField;
-            }
-            set {
-                if ((this.TransDateField.Equals(value) != true)) {
-                    this.TransDateField = value;
-                    this.RaisePropertyChanged("TransDate");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeaderLink", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblRecInvHeaderLink : CCWFM.BankDepositService.EntityObject {
-        
-        private int IserialField;
-        
-        private int TblRecInvHeaderField;
-        
-        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
-        
-        private System.Nullable<int> TblRecInvHeaderTypeField;
-        
-        private int tblrecieveHeaderField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TblRecInvHeader {
-            get {
-                return this.TblRecInvHeaderField;
-            }
-            set {
-                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
-                    this.TblRecInvHeaderField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
-            get {
-                return this.TblRecInvHeader1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
-                    this.TblRecInvHeader1Field = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
-            get {
-                return this.TblRecInvHeader1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
-                    this.TblRecInvHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblRecInvHeaderType {
-            get {
-                return this.TblRecInvHeaderTypeField;
-            }
-            set {
-                if ((this.TblRecInvHeaderTypeField.Equals(value) != true)) {
-                    this.TblRecInvHeaderTypeField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaderType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int tblrecieveHeader {
-            get {
-                return this.tblrecieveHeaderField;
-            }
-            set {
-                if ((this.tblrecieveHeaderField.Equals(value) != true)) {
-                    this.tblrecieveHeaderField = value;
-                    this.RaisePropertyChanged("tblrecieveHeader");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvHeaderType", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblRecInvHeaderType : CCWFM.BankDepositService.EntityObject {
-        
-        private string AnameField;
-        
-        private string CodeField;
-        
-        private string EnameField;
-        
-        private int IserialField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeadersField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
-            get {
-                return this.EnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader> TblRecInvHeaders {
-            get {
-                return this.TblRecInvHeadersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblRecInvHeadersField, value) != true)) {
-                    this.TblRecInvHeadersField = value;
-                    this.RaisePropertyChanged("TblRecInvHeaders");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblRecInvMainDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblRecInvMainDetail : CCWFM.BankDepositService.EntityObject {
-        
-        private decimal CostField;
-        
-        private int IserialField;
-        
-        private System.Nullable<decimal> MiscField;
-        
-        private decimal QtyField;
-        
-        private CCWFM.BankDepositService.TBLITEMprice TBLITEMpriceField;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO TBLITEMpriceReferenceField;
-        
-        private System.Nullable<int> TblCurrencyField;
-        
-        private CCWFM.BankDepositService.TblCurrencyTest TblCurrency1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1ReferenceField;
-        
-        private System.Nullable<int> TblItemField;
-        
-        private System.Nullable<int> TblRecInvHeaderField;
-        
-        private CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1ReferenceField;
-        
-        private System.Nullable<int> TblSTaxField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Misc {
-            get {
-                return this.MiscField;
-            }
-            set {
-                if ((this.MiscField.Equals(value) != true)) {
-                    this.MiscField = value;
-                    this.RaisePropertyChanged("Misc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Qty {
-            get {
-                return this.QtyField;
-            }
-            set {
-                if ((this.QtyField.Equals(value) != true)) {
-                    this.QtyField = value;
-                    this.RaisePropertyChanged("Qty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public CCWFM.BankDepositService.TBLITEMprice TBLITEMprice {
             get {
                 return this.TBLITEMpriceField;
@@ -22679,342 +24874,144 @@ namespace CCWFM.BankDepositService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblCurrency {
+        public CCWFM.BankDepositService.TblPOHeader TblPOHeader {
             get {
-                return this.TblCurrencyField;
+                return this.TblPOHeaderField;
             }
             set {
-                if ((this.TblCurrencyField.Equals(value) != true)) {
-                    this.TblCurrencyField = value;
-                    this.RaisePropertyChanged("TblCurrency");
+                if ((object.ReferenceEquals(this.TblPOHeaderField, value) != true)) {
+                    this.TblPOHeaderField = value;
+                    this.RaisePropertyChanged("TblPOHeader");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblCurrencyTest TblCurrency1 {
+        public CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO TblPOHeaderReference {
             get {
-                return this.TblCurrency1Field;
+                return this.TblPOHeaderReferenceField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblCurrency1Field, value) != true)) {
-                    this.TblCurrency1Field = value;
-                    this.RaisePropertyChanged("TblCurrency1");
+                if ((object.ReferenceEquals(this.TblPOHeaderReferenceField, value) != true)) {
+                    this.TblPOHeaderReferenceField = value;
+                    this.RaisePropertyChanged("TblPOHeaderReference");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblCurrencyTesto0bgEGGO TblCurrency1Reference {
+        public string barcode {
             get {
-                return this.TblCurrency1ReferenceField;
+                return this.barcodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblCurrency1ReferenceField, value) != true)) {
-                    this.TblCurrency1ReferenceField = value;
-                    this.RaisePropertyChanged("TblCurrency1Reference");
+                if ((object.ReferenceEquals(this.barcodeField, value) != true)) {
+                    this.barcodeField = value;
+                    this.RaisePropertyChanged("barcode");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblItem {
+        public int glserial {
             get {
-                return this.TblItemField;
+                return this.glserialField;
             }
             set {
-                if ((this.TblItemField.Equals(value) != true)) {
-                    this.TblItemField = value;
-                    this.RaisePropertyChanged("TblItem");
+                if ((this.glserialField.Equals(value) != true)) {
+                    this.glserialField = value;
+                    this.RaisePropertyChanged("glserial");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblRecInvHeader {
+        public System.Nullable<int> tblitem {
             get {
-                return this.TblRecInvHeaderField;
+                return this.tblitemField;
             }
             set {
-                if ((this.TblRecInvHeaderField.Equals(value) != true)) {
-                    this.TblRecInvHeaderField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader");
+                if ((this.tblitemField.Equals(value) != true)) {
+                    this.tblitemField = value;
+                    this.RaisePropertyChanged("tblitem");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblRecInvHeader TblRecInvHeader1 {
+        public System.Nullable<decimal> totpricewvat {
             get {
-                return this.TblRecInvHeader1Field;
+                return this.totpricewvatField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1Field, value) != true)) {
-                    this.TblRecInvHeader1Field = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1");
+                if ((this.totpricewvatField.Equals(value) != true)) {
+                    this.totpricewvatField = value;
+                    this.RaisePropertyChanged("totpricewvat");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO TblRecInvHeader1Reference {
+        public System.Nullable<decimal> totvat {
             get {
-                return this.TblRecInvHeader1ReferenceField;
+                return this.totvatField;
             }
             set {
-                if ((object.ReferenceEquals(this.TblRecInvHeader1ReferenceField, value) != true)) {
-                    this.TblRecInvHeader1ReferenceField = value;
-                    this.RaisePropertyChanged("TblRecInvHeader1Reference");
+                if ((this.totvatField.Equals(value) != true)) {
+                    this.totvatField = value;
+                    this.RaisePropertyChanged("totvat");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblSTax {
+        public System.Nullable<decimal> totwot {
             get {
-                return this.TblSTaxField;
+                return this.totwotField;
             }
             set {
-                if ((this.TblSTaxField.Equals(value) != true)) {
-                    this.TblSTaxField = value;
-                    this.RaisePropertyChanged("TblSTax");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblMarkup", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblMarkup : CCWFM.BankDepositService.EntityObject {
-        
-        private string AnameField;
-        
-        private string CodeField;
-        
-        private string EnameField;
-        
-        private int IserialField;
-        
-        private bool ItemEffectField;
-        
-        private System.Nullable<int> TblMarkupGroupField;
-        
-        private CCWFM.BankDepositService.TblMarkupGroup TblMarkupGroup1Field;
-        
-        private CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO TblMarkupGroup1ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkupTran> TblMarkupTransField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
+                if ((this.totwotField.Equals(value) != true)) {
+                    this.totwotField = value;
+                    this.RaisePropertyChanged("totwot");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
+        public System.Nullable<decimal> ucostwot {
             get {
-                return this.CodeField;
+                return this.ucostwotField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
+                if ((this.ucostwotField.Equals(value) != true)) {
+                    this.ucostwotField = value;
+                    this.RaisePropertyChanged("ucostwot");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
+        public System.Nullable<decimal> ucostwvat {
             get {
-                return this.EnameField;
+                return this.ucostwvatField;
             }
             set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
+                if ((this.ucostwvatField.Equals(value) != true)) {
+                    this.ucostwvatField = value;
+                    this.RaisePropertyChanged("ucostwvat");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
+        public System.Nullable<decimal> unitvat {
             get {
-                return this.IserialField;
+                return this.unitvatField;
             }
             set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool ItemEffect {
-            get {
-                return this.ItemEffectField;
-            }
-            set {
-                if ((this.ItemEffectField.Equals(value) != true)) {
-                    this.ItemEffectField = value;
-                    this.RaisePropertyChanged("ItemEffect");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> TblMarkupGroup {
-            get {
-                return this.TblMarkupGroupField;
-            }
-            set {
-                if ((this.TblMarkupGroupField.Equals(value) != true)) {
-                    this.TblMarkupGroupField = value;
-                    this.RaisePropertyChanged("TblMarkupGroup");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.TblMarkupGroup TblMarkupGroup1 {
-            get {
-                return this.TblMarkupGroup1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblMarkupGroup1Field, value) != true)) {
-                    this.TblMarkupGroup1Field = value;
-                    this.RaisePropertyChanged("TblMarkupGroup1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO TblMarkupGroup1Reference {
-            get {
-                return this.TblMarkupGroup1ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblMarkupGroup1ReferenceField, value) != true)) {
-                    this.TblMarkupGroup1ReferenceField = value;
-                    this.RaisePropertyChanged("TblMarkupGroup1Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkupTran> TblMarkupTrans {
-            get {
-                return this.TblMarkupTransField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblMarkupTransField, value) != true)) {
-                    this.TblMarkupTransField = value;
-                    this.RaisePropertyChanged("TblMarkupTrans");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TblMarkupGroup", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
-    public partial class TblMarkupGroup : CCWFM.BankDepositService.EntityObject {
-        
-        private string AnameField;
-        
-        private string CodeField;
-        
-        private int DirectionField;
-        
-        private string EnameField;
-        
-        private int IserialField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup> TblMarkupsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Aname {
-            get {
-                return this.AnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnameField, value) != true)) {
-                    this.AnameField = value;
-                    this.RaisePropertyChanged("Aname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code {
-            get {
-                return this.CodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Direction {
-            get {
-                return this.DirectionField;
-            }
-            set {
-                if ((this.DirectionField.Equals(value) != true)) {
-                    this.DirectionField = value;
-                    this.RaisePropertyChanged("Direction");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ename {
-            get {
-                return this.EnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EnameField, value) != true)) {
-                    this.EnameField = value;
-                    this.RaisePropertyChanged("Ename");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Iserial {
-            get {
-                return this.IserialField;
-            }
-            set {
-                if ((this.IserialField.Equals(value) != true)) {
-                    this.IserialField = value;
-                    this.RaisePropertyChanged("Iserial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup> TblMarkups {
-            get {
-                return this.TblMarkupsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TblMarkupsField, value) != true)) {
-                    this.TblMarkupsField = value;
-                    this.RaisePropertyChanged("TblMarkups");
+                if ((this.unitvatField.Equals(value) != true)) {
+                    this.unitvatField = value;
+                    this.RaisePropertyChanged("unitvat");
                 }
             }
         }
@@ -26658,6 +28655,8 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.DataContractAttribute(Name="TblPromoDetail", Namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model", IsReference=true)]
     public partial class TblPromoDetail : CCWFM.BankDepositService.EntityObject {
         
+        private System.Nullable<decimal> AvailableLimitField;
+        
         private string CodeField;
         
         private int GlserialField;
@@ -26683,6 +28682,19 @@ namespace CCWFM.BankDepositService {
         private CCWFM.BankDepositService.EntityReferenceOfTblPromoHeadero0bgEGGO TblPromoHeader1ReferenceField;
         
         private System.Nullable<System.DateTime> UseDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AvailableLimit {
+            get {
+                return this.AvailableLimitField;
+            }
+            set {
+                if ((this.AvailableLimitField.Equals(value) != true)) {
+                    this.AvailableLimitField = value;
+                    this.RaisePropertyChanged("AvailableLimit");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Code {
@@ -28073,11 +30085,20 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalSettingCostCenter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblJournalType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblJournal>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader1>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail1>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerMainDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerDetail1CostCenter>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerDetail1CostCenter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerHeaderAttachment>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblLedgerHeaderAttachment))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblLedgerMainDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblTenderType>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblTenderType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblCostDimSetupHeader>))]
@@ -28095,17 +30116,16 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGroupAccountLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblGroupAccountLink))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMethodOfPayment>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMethodOfPayment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPostingProfileDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPostingProfileHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkupTran>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupTran))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLITEMprice))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TBLSTORETRAN>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLSTORETRAN))]
@@ -28132,11 +30152,25 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblSizeRetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblSizeLink>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblSizeLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Header>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Header))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TBLsupplier))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeader))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1MainDetail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1MainDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Detail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPOMainDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPOMainDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPositionRoute>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPositionRoute))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPositionRouteHeader))]
@@ -28151,15 +30185,6 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblStorePromoDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPromoDetail>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPromoDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeader>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeader))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvDetail>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvHeaderLink>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderLink))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvHeaderType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblRecInvMainDetail>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblRecInvMainDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblSalaryApprovalHeader>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblSalaryApprovalHeader))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblSalaryApprovalDetail>))]
@@ -28173,11 +30198,6 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.tblsalesdailycommision))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMultipleBc>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMultipleBc))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblPO1Detail>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblPO1Detail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkup))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.TblMarkupGroup))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblMarkup>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.tblcurrencydailyexchange>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.tblcurrencydailyexchange))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<CCWFM.BankDepositService.TblGlBankDeposit>))]
@@ -28240,6 +30260,9 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSequenceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeader1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblCashDepositTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblTenderTypeo0bgEGGO))]
@@ -28249,7 +30272,8 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlRuleMainDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPostingProfileHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlCashTypeSettingo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblItemDownLoadDefo0bgEGGO))]
@@ -28259,23 +30283,21 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblColorTesto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSizeRetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPositionRouteHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoCriteriao0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreCommissiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblVisaMachineo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankStatHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
@@ -28361,6 +30383,9 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSequenceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeader1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblCashDepositTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblTenderTypeo0bgEGGO))]
@@ -28370,7 +30395,8 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlRuleMainDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPostingProfileHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlCashTypeSettingo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblItemDownLoadDefo0bgEGGO))]
@@ -28380,23 +30406,21 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblColorTesto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSizeRetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPositionRouteHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoCriteriao0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreCommissiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblVisaMachineo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankStatHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
@@ -28452,6 +30476,9 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSequenceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalSettingo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblJournalTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerMainDetail1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeader1o0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblLedgerHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblCashDepositTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblTenderTypeo0bgEGGO))]
@@ -28461,7 +30488,8 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlRuleMainDetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPostingProfileHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblGlCashTypeSettingo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLITEMpriceo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblItemDownLoadDefo0bgEGGO))]
@@ -28471,23 +30499,21 @@ namespace CCWFM.BankDepositService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblColorTesto0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSizeRetailo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLsuppliero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPOHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblUsero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPositionRouteHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoCriteriao0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPromoHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeadero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblSalaryTypeo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblStoreCommissiono0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblVisaMachineo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1MainDetailo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblPO1Headero0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupGroupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMarkupo0bgEGGO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblMethodOfPaymento0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankStatHeadero0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CCWFM.BankDepositService.EntityReferenceOfTblInventAccountTypeo0bgEGGO))]
@@ -28665,6 +30691,24 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblLedgerMainDetail1o0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblLedgerMainDetail1o0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblLedgerHeader1o0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblLedgerHeader1o0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMethodOfPaymento0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblMethodOfPaymento0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblLedgerHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblLedgerHeadero0bgEGGO : CCWFM.BankDepositService.EntityReference {
     }
@@ -28719,8 +30763,14 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTBLsuppliero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTBLsuppliero0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMarkupGroupo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblMarkupGroupo0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMarkupo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblMarkupo0bgEGGO : CCWFM.BankDepositService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -28779,6 +30829,36 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTBLsuppliero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTBLsuppliero0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblRecInvHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblRecInvHeadero0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPO1MainDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPO1MainDetailo0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPO1Headero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfTblPO1Headero0bgEGGO : CCWFM.BankDepositService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPOHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblPOHeadero0bgEGGO : CCWFM.BankDepositService.EntityReference {
     }
@@ -28815,18 +30895,6 @@ namespace CCWFM.BankDepositService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblRecInvHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblRecInvHeadero0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO : CCWFM.BankDepositService.EntityReference {
     }
@@ -28841,36 +30909,6 @@ namespace CCWFM.BankDepositService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblVisaMachineo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     public partial class EntityReferenceOfTblVisaMachineo0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPO1MainDetailo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPO1MainDetailo0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblPO1Headero0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblPO1Headero0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMarkupGroupo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblMarkupGroupo0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMarkupo0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblMarkupo0bgEGGO : CCWFM.BankDepositService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfTblMethodOfPaymento0bgEGGO", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfTblMethodOfPaymento0bgEGGO : CCWFM.BankDepositService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -28977,6 +31015,11 @@ namespace CCWFM.BankDepositService {
         System.IAsyncResult BeginGetPremium2030BankIserial(string company, System.AsyncCallback callback, object asyncState);
         
         int EndGetPremium2030BankIserial(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:BankDepositService/GetForsaBankIserialIserial", ReplyAction="urn:BankDepositService/GetForsaBankIserialIserialResponse")]
+        System.IAsyncResult BeginGetForsaBankIserialIserial(string company, System.AsyncCallback callback, object asyncState);
+        
+        int EndGetForsaBankIserialIserial(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:BankDepositService/GetTFKDiscountBankIserial", ReplyAction="urn:BankDepositService/GetTFKDiscountBankIserialResponse")]
         System.IAsyncResult BeginGetTFKDiscountBankIserial(string company, System.AsyncCallback callback, object asyncState);
@@ -29324,6 +31367,25 @@ namespace CCWFM.BankDepositService {
         private object[] results;
         
         public GetPremium2030BankIserialCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetForsaBankIserialIserialCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetForsaBankIserialIserialCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -29764,6 +31826,12 @@ namespace CCWFM.BankDepositService {
         
         private System.Threading.SendOrPostCallback onGetPremium2030BankIserialCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetForsaBankIserialIserialDelegate;
+        
+        private EndOperationDelegate onEndGetForsaBankIserialIserialDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetForsaBankIserialIserialCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetTFKDiscountBankIserialDelegate;
         
         private EndOperationDelegate onEndGetTFKDiscountBankIserialDelegate;
@@ -29950,6 +32018,8 @@ namespace CCWFM.BankDepositService {
         public event System.EventHandler<GetPremiumBankIserialCompletedEventArgs> GetPremiumBankIserialCompleted;
         
         public event System.EventHandler<GetPremium2030BankIserialCompletedEventArgs> GetPremium2030BankIserialCompleted;
+        
+        public event System.EventHandler<GetForsaBankIserialIserialCompletedEventArgs> GetForsaBankIserialIserialCompleted;
         
         public event System.EventHandler<GetTFKDiscountBankIserialCompletedEventArgs> GetTFKDiscountBankIserialCompleted;
         
@@ -30658,6 +32728,52 @@ namespace CCWFM.BankDepositService {
             }
             base.InvokeAsync(this.onBeginGetPremium2030BankIserialDelegate, new object[] {
                         company}, this.onEndGetPremium2030BankIserialDelegate, this.onGetPremium2030BankIserialCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult CCWFM.BankDepositService.BankDepositService.BeginGetForsaBankIserialIserial(string company, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetForsaBankIserialIserial(company, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int CCWFM.BankDepositService.BankDepositService.EndGetForsaBankIserialIserial(System.IAsyncResult result) {
+            return base.Channel.EndGetForsaBankIserialIserial(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetForsaBankIserialIserial(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string company = ((string)(inValues[0]));
+            return ((CCWFM.BankDepositService.BankDepositService)(this)).BeginGetForsaBankIserialIserial(company, callback, asyncState);
+        }
+        
+        private object[] OnEndGetForsaBankIserialIserial(System.IAsyncResult result) {
+            int retVal = ((CCWFM.BankDepositService.BankDepositService)(this)).EndGetForsaBankIserialIserial(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetForsaBankIserialIserialCompleted(object state) {
+            if ((this.GetForsaBankIserialIserialCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetForsaBankIserialIserialCompleted(this, new GetForsaBankIserialIserialCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetForsaBankIserialIserialAsync(string company) {
+            this.GetForsaBankIserialIserialAsync(company, null);
+        }
+        
+        public void GetForsaBankIserialIserialAsync(string company, object userState) {
+            if ((this.onBeginGetForsaBankIserialIserialDelegate == null)) {
+                this.onBeginGetForsaBankIserialIserialDelegate = new BeginOperationDelegate(this.OnBeginGetForsaBankIserialIserial);
+            }
+            if ((this.onEndGetForsaBankIserialIserialDelegate == null)) {
+                this.onEndGetForsaBankIserialIserialDelegate = new EndOperationDelegate(this.OnEndGetForsaBankIserialIserial);
+            }
+            if ((this.onGetForsaBankIserialIserialCompletedDelegate == null)) {
+                this.onGetForsaBankIserialIserialCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetForsaBankIserialIserialCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetForsaBankIserialIserialDelegate, new object[] {
+                        company}, this.onEndGetForsaBankIserialIserialDelegate, this.onGetForsaBankIserialIserialCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -31835,6 +33951,19 @@ namespace CCWFM.BankDepositService {
             public int EndGetPremium2030BankIserial(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 int _result = ((int)(base.EndInvoke("GetPremium2030BankIserial", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetForsaBankIserialIserial(string company, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = company;
+                System.IAsyncResult _result = base.BeginInvoke("GetForsaBankIserialIserial", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndGetForsaBankIserialIserial(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("GetForsaBankIserialIserial", _args, result)));
                 return _result;
             }
             

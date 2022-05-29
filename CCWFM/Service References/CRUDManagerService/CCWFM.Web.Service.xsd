@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfItemsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemsDto" nillable="true" type="tns:ItemsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemsDto" nillable="true" type="tns:ArrayOfItemsDto" />
+  <xs:complexType name="ItemsDto">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AccConfigList" nillable="true" type="q1:ArrayOfTblColor" />
+      <xs:element minOccurs="0" name="Batch" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="CombinationList" nillable="true" type="q2:ArrayOftbl_AccessoryAttributesDetails" />
+      <xs:element minOccurs="0" name="Config" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Images" nillable="true" type="tns:ArrayOfImageDto" />
+      <xs:element minOccurs="0" name="IsSizeIncluded" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Size" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SizesList" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemsDto" nillable="true" type="tns:ItemsDto" />
+  <xs:complexType name="ArrayOfImageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageDto" nillable="true" type="tns:ImageDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageDto" nillable="true" type="tns:ArrayOfImageDto" />
+  <xs:complexType name="ImageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageDto" nillable="true" type="tns:ImageDto" />
+  <xs:complexType name="ArrayOfCRUD_ManagerService.SalesOrderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CRUD_ManagerService.SalesOrderDto" nillable="true" type="tns:CRUD_ManagerService.SalesOrderDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCRUD_ManagerService.SalesOrderDto" nillable="true" type="tns:ArrayOfCRUD_ManagerService.SalesOrderDto" />
+  <xs:complexType name="CRUD_ManagerService.SalesOrderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FinalQty" type="xs:float" />
+      <xs:element minOccurs="0" name="IntialQty" type="xs:float" />
+      <xs:element minOccurs="0" name="SalesOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesOrderColor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRUD_ManagerService.SalesOrderDto" nillable="true" type="tns:CRUD_ManagerService.SalesOrderDto" />
+  <xs:complexType name="ArrayOfSizesWithGroups">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SizesWithGroups" nillable="true" type="tns:SizesWithGroups" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSizesWithGroups" nillable="true" type="tns:ArrayOfSizesWithGroups" />
+  <xs:complexType name="SizesWithGroups">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SizeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StyleCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SizesWithGroups" nillable="true" type="tns:SizesWithGroups" />
+  <xs:complexType name="ArrayOfCRUD_ManagerService.AxItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CRUD_ManagerService.AxItem" nillable="true" type="tns:CRUD_ManagerService.AxItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCRUD_ManagerService.AxItem" nillable="true" type="tns:ArrayOfCRUD_ManagerService.AxItem" />
+  <xs:complexType name="CRUD_ManagerService.AxItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InventoryUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRUD_ManagerService.AxItem" nillable="true" type="tns:CRUD_ManagerService.AxItem" />
+  <xs:complexType name="ArrayOfGenericTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenericTable" nillable="true" type="tns:GenericTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenericTable" nillable="true" type="tns:ArrayOfGenericTable" />
+  <xs:complexType name="GenericTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenericTable" nillable="true" type="tns:GenericTable" />
+  <xs:complexType name="CRUD_ManagerService.PurchaseOrderDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BatchNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FabricColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineNumber" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:float" />
+      <xs:element minOccurs="0" name="SalesOrdersList" nillable="true" type="tns:ArrayOfCRUD_ManagerService.SalesOrderDto" />
+      <xs:element minOccurs="0" name="Site" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TblBrandSection" type="xs:int" />
+      <xs:element minOccurs="0" name="TblSeason" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalPrice" type="xs:float" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" type="xs:float" />
+      <xs:element minOccurs="0" name="Warehouse" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRUD_ManagerService.PurchaseOrderDetailDto" nillable="true" type="tns:CRUD_ManagerService.PurchaseOrderDetailDto" />
+  <xs:complexType name="ArrayOfSMLDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMLDTO" nillable="true" type="tns:SMLDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSMLDTO" nillable="true" type="tns:ArrayOfSMLDTO" />
+  <xs:complexType name="SMLDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrandCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExchangeRate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsSampleRequested" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LandedCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="RFSSerial" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SMLSerial" type="xs:int" />
+      <xs:element minOccurs="0" name="SeasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmlSizes" nillable="true" type="tns:ArrayOfSMLSizesDTO" />
+      <xs:element minOccurs="0" name="StyleCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SMLDTO" nillable="true" type="tns:SMLDTO" />
+  <xs:complexType name="ArrayOfSMLSizesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMLSizesDTO" nillable="true" type="tns:SMLSizesDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSMLSizesDTO" nillable="true" type="tns:ArrayOfSMLSizesDTO" />
+  <xs:complexType name="SMLSizesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="Ratio" type="xs:float" />
+      <xs:element minOccurs="0" name="SizeCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SMLSizesDTO" nillable="true" type="tns:SMLSizesDTO" />
+  <xs:complexType name="ArrayOfCRUD_ManagerService.PurchaseOrderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CRUD_ManagerService.PurchaseOrderDto" nillable="true" type="tns:CRUD_ManagerService.PurchaseOrderDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCRUD_ManagerService.PurchaseOrderDto" nillable="true" type="tns:ArrayOfCRUD_ManagerService.PurchaseOrderDto" />
+  <xs:complexType name="CRUD_ManagerService.PurchaseOrderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JournalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="VendorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRUD_ManagerService.PurchaseOrderDto" nillable="true" type="tns:CRUD_ManagerService.PurchaseOrderDto" />
+  <xs:complexType name="ArrayOfCRUD_ManagerService.PurchaseOrderDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CRUD_ManagerService.PurchaseOrderDetailDto" nillable="true" type="tns:CRUD_ManagerService.PurchaseOrderDetailDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCRUD_ManagerService.PurchaseOrderDetailDto" nillable="true" type="tns:ArrayOfCRUD_ManagerService.PurchaseOrderDetailDto" />
+  <xs:complexType name="ArrayOfGlPosting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GlPosting" nillable="true" type="tns:GlPosting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGlPosting" nillable="true" type="tns:ArrayOfGlPosting" />
+  <xs:complexType name="GlPosting">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="AccountPerRow" nillable="true" type="q4:TblAccount" />
+      <xs:element minOccurs="0" name="AccountTemp" type="xs:int" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostCenterAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CrAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CustIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GroupIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="NetSales" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentMethod" type="xs:int" />
+      <xs:element minOccurs="0" name="StoreIserial" type="xs:int" />
+      <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlPosting" nillable="true" type="tns:GlPosting" />
+</xs:schema>

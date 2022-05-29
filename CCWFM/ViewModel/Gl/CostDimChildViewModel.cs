@@ -58,7 +58,7 @@ namespace CCWFM.ViewModel.Gl
                     try
                     {
                         ledgerHeaderViewModel.SelectedDetailRow.TblCostDimHeader = ev.Result;
-                        ledgerHeaderViewModel.SaveMainRow();
+                        ledgerHeaderViewModel.SaveMainRow(true);
                     }
                     catch (Exception)
                     {

@@ -217,6 +217,22 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     {
                     }
 
+                    try
+                    {
+                        var tblLedgerHeader = entity.TblLedgerHeader1.Where(
+                            x => x.TblSequence == journal.HeaderSequence && x.DocDate.Value.Month == month && x.DocDate.Value.Year == year).OrderByDescending(x => x.Sequence).FirstOrDefault();
+                        if (tblLedgerHeader !=
+                            null) {
+                            if (seq < tblLedgerHeader.Sequence) {
+                                seq = tblLedgerHeader.Sequence;
+                            }
+                        }
+                            //seq = tblLedgerHeader.Sequence;
+                    }
+                    catch (Exception)
+                    {
+                    }
+
                     seqq = seq + 1;
                     temp = seqq.ToString(tempFormat) + month.ToString("00") + year.ToString().Substring(2, 2) + journal.TblSequence.Format;
                 }
@@ -272,6 +288,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
             
             return temp;
         }
+
+
         [OperationContract]
         public TblLedgerHeader UpdateOrInsertTblLedgerHeaders(TblLedgerHeader newRow, bool save, int index, out int outindex, int user, string company, bool validate = false)
         {
@@ -826,7 +844,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private void ImportLedgerMainDetails(List<TblLedgerMainDetail> list, string company)
+        private void ImportLedgerMainDetails(List<TblLedgerMainDetail1> list, string company)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
@@ -918,7 +936,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         }
 
                     }
-                    foreach (var variable in row.TblLedgerDetailCostCenters.Where(x => x.TblCostCenter1.Code != null && x.TblCostCenter1.Code != ""))
+                    foreach (var variable in row.TblLedgerDetail1CostCenter.Where(x => x.TblCostCenter1.Code != null && x.TblCostCenter1.Code != ""))
                     {
                         variable.Amount = (double)row.Amount;
 
@@ -961,7 +979,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         }
                     }
 
-                    var tblLedgerHeader = entity.TblLedgerHeaders.FirstOrDefault(x => x.Iserial == row.TblLedgerHeader);
+                    var tblLedgerHeader = entity.TblLedgerHeader1.FirstOrDefault(x => x.Iserial == row.TblLedgerHeader1);
                     if (tblLedgerHeader != null)
                     {
                         var ledgerheader = tblLedgerHeader.TblJournal;
@@ -970,10 +988,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         row.Code = HandelSequence(row.Code, journal, "TblLedgerMainDetail", company, list.IndexOf(row), 0, 0, out temp);
                     }
 
-                    var newrow = new TblLedgerDetail();
+                    var newrow = new TblLedgerDetail1();
                     newrow.InjectFrom(row);
-                    row.TblLedgerDetails = new EntityCollection<TblLedgerDetail> { newrow };
-                    entity.TblLedgerMainDetails.AddObject(row);
+                    row.TblLedgerDetail1 = new EntityCollection<TblLedgerDetail1> { newrow };
+                    entity.TblLedgerMainDetail1.AddObject(row);
                 }
                 entity.SaveChanges();
             }

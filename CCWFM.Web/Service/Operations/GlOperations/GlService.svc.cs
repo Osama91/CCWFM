@@ -92,24 +92,51 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
        static List<TblCompany> Companies = new List<TblCompany>();
 
+        //private static TblCompany GetCompany(string dbName)
+        //{
+
+        //    TblCompany company;
+        //    if (Companies.Count>0)
+        //    {
+        //        company = Companies.FirstOrDefault(x => x.DbName.ToLowerInvariant() == dbName.ToLowerInvariant());
+        //        return company;
+        //    }
+
+        //    using (var context = new WorkFlowManagerDBEntities())
+        //    {
+        //        company = context.TblCompanies.FirstOrDefault(x => x.DbName.ToLowerInvariant() == dbName.ToLowerInvariant());
+        //        Companies = context.TblCompanies.ToList();
+        //    }
+
+        //    return company;
+        //}
+
         private static TblCompany GetCompany(string dbName)
         {
 
             TblCompany company;
-            if (Companies.Count>0)
+
+            if (Companies.Count == 0)
             {
-                company = Companies.FirstOrDefault(x => x.DbName == dbName);
-                return company;
+                using (var context = new WorkFlowManagerDBEntities())
+                {
+
+                    Companies = context.TblCompanies.ToList();
+                }
             }
 
-            using (var context = new WorkFlowManagerDBEntities())
-            {
-                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
-                Companies = context.TblCompanies.ToList();
-            }
 
+            //if (Companies.Count > 0)
+            //{
+            company = Companies.FirstOrDefault(x => x.DbName.ToLowerInvariant() == dbName.ToLowerInvariant());
             return company;
+            //}
+
+
+
+            //return company;
         }
+
 
         private IEnumerable<string> GenericUpdate<T>(T oldValues, T newValues, ObjectContext entities)
         {

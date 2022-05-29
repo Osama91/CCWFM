@@ -18,6 +18,7 @@ namespace CCWFM.ViewModel.Gl
 {
     public class LedgerHeaderViewModel : ViewModelBase
     {
+       
         public LedgerHeaderViewModel()
         {
             if (!IsDesignTime)
@@ -26,7 +27,7 @@ namespace CCWFM.ViewModel.Gl
                 GetItemPermissions(PermissionItemName.LedgerHeader.ToString());
                 GetCustomePermissions(PermissionItemName.LedgerHeader.ToString());
                 Glclient = new GlServiceClient();
-                Glclient.PostTotalLedgerCompleted += (s, sv) =>
+                Glclient.PostTotalLedger1Completed += (s, sv) =>
                  {
                      try
                      {
@@ -35,7 +36,7 @@ namespace CCWFM.ViewModel.Gl
                      catch (Exception)
                      {                        
                      }
-                     GetDetailData();
+                     GetDetailData(false);
 
                  };
                 Glclient.PrintLedgerHeaderCompleted += (s, sv) =>
@@ -74,6 +75,7 @@ namespace CCWFM.ViewModel.Gl
                     DefaultCostCenterTypeIserial = Convert.ToInt32(sv.Result.FirstOrDefault(x => x.sGlobalSettingCode == "DefaultCostCenterType").sSetupValue);
                 };
                 MainRowList = new SortableCollectionView<TblLedgerHeaderViewModel>();
+                MainRowListUnPosted = new SortableCollectionView<TblLedgerHeaderViewModel>();
                 SelectedMainRow = new TblLedgerHeaderViewModel();
                 var glRuleTypeClient = new GlServiceClient();
                 glRuleTypeClient.GetGenericCompleted += (s, sv) => { CostCenterTypeList = sv.Result; };
@@ -140,10 +142,34 @@ namespace CCWFM.ViewModel.Gl
                     }
                     if (FullCount == 0 && MainRowList.Count == 0)
                     {
-                        AddNewMainRow(false);
+                        AddNewMainRow(false,true);
                     }
                     Loading = false;
                 };
+
+                Glclient.GetTblLedgerHeader1Completed += (s, sv) =>
+                {
+                    foreach (var row in sv.Result)
+                    {
+                        var newrow = new TblLedgerHeaderViewModel();
+                        newrow.InjectFrom(row);
+                        newrow.JournalPerRow = row.TblJournal1;
+
+                        MainRowListUnPosted.Add(newrow);
+                    }
+
+                    FullCount = sv.fullCount;
+                    if (MainRowListUnPosted.Any() && (SelectedMainRow == null))
+                    {
+                        SelectedMainRow = MainRowListUnPosted.FirstOrDefault();
+                    }
+                    if (FullCount == 0 && MainRowListUnPosted.Count == 0)
+                    {
+                        AddNewMainRow(false,false);
+                    }
+                    Loading = false;
+                };
+
 
                 Glclient.UpdateOrInsertTblLedgerHeadersCompleted += (s, ev) =>
                 {
@@ -160,6 +186,24 @@ namespace CCWFM.ViewModel.Gl
                     }
                     Loading = false;
                 };
+
+
+                Glclient.UpdateOrInsertTblLedgerHeader1sCompleted += (s, ev) =>
+                {
+                    if (ev.Error != null)
+                    {
+                        MessageBox.Show(ev.Error.Message);
+                    }
+                    try
+                    {
+                        MainRowListUnPosted.ElementAt(ev.outindex).InjectFrom(ev.Result);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    Loading = false;
+                };
+
                 Glclient.DeleteTblLedgerHeaderCompleted += (s, ev) =>
                 {
                     if (ev.Error != null)
@@ -171,12 +215,101 @@ namespace CCWFM.ViewModel.Gl
                     if (oldrow != null) MainRowList.Remove(oldrow);
                     if (!MainRowList.Any())
                     {
-                        AddNewMainRow(false);
+                        AddNewMainRow(false,true);
                     }
                     Loading = false;
                 };
 
+                Glclient.DeleteTblLedgerHeader1Completed += (s, ev) =>
+                {
+                    if (ev.Error != null)
+                    {
+                        MessageBox.Show(ev.Error.Message);
+                    }
+
+                    var oldrow = MainRowListUnPosted.FirstOrDefault(x => x.Iserial == ev.Result);
+                    if (oldrow != null) MainRowListUnPosted.Remove(oldrow);
+                    if (!MainRowListUnPosted.Any())
+                    {
+                        AddNewMainRow(false, false);
+                    }
+                    Loading = false;
+                };
                 Glclient.GetTblLedgerMainDetailCompleted += (s, sv) =>
+                {
+                    foreach (var row in sv.Result)
+                    {
+                        var newrow = new TblLedgerMainDetailViewModel { CurrencyPerRow = new TblCurrencyTest() };
+                        newrow.NotLoaded = true;
+                        newrow.CurrencyPerRow.InjectFrom(row.TblCurrency1);
+                        if (row.TblBankTransactionType1 != null)
+                        {
+                            newrow.BankTransactionTypePerRow = new GenericTable();
+                            newrow.BankTransactionTypePerRow.InjectFrom(row.TblBankTransactionType1);
+                        }
+                        newrow.MethodOfPaymentPerRow = row.TblMethodOfPayment1;
+                        newrow.JournalAccountTypePerRow = new GenericTable();
+                        newrow.OffsetAccountTypePerRow = new GenericTable();
+                        if (row.TblJournalAccountType1 != null)
+                            newrow.JournalAccountTypePerRow.InjectFrom(row.TblJournalAccountType1);
+                        if (row.TblJournalAccountType2 != null)
+                            newrow.OffsetAccountTypePerRow.InjectFrom(row.TblJournalAccountType2);
+                        newrow.EntityPerRow =
+                            sv.entityList.FirstOrDefault(x => x.TblJournalAccountType == row.TblJournalAccountType &&
+                                                     x.Iserial == row.EntityAccount);
+                        newrow.OffsetEntityPerRow =
+                           sv.entityList.FirstOrDefault(x => x.TblJournalAccountType == row.OffsetAccountType && x.Iserial == row.OffsetEntityAccount);
+                        newrow.InjectFrom(row);
+                        if (newrow.DrOrCr == true)
+                        {
+                            if (row.Amount != null) newrow.DrAmount = row.Amount;
+                        }
+                        else
+                        {
+                            if (row.Amount != null) newrow.CrAmount = row.Amount;
+                        }
+                        if (row.TblBankCheque1 != null) newrow.ChequePerRow = row.TblBankCheque1;
+                        newrow.TransactionExists = sv.TransactionExist.FirstOrDefault(x => x.Key == newrow.Iserial).Value;
+
+                        if (row.TblAccount != null)
+                        {
+                            newrow.AccountPerRow = new TblAccount
+                            {
+                                Code = row.TblAccount.Code,
+                                Iserial = row.TblAccount.Iserial,
+                                Ename = row.TblAccount.Ename,
+                                Aname = row.TblAccount.Aname
+                            };
+                        }
+                        newrow.NotLoaded = false;
+                        SelectedMainRow.DetailsList.Add(newrow);
+                    }
+                    Loading = false;
+                    DetailFullCount = sv.fullCount;
+                    if (SelectedMainRow.DetailsList.Any() && (SelectedDetailRow == null))
+                    {
+                        SelectedDetailRow = SelectedMainRow.DetailsList.FirstOrDefault();
+                    }
+                    AddMode = false;
+
+                    //if (DetailFullCount == 0 && SelectedMainRow.DetailsList.Count(x => x.Iserial >= 0) == 0)
+                    //{
+                    //    AddMode = true;
+                    //    AddNewDetailRow(false,true);
+                    //}
+                    if (SelectedMainRow.balanced == false || SelectedMainRow.DetailsList.Sum(w => w.CrAmount) == 0
+                  || SelectedMainRow.DetailsList.Sum(w => w.DrAmount) == 0)
+                    {
+                        AddMode = true;
+                    }
+                    if (Export)
+                    {
+                        AllowExport = true;
+                        Export = false;
+                    }
+                };
+
+                Glclient.GetTblLedgerMainDetail1Completed += (s, sv) =>
                 {
                     foreach (var row in sv.Result)
                     {
@@ -236,7 +369,7 @@ namespace CCWFM.ViewModel.Gl
                     if (DetailFullCount == 0 && SelectedMainRow.DetailsList.Count(x => x.Iserial >= 0) == 0)
                     {
                         AddMode = true;
-                        AddNewDetailRow(false);
+                        AddNewDetailRow(false, false);
                     }
                     if (SelectedMainRow.balanced == false || SelectedMainRow.DetailsList.Sum(w => w.CrAmount) == 0
                   || SelectedMainRow.DetailsList.Sum(w => w.DrAmount) == 0)
@@ -250,13 +383,23 @@ namespace CCWFM.ViewModel.Gl
                     }
                 };
 
+
+
                 Glclient.UpdateOrInsertTblLedgerMainDetailsCompleted += (s, x) =>
                 {
                     Loading = false;
                     var savedRow = (TblLedgerMainDetailViewModel)SelectedMainRow.DetailsList.GetItemAt(x.outindex);
                     if (savedRow != null) savedRow.InjectFrom(x.Result);
 
-                    SaveMainRow();
+                    SaveMainRow(true);
+                };
+                Glclient.UpdateOrInsertTblLedgerMainDetail1Completed += (s, x) =>
+                {
+                    Loading = false;
+                    var savedRow = (TblLedgerMainDetailViewModel)SelectedMainRow.DetailsList.GetItemAt(x.outindex);
+                    if (savedRow != null) savedRow.InjectFrom(x.Result);
+                    savedRow.TblLedgerHeader = x.Result.TblLedgerHeader1;
+                    SaveMainRow(false);
                 };
 
                 Glclient.DeleteTblLedgerMainDetailCompleted += (s, ev) =>
@@ -268,11 +411,27 @@ namespace CCWFM.ViewModel.Gl
                     Loading = false;
                     var oldrow = SelectedMainRow.DetailsList.FirstOrDefault(x => x.Iserial == ev.Result);
                     if (oldrow != null) SelectedMainRow.DetailsList.Remove(oldrow);
+                    //if (!SelectedMainRow.DetailsList.Any())
+                    //{
+                    //    AddNewDetailRow(false,true);
+                    //}
+                };
+
+                Glclient.DeleteTblLedgerMainDetail1Completed += (s, ev) =>
+                {
+                    if (ev.Error != null)
+                    {
+                        MessageBox.Show(ev.Error.Message);
+                    }
+                    Loading = false;
+                    var oldrow = SelectedMainRow.DetailsList.FirstOrDefault(x => x.Iserial == ev.Result);
+                    if (oldrow != null) SelectedMainRow.DetailsList.Remove(oldrow);
                     if (!SelectedMainRow.DetailsList.Any())
                     {
-                        AddNewDetailRow(false);
+                        AddNewDetailRow(false,false);
                     }
                 };
+
 
 
                 Glclient.GetTblPeriodLineAsync(0, int.MaxValue, 0
@@ -321,7 +480,46 @@ namespace CCWFM.ViewModel.Gl
                     }
                  
                 };
+                Glclient.GetTblLedgerDetail1CostCenterCompleted += (s, sv) =>
+                {
+                    foreach (var row in sv.Result)
+                    {
+                        var newrow = new TblLedgerMainDetailCostCenterViewModel
+                        {
+                            CostCenterPerRow = row.TblCostCenter1,
+                            CostCenterTypePerRow = new GenericTable(),
+                            EntityPerRow = SelectedDetailRow.EntityPerRow,
+                            JournalAccountTypePerRow = SelectedDetailRow.JournalAccountTypePerRow
+                        };
+                        if (row.TblCostCenterType1 != null)
+                            newrow.CostCenterTypePerRow.InjectFrom(row.TblCostCenterType1);
 
+                        newrow.InjectFrom(row);
+
+                        SelectedDetailRow.DetailsList.Add(newrow);
+                    }
+                    Loading = false;
+                    DetailSubFullCount = sv.fullCount;
+
+                    if (SelectedDetailRow.DetailsList.Any() &&
+                        (SelectedSubDetailRow == null))
+                    {
+                        SelectedSubDetailRow = SelectedDetailRow.DetailsList.FirstOrDefault();
+                    }
+
+                    if (DetailSubFullCount == 0 && SelectedDetailRow.DetailsList.Count(x => x.Iserial >= 0) == 0)
+                    {
+                        AddNewSubDetailRow(false);
+                    }
+                    if (SelectedSubDetailRow != null)
+                    {
+                        ExportGrid.ScrollIntoView(SelectedSubDetailRow, ExportGrid.Columns[1]);
+                        ExportGrid.CurrentColumn = ExportGrid.Columns[1];
+                        ExportGrid.Focus();
+                    }
+
+                };
+                
                 Glclient.UpdateOrInsertTblLedgerDetailCostCentersCompleted += (s, x) =>
                 {
                     Loading = false;
@@ -330,6 +528,35 @@ namespace CCWFM.ViewModel.Gl
                     if (savedRow != null) savedRow.InjectFrom(x.Result);
 
                 };
+                Glclient.UpdateOrInsertTblLedgerDetail1CostCentersCompleted += (s, x) =>
+                {
+                    Loading = false;
+                    SelectedDetailRow.TransactionExists = true;
+                    var savedRow = SelectedDetailRow.DetailsList.ElementAt(x.outindex);
+                    if (savedRow != null) savedRow.InjectFrom(x.Result);
+
+                };
+
+                
+                         Glclient.DeleteTblLedgerDetail1CostCenterCompleted += (s, ev) =>
+                         {
+                             if (ev.Error != null)
+                             {
+                                 MessageBox.Show(ev.Error.Message);
+                             }
+                             if (SelectedDetailRow.DetailsList.Any())
+                             {
+                                 SelectedDetailRow.TransactionExists = false;
+                             }
+
+                             Loading = false;
+                             var oldrow = SelectedDetailRow.DetailsList.FirstOrDefault(x => x.Iserial == ev.Result);
+                             if (oldrow != null) SelectedDetailRow.DetailsList.Remove(oldrow);
+                             if (!SelectedDetailRow.DetailsList.Any())
+                             {
+                                 AddNewSubDetailRow(false);
+                             }
+                         };
 
                 Glclient.DeleteTblLedgerDetailCostCenterCompleted += (s, ev) =>
                 {
@@ -351,7 +578,9 @@ namespace CCWFM.ViewModel.Gl
                     }
                 };
 
-                GetMaindata();
+                GetMaindata(true);
+
+                GetMaindata(false);
             }
         }
 
@@ -384,70 +613,118 @@ namespace CCWFM.ViewModel.Gl
 
         public void PosTLedgerTotal()
         {
-            Glclient.PostTotalLedgerAsync(SelectedMainRow.Iserial, LoggedUserInfo.Iserial,
+            Glclient.PostTotalLedger1Async(SelectedMainRow.Iserial, LoggedUserInfo.Iserial,
              LoggedUserInfo.DatabasEname);
         }
-        public void GetMaindata()
+        public void GetMaindata(bool Posted)
         {
             if (SortBy == null)
                 SortBy = "it.DocDate desc";
             Loading = true;
-            Glclient.GetTblLedgerHeaderAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects, LoggedUserInfo.Iserial,
-                LoggedUserInfo.DatabasEname);
+            if (Posted)
+            {
+                Glclient.GetTblLedgerHeaderAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects, LoggedUserInfo.Iserial,
+               LoggedUserInfo.DatabasEname);
+            }
+            else
+            {
+                Glclient.GetTblLedgerHeader1Async(MainRowListUnPosted.Count, PageSize, SortBy, Filter, ValuesObjects, LoggedUserInfo.Iserial,
+                      LoggedUserInfo.DatabasEname);
+            }
+           
         }
 
-        public void AddNewMainRow(bool checkLastRow)
+        public void AddNewMainRow(bool checkLastRow,bool posted )
         {
-            var currentRowIndex = (MainRowList.IndexOf(SelectedMainRow));
-
-            if (checkLastRow)
+            if (posted)
             {
-                var valiationCollection = new List<ValidationResult>();
+                MessageBox.Show("Cannot Add Posted Ledger");
+                return;
+         
+            }
+            else {
+                var currentRowIndex = (MainRowListUnPosted.IndexOf(SelectedMainRow));
 
-                var isvalid = Validator.TryValidateObject(SelectedMainRow,
-                    new ValidationContext(SelectedMainRow, null, null), valiationCollection, true);
-
-                if (!isvalid)
+                if (checkLastRow)
                 {
+                    var valiationCollection = new List<ValidationResult>();
+
+                    var isvalid = Validator.TryValidateObject(SelectedMainRow,
+                        new ValidationContext(SelectedMainRow, null, null), valiationCollection, true);
+
+                    if (!isvalid)
+                    {
+                        return;
+                    }
+                }
+                if (AllowAdd != true)
+                {
+                    MessageBox.Show(strings.AllowAddMsg);
                     return;
                 }
+                var newrow = new TblLedgerHeaderViewModel { Approved = false, Posted = false };
+                MainRowListUnPosted.Insert(currentRowIndex + 1, newrow);
+                SelectedMainRow = newrow;
             }
-            if (AllowAdd != true)
-            {
-                MessageBox.Show(strings.AllowAddMsg);
-                return;
-            }
-            var newrow = new TblLedgerHeaderViewModel { Approved = false, Posted = false };
-            MainRowList.Insert(currentRowIndex + 1, newrow);
-            SelectedMainRow = newrow;
             ExportGrid.BeginEdit();
         }
 
-        public void SaveMainRow()
+        public void SaveMainRow(bool posted)
         {
-            if (SelectedMainRow != null)
+            if (posted)
             {
-                var valiationCollection = new List<ValidationResult>();
+                //if (SelectedMainRow != null)
+                //{
+                //    var valiationCollection = new List<ValidationResult>();
 
-                var isvalid = Validator.TryValidateObject(SelectedMainRow,
-                    new ValidationContext(SelectedMainRow, null, null), valiationCollection, true);
+                //    var isvalid = Validator.TryValidateObject(SelectedMainRow,
+                //        new ValidationContext(SelectedMainRow, null, null), valiationCollection, true);
 
-                if (isvalid)
+                //    if (isvalid)
+                //    {
+                //        var save = SelectedMainRow.Iserial == 0;
+                //        //if (AllowUpdate != true && !save)
+                //        //{
+
+                //        //    return;
+                //        //}
+                //        var saveRow = new TblLedgerHeader();
+                //        saveRow.InjectFrom(SelectedMainRow);
+                //        if (!Loading)
+                //        {
+                //            Loading = true;
+
+                //            Glclient.UpdateOrInsertTblLedgerHeadersAsync(saveRow, save, MainRowList.IndexOf(SelectedMainRow), LoggedUserInfo.Iserial,
+                //                LoggedUserInfo.DatabasEname, true);
+                //        }
+                //    }
+                //}
+            }
+            else {
+                if (SelectedMainRow != null)
                 {
-                    var save = SelectedMainRow.Iserial == 0;
-                    //if (AllowUpdate != true && !save)
-                    //{
+                    var valiationCollection = new List<ValidationResult>();
 
-                    //    return;
-                    //}
-                    var saveRow = new TblLedgerHeader();
-                    saveRow.InjectFrom(SelectedMainRow);
-                    if (!Loading)
+                    var isvalid = Validator.TryValidateObject(SelectedMainRow,
+                        new ValidationContext(SelectedMainRow, null, null), valiationCollection, true);
+
+                    if (isvalid)
                     {
-                        Loading = true;
+                        var save = SelectedMainRow.Iserial == 0;
+                        //if (AllowUpdate != true && !save)
+                        //{
 
-                        Glclient.UpdateOrInsertTblLedgerHeadersAsync(saveRow, save, MainRowList.IndexOf(SelectedMainRow), LoggedUserInfo.Iserial,
-                            LoggedUserInfo.DatabasEname, true);
+                        //    return;
+                        //}
+                        var saveRow = new TblLedgerHeader1();
+                        saveRow.InjectFrom(SelectedMainRow);
+                        if (!Loading)
+                        {
+                            Loading = true;
+
+                            Glclient.UpdateOrInsertTblLedgerHeader1sAsync(saveRow, save, MainRowListUnPosted.IndexOf(SelectedMainRow), LoggedUserInfo.Iserial,
+                                LoggedUserInfo.DatabasEname, true);
+                        }
                     }
                 }
             }
@@ -455,6 +732,7 @@ namespace CCWFM.ViewModel.Gl
 
         public void SaveOldRow(TblLedgerHeaderViewModel oldRow)
         {
+
             if (oldRow != null)
             {
                 var valiationCollection = new List<ValidationResult>();
@@ -467,23 +745,48 @@ namespace CCWFM.ViewModel.Gl
                     var save = oldRow.Iserial == 0;
                     if (AllowUpdate != true && !save)
                     {
-
                         return;
                     }
-                    var saveRow = new TblLedgerHeader();
+                    var saveRow = new TblLedgerHeader1();
                     saveRow.InjectFrom(oldRow);
                     if (!Loading)
                     {
                         Loading = true;
 
-                        Glclient.UpdateOrInsertTblLedgerHeadersAsync(saveRow, save, MainRowList.IndexOf(oldRow), LoggedUserInfo.Iserial,
+                        Glclient.UpdateOrInsertTblLedgerHeader1sAsync(saveRow, save, MainRowListUnPosted.IndexOf(oldRow), LoggedUserInfo.Iserial,
                             LoggedUserInfo.DatabasEname, true);
                     }
                 }
             }
+
+            //if (oldRow != null)
+            //{
+            //    var valiationCollection = new List<ValidationResult>();
+
+            //    var isvalid = Validator.TryValidateObject(oldRow,
+            //        new ValidationContext(oldRow, null, null), valiationCollection, true);
+
+            //    if (isvalid)
+            //    {
+            //        var save = oldRow.Iserial == 0;
+            //        if (AllowUpdate != true && !save)
+            //        {
+            //            return;
+            //        }
+            //        var saveRow = new TblLedgerHeader();
+            //        saveRow.InjectFrom(oldRow);
+            //        if (!Loading)
+            //        {
+            //            Loading = true;
+
+            //            Glclient.UpdateOrInsertTblLedgerHeadersAsync(saveRow, save, MainRowList.IndexOf(oldRow), LoggedUserInfo.Iserial,
+            //                LoggedUserInfo.DatabasEname, true);
+            //        }
+            //    }
+            //}
         }
 
-        public void DeleteMainRow()
+        public void DeleteMainRow(bool Posted)
         {
             if (SelectedMainRows != null)
             {
@@ -500,30 +803,64 @@ namespace CCWFM.ViewModel.Gl
                                 MessageBox.Show(strings.AllowDeleteMsg);
                                 return;
                             }
-                            Glclient.DeleteTblLedgerHeaderAsync((TblLedgerHeader)new TblLedgerHeader().InjectFrom(row),
-                                MainRowList.IndexOf(row), LoggedUserInfo.DatabasEname);
+
+                            if (Posted)
+                            {
+                                Glclient.DeleteTblLedgerHeaderAsync((TblLedgerHeader)new TblLedgerHeader().InjectFrom(row),
+                     MainRowList.IndexOf(row), LoggedUserInfo.DatabasEname);
+                            }
+                            else
+                            {
+                                Glclient.DeleteTblLedgerHeader1Async((TblLedgerHeader1)new TblLedgerHeader1().InjectFrom(row),
+                                                  MainRowListUnPosted.IndexOf(row), LoggedUserInfo.DatabasEname);
+                            }
+                 
                         }
                         else
                         {
-                            MainRowList.Remove(row);
-                            if (!MainRowList.Any())
+                            if (Posted)
                             {
-                                AddNewMainRow(false);
+                                MainRowList.Remove(row);
+                                if (!MainRowList.Any())
+                                {
+                                    AddNewMainRow(false, true);
+                                }
                             }
+                            else
+                            {
+                                MainRowListUnPosted.Remove(row);
+                                if (!MainRowListUnPosted.Any())
+                                {
+                                    AddNewMainRow(false, false);
+                                }
+
+                            }
+                         
                         }
                     }
                 }
             }
         }
 
-        public void GetDetailData()
+        public void GetDetailData( bool Posted)
         {
             if (DetailSortBy == null)
                 DetailSortBy = "it.Iserial";
             Loading = true;
+            if (Posted)
+            {
+
+            
             if (SelectedMainRow != null)
                 Glclient.GetTblLedgerMainDetailAsync(SelectedMainRow.DetailsList.Count, int.MaxValue, SelectedMainRow.Iserial,
                     DetailSortBy, DetailFilter, DetailsValuesObjects, LoggedUserInfo.DatabasEname);
+        }
+            else
+            {
+                if (SelectedMainRow != null)
+                    Glclient.GetTblLedgerMainDetail1Async(SelectedMainRow.DetailsList.Count, int.MaxValue, SelectedMainRow.Iserial,
+                        DetailSortBy, DetailFilter, DetailsValuesObjects, LoggedUserInfo.DatabasEname);
+            }
         }
 
         public void GetFullDetailData()
@@ -533,8 +870,25 @@ namespace CCWFM.ViewModel.Gl
             Loading = true;
             Export = true;
             if (SelectedMainRow != null)
-                Glclient.GetTblLedgerMainDetailAsync(SelectedMainRow.DetailsList.Count, int.MaxValue, SelectedMainRow.Iserial,
-                    DetailSortBy, DetailFilter, DetailsValuesObjects, LoggedUserInfo.DatabasEname);
+            {
+
+                if (PostedMode)
+                {
+
+
+                    if (SelectedMainRow != null)
+                        Glclient.GetTblLedgerMainDetailAsync(SelectedMainRow.DetailsList.Count, int.MaxValue, SelectedMainRow.Iserial,
+                            DetailSortBy, DetailFilter, DetailsValuesObjects, LoggedUserInfo.DatabasEname);
+                }
+                else
+                {
+                    if (SelectedMainRow != null)
+                        Glclient.GetTblLedgerMainDetail1Async(SelectedMainRow.DetailsList.Count, int.MaxValue, SelectedMainRow.Iserial,
+                            DetailSortBy, DetailFilter, DetailsValuesObjects, LoggedUserInfo.DatabasEname);
+                }
+
+            }
+               
         }
 
         public void DeleteDetailRow()
@@ -555,8 +909,8 @@ namespace CCWFM.ViewModel.Gl
                                 return;
                             }
                             Loading = true;
-                            Glclient.DeleteTblLedgerMainDetailAsync(
-                                (TblLedgerMainDetail)new TblLedgerMainDetail().InjectFrom(row),
+                            Glclient.DeleteTblLedgerMainDetail1Async(
+                                (TblLedgerMainDetail1)new TblLedgerMainDetail1().InjectFrom(row),
                                 SelectedMainRow.DetailsList.IndexOf(row), LoggedUserInfo.DatabasEname);
                         }
                         else
@@ -564,7 +918,7 @@ namespace CCWFM.ViewModel.Gl
                             SelectedMainRow.DetailsList.Remove(SelectedDetailRow);
                             if (!SelectedMainRow.DetailsList.Any(x => x.Iserial >= 0))
                             {
-                                AddNewDetailRow(false);
+                                AddNewDetailRow(false,true);
                             }
                         }
                     }
@@ -572,71 +926,129 @@ namespace CCWFM.ViewModel.Gl
             }
         }
 
-        public void AddNewDetailRow(bool checkLastRow)
+        public void AddNewDetailRow(bool checkLastRow,bool posted)
         {
-            var currentRowIndex = (SelectedMainRow.DetailsList.IndexOf(SelectedDetailRow));
-            if (SelectedDetailRow == null)
-            {
-                currentRowIndex = 0;
-            }
-            if (checkLastRow)
-            {
-                var lastrow = SelectedMainRow.DetailsList.ElementAtOrDefault(currentRowIndex);
-                var valiationCollection = new List<ValidationResult>();
 
-                var isvalid = Validator.TryValidateObject(lastrow,
-                    new ValidationContext(lastrow, null, null), valiationCollection, true);
-
-                if (!isvalid)
-                {
-                    return;
-                }
-            }
-            if (AllowUpdate != true && AddMode == false)
+            if (posted)
             {
 
-                return;
-            }
 
-            var currency = CurrencyList.FirstOrDefault(x => x.Iserial == DefaultCurrencyIserial);
-            if (SelectedMainRow.JournalPerRow.TblCurrency != null)
-            {
-                if (SelectedMainRow.JournalPerRow.TblCurrency1 != null)
-                    currency = SelectedMainRow.JournalPerRow.TblCurrency1;
-            }
-            var journalaccType = JournalAccountTypeList.FirstOrDefault(x => SelectedMainRow.EntityPerRow != null && x.Iserial == SelectedMainRow.EntityPerRow.TblJournalAccountType);
-
-            var newrow = new TblLedgerMainDetailViewModel
-            {
-                CurrencyPerRow = currency,
-                TransDate = SelectedMainRow.DocDate,
-                TblLedgerHeader = SelectedMainRow.Iserial,
-                Description = SelectedMainRow.Description,
-                JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(),
-                ExchangeRateEnabled = false,
-            };
-            //if (journalaccType != null)
-            //{
-            //    newrow.OffsetEntityPerRow = SelectedMainRow.EntityPerRow;
-            //    newrow.OffsetEntityAccount = SelectedMainRow.EntityPerRow.Iserial;
-            //    newrow.OffsetAccountType = SelectedMainRow.EntityPerRow.TblJournalAccountType;
-            //    newrow.OffsetAccountTypePerRow = journalaccType;
-            //}
-
-            if (SelectedMainRow.DetailsList.Any(x => x.Iserial > -1))
-            {
-                SelectedMainRow.DetailsList.Insert(currentRowIndex + 1, newrow);
-            }
-            else
-            {
-                if (currentRowIndex == -1)
+                var currentRowIndex = (SelectedMainRow.DetailsList.IndexOf(SelectedDetailRow));
+                if (SelectedDetailRow == null)
                 {
                     currentRowIndex = 0;
                 }
-                SelectedMainRow.DetailsList.Insert(currentRowIndex, newrow);
-            }
+                if (checkLastRow)
+                {
+                    var lastrow = SelectedMainRow.DetailsList.ElementAtOrDefault(currentRowIndex);
+                    var valiationCollection = new List<ValidationResult>();
 
-            SelectedDetailRow = newrow;
+                    var isvalid = Validator.TryValidateObject(lastrow,
+                        new ValidationContext(lastrow, null, null), valiationCollection, true);
+
+                    if (!isvalid)
+                    {
+                        return;
+                    }
+                }
+                if (AllowUpdate != true && AddMode == false)
+                {
+
+                    return;
+                }
+
+                var currency = CurrencyList.FirstOrDefault(x => x.Iserial == DefaultCurrencyIserial);
+                if (SelectedMainRow.JournalPerRow.TblCurrency != null)
+                {
+                    if (SelectedMainRow.JournalPerRow.TblCurrency1 != null)
+                        currency = SelectedMainRow.JournalPerRow.TblCurrency1;
+                }
+                var journalaccType = JournalAccountTypeList.FirstOrDefault(x => SelectedMainRow.EntityPerRow != null && x.Iserial == SelectedMainRow.EntityPerRow.TblJournalAccountType);
+
+                var newrow = new TblLedgerMainDetailViewModel
+                {
+                    CurrencyPerRow = currency,
+                    TransDate = SelectedMainRow.DocDate,
+                    TblLedgerHeader = SelectedMainRow.Iserial,
+                    Description = SelectedMainRow.Description,
+                    JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(),
+                    ExchangeRateEnabled = false,
+                };
+
+                if (SelectedMainRow.DetailsList.Any(x => x.Iserial > -1))
+                {
+                    SelectedMainRow.DetailsList.Insert(currentRowIndex + 1, newrow);
+                }
+                else
+                {
+                    if (currentRowIndex == -1)
+                    {
+                        currentRowIndex = 0;
+                    }
+                    SelectedMainRow.DetailsList.Insert(currentRowIndex, newrow);
+                }
+
+                SelectedDetailRow = newrow;
+            }
+            else {
+
+                var currentRowIndex = (SelectedMainRow.DetailsList.IndexOf(SelectedDetailRow));
+                if (SelectedDetailRow == null)
+                {
+                    currentRowIndex = 0;
+                }
+                if (checkLastRow)
+                {
+                    var lastrow = SelectedMainRow.DetailsList.ElementAtOrDefault(currentRowIndex);
+                    var valiationCollection = new List<ValidationResult>();
+
+                    var isvalid = Validator.TryValidateObject(lastrow,
+                        new ValidationContext(lastrow, null, null), valiationCollection, true);
+
+                    if (!isvalid)
+                    {
+                        return;
+                    }
+                }
+                if (AllowUpdate != true && AddMode == false)
+                {
+
+                    return;
+                }
+
+                var currency = CurrencyList.FirstOrDefault(x => x.Iserial == DefaultCurrencyIserial);
+                if (SelectedMainRow.JournalPerRow.TblCurrency != null)
+                {
+                    if (SelectedMainRow.JournalPerRow.TblCurrency1 != null)
+                        currency = SelectedMainRow.JournalPerRow.TblCurrency1;
+                }
+                var journalaccType = JournalAccountTypeList.FirstOrDefault(x => SelectedMainRow.EntityPerRow != null && x.Iserial == SelectedMainRow.EntityPerRow.TblJournalAccountType);
+
+                var newrow = new TblLedgerMainDetailViewModel
+                {
+                    CurrencyPerRow = currency,
+                    TransDate = SelectedMainRow.DocDate,
+                    TblLedgerHeader = SelectedMainRow.Iserial,
+                    Description = SelectedMainRow.Description,
+                    JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(),
+                    ExchangeRateEnabled = false,
+                };
+
+                if (SelectedMainRow.DetailsList.Any(x => x.Iserial > -1))
+                {
+                    SelectedMainRow.DetailsList.Insert(currentRowIndex + 1, newrow);
+                }
+                else
+                {
+                    if (currentRowIndex == -1)
+                    {
+                        currentRowIndex = 0;
+                    }
+                    SelectedMainRow.DetailsList.Insert(currentRowIndex, newrow);
+                }
+
+                SelectedDetailRow = newrow;
+            }
             ExportGrid.BeginEdit();
         }
 
@@ -662,15 +1074,14 @@ namespace CCWFM.ViewModel.Gl
 
                         return;
                     }
-                    var rowToSave = new TblLedgerMainDetail();
+                    var rowToSave = new TblLedgerMainDetail1();
                     rowToSave.InjectFrom(SelectedDetailRow);
-
+                    rowToSave.TblLedgerHeader1 = SelectedMainRow.Iserial;
                     rowToSave.Amount = rowToSave.DrOrCr ? SelectedDetailRow.DrAmount : SelectedDetailRow.CrAmount;
                     if (!Loading)
                     {
                         Loading = true;
-
-                        Glclient.UpdateOrInsertTblLedgerMainDetailsAsync(rowToSave, save,
+                        Glclient.UpdateOrInsertTblLedgerMainDetail1Async(rowToSave, save,
                             SelectedMainRow.DetailsList.IndexOf(SelectedDetailRow), LoggedUserInfo.DatabasEname,
                             LoggedUserInfo.Iserial, true);
                     }
@@ -699,8 +1110,9 @@ namespace CCWFM.ViewModel.Gl
 
                         return;
                     }
-                    var rowToSave = new TblLedgerMainDetail();
+                    var rowToSave = new TblLedgerMainDetail1();
                     rowToSave.InjectFrom(oldRow);
+                    rowToSave.TblLedgerHeader1 = SelectedMainRow.Iserial;
 
                     rowToSave.Amount = rowToSave.DrOrCr ? oldRow.DrAmount : oldRow.CrAmount;
                     if (!Loading)
@@ -710,7 +1122,7 @@ namespace CCWFM.ViewModel.Gl
                             if (SelectedMainRow.DetailsList.IndexOf(oldRow) != -1)
                             {
                                 Loading = true;
-                                Glclient.UpdateOrInsertTblLedgerMainDetailsAsync(rowToSave, save,
+                                Glclient.UpdateOrInsertTblLedgerMainDetail1Async(rowToSave, save,
                                 SelectedMainRow.DetailsList.IndexOf(oldRow), LoggedUserInfo.DatabasEname,
                                 LoggedUserInfo.Iserial, true);
                             }
@@ -726,9 +1138,23 @@ namespace CCWFM.ViewModel.Gl
             if (DetailSubSortBy == null)
                 DetailSubSortBy = "it.Iserial";
             Loading = true;
-            if (SelectedMainRow != null)
-                Glclient.GetTblLedgerDetailCostCenterAsync(SelectedDetailRow.DetailsList.Count, int.MaxValue, SelectedDetailRow.Iserial,
-                    DetailSubSortBy, DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
+
+            if (PostedMode)
+            {
+
+
+                if (SelectedMainRow != null)
+                    Glclient.GetTblLedgerDetailCostCenterAsync(SelectedDetailRow.DetailsList.Count, int.MaxValue, SelectedDetailRow.Iserial,
+                  DetailSubSortBy, DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
+            }
+            else
+            {
+                if (SelectedMainRow != null)
+                    Glclient.GetTblLedgerDetail1CostCenterAsync(SelectedDetailRow.DetailsList.Count, int.MaxValue, SelectedDetailRow.Iserial,
+                        DetailSubSortBy, DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
+            }
+
+       
         }
 
         public void DeleteSubDetailRow()
@@ -749,9 +1175,23 @@ namespace CCWFM.ViewModel.Gl
                                 return;
                             }
                             Loading = true;
-                            Glclient.DeleteTblLedgerDetailCostCenterAsync(
-                                (TblLedgerDetailCostCenter)new TblLedgerDetailCostCenter().InjectFrom(row),
-                                SelectedDetailRow.DetailsList.IndexOf(row), LoggedUserInfo.DatabasEname);
+
+
+                            if (PostedMode)
+                            {
+                                Glclient.DeleteTblLedgerDetailCostCenterAsync(
+                              (TblLedgerDetailCostCenter)new TblLedgerDetailCostCenter().InjectFrom(row),
+                              SelectedDetailRow.DetailsList.IndexOf(row), LoggedUserInfo.DatabasEname);
+                            }
+                            else
+                            {
+                                Glclient.DeleteTblLedgerDetail1CostCenterAsync(
+                          (TblLedgerDetail1CostCenter)new TblLedgerDetail1CostCenter().InjectFrom(row),
+                          SelectedDetailRow.DetailsList.IndexOf(row), LoggedUserInfo.DatabasEname);
+                            
+
+                            }
+                      
                         }
                         else
                         {
@@ -886,8 +1326,21 @@ namespace CCWFM.ViewModel.Gl
                     {
                         Loading = true;
 
-                        Glclient.UpdateOrInsertTblLedgerDetailCostCentersAsync(rowToSave, save,
-                            SelectedDetailRow.DetailsList.IndexOf(SelectedSubDetailRow), LoggedUserInfo.Iserial, LoggedUserInfo.DatabasEname, true);
+                        if (PostedMode)
+                        {
+                            Glclient.UpdateOrInsertTblLedgerDetailCostCentersAsync(rowToSave, save,
+                                                      SelectedDetailRow.DetailsList.IndexOf(SelectedSubDetailRow), LoggedUserInfo.Iserial, LoggedUserInfo.DatabasEname, true);
+                        }
+                        else
+                        {
+                            var rowToSaveNew = new TblLedgerDetail1CostCenter();
+                            rowToSaveNew.InjectFrom(SelectedSubDetailRow);
+                            rowToSaveNew.TblLedgerMainDetail1 = SelectedDetailRow.Iserial;
+                            Glclient.UpdateOrInsertTblLedgerDetail1CostCentersAsync(rowToSaveNew, save,
+                                               SelectedDetailRow.DetailsList.IndexOf(SelectedSubDetailRow), LoggedUserInfo.Iserial, LoggedUserInfo.DatabasEname, true);
+
+                        }
+                      
                     }
                 }
             }
@@ -951,6 +1404,21 @@ namespace CCWFM.ViewModel.Gl
             }
         }
 
+        private SortableCollectionView<TblLedgerHeaderViewModel> _MainRowListUnPosted;
+
+        public SortableCollectionView<TblLedgerHeaderViewModel> MainRowListUnPosted
+        {
+            get { return _MainRowListUnPosted; }
+            set
+            {
+                _MainRowListUnPosted = value;
+                RaisePropertyChanged("MainRowListUnPosted");
+            }
+        }
+
+
+
+
         private ObservableCollection<TblLedgerHeaderViewModel> _selectedMainRows;
 
         public ObservableCollection<TblLedgerHeaderViewModel> SelectedMainRows
@@ -966,6 +1434,9 @@ namespace CCWFM.ViewModel.Gl
             }
         }
 
+
+    
+
         private TblLedgerHeaderViewModel _selectedMainRow;
 
         public TblLedgerHeaderViewModel SelectedMainRow
@@ -977,6 +1448,21 @@ namespace CCWFM.ViewModel.Gl
                 RaisePropertyChanged("SelectedMainRow");
             }
         }
+
+        private bool     _PostedMode;
+
+        public bool PostedMode
+        {
+            get { return _PostedMode; }
+            set
+            {
+                _PostedMode = value;
+                RaisePropertyChanged("PostedMode");
+            }
+        }
+
+
+  
 
         private TblLedgerMainDetailViewModel _selectedDetailRow;
 
@@ -1052,13 +1538,14 @@ namespace CCWFM.ViewModel.Gl
             {
                 SelectedMainRow.Posted = false;
                 MessageBox.Show("Cannot Post Un balanced Journal");
+                return;
             }
             if (SelectedMainRow.Posted)
             {
                 if (CustomePermissions.SingleOrDefault(x => x.Code == "LedgerUnpost") != null)
                 {
                     SelectedMainRow.Posted = false;
-                    return;
+                    
                 }
             }
             else
@@ -1068,17 +1555,26 @@ namespace CCWFM.ViewModel.Gl
                     if (CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithApproval") != null)
                     {
                         SelectedMainRow.Posted = true;
-                        return;
+                        
                     }
                 }
                 else
                 {
-                    if (CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithOutApproval") != null)
+                    
+                    if (CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithoutApproval") != null)
                     {
                         SelectedMainRow.Posted = true;
-                        return;
+                        
+                        
                     }
                 }
+            }
+
+
+            if (SelectedMainRow.Posted)
+            {
+                SaveMainRow(false);
+                return;
             }
             MessageBox.Show("Permission Required");
         }
@@ -1092,7 +1588,7 @@ namespace CCWFM.ViewModel.Gl
             }
         }
 
-        public void InsertImportedLedgerMainDetail(ObservableCollection<TblLedgerMainDetail> ledgerMainList)
+        public void InsertImportedLedgerMainDetail(ObservableCollection<TblLedgerMainDetail1> ledgerMainList)
         {
             if (AllowUpdate != true && AddMode == false)
             {

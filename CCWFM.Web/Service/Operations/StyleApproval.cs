@@ -73,7 +73,7 @@ namespace CCWFM.Web.Service
                         {
                             var postPo = (int)Enums.SalesOrderType.RetailPo == salesorder.SalesOrderType;
 
-                            if ((int)Enums.SalesOrderType.SalesOrderPo == salesorder.SalesOrderType&& salesorder.TblStyle1.Brand!="DH"&& salesorder.TblStyle1.Brand != "OR" && salesorder.TblStyle1.Brand != "OT")
+                            if ((int)Enums.SalesOrderType.SalesOrderPo == salesorder.SalesOrderType&& (salesorder.TblStyle1.Brand== "20" || salesorder.TblStyle1.Brand == "GN"))
                             {
                                 PostStyleToPo(salesorder.TblStyle, salesorder.Iserial, postPo, newRow.TblAuthUser, out tempprice, out tempCost);
                             }

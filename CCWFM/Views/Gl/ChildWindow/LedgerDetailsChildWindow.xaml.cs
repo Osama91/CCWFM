@@ -17,9 +17,17 @@ namespace CCWFM.Views.Gl.ChildWindow
     {
         private readonly LedgerHeaderViewModel _viewModel;
 
-        public LedgerDetailChildWindow(LedgerHeaderViewModel viewModel)
+
+        public LedgerDetailChildWindow(LedgerHeaderViewModel viewModel,bool posted)
         {
             InitializeComponent();
+            if (posted)
+            {
+                DetailGrid.IsReadOnly = true;
+            }
+           
+
+            viewModel.PostedMode = posted;
             TxtBalanceJournalValue.Text = "0";
             TxtBalancePerVoucherValue.Text = "0";
             TxtCreditJournalValue.Text = "0";
@@ -28,7 +36,7 @@ namespace CCWFM.Views.Gl.ChildWindow
             TxtDebitPerVouchervalue.Text = "0";
             DataContext = viewModel;
             _viewModel = viewModel;
-            _viewModel.GetDetailData();
+            _viewModel.GetDetailData(posted);
             if (_viewModel.CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithApproval") != null || _viewModel.CustomePermissions.SingleOrDefault(x => x.Code == "LedgerPostWithoutApproval") != null)
             {
                 BtnPost.Visibility = Visibility.Visible;
@@ -42,6 +50,7 @@ namespace CCWFM.Views.Gl.ChildWindow
         private void DetailGrid_RowEditEnded(object sender, DataGridRowEditEndedEventArgs e)
         {
             CalcTotal();
+
             _viewModel.SaveDetailRow();
         }
 
@@ -52,7 +61,7 @@ namespace CCWFM.Views.Gl.ChildWindow
                 var currentRowIndex = (_viewModel.SelectedMainRow.DetailsList.IndexOf(_viewModel.SelectedDetailRow));
                 if (currentRowIndex == (_viewModel.SelectedMainRow.DetailsList.Count - 1))
                 {
-                    _viewModel.AddNewDetailRow(true);
+                    _viewModel.AddNewDetailRow(true,false);
                     DetailGrid.BeginEdit();
                 }
             }
@@ -84,25 +93,25 @@ namespace CCWFM.Views.Gl.ChildWindow
 
         public void CalcTotal()
         {
-            var credittotal = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.CrAmount * (decimal)x.ExchangeRate) +
+            var credittotalPosted = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.CrAmount * (decimal)x.ExchangeRate) +
                         _viewModel.SelectedMainRow.DetailsList.Where(x => x.OffsetEntityAccount != null)
                             .Sum(x => x.DrAmount * (decimal)x.ExchangeRate) ?? 0;
-            if (TxtCreditJournalValue.Text != String.Format("{0:0.00}", credittotal))
+            if (TxtCreditJournalValue.Text != String.Format("{0:0.00}", credittotalPosted))
             {
-                string value = String.Format("{0:0.00}", credittotal);
+                string value = String.Format("{0:0.00}", credittotalPosted);
                 TxtCreditJournalValue.Text = value;
             }
-            var debittotal = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.DrAmount * (decimal)x.ExchangeRate) +
+            var debittotalPosted = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.DrAmount * (decimal)x.ExchangeRate) +
                              _viewModel.SelectedMainRow.DetailsList.Where(x => x.OffsetEntityAccount != null)
                                  .Sum(x => x.CrAmount * (decimal)x.ExchangeRate) ?? 0;
-            if (TxtDebitJournalValue.Text != String.Format("{0:0.00}", debittotal))
+            if (TxtDebitJournalValue.Text != String.Format("{0:0.00}", debittotalPosted))
             {
-                TxtDebitJournalValue.Text = String.Format("{0:0.00}", debittotal);
+                TxtDebitJournalValue.Text = String.Format("{0:0.00}", debittotalPosted);
             }
 
-            if (TxtBalanceJournalValue.Text != String.Format("{0:0.00}", (debittotal - credittotal)))
+            if (TxtBalanceJournalValue.Text != String.Format("{0:0.00}", (debittotalPosted - credittotalPosted)))
             {
-                TxtBalanceJournalValue.Text = String.Format("{0:0.00}", (debittotal - credittotal));
+                TxtBalanceJournalValue.Text = String.Format("{0:0.00}", (debittotalPosted - credittotalPosted));
             }
             if (_viewModel.SelectedDetailRow != null)
             {
@@ -129,7 +138,7 @@ namespace CCWFM.Views.Gl.ChildWindow
                 {
                     TxtBalancePerVoucherValue.Text = String.Format("{0:0.00}", (drAmount - crAmount));
                 }
-                if ((debittotal - credittotal) < (decimal)0.01 && (credittotal - debittotal) < (decimal)0.01)
+                if ((debittotalPosted - credittotalPosted) < (decimal)0.01 && (credittotalPosted - debittotalPosted) < (decimal)0.01)
                 {
                     _viewModel.SelectedMainRow.balanced = true;
                 }
@@ -138,7 +147,64 @@ namespace CCWFM.Views.Gl.ChildWindow
                     _viewModel.SelectedMainRow.balanced = false;
                 }
             }
-        }
+
+           
+                var credittotal = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.CrAmount * (decimal)x.ExchangeRate) +
+                                    _viewModel.SelectedMainRow.DetailsList.Where(x => x.OffsetEntityAccount != null)
+                                        .Sum(x => x.DrAmount * (decimal)x.ExchangeRate) ?? 0;
+                if (TxtCreditJournalValue.Text != String.Format("{0:0.00}", credittotal))
+                {
+                    string value = String.Format("{0:0.00}", credittotal);
+                    TxtCreditJournalValue.Text = value;
+                }
+                var debittotal = _viewModel.SelectedMainRow.DetailsList.Sum(x => x.DrAmount * (decimal)x.ExchangeRate) +
+                                 _viewModel.SelectedMainRow.DetailsList.Where(x => x.OffsetEntityAccount != null)
+                                     .Sum(x => x.CrAmount * (decimal)x.ExchangeRate) ?? 0;
+                if (TxtDebitJournalValue.Text != String.Format("{0:0.00}", debittotal))
+                {
+                    TxtDebitJournalValue.Text = String.Format("{0:0.00}", debittotal);
+                }
+
+                if (TxtBalanceJournalValue.Text != String.Format("{0:0.00}", (debittotal - credittotal)))
+                {
+                    TxtBalanceJournalValue.Text = String.Format("{0:0.00}", (debittotal - credittotal));
+                }
+                if (_viewModel.SelectedDetailRow != null)
+                {
+                    var crAmount = _viewModel.SelectedDetailRow.CrAmount * (decimal)_viewModel.SelectedDetailRow.ExchangeRate ?? 0;
+                    if (_viewModel.SelectedDetailRow.OffsetEntityAccount != null)
+                    {
+                        crAmount = crAmount + _viewModel.SelectedDetailRow.DrAmount * (decimal)_viewModel.SelectedDetailRow.ExchangeRate ?? 0;
+                    }
+                    var drAmount = _viewModel.SelectedDetailRow.DrAmount * (decimal)_viewModel.SelectedDetailRow.ExchangeRate ?? 0;
+                    if (_viewModel.SelectedDetailRow.OffsetEntityAccount != null)
+                    {
+                        drAmount = drAmount + _viewModel.SelectedDetailRow.CrAmount * (decimal)_viewModel.SelectedDetailRow.ExchangeRate ?? 0;
+                    }
+
+                    if (TxtCreditPerVoucherValue.Text != String.Format("{0:0.00}", (crAmount)))
+                    {
+                        TxtCreditPerVoucherValue.Text = String.Format("{0:0.00}", (crAmount));
+                    }
+                    if (TxtDebitPerVouchervalue.Text != String.Format("{0:0.00}", drAmount))
+                    {
+                        TxtDebitPerVouchervalue.Text = String.Format("{0:0.00}", drAmount);
+                    }
+                    if (TxtBalancePerVoucherValue.Text != String.Format("{0:0.00}", (drAmount - crAmount)))
+                    {
+                        TxtBalancePerVoucherValue.Text = String.Format("{0:0.00}", (drAmount - crAmount));
+                    }
+                    if ((debittotal - credittotal) < (decimal)0.01 && (credittotal - debittotal) < (decimal)0.01)
+                    {
+                        _viewModel.SelectedMainRow.balanced = true;
+                    }
+                    else
+                    {
+                        _viewModel.SelectedMainRow.balanced = false;
+                    }
+                }
+
+         }
 
         private void DetailGrid_OnBeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
@@ -188,11 +254,14 @@ namespace CCWFM.Views.Gl.ChildWindow
                 CalcTotal();
             }
 
+            if (!_viewModel.PostedMode) { 
+
             _viewModel.SaveDetailRow();
 
             foreach (var variable in e.RemovedItems)
             {
                 _viewModel.SaveOldDetailRow(variable as TblLedgerMainDetailViewModel);
+            }
             }
         }
 
@@ -250,7 +319,7 @@ namespace CCWFM.Views.Gl.ChildWindow
         private void DataFormStyle_AddingNewItem(object sender, DataFormAddingNewItemEventArgs e)
         {
             e.Cancel = true;
-            _viewModel.AddNewDetailRow(true);
+            _viewModel.AddNewDetailRow(true, false);
         }
 
         private void ExportExcel_Click(object sender, RoutedEventArgs e)
@@ -266,7 +335,7 @@ namespace CCWFM.Views.Gl.ChildWindow
 
         private void BtnAddNewMainRow_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.AddNewDetailRow(DetailGrid.SelectedIndex != -1);
+            _viewModel.AddNewDetailRow(DetailGrid.SelectedIndex != -1, false);
         }
 
         private void BtnDeleteMainRow_Click(object sender, RoutedEventArgs e)
@@ -349,7 +418,7 @@ namespace CCWFM.Views.Gl.ChildWindow
 
         private void BtnImport_Click(object sender, RoutedEventArgs e)
         {
-            var ledgerMainList = new ObservableCollection<TblLedgerMainDetail>();
+            var ledgerMainList = new ObservableCollection<TblLedgerMainDetail1>();
             var oFile = new OpenFileDialog { Filter = "Excel (*.xls)|*.xls" };
             if (oFile.ShowDialog() == true)
             {
@@ -419,7 +488,7 @@ namespace CCWFM.Views.Gl.ChildWindow
 
                 for (int i = sheet.Cells.FirstRowIndex + 1; i < sheet.Cells.LastRowIndex + 1; i++)
                 {
-                    var newemp = new TblLedgerMainDetail();
+                    var newemp = new TblLedgerMainDetail1();
                     decimal strAmount = 0;
                     if (sheet.Cells[i, debit].StringValue != ""&& sheet.Cells[i, debit].StringValue!="0")
                     {
@@ -460,7 +529,7 @@ namespace CCWFM.Views.Gl.ChildWindow
                     }
 
                     newemp.ExchangeRate = (double)strAmount;
-                    newemp.TblLedgerHeader = _viewModel.SelectedMainRow.Iserial;
+                    newemp.TblLedgerHeader1 = _viewModel.SelectedMainRow.Iserial;
                     var Description = sheet.Cells[i, description].Value.ToString().ToUpper().Trim();
                     newemp.Description = Description;
                     newemp.TblCurrency1 = new TblCurrencyTest
@@ -492,10 +561,10 @@ namespace CCWFM.Views.Gl.ChildWindow
                         Iserial = 0
                     };
                     newemp.PaymentRef = sheet.Cells[i, PaymentRef].StringValue.ToUpper().Trim();
-                    newemp.TblLedgerDetailCostCenters = new ObservableCollection<TblLedgerDetailCostCenter>();
+                    newemp.TblLedgerDetail1CostCenter= new ObservableCollection<TblLedgerDetail1CostCenter>();
                     if (!string.IsNullOrWhiteSpace(sheet.Cells[i, costcentertype].StringValue.ToUpper().Trim()))
                     {
-                        newemp.TblLedgerDetailCostCenters.Add(new TblLedgerDetailCostCenter
+                        newemp.TblLedgerDetail1CostCenter.Add(new TblLedgerDetail1CostCenter
                         {
                             TblCostCenterType1 = new TblCostCenterType
                             {

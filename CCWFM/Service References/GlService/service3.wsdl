@@ -474,12 +474,6 @@
   <wsdl:message name="GlService_GetTblRecieveDetail_OutputMessage">
     <wsdl:part name="parameters" element="GetTblRecieveDetailResponse" />
   </wsdl:message>
-  <wsdl:message name="GlService_GetTblReturnDetail_InputMessage">
-    <wsdl:part name="parameters" element="GetTblReturnDetail" />
-  </wsdl:message>
-  <wsdl:message name="GlService_GetTblReturnDetail_OutputMessage">
-    <wsdl:part name="parameters" element="GetTblReturnDetailResponse" />
-  </wsdl:message>
   <wsdl:message name="GlService_GetRecInvStyleColor_InputMessage">
     <wsdl:part name="parameters" element="GetRecInvStyleColor" />
   </wsdl:message>
@@ -1868,10 +1862,6 @@
     <wsdl:operation name="GetTblRecieveDetail">
       <wsdl:input wsaw:Action="urn:GlService/GetTblRecieveDetail" message="GlService_GetTblRecieveDetail_InputMessage" />
       <wsdl:output wsaw:Action="urn:GlService/GetTblRecieveDetailResponse" message="GlService_GetTblRecieveDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTblReturnDetail">
-      <wsdl:input wsaw:Action="urn:GlService/GetTblReturnDetail" message="GlService_GetTblReturnDetail_InputMessage" />
-      <wsdl:output wsaw:Action="urn:GlService/GetTblReturnDetailResponse" message="GlService_GetTblReturnDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetRecInvStyleColor">
       <wsdl:input wsaw:Action="urn:GlService/GetRecInvStyleColor" message="GlService_GetRecInvStyleColor_InputMessage" />

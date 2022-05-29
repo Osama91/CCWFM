@@ -60,7 +60,7 @@
 	
 		</Grid>
 
-		<StackPanel HorizontalAlignment="Stretch" Grid.Row="1"
+        <StackPanel HorizontalAlignment="Stretch" Grid.Row="1" Visibility="{Binding PostedMode,Mode=TwoWay,Converter={StaticResource VisibilityConverter},ConverterParameter=ALL}" 
 					VerticalAlignment="Stretch"
 					Orientation="Horizontal">
 			<StackPanel.Background>
@@ -146,7 +146,7 @@
 						HorizontalAlignment="Stretch"
 						VerticalAlignment="Top" Grid.Row="2" >
 			<sdk:TabItem Name="TabStyleItem" Header="{Binding OverView, Source={StaticResource LocalizedStrings}}">
-				<dataGrid:OsGrid  MaxHeight="500" AutoGenerateColumns="False"
+				<dataGrid:OsGrid  MaxHeight="500" AutoGenerateColumns="False" 
 						 SelectedItem="{Binding SelectedDetailRow,Mode=TwoWay}" GotFocus="DetailGrid_OnGotFocus"
 						 
 						 HorizontalAlignment="Left" ItemsSource="{Binding SelectedMainRow.DetailsList,Mode=TwoWay}"

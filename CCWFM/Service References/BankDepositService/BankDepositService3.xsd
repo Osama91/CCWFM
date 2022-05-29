@@ -68,6 +68,7 @@
           <xs:element minOccurs="0" name="TblCurrency" type="xs:int" />
           <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
           <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q2:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblGlChequeTransactionDetails" nillable="true" type="tns:ArrayOfTblGlChequeTransactionDetail" />
           <xs:element minOccurs="0" name="TblVisaMachines" nillable="true" type="tns:ArrayOfTblVisaMachine" />
         </xs:sequence>
       </xs:extension>
@@ -123,6 +124,7 @@
           <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
           <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q4:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
         </xs:sequence>
@@ -183,6 +185,7 @@
           <xs:element minOccurs="0" name="TblGlCashTransactionDetailCostCenters" nillable="true" type="tns:ArrayOfTblGlCashTransactionDetailCostCenter" />
           <xs:element minOccurs="0" name="TblGlRuleDetails" nillable="true" type="tns:ArrayOfTblGlRuleDetail" />
           <xs:element minOccurs="0" name="TblJournalSettingCostCenters" nillable="true" type="tns:ArrayOfTblJournalSettingCostCenter" />
+          <xs:element minOccurs="0" name="TblLedgerDetail1CostCenter" nillable="true" type="tns:ArrayOfTblLedgerDetail1CostCenter" />
           <xs:element minOccurs="0" name="TblLedgerDetailCostCenters" nillable="true" type="tns:ArrayOfTblLedgerDetailCostCenter" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:int" />
         </xs:sequence>
@@ -275,6 +278,7 @@
           <xs:element minOccurs="0" name="TblCostDimSetupDetails" nillable="true" type="tns:ArrayOfTblCostDimSetupDetail" />
           <xs:element minOccurs="0" name="TblGlCashTransactionDetailCostCenters" nillable="true" type="tns:ArrayOfTblGlCashTransactionDetailCostCenter" />
           <xs:element minOccurs="0" name="TblGlRuleMainDetails" nillable="true" type="tns:ArrayOfTblGlRuleMainDetail" />
+          <xs:element minOccurs="0" name="TblLedgerDetail1CostCenter" nillable="true" type="tns:ArrayOfTblLedgerDetail1CostCenter" />
           <xs:element minOccurs="0" name="TblLedgerDetailCostCenters" nillable="true" type="tns:ArrayOfTblLedgerDetailCostCenter" />
         </xs:sequence>
       </xs:extension>
@@ -424,6 +428,7 @@
           <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
           <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q15:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblMethodOfPayments" nillable="true" type="tns:ArrayOfTblMethodOfPayment" />
           <xs:element minOccurs="0" name="TblPostingProfileDetails" nillable="true" type="tns:ArrayOfTblPostingProfileDetail" />
@@ -551,6 +556,7 @@
           <xs:element minOccurs="0" name="TblBankTransactionTypeGroup" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblBankTransactionTypeGroup1" nillable="true" type="tns:TblBankTransactionTypeGroup" />
           <xs:element minOccurs="0" name="TblBankTransactionTypeGroup1Reference" nillable="true" type="q20:EntityReferenceOfTblBankTransactionTypeGroupo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblMethodOfPayments" nillable="true" type="tns:ArrayOfTblMethodOfPayment" />
         </xs:sequence>
@@ -653,6 +659,7 @@
           <xs:element minOccurs="0" name="TblLedgerHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerHeader1" nillable="true" type="tns:TblLedgerHeader" />
           <xs:element minOccurs="0" name="TblLedgerHeader1Reference" nillable="true" type="q23:EntityReferenceOfTblLedgerHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblMethodOfPayment" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblMethodOfPayment1" nillable="true" type="tns:TblMethodOfPayment" />
           <xs:element minOccurs="0" name="TblMethodOfPayment1Reference" nillable="true" type="q23:EntityReferenceOfTblMethodOfPaymento0bgEGGO" />
@@ -681,6 +688,7 @@
           <xs:element minOccurs="0" name="TblGlChequeTransactionHeaders" nillable="true" type="tns:ArrayOfTblGlChequeTransactionHeader" />
           <xs:element minOccurs="0" name="TblGlChequeTypeSettings" nillable="true" type="tns:ArrayOfTblGlChequeTypeSetting" />
           <xs:element minOccurs="0" name="TblJournals" nillable="true" type="tns:ArrayOfTblJournal" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblMarkupTrans" nillable="true" type="tns:ArrayOfTblMarkupTran" />
           <xs:element minOccurs="0" name="TblRecInvMainDetails" nillable="true" type="tns:ArrayOfTblRecInvMainDetail" />
@@ -931,6 +939,8 @@
           <xs:element minOccurs="0" name="TblGroupAccountLinks" nillable="true" type="tns:ArrayOfTblGroupAccountLink" />
           <xs:element minOccurs="0" name="TblJournalSettingEntities" nillable="true" type="tns:ArrayOfTblJournalSettingEntity" />
           <xs:element minOccurs="0" name="TblJournals" nillable="true" type="tns:ArrayOfTblJournal" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail11" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblMethodOfPayments" nillable="true" type="tns:ArrayOfTblMethodOfPayment" />
@@ -1047,6 +1057,7 @@
           <xs:element minOccurs="0" name="TblGlChequeTypeSettings" nillable="true" type="tns:ArrayOfTblGlChequeTypeSetting" />
           <xs:element minOccurs="0" name="TblJournals" nillable="true" type="tns:ArrayOfTblJournal" />
           <xs:element minOccurs="0" name="TblJournals1" nillable="true" type="tns:ArrayOfTblJournal" />
+          <xs:element minOccurs="0" name="TblLedgerHeader1" nillable="true" type="tns:ArrayOfTblLedgerHeader1" />
           <xs:element minOccurs="0" name="TblLedgerHeaders" nillable="true" type="tns:ArrayOfTblLedgerHeader" />
           <xs:element minOccurs="0" name="UseDateTime" type="xs:boolean" />
         </xs:sequence>
@@ -1121,6 +1132,7 @@
           <xs:element minOccurs="0" name="TblJournalType" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalType1" nillable="true" type="tns:TblJournalType" />
           <xs:element minOccurs="0" name="TblJournalType1Reference" nillable="true" type="q38:EntityReferenceOfTblJournalTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerHeader1" nillable="true" type="tns:ArrayOfTblLedgerHeader1" />
           <xs:element minOccurs="0" name="TblLedgerHeaders" nillable="true" type="tns:ArrayOfTblLedgerHeader" />
           <xs:element minOccurs="0" name="TblSequence" nillable="true" type="tns:TblSequence" />
           <xs:element minOccurs="0" name="TblSequence1" nillable="true" type="tns:TblSequence" />
@@ -1282,6 +1294,9 @@
           <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
           <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q41:EntityReferenceOfTblAccounto0bgEGGO" />
           <xs:element minOccurs="0" name="TblAccountReference" nillable="true" type="q41:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBank" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblBank1" nillable="true" type="tns:TblBank" />
+          <xs:element minOccurs="0" name="TblBank1Reference" nillable="true" type="q41:EntityReferenceOfTblBanko0bgEGGO" />
           <xs:element minOccurs="0" name="TblBankCheque" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblBankCheque1" nillable="true" type="tns:TblBankCheque" />
           <xs:element minOccurs="0" name="TblBankCheque1Reference" nillable="true" type="q41:EntityReferenceOfTblBankChequeo0bgEGGO" />
@@ -1447,13 +1462,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTblJournal" nillable="true" type="tns:ArrayOfTblJournal" />
-  <xs:complexType name="ArrayOfTblLedgerHeader">
+  <xs:complexType name="ArrayOfTblLedgerHeader1">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerHeader" nillable="true" type="tns:TblLedgerHeader" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerHeader1" nillable="true" type="tns:TblLedgerHeader1" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTblLedgerHeader" nillable="true" type="tns:ArrayOfTblLedgerHeader" />
-  <xs:complexType name="TblLedgerHeader">
+  <xs:element name="ArrayOfTblLedgerHeader1" nillable="true" type="tns:ArrayOfTblLedgerHeader1" />
+  <xs:complexType name="TblLedgerHeader1">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q49="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q49:EntityObject">
         <xs:sequence>
@@ -1475,11 +1490,209 @@
           <xs:element minOccurs="0" name="TblJournal1" nillable="true" type="tns:TblJournal" />
           <xs:element minOccurs="0" name="TblJournal1Reference" nillable="true" type="q49:EntityReferenceOfTblJournalo0bgEGGO" />
           <xs:element minOccurs="0" name="TblJournalLink" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
+          <xs:element minOccurs="0" name="TblSequence" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblSequence1" nillable="true" type="tns:TblSequence" />
+          <xs:element minOccurs="0" name="TblSequence1Reference" nillable="true" type="q49:EntityReferenceOfTblSequenceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblTransactionType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="balanced" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblLedgerHeader1" nillable="true" type="tns:TblLedgerHeader1" />
+  <xs:complexType name="ArrayOfTblLedgerMainDetail1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerMainDetail1" nillable="true" type="tns:TblLedgerMainDetail1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
+  <xs:complexType name="TblLedgerMainDetail1">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q50="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q50:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BankDeposit" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrOrCr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DueDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntityAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="EntityRef" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ExchangeRate" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="GlAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetAccountType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetEntityAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetGlAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblAccount" nillable="true" type="tns:TblAccount" />
+          <xs:element minOccurs="0" name="TblAccountReference" nillable="true" type="q50:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBankCheque" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblBankCheque1" nillable="true" type="tns:TblBankCheque" />
+          <xs:element minOccurs="0" name="TblBankCheque1Reference" nillable="true" type="q50:EntityReferenceOfTblBankChequeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBankTransactionType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblBankTransactionType1" nillable="true" type="tns:TblBankTransactionType" />
+          <xs:element minOccurs="0" name="TblBankTransactionType1Reference" nillable="true" type="q50:EntityReferenceOfTblBankTransactionTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostDimHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
+          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q50:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q50:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType2" nillable="true" type="tns:TblJournalAccountType" />
+          <xs:element minOccurs="0" name="TblJournalAccountType2Reference" nillable="true" type="q50:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerDetail1" nillable="true" type="tns:ArrayOfTblLedgerDetail1" />
+          <xs:element minOccurs="0" name="TblLedgerDetail1CostCenter" nillable="true" type="tns:ArrayOfTblLedgerDetail1CostCenter" />
+          <xs:element minOccurs="0" name="TblLedgerHeader1" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerHeader11" nillable="true" type="tns:TblLedgerHeader1" />
+          <xs:element minOccurs="0" name="TblLedgerHeader11Reference" nillable="true" type="q50:EntityReferenceOfTblLedgerHeader1o0bgEGGO" />
+          <xs:element minOccurs="0" name="TblMethodOfPayment" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblMethodOfPayment1" nillable="true" type="tns:TblMethodOfPayment" />
+          <xs:element minOccurs="0" name="TblMethodOfPayment1Reference" nillable="true" type="q50:EntityReferenceOfTblMethodOfPaymento0bgEGGO" />
+          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblLedgerMainDetail1" nillable="true" type="tns:TblLedgerMainDetail1" />
+  <xs:complexType name="ArrayOfTblLedgerDetail1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerDetail1" nillable="true" type="tns:TblLedgerDetail1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblLedgerDetail1" nillable="true" type="tns:ArrayOfTblLedgerDetail1" />
+  <xs:complexType name="TblLedgerDetail1">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q51="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q51:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BankDeposit" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrOrCr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DueDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntityAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="EntityRef" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ExchangeRate" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="GlAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="LineNumber" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetAccountType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetEntityAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OffsetGlAccount" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TblBankCheque" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblBankTransactionType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCostDimHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerHeader1" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail11" nillable="true" type="tns:TblLedgerMainDetail1" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail11Reference" nillable="true" type="q51:EntityReferenceOfTblLedgerMainDetail1o0bgEGGO" />
+          <xs:element minOccurs="0" name="TblMethodOfPayment" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblLedgerDetail1" nillable="true" type="tns:TblLedgerDetail1" />
+  <xs:complexType name="ArrayOfTblLedgerDetail1CostCenter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerDetail1CostCenter" nillable="true" type="tns:TblLedgerDetail1CostCenter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblLedgerDetail1CostCenter" nillable="true" type="tns:ArrayOfTblLedgerDetail1CostCenter" />
+  <xs:complexType name="TblLedgerDetail1CostCenter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q52="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q52:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:double" />
+          <xs:element minOccurs="0" name="Calculated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Ratio" type="xs:double" />
+          <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCostCenter1" nillable="true" type="tns:TblCostCenter" />
+          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q52:EntityReferenceOfTblCostCentero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostCenterType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCostCenterType1" nillable="true" type="tns:TblCostCenterType" />
+          <xs:element minOccurs="0" name="TblCostCenterType1Reference" nillable="true" type="q52:EntityReferenceOfTblCostCenterTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" type="xs:int" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail11" nillable="true" type="tns:TblLedgerMainDetail1" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail11Reference" nillable="true" type="q52:EntityReferenceOfTblLedgerMainDetail1o0bgEGGO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblLedgerDetail1CostCenter" nillable="true" type="tns:TblLedgerDetail1CostCenter" />
+  <xs:complexType name="TblMethodOfPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q53="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q53:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BridgingAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BridgingPosting" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Entity" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAccount" nillable="true" type="tns:TblAccount" />
+          <xs:element minOccurs="0" name="TblAccountReference" nillable="true" type="q53:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBankTransactionType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblBankTransactionType1" nillable="true" type="tns:TblBankTransactionType" />
+          <xs:element minOccurs="0" name="TblBankTransactionType1Reference" nillable="true" type="q53:EntityReferenceOfTblBankTransactionTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q53:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:ArrayOfTblLedgerMainDetail1" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblMethodOfPayment" nillable="true" type="tns:TblMethodOfPayment" />
+  <xs:complexType name="ArrayOfTblLedgerMainDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerMainDetail" nillable="true" type="tns:TblLedgerMainDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblLedgerMainDetail" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
+  <xs:complexType name="ArrayOfTblLedgerHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerHeader" nillable="true" type="tns:TblLedgerHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblLedgerHeader" nillable="true" type="tns:ArrayOfTblLedgerHeader" />
+  <xs:complexType name="TblLedgerHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q54="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q54:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApproveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="PostBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Posted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCompany" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournal" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJournal1" nillable="true" type="tns:TblJournal" />
+          <xs:element minOccurs="0" name="TblJournal1Reference" nillable="true" type="q54:EntityReferenceOfTblJournalo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalLink" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerHeaderAttachments" nillable="true" type="tns:ArrayOfTblLedgerHeaderAttachment" />
           <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
           <xs:element minOccurs="0" name="TblSequence" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblSequence1" nillable="true" type="tns:TblSequence" />
-          <xs:element minOccurs="0" name="TblSequence1Reference" nillable="true" type="q49:EntityReferenceOfTblSequenceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSequence1Reference" nillable="true" type="q54:EntityReferenceOfTblSequenceo0bgEGGO" />
           <xs:element minOccurs="0" name="TblTransactionType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="balanced" type="xs:boolean" />
         </xs:sequence>
@@ -1495,7 +1708,7 @@
   <xs:element name="ArrayOfTblLedgerHeaderAttachment" nillable="true" type="tns:ArrayOfTblLedgerHeaderAttachment" />
   <xs:complexType name="TblLedgerHeaderAttachment">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q50="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q50:EntityObject">
+      <xs:extension xmlns:q55="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q55:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AttachmentDescription" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="AttachmentPath" nillable="true" type="xs:string" />
@@ -1505,18 +1718,12 @@
           <xs:element minOccurs="0" name="OrginalFileName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblLedgerHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerHeader1" nillable="true" type="tns:TblLedgerHeader" />
-          <xs:element minOccurs="0" name="TblLedgerHeader1Reference" nillable="true" type="q50:EntityReferenceOfTblLedgerHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerHeader1Reference" nillable="true" type="q55:EntityReferenceOfTblLedgerHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblLedgerHeaderAttachment" nillable="true" type="tns:TblLedgerHeaderAttachment" />
-  <xs:complexType name="ArrayOfTblLedgerMainDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblLedgerMainDetail" nillable="true" type="tns:TblLedgerMainDetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblLedgerMainDetail" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
   <xs:complexType name="ArrayOfTblTenderType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TblTenderType" nillable="true" type="tns:TblTenderType" />
@@ -1525,7 +1732,7 @@
   <xs:element name="ArrayOfTblTenderType" nillable="true" type="tns:ArrayOfTblTenderType" />
   <xs:complexType name="TblTenderType">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q51="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q51:EntityObject">
+      <xs:extension xmlns:q56="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q56:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CardSalsDiscP" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="GLBankComP" nillable="true" type="xs:decimal" />
@@ -1555,14 +1762,14 @@
   <xs:element name="ArrayOfTblCostDimSetupHeader" nillable="true" type="tns:ArrayOfTblCostDimSetupHeader" />
   <xs:complexType name="TblCostDimSetupHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q52="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q52:EntityObject">
+      <xs:extension xmlns:q57="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q57:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostDimHeaders" nillable="true" type="tns:ArrayOfTblCostDimHeader" />
           <xs:element minOccurs="0" name="TblCostDimSetupDetails" nillable="true" type="tns:ArrayOfTblCostDimSetupDetail" />
           <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q52:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q57:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1576,13 +1783,13 @@
   <xs:element name="ArrayOfTblCostDimHeader" nillable="true" type="tns:ArrayOfTblCostDimHeader" />
   <xs:complexType name="TblCostDimHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q53="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q53:EntityObject">
+      <xs:extension xmlns:q58="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q58:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostDimDetails" nillable="true" type="tns:ArrayOfTblCostDimDetail" />
           <xs:element minOccurs="0" name="TblCostDimSetupHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostDimSetupHeader1" nillable="true" type="tns:TblCostDimSetupHeader" />
-          <xs:element minOccurs="0" name="TblCostDimSetupHeader1Reference" nillable="true" type="q53:EntityReferenceOfTblCostDimSetupHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostDimSetupHeader1Reference" nillable="true" type="q58:EntityReferenceOfTblCostDimSetupHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1596,15 +1803,15 @@
   <xs:element name="ArrayOfTblCostDimDetail" nillable="true" type="tns:ArrayOfTblCostDimDetail" />
   <xs:complexType name="TblCostDimDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q54="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q54:EntityObject">
+      <xs:extension xmlns:q59="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q59:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostCenter1" nillable="true" type="tns:TblCostCenter" />
-          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q54:EntityReferenceOfTblCostCentero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q59:EntityReferenceOfTblCostCentero0bgEGGO" />
           <xs:element minOccurs="0" name="TblCostDimHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostDimHeader1" nillable="true" type="tns:TblCostDimHeader" />
-          <xs:element minOccurs="0" name="TblCostDimHeader1Reference" nillable="true" type="q54:EntityReferenceOfTblCostDimHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostDimHeader1Reference" nillable="true" type="q59:EntityReferenceOfTblCostDimHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1618,7 +1825,7 @@
   <xs:element name="ArrayOfTblGlGenEntity" nillable="true" type="tns:ArrayOfTblGlGenEntity" />
   <xs:complexType name="TblGlGenEntity">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q55="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q55:EntityObject">
+      <xs:extension xmlns:q60="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q60:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -1626,10 +1833,10 @@
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblGlGenEntityGroup" type="xs:int" />
           <xs:element minOccurs="0" name="TblGlGenEntityGroup1" nillable="true" type="tns:TblGlGenEntityGroup" />
-          <xs:element minOccurs="0" name="TblGlGenEntityGroup1Reference" nillable="true" type="q55:EntityReferenceOfTblGlGenEntityGroupo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblGlGenEntityGroup1Reference" nillable="true" type="q60:EntityReferenceOfTblGlGenEntityGroupo0bgEGGO" />
           <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q55:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q60:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1637,7 +1844,7 @@
   <xs:element name="TblGlGenEntity" nillable="true" type="tns:TblGlGenEntity" />
   <xs:complexType name="TblGlGenEntityGroup">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q56="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q56:EntityObject">
+      <xs:extension xmlns:q61="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q61:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -1647,7 +1854,7 @@
           <xs:element minOccurs="0" name="TblGlGenEntities" nillable="true" type="tns:ArrayOfTblGlGenEntity" />
           <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q56:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q61:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1667,20 +1874,20 @@
   <xs:element name="ArrayOfTblGlRuleDetail" nillable="true" type="tns:ArrayOfTblGlRuleDetail" />
   <xs:complexType name="TblGlRuleDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q57="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q57:EntityObject">
+      <xs:extension xmlns:q62="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q62:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="GlInventoryGroup" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Ratio" type="xs:double" />
           <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostCenter1" nillable="true" type="tns:TblCostCenter" />
-          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q57:EntityReferenceOfTblCostCentero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q62:EntityReferenceOfTblCostCentero0bgEGGO" />
           <xs:element minOccurs="0" name="TblGlRuleMainDetail" type="xs:int" />
           <xs:element minOccurs="0" name="TblGlRuleMainDetail1" nillable="true" type="tns:TblGlRuleMainDetail" />
-          <xs:element minOccurs="0" name="TblGlRuleMainDetail1Reference" nillable="true" type="q57:EntityReferenceOfTblGlRuleMainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblGlRuleMainDetail1Reference" nillable="true" type="q62:EntityReferenceOfTblGlRuleMainDetailo0bgEGGO" />
           <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q57:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q62:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1694,16 +1901,16 @@
   <xs:element name="ArrayOfTblGroupAccountLink" nillable="true" type="tns:ArrayOfTblGroupAccountLink" />
   <xs:complexType name="TblGroupAccountLink">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q58="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q58:EntityObject">
+      <xs:extension xmlns:q63="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q63:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Group" type="xs:int" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q58:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q63:EntityReferenceOfTblAccounto0bgEGGO" />
           <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
           <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q58:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q63:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1715,31 +1922,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTblMethodOfPayment" nillable="true" type="tns:ArrayOfTblMethodOfPayment" />
-  <xs:complexType name="TblMethodOfPayment">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q59="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q59:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="BridgingAccount" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="BridgingPosting" nillable="true" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Entity" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="TblAccount" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccountReference" nillable="true" type="q59:EntityReferenceOfTblAccounto0bgEGGO" />
-          <xs:element minOccurs="0" name="TblBankTransactionType" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblBankTransactionType1" nillable="true" type="tns:TblBankTransactionType" />
-          <xs:element minOccurs="0" name="TblBankTransactionType1Reference" nillable="true" type="q59:EntityReferenceOfTblBankTransactionTypeo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountType1Reference" nillable="true" type="q59:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblLedgerMainDetails" nillable="true" type="tns:ArrayOfTblLedgerMainDetail" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblMethodOfPayment" nillable="true" type="tns:TblMethodOfPayment" />
   <xs:complexType name="ArrayOfTblPostingProfileDetail">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPostingProfileDetail" nillable="true" type="tns:TblPostingProfileDetail" />
@@ -1748,19 +1930,19 @@
   <xs:element name="ArrayOfTblPostingProfileDetail" nillable="true" type="tns:ArrayOfTblPostingProfileDetail" />
   <xs:complexType name="TblPostingProfileDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q60="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q60:EntityObject">
+      <xs:extension xmlns:q64="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q64:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Entity" type="xs:int" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Scope" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q60:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q64:EntityReferenceOfTblAccounto0bgEGGO" />
           <xs:element minOccurs="0" name="TblJournalAccountType" nillable="true" type="tns:TblJournalAccountType" />
-          <xs:element minOccurs="0" name="TblJournalAccountTypeReference" nillable="true" type="q60:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountTypeReference" nillable="true" type="q64:EntityReferenceOfTblJournalAccountTypeo0bgEGGO" />
           <xs:element minOccurs="0" name="TblPostingProfileHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblPostingProfileHeader1" nillable="true" type="tns:TblPostingProfileHeader" />
-          <xs:element minOccurs="0" name="TblPostingProfileHeader1Reference" nillable="true" type="q60:EntityReferenceOfTblPostingProfileHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPostingProfileHeader1Reference" nillable="true" type="q64:EntityReferenceOfTblPostingProfileHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="Type" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -1769,7 +1951,7 @@
   <xs:element name="TblPostingProfileDetail" nillable="true" type="tns:TblPostingProfileDetail" />
   <xs:complexType name="TblPostingProfileHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q61="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q61:EntityObject">
+      <xs:extension xmlns:q65="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q65:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -1789,22 +1971,21 @@
   <xs:element name="ArrayOfTblMarkupTran" nillable="true" type="tns:ArrayOfTblMarkupTran" />
   <xs:complexType name="TblMarkupTran">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q62="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q62:EntityObject">
+      <xs:extension xmlns:q66="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q66:EntityObject">
         <xs:sequence>
+          <xs:element minOccurs="0" name="EntityAccount" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="ExchangeRate" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="MiscValue" nillable="true" type="xs:double" />
           <xs:element minOccurs="0" name="MiscValueType" type="xs:int" />
-          <xs:element minOccurs="0" name="TBLsupplier1" nillable="true" type="tns:TBLsupplier" />
-          <xs:element minOccurs="0" name="TBLsupplier1Reference" nillable="true" type="q62:EntityReferenceOfTBLsuppliero0bgEGGO" />
           <xs:element minOccurs="0" name="TblCurrency" type="xs:int" />
           <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
-          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q62:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q66:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblJournalAccountType" type="xs:int" />
           <xs:element minOccurs="0" name="TblMarkup" type="xs:int" />
           <xs:element minOccurs="0" name="TblMarkup1" nillable="true" type="tns:TblMarkup" />
-          <xs:element minOccurs="0" name="TblMarkup1Reference" nillable="true" type="q62:EntityReferenceOfTblMarkupo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblMarkup1Reference" nillable="true" type="q66:EntityReferenceOfTblMarkupo0bgEGGO" />
           <xs:element minOccurs="0" name="TblRecInv" type="xs:int" />
-          <xs:element minOccurs="0" name="TblSupplier" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Type" type="xs:int" />
           <xs:element minOccurs="0" name="VendorEffect" type="xs:boolean" />
         </xs:sequence>
@@ -1812,132 +1993,77 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblMarkupTran" nillable="true" type="tns:TblMarkupTran" />
-  <xs:complexType name="TBLsupplier">
+  <xs:complexType name="TblMarkup">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q63="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q63:EntityObject">
+      <xs:extension xmlns:q67="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q67:EntityObject">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CashDiscount" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ContPerson2" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DelvryType" nillable="true" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="Dliry" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="InvoiceDiscount" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="SupplierGroup" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemEffect" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TblMarkupGroup" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblMarkupGroup1" nillable="true" type="tns:TblMarkupGroup" />
+          <xs:element minOccurs="0" name="TblMarkupGroup1Reference" nillable="true" type="q67:EntityReferenceOfTblMarkupGroupo0bgEGGO" />
           <xs:element minOccurs="0" name="TblMarkupTrans" nillable="true" type="tns:ArrayOfTblMarkupTran" />
-          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
-          <xs:element minOccurs="0" name="TblRecInvHeaders" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
-          <xs:element minOccurs="0" name="TrmsCodition" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="additionaltax" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="cashdisc" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="commericaldsc" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="contperson1" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="glcode" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="TBLsupplier" nillable="true" type="tns:TBLsupplier" />
-  <xs:complexType name="ArrayOfTblPO1Header">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
-  <xs:complexType name="TblPO1Header">
+  <xs:element name="TblMarkup" nillable="true" type="tns:TblMarkup" />
+  <xs:complexType name="TblMarkupGroup">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q64="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q64:EntityObject">
+      <xs:extension xmlns:q68="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q68:EntityObject">
         <xs:sequence>
-          <xs:element minOccurs="0" name="ApplyCommDiscOnItem" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="BeforeInvoice" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="CashNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Ddate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="INVOICE" nillable="true" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="PoStatus" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="PurchNum" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TBLsupplier1" nillable="true" type="tns:TBLsupplier" />
-          <xs:element minOccurs="0" name="TBLsupplier1Reference" nillable="true" type="q64:EntityReferenceOfTBLsuppliero0bgEGGO" />
-          <xs:element minOccurs="0" name="TblPO1MainDetail" nillable="true" type="tns:ArrayOfTblPO1MainDetail" />
-          <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q64:EntityReferenceOfTblStoreo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblUser1" nillable="true" type="tns:TblUser" />
-          <xs:element minOccurs="0" name="TblUser1Reference" nillable="true" type="q64:EntityReferenceOfTblUsero0bgEGGO" />
-          <xs:element minOccurs="0" name="Votype" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="VouchSalesTax" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="additionaltax" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="cashdisc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="cashinvototal" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="chequedate" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="commericaldisc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="contactperson" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="creationdate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="glserial" type="xs:int" />
-          <xs:element minOccurs="0" name="grosscost" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="miscdisc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="miscexp" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="period" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="supplierInvno" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="tblseason" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="tblstore" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="tblsupplier" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="totblstore" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totvochnotax" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="votdate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Direction" type="xs:int" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblMarkups" nillable="true" type="tns:ArrayOfTblMarkup" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
-  <xs:complexType name="ArrayOfTblPO1MainDetail">
+  <xs:element name="TblMarkupGroup" nillable="true" type="tns:TblMarkupGroup" />
+  <xs:complexType name="ArrayOfTblMarkup">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblMarkup" nillable="true" type="tns:TblMarkup" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTblPO1MainDetail" nillable="true" type="tns:ArrayOfTblPO1MainDetail" />
-  <xs:complexType name="TblPO1MainDetail">
+  <xs:element name="ArrayOfTblMarkup" nillable="true" type="tns:ArrayOfTblMarkup" />
+  <xs:complexType name="ArrayOfTblRecInvMainDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvMainDetail" nillable="true" type="tns:TblRecInvMainDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblRecInvMainDetail" nillable="true" type="tns:ArrayOfTblRecInvMainDetail" />
+  <xs:complexType name="TblRecInvMainDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q65="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q65:EntityObject">
+      <xs:extension xmlns:q69="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q69:EntityObject">
         <xs:sequence>
-          <xs:element minOccurs="0" name="AddExp" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
-          <xs:element minOccurs="0" name="ItemSalesTax" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmCommericalDisc" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmDis" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="QtyRec" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Cost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Qty" type="xs:decimal" />
           <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q65:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblPO1Detail" nillable="true" type="tns:ArrayOfTblPO1Detail" />
-          <xs:element minOccurs="0" name="TblPO1Detail1" nillable="true" type="tns:ArrayOfTblPO1Detail" />
-          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
-          <xs:element minOccurs="0" name="TblPO1HeaderReference" nillable="true" type="q65:EntityReferenceOfTblPO1Headero0bgEGGO" />
-          <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="glserial" type="xs:int" />
-          <xs:element minOccurs="0" name="tblitem" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totwot" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ucostwot" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ucostwvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="unitvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q69:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
+          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q69:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblItem" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q69:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSTax" nillable="true" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
+  <xs:element name="TblRecInvMainDetail" nillable="true" type="tns:TblRecInvMainDetail" />
   <xs:complexType name="TBLITEMprice">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q66="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q66:EntityObject">
+      <xs:extension xmlns:q70="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q70:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ActType" nillable="true" type="xs:int" />
@@ -1989,7 +2115,7 @@
           <xs:element minOccurs="0" name="TblClass4" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblColor" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblColor1" nillable="true" type="tns:TblColorTest" />
-          <xs:element minOccurs="0" name="TblColor1Reference" nillable="true" type="q66:EntityReferenceOfTblColorTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblColor1Reference" nillable="true" type="q70:EntityReferenceOfTblColorTesto0bgEGGO" />
           <xs:element minOccurs="0" name="TblColorGroup" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblGroup1" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblGroup2" nillable="true" type="xs:int" />
@@ -2000,7 +2126,7 @@
           <xs:element minOccurs="0" name="TblGroup7" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblGroup8" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblItemDownLoadDef" nillable="true" type="tns:TblItemDownLoadDef" />
-          <xs:element minOccurs="0" name="TblItemDownLoadDefReference" nillable="true" type="q66:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblItemDownLoadDefReference" nillable="true" type="q70:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
           <xs:element minOccurs="0" name="TblMultipleBcs" nillable="true" type="tns:ArrayOfTblMultipleBc" />
           <xs:element minOccurs="0" name="TblPO1Detail" nillable="true" type="tns:ArrayOfTblPO1Detail" />
           <xs:element minOccurs="0" name="TblPO1MainDetail" nillable="true" type="tns:ArrayOfTblPO1MainDetail" />
@@ -2011,7 +2137,7 @@
           <xs:element minOccurs="0" name="TblSeason" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblSize" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblSize1" nillable="true" type="tns:TblSizeRetail" />
-          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q66:EntityReferenceOfTblSizeRetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q70:EntityReferenceOfTblSizeRetailo0bgEGGO" />
           <xs:element minOccurs="0" name="TblSizeGroup" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblSupplier" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblUnit" nillable="true" type="xs:int" />
@@ -2032,7 +2158,7 @@
   <xs:element name="ArrayOfTBLSTORETRAN" nillable="true" type="tns:ArrayOfTBLSTORETRAN" />
   <xs:complexType name="TBLSTORETRAN">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q67="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q67:EntityObject">
+      <xs:extension xmlns:q71="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q71:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Dserial1" nillable="true" type="xs:int" />
@@ -2049,10 +2175,10 @@
           <xs:element minOccurs="0" name="RPrice3" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Salesprice" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q67:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q71:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
           <xs:element minOccurs="0" name="TblItemCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q67:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q71:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="TblStoreCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblVotype" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Tblitem" nillable="true" type="xs:int" />
@@ -2068,7 +2194,7 @@
   <xs:element name="TBLSTORETRAN" nillable="true" type="tns:TBLSTORETRAN" />
   <xs:complexType name="TblStore">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q68="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q68:EntityObject">
+      <xs:extension xmlns:q72="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q72:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ENAME" nillable="true" type="xs:string" />
@@ -2090,7 +2216,7 @@
           <xs:element minOccurs="0" name="TblSalaryApprovalHeaders" nillable="true" type="tns:ArrayOfTblSalaryApprovalHeader" />
           <xs:element minOccurs="0" name="TblShopReqHeaders" nillable="true" type="tns:ArrayOfTblShopReqHeader" />
           <xs:element minOccurs="0" name="TblStoreCommission" nillable="true" type="tns:TblStoreCommission" />
-          <xs:element minOccurs="0" name="TblStoreCommissionReference" nillable="true" type="q68:EntityReferenceOfTblStoreCommissiono0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStoreCommissionReference" nillable="true" type="q72:EntityReferenceOfTblStoreCommissiono0bgEGGO" />
           <xs:element minOccurs="0" name="TblStoreVisaMachines" nillable="true" type="tns:ArrayOfTblStoreVisaMachine" />
           <xs:element minOccurs="0" name="TempStore" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:int" />
@@ -2112,7 +2238,7 @@
   <xs:element name="ArrayOfTblBankDeposit" nillable="true" type="tns:ArrayOfTblBankDeposit" />
   <xs:complexType name="TblBankDeposit">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q69="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q69:EntityObject">
+      <xs:extension xmlns:q73="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q73:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Amount" type="xs:int" />
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -2124,7 +2250,7 @@
           <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q69:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q73:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
         </xs:sequence>
@@ -2140,16 +2266,16 @@
   <xs:element name="ArrayOfTblBrandStoreTargetDetail" nillable="true" type="tns:ArrayOfTblBrandStoreTargetDetail" />
   <xs:complexType name="TblBrandStoreTargetDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q70="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q70:EntityObject">
+      <xs:extension xmlns:q74="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q74:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="Glserial" type="xs:int" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="TblBrandStoreTargetHeader" nillable="true" type="tns:TblBrandStoreTargetHeader" />
-          <xs:element minOccurs="0" name="TblBrandStoreTargetHeaderReference" nillable="true" type="q70:EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBrandStoreTargetHeaderReference" nillable="true" type="q74:EntityReferenceOfTblBrandStoreTargetHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q70:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q74:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="Tblstore" nillable="true" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2158,7 +2284,7 @@
   <xs:element name="TblBrandStoreTargetDetail" nillable="true" type="tns:TblBrandStoreTargetDetail" />
   <xs:complexType name="TblBrandStoreTargetHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q71="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q71:EntityObject">
+      <xs:extension xmlns:q75="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q75:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BrandAmount" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Glserial" type="xs:int" />
@@ -2166,7 +2292,7 @@
           <xs:element minOccurs="0" name="TblBrandStoreTargetDetails" nillable="true" type="tns:ArrayOfTblBrandStoreTargetDetail" />
           <xs:element minOccurs="0" name="TblItemDownLoadDef" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblItemDownLoadDef1" nillable="true" type="tns:TblItemDownLoadDef" />
-          <xs:element minOccurs="0" name="TblItemDownLoadDef1Reference" nillable="true" type="q71:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblItemDownLoadDef1Reference" nillable="true" type="q75:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
           <xs:element minOccurs="0" name="Year" nillable="true" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2175,7 +2301,7 @@
   <xs:element name="TblBrandStoreTargetHeader" nillable="true" type="tns:TblBrandStoreTargetHeader" />
   <xs:complexType name="TblItemDownLoadDef">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q72="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q72:EntityObject">
+      <xs:extension xmlns:q76="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q76:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2209,19 +2335,19 @@
   <xs:element name="ArrayOfTblShopReqHeader" nillable="true" type="tns:ArrayOfTblShopReqHeader" />
   <xs:complexType name="TblShopReqHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q73="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q73:EntityObject">
+      <xs:extension xmlns:q77="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q77:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblItemDownLoadDef" type="xs:int" />
           <xs:element minOccurs="0" name="TblItemDownLoadDef1" nillable="true" type="tns:TblItemDownLoadDef" />
-          <xs:element minOccurs="0" name="TblItemDownLoadDef1Reference" nillable="true" type="q73:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblItemDownLoadDef1Reference" nillable="true" type="q77:EntityReferenceOfTblItemDownLoadDefo0bgEGGO" />
           <xs:element minOccurs="0" name="TblShopReqAccs" nillable="true" type="tns:ArrayOfTblShopReqAcc" />
           <xs:element minOccurs="0" name="TblShopReqComments" nillable="true" type="tns:ArrayOfTblShopReqComment" />
           <xs:element minOccurs="0" name="TblShopReqInvs" nillable="true" type="tns:ArrayOfTblShopReqInv" />
           <xs:element minOccurs="0" name="TblStore" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q73:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q77:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="UserIserial" type="xs:int" />
           <xs:element minOccurs="0" name="Week" type="xs:int" />
           <xs:element minOccurs="0" name="Year" type="xs:int" />
@@ -2238,16 +2364,16 @@
   <xs:element name="ArrayOfTblShopReqAcc" nillable="true" type="tns:ArrayOfTblShopReqAcc" />
   <xs:complexType name="TblShopReqAcc">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q74="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q74:EntityObject">
+      <xs:extension xmlns:q78="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q78:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Qty" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopAcc" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopAcc1" nillable="true" type="tns:TblShopAcc" />
-          <xs:element minOccurs="0" name="TblShopAcc1Reference" nillable="true" type="q74:EntityReferenceOfTblShopAcco0bgEGGO" />
+          <xs:element minOccurs="0" name="TblShopAcc1Reference" nillable="true" type="q78:EntityReferenceOfTblShopAcco0bgEGGO" />
           <xs:element minOccurs="0" name="TblShopReqHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopReqHeader1" nillable="true" type="tns:TblShopReqHeader" />
-          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q74:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q78:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2255,7 +2381,7 @@
   <xs:element name="TblShopReqAcc" nillable="true" type="tns:TblShopReqAcc" />
   <xs:complexType name="TblShopAcc">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q75="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q75:EntityObject">
+      <xs:extension xmlns:q79="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q79:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2276,16 +2402,16 @@
   <xs:element name="ArrayOfTblShopReqComment" nillable="true" type="tns:ArrayOfTblShopReqComment" />
   <xs:complexType name="TblShopReqComment">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q76="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q76:EntityObject">
+      <xs:extension xmlns:q80="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q80:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopComment" nillable="true" type="tns:TblShopComment" />
-          <xs:element minOccurs="0" name="TblShopCommentReference" nillable="true" type="q76:EntityReferenceOfTblShopCommento0bgEGGO" />
+          <xs:element minOccurs="0" name="TblShopCommentReference" nillable="true" type="q80:EntityReferenceOfTblShopCommento0bgEGGO" />
           <xs:element minOccurs="0" name="TblShopComments" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopReqHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopReqHeader1" nillable="true" type="tns:TblShopReqHeader" />
-          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q76:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q80:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2293,7 +2419,7 @@
   <xs:element name="TblShopReqComment" nillable="true" type="tns:TblShopReqComment" />
   <xs:complexType name="TblShopComment">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q77="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q77:EntityObject">
+      <xs:extension xmlns:q81="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q81:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2313,20 +2439,20 @@
   <xs:element name="ArrayOfTblShopReqInv" nillable="true" type="tns:ArrayOfTblShopReqInv" />
   <xs:complexType name="TblShopReqInv">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q78="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q78:EntityObject">
+      <xs:extension xmlns:q82="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q82:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Qty" type="xs:double" />
           <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblColor" type="xs:int" />
           <xs:element minOccurs="0" name="TblColor1" nillable="true" type="tns:TblColorTest" />
-          <xs:element minOccurs="0" name="TblColor1Reference" nillable="true" type="q78:EntityReferenceOfTblColorTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblColor1Reference" nillable="true" type="q82:EntityReferenceOfTblColorTesto0bgEGGO" />
           <xs:element minOccurs="0" name="TblShopReqHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblShopReqHeader1" nillable="true" type="tns:TblShopReqHeader" />
-          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q78:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblShopReqHeader1Reference" nillable="true" type="q82:EntityReferenceOfTblShopReqHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblSize" type="xs:int" />
           <xs:element minOccurs="0" name="TblSize1" nillable="true" type="tns:TblSizeRetail" />
-          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q78:EntityReferenceOfTblSizeRetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q82:EntityReferenceOfTblSizeRetailo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2334,7 +2460,7 @@
   <xs:element name="TblShopReqInv" nillable="true" type="tns:TblShopReqInv" />
   <xs:complexType name="TblColorTest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q79="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q79:EntityObject">
+      <xs:extension xmlns:q83="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q83:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2349,7 +2475,7 @@
   <xs:element name="TblColorTest" nillable="true" type="tns:TblColorTest" />
   <xs:complexType name="TblSizeRetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q80="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q80:EntityObject">
+      <xs:extension xmlns:q84="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q84:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2371,11 +2497,11 @@
   <xs:element name="ArrayOfTblSizeLink" nillable="true" type="tns:ArrayOfTblSizeLink" />
   <xs:complexType name="TblSizeLink">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q81="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q81:EntityObject">
+      <xs:extension xmlns:q85="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q85:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="TblSize" type="xs:int" />
           <xs:element minOccurs="0" name="TblSize1" nillable="true" type="tns:TblSizeRetail" />
-          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q81:EntityReferenceOfTblSizeRetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSize1Reference" nillable="true" type="q85:EntityReferenceOfTblSizeRetailo0bgEGGO" />
           <xs:element minOccurs="0" name="TblSizeGroup" type="xs:int" />
           <xs:element minOccurs="0" name="iserial" type="xs:int" />
         </xs:sequence>
@@ -2383,15 +2509,15 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblSizeLink" nillable="true" type="tns:TblSizeLink" />
-  <xs:complexType name="ArrayOfTblPOHeader">
+  <xs:complexType name="ArrayOfTblPO1Header">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPOHeader" nillable="true" type="tns:TblPOHeader" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTblPOHeader" nillable="true" type="tns:ArrayOfTblPOHeader" />
-  <xs:complexType name="TblPOHeader">
+  <xs:element name="ArrayOfTblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
+  <xs:complexType name="TblPO1Header">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q82="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q82:EntityObject">
+      <xs:extension xmlns:q86="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q86:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ApplyCommDiscOnItem" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="BeforeInvoice" nillable="true" type="xs:decimal" />
@@ -2401,13 +2527,319 @@
           <xs:element minOccurs="0" name="INVOICE" nillable="true" type="xs:unsignedByte" />
           <xs:element minOccurs="0" name="PoStatus" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="PurchNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TBLsupplier1" nillable="true" type="tns:TBLsupplier" />
+          <xs:element minOccurs="0" name="TBLsupplier1Reference" nillable="true" type="q86:EntityReferenceOfTBLsuppliero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPO1MainDetail" nillable="true" type="tns:ArrayOfTblPO1MainDetail" />
+          <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q86:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblUser1" nillable="true" type="tns:TblUser" />
+          <xs:element minOccurs="0" name="TblUser1Reference" nillable="true" type="q86:EntityReferenceOfTblUsero0bgEGGO" />
+          <xs:element minOccurs="0" name="Votype" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="VouchSalesTax" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="additionaltax" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="cashdisc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="cashinvototal" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="chequedate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="commericaldisc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="contactperson" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="creationdate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="glserial" type="xs:int" />
+          <xs:element minOccurs="0" name="grosscost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="miscdisc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="miscexp" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="period" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="supplierInvno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tblseason" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tblstore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tblsupplier" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="totblstore" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totvochnotax" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="votdate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
+  <xs:complexType name="TBLsupplier">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q87="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q87:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CashDiscount" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContPerson2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DelvryType" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Dliry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoiceDiscount" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="SupplierGroup" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
+          <xs:element minOccurs="0" name="TblRecInvHeaders" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
+          <xs:element minOccurs="0" name="TrmsCodition" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="additionaltax" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="cashdisc" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="commericaldsc" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="contperson1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="glcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TBLsupplier" nillable="true" type="tns:TBLsupplier" />
+  <xs:complexType name="ArrayOfTblRecInvHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvHeader" nillable="true" type="tns:TblRecInvHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblRecInvHeader" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
+  <xs:complexType name="TblRecInvHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q88="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q88:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Invoiced" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MiscWithoutItemEffect" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PostBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Posted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SupplierInv" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TBLsupplier1" nillable="true" type="tns:TBLsupplier" />
+          <xs:element minOccurs="0" name="TBLsupplier1Reference" nillable="true" type="q88:EntityReferenceOfTBLsuppliero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblAccount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
+          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q88:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblRecInvDetails" nillable="true" type="tns:ArrayOfTblRecInvDetail" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderLinks" nillable="true" type="tns:ArrayOfTblRecInvHeaderLink" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType1" nillable="true" type="tns:TblRecInvHeaderType" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType1Reference" nillable="true" type="q88:EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblRecInvMainDetails" nillable="true" type="tns:ArrayOfTblRecInvMainDetail" />
+          <xs:element minOccurs="0" name="TblStore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q88:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSupplier" type="xs:int" />
+          <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblRecInvHeader" nillable="true" type="tns:TblRecInvHeader" />
+  <xs:complexType name="ArrayOfTblRecInvDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvDetail" nillable="true" type="tns:TblRecInvDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblRecInvDetail" nillable="true" type="tns:ArrayOfTblRecInvDetail" />
+  <xs:complexType name="TblRecInvDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q89="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q89:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Flg" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Glserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q89:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblRecInvHeader" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q89:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType1" nillable="true" type="tns:TblRecInvHeaderType" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType1Reference" nillable="true" type="q89:EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="Tblitem" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblRecInvDetail" nillable="true" type="tns:TblRecInvDetail" />
+  <xs:complexType name="TblRecInvHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q90="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q90:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Natural" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvDetails" nillable="true" type="tns:ArrayOfTblRecInvDetail" />
+          <xs:element minOccurs="0" name="TblRecInvHeaders" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblRecInvHeaderType" nillable="true" type="tns:TblRecInvHeaderType" />
+  <xs:complexType name="ArrayOfTblRecInvHeaderLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvHeaderLink" nillable="true" type="tns:TblRecInvHeaderLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblRecInvHeaderLink" nillable="true" type="tns:ArrayOfTblRecInvHeaderLink" />
+  <xs:complexType name="TblRecInvHeaderLink">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q91="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q91:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeader" type="xs:int" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
+          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q91:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblRecInvHeaderType" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tblrecieveHeader" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblRecInvHeaderLink" nillable="true" type="tns:TblRecInvHeaderLink" />
+  <xs:complexType name="ArrayOfTblPO1MainDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblPO1MainDetail" nillable="true" type="tns:ArrayOfTblPO1MainDetail" />
+  <xs:complexType name="TblPO1MainDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q92="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q92:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddExp" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemSalesTax" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmCommericalDisc" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmDis" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="QtyRec" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q92:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPO1Detail" nillable="true" type="tns:ArrayOfTblPO1Detail" />
+          <xs:element minOccurs="0" name="TblPO1Detail1" nillable="true" type="tns:ArrayOfTblPO1Detail" />
+          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:TblPO1Header" />
+          <xs:element minOccurs="0" name="TblPO1HeaderReference" nillable="true" type="q92:EntityReferenceOfTblPO1Headero0bgEGGO" />
+          <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="glserial" type="xs:int" />
+          <xs:element minOccurs="0" name="tblitem" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totwot" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ucostwot" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ucostwvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="unitvat" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
+  <xs:complexType name="ArrayOfTblPO1Detail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1Detail" nillable="true" type="tns:TblPO1Detail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblPO1Detail" nillable="true" type="tns:ArrayOfTblPO1Detail" />
+  <xs:complexType name="TblPO1Detail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q93="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q93:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddExp" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CashDiscOnVouch" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
+          <xs:element minOccurs="0" name="Dserial1" type="xs:int" />
+          <xs:element minOccurs="0" name="Exdate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ItemSalesTax" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmAdditionalTax" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmCommericalDisc" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmDis" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ItmMiscDisc" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ItmMiscExp" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="QtyRec" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q93:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
+          <xs:element minOccurs="0" name="TblPO1MainDetail1" nillable="true" type="tns:TblPO1MainDetail" />
+          <xs:element minOccurs="0" name="TblPO1MainDetail1Reference" nillable="true" type="q93:EntityReferenceOfTblPO1MainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPO1MainDetailReference" nillable="true" type="q93:EntityReferenceOfTblPO1MainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="glserial" type="xs:int" />
+          <xs:element minOccurs="0" name="tblitem" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totwot" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ucostwot" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ucostwvat" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="unitvat" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblPO1Detail" nillable="true" type="tns:TblPO1Detail" />
+  <xs:complexType name="TblUser">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q94="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q94:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ActiveCashMach" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActiveStore" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AllowedStores" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AllowedStoresTo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrLang" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ReportFont" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblJob" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
+          <xs:element minOccurs="0" name="TblPOHeaders" nillable="true" type="tns:ArrayOfTblPOHeader" />
+          <xs:element minOccurs="0" name="Tel1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tel2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="iserial" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TblUser" nillable="true" type="tns:TblUser" />
+  <xs:complexType name="ArrayOfTblPOHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPOHeader" nillable="true" type="tns:TblPOHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTblPOHeader" nillable="true" type="tns:ArrayOfTblPOHeader" />
+  <xs:complexType name="TblPOHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q95="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q95:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplyCommDiscOnItem" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BeforeInvoice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CashNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ddate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FromStore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="INVOICE" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PoStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PurchNum" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Sended" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPOMainDetails" nillable="true" type="tns:ArrayOfTblPOMainDetail" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q82:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q95:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblUser1" nillable="true" type="tns:TblUser" />
-          <xs:element minOccurs="0" name="TblUser1Reference" nillable="true" type="q82:EntityReferenceOfTblUsero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblUser1Reference" nillable="true" type="q95:EntityReferenceOfTblUsero0bgEGGO" />
           <xs:element minOccurs="0" name="Votype" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="VouchSalesTax" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="additionaltax" nillable="true" type="xs:decimal" />
@@ -2444,7 +2876,7 @@
   <xs:element name="ArrayOfTblPOMainDetail" nillable="true" type="tns:ArrayOfTblPOMainDetail" />
   <xs:complexType name="TblPOMainDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q83="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q83:EntityObject">
+      <xs:extension xmlns:q96="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q96:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AddExp" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="DeliveryDate" nillable="true" type="xs:dateTime" />
@@ -2452,13 +2884,14 @@
           <xs:element minOccurs="0" name="ItemSalesTax" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="ItmCommericalDisc" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="ItmDis" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="QtyRec" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q83:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q96:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
           <xs:element minOccurs="0" name="TblPOHeader" nillable="true" type="tns:TblPOHeader" />
-          <xs:element minOccurs="0" name="TblPOHeaderReference" nillable="true" type="q83:EntityReferenceOfTblPOHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPOHeaderReference" nillable="true" type="q96:EntityReferenceOfTblPOHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="glserial" type="xs:int" />
           <xs:element minOccurs="0" name="tblitem" nillable="true" type="xs:int" />
@@ -2473,35 +2906,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblPOMainDetail" nillable="true" type="tns:TblPOMainDetail" />
-  <xs:complexType name="TblUser">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q84="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q84:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Active" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="ActiveCashMach" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ActiveStore" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="AllowedStores" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="AllowedStoresTo" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CurrLang" nillable="true" type="xs:unsignedByte" />
-          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RegNo" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="ReportFont" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblJob" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblPO1Header" nillable="true" type="tns:ArrayOfTblPO1Header" />
-          <xs:element minOccurs="0" name="TblPOHeaders" nillable="true" type="tns:ArrayOfTblPOHeader" />
-          <xs:element minOccurs="0" name="Tel1" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Tel2" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="iserial" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblUser" nillable="true" type="tns:TblUser" />
   <xs:complexType name="ArrayOfTblPositionRoute">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPositionRoute" nillable="true" type="tns:TblPositionRoute" />
@@ -2510,7 +2914,7 @@
   <xs:element name="ArrayOfTblPositionRoute" nillable="true" type="tns:ArrayOfTblPositionRoute" />
   <xs:complexType name="TblPositionRoute">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q85="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q85:EntityObject">
+      <xs:extension xmlns:q97="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q97:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
@@ -2523,11 +2927,11 @@
           <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPositionRouteHeader" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPositionRouteHeader1" nillable="true" type="tns:TblPositionRouteHeader" />
-          <xs:element minOccurs="0" name="TblPositionRouteHeader1Reference" nillable="true" type="q85:EntityReferenceOfTblPositionRouteHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPositionRouteHeader1Reference" nillable="true" type="q97:EntityReferenceOfTblPositionRouteHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblStore" nillable="true" type="tns:TblStore" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q85:EntityReferenceOfTblStoreo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblStoreReference" nillable="true" type="q85:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q97:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStoreReference" nillable="true" type="q97:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="ToPosition" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ToStore" type="xs:int" />
         </xs:sequence>
@@ -2537,7 +2941,7 @@
   <xs:element name="TblPositionRoute" nillable="true" type="tns:TblPositionRoute" />
   <xs:complexType name="TblPositionRouteHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q86="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q86:EntityObject">
+      <xs:extension xmlns:q98="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q98:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
@@ -2559,7 +2963,7 @@
   <xs:element name="ArrayOfTblPromoHeader" nillable="true" type="tns:ArrayOfTblPromoHeader" />
   <xs:complexType name="TblPromoHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q87="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q87:EntityObject">
+      <xs:extension xmlns:q99="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q99:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Active" nillable="true" type="xs:short" />
           <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
@@ -2570,14 +2974,14 @@
           <xs:element minOccurs="0" name="GlSerial" type="xs:int" />
           <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TBLEVENTUALHEADER1" nillable="true" type="tns:TBLEVENTUALHEADER" />
-          <xs:element minOccurs="0" name="TBLEVENTUALHEADER1Reference" nillable="true" type="q87:EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO" />
+          <xs:element minOccurs="0" name="TBLEVENTUALHEADER1Reference" nillable="true" type="q99:EntityReferenceOfTBLEVENTUALHEADERo0bgEGGO" />
           <xs:element minOccurs="0" name="TODate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="TblEventualHeader" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoCriterias" nillable="true" type="tns:ArrayOfTblPromoCriteria" />
           <xs:element minOccurs="0" name="TblPromoDetails" nillable="true" type="tns:ArrayOfTblPromoDetail" />
           <xs:element minOccurs="0" name="TblStore" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q87:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q99:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="ToCode" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:int" />
         </xs:sequence>
@@ -2587,7 +2991,7 @@
   <xs:element name="TblPromoHeader" nillable="true" type="tns:TblPromoHeader" />
   <xs:complexType name="TBLEVENTUALHEADER">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q88="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q88:EntityObject">
+      <xs:extension xmlns:q100="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q100:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BundlePrice" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="BundleQty" nillable="true" type="xs:float" />
@@ -2624,7 +3028,7 @@
   <xs:element name="ArrayOfTblPromoCriteria" nillable="true" type="tns:ArrayOfTblPromoCriteria" />
   <xs:complexType name="TblPromoCriteria">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q89="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q89:EntityObject">
+      <xs:extension xmlns:q101="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q101:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="DateFrom" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="DateTo" nillable="true" type="xs:dateTime" />
@@ -2639,7 +3043,7 @@
           <xs:element minOccurs="0" name="TblBrandPromoDetails" nillable="true" type="tns:ArrayOfTblBrandPromoDetail" />
           <xs:element minOccurs="0" name="TblPromoHeader" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoHeader1" nillable="true" type="tns:TblPromoHeader" />
-          <xs:element minOccurs="0" name="TblPromoHeader1Reference" nillable="true" type="q89:EntityReferenceOfTblPromoHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPromoHeader1Reference" nillable="true" type="q101:EntityReferenceOfTblPromoHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblStorePromoDetails" nillable="true" type="tns:ArrayOfTblStorePromoDetail" />
         </xs:sequence>
       </xs:extension>
@@ -2654,13 +3058,13 @@
   <xs:element name="ArrayOfTblBrandPromoDetail" nillable="true" type="tns:ArrayOfTblBrandPromoDetail" />
   <xs:complexType name="TblBrandPromoDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q90="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q90:EntityObject">
+      <xs:extension xmlns:q102="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q102:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Brands" type="xs:int" />
           <xs:element minOccurs="0" name="Glserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoCriteria" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoCriteria1" nillable="true" type="tns:TblPromoCriteria" />
-          <xs:element minOccurs="0" name="TblPromoCriteria1Reference" nillable="true" type="q90:EntityReferenceOfTblPromoCriteriao0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPromoCriteria1Reference" nillable="true" type="q102:EntityReferenceOfTblPromoCriteriao0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2674,12 +3078,12 @@
   <xs:element name="ArrayOfTblStorePromoDetail" nillable="true" type="tns:ArrayOfTblStorePromoDetail" />
   <xs:complexType name="TblStorePromoDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q91="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q91:EntityObject">
+      <xs:extension xmlns:q103="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q103:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Glserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoCriteria" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoCriteria1" nillable="true" type="tns:TblPromoCriteria" />
-          <xs:element minOccurs="0" name="TblPromoCriteria1Reference" nillable="true" type="q91:EntityReferenceOfTblPromoCriteriao0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPromoCriteria1Reference" nillable="true" type="q103:EntityReferenceOfTblPromoCriteriao0bgEGGO" />
           <xs:element minOccurs="0" name="TblStores" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2694,8 +3098,9 @@
   <xs:element name="ArrayOfTblPromoDetail" nillable="true" type="tns:ArrayOfTblPromoDetail" />
   <xs:complexType name="TblPromoDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q92="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q92:EntityObject">
+      <xs:extension xmlns:q104="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q104:EntityObject">
         <xs:sequence>
+          <xs:element minOccurs="0" name="AvailableLimit" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Glserial" type="xs:int" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
@@ -2707,143 +3112,13 @@
           <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoHeader" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblPromoHeader1" nillable="true" type="tns:TblPromoHeader" />
-          <xs:element minOccurs="0" name="TblPromoHeader1Reference" nillable="true" type="q92:EntityReferenceOfTblPromoHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblPromoHeader1Reference" nillable="true" type="q104:EntityReferenceOfTblPromoHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="UseDate" nillable="true" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblPromoDetail" nillable="true" type="tns:TblPromoDetail" />
-  <xs:complexType name="ArrayOfTblRecInvHeader">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvHeader" nillable="true" type="tns:TblRecInvHeader" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblRecInvHeader" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
-  <xs:complexType name="TblRecInvHeader">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q93="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q93:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="MiscWithoutItemEffect" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="SupplierInv" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TBLsupplier1" nillable="true" type="tns:TBLsupplier" />
-          <xs:element minOccurs="0" name="TBLsupplier1Reference" nillable="true" type="q93:EntityReferenceOfTBLsuppliero0bgEGGO" />
-          <xs:element minOccurs="0" name="TblAccount" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q93:EntityReferenceOfTblAccounto0bgEGGO" />
-          <xs:element minOccurs="0" name="TblRecInvDetails" nillable="true" type="tns:ArrayOfTblRecInvDetail" />
-          <xs:element minOccurs="0" name="TblRecInvHeaderLinks" nillable="true" type="tns:ArrayOfTblRecInvHeaderLink" />
-          <xs:element minOccurs="0" name="TblRecInvHeaderType" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeaderType1" nillable="true" type="tns:TblRecInvHeaderType" />
-          <xs:element minOccurs="0" name="TblRecInvHeaderType1Reference" nillable="true" type="q93:EntityReferenceOfTblRecInvHeaderTypeo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblRecInvMainDetails" nillable="true" type="tns:ArrayOfTblRecInvMainDetail" />
-          <xs:element minOccurs="0" name="TblStore" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q93:EntityReferenceOfTblStoreo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblSupplier" type="xs:int" />
-          <xs:element minOccurs="0" name="TblUser" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblRecInvHeader" nillable="true" type="tns:TblRecInvHeader" />
-  <xs:complexType name="ArrayOfTblRecInvDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvDetail" nillable="true" type="tns:TblRecInvDetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblRecInvDetail" nillable="true" type="tns:ArrayOfTblRecInvDetail" />
-  <xs:complexType name="TblRecInvDetail">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q94="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q94:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
-          <xs:element minOccurs="0" name="Flg" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="Glserial" type="xs:int" />
-          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q94:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblRecInvHeader" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q94:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
-          <xs:element minOccurs="0" name="Tblitem" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblRecInvDetail" nillable="true" type="tns:TblRecInvDetail" />
-  <xs:complexType name="ArrayOfTblRecInvHeaderLink">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvHeaderLink" nillable="true" type="tns:TblRecInvHeaderLink" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblRecInvHeaderLink" nillable="true" type="tns:ArrayOfTblRecInvHeaderLink" />
-  <xs:complexType name="TblRecInvHeaderLink">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q95="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q95:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeader" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q95:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
-          <xs:element minOccurs="0" name="TblRecInvHeaderType" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="tblrecieveHeader" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblRecInvHeaderLink" nillable="true" type="tns:TblRecInvHeaderLink" />
-  <xs:complexType name="TblRecInvHeaderType">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q96="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q96:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeaders" nillable="true" type="tns:ArrayOfTblRecInvHeader" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblRecInvHeaderType" nillable="true" type="tns:TblRecInvHeaderType" />
-  <xs:complexType name="ArrayOfTblRecInvMainDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblRecInvMainDetail" nillable="true" type="tns:TblRecInvMainDetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblRecInvMainDetail" nillable="true" type="tns:ArrayOfTblRecInvMainDetail" />
-  <xs:complexType name="TblRecInvMainDetail">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q97="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q97:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Cost" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Qty" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q97:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
-          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q97:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
-          <xs:element minOccurs="0" name="TblItem" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeader" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1" nillable="true" type="tns:TblRecInvHeader" />
-          <xs:element minOccurs="0" name="TblRecInvHeader1Reference" nillable="true" type="q97:EntityReferenceOfTblRecInvHeadero0bgEGGO" />
-          <xs:element minOccurs="0" name="TblSTax" nillable="true" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblRecInvMainDetail" nillable="true" type="tns:TblRecInvMainDetail" />
   <xs:complexType name="ArrayOfTblSalaryApprovalHeader">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TblSalaryApprovalHeader" nillable="true" type="tns:TblSalaryApprovalHeader" />
@@ -2852,7 +3127,7 @@
   <xs:element name="ArrayOfTblSalaryApprovalHeader" nillable="true" type="tns:ArrayOfTblSalaryApprovalHeader" />
   <xs:complexType name="TblSalaryApprovalHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q98="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q98:EntityObject">
+      <xs:extension xmlns:q105="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q105:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
@@ -2864,10 +3139,10 @@
           <xs:element minOccurs="0" name="TblSalaryApprovalDetails" nillable="true" type="tns:ArrayOfTblSalaryApprovalDetail" />
           <xs:element minOccurs="0" name="TblSalaryType" type="xs:int" />
           <xs:element minOccurs="0" name="TblSalaryType1" nillable="true" type="tns:TblSalaryType" />
-          <xs:element minOccurs="0" name="TblSalaryType1Reference" nillable="true" type="q98:EntityReferenceOfTblSalaryTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSalaryType1Reference" nillable="true" type="q105:EntityReferenceOfTblSalaryTypeo0bgEGGO" />
           <xs:element minOccurs="0" name="TblStore" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q98:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q105:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="TblUser" type="xs:int" />
           <xs:element minOccurs="0" name="VotDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Year" type="xs:int" />
@@ -2884,7 +3159,7 @@
   <xs:element name="ArrayOfTblSalaryApprovalDetail" nillable="true" type="tns:ArrayOfTblSalaryApprovalDetail" />
   <xs:complexType name="TblSalaryApprovalDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q99="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q99:EntityObject">
+      <xs:extension xmlns:q106="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q106:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Approved" type="xs:boolean" />
           <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
@@ -2893,7 +3168,7 @@
           <xs:element minOccurs="0" name="TblEmployee" type="xs:int" />
           <xs:element minOccurs="0" name="TblSalaryApprovalHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblSalaryApprovalHeader1" nillable="true" type="tns:TblSalaryApprovalHeader" />
-          <xs:element minOccurs="0" name="TblSalaryApprovalHeader1Reference" nillable="true" type="q99:EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblSalaryApprovalHeader1Reference" nillable="true" type="q106:EntityReferenceOfTblSalaryApprovalHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblStore" nillable="true" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2902,7 +3177,7 @@
   <xs:element name="TblSalaryApprovalDetail" nillable="true" type="tns:TblSalaryApprovalDetail" />
   <xs:complexType name="TblSalaryType">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q100="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q100:EntityObject">
+      <xs:extension xmlns:q107="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q107:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -2916,7 +3191,7 @@
   <xs:element name="TblSalaryType" nillable="true" type="tns:TblSalaryType" />
   <xs:complexType name="TblStoreCommission">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q101="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q101:EntityObject">
+      <xs:extension xmlns:q108="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q108:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AssistantComm" type="xs:decimal" />
           <xs:element minOccurs="0" name="AssistantTax" type="xs:decimal" />
@@ -2926,7 +3201,7 @@
           <xs:element minOccurs="0" name="SalesManComm" type="xs:decimal" />
           <xs:element minOccurs="0" name="SalesManTax" type="xs:decimal" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q101:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q108:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="Tblstore" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -2941,16 +3216,16 @@
   <xs:element name="ArrayOfTblStoreVisaMachine" nillable="true" type="tns:ArrayOfTblStoreVisaMachine" />
   <xs:complexType name="TblStoreVisaMachine">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q102="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q102:EntityObject">
+      <xs:extension xmlns:q109="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q109:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q102:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q109:EntityReferenceOfTblStoreo0bgEGGO" />
           <xs:element minOccurs="0" name="TblVisaMachine" type="xs:int" />
           <xs:element minOccurs="0" name="TblVisaMachine1" nillable="true" type="tns:TblVisaMachine" />
-          <xs:element minOccurs="0" name="TblVisaMachine1Reference" nillable="true" type="q102:EntityReferenceOfTblVisaMachineo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblVisaMachine1Reference" nillable="true" type="q109:EntityReferenceOfTblVisaMachineo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2958,7 +3233,7 @@
   <xs:element name="TblStoreVisaMachine" nillable="true" type="tns:TblStoreVisaMachine" />
   <xs:complexType name="TblVisaMachine">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q103="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q103:EntityObject">
+      <xs:extension xmlns:q110="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q110:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DiscountPercent" type="xs:decimal" />
@@ -2967,7 +3242,7 @@
           <xs:element minOccurs="0" name="MachineId" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblBank" type="xs:int" />
           <xs:element minOccurs="0" name="TblBank1" nillable="true" type="tns:TblBank" />
-          <xs:element minOccurs="0" name="TblBank1Reference" nillable="true" type="q103:EntityReferenceOfTblBanko0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBank1Reference" nillable="true" type="q110:EntityReferenceOfTblBanko0bgEGGO" />
           <xs:element minOccurs="0" name="TblStoreVisaMachines" nillable="true" type="tns:ArrayOfTblStoreVisaMachine" />
         </xs:sequence>
       </xs:extension>
@@ -2982,7 +3257,7 @@
   <xs:element name="ArrayOftblsalesdailycommision" nillable="true" type="tns:ArrayOftblsalesdailycommision" />
   <xs:complexType name="tblsalesdailycommision">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q104="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q104:EntityObject">
+      <xs:extension xmlns:q111="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q111:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Commision" type="xs:decimal" />
           <xs:element minOccurs="0" name="DocDate" type="xs:dateTime" />
@@ -2990,7 +3265,7 @@
           <xs:element minOccurs="0" name="NetCommision" type="xs:decimal" />
           <xs:element minOccurs="0" name="TblStore" type="xs:int" />
           <xs:element minOccurs="0" name="TblStore1" nillable="true" type="tns:TblStore" />
-          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q104:EntityReferenceOfTblStoreo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblStore1Reference" nillable="true" type="q111:EntityReferenceOfTblStoreo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3004,11 +3279,11 @@
   <xs:element name="ArrayOfTblMultipleBc" nillable="true" type="tns:ArrayOfTblMultipleBc" />
   <xs:complexType name="TblMultipleBc">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q105="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q105:EntityObject">
+      <xs:extension xmlns:q112="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q112:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="DefaultBarCode" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q105:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
+          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q112:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
           <xs:element minOccurs="0" name="TblItemCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="tblitem" type="xs:int" />
@@ -3017,89 +3292,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TblMultipleBc" nillable="true" type="tns:TblMultipleBc" />
-  <xs:complexType name="ArrayOfTblPO1Detail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblPO1Detail" nillable="true" type="tns:TblPO1Detail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblPO1Detail" nillable="true" type="tns:ArrayOfTblPO1Detail" />
-  <xs:complexType name="TblPO1Detail">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q106="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q106:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AddExp" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="CashDiscOnVouch" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="Dserial" type="xs:int" />
-          <xs:element minOccurs="0" name="Dserial1" type="xs:int" />
-          <xs:element minOccurs="0" name="Exdate" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="ItemSalesTax" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmAdditionalTax" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmCommericalDisc" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmDis" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ItmMiscDisc" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="ItmMiscExp" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="QtyRec" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:float" />
-          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TBLITEMprice" nillable="true" type="tns:TBLITEMprice" />
-          <xs:element minOccurs="0" name="TBLITEMpriceReference" nillable="true" type="q106:EntityReferenceOfTBLITEMpriceo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblPO1MainDetail" nillable="true" type="tns:TblPO1MainDetail" />
-          <xs:element minOccurs="0" name="TblPO1MainDetail1" nillable="true" type="tns:TblPO1MainDetail" />
-          <xs:element minOccurs="0" name="TblPO1MainDetail1Reference" nillable="true" type="q106:EntityReferenceOfTblPO1MainDetailo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblPO1MainDetailReference" nillable="true" type="q106:EntityReferenceOfTblPO1MainDetailo0bgEGGO" />
-          <xs:element minOccurs="0" name="barcode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="glserial" type="xs:int" />
-          <xs:element minOccurs="0" name="tblitem" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="totpricewvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="totwot" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ucostwot" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ucostwvat" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="unitvat" nillable="true" type="xs:decimal" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblPO1Detail" nillable="true" type="tns:TblPO1Detail" />
-  <xs:complexType name="TblMarkup">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q107="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q107:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="ItemEffect" type="xs:boolean" />
-          <xs:element minOccurs="0" name="TblMarkupGroup" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="TblMarkupGroup1" nillable="true" type="tns:TblMarkupGroup" />
-          <xs:element minOccurs="0" name="TblMarkupGroup1Reference" nillable="true" type="q107:EntityReferenceOfTblMarkupGroupo0bgEGGO" />
-          <xs:element minOccurs="0" name="TblMarkupTrans" nillable="true" type="tns:ArrayOfTblMarkupTran" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblMarkup" nillable="true" type="tns:TblMarkup" />
-  <xs:complexType name="TblMarkupGroup">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q108="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q108:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Direction" type="xs:int" />
-          <xs:element minOccurs="0" name="Ename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Iserial" type="xs:int" />
-          <xs:element minOccurs="0" name="TblMarkups" nillable="true" type="tns:ArrayOfTblMarkup" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TblMarkupGroup" nillable="true" type="tns:TblMarkupGroup" />
-  <xs:complexType name="ArrayOfTblMarkup">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TblMarkup" nillable="true" type="tns:TblMarkup" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTblMarkup" nillable="true" type="tns:ArrayOfTblMarkup" />
   <xs:complexType name="ArrayOftblcurrencydailyexchange">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblcurrencydailyexchange" nillable="true" type="tns:tblcurrencydailyexchange" />
@@ -3108,13 +3300,13 @@
   <xs:element name="ArrayOftblcurrencydailyexchange" nillable="true" type="tns:ArrayOftblcurrencydailyexchange" />
   <xs:complexType name="tblcurrencydailyexchange">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q109="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q109:EntityObject">
+      <xs:extension xmlns:q113="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q113:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="DocDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="ExchRate" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="TblCurrency" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblCurrency1" nillable="true" type="tns:TblCurrencyTest" />
-          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q109:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCurrency1Reference" nillable="true" type="q113:EntityReferenceOfTblCurrencyTesto0bgEGGO" />
           <xs:element minOccurs="0" name="votglserial" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -3129,13 +3321,13 @@
   <xs:element name="ArrayOfTblGlBankDeposit" nillable="true" type="tns:ArrayOfTblGlBankDeposit" />
   <xs:complexType name="TblGlBankDeposit">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q110="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q110:EntityObject">
+      <xs:extension xmlns:q114="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q114:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="DepositDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:TblLedgerMainDetail" />
-          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q110:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q114:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3149,7 +3341,7 @@
   <xs:element name="ArrayOfTblLedgerDetailCostCenter" nillable="true" type="tns:ArrayOfTblLedgerDetailCostCenter" />
   <xs:complexType name="TblLedgerDetailCostCenter">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q111="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q111:EntityObject">
+      <xs:extension xmlns:q115="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q115:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Amount" type="xs:double" />
           <xs:element minOccurs="0" name="Calculated" type="xs:boolean" />
@@ -3157,13 +3349,13 @@
           <xs:element minOccurs="0" name="Ratio" type="xs:double" />
           <xs:element minOccurs="0" name="TblCostCenter" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostCenter1" nillable="true" type="tns:TblCostCenter" />
-          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q111:EntityReferenceOfTblCostCentero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostCenter1Reference" nillable="true" type="q115:EntityReferenceOfTblCostCentero0bgEGGO" />
           <xs:element minOccurs="0" name="TblCostCenterType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblCostCenterType1" nillable="true" type="tns:TblCostCenterType" />
-          <xs:element minOccurs="0" name="TblCostCenterType1Reference" nillable="true" type="q111:EntityReferenceOfTblCostCenterTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCostCenterType1Reference" nillable="true" type="q115:EntityReferenceOfTblCostCenterTypeo0bgEGGO" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:TblLedgerMainDetail" />
-          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q111:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q115:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3177,7 +3369,7 @@
   <xs:element name="ArrayOfTblLedgerDetail" nillable="true" type="tns:ArrayOfTblLedgerDetail" />
   <xs:complexType name="TblLedgerDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q112="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q112:EntityObject">
+      <xs:extension xmlns:q116="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q116:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="BankDeposit" nillable="true" type="xs:boolean" />
@@ -3203,7 +3395,7 @@
           <xs:element minOccurs="0" name="TblLedgerHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail" type="xs:int" />
           <xs:element minOccurs="0" name="TblLedgerMainDetail1" nillable="true" type="tns:TblLedgerMainDetail" />
-          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q112:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblLedgerMainDetail1Reference" nillable="true" type="q116:EntityReferenceOfTblLedgerMainDetailo0bgEGGO" />
           <xs:element minOccurs="0" name="TblMethodOfPayment" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
         </xs:sequence>
@@ -3213,7 +3405,7 @@
   <xs:element name="TblLedgerDetail" nillable="true" type="tns:TblLedgerDetail" />
   <xs:complexType name="TblBankTransactionTypeGroup">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q113="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q113:EntityObject">
+      <xs:extension xmlns:q117="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q117:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -3239,7 +3431,7 @@
   <xs:element name="ArrayOfTblGlPeriod" nillable="true" type="tns:ArrayOfTblGlPeriod" />
   <xs:complexType name="TblGlPeriod">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q114="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q114:EntityObject">
+      <xs:extension xmlns:q118="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q118:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Closed" type="xs:boolean" />
@@ -3250,7 +3442,7 @@
           <xs:element minOccurs="0" name="PeriodUnit" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q114:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q118:EntityReferenceOfTblAccounto0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3264,7 +3456,7 @@
   <xs:element name="ArrayOfTblInventPosting" nillable="true" type="tns:ArrayOfTblInventPosting" />
   <xs:complexType name="TblInventPosting">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q115="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q115:EntityObject">
+      <xs:extension xmlns:q119="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q119:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="ItemScopeRelation" nillable="true" type="xs:int" />
@@ -3272,10 +3464,10 @@
           <xs:element minOccurs="0" name="SupCustScope" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount" type="xs:int" />
           <xs:element minOccurs="0" name="TblAccount1" nillable="true" type="tns:TblAccount" />
-          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q115:EntityReferenceOfTblAccounto0bgEGGO" />
+          <xs:element minOccurs="0" name="TblAccount1Reference" nillable="true" type="q119:EntityReferenceOfTblAccounto0bgEGGO" />
           <xs:element minOccurs="0" name="TblInventAccountType" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="TblInventAccountType1" nillable="true" type="tns:TblInventAccountType" />
-          <xs:element minOccurs="0" name="TblInventAccountType1Reference" nillable="true" type="q115:EntityReferenceOfTblInventAccountTypeo0bgEGGO" />
+          <xs:element minOccurs="0" name="TblInventAccountType1Reference" nillable="true" type="q119:EntityReferenceOfTblInventAccountTypeo0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3283,7 +3475,7 @@
   <xs:element name="TblInventPosting" nillable="true" type="tns:TblInventPosting" />
   <xs:complexType name="TblInventAccountType">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q116="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q116:EntityObject">
+      <xs:extension xmlns:q120="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q120:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -3299,7 +3491,7 @@
   <xs:element name="TblInventAccountType" nillable="true" type="tns:TblInventAccountType" />
   <xs:complexType name="TblGlRuleHeader">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q117="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q117:EntityObject">
+      <xs:extension xmlns:q121="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q121:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -3320,12 +3512,12 @@
   <xs:element name="ArrayOfTblGlRuleJob" nillable="true" type="tns:ArrayOfTblGlRuleJob" />
   <xs:complexType name="TblGlRuleJob">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q118="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q118:EntityObject">
+      <xs:extension xmlns:q122="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q122:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="TblGlRuleHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblGlRuleHeader1" nillable="true" type="tns:TblGlRuleHeader" />
-          <xs:element minOccurs="0" name="TblGlRuleHeader1Reference" nillable="true" type="q118:EntityReferenceOfTblGlRuleHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblGlRuleHeader1Reference" nillable="true" type="q122:EntityReferenceOfTblGlRuleHeadero0bgEGGO" />
           <xs:element minOccurs="0" name="TblJob" nillable="true" type="xs:int" />
         </xs:sequence>
       </xs:extension>
@@ -3340,7 +3532,7 @@
   <xs:element name="ArrayOfTblCostCenterType" nillable="true" type="tns:ArrayOfTblCostCenterType" />
   <xs:complexType name="TblBankGroup">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q119="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q119:EntityObject">
+      <xs:extension xmlns:q123="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q123:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Aname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
@@ -3361,13 +3553,13 @@
   <xs:element name="ArrayOfTblBankStatExcelTemplate" nillable="true" type="tns:ArrayOfTblBankStatExcelTemplate" />
   <xs:complexType name="TblBankStatExcelTemplate">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q120="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q120:EntityObject">
+      <xs:extension xmlns:q124="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q124:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="StartRow" type="xs:int" />
           <xs:element minOccurs="0" name="TblBank" type="xs:int" />
           <xs:element minOccurs="0" name="TblBank1" nillable="true" type="tns:TblBank" />
-          <xs:element minOccurs="0" name="TblBank1Reference" nillable="true" type="q120:EntityReferenceOfTblBanko0bgEGGO" />
+          <xs:element minOccurs="0" name="TblBank1Reference" nillable="true" type="q124:EntityReferenceOfTblBanko0bgEGGO" />
           <xs:element minOccurs="0" name="TemplatePath" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -3388,14 +3580,14 @@
   <xs:element name="ArrayOfTblCashDepositAmountDetail" nillable="true" type="tns:ArrayOfTblCashDepositAmountDetail" />
   <xs:complexType name="TblCashDepositAmountDetail">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q121="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q121:EntityObject">
+      <xs:extension xmlns:q125="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q125:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
           <xs:element minOccurs="0" name="Iserial" type="xs:int" />
           <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TblCashDepositHeader" type="xs:int" />
           <xs:element minOccurs="0" name="TblCashDepositHeader1" nillable="true" type="tns:TblCashDepositHeader" />
-          <xs:element minOccurs="0" name="TblCashDepositHeader1Reference" nillable="true" type="q121:EntityReferenceOfTblCashDepositHeadero0bgEGGO" />
+          <xs:element minOccurs="0" name="TblCashDepositHeader1Reference" nillable="true" type="q125:EntityReferenceOfTblCashDepositHeadero0bgEGGO" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -3409,7 +3601,7 @@
   <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity" />
   <xs:complexType name="Entity">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q122="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q122:EntityObject">
+      <xs:extension xmlns:q126="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q126:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AccountAname" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="AccountCode" nillable="true" type="xs:string" />
@@ -3443,7 +3635,7 @@
   <xs:element name="ArrayOfTblEmployee" nillable="true" type="tns:ArrayOfTblEmployee" />
   <xs:complexType name="TblEmployee">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q123="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q123:EntityObject">
+      <xs:extension xmlns:q127="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q127:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="GlCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Store" nillable="true" type="xs:string" />

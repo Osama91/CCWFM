@@ -632,7 +632,7 @@
                                         </DataTemplate>
                                     </sdk:DataGridTemplateColumn.CellTemplate>
                                 </sdk:DataGridTemplateColumn>
-                                <sdk:DataGridTextColumn Width="120"  Visibility="Collapsed"
+                                <!--<sdk:DataGridTextColumn Width="120"  Visibility="Collapsed"
 													Binding="{Binding Path=TargetCostPrice,
 																	  Mode=TwoWay}"
 													 Header="Retail Cost Price"
@@ -641,7 +641,7 @@
 													Binding="{Binding Path=RetailTargetCostPrice,
 																	  Mode=TwoWay}"
 													dataGrid:DataGridColumnHelper.HeaderBinding="{Binding RetailTargetPrice,
-																										  Source={StaticResource LocalizedStrings}}" />
+																										  Source={StaticResource LocalizedStrings}}" />-->
                                 <sdk:DataGridTextColumn Width="120"  Visibility="Collapsed"
 													Binding="{Binding Path=Notes,
 																	  Mode=TwoWay}"
@@ -957,7 +957,7 @@
 											   Stretch="Uniform" />
                                     </StackPanel>
                                 </Grid>
-                                <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                                <!--<Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
@@ -980,8 +980,8 @@
 															Mode=TwoWay,
 															ValidatesOnExceptions=true,
 															NotifyOnValidationError=true}" />
-                                </Grid>
-                                <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                                </Grid>-->
+                                <!--<Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
@@ -1002,8 +1002,8 @@
 															Mode=TwoWay,
 															ValidatesOnExceptions=true,
 															NotifyOnValidationError=true}" />
-                                </Grid>
-                                <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                                </Grid>-->
+                                <!--<Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
@@ -1025,7 +1025,7 @@
 															Mode=TwoWay,
 															ValidatesOnExceptions=true,
 															NotifyOnValidationError=true}" />
-                                </Grid>
+                                </Grid>-->
                                 <Grid Grid.Row="4" Grid.Column="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -1074,7 +1074,7 @@
 											   Stretch="Uniform" />
                                     </StackPanel>
                                 </Grid>
-                                <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2">
+                                <!--<Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="2*" />
@@ -1089,7 +1089,7 @@
                                         <TextBlock Text="{Binding Mode=TwoWay, Path=ProfitMargin, StringFormat=\{0:F2\}}"></TextBlock>
 
                                     </StackPanel>
-                                </Grid>
+                                </Grid>-->
                                 <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />

@@ -60,146 +60,298 @@
 					Click="BtnReverse_Onclick"
 					Content="Reverse" />
         </StackPanel>
-        <dataGrid:OsGrid Name="MainGrid"                         
-						 Grid.Row="1"
-						 MaxHeight="500" SelectionChanged="MainGrid_OnSelectionChanged"
+
+        <sdk:TabControl Name="TabStyle"
+                        SelectionChanged="TabPosted_SelectionChanged"
+								 Grid.Row="1"
+						 MaxHeight="500" 
 						 Margin="10,36,10,0"
 						 HorizontalContentAlignment="Stretch"
 						 VerticalContentAlignment="Stretch"
-						 AllowDrop="True"
+						 AllowDrop="True">
+            <sdk:TabItem Name="TabStyleItem" Header="{Binding Posted, Source={StaticResource LocalizedStrings}}">
+
+                
+                
+                
+                <dataGrid:OsGrid Name="MainGrid"                         
+			     IsReadOnly="True"
 						 FilteredItemsSource="{Binding MainRowList,Mode=TwoWay}"
-						 GotFocus="MainGrid_OnGotFocus" BeginningEdit="MainGrid_OnBeginningEdit"
+				    
 						 ItemsSource="{Binding MainRowList,Mode=TwoWay}"
-						 KeyUp="MainGrid_KeyUp" LostFocus="MainGrid_OnLostFocus"
+						    
 						 LoadingRow="MainGrid_LoadingRow"
 						 OnFilter="MainGrid_OnFilter"
-						 RowEditEnded="MainGrid_RowEditEnded"
+					    
                             
 						 SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}" >
-			<dataGrid:OsGrid.Columns>
-				<sdk:DataGridTextColumn Width="SizeToHeader"
+                    <dataGrid:OsGrid.Columns>
+                        <sdk:DataGridTextColumn Width="SizeToHeader"
 										Binding="{Binding Path=Code,
 														  Mode=TwoWay}"
 										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransID,
 																							  Source={StaticResource LocalizedStrings}}" />
-				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="DocDate" utilities:GlobalMethods.FormatForExport="Date"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DocDate,
 																								  Source={StaticResource LocalizedStrings}}">
-					<sdk:DataGridTemplateColumn.CellEditingTemplate>
-						<DataTemplate>
-							<sdk:DatePicker SelectedDateChanged="DatePicker_SelectedDateChanged"
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDateChanged="DatePicker_SelectedDateChanged"
 								SelectedDate="{Binding Path=DocDate, Mode=TwoWay}"   LostFocus="DatePicker_LostFocus" KeyDown="DatePicker_KeyDown" />
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellEditingTemplate>
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding Path=DocDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
-				<sdk:DataGridTextColumn Width="2*"
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=DocDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn Width="2*"
 										Binding="{Binding Path=Description,
 														  Mode=TwoWay}"
 										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Description,
 																							  Source={StaticResource LocalizedStrings}}" />
-				<sdk:DataGridTemplateColumn SortMemberPath="TblJournal1.Ename"
+                        <sdk:DataGridTemplateColumn SortMemberPath="TblJournal1.Ename"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Journal, Source={StaticResource LocalizedStrings}}"
 											Width="SizeToHeader">
-					<sdk:DataGridTemplateColumn.CellEditingTemplate>
-						<DataTemplate>
-							<userControls:SearchJournalUserControl SearchPerRow="{Binding JournalPerRow,Mode=TwoWay}" />  
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellEditingTemplate>
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding JournalPerRow.Ename,Mode=TwoWay}" />
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <userControls:SearchJournalUserControl SearchPerRow="{Binding JournalPerRow,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding JournalPerRow.Ename,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
 
-				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="Posted"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Posted,Source={StaticResource LocalizedStrings}}">
 
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<CheckBox IsChecked="{Binding Path=Posted,Mode=TwoWay}" Checked="Post_OnChecked" />
-							  
-							</StackPanel>
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Posted,Mode=TwoWay}" Checked="Post_OnChecked" />
 
-				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="Approved"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Approved,Source={StaticResource LocalizedStrings}}">
 
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<CheckBox IsChecked="{Binding Path=Approved,Mode=TwoWay}" Checked="Approve_OnChecked" />
-							   
-							</StackPanel>
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
-		  
-				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Approved,Mode=TwoWay}" Checked="Approve_OnChecked" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="PostDate"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PostDate,Source={StaticResource LocalizedStrings}}">
-				 
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding Path=PostDate, StringFormat=\{0:d\}}" />
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
-				<sdk:DataGridTemplateColumn Width="SizeToHeader"
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=PostDate, StringFormat=\{0:d\}}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="ApproveDate"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ApproveDate,
 																								  Source={StaticResource LocalizedStrings}}">
-				   
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<TextBlock Text="{Binding Path=ApproveDate, StringFormat=\{0:d\}}" />
-						</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>
-				<sdk:DataGridCheckBoxColumn Width="SizeToHeader" IsReadOnly="True"
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  Text="{Binding Path=ApproveDate, StringFormat=\{0:d\}}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridCheckBoxColumn Width="SizeToHeader" IsReadOnly="True"
 										Binding="{Binding Path=balanced,
 														  Mode=TwoWay}"
 										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding balanced,
 																							  Source={StaticResource LocalizedStrings}}" />
-                <sdk:DataGridTemplateColumn CanUserSort="False"
+                        <sdk:DataGridTemplateColumn CanUserSort="False"
 														SortMemberPath="Iserial"
 														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Attachment,
 																											  Source={StaticResource LocalizedStrings}}">
-                    <sdk:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image x:Name="BtnAttachment"
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image x:Name="BtnAttachment"
 											   HorizontalAlignment="Stretch"
 											   VerticalAlignment="Stretch"
 												 Visibility="{Binding Iserial,Converter={StaticResource VisibilityConverter}}"
 											   MouseLeftButtonDown="BtnSalesOrderAttachment_OnMouseLeftButtonDown"
 											   Source="/CCWFM;component/Images/Attachment.png"
 											   Stretch="Uniform" />
-                        </DataTemplate>
-                    </sdk:DataGridTemplateColumn.CellTemplate>
-                </sdk:DataGridTemplateColumn>
-                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
 											SortMemberPath="Iserial"
 											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Details,
 																								  Source={StaticResource LocalizedStrings}}">
-				  
-					<sdk:DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<Button Content="{Binding Details,Source={StaticResource LocalizedStrings}}" Name="BtnDetails" Click="BtnDetails_OnClick" ></Button>
-							</DataTemplate>
-					</sdk:DataGridTemplateColumn.CellTemplate>
-				</sdk:DataGridTemplateColumn>			 
-			</dataGrid:OsGrid.Columns>
-		</dataGrid:OsGrid>
-	</Grid>
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Details,Source={StaticResource LocalizedStrings}}" Name="BtnDetails" Click="BtnDetails_OnClick" ></Button>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                    </dataGrid:OsGrid.Columns>
+                </dataGrid:OsGrid>
+            </sdk:TabItem>
+            <sdk:TabItem Name="tabUnposted" Header="UnPosted">
+
+                <dataGrid:OsGrid Name="MainGridUnposted"                         
+					SelectionChanged="MainGrid_OnSelectionChanged"
+						 FilteredItemsSource="{Binding MainRowListUnPosted,Mode=TwoWay}"
+						 GotFocus="MainGrid_OnGotFocus" BeginningEdit="MainGrid_OnBeginningEdit"
+						 ItemsSource="{Binding MainRowListUnPosted,Mode=TwoWay}"
+						 KeyUp="MainGrid_KeyUp" LostFocus="MainGrid_OnLostFocus"
+						 LoadingRow="MainGrid_LoadingRow"
+						 OnFilter="MainGrid_OnFilter"
+						 RowEditEnded="MainGrid_RowEditEnded"
+                            
+						 SelectedItem="{Binding SelectedMainRow,Mode=TwoWay}" >
+                    <dataGrid:OsGrid.Columns>
+                        <sdk:DataGridTextColumn Width="SizeToHeader"
+										Binding="{Binding Path=Code,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TransID,
+																							  Source={StaticResource LocalizedStrings}}" />
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="DocDate" utilities:GlobalMethods.FormatForExport="Date"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding DocDate,
+																								  Source={StaticResource LocalizedStrings}}">
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <sdk:DatePicker SelectedDateChanged="DatePicker_SelectedDateChanged"
+								SelectedDate="{Binding Path=DocDate, Mode=TwoWay}"   LostFocus="DatePicker_LostFocus" KeyDown="DatePicker_KeyDown" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=DocDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn Width="2*"
+										Binding="{Binding Path=Description,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Description,
+																							  Source={StaticResource LocalizedStrings}}" />
+                        <sdk:DataGridTemplateColumn SortMemberPath="TblJournal1.Ename"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Journal, Source={StaticResource LocalizedStrings}}"
+											Width="SizeToHeader">
+                            <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <userControls:SearchJournalUserControl SearchPerRow="{Binding JournalPerRow,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding JournalPerRow.Ename,Mode=TwoWay}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="Posted"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Posted,Source={StaticResource LocalizedStrings}}">
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Posted,Mode=TwoWay}" Checked="Post_OnChecked" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="Approved"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Approved,Source={StaticResource LocalizedStrings}}">
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsEnabled="False" IsChecked="{Binding Path=Approved,Mode=TwoWay}" Checked="Approve_OnChecked" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="PostDate"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PostDate,Source={StaticResource LocalizedStrings}}">
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=PostDate, StringFormat=\{0:d\}}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="ApproveDate"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ApproveDate,
+																								  Source={StaticResource LocalizedStrings}}">
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=ApproveDate, StringFormat=\{0:d\}}" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridCheckBoxColumn Width="SizeToHeader" IsReadOnly="True"
+										Binding="{Binding Path=balanced,
+														  Mode=TwoWay}"
+										dataGrid:DataGridColumnHelper.HeaderBinding="{Binding balanced,
+																							  Source={StaticResource LocalizedStrings}}" />
+                        <sdk:DataGridTemplateColumn CanUserSort="False"
+														SortMemberPath="Iserial"
+														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Attachment,
+																											  Source={StaticResource LocalizedStrings}}">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image x:Name="BtnAttachment"
+											   HorizontalAlignment="Stretch"
+											   VerticalAlignment="Stretch"
+												 Visibility="{Binding Iserial,Converter={StaticResource VisibilityConverter}}"
+											   MouseLeftButtonDown="BtnSalesOrderAttachment_OnMouseLeftButtonDown"
+											   Source="/CCWFM;component/Images/Attachment.png"
+											   Stretch="Uniform" />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+											SortMemberPath="Iserial"
+											dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Details,
+																								  Source={StaticResource LocalizedStrings}}">
+
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Details,Source={StaticResource LocalizedStrings}}" Name="BtnDetailsUnposted" Click="BtnDetails_OnClick" ></Button>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                    </dataGrid:OsGrid.Columns>
+                </dataGrid:OsGrid>
+                
+                
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
 </navigation:Page>

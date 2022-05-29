@@ -177,19 +177,26 @@ namespace CCWFM.Web.Service
         {
 
             TblCompany company;
-            if (Companies.Count > 0)
+
+            if (Companies.Count == 0)
             {
-                company = Companies.FirstOrDefault(x => x.DbName == dbName);
+                using (var context = new WorkFlowManagerDBEntities())
+                {
+
+                    Companies = context.TblCompanies.ToList();
+                }
+            }
+
+
+            //if (Companies.Count > 0)
+            //{
+                company = Companies.FirstOrDefault(x => x.DbName.ToLowerInvariant() == dbName.ToLowerInvariant());
                 return company;
-            }
+            //}
 
-            using (var context = new WorkFlowManagerDBEntities())
-            {
-                company = context.TblCompanies.FirstOrDefault(x => x.DbName == dbName);
-                Companies = context.TblCompanies.ToList();
-            }
+         
 
-            return company;
+            //return company;
         }
 
         public string GetSqlConnectionString(string dbName)

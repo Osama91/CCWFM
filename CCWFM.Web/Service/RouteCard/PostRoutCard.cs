@@ -819,7 +819,33 @@ namespace CCWFM.Web.Service.RouteCard
                     header.IsPosted = true;
                     header.PostedDate = DateTime.Now;
                     header.Createdby = userIserial;
+
+                try
+                {
+
                     entities.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    var result = entities.RouteQuantities(header.Iserial.ToString());
+
+                    var NewMsg = "";
+                    foreach (var item in result)
+                    {
+                        NewMsg = NewMsg + item.itemid + "_" + item.Code + "_" + item.SIZE + "_" + item.BatchNo + "_  " + "Transaction Qty =" + item.TransactionQty.ToString() + "Exceed Stock Qty=" + item.StockQty + System.Environment.NewLine;
+                    }
+
+                    throw new Exception(NewMsg);
+                    throw;
+                }
+
+
+
+
+
+        
+
                 //}
             }
         }
@@ -1010,6 +1036,7 @@ namespace CCWFM.Web.Service.RouteCard
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
+                context.CommandTimeout = 0;
                 var headerObjToPost = context.RouteCardHeaders.Include("RouteCardFabrics").SingleOrDefault(x => x.Iserial == header.Iserial);
 
                 if (headerObjToPost.ProductionResidue)
@@ -1067,8 +1094,27 @@ namespace CCWFM.Web.Service.RouteCard
                 }
 
                 headerObjToPost.AxRouteCardFabricsJournalId = "111";
+
+                try
+                {
+
+
                     context.SaveChanges();
-               
+
+                }
+                catch (Exception ex)
+                {
+                    var result = context.RouteQuantities(headerObjToPost.Iserial.ToString());
+
+                    var NewMsg = "";
+                    foreach (var item in result)
+                    {
+                        NewMsg = NewMsg + item.itemid + "_" + item.Code + "_" + item.SIZE + "_" + item.BatchNo + "_  " + "Transaction Qty =" + item.TransactionQty.ToString() + "Exceed Stock Qty=" + item.StockQty + System.Environment.NewLine;
+                    }
+
+                    throw new Exception(NewMsg);
+                }
+
             }
         }
 

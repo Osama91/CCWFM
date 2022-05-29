@@ -150,12 +150,17 @@ namespace CCWFM.Web.Service.Operations.GlOperations
         }
 
         [OperationContract]
-        private List<TblMarkupTran> GetTblMarkupTrans(int type, int tblRecInv, string company,out decimal? TotalMisc)
+        private List<TblMarkupTran> GetTblMarkupTrans(int type, int tblRecInv, string company,out decimal? TotalMisc, out List<Model.Entity> entityList)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
-                IQueryable<TblMarkupTran> query = entity.TblMarkupTrans.Include("TBLsupplier1").Include("TblCurrency1").Include("TblMarkup1").Where(x => x.TblRecInv == tblRecInv && x.Type == type);
+                var  query = entity.TblMarkupTrans.Include("TblCurrency1").Include("TblMarkup1").Where(x => x.TblRecInv == tblRecInv && x.Type == type).ToList();
 
+                List<int> intList = query.Select(x => x.EntityAccount??0).ToList();
+
+
+                List<int> intTypeList = query.Select(x => x.TblJournalAccountType).ToList();
+                entityList = entity.Entities.Where(x => x.scope == 0 && intList.Contains(x.Iserial) && intTypeList.Contains(x.TblJournalAccountType)).ToList();
 
                 try
                 {
@@ -167,7 +172,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     TotalMisc = 0;
                 }
              
-                return query.ToList();
+                return query;
             }
         }
 

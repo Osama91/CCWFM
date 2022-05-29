@@ -490,6 +490,11 @@ namespace CCWFM.Web.Service
                         int ExpiredDays = 0;
                         int.TryParse(UserLoginExpiredPeriod, out ExpiredDays);
                         var UserExpiryData = context.TblUserExpiries.FirstOrDefault(x => x.Tbluser == authQuery.Iserial);
+                        if (UserExpiryData == null)
+                        {
+                            return Result;
+                        }
+
                         DateTime dt = UserExpiryData.LastChangeDate.Value.AddDays(ExpiredDays);
                         if (dt < DateTime.Now)
                         {

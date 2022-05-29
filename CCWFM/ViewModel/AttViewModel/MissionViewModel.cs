@@ -78,7 +78,7 @@ namespace CCWFM.ViewModel.AttViewModel
             set { _containMultipleTransaction = value; RaisePropertyChanged("ContainMultipleTransaction"); }
         }
 
-        // [Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqDescription")]
+        //[Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqDescription")]
         public string Description
         {
             get

@@ -89,7 +89,7 @@ namespace CCWFM.ViewModel.Gl
                      row.TBLsupplier1.TblRecInvHeaders = null;
                      row.TBLsupplier1.EntityKey = null;
                     
-                     row.TBLsupplier1.TblMarkupTrans = null;
+                     //row.TBLsupplier1.TblMarkupTrans = null;
                      newrow.SupplierPerRow.InjectFrom(row.TBLsupplier1);
                      newrow.TblRecInvHeaderTypePerRow = new GenericTable();
                      if (row.TblRecInvHeaderType1 != null)
@@ -179,23 +179,32 @@ namespace CCWFM.ViewModel.Gl
 
                 Glclient.GetRecInvStyleColorCompleted += (s, sv) =>
                 {
-                    foreach (var variable in sv.Result)
+                    try
                     {
-                        SelectedMainRow.StyleColorDetailsList.Add(new TblRecInvMainDetailViewModel
+                        foreach (var variable in sv.Result)
                         {
-                            TBLITEMprice = new TBLITEMprice
+                            SelectedMainRow.StyleColorDetailsList.Add(new TblRecInvMainDetailViewModel
                             {
-                                Style = variable.Style,
-                                TblColor1 = new TblColorTest { Aname = variable.ColorName, Code = variable.ColorCode, Ename = variable.ColorName }
-                            },
-                            Qty = variable.Quantity??0,
-                            Cost =variable.Cost??0,
-                            ContractCost=variable.ContractCost,
+                                TBLITEMprice = new TBLITEMprice
+                                {
+                                    Style = variable.Style,
+                                    TblColor1 = new TblColorTest { Aname = variable.ColorName, Code = variable.ColorCode, Ename = variable.ColorName }
+                                },
+                                Qty = variable.Quantity ?? 0,
+                                Cost = variable.Cost ?? 0,
+                                ContractCost = variable.ContractCost,
 
-                            ContractQty = variable.ContractQty,
-                            ContractTotal=variable.ContractQty*variable.ContractCost,
-                        });
+                                ContractQty = variable.ContractQty,
+                                ContractTotal = variable.ContractQty * variable.ContractCost,
+                            });
+                        }
                     }
+                    catch (Exception)
+                    {
+
+                        
+                    }
+                
                     Loading = false;
                 };
 
@@ -252,6 +261,8 @@ namespace CCWFM.ViewModel.Gl
                 };
                 Glclient.GetTblRecieveHeaderFromToCompleted += (s, sv) =>
                 {
+                    DetailSubFilter = null;
+                    DetailSubValuesObjects = new Dictionary<string, object>();
                     if (sv.Result != null)
                     {
                         foreach (var row in sv.Result)
@@ -278,16 +289,24 @@ namespace CCWFM.ViewModel.Gl
                     }
                 };
 
-                Glclient.GetTblReturnDetailCompleted += (s, sv) =>
+                var journalAccountTypeClient = new GlService.GlServiceClient();
+                journalAccountTypeClient.GetGenericCompleted += (s, sv) =>
                 {
-                    if (sv.Result != null) SelectedMainRow.InjectFrom(sv.Result);
-
-                    if (CanPost)
-                        SelectedMainRow.VisPosted = true;
-                    GetDetailData();
-                    GetRecInvStyle();
-                    GetRecInvStyleColor();
+                    JournalAccountTypeList = sv.Result;
                 };
+                journalAccountTypeClient.GetGenericAsync("TblJournalAccountType", "%%", "%%", "%%", "Iserial", "ASC", LoggedUserInfo.DatabasEname);
+
+
+                //Glclient.GetTblReturnDetailCompleted += (s, sv) =>
+                //{
+                //    if (sv.Result != null) SelectedMainRow.InjectFrom(sv.Result);
+
+                //    if (CanPost)
+                //        SelectedMainRow.VisPosted = true;
+                //    GetDetailData();
+                //    GetRecInvStyle();
+                //    GetRecInvStyleColor();
+                //};
                 Glclient.GetTblRecieveHeaderCompleted += (s, sv) =>
                 {
                     foreach (var row in sv.Result)
@@ -356,7 +375,8 @@ namespace CCWFM.ViewModel.Gl
                     {
                         foreach (var item in x.Result)
                         {
-                            msg = "Style :" + item.Style + " Color :" + item.ColorCode + " Total Invoiced Qty :" + item.Quantity + " ContractQty :" + item.ContractQty + " Difference :" + item.Difference + "/n";
+                            
+                            msg = msg+ "Style :" + item.Style + " Color :" + item.ColorCode + " Total Invoiced Qty :" + item.Quantity + " ContractQty :" + item.ContractQty + " Difference :" + (item.Quantity-item.ContractQty) + " Contract No :" + item.ContractCode  + "\r\n";
                         }
                         MessageBox.Show(msg);
 
@@ -568,10 +588,10 @@ namespace CCWFM.ViewModel.Gl
                 }
 
 
-                if (SelectedMainRow.SupplierPerRow != null)
-                {
-                    newrow.SupplierPerRow = SelectedMainRow.SupplierPerRow;
-                }
+                //if (SelectedMainRow.SupplierPerRow != null)
+                //{
+                //    newrow.ent = SelectedMainRow.SupplierPerRow;
+                //}
                 SelectedMainRow.MarkUpTransList.Insert(currentRowIndex + 1, newrow);
                 SelectedMarkupRow = newrow;
             }
@@ -621,6 +641,13 @@ namespace CCWFM.ViewModel.Gl
                     }
                     var saveRow = new TblMarkupTran();
                     saveRow.InjectFrom(SelectedMarkupRow);
+
+                    if (SelectedMainRow.Iserial==0)
+                    {
+                        MessageBox.Show("Transaction Not Saved PLease Check");
+                        return;
+                    }
+
                     saveRow.TblRecInv = SelectedMainRow.Iserial;
                     saveRow.TblCurrency1 = null;
                     //saveRow.TblMarkup1 = null;
@@ -666,6 +693,12 @@ namespace CCWFM.ViewModel.Gl
                     var saveRow = new TblMarkupTran();
                     saveRow.InjectFrom(oldRow);
                     saveRow.TblRecInv = SelectedMainRow.Iserial;
+                    if (SelectedMainRow.Iserial == 0)
+                    {
+                        MessageBox.Show("Transaction Not Saved PLease Check");
+                        return;
+                    }
+
                     saveRow.TblCurrency1 = null;
                     //saveRow.TblMarkup1 = null;
                     if (!Loading)
@@ -716,17 +749,29 @@ namespace CCWFM.ViewModel.Gl
                     foreach (var row in sv.Result)
                     {
                         var newrow = new TblMarkupTransViewModel();
-                        newrow.SupplierPerRow = new TBLsupplier();                 
-                        row.TBLsupplier1.TblMarkupTrans = null;
-                        row.TBLsupplier1.TblPO1Header = null;
-                        row.TBLsupplier1.TblRecInvHeaders = null;
-                        row.TBLsupplier1.EntityKey = null;
-                        if (row.TBLsupplier1 != null) newrow.SupplierPerRow.InjectFrom(row.TBLsupplier1);
+                        //newrow.SupplierPerRow = new TBLsupplier();                 
+                        //row.TBLsupplier1.TblMarkupTrans = null;
+                        //row.TBLsupplier1.TblPO1Header = null;
+                        //row.TBLsupplier1.TblRecInvHeaders = null;
+                        //row.TBLsupplier1.EntityKey = null;
+                        //if (row.TBLsupplier1 != null) newrow.SupplierPerRow.InjectFrom(row.TBLsupplier1);
                         newrow.InjectFrom(row);
                         newrow.CurrencyPerRow = new GenericTable();
 
                         newrow.CurrencyPerRow.InjectFrom(row.TblCurrency1);
                         newrow.TblMarkup1 = row.TblMarkup1;
+
+                        newrow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == newrow.TblJournalAccountType);
+                        var entity = sv.entityList.FirstOrDefault(w => w.Iserial == row.EntityAccount && w.TblJournalAccountType == row.TblJournalAccountType);
+                        newrow.EntityPerRow = new GlService.Entity();
+
+                        if (entity != null)
+                        {
+
+                            newrow.EntityPerRow = new GlService.Entity().InjectFrom(entity) as GlService.Entity;
+                        }
+                        newrow.TblJournalAccountType = row.TblJournalAccountType;
+                        newrow.EntityAccount = row.EntityAccount??0;
 
                         SelectedMainRow.MarkUpTransList.Add(newrow);
                     }
@@ -751,15 +796,25 @@ namespace CCWFM.ViewModel.Gl
                     foreach (var row in sv.Result)
                     {
                         var newrow = new TblMarkupTransViewModel();
-                        newrow.SupplierPerRow = new TBLsupplier();
+                        //newrow.SupplierPerRow = new TBLsupplier();
 
-                        if (row.TBLsupplier1 != null) newrow.SupplierPerRow.InjectFrom(row.TBLsupplier1);
+                        //if (row.TBLsupplier1 != null) newrow.SupplierPerRow.InjectFrom(row.TBLsupplier1);
                         newrow.InjectFrom(row);
                         newrow.CurrencyPerRow = new GenericTable();
 
                         newrow.CurrencyPerRow.InjectFrom(row.TblCurrency1);
                         newrow.TblMarkup1 = row.TblMarkup1;
+                        newrow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == newrow.TblJournalAccountType);
+                        var entity = sv.entityList.FirstOrDefault(w => w.Iserial == row.EntityAccount && w.TblJournalAccountType == row.TblJournalAccountType);
+                        newrow.EntityPerRow = new GlService.Entity();
 
+                        if (entity != null)
+                        {
+
+                            newrow.EntityPerRow = new GlService.Entity().InjectFrom(entity) as GlService.Entity;
+                        }
+                        newrow.TblJournalAccountType = row.TblJournalAccountType;
+                        newrow.EntityAccount = row.EntityAccount??0;
                         SelectedDetailRow.MarkUpTransList.Add(newrow);
                     }
 
@@ -855,6 +910,13 @@ namespace CCWFM.ViewModel.Gl
                 RaisePropertyChanged("SelectedMainRow");
             }
         }
+        private ObservableCollection<GlService.GenericTable> _journalAccountTypeList;
+
+        public ObservableCollection<GlService.GenericTable> JournalAccountTypeList
+        {
+            get { return _journalAccountTypeList; }
+            set { _journalAccountTypeList = value; RaisePropertyChanged("JournalAccountTypeList"); }
+        }
 
         private TblMarkupTransViewModel _selectedMarkup;
 
@@ -924,14 +986,14 @@ namespace CCWFM.ViewModel.Gl
 
         public void GetRecieveHeaderListData()
         {
-            if (SelectedMainRow.TblRecInvHeaderType == 1)
-            {
-                Glclient.GetTblRecieveHeaderAsync(RecieveHeaderList.Count, PageSize, SelectedMainRow.TblRecInvHeaderType, (int)SelectedMainRow.TblSupplier, "it.glserial", DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
-            }
-            else
-            {
-                Glclient.GetTblReturnHeaderAsync(RecieveHeaderList.Count, PageSize, SelectedMainRow.TblRecInvHeaderType, (int)SelectedMainRow.TblSupplier, "it.glserial", DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
-            }
+            //if (SelectedMainRow.TblRecInvHeaderType == 1)
+            //{
+                Glclient.GetTblRecieveHeaderAsync(RecieveHeaderList.Count, PageSize, (int)SelectedMainRow.TblSupplier, "it.glserial desc", DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
+            //}
+            //else
+            //{
+            //    Glclient.GetTblReturnHeaderAsync(RecieveHeaderList.Count, PageSize, SelectedMainRow.TblRecInvHeaderType, (int)SelectedMainRow.TblSupplier, "it.glserial", DetailSubFilter, DetailSubValuesObjects, LoggedUserInfo.DatabasEname);
+            //}
         }
 
         public void GetRecieveDetailData()
@@ -939,15 +1001,24 @@ namespace CCWFM.ViewModel.Gl
             var row = new TblRecInvHeader();
 
             row.InjectFrom(SelectedMainRow);
-            var headers = new ObservableCollection<int>(RecieveHeaderChoosedList.Select(x => x.glserial));
-            if (SelectedMainRow.TblRecInvHeaderType == 1)
+            //var headers = new ObservableCollection<int>(RecieveHeaderChoosedList.Select(x => x.glserial));
+
+
+            Dictionary<int, int> headers = new Dictionary<int, int>();
+
+            foreach (var item in RecieveHeaderChoosedList)
             {
+                headers.Add(item.glserial, item.TblRecInvHeaderType);
+                    
+            }
+            //if (SelectedMainRow.TblRecInvHeaderType == 1)
+            //{
                 Glclient.GetTblRecieveDetailAsync(headers, row, LoggedUserInfo.DatabasEname, LoggedUserInfo.Iserial);
-            }
-            else
-            {
-                Glclient.GetTblReturnDetailAsync(headers, row, LoggedUserInfo.DatabasEname, LoggedUserInfo.Iserial);
-            }
+            //}
+            //else
+            //{
+            //    Glclient.GetTblReturnDetailAsync(headers, row, LoggedUserInfo.DatabasEname, LoggedUserInfo.Iserial);
+            //}
         }
 
         public void DeleteMarkupRow(bool header)
@@ -1730,39 +1801,94 @@ namespace CCWFM.ViewModel.Gl
 
     public class TblMarkupTransViewModel : Web.DataLayer.PropertiesViewModelBase
     {
-        private CRUDManagerService.TBLsupplier _supplierPerRow;
 
-        public CRUDManagerService.TBLsupplier SupplierPerRow
+
+        private GlService.GenericTable _JournalAccountTypePerRow;
+        public GlService.GenericTable JournalAccountTypePerRow
+        {
+            get { return _JournalAccountTypePerRow; }
+            set
+            {
+                _JournalAccountTypePerRow = value; RaisePropertyChanged("JournalAccountTypePerRow");
+                TblJournalAccountType = _JournalAccountTypePerRow.Iserial;
+            }
+        }
+
+        int TblJournalAccountTypeField;
+        public int TblJournalAccountType
         {
             get
             {
-                return _supplierPerRow;
+                return this.TblJournalAccountTypeField;
             }
             set
             {
-                if ((ReferenceEquals(_supplierPerRow, value) != true))
+                if ((this.TblJournalAccountTypeField.Equals(value) != true))
                 {
-                    _supplierPerRow = value;
-                    RaisePropertyChanged("SupplierPerRow");
-                    if (SupplierPerRow != null)
-                    {
-                        if (SupplierPerRow.Iserial != 0)
-                        {
-                            TblSupplier = SupplierPerRow.Iserial;
-                        }
-                    }
+                    this.TblJournalAccountTypeField = value;
+                    RaisePropertyChanged("TblJournalAccountType");
                 }
             }
         }
 
-        private int? _tblSupplier;
+        private GlService.Entity _EntityPerRow;
 
-        [Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqSupplier")]
-        public int? TblSupplier
+        [Required(ErrorMessageResourceType = typeof(strings), ErrorMessageResourceName = "ReqEntity")]
+        public GlService.Entity EntityPerRow
         {
-            get { return _tblSupplier; }
-            set { _tblSupplier = value; RaisePropertyChanged("TblSupplier"); }
+            get { return _EntityPerRow; }
+            set
+            {
+                _EntityPerRow = value; RaisePropertyChanged("EntityPerRow");
+                EntityAccount = _EntityPerRow.Iserial;
+            }
         }
+
+        int EntityAccountField;
+        public int EntityAccount
+        {
+            get
+            {
+                return this.EntityAccountField;
+            }
+            set
+            {
+                if ((this.EntityAccountField.Equals(value) != true))
+                {
+                    this.EntityAccountField = value;
+                    RaisePropertyChanged("EntityAccount");
+                }
+            }
+        }
+
+
+
+        //private CRUDManagerService.TBLsupplier _supplierPerRow;
+
+        //public CRUDManagerService.TBLsupplier SupplierPerRow
+        //{
+        //    get
+        //    {
+        //        return _supplierPerRow;
+        //    }
+        //    set
+        //    {
+        //        if ((ReferenceEquals(_supplierPerRow, value) != true))
+        //        {
+        //            _supplierPerRow = value;
+        //            RaisePropertyChanged("SupplierPerRow");
+        //            if (SupplierPerRow != null)
+        //            {
+        //                if (SupplierPerRow.Iserial != 0)
+        //                {
+        //                    TblSupplier = SupplierPerRow.Iserial;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
 
         private int _iserialField;
 
@@ -1814,7 +1940,7 @@ namespace CCWFM.ViewModel.Gl
             set
             {
                 _currencyPerRow = value; RaisePropertyChanged("CurrencyPerRow");
-                if (_currencyPerRow != null) TblCurrency = CurrencyPerRow.Iserial;
+                if (_currencyPerRow != null && _currencyPerRow.Iserial!=0) TblCurrency = CurrencyPerRow.Iserial;
             }
         }
 

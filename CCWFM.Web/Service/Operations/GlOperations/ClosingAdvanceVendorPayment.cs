@@ -17,7 +17,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 ChequeStatusList.Add(1);
                 ChequeStatusList.Add(2);
                 IQueryable<TblGlChequeTransactionDetail> query;
-                var entityRecord = entity.Entities.FirstOrDefault(w => w.Code == vendor && w.TblJournalAccountType == 3).Iserial;
+                var entityRecord = entity.Entities.FirstOrDefault(w => w.Code == vendor && w.TblJournalAccountType == 3&& w.scope==0).Iserial;
 
                 var cheque = entity.TblClosingAdvanceVendorPayments.Include(nameof(TblClosingAdvanceVendorPayment.TblGlChequeTransactionDetail)).Select(w => w.TblGlChequeTransactionDetail1.TblBankCheque).ToList();
                 query = entity.TblGlChequeTransactionDetails.Where(x => 
@@ -43,7 +43,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 entity.CommandTimeout = 0;         
                 var items = entity.TblGlChequeTransactionDetails.Include(w => w.TblGlChequeTransactionHeader1).Where(w => Iserials.Contains(w.Iserial)).ToList();
                 var entityID = items.FirstOrDefault().EntityDetail1;
-                var entityRecord = entity.Entities.FirstOrDefault(w => w.Iserial == entityID && w.TblJournalAccountType == 3);
+                var entityRecord = entity.Entities.FirstOrDefault(w => w.Iserial == entityID && w.TblJournalAccountType == 3 && w.scope == 0);
               
                 foreach (var item in items)
                 {
@@ -79,7 +79,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         DrOrCr = false,
                         // TblBankCheque = row.TblBankCheque,
                     };
-                    var vendorRecord = entity.Entities.FirstOrDefault(w => w.Code == entityRecord.Code && w.TblJournalAccountType == 2);
+                    var vendorRecord = entity.Entities.FirstOrDefault(w => w.Code == entityRecord.Code && w.TblJournalAccountType == 2&& w.scope == 0);
 
                     var newledgerDetail = new TblLedgerMainDetail
                     {

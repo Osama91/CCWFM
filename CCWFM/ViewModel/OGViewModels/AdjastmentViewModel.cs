@@ -118,8 +118,8 @@ namespace CCWFM.ViewModel.OGViewModels
                                 {
                                     var temp = SelectedMainRow.TblAdjustmentDetails.FirstOrDefault(td =>
                                     td.ItemDimIserial == item.ItemDimFromIserial);
-                                    if (0 == item.DifferenceQuantity)
-                                        continue;
+                                    //if (0 == item.DifferenceQuantity)
+                                    //    continue;
                                     if (temp == null)// مش موجود
                                     {
                                         var adjustmentDetail = new AdjustmentDetail()
@@ -648,7 +648,7 @@ namespace CCWFM.ViewModel.OGViewModels
         }
         public bool ValidDetailData()
         {
-            if (SelectedMainRow.Approved && SelectedMainRow.TblAdjustmentDetails.Any(td => 0 == td.DifferenceQuantity))
+            if (SelectedMainRow.Approved)
             {
                 MessageBox.Show(strings.CheckQuantities);
                 return false;
@@ -662,8 +662,8 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public void GetMaindata()
         {
-            if (SortBy == null)
-                SortBy = "it.Iserial";
+            //if (SortBy == null)
+                SortBy = "it.Iserial desc";
             WarehouseClient.GetAdjustmentAsync(MainRowList.Count, PageSize, SortBy, Filter,
                 ValuesObjects, LoggedUserInfo.Iserial, isOpenningBalance);
         }
@@ -726,7 +726,7 @@ namespace CCWFM.ViewModel.OGViewModels
                     saveRow.TblAdjustmentDetails = new ObservableCollection<TblAdjustmentDetail>();
                     if (string.IsNullOrWhiteSpace(saveRow.Code))
                         saveRow.Code = "";
-                    foreach (var item in SelectedMainRow.TblAdjustmentDetails)
+                    foreach (var item in SelectedMainRow.TblAdjustmentDetails.Where(W=>W.ItemDimIserial!=0))
                     {
                         var detailTemp = new TblAdjustmentDetail();
                         detailTemp.InjectFrom(item);

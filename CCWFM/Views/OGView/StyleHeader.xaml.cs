@@ -717,11 +717,11 @@ namespace CCWFM.Views.OGView
                                 _viewModel.SelectedMainRow.seasonUpdate = false;
                             }
                         }
-                        if (_viewModel.SelectedMainRow.TargetCostPrice > 0)
-                        {
-                            TargetCostPriceUpdate.IsReadOnly = true;
+                        //if (_viewModel.SelectedMainRow.TargetCostPrice > 0)
+                        //{
+                        //    TargetCostPriceUpdate.IsReadOnly = true;
                             
-                        }
+                        //}
                         break;
 
                     case (int)StyleTabes.RetailSpecDetails:

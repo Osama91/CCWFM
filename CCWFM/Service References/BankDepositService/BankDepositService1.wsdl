@@ -91,6 +91,12 @@
   <wsdl:message name="BankDepositService_GetPremium2030BankIserial_OutputMessage">
     <wsdl:part name="parameters" element="GetPremium2030BankIserialResponse" />
   </wsdl:message>
+  <wsdl:message name="BankDepositService_GetForsaBankIserialIserial_InputMessage">
+    <wsdl:part name="parameters" element="GetForsaBankIserialIserial" />
+  </wsdl:message>
+  <wsdl:message name="BankDepositService_GetForsaBankIserialIserial_OutputMessage">
+    <wsdl:part name="parameters" element="GetForsaBankIserialIserialResponse" />
+  </wsdl:message>
   <wsdl:message name="BankDepositService_GetTFKDiscountBankIserial_InputMessage">
     <wsdl:part name="parameters" element="GetTFKDiscountBankIserial" />
   </wsdl:message>
@@ -251,6 +257,10 @@
     <wsdl:operation name="GetPremium2030BankIserial">
       <wsdl:input wsaw:Action="urn:BankDepositService/GetPremium2030BankIserial" message="BankDepositService_GetPremium2030BankIserial_InputMessage" />
       <wsdl:output wsaw:Action="urn:BankDepositService/GetPremium2030BankIserialResponse" message="BankDepositService_GetPremium2030BankIserial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForsaBankIserialIserial">
+      <wsdl:input wsaw:Action="urn:BankDepositService/GetForsaBankIserialIserial" message="BankDepositService_GetForsaBankIserialIserial_InputMessage" />
+      <wsdl:output wsaw:Action="urn:BankDepositService/GetForsaBankIserialIserialResponse" message="BankDepositService_GetForsaBankIserialIserial_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTFKDiscountBankIserial">
       <wsdl:input wsaw:Action="urn:BankDepositService/GetTFKDiscountBankIserial" message="BankDepositService_GetTFKDiscountBankIserial_InputMessage" />

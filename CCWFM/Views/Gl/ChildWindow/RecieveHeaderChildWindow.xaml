@@ -76,8 +76,19 @@
                     </sdk:DataGridTemplateColumn.CellTemplate>
                 </sdk:DataGridTemplateColumn>
 
+                    <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="RecTypeName"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Type,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
 
-                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RecTypeName,Mode=TwoWay}" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+
+                    <sdk:DataGridTemplateColumn Width="SizeToHeader"
                                             SortMemberPath="Checked"
                                             dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Saved,
                                                                                                   Source={StaticResource LocalizedStrings}}">
@@ -139,6 +150,19 @@
                     <sdk:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=votdate, StringFormat=\{0:d\}}" />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+
+                <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                                            SortMemberPath="RecTypeName"
+                                            dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Type,
+                                                                                                  Source={StaticResource LocalizedStrings}}">
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RecTypeName,Mode=TwoWay}" />
                         </DataTemplate>
                     </sdk:DataGridTemplateColumn.CellTemplate>
                 </sdk:DataGridTemplateColumn>

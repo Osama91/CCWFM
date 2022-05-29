@@ -34,32 +34,39 @@ namespace CCWFM.Web.Service.WarehouseOp
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
-                var defaultQuery = context.TblAdjustmentHeaders.Include(nameof(
-                    TblAdjustmentHeader.TblWarehouse)).Where(a => a.IsOpeningBalance == openningBalance);
+                //var defaultQuery = context.TblAdjustmentHeaders.Include(nameof(
+                //    TblAdjustmentHeader.TblWarehouse)).Where(a => a.IsOpeningBalance == openningBalance&&
+                //     context.TblAuthWarehouses.Any(aw =>
+                //        aw.AuthUserIserial == userIserial && aw.PermissionType == (short)AuthWarehouseType.Adjustment &&
+                //        (aw.WarehouseIserial == a.WarehouseIserial)));
                 IQueryable<TblAdjustmentHeader> query;
                 if (filter != null)
                 {
                     var parameterCollection = SharedOperation.ConvertToParamters(valuesObjects);
 
-                    fullCount = defaultQuery.Where(filter, parameterCollection.ToArray()).Where(tr =>
-                        context.TblAuthWarehouses.Any(aw =>
+                    fullCount = context.TblAdjustmentHeaders.Include(nameof(
+                    TblAdjustmentHeader.TblWarehouse)).Where(filter, parameterCollection.ToArray()).Where(a => a.IsOpeningBalance == openningBalance &&
+                     context.TblAuthWarehouses.Any(aw =>
                         aw.AuthUserIserial == userIserial && aw.PermissionType == (short)AuthWarehouseType.Adjustment &&
-                        (aw.WarehouseIserial == tr.WarehouseIserial))).Count();
-                    query = defaultQuery.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Where(tr =>
-                        context.TblAuthWarehouses.Any(aw =>
+                        (aw.WarehouseIserial == a.WarehouseIserial))).Count();
+                    query = context.TblAdjustmentHeaders.Include(nameof(
+                    TblAdjustmentHeader.TblWarehouse)).Where(filter, parameterCollection.ToArray()).Where(a => a.IsOpeningBalance == openningBalance &&
+                     context.TblAuthWarehouses.Any(aw =>
                         aw.AuthUserIserial == userIserial && aw.PermissionType == (short)AuthWarehouseType.Adjustment &&
-                        (aw.WarehouseIserial == tr.WarehouseIserial)));
+                        (aw.WarehouseIserial == a.WarehouseIserial))).OrderBy(sort);
                 }
                 else
                 {
-                    fullCount = defaultQuery.Where(tr =>
-                        context.TblAuthWarehouses.Any(aw =>
+                    fullCount = context.TblAdjustmentHeaders.Include(nameof(
+                    TblAdjustmentHeader.TblWarehouse)).Where(a => a.IsOpeningBalance == openningBalance &&
+                     context.TblAuthWarehouses.Any(aw =>
                         aw.AuthUserIserial == userIserial && aw.PermissionType == (short)AuthWarehouseType.Adjustment &&
-                        (aw.WarehouseIserial == tr.WarehouseIserial ))).Count();
-                    query = defaultQuery.OrderBy(sort).Where(tr =>
-                        context.TblAuthWarehouses.Any(aw =>
+                        (aw.WarehouseIserial == a.WarehouseIserial))).Count();
+                    query = context.TblAdjustmentHeaders.Include(nameof(
+                    TblAdjustmentHeader.TblWarehouse)).Where(a => a.IsOpeningBalance == openningBalance &&
+                     context.TblAuthWarehouses.Any(aw =>
                         aw.AuthUserIserial == userIserial && aw.PermissionType == (short)AuthWarehouseType.Adjustment &&
-                        (aw.WarehouseIserial == tr.WarehouseIserial)));
+                        (aw.WarehouseIserial == a.WarehouseIserial))).OrderBy(sort);
                 }
                 return query.Skip(skip).Take(take).ToList();
             }

@@ -2652,6 +2652,25 @@ namespace CCWFM.ViewModel.OGViewModels
                         saveRow.InjectFrom(selectedMission);
                         AttService.UpdateAndInsertTblMissionAsync(saveRow, save, TransactionHeader.SelectedMainRows.IndexOf(TransactionHeader.SelectedMainRows.FirstOrDefault(x => x.EmpId == selectedMission.Emplid)), LoggedUserInfo.Iserial);
                     }
+                    //else
+                    //{
+                    //    if (valiationCollection.Any())
+                    //    {
+                    //        if (valiationCollection.Count==1)
+                    //        {
+                    //            var descError = valiationCollection.Where(w => w.MemberNames.Contains("Description"));
+
+                    //            if (descError.Any())
+                    //            {
+
+                    //                MessageBox.Show(descError.FirstOrDefault().ErrorMessage);
+                    //            }
+
+                    //        }
+                     
+
+                    //    }
+                    //}
                 }
             }
 

@@ -44,50 +44,115 @@ namespace CCWFM.Views.Gl
 
         private void BtnDeleteMainRow_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.SelectedMainRows.Clear();
+            if (TabStyle.SelectedIndex == 0)
+            {
+                _viewModel.SelectedMainRows.Clear();
             foreach (var row in MainGrid.SelectedItems)
             {
                 _viewModel.SelectedMainRows.Add((TblLedgerHeaderViewModel)row);
             }
-            _viewModel.DeleteMainRow();
-        }
+            _viewModel.DeleteMainRow(true);
+            }
+            else
+            {
+                _viewModel.SelectedMainRows.Clear();
+                foreach (var row in MainGridUnposted.SelectedItems)
+                {
+                    _viewModel.SelectedMainRows.Add((TblLedgerHeaderViewModel)row);
+                }
+                _viewModel.DeleteMainRow(false);
+            }
+             }
 
         private void BtnAddNewMainRow_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.AddNewMainRow(MainGrid.SelectedIndex != -1);
+            if (TabStyle.SelectedIndex == 0)
+            {
+                _viewModel.AddNewMainRow(MainGrid.SelectedIndex != -1,true);
+            }
+            else {
+                _viewModel.AddNewMainRow(MainGridUnposted.SelectedIndex != -1,false);
+            }
         }
 
         private void MainGrid_OnFilter(object sender, FilterEvent e)
         {
-            _viewModel.MainRowList.Clear();
+            var grid = sender as OsGrid;
+            if (grid.Name == "MainGrid")
+            {
+
+                _viewModel.MainRowList.Clear();
+            }
+            else
+            {
+
+                _viewModel.MainRowListUnPosted.Clear();
+            }
             string filter;
             Dictionary<string, object> valueObjecttemp;
             GeneralFilter.GeneralFilterMethod(out filter, out valueObjecttemp, e);
             _viewModel.Filter = filter;
             _viewModel.ValuesObjects = valueObjecttemp;
-            _viewModel.GetMaindata();
+            if (grid.Name == "MainGrid")
+            {
+                _viewModel.GetMaindata(true);
+            }
+            else {
+                _viewModel.GetMaindata(false);
+
+            }
         }
 
         private void MainGrid_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Down)
+
+            var grid = sender as OsGrid;
+
+            if (grid.Name == "MainGrid")
             {
-                var currentRowIndex = (_viewModel.MainRowList.IndexOf(_viewModel.SelectedMainRow));
-                if (currentRowIndex == (_viewModel.MainRowList.Count - 1))
+                if (e.Key == Key.Down)
                 {
-                    _viewModel.AddNewMainRow(true);
-                    MainGrid.BeginEdit();
+                    var currentRowIndex = (_viewModel.MainRowList.IndexOf(_viewModel.SelectedMainRow));
+                    if (currentRowIndex == (_viewModel.MainRowList.Count - 1))
+                    {
+                        _viewModel.AddNewMainRow(true, true);
+                        MainGrid.BeginEdit();
+                    }
                 }
             }
-            if (e.Key == Key.Delete && ModifierKeys.Shift == Keyboard.Modifiers)
+            else
             {
-                _viewModel.SelectedMainRows.Clear();
-                foreach (var row in MainGrid.SelectedItems)
+                if (e.Key == Key.Down)
                 {
-                    _viewModel.SelectedMainRows.Add((TblLedgerHeaderViewModel)row);
+                    var currentRowIndex = (_viewModel.MainRowListUnPosted.IndexOf(_viewModel.SelectedMainRow));
+                    if (currentRowIndex == (_viewModel.MainRowListUnPosted.Count - 1))
+                    {
+                        _viewModel.AddNewMainRow(true, false);
+                        MainGridUnposted.BeginEdit();
+                    }
                 }
 
-                _viewModel.DeleteMainRow();
+            }
+
+            if (e.Key == Key.Delete && ModifierKeys.Shift == Keyboard.Modifiers)
+            {
+                if (grid.Name == "MainGrid")
+                {
+                    _viewModel.SelectedMainRows.Clear();
+                    foreach (var row in MainGrid.SelectedItems)
+                    {
+                        _viewModel.SelectedMainRows.Add((TblLedgerHeaderViewModel)row);
+                    }
+                    _viewModel.DeleteMainRow(true);
+                 }
+                else {
+                    _viewModel.SelectedMainRows.Clear();
+                    foreach (var row in MainGridUnposted.SelectedItems)
+                    {
+                        _viewModel.SelectedMainRows.Add((TblLedgerHeaderViewModel)row);
+                    }
+                    _viewModel.DeleteMainRow(false);
+                }
             }
             else if (e.Key == Key.Enter)
             {
@@ -95,14 +160,32 @@ namespace CCWFM.Views.Gl
             }
             else if (e.Key == Key.Tab)
             {
-                if (MainGrid.CurrentColumn != null)
+
+                if (grid.Name == "MainGrid")
                 {
-                    int index = MainGrid.Columns.IndexOf(MainGrid.CurrentColumn);
-                    if (index == MainGrid.Columns.Count - 1)
+                    if (MainGrid.CurrentColumn != null)
                     {
-                        var currentRowIndex = (_viewModel.MainRowList.IndexOf(_viewModel.SelectedMainRow));
-                        if (currentRowIndex == (_viewModel.MainRowList.Count - 1))
+                        int index = MainGrid.Columns.IndexOf(MainGrid.CurrentColumn);
+                        if (index == MainGrid.Columns.Count - 1)
                         {
+                            var currentRowIndex = (_viewModel.MainRowList.IndexOf(_viewModel.SelectedMainRow));
+                            if (currentRowIndex == (_viewModel.MainRowList.Count - 1))
+                            {
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (MainGridUnposted.CurrentColumn != null)
+                    {
+                        int index = MainGridUnposted.Columns.IndexOf(MainGridUnposted.CurrentColumn);
+                        if (index == MainGrid.Columns.Count - 1)
+                        {
+                            var currentRowIndex = (_viewModel.MainRowListUnPosted.IndexOf(_viewModel.SelectedMainRow));
+                            if (currentRowIndex == (_viewModel.MainRowListUnPosted.Count - 1))
+                            {
+                            }
                         }
                     }
                 }
@@ -111,20 +194,47 @@ namespace CCWFM.Views.Gl
 
         private void MainGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            if (_viewModel.MainRowList.Count < _viewModel.PageSize)
+
+            var grid = sender as OsGrid;
+            if (grid.Name == "MainGrid")
             {
-                return;
+                if (_viewModel.MainRowList.Count < _viewModel.PageSize)
+                {
+                    return;
+                }
+                if (_viewModel.MainRowList.Count - 2 < e.Row.GetIndex() && !_viewModel.Loading &&
+                    _viewModel.MainRowList.Count < _viewModel.FullCount)
+                {
+                    _viewModel.GetMaindata(true);
+                }
             }
-            if (_viewModel.MainRowList.Count - 2 < e.Row.GetIndex() && !_viewModel.Loading &&
-                _viewModel.MainRowList.Count < _viewModel.FullCount)
+            else
             {
-                _viewModel.GetMaindata();
+                if (_viewModel.MainRowListUnPosted.Count < _viewModel.PageSize)
+                {
+                    return;
+                }
+                if (_viewModel.MainRowListUnPosted.Count - 2 < e.Row.GetIndex() && !_viewModel.Loading &&
+                    _viewModel.MainRowListUnPosted.Count < _viewModel.FullCount)
+                {
+                    _viewModel.GetMaindata(false);
+                }
+
             }
         }
 
         private void MainGrid_RowEditEnded(object sender, DataGridRowEditEndedEventArgs e)
         {
-            _viewModel.SaveMainRow();
+            var grid = sender as OsGrid;
+            if (grid.Name == "MainGrid")
+            {
+                _viewModel.SaveMainRow(true);
+            }
+            else
+            {
+                _viewModel.SaveMainRow(false);
+
+            }
         }
 
         private void BtnSave_Onclick(object sender, RoutedEventArgs e)
@@ -165,21 +275,43 @@ namespace CCWFM.Views.Gl
 
         private void BtnDetails_OnClick(object sender, RoutedEventArgs e)
         {
-            var valiationCollection = new List<ValidationResult>();
-            var isvalid = Validator.TryValidateObject(_viewModel.SelectedMainRow,
-                new ValidationContext(_viewModel.SelectedMainRow, null, null), valiationCollection, true);
+            var btn = sender as Button;
+            var name=btn.Name;
 
-            if (!isvalid)
-            {
-                MessageBox.Show("Data Is Not Valid");
+            var valiationCollection = new List<ValidationResult>();
+
+        
+                var isvalid = Validator.TryValidateObject(_viewModel.SelectedMainRow,
+                    new ValidationContext(_viewModel.SelectedMainRow, null, null), valiationCollection, true);
+
+                if (!isvalid)
+                {
+                    MessageBox.Show("Data Is Not Valid");
+                }
+                else
+                {
+                    //_viewModel.SaveMainRow(true);
+                    _viewModel.SelectedMainRow.DetailsList.Clear();
+
+
+                if (name == "BtnDetails")
+                {
+                    _viewModel.SelectedMainRow.DetailsList.Clear();
+                    var child = new LedgerDetailChildWindow(_viewModel, true);
+                    child.Show();
+
+                }
+                else {
+                    _viewModel.SaveMainRow(false);
+                    _viewModel.SelectedMainRow.DetailsList.Clear();
+                    var child = new LedgerDetailChildWindow(_viewModel, false);
+                    child.Show();
+                }
             }
-            else
-            {
-                _viewModel.SaveMainRow();
-                _viewModel.SelectedMainRow.DetailsList.Clear();
-                var child = new LedgerDetailChildWindow(_viewModel);
-                child.Show();
-            }
+
+            
+         
+
         }
 
         private void MainGrid_OnLostFocus(object sender, RoutedEventArgs e)
@@ -208,7 +340,7 @@ namespace CCWFM.Views.Gl
 
         private void Post_OnChecked(object sender, RoutedEventArgs e)
         {
-            _viewModel.Post();
+         //   _viewModel.Post();
         }
 
         private void Approve_OnChecked(object sender, RoutedEventArgs e)
@@ -299,6 +431,11 @@ namespace CCWFM.Views.Gl
                 }
             }
             // PeriodLines
+        }
+
+        private void TabPosted_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

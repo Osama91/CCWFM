@@ -706,15 +706,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTblReturnDetail">
-      <soap12:operation soapAction="urn:GlService/GetTblReturnDetail" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetRecInvStyleColor">
       <soap12:operation soapAction="urn:GlService/GetRecInvStyleColor" style="document" />
       <wsdl:input>
