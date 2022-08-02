@@ -29,6 +29,7 @@ namespace CCWFM.ViewModel.Gl
                 Glclient = new GlServiceClient();
                 Glclient.PostTotalLedger1Completed += (s, sv) =>
                  {
+                     PrintLedgerHeader(sv.newTransactionIserial);
                      try
                      {
                          SelectedMainRow.DetailsList.Clear();
@@ -190,18 +191,26 @@ namespace CCWFM.ViewModel.Gl
 
                 Glclient.UpdateOrInsertTblLedgerHeader1sCompleted += (s, ev) =>
                 {
+
+                    Loading = false;
                     if (ev.Error != null)
                     {
+                      
                         MessageBox.Show(ev.Error.Message);
                     }
                     try
                     {
+                        if (ev.newTransactionIserial!=0)
+                        {
+                            PrintLedgerHeader(ev.newTransactionIserial);
+                        }
+            
                         MainRowListUnPosted.ElementAt(ev.outindex).InjectFrom(ev.Result);
                     }
                     catch (Exception)
                     {
                     }
-                    Loading = false;
+                   
                 };
 
                 Glclient.DeleteTblLedgerHeaderCompleted += (s, ev) =>

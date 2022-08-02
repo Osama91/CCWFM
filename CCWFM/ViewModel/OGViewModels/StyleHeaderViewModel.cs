@@ -4318,10 +4318,12 @@ namespace CCWFM.ViewModel.OGViewModels
 
     public class BomViewModel : PropertiesViewModelBase
     {
+        
         private readonly CRUD_ManagerServiceClient _client = new CRUD_ManagerServiceClient();
 
         public BomViewModel()
         {
+            isBom = true;
             BomSizes = new ObservableCollection<TblBOMSize>();
             BomSizes.CollectionChanged += BomSizes_CollectionChanged;
             _client.AccWithConfigAndSizeCompleted += (s, sv) =>
@@ -4416,6 +4418,15 @@ namespace CCWFM.ViewModel.OGViewModels
                     }
                 }
             };
+        }
+
+
+        private bool _isBom;
+
+        public bool isBom
+        {
+            get { return _isBom; }
+            set { _isBom = value; RaisePropertyChanged("isBom"); }
         }
 
         private TblColor _colorPerRow;
@@ -10658,7 +10669,7 @@ namespace CCWFM.ViewModel.OGViewModels
                 bomListToSave.Add(newrow);
             }
 
-            Client.UpdateOrInsertBomAsync(bomListToSave);
+            Client.UpdateOrInsertBomAsync(bomListToSave, LoggedUserInfo.Iserial);
         }
 
         public void SaveBomRow()
@@ -10708,7 +10719,7 @@ namespace CCWFM.ViewModel.OGViewModels
                     return;
                 }
                 Loading = true;
-                service.UpdateOrInsertBomAsync(bomListToSave);
+                service.UpdateOrInsertBomAsync(bomListToSave, LoggedUserInfo.Iserial);
                 var index = SelectedDetailRow.BomList.IndexOf(SelectedBomRow);
                 service.UpdateOrInsertBomCompleted += (s, sv) =>
                 {

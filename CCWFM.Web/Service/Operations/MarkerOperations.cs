@@ -460,6 +460,8 @@ namespace CCWFM.Web.Service
         {
             using (var entities = new WorkFlowManagerDBEntities())
             {
+                entities.CommandTimeout = 0;
+               
                 var h = (from head in entities.tbl_MarkerTransactionHeader
                          where head.Iserial == iserial
                          select head).SingleOrDefault();
@@ -566,7 +568,7 @@ namespace CCWFM.Web.Service
                     {
                         var objectIndex = Guid.NewGuid().ToString("D");
 
-                        var rr = new WorkFlowManagerDBEntities().markerPostToRouteProcedure(iserial, variable).ToList();
+                        var rr = entities.markerPostToRouteProcedure(iserial, variable).ToList();
                         var warehousecode = GetChainSetupBycode("DefaultFPWarehouse1st");
 
                         var warehouseIserial = entities.TblWarehouses.FirstOrDefault(w => w.Code == warehousecode).Iserial;

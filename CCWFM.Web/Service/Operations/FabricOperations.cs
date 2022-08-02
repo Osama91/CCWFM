@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.ServiceModel;
 using CCWFM.Web.Model;
-
+using System.Data.Entity;
 namespace CCWFM.Web.Service
 {
     public partial class CRUD_ManagerService
@@ -21,25 +24,62 @@ namespace CCWFM.Web.Service
         }
 
         [OperationContract]
-        public List<FabricAccSearch> GetItemWithUnitAndItemGroup(int skip, int take, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount)
+        public List<FabricAccSearch> GetItemWithUnitAndItemGroup(int TblSalesOrder,int skip, int take, string sort, string filter, Dictionary<string, object> valuesObjects, out int fullCount)
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
-                IQueryable<FabricAccSearch> query;
+             
+              var FabricTradeAgreement = new List<ItemsDto>();
+                if (TblSalesOrder!=0)
+                {
+            
+                    int Season = context.TblSalesOrders.Include(t => t.TblStyle1).FirstOrDefault(w => w.Iserial == TblSalesOrder).TblStyle1.TblLkpSeason;
+
+                  var shortcode=  context.TblLkpSeasons.FirstOrDefault(w => w.Iserial == Season).ShortCode;
+
+
+                      FabricTradeAgreement = context.TblTradeAgreementDetails.Include(w => w.TblTradeAgreementHeader1.TblTradeAgreementTransaction1.TblLkpSeason1).Where(t=>t.TblTradeAgreementHeader1.TblTradeAgreementTransaction1.TblLkpSeason1.ShortCode == shortcode).Select(w => new ItemsDto { Iserial = w.ItemCode, ItemGroup = w.ItemType }).ToList();
+
+
+
+                }
+
+                List<FabricAccSearch> query= new List<FabricAccSearch>();
                 if (filter != null)
                 {
                     var parameterCollection = ConvertToParamters(valuesObjects);
 
-                    fullCount = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).Count();
-                    query = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
+                    if (TblSalesOrder!=0)
+                    {
+                        fullCount = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).AsEnumerable().Where(w=> FabricTradeAgreement.AsEnumerable().Any(e=>e.Iserial==w.Iserial&& e.ItemGroup==w.ItemGroup)).Count();
+                        query = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).OrderBy(sort).AsEnumerable().Where(w => FabricTradeAgreement.AsEnumerable().Any(e => e.Iserial == w.Iserial && e.ItemGroup == w.ItemGroup)).Skip(skip).Take(take).ToList();
+                    }
+                    else
+                    {
+                        fullCount = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).Count();
+                        query = context.FabricAccSearches.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take).ToList();
+                    }
+                
                 }
                 else
                 {
-                    fullCount = context.FabricAccSearches.Count();
-                    query = context.FabricAccSearches.OrderBy(sort).Skip(skip).Take(take);
+                    if (TblSalesOrder!=0)
+                    {
+                        fullCount = context.FabricAccSearches.AsEnumerable().Where(w => FabricTradeAgreement.AsEnumerable().Any(e => e.Iserial == w.Iserial && e.ItemGroup == w.ItemGroup)).Count();
+                       var  queryTemp = context.FabricAccSearches.OrderBy(sort);
+                       query= queryTemp.AsEnumerable().Where(w => FabricTradeAgreement.AsEnumerable().Any(e => e.Iserial == w.Iserial && e.ItemGroup == w.ItemGroup)).Skip(skip).Take(take).ToList();
+                    }
+                    else
+                    {
+                        fullCount = context.FabricAccSearches.Count();
+                        query = context.FabricAccSearches.OrderBy(sort).Skip(skip).Take(take).ToList();
+
+                    }
                 }
 
-                return query.ToList();
+           
+
+                return query;
             }
         }
 

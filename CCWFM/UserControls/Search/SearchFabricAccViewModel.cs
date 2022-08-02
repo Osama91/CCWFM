@@ -10,7 +10,7 @@ namespace CCWFM.UserControls.Search
 {
     public class SearchFabricAccViewModel : ViewModelBase
     {
-        public SearchFabricAccViewModel()
+        public SearchFabricAccViewModel(SearchFabricAcc _userControl)
         {
             if (!DesignerProperties.IsInDesignTool)
             {
@@ -25,20 +25,10 @@ namespace CCWFM.UserControls.Search
                     {
                         foreach (var row in sv.Result)
                         {
-                            //var newrow = new FabricAccSearch();
-
-                            //newrow.InjectFrom(row);
                             var newrow = (ItemsDto)new ItemsDto().InjectFrom(row);//; row
                             if (!MainRowList.Contains(newrow))
                             {
-                                //var fabric = sv.mainFabricList.FirstOrDefault(x => x.Iserial == newrow.tbl_FabricAttriputes);
-
-                                //if (fabric != null)
-                                //{
-                                //    newrow.FabricPerRow = fabric;
-                                //}
-                                //newrow.SeasonPerRow = new GenericTable();
-                                //newrow.SizeGroupPerRow = new TblSizeGroup();
+                           
 
                                 MainRowList.Add(newrow);
                             }
@@ -49,16 +39,25 @@ namespace CCWFM.UserControls.Search
                     FullCount = sv.fullCount;
                 };
 
-                GetMaindata();
+                GetMaindata(_userControl);
             }
         }
 
-        public void GetMaindata()
+        public void GetMaindata(SearchFabricAcc _userControl)
         {
             if (SortBy == null)
                 SortBy = "it.Iserial";
             Loading = true;
-            Client.GetItemWithUnitAndItemGroupAsync(MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects);
+
+            if (_userControl != null)
+            {
+
+                Client.GetItemWithUnitAndItemGroupAsync(_userControl.SalesOrderPerRow, MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects);
+            }
+            else
+            {
+                Client.GetItemWithUnitAndItemGroupAsync(0,MainRowList.Count, PageSize, SortBy, Filter, ValuesObjects);
+            }
         }
 
         #region Prop
@@ -75,6 +74,7 @@ namespace CCWFM.UserControls.Search
             }
         }
 
+     
         private ItemsDto _selectedMainRow;
 
         public ItemsDto SelectedMainRow

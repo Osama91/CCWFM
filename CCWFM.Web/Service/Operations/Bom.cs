@@ -145,10 +145,11 @@ namespace CCWFM.Web.Service
         }
 
         [OperationContract]
-        private List<BOM> UpdateOrInsertBom(List<BOM> newBomList)
+        private List<BOM> UpdateOrInsertBom(List<BOM> newBomList,int user)
         {
             using (var context = new WorkFlowManagerDBEntities())
             {
+                var NowDate = DateTime.Now;
                 if (newBomList.Any())
                 {
                     var firstBom = newBomList.FirstOrDefault(x => x.BOM_IsMainFabric && x.BOM_FabricType != "Accessories");
@@ -178,6 +179,11 @@ namespace CCWFM.Web.Service
                                       where e.Iserial == row.Iserial
                                       select e).SingleOrDefault();
 
+                        row.LastUpdatedBy = user;
+                        row.LastUpdatedDate = NowDate;
+
+                        row.CreatedBy = oldRow.CreatedBy;
+                        row.CreationDate = oldRow.CreationDate;
                         GenericUpdate(oldRow, row, context);
 
                         foreach (var newSizeRow in row.TblBOMSizes.ToList())
@@ -188,11 +194,20 @@ namespace CCWFM.Web.Service
                                 var oldSizeRow = (from e in context.TblBOMSizes
                                                   where e.Iserial == newSizeRow.Iserial
                                                   select e).SingleOrDefault();
+                                newSizeRow.LastUpdatedBy = user;
+                                newSizeRow.LastUpdatedDate = NowDate;
+
+                                newSizeRow.CreatedBy = oldSizeRow.CreatedBy;
+                                newSizeRow.CreationDate = oldSizeRow.CreationDate;
+
                                 GenericUpdate(oldSizeRow, newSizeRow, context);
                             }
                             else
                             {
                                 newSizeRow.Bom = oldRow.Iserial;
+                                newSizeRow.CreatedBy = user;
+                                newSizeRow.CreationDate = NowDate;
+
                                 context.TblBOMSizes.AddObject(newSizeRow);
                             }
                         }
@@ -209,10 +224,17 @@ namespace CCWFM.Web.Service
                                 var oldColoreRow = (from e in context.TblBOMStyleColors
                                                     where e.Iserial == newBomStyleColorRow.Iserial
                                                     select e).SingleOrDefault();
+                                newBomStyleColorRow.LastUpdatedBy = user;
+                                newBomStyleColorRow.LastUpdatedDate = NowDate;
+
+                                newBomStyleColorRow.CreatedBy = oldColoreRow.CreatedBy;
+                                newBomStyleColorRow.CreationDate = oldColoreRow.CreationDate;
                                 GenericUpdate(oldColoreRow, newBomStyleColorRow, context);
                             }
                             else
                             {
+                                newBomStyleColorRow.CreatedBy = user;
+                                newBomStyleColorRow.CreationDate = NowDate;
                                 context.TblBOMStyleColors.AddObject(newBomStyleColorRow);
                             }
                         }
@@ -409,11 +431,19 @@ namespace CCWFM.Web.Service
                     {
                         VARIABLE.ManualCalculationForProduction = true;
                         VARIABLE.TotalForProduction = VARIABLE.Total;
-                        var Min =
-                         VARIABLE.TblSalesOrderSizeRatios.Where(x => x.ProductionPerSize > 0)
+                        var Min = 0;
+
+                        if (VARIABLE.TblSalesOrderSizeRatios.Where(x => x.ProductionPerSize > 0)
                              .OrderBy(x => x.ProductionPerSize)
-                             .FirstOrDefault()
-                             .ProductionPerSize;
+                             .FirstOrDefault()!=null)
+                        {
+                            Min =
+                                                    VARIABLE.TblSalesOrderSizeRatios.Where(x => x.ProductionPerSize > 0)
+                                                        .OrderBy(x => x.ProductionPerSize)
+                                                        .FirstOrDefault()
+                                                        .ProductionPerSize;
+                        }
+                            
                         foreach (var roww in VARIABLE.TblSalesOrderSizeRatios)
                         {
                             roww.ProductionPerSizeForProduction = roww.ProductionPerSize;

@@ -93,7 +93,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <sdk:DataGrid.Columns>
-				<sdk:DataGridTemplateColumn Width="*" SortMemberPath="TblVendorPurchaseGroup.Ename" Header="VendorPurchaseGroup">
+                <sdk:DataGridTemplateColumn Width="*" utilities:GlobalMethods.FormatForExport="string" SortMemberPath="TblVendorPurchaseGroup.Ename" Header="VendorPurchaseGroup">
 					<sdk:DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
 							<TextBlock Text="{Binding VendorPurchaseGroupPerRow.Ename,Mode=TwoWay}"></TextBlock>
@@ -115,7 +115,7 @@
 						</DataTemplate>
 					</sdk:DataGridTemplateColumn.CellEditingTemplate>
 				</sdk:DataGridTemplateColumn>
-				<sdk:DataGridTemplateColumn SortMemberPath="Vendor" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}"  Width="*">
+                <sdk:DataGridTemplateColumn utilities:GlobalMethods.FormatForExport="string" SortMemberPath="Vendor" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Vendor, Source={StaticResource LocalizedStrings}}"  Width="*">
 					<sdk:DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
 							<TextBlock  Text="{Binding VendorPerRow.vendor_code,Mode=TwoWay}"></TextBlock>
@@ -127,7 +127,7 @@
                         </DataTemplate>
 					</sdk:DataGridTemplateColumn.CellEditingTemplate>
 				</sdk:DataGridTemplateColumn>
-				<sdk:DataGridTextColumn SortMemberPath="fabric" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Name, Source={StaticResource LocalizedStrings}}" IsReadOnly="True" Binding="{Binding Path=VendorPerRow.vendor_ename,Mode=TwoWay}" Width="*"/>
+                <sdk:DataGridTextColumn utilities:GlobalMethods.FormatForExport="string" SortMemberPath="fabric" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Name, Source={StaticResource LocalizedStrings}}" IsReadOnly="True" Binding="{Binding Path=VendorPerRow.vendor_ename,Mode=TwoWay}" Width="*"/>
 
 				<!--<sdk:DataGridTemplateColumn utilities:GlobalMethods.FormatForExport="Date" SortMemberPath="FromDate" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding FromDate, Source={StaticResource LocalizedStrings}}" Width="*">
 					<sdk:DataGridTemplateColumn.CellEditingTemplate>
@@ -155,11 +155,11 @@
 					</sdk:DataGridTemplateColumn.CellTemplate>
 				</sdk:DataGridTemplateColumn>-->
 
-                <sdk:DataGridTextColumn SortMemberPath="ItemType" CanUserSort="False" 
+                <sdk:DataGridTextColumn SortMemberPath="ItemType" CanUserSort="False"  utilities:GlobalMethods.FormatForExport="string"
                                         dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ItemType, Source={StaticResource LocalizedStrings}}"
                                         IsReadOnly="True" Width="*"
                                         Binding="{Binding Path=ItemType, Mode=TwoWay}"/>
-                <sdk:DataGridTemplateColumn SortMemberPath="ItemCode" Width="2*"
+                <sdk:DataGridTemplateColumn SortMemberPath="ItemCode" Width="2*" utilities:GlobalMethods.FormatForExport="string"
                                             dataGrid:DataGridColumnHelper.HeaderBinding="{Binding ItemName, Source={StaticResource LocalizedStrings}}">
                     <sdk:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -175,7 +175,7 @@
                 </sdk:DataGridTemplateColumn>
                 
                 <!--<sdk:DataGridTextColumn SortMemberPath="ItemCode" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Unit, Source={StaticResource LocalizedStrings}}" IsReadOnly="True"  Binding="{Binding Path=ItemPerRow.Unit,Mode=TwoWay}" Width="*"/>-->
-				<sdk:DataGridTemplateColumn SortMemberPath="Color" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
+                <sdk:DataGridTemplateColumn SortMemberPath="Color" utilities:GlobalMethods.FormatForExport="string" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Color, Source={StaticResource LocalizedStrings}}" Width="*">
 					<sdk:DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
 							<TextBlock HorizontalAlignment="Stretch" Text="{Binding ColorPerRow.Code,Mode=TwoWay}"></TextBlock>
@@ -200,10 +200,10 @@
 					</sdk:DataGridTemplateColumn.CellEditingTemplate>
 				</sdk:DataGridTemplateColumn>
 
-				<sdk:DataGridTextColumn SortMemberPath="SupplierColorCode" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SupplierColorCode, Source={StaticResource LocalizedStrings}}"  Binding="{Binding Path=SupplierColorCode,Mode=TwoWay}" Width="*"/>
-				<sdk:DataGridTextColumn SortMemberPath="Pantone" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="Pantone"  Binding="{Binding Path=Pantone,Mode=TwoWay}" Width="*"/>
+                <sdk:DataGridTextColumn SortMemberPath="SupplierColorCode" utilities:GlobalMethods.FormatForExport="string" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SupplierColorCode, Source={StaticResource LocalizedStrings}}"  Binding="{Binding Path=SupplierColorCode,Mode=TwoWay}" Width="*"/>
+                <sdk:DataGridTextColumn SortMemberPath="Pantone" utilities:GlobalMethods.FormatForExport="string" CanUserSort="False" dataGrid:DataGridColumnHelper.HeaderBinding="Pantone"  Binding="{Binding Path=Pantone,Mode=TwoWay}" Width="*"/>
 
-				<sdk:DataGridTemplateColumn SortMemberPath="AccSize" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
+                <sdk:DataGridTemplateColumn SortMemberPath="AccSize" utilities:GlobalMethods.FormatForExport="string" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Size, Source={StaticResource LocalizedStrings}}" Width="*">
 					<sdk:DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
 							<TextBlock HorizontalAlignment="Stretch" Text="{Binding AccSize,Mode=TwoWay}"></TextBlock>
@@ -228,7 +228,7 @@
 
 				<sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalesPercentage, Source={StaticResource LocalizedStrings}}" Binding="{Binding Path=SalesPercentage,Mode=TwoWay}" Width="*"/>
 
-				<sdk:DataGridTemplateColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}" SortMemberPath="CurrencyCode" Width="SizeToHeader">
+                <sdk:DataGridTemplateColumn utilities:GlobalMethods.FormatForExport="string" dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Currency, Source={StaticResource LocalizedStrings}}" SortMemberPath="CurrencyCode" Width="SizeToHeader">
 					<sdk:DataGridTemplateColumn.CellEditingTemplate>
 						<DataTemplate>
 							<ComboBox ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=sdk:DataGrid}, Path=DataContext.AxCurrencyList}"

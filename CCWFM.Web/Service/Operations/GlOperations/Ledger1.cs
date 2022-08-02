@@ -24,11 +24,21 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
 
         [OperationContract]
-        public TblLedgerMainDetail1 PostTotalLedger1(int iserial, int user, string company)
+        public TblLedgerMainDetail1 PostTotalLedger1(int iserial, int user, string company,out int newTransactionIserial)
         {
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
                 var ledgerheader = entity.TblLedgerHeader1.FirstOrDefault(w => w.Iserial == iserial);
+
+                var sumDr = entity.TblLedgerDetail1.Where(w => w.TblLedgerHeader1 == iserial && w.DrOrCr == true).Sum(w=>w.Amount);
+
+                var sumCr = entity.TblLedgerDetail1.Where(w => w.TblLedgerHeader1 == iserial && w.DrOrCr == false).Sum(w => w.Amount);
+
+                if (sumDr != sumCr)
+                {
+                    throw new Exception("cannot post un Balanced Transaction");
+                  
+                }
 
                 ledgerheader.balanced = true;
                 var TblLedgerMainDetail1 = entity.TblLedgerMainDetail1.Include("TblLedgerHeader11.TblJournal1").Where(w => w.TblLedgerHeader1 == iserial).ToList();
@@ -67,6 +77,17 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 }
                 int temp = 0;
                 UpdateOrInsertTblLedgerMainDetail1(entity, newLedgerMainDetail, true, 0, out temp, user);
+
+               var newTransaction= entity.TblLedgerHeaders.FirstOrDefault(w => w.Code == ledgerheader.Code);
+                if (newTransaction!=null)
+                {
+
+                    newTransactionIserial = newTransaction.Iserial;
+                }
+                else
+                {
+                    newTransactionIserial = 0;
+                }
                 return newLedgerMainDetail;
             }
         }
@@ -163,17 +184,17 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
 
         [OperationContract]
-        public TblLedgerHeader1 UpdateOrInsertTblLedgerHeader1s(TblLedgerHeader1 newRow, bool save, int index, out int outindex, int user, string company, bool validate = false)
+        public TblLedgerHeader1 UpdateOrInsertTblLedgerHeader1s(TblLedgerHeader1 newRow, bool save, int index,out int newTransactionIserial, out int outindex, int user, string company, bool validate = false)
         {
             outindex = index;
             using (var entity = new ccnewEntities(GetSqlConnectionString(company)))
             {
-                return UpdateOrInsertTblLedgerHeader1s(entity, newRow, save, index, out outindex, user, validate);
+                return UpdateOrInsertTblLedgerHeader1s(entity, newRow, save, index,out newTransactionIserial, out outindex, user, validate);
             }
         }
 
 
-        public TblLedgerHeader1 UpdateOrInsertTblLedgerHeader1s(ccnewEntities entity, TblLedgerHeader1 newRow, bool save, int index, out int outindex, int user, bool validate = false)
+        public TblLedgerHeader1 UpdateOrInsertTblLedgerHeader1s(ccnewEntities entity, TblLedgerHeader1 newRow, bool save, int index, out int newTransactionIserial, out int outindex, int user, bool validate = false)
         {
             outindex = index;
             if (validate)
@@ -244,6 +265,16 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     throw ex;
                 }
 
+            }
+            var newTransaction = entity.TblLedgerHeaders.FirstOrDefault(w => w.Code == newRow.Code);
+            if (newTransaction != null)
+            {
+
+                newTransactionIserial = newTransaction.Iserial;
+            }
+            else
+            {
+                newTransactionIserial = 0;
             }
 
             return newRow;

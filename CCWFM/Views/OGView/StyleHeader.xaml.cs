@@ -1014,8 +1014,7 @@ namespace CCWFM.Views.OGView
         {
             if (_viewModel.SelectedDetailRow.ContainColors)
             {
-                if ((_viewModel.SelectedMainRow.TblGroup1 != null && _viewModel.SelectedMainRow.TblGroup1 != 0))
-                {
+                
                     if (_viewModel.SelectedDetailRow.SalesOrderType != 2)
                     {
                         var childWindow = new ApprovalChildWindow(_viewModel);
@@ -1025,11 +1024,7 @@ namespace CCWFM.Views.OGView
                     {
                         _viewModel.ValidateBom();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Source Must BE Specified !");
-                }
+              
             }
             else
             {

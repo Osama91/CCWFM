@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using CCWFM.CRUDManagerService;
+using System;
 
 namespace CCWFM.UserControls.Search
 {
@@ -10,6 +11,10 @@ namespace CCWFM.UserControls.Search
                                                                    DependencyProperty.Register("SearchPerRow", typeof(ItemsDto), typeof(System.Windows.Controls.UserControl),
                                                                    new PropertyMetadata(null, OnEmpPerRowChanged));
 
+
+        public DependencyProperty SalesOrderPerRowProperty =
+                                                               DependencyProperty.Register("SalesOrderPerRow", typeof(int), typeof(System.Windows.Controls.UserControl),
+                                                               new PropertyMetadata(0, OnSalesOrderPerRowChanged));
         #region Implement INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,6 +43,21 @@ namespace CCWFM.UserControls.Search
             }
         }
 
+        public int SalesOrderPerRow
+        {
+            get { return (int)GetValue(SalesOrderPerRowProperty); }
+            set
+            {
+                SetValue(SalesOrderPerRowProperty, value);
+                if (value != SalesOrderPerRow)
+                {
+                    SalesOrderPerRow = value;
+                }
+
+                RaisePropertyChanged("SalesOrderPerRow");
+            }
+        }
+
         public static void OnEmpPerRowChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             var fil = sender as SearchFabricAcc;
@@ -46,6 +66,18 @@ namespace CCWFM.UserControls.Search
                 fil.SearchPerRow = args.NewValue as ItemsDto;
             }
         }
+
+        public static void OnSalesOrderPerRowChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        {
+            var fil = sender as SearchFabricAcc;
+            if (args.NewValue != null)
+            {
+                    fil.SalesOrderPerRow = Convert.ToInt32( args.NewValue.ToString());
+                
+               
+            }
+        }
+        
 
         public SearchFabricAcc()
         {

@@ -1226,7 +1226,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
         public override void ExportMethod()
         {
-            
+         
             SelectedMainRow.DetailsList.Clear();
             if (SortBy == null)
                 SortBy = "it.Iserial";
@@ -1297,7 +1297,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
             var rVM = new GenericReportViewModel();
 
-            rVM.GenerateReport("TradeAgreement", null);
+            rVM.GenerateReport("TradeAgreement", new ObservableCollection<string>());
         }
         #endregion
     }

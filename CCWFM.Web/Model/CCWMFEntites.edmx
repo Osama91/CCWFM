@@ -65,6 +65,10 @@
           <Property Name="Bom_Wash" Type="bit" />
           <Property Name="GotPlan" Type="bit" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="BOM_CalcMethod">
           <Key>
@@ -1764,6 +1768,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="SID" Type="varchar" MaxLength="200" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
           <Property Name="QCPosition" Type="int" />
+          <Property Name="TblSupplier" Type="int" />
         </EntityType>
         <EntityType Name="TblAuthUserGroup">
           <Key>
@@ -1804,6 +1809,10 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="MaterialUsage" Type="float" Nullable="false" />
           <Property Name="SizeFabricRatio" Type="nvarchar" MaxLength="50" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="TblBOMSizeEstimated">
           <Key>
@@ -1828,6 +1837,10 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="DummyColor" Type="int" />
           <Property Name="DyedColor" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="TblBOMStyleColorEstimated">
           <Key>
@@ -4340,6 +4353,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="TblStyle" Type="int" Nullable="false" />
           <Property Name="TblColor" Type="int" />
           <Property Name="DelivaryDate" Type="date" />
+          <Property Name="StoreDelivaryDate" Type="date" />
           <Property Name="Qty" Type="int" Nullable="false" />
           <Property Name="TblSalesOrderColorTheme" Type="int" />
           <Property Name="ManualCalculation" Type="bit" Nullable="false" />
@@ -4999,7 +5013,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="galaryLink" Type="nvarchar(max)" />
           <Property Name="tblUser" Type="int" />
-          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
           <Property Name="ImageThumb" Type="image" />
           <Property Name="LastChangeDate" Type="datetime" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
@@ -5013,7 +5027,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="tblUser" Type="int" />
           <Property Name="CreationDate" Type="datetime" />
           <Property Name="tblStyle" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
           <Property Name="FIT" Type="nvarchar" MaxLength="100" />
           <Property Name="ORGFabric" Type="nvarchar" MaxLength="100" />
           <Property Name="FinishUser" Type="int" />
@@ -5281,7 +5295,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="GotPlan" Type="bit" />
           <Property Name="SupplierCode" Type="nvarchar" MaxLength="50" />
           <Property Name="SupplierColorCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="Composition" Type="nvarchar" MaxLength="50" />
+          <Property Name="Composition" Type="nvarchar" MaxLength="250" />
           <Property Name="Consumption" Type="nvarchar" MaxLength="50" />
           <Property Name="Width" Type="nvarchar" MaxLength="50" />
           <Property Name="Weight" Type="nvarchar" MaxLength="50" />
@@ -5298,7 +5312,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
         </EntityType>
         <EntityType Name="Vendor_new">
           <Key>
-            <PropertyRef Name="Vendor_Code" />
+            <PropertyRef Name="Iserial" />
           </Key>
           <Property Name="Vendor_Code" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Vendor_Ename" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -5306,6 +5320,10 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ReportLanguage' does not hav
           <Property Name="Vendor_PaymentTerms" Type="int" />
           <Property Name="WFM_DOMAINID" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
+          <Property Name="RegNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="regionCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="WF_FabricContentsComposition">
           <Key>
@@ -6765,11 +6783,11 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.Users' does not have a prima
             <PropertyRef Name="User_Domain" />
             <PropertyRef Name="User_Win_Login" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="5" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="COMPANY" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="User_Domain" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="User_Win_Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="COMPANY" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="User_Domain" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="User_Win_Login" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WorkFlowManagerDB.dbo.V_AXStyles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -7187,18 +7205,6 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.ViewPurchaseOrderHeaderReque
             </Principal>
             <Dependent Role="Fabric_new">
               <PropertyRef Name="Fabric_FabricType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fabric_Vendor">
-          <End Role="Vendor_new" Type="Self.Vendor_new" Multiplicity="0..1" />
-          <End Role="Fabric_new" Type="Self.Fabric_new" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vendor_new">
-              <PropertyRef Name="Vendor_Code" />
-            </Principal>
-            <Dependent Role="Fabric_new">
-              <PropertyRef Name="Fabric_Vendor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -14249,10 +14255,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="FabricType" EntitySet="FabricType" />
             <End Role="Fabric_new" EntitySet="Fabric_new" />
           </AssociationSet>
-          <AssociationSet Name="FK_Fabric_Vendor" Association="Self.FK_Fabric_Vendor">
-            <End Role="Vendor_new" EntitySet="Vendor_new" />
-            <End Role="Fabric_new" EntitySet="Fabric_new" />
-          </AssociationSet>
           <AssociationSet Name="FK_FabricContentsComposition_tbl_FabricAttriputes" Association="Self.FK_FabricContentsComposition_tbl_FabricAttriputes">
             <End Role="tbl_FabricAttriputes" EntitySet="tbl_FabricAttriputes" />
             <End Role="FabricContentsComposition" EntitySet="FabricContentsComposition" />
@@ -16116,9 +16118,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySet Name="TblAuthJobPermissions" EntityType="WorkFlowManagerDBModel.TblAuthJobPermission" />
           <EntitySet Name="TblAuthUsers" EntityType="WorkFlowManagerDBModel.TblAuthUser" />
           <EntitySet Name="TblAuthUserGroups" EntityType="WorkFlowManagerDBModel.TblAuthUserGroup" />
-          <EntitySet Name="TblBOMSizes" EntityType="WorkFlowManagerDBModel.TblBOMSize" />
           <EntitySet Name="TblBOMSizeEstimateds" EntityType="WorkFlowManagerDBModel.TblBOMSizeEstimated" />
-          <EntitySet Name="TblBOMStyleColors" EntityType="WorkFlowManagerDBModel.TblBOMStyleColor" />
           <EntitySet Name="TblBrandBudgetHeaders" EntityType="WorkFlowManagerDBModel.TblBrandBudgetHeader" />
           <EntitySet Name="TblBrandSectionMails" EntityType="WorkFlowManagerDBModel.TblBrandSectionMail" />
           <EntitySet Name="TblBrandSectionMailSamples" EntityType="WorkFlowManagerDBModel.TblBrandSectionMailSample" />
@@ -16222,7 +16222,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySet Name="TblUserBrandSectionPermissions" EntityType="WorkFlowManagerDBModel.TblUserBrandSectionPermission" />
           <EntitySet Name="TblUserCheckLists" EntityType="WorkFlowManagerDBModel.TblUserCheckList" />
           <EntitySet Name="TblVendorPurchaseGroups" EntityType="WorkFlowManagerDBModel.TblVendorPurchaseGroup" />
-          <EntitySet Name="Vendor_new" EntityType="WorkFlowManagerDBModel.Vendor_new" />
           <EntitySet Name="AXRoutes" EntityType="WorkFlowManagerDBModel.AXRoute" />
           <EntitySet Name="BarCodePrintLayouts" EntityType="WorkFlowManagerDBModel.BarCodePrintLayout" />
           <EntitySet Name="DefectsDatas" EntityType="WorkFlowManagerDBModel.DefectsData" />
@@ -16305,10 +16304,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <AssociationSet Name="FK_Fabric_FabricType" Association="WorkFlowManagerDBModel.FK_Fabric_FabricType">
             <End EntitySet="FabricTypes" Role="FabricType" />
-            <End EntitySet="Fabric_new" Role="Fabric_new" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fabric_Vendor" Association="WorkFlowManagerDBModel.FK_Fabric_Vendor">
-            <End EntitySet="Vendor_new" Role="Vendor_new" />
             <End EntitySet="Fabric_new" Role="Fabric_new" />
           </AssociationSet>
           <AssociationSet Name="FK_FabricContentsComposition_tbl_FabricAttriputes" Association="WorkFlowManagerDBModel.FK_FabricContentsComposition_tbl_FabricAttriputes">
@@ -16798,27 +16793,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End EntitySet="TblRouteGroups" Role="TblRouteGroup" />
             <End EntitySet="TblRouteGroupBomBases" Role="TblRouteGroupBomBase" />
           </AssociationSet>
-          <EntitySet Name="BOMs" EntityType="WorkFlowManagerDBModel.BOM" />
-          <AssociationSet Name="FK_BOM_BOM_CalcMethod" Association="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod">
-            <End EntitySet="BOM_CalcMethod" Role="BOM_CalcMethod" />
-            <End EntitySet="BOMs" Role="BOM" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BomCost_BOM" Association="WorkFlowManagerDBModel.FK_BomCost_BOM">
-            <End EntitySet="BOMs" Role="BOM" />
-            <End EntitySet="BomCosts" Role="BomCost" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BomFabricBom_BOM" Association="WorkFlowManagerDBModel.FK_BomFabricBom_BOM">
-            <End EntitySet="BOMs" Role="BOM" />
-            <End EntitySet="BomFabricBoms" Role="BomFabricBom" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblBOMSize_BOM" Association="WorkFlowManagerDBModel.FK_TblBOMSize_BOM">
-            <End EntitySet="BOMs" Role="BOM" />
-            <End EntitySet="TblBOMSizes" Role="TblBOMSize" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblBOMStyleColor_BOM" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM">
-            <End EntitySet="BOMs" Role="BOM" />
-            <End EntitySet="TblBOMStyleColors" Role="TblBOMStyleColor" />
-          </AssociationSet>
           <EntitySet Name="TblStandardBOMs" EntityType="WorkFlowManagerDBModel.TblStandardBOM" />
           <AssociationSet Name="FK_TblStandardBOM_BOM_CalcMethod" Association="WorkFlowManagerDBModel.FK_TblStandardBOM_BOM_CalcMethod">
             <End EntitySet="BOM_CalcMethod" Role="BOM_CalcMethod" />
@@ -17001,18 +16975,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <AssociationSet Name="FK_tbl_MarkerDetail_TblColor1" Association="WorkFlowManagerDBModel.FK_tbl_MarkerDetail_TblColor1">
             <End EntitySet="TblColors" Role="TblColor" />
             <End EntitySet="tbl_MarkerDetail" Role="tbl_MarkerDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblBOMStyleColor_TblColor" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor">
-            <End EntitySet="TblColors" Role="TblColor" />
-            <End EntitySet="TblBOMStyleColors" Role="TblBOMStyleColor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblBOMStyleColor_TblColor1" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1">
-            <End EntitySet="TblColors" Role="TblColor" />
-            <End EntitySet="TblBOMStyleColors" Role="TblBOMStyleColor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblBOMStyleColor_TblColor2" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2">
-            <End EntitySet="TblColors" Role="TblColor" />
-            <End EntitySet="TblBOMStyleColors" Role="TblBOMStyleColor" />
           </AssociationSet>
           <AssociationSet Name="FK_TblColor_TblLkpColorGroup" Association="WorkFlowManagerDBModel.FK_TblColor_TblLkpColorGroup">
             <End EntitySet="TblLkpColorGroups" Role="TblLkpColorGroup" />
@@ -17343,18 +17305,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <EntitySet Name="InspectionsFullDimentions" EntityType="WorkFlowManagerDBModel.InspectionsFullDimention" />
           <EntitySet Name="TblPurchaseOrderDetailBreakDowns" EntityType="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" />
-          <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_BOM" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM">
-            <End EntitySet="BOMs" Role="BOM" />
-            <End EntitySet="TblPurchaseOrderDetailBreakDowns" Role="TblPurchaseOrderDetailBreakDown" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMSize" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMSize">
-            <End EntitySet="TblBOMSizes" Role="TblBOMSize" />
-            <End EntitySet="TblPurchaseOrderDetailBreakDowns" Role="TblPurchaseOrderDetailBreakDown" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor">
-            <End EntitySet="TblBOMStyleColors" Role="TblBOMStyleColor" />
-            <End EntitySet="TblPurchaseOrderDetailBreakDowns" Role="TblPurchaseOrderDetailBreakDown" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_TblPurchaseOrderDetailBreakDown" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblPurchaseOrderDetailBreakDown">
             <End EntitySet="TblPurchaseOrderDetails" Role="TblPurchaseOrderDetail" />
             <End EntitySet="TblPurchaseOrderDetailBreakDowns" Role="TblPurchaseOrderDetailBreakDown" />
@@ -17545,10 +17495,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <EntitySet Name="TblSalesOrders" EntityType="WorkFlowManagerDBModel.TblSalesOrder" />
           <EntitySet Name="TblStyles" EntityType="WorkFlowManagerDBModel.TblStyle" />
-          <AssociationSet Name="FK_BOM_TblSalesOrder" Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder">
-            <End EntitySet="TblSalesOrders" Role="TblSalesOrder" />
-            <End EntitySet="BOMs" Role="BOM" />
-          </AssociationSet>
           <AssociationSet Name="FK_BOM_TblSalesOrderBOMEstimated" Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrderBOMEstimated">
             <End EntitySet="TblSalesOrders" Role="TblSalesOrder" />
             <End EntitySet="BOMEstimateds" Role="BOMEstimated" />
@@ -18302,6 +18248,54 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="RouteCardInvoiceDetail" EntitySet="RouteCardInvoiceDetails" />
           </AssociationSet>
           <EntitySet Name="view_GetItemPrice" EntityType="WorkFlowManagerDBModel.view_GetItemPrice" />
+          <EntitySet Name="Vendor_new" EntityType="WorkFlowManagerDBModel.Vendor_new" />
+          <EntitySet Name="TblBOMSizes" EntityType="WorkFlowManagerDBModel.TblBOMSize" />
+          <EntitySet Name="TblBOMStyleColors" EntityType="WorkFlowManagerDBModel.TblBOMStyleColor" />
+          <AssociationSet Name="FK_TblBOMStyleColor_TblColor" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor">
+            <End Role="TblColor" EntitySet="TblColors" />
+            <End Role="TblBOMStyleColor" EntitySet="TblBOMStyleColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBOMStyleColor_TblColor1" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1">
+            <End Role="TblColor" EntitySet="TblColors" />
+            <End Role="TblBOMStyleColor" EntitySet="TblBOMStyleColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBOMStyleColor_TblColor2" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2">
+            <End Role="TblColor" EntitySet="TblColors" />
+            <End Role="TblBOMStyleColor" EntitySet="TblBOMStyleColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor">
+            <End Role="TblBOMStyleColor" EntitySet="TblBOMStyleColors" />
+            <End Role="TblPurchaseOrderDetailBreakDown" EntitySet="TblPurchaseOrderDetailBreakDowns" />
+          </AssociationSet>
+          <EntitySet Name="BOMs" EntityType="WorkFlowManagerDBModel.BOM" />
+          <AssociationSet Name="FK_BOM_BOM_CalcMethod" Association="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod">
+            <End Role="BOM_CalcMethod" EntitySet="BOM_CalcMethod" />
+            <End Role="BOM" EntitySet="BOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOM_TblSalesOrder" Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder">
+            <End Role="TblSalesOrder" EntitySet="TblSalesOrders" />
+            <End Role="BOM" EntitySet="BOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BomCost_BOM" Association="WorkFlowManagerDBModel.FK_BomCost_BOM">
+            <End Role="BOM" EntitySet="BOMs" />
+            <End Role="BomCost" EntitySet="BomCosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BomFabricBom_BOM" Association="WorkFlowManagerDBModel.FK_BomFabricBom_BOM">
+            <End Role="BOM" EntitySet="BOMs" />
+            <End Role="BomFabricBom" EntitySet="BomFabricBoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBOMSize_BOM" Association="WorkFlowManagerDBModel.FK_TblBOMSize_BOM">
+            <End Role="BOM" EntitySet="BOMs" />
+            <End Role="TblBOMSize" EntitySet="TblBOMSizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBOMStyleColor_BOM" Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM">
+            <End Role="BOM" EntitySet="BOMs" />
+            <End Role="TblBOMStyleColor" EntitySet="TblBOMStyleColors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPurchaseOrderDetailBreakDown_BOM" Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM">
+            <End Role="BOM" EntitySet="BOMs" />
+            <End Role="TblPurchaseOrderDetailBreakDown" EntitySet="TblPurchaseOrderDetailBreakDowns" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="FabricStorage_Result">
           <Property Type="String" Name="itemid" Nullable="false" MaxLength="50" />
@@ -18388,10 +18382,10 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Ename" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Aname" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="BOMEstimateds" Relationship="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethodBOMEstimated" FromRole="BOM_CalcMethod" ToRole="BOMEstimated" />
-          <NavigationProperty Name="BOMs" Relationship="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod" FromRole="BOM_CalcMethod" ToRole="BOM" />
           <NavigationProperty Name="TblStandardBOMs" Relationship="WorkFlowManagerDBModel.FK_TblStandardBOM_BOM_CalcMethod" FromRole="BOM_CalcMethod" ToRole="TblStandardBOM" />
           <NavigationProperty Name="TechPackBOMs" Relationship="WorkFlowManagerDBModel.FK_TechPackBOM_BOM_CalcMethod" FromRole="BOM_CalcMethod" ToRole="TechPackBOM" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOMs" Relationship="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod" FromRole="BOM_CalcMethod" ToRole="BOM" />
         </EntityType>
         <EntityType Name="BomCost">
           <Key>
@@ -18410,8 +18404,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ProductionPerSize" Type="Double" />
           <Property Name="BomHorizontalShrinkage" Type="Double" />
           <Property Name="BomVerticalShrinkage" Type="Double" />
-          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_BomCost_BOM" FromRole="BomCost" ToRole="BOM" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_BomCost_BOM" FromRole="BomCost" ToRole="BOM" />
         </EntityType>
         <EntityType Name="BomCostEstimated">
           <Key>
@@ -18472,8 +18466,8 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="BOM_FabricRout" Type="Int32" />
           <Property Name="RowIndex" Type="Double" />
           <NavigationProperty Name="TblRouteGroup" Relationship="WorkFlowManagerDBModel.FK_BomFabricBom_TblRouteGroup" FromRole="BomFabricBom" ToRole="TblRouteGroup" />
-          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_BomFabricBom_BOM" FromRole="BomFabricBom" ToRole="BOM" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_BomFabricBom_BOM" FromRole="BomFabricBom" ToRole="BOM" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -18557,7 +18551,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="WFM_DOMAINID" Type="Int32" />
           <Property Name="UnitID" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="FabricType" Relationship="WorkFlowManagerDBModel.FK_Fabric_FabricType" FromRole="Fabric_new" ToRole="FabricType" />
-          <NavigationProperty Name="Vendor_new" Relationship="WorkFlowManagerDBModel.FK_Fabric_Vendor" FromRole="Fabric_new" ToRole="Vendor_new" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="FabricContentsComposition">
@@ -19854,6 +19847,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblAdjustmentHeaders1" Relationship="WorkFlowManagerDBModel.FK_TblAdjustmentHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="TblAdjustmentHeader" />
           <NavigationProperty Name="RouteCardHeaders" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
           <NavigationProperty Name="RouteCardHeaders1" Relationship="WorkFlowManagerDBModel.FK_RouteCardHeader_TblAuthUser1" FromRole="TblAuthUser" ToRole="RouteCardHeader" />
+          <Property Name="TblSupplier" Type="Int32" />
           </EntityType>
         <EntityType Name="TblAuthUserGroup">
           <Key>
@@ -19862,20 +19856,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="UserGroup_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="UserGroup_Desc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="WFM_DOMAINID" Type="Int32" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblBOMSize">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Bom" Nullable="false" Type="Int32" />
-          <Property Name="StyleSize" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="FabricSize" MaxLength="15" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="MaterialUsage" Nullable="false" Type="Double" />
-          <Property Name="SizeFabricRatio" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" FromRole="TblBOMSize" ToRole="BOM" />
-          <NavigationProperty Name="TblPurchaseOrderDetailBreakDowns" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMSize" FromRole="TblBOMSize" ToRole="TblPurchaseOrderDetailBreakDown" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblBOMSizeEstimated">
@@ -19891,23 +19871,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="BOMEstimated" Relationship="WorkFlowManagerDBModel.FK_TblBOMSize_BOMEstimated" FromRole="TblBOMSizeEstimated" ToRole="BOMEstimated" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblBOMStyleColor">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Bom" Nullable="false" Type="Int32" />
-          <Property Name="StyleColor" Nullable="false" Type="Int32" />
-          <Property Name="FabricColor" Type="Int32" />
-          <Property Name="DummyColor" Type="Int32" />
-          <Property Name="DyedColor" Type="Int32" />
-          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" FromRole="TblBOMStyleColor" ToRole="BOM" />
-          <NavigationProperty Name="TblColor" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" FromRole="TblBOMStyleColor" ToRole="TblColor" />
-          <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" FromRole="TblBOMStyleColor" ToRole="TblColor" />
-          <NavigationProperty Name="TblColor2" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" FromRole="TblBOMStyleColor" ToRole="TblColor" />
-          <NavigationProperty Name="TblPurchaseOrderDetailBreakDowns" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" FromRole="TblBOMStyleColor" ToRole="TblPurchaseOrderDetailBreakDown" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-          </EntityType>
         <EntityType Name="TblBrandBudgetHeader">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -21396,18 +21359,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblTradeAgreementDetails" Relationship="WorkFlowManagerDBModel.FK_TblTradeAgreementDetail_TblVendorPurchaseGroup" FromRole="TblVendorPurchaseGroup" ToRole="TblTradeAgreementDetail" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Vendor_new">
-          <Key>
-            <PropertyRef Name="Vendor_Code" />
-          </Key>
-          <Property Name="Vendor_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Vendor_Ename" MaxLength="150" FixedLength="false" Unicode="true" Type="String" Nullable="false" />
-          <Property Name="Vendor_LeadTime" Type="Int32" />
-          <Property Name="Vendor_PaymentTerms" Type="Int32" />
-          <Property Name="WFM_DOMAINID" Type="Int32" />
-          <NavigationProperty Name="Fabric_new" Relationship="WorkFlowManagerDBModel.FK_Fabric_Vendor" FromRole="Vendor_new" ToRole="Fabric_new" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="AXRoute">
           <Key>
             <PropertyRef Name="StyleCode" />
@@ -22287,11 +22238,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <PropertyRef Name="User_Domain" />
             <PropertyRef Name="User_Win_Login" />
           </Key>
-          <Property Name="ID" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="NAME" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="COMPANY" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="User_Domain" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="User_Win_Login" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ID" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="NAME" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="COMPANY" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="User_Domain" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="User_Win_Login" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
         </EntityType>
         <EntityType Name="V_AXStyles">
           <Key>
@@ -22543,18 +22494,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="Fabric_new">
               <PropertyRef Name="Fabric_FabricType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fabric_Vendor">
-          <End Type="WorkFlowManagerDBModel.Vendor_new" Multiplicity="0..1" Role="Vendor_new" />
-          <End Type="WorkFlowManagerDBModel.Fabric_new" Multiplicity="*" Role="Fabric_new" />
-          <ReferentialConstraint>
-            <Principal Role="Vendor_new">
-              <PropertyRef Name="Vendor_Code" />
-            </Principal>
-            <Dependent Role="Fabric_new">
-              <PropertyRef Name="Fabric_Vendor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -24107,101 +24046,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="BOM">
-          <Key>
-            <PropertyRef Name="Iserial" />
-          </Key>
-          <Property Name="Iserial" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="CalcMethod" Type="Int32" />
-          <Property Name="BOM_Fabric" Type="Int32" />
-          <Property Name="BOM_FabricType" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="BOM_FabricRout" Type="Int32" />
-          <Property Name="BOM_IsLocalProduction" Nullable="false" Type="Boolean" />
-          <Property Name="BOM_IsMainFabric" Nullable="false" Type="Boolean" />
-          <Property Name="BOM_Notes" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="BOM_Image" MaxLength="Max" FixedLength="false" Type="Binary" />
-          <Property Name="TblSalesOrder" Nullable="false" Type="Int32" />
-          <Property Name="BOM_DateAdded" Precision="3" Type="DateTime" />
-          <Property Name="IsSupplierMaterial" Nullable="false" Type="Boolean" />
-          <Property Name="BomImagePath" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ExcelPath" MaxLength="200" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Dyed" Type="Boolean" />
-          <Property Name="Vendor" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="OnStock" Nullable="false" Type="Boolean" />
-          <Property Name="BomHorizontalShrinkage" Type="Double" />
-          <Property Name="BomVerticalShrinkage" Type="Double" />
-          <Property Name="BomRowIndex" Type="Double" />
-          <NavigationProperty Name="BOM_CalcMethod" Relationship="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod" FromRole="BOM" ToRole="BOM_CalcMethod" />
-          <NavigationProperty Name="BomCosts" Relationship="WorkFlowManagerDBModel.FK_BomCost_BOM" FromRole="BOM" ToRole="BomCost" />
-          <NavigationProperty Name="BomFabricBoms" Relationship="WorkFlowManagerDBModel.FK_BomFabricBom_BOM" FromRole="BOM" ToRole="BomFabricBom" />
-          <NavigationProperty Name="TblBOMSizes" Relationship="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" FromRole="BOM" ToRole="TblBOMSize" />
-          <NavigationProperty Name="TblBOMStyleColors" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" FromRole="BOM" ToRole="TblBOMStyleColor" />
-          <Property Name="Bom_Wash" Type="Boolean" />
-          <Property Name="GotPlan" Type="Boolean" />
-          <NavigationProperty Name="TblPurchaseOrderDetailBreakDowns" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" FromRole="BOM" ToRole="TblPurchaseOrderDetailBreakDown" />
-          <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" FromRole="BOM" ToRole="TblSalesOrder" />
-          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_BOM_BOM_CalcMethod">
-          <End Type="WorkFlowManagerDBModel.BOM_CalcMethod" Multiplicity="0..1" Role="BOM_CalcMethod" />
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="*" Role="BOM" />
-          <ReferentialConstraint>
-            <Principal Role="BOM_CalcMethod">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="BOM">
-              <PropertyRef Name="CalcMethod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BomCost_BOM">
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="1" Role="BOM" />
-          <End Type="WorkFlowManagerDBModel.BomCost" Multiplicity="*" Role="BomCost" />
-          <ReferentialConstraint>
-            <Principal Role="BOM">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="BomCost">
-              <PropertyRef Name="Bom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BomFabricBom_BOM">
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="1" Role="BOM" />
-          <End Type="WorkFlowManagerDBModel.BomFabricBom" Multiplicity="*" Role="BomFabricBom" />
-          <ReferentialConstraint>
-            <Principal Role="BOM">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="BomFabricBom">
-              <PropertyRef Name="Bom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblBOMSize_BOM">
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="1" Role="BOM" />
-          <End Type="WorkFlowManagerDBModel.TblBOMSize" Multiplicity="*" Role="TblBOMSize" />
-          <ReferentialConstraint>
-            <Principal Role="BOM">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblBOMSize">
-              <PropertyRef Name="Bom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblBOMStyleColor_BOM">
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="1" Role="BOM" />
-          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Multiplicity="*" Role="TblBOMStyleColor" />
-          <ReferentialConstraint>
-            <Principal Role="BOM">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblBOMStyleColor">
-              <PropertyRef Name="Bom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TblStandardBOM">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -25179,9 +25023,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="RouteCardInvoiceDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_TblColor" FromRole="TblColor" ToRole="RouteCardInvoiceDetail" />
           <NavigationProperty Name="tbl_MarkerDetail" Relationship="WorkFlowManagerDBModel.FK_tbl_MarkerDetail_TblColor" FromRole="TblColor" ToRole="tbl_MarkerDetail" />
           <NavigationProperty Name="tbl_MarkerDetail1" Relationship="WorkFlowManagerDBModel.FK_tbl_MarkerDetail_TblColor1" FromRole="TblColor" ToRole="tbl_MarkerDetail" />
-          <NavigationProperty Name="TblBOMStyleColors" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" FromRole="TblColor" ToRole="TblBOMStyleColor" />
-          <NavigationProperty Name="TblBOMStyleColors1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" FromRole="TblColor" ToRole="TblBOMStyleColor" />
-          <NavigationProperty Name="TblBOMStyleColors2" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" FromRole="TblColor" ToRole="TblBOMStyleColor" />
           <NavigationProperty Name="TblLkpColorGroup1" Relationship="WorkFlowManagerDBModel.FK_TblColor_TblLkpColorGroup" FromRole="TblColor" ToRole="TblLkpColorGroup" />
           <NavigationProperty Name="TblColorLinks" Relationship="WorkFlowManagerDBModel.FK_TblColorLink_TblColor" FromRole="TblColor" ToRole="TblColorLink" />
           <NavigationProperty Name="TblIssueJournalDetails" Relationship="WorkFlowManagerDBModel.FK_TblIssueJournalDetail_TblColor" FromRole="TblColor" ToRole="TblIssueJournalDetail" />
@@ -25220,6 +25061,9 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblContractDetails" Relationship="WorkFlowManagerDBModel.FK_TblContractDetail_TblColor" FromRole="TblColor" ToRole="TblContractDetail" />
           <NavigationProperty Name="TblProductionOrderInvoiceDetails" Relationship="WorkFlowManagerDBModel.FK_TblProductionOrderInvoiceDetail_TblColor" FromRole="TblColor" ToRole="TblProductionOrderInvoiceDetail" />
+          <NavigationProperty Name="TblBOMStyleColors" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" FromRole="TblColor" ToRole="TblBOMStyleColor" />
+          <NavigationProperty Name="TblBOMStyleColors1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" FromRole="TblColor" ToRole="TblBOMStyleColor" />
+          <NavigationProperty Name="TblBOMStyleColors2" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" FromRole="TblColor" ToRole="TblBOMStyleColor" />
         </EntityType>
         <Association Name="FK_RouteCardInvoiceDetail_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
@@ -25254,42 +25098,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Principal>
             <Dependent Role="tbl_MarkerDetail">
               <PropertyRef Name="FabricColorCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblBOMStyleColor_TblColor">
-          <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="0..1" Role="TblColor" />
-          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Multiplicity="*" Role="TblBOMStyleColor" />
-          <ReferentialConstraint>
-            <Principal Role="TblColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblBOMStyleColor">
-              <PropertyRef Name="FabricColor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblBOMStyleColor_TblColor1">
-          <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="1" Role="TblColor" />
-          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Multiplicity="*" Role="TblBOMStyleColor" />
-          <ReferentialConstraint>
-            <Principal Role="TblColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblBOMStyleColor">
-              <PropertyRef Name="StyleColor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblBOMStyleColor_TblColor2">
-          <End Type="WorkFlowManagerDBModel.TblColor" Multiplicity="0..1" Role="TblColor" />
-          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Multiplicity="*" Role="TblBOMStyleColor" />
-          <ReferentialConstraint>
-            <Principal Role="TblColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblBOMStyleColor">
-              <PropertyRef Name="DyedColor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -26933,50 +26741,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Qty" Type="Double" />
           <Property Name="TblBOMSize" Type="Int32" />
           <Property Name="TblBOMStyleColor" Type="Int32" />
-          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="BOM" />
-          <NavigationProperty Name="TblBOMSize1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMSize" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="TblBOMSize" />
-          <NavigationProperty Name="TblBOMStyleColor1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="TblBOMStyleColor" />
           <NavigationProperty Name="TblPurchaseOrderDetail1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblPurchaseOrderDetailBreakDown" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="TblPurchaseOrderDetail" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblBOMStyleColor1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="TblBOMStyleColor" />
+          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" FromRole="TblPurchaseOrderDetailBreakDown" ToRole="BOM" />
         </EntityType>
-        <Association Name="FK_TblPurchaseOrderDetailBreakDown_BOM">
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="1" Role="BOM">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" Multiplicity="*" Role="TblPurchaseOrderDetailBreakDown" />
-          <ReferentialConstraint>
-            <Principal Role="BOM">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblPurchaseOrderDetailBreakDown">
-              <PropertyRef Name="Bom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMSize">
-          <End Type="WorkFlowManagerDBModel.TblBOMSize" Multiplicity="0..1" Role="TblBOMSize" />
-          <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" Multiplicity="*" Role="TblPurchaseOrderDetailBreakDown" />
-          <ReferentialConstraint>
-            <Principal Role="TblBOMSize">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblPurchaseOrderDetailBreakDown">
-              <PropertyRef Name="TblBOMSize" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor">
-          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Multiplicity="0..1" Role="TblBOMStyleColor" />
-          <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" Multiplicity="*" Role="TblPurchaseOrderDetailBreakDown" />
-          <ReferentialConstraint>
-            <Principal Role="TblBOMStyleColor">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="TblPurchaseOrderDetailBreakDown">
-              <PropertyRef Name="TblBOMStyleColor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblPurchaseOrderDetailBreakDown_TblPurchaseOrderDetailBreakDown">
           <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetail" Multiplicity="1" Role="TblPurchaseOrderDetail">
             <OnDelete Action="Cascade" />
@@ -28079,7 +27848,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="OperationCost" Type="Double" />
           <Property Name="TblRetailOrderProductionType" Type="Int32" />
           <Property Name="TblStyleTNAHeader" Type="Int32" />
-          <NavigationProperty Name="BOMs" Relationship="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" FromRole="TblSalesOrder" ToRole="BOM" />
           <NavigationProperty Name="BOMEstimateds" Relationship="WorkFlowManagerDBModel.FK_BOM_TblSalesOrderBOMEstimated" FromRole="TblSalesOrder" ToRole="BOMEstimated" />
           <NavigationProperty Name="RouteCardDetails" Relationship="WorkFlowManagerDBModel.FK_RouteCardDetails_TblSalesOrder" FromRole="TblSalesOrder" ToRole="RouteCardDetail" />
           <NavigationProperty Name="RouteCardFabrics" Relationship="WorkFlowManagerDBModel.FK_RouteCardFabric_TblSalesOrder" FromRole="TblSalesOrder" ToRole="RouteCardFabric" />
@@ -28101,6 +27869,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblComplexityGroup1" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrder_TblComplexityGroup" FromRole="TblSalesOrder" ToRole="TblComplexityGroup" />
           <NavigationProperty Name="TblSalesOrderColors" Relationship="WorkFlowManagerDBModel.FK_TblSalesOrderColor_TblSalesOrder" FromRole="TblSalesOrder" ToRole="TblSalesOrderColor" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BOMs" Relationship="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" FromRole="TblSalesOrder" ToRole="BOM" />
         </EntityType>
         <EntityType Name="TblStyle">
           <Key>
@@ -28186,20 +27955,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="TblPrintType" Type="Int32" />
           <NavigationProperty Name="tbl_lkp_FabricMaterials1" Relationship="WorkFlowManagerDBModel.FK_TblStyle_tbl_lkp_FabricMaterials" FromRole="TblStyle" ToRole="tbl_lkp_FabricMaterials" />
         </EntityType>
-        <Association Name="FK_BOM_TblSalesOrder">
-          <End Type="WorkFlowManagerDBModel.TblSalesOrder" Multiplicity="1" Role="TblSalesOrder">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="WorkFlowManagerDBModel.BOM" Multiplicity="*" Role="BOM" />
-          <ReferentialConstraint>
-            <Principal Role="TblSalesOrder">
-              <PropertyRef Name="Iserial" />
-            </Principal>
-            <Dependent Role="BOM">
-              <PropertyRef Name="TblSalesOrder" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_BOM_TblSalesOrderBOMEstimated">
           <End Type="WorkFlowManagerDBModel.TblSalesOrder" Multiplicity="1" Role="TblSalesOrder">
             <OnDelete Action="Cascade" />
@@ -30021,7 +29776,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <NavigationProperty Name="TblStyle1" Relationship="WorkFlowManagerDBModel.FK_tblTechPackHeader_tblStyle" FromRole="tblTechPackHeader" ToRole="TblStyle" />
           <NavigationProperty Name="TBLTechPackStatu" Relationship="WorkFlowManagerDBModel.FK_tblTechPackHeader_TBLTechPackStatus" FromRole="tblTechPackHeader" ToRole="TBLTechPackStatu" />
           <NavigationProperty Name="tblTechPackDetails" Relationship="WorkFlowManagerDBModel.FK_tblTechPackDetail_tblTechPackHeader" FromRole="tblTechPackHeader" ToRole="tblTechPackDetail" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="FIT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ORGFabric" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
@@ -30062,7 +29817,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="galaryLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="tblUser" Type="Int32" />
-          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ImageThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="LastChangeDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblTechPackHeader1" Relationship="WorkFlowManagerDBModel.FK_tblTechPackDetail_tblTechPackHeader" FromRole="tblTechPackDetail" ToRole="tblTechPackHeader" />
@@ -30147,7 +29902,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="BOM_Wash" Type="Boolean" />
           <Property Name="GotPlan" Type="Boolean" />
           <Property Name="SupplierColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Composition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Composition" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Consumption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -30718,6 +30473,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="LastChangeDate" Type="DateTime" Precision="0" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="LastChangeUser" Type="Int32" />
+          <Property Name="StoreDelivaryDate" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_tblSeasonalMasterList_TblColor">
           <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="0..1" />
@@ -31635,6 +31391,242 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="ColorCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TblColor" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Vendor_new">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Vendor_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor_Ename" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor_LeadTime" Type="Int32" />
+          <Property Name="Vendor_PaymentTerms" Type="Int32" />
+          <Property Name="WFM_DOMAINID" Type="Int32" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="RegNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="regionCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TblBOMSize">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bom" Type="Int32" Nullable="false" />
+          <Property Name="StyleSize" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FabricSize" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialUsage" Type="Double" Nullable="false" />
+          <Property Name="SizeFabricRatio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" FromRole="TblBOMSize" ToRole="BOM" />
+        </EntityType>
+        <EntityType Name="TblBOMStyleColor">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bom" Type="Int32" Nullable="false" />
+          <Property Name="StyleColor" Type="Int32" Nullable="false" />
+          <Property Name="FabricColor" Type="Int32" />
+          <Property Name="DummyColor" Type="Int32" />
+          <Property Name="DyedColor" Type="Int32" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="TblColor" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" FromRole="TblBOMStyleColor" ToRole="TblColor" />
+          <NavigationProperty Name="TblColor1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" FromRole="TblBOMStyleColor" ToRole="TblColor" />
+          <NavigationProperty Name="TblColor2" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" FromRole="TblBOMStyleColor" ToRole="TblColor" />
+          <NavigationProperty Name="TblPurchaseOrderDetailBreakDowns" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" FromRole="TblBOMStyleColor" ToRole="TblPurchaseOrderDetailBreakDown" />
+          <NavigationProperty Name="BOM1" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" FromRole="TblBOMStyleColor" ToRole="BOM" />
+        </EntityType>
+        <Association Name="FK_TblBOMStyleColor_TblColor">
+          <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Role="TblBOMStyleColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblBOMStyleColor">
+              <PropertyRef Name="FabricColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBOMStyleColor_TblColor1">
+          <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="1" />
+          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Role="TblBOMStyleColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblBOMStyleColor">
+              <PropertyRef Name="StyleColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBOMStyleColor_TblColor2">
+          <End Type="WorkFlowManagerDBModel.TblColor" Role="TblColor" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Role="TblBOMStyleColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblBOMStyleColor">
+              <PropertyRef Name="DyedColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor">
+          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Role="TblBOMStyleColor" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" Role="TblPurchaseOrderDetailBreakDown" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBOMStyleColor">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPurchaseOrderDetailBreakDown">
+              <PropertyRef Name="TblBOMStyleColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BOM">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalcMethod" Type="Int32" />
+          <Property Name="BOM_Fabric" Type="Int32" />
+          <Property Name="BOM_FabricType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BOM_FabricRout" Type="Int32" />
+          <Property Name="BOM_IsLocalProduction" Type="Boolean" Nullable="false" />
+          <Property Name="BOM_IsMainFabric" Type="Boolean" Nullable="false" />
+          <Property Name="BOM_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BOM_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TblSalesOrder" Type="Int32" Nullable="false" />
+          <Property Name="BOM_DateAdded" Type="DateTime" Precision="3" />
+          <Property Name="IsSupplierMaterial" Type="Boolean" Nullable="false" />
+          <Property Name="BomImagePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ExcelPath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Dyed" Type="Boolean" />
+          <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnStock" Type="Boolean" Nullable="false" />
+          <Property Name="BomHorizontalShrinkage" Type="Double" />
+          <Property Name="BomVerticalShrinkage" Type="Double" />
+          <Property Name="BomRowIndex" Type="Double" />
+          <Property Name="Bom_Wash" Type="Boolean" />
+          <Property Name="GotPlan" Type="Boolean" />
+          <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="BOM_CalcMethod" Relationship="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod" FromRole="BOM" ToRole="BOM_CalcMethod" />
+          <NavigationProperty Name="TblSalesOrder1" Relationship="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" FromRole="BOM" ToRole="TblSalesOrder" />
+          <NavigationProperty Name="BomCosts" Relationship="WorkFlowManagerDBModel.FK_BomCost_BOM" FromRole="BOM" ToRole="BomCost" />
+          <NavigationProperty Name="BomFabricBoms" Relationship="WorkFlowManagerDBModel.FK_BomFabricBom_BOM" FromRole="BOM" ToRole="BomFabricBom" />
+          <NavigationProperty Name="TblBOMSizes" Relationship="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" FromRole="BOM" ToRole="TblBOMSize" />
+          <NavigationProperty Name="TblBOMStyleColors" Relationship="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" FromRole="BOM" ToRole="TblBOMStyleColor" />
+          <NavigationProperty Name="TblPurchaseOrderDetailBreakDowns" Relationship="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" FromRole="BOM" ToRole="TblPurchaseOrderDetailBreakDown" />
+        </EntityType>
+        <Association Name="FK_BOM_BOM_CalcMethod">
+          <End Type="WorkFlowManagerDBModel.BOM_CalcMethod" Role="BOM_CalcMethod" Multiplicity="0..1" />
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM_CalcMethod">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="CalcMethod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOM_TblSalesOrder">
+          <End Type="WorkFlowManagerDBModel.TblSalesOrder" Role="TblSalesOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSalesOrder">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="TblSalesOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BomCost_BOM">
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.BomCost" Role="BomCost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="BomCost">
+              <PropertyRef Name="Bom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BomFabricBom_BOM">
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.BomFabricBom" Role="BomFabricBom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="BomFabricBom">
+              <PropertyRef Name="Bom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBOMSize_BOM">
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblBOMSize" Role="TblBOMSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblBOMSize">
+              <PropertyRef Name="Bom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBOMStyleColor_BOM">
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblBOMStyleColor" Role="TblBOMStyleColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblBOMStyleColor">
+              <PropertyRef Name="Bom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPurchaseOrderDetailBreakDown_BOM">
+          <End Type="WorkFlowManagerDBModel.BOM" Role="BOM" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" Role="TblPurchaseOrderDetailBreakDown" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM">
+              <PropertyRef Name="Iserial" />
+            </Principal>
+            <Dependent Role="TblPurchaseOrderDetailBreakDown">
+              <PropertyRef Name="Bom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -33140,6 +33132,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblAuthUsers">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblAuthUser">
               <MappingFragment StoreEntitySet="TblAuthUser">
+                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
                 <ScalarProperty Name="QCPosition" ColumnName="QCPosition" />
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="SID" ColumnName="SID" />
@@ -33184,19 +33177,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblBOMSizes">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBOMSize">
-              <MappingFragment StoreEntitySet="TblBOMSize">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="SizeFabricRatio" ColumnName="SizeFabricRatio" />
-                <ScalarProperty Name="MaterialUsage" ColumnName="MaterialUsage" />
-                <ScalarProperty Name="FabricSize" ColumnName="FabricSize" />
-                <ScalarProperty Name="StyleSize" ColumnName="StyleSize" />
-                <ScalarProperty Name="Bom" ColumnName="Bom" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblBOMSizeEstimateds">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBOMSizeEstimated">
               <MappingFragment StoreEntitySet="TblBOMSizeEstimated">
@@ -33205,19 +33185,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
                 <ScalarProperty Name="MaterialUsage" ColumnName="MaterialUsage" />
                 <ScalarProperty Name="FabricSize" ColumnName="FabricSize" />
                 <ScalarProperty Name="StyleSize" ColumnName="StyleSize" />
-                <ScalarProperty Name="Bom" ColumnName="Bom" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblBOMStyleColors">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBOMStyleColor">
-              <MappingFragment StoreEntitySet="TblBOMStyleColor">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="DyedColor" ColumnName="DyedColor" />
-                <ScalarProperty Name="DummyColor" ColumnName="DummyColor" />
-                <ScalarProperty Name="FabricColor" ColumnName="FabricColor" />
-                <ScalarProperty Name="StyleColor" ColumnName="StyleColor" />
                 <ScalarProperty Name="Bom" ColumnName="Bom" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
@@ -34600,18 +34567,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vendor_new">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Vendor_new">
-              <MappingFragment StoreEntitySet="Vendor_new">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="WFM_DOMAINID" ColumnName="WFM_DOMAINID" />
-                <ScalarProperty Name="Vendor_PaymentTerms" ColumnName="Vendor_PaymentTerms" />
-                <ScalarProperty Name="Vendor_LeadTime" ColumnName="Vendor_LeadTime" />
-                <ScalarProperty Name="Vendor_Ename" ColumnName="Vendor_Ename" />
-                <ScalarProperty Name="Vendor_Code" ColumnName="Vendor_Code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AXRoutes">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.AXRoute">
               <MappingFragment StoreEntitySet="AXRoute">
@@ -35510,35 +35465,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
                 <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
                 <ScalarProperty Name="Ename" ColumnName="Ename" />
                 <ScalarProperty Name="TblRouteGroup" ColumnName="TblRouteGroup" />
-                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BOMs">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.BOM">
-              <MappingFragment StoreEntitySet="BOM">
-                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
-                <ScalarProperty Name="GotPlan" ColumnName="GotPlan" />
-                <ScalarProperty Name="Bom_Wash" ColumnName="Bom_Wash" />
-                <ScalarProperty Name="BomRowIndex" ColumnName="BomRowIndex" />
-                <ScalarProperty Name="BomVerticalShrinkage" ColumnName="BomVerticalShrinkage" />
-                <ScalarProperty Name="BomHorizontalShrinkage" ColumnName="BomHorizontalShrinkage" />
-                <ScalarProperty Name="OnStock" ColumnName="OnStock" />
-                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
-                <ScalarProperty Name="Dyed" ColumnName="Dyed" />
-                <ScalarProperty Name="ExcelPath" ColumnName="ExcelPath" />
-                <ScalarProperty Name="BomImagePath" ColumnName="BomImagePath" />
-                <ScalarProperty Name="IsSupplierMaterial" ColumnName="IsSupplierMaterial" />
-                <ScalarProperty Name="BOM_DateAdded" ColumnName="BOM_DateAdded" />
-                <ScalarProperty Name="TblSalesOrder" ColumnName="TblSalesOrder" />
-                <ScalarProperty Name="BOM_Image" ColumnName="BOM_Image" />
-                <ScalarProperty Name="BOM_Notes" ColumnName="BOM_Notes" />
-                <ScalarProperty Name="BOM_IsMainFabric" ColumnName="BOM_IsMainFabric" />
-                <ScalarProperty Name="BOM_IsLocalProduction" ColumnName="BOM_IsLocalProduction" />
-                <ScalarProperty Name="BOM_FabricRout" ColumnName="BOM_FabricRout" />
-                <ScalarProperty Name="BOM_FabricType" ColumnName="BOM_FabricType" />
-                <ScalarProperty Name="BOM_Fabric" ColumnName="BOM_Fabric" />
-                <ScalarProperty Name="CalcMethod" ColumnName="CalcMethod" />
                 <ScalarProperty Name="Iserial" ColumnName="Iserial" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -38387,6 +38313,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="TblSeasonalMasterLists">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblSeasonalMasterList">
               <MappingFragment StoreEntitySet="TblSeasonalMasterList">
+                <ScalarProperty Name="StoreDelivaryDate" ColumnName="StoreDelivaryDate" />
                 <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
@@ -38742,6 +38669,89 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_new">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.Vendor_new">
+              <MappingFragment StoreEntitySet="Vendor_new">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="regionCity" ColumnName="regionCity" />
+                <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
+                <ScalarProperty Name="RegNumber" ColumnName="RegNumber" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="WFM_DOMAINID" ColumnName="WFM_DOMAINID" />
+                <ScalarProperty Name="Vendor_PaymentTerms" ColumnName="Vendor_PaymentTerms" />
+                <ScalarProperty Name="Vendor_LeadTime" ColumnName="Vendor_LeadTime" />
+                <ScalarProperty Name="Vendor_Ename" ColumnName="Vendor_Ename" />
+                <ScalarProperty Name="Vendor_Code" ColumnName="Vendor_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBOMSizes">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBOMSize">
+              <MappingFragment StoreEntitySet="TblBOMSize">
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="SizeFabricRatio" ColumnName="SizeFabricRatio" />
+                <ScalarProperty Name="MaterialUsage" ColumnName="MaterialUsage" />
+                <ScalarProperty Name="FabricSize" ColumnName="FabricSize" />
+                <ScalarProperty Name="StyleSize" ColumnName="StyleSize" />
+                <ScalarProperty Name="Bom" ColumnName="Bom" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBOMStyleColors">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblBOMStyleColor">
+              <MappingFragment StoreEntitySet="TblBOMStyleColor">
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="DyedColor" ColumnName="DyedColor" />
+                <ScalarProperty Name="DummyColor" ColumnName="DummyColor" />
+                <ScalarProperty Name="FabricColor" ColumnName="FabricColor" />
+                <ScalarProperty Name="StyleColor" ColumnName="StyleColor" />
+                <ScalarProperty Name="Bom" ColumnName="Bom" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOMs">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.BOM">
+              <MappingFragment StoreEntitySet="BOM">
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TBlWFCompany" ColumnName="TBlWFCompany" />
+                <ScalarProperty Name="GotPlan" ColumnName="GotPlan" />
+                <ScalarProperty Name="Bom_Wash" ColumnName="Bom_Wash" />
+                <ScalarProperty Name="BomRowIndex" ColumnName="BomRowIndex" />
+                <ScalarProperty Name="BomVerticalShrinkage" ColumnName="BomVerticalShrinkage" />
+                <ScalarProperty Name="BomHorizontalShrinkage" ColumnName="BomHorizontalShrinkage" />
+                <ScalarProperty Name="OnStock" ColumnName="OnStock" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Dyed" ColumnName="Dyed" />
+                <ScalarProperty Name="ExcelPath" ColumnName="ExcelPath" />
+                <ScalarProperty Name="BomImagePath" ColumnName="BomImagePath" />
+                <ScalarProperty Name="IsSupplierMaterial" ColumnName="IsSupplierMaterial" />
+                <ScalarProperty Name="BOM_DateAdded" ColumnName="BOM_DateAdded" />
+                <ScalarProperty Name="TblSalesOrder" ColumnName="TblSalesOrder" />
+                <ScalarProperty Name="BOM_Image" ColumnName="BOM_Image" />
+                <ScalarProperty Name="BOM_Notes" ColumnName="BOM_Notes" />
+                <ScalarProperty Name="BOM_IsMainFabric" ColumnName="BOM_IsMainFabric" />
+                <ScalarProperty Name="BOM_IsLocalProduction" ColumnName="BOM_IsLocalProduction" />
+                <ScalarProperty Name="BOM_FabricRout" ColumnName="BOM_FabricRout" />
+                <ScalarProperty Name="BOM_FabricType" ColumnName="BOM_FabricType" />
+                <ScalarProperty Name="BOM_Fabric" ColumnName="BOM_Fabric" />
+                <ScalarProperty Name="CalcMethod" ColumnName="CalcMethod" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         
           </EntityContainerMapping>
       </Mapping>
@@ -38764,7 +38774,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CCWMFEntites" ZoomLevel="62">
+      <Diagram Name="CCWMFEntites" ZoomLevel="10">
         <EntityTypeShape Height="3.0714322916664969" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsDetail" PointX="3.75" PointY="42.625" Width="1.5" />
         <EntityTypeShape Height="2.7427376302084667" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsHeader" PointX="1.5" PointY="39.75" Width="1.5" />
         <EntityTypeShape Height="2.0853483072917243" EntityType="WorkFlowManagerDBModel.BOM_CalcMethod" PointX="3" PointY="93.375" Width="1.5" />
@@ -38872,9 +38882,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <EntityTypeShape Height="2.2496956380209667" EntityType="WorkFlowManagerDBModel.TblAuthJobPermission" PointX="10.25" PointY="42.875" Width="1.5" />
         <EntityTypeShape Height="7.1801155598959667" EntityType="WorkFlowManagerDBModel.TblAuthUser" PointX="0.75" PointY="44.5" Width="1.5" />
         <EntityTypeShape Height="1.4279589843749818" EntityType="WorkFlowManagerDBModel.TblAuthUserGroup" PointX="26.75" PointY="46.75" Width="1.5" />
-        <EntityTypeShape Height="2.0853483072914969" EntityType="WorkFlowManagerDBModel.TblBOMSize" PointX="21" PointY="146" Width="1.5" />
         <EntityTypeShape Height="2.0853483072914969" EntityType="WorkFlowManagerDBModel.TblBOMSizeEstimated" PointX="18" PointY="146.5" Width="1.5" />
-        <EntityTypeShape Height="2.5783902994789969" EntityType="WorkFlowManagerDBModel.TblBOMStyleColor" PointX="25" PointY="124.75" Width="1.5" />
         <EntityTypeShape Height="3.0714322916667243" EntityType="WorkFlowManagerDBModel.TblBrandBudgetHeader" PointX="15" PointY="89.25" Width="1.5" />
         <EntityTypeShape Height="1.5923063151042243" EntityType="WorkFlowManagerDBModel.TblBrandSectionMail" PointX="46.75" PointY="16.75" Width="1.5" />
         <EntityTypeShape Height="2.0853483072917243" EntityType="WorkFlowManagerDBModel.TblBrandSectionMailSample" PointX="11.25" PointY="97" Width="1.5" />
@@ -38978,7 +38986,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <EntityTypeShape Height="2.2496956380209667" EntityType="WorkFlowManagerDBModel.TblUserBrandSectionPermission" PointX="10.25" PointY="66.875" Width="1.5" />
         <EntityTypeShape Height="1.9210009765624818" EntityType="WorkFlowManagerDBModel.TblUserCheckList" PointX="12" PointY="34.625" Width="1.5" />
         <EntityTypeShape Height="1.7566536458334667" EntityType="WorkFlowManagerDBModel.TblVendorPurchaseGroup" PointX="15" PointY="146" Width="1.5" />
-        <EntityTypeShape Height="1.9210009765624818" EntityType="WorkFlowManagerDBModel.Vendor_new" PointX="7.75" PointY="142.375" Width="1.5" />
         <EntityTypeShape Height="2.2496956380209667" EntityType="WorkFlowManagerDBModel.AXRoute" PointX="5.75" PointY="24.75" Width="1.5" />
         <EntityTypeShape Height="4.3862109374999818" EntityType="WorkFlowManagerDBModel.BarCodePrintLayout" PointX="36.75" PointY="0.75" Width="1.5" />
         <EntityTypeShape Height="1.7566536458334667" EntityType="WorkFlowManagerDBModel.DefectsData" PointX="18.75" PointY="39.75" Width="1.5" />
@@ -39119,11 +39126,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_Fabric_FabricType">
           <ConnectorPoint PointX="30.25" PointY="36.421153157552" />
           <ConnectorPoint PointX="31" PointY="36.421153157552" />
-        </AssociationConnector>
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_Fabric_Vendor">
-          <ConnectorPoint PointX="30.625" PointY="38.71875" />
-          <ConnectorPoint PointX="32.40625" PointY="38.71875" />
-          <ConnectorPoint PointX="32.40625" PointY="37.703390299479224" />
         </AssociationConnector>
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_FabricContentsComposition_tbl_FabricAttriputes">
           <ConnectorPoint PointX="11.729165349476338" PointY="33.817953287760467" />
@@ -40340,274 +40342,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <ConnectorPoint PointX="3.6145833333333335" PointY="68.296153157552" />
           <ConnectorPoint PointX="3.75" PointY="68.296153157552" />
         </AssociationConnector>
-        <EntityTypeShape Height="5.3722949218749818" EntityType="WorkFlowManagerDBModel.BOM" PointX="18.75" PointY="134.25" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod">
-          <ConnectorPoint PointX="16.9062505" PointY="19.335348307291724" />
-          <ConnectorPoint PointX="16.9062505" PointY="20.9375" />
-          <ConnectorPoint PointX="17.229166666666668" PointY="20.9375" />
-          <ConnectorPoint PointX="17.520833333333332" PointY="20.9375" />
-          <ConnectorPoint PointX="17.5625" PointY="20.9375" />
-          <ConnectorPoint PointX="17.5625" PointY="44.6875" />
-          <ConnectorPoint PointX="18.0625" PointY="44.6875" />
-          <ConnectorPoint PointX="18.0625" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="18.104166666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="18.583333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="18.916666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="19.083333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="20.479166666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="20.645833333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="20.666666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="20.958333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="21.197914166666667" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="21.364580833333331" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="23.041666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="23.395833333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="23.416666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="23.708333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.072916666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.239583333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.276041666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.442708333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.494791666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="24.661458333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="25.729166666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="26.020833333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="26.666666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="26.833333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="30.166666666666668" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="30.333333333333332" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="30.6875" PointY="52.716410319010485" />
-          <ConnectorPoint PointX="30.6875" PointY="53.595663248697967" />
-          <ConnectorPoint PointX="33.932635467641859" PointY="51.158361314724019" />
-          <ConnectorPoint PointX="34.065900757988345" PointY="51.058270654986742" />
-          <ConnectorPoint PointX="34.183367354826757" PointY="50.970045813063692" />
-          <ConnectorPoint PointX="34.316632645173243" PointY="50.869955153326416" />
-          <ConnectorPoint PointX="34.433367354826757" PointY="50.782280004958224" />
-          <ConnectorPoint PointX="34.566632645173243" PointY="50.682189345220948" />
-          <ConnectorPoint PointX="34.6875" PointY="50.591410319010485" />
-          <ConnectorPoint PointX="34.6875" PointY="46.9375" />
-          <ConnectorPoint PointX="40.354166666666664" PointY="46.9375" />
-          <ConnectorPoint PointX="40.583333333333336" PointY="46.9375" />
-          <ConnectorPoint PointX="42.666666666666664" PointY="46.9375" />
-          <ConnectorPoint PointX="42.833333333333336" PointY="46.9375" />
-          <ConnectorPoint PointX="42.861097378428134" PointY="46.9375" />
-          <ConnectorPoint PointX="43.027764045094806" PointY="46.9375" />
-          <ConnectorPoint PointX="43.118032090189615" PointY="46.9375" />
-          <ConnectorPoint PointX="43.284698756856287" PointY="46.9375" />
-          <ConnectorPoint PointX="43.376726878428137" PointY="46.9375" />
-          <ConnectorPoint PointX="43.543393545094808" PointY="46.9375" />
-          <ConnectorPoint PointX="43.65625" PointY="46.9375" />
-          <ConnectorPoint PointX="43.65625" PointY="48.246411969730005" />
-          <ConnectorPoint PointX="43.75" PointY="48.246411969730005" />
-        </AssociationConnector>
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BomCost_BOM">
-          <ConnectorPoint PointX="44.531249" PointY="42.810995279947967" />
-          <ConnectorPoint PointX="44.531249" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="42.708333333333336" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="42.541666666666664" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="42.458333333333336" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="42.291666666666664" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="40.583333333333336" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="40.416666666666664" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="40.125" PointY="39.157084960937482" />
-          <ConnectorPoint PointX="40.125" PointY="34.664042968749982" />
-          <ConnectorPoint PointX="38.5" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="35.583333333333336" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="35.416666666666664" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="25.833333333333332" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="25.666666666666668" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="23.583333333333332" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="23.416666666666668" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="22.833333333333332" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="22.666666666666668" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="22.125" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="22.125" PointY="34.403910319010485" />
-          <ConnectorPoint PointX="21.576052742687217" PointY="34.649790902467331" />
-          <ConnectorPoint PointX="21.423947257312783" PointY="34.717920918589343" />
-          <ConnectorPoint PointX="19.5" PointY="35.579681803385476" />
-          <ConnectorPoint PointX="20.541666666666668" PointY="35.579681803385476" />
-          <ConnectorPoint PointX="20.833333333333332" PointY="35.579681803385476" />
-          <ConnectorPoint PointX="21.416666666666668" PointY="35.579681803385476" />
-          <ConnectorPoint PointX="21.583333333333332" PointY="35.579681803385476" />
-          <ConnectorPoint PointX="22.125" PointY="35.579681803385476" />
-        </AssociationConnector>
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BomFabricBom_BOM">
-          <ConnectorPoint PointX="42.5" PointY="56.088639532565658" />
-          <ConnectorPoint PointX="42.5" PointY="51.092118536472" />
-          <ConnectorPoint PointX="40.583265274571232" PointY="51.16963176021256" />
-          <ConnectorPoint PointX="40.354234725428768" PointY="51.178893811952733" />
-          <ConnectorPoint PointX="34.583265274571232" PointY="51.412273235985559" />
-          <ConnectorPoint PointX="34.416734725428768" PointY="51.41900777235309" />
-          <ConnectorPoint PointX="34.083396239727605" PointY="51.432488062703506" />
-          <ConnectorPoint PointX="33.916865690585141" PointY="51.439222599071037" />
-          <ConnectorPoint PointX="32.5" PointY="51.496520996093658" />
-          <ConnectorPoint PointX="32.5" PointY="49.746520996093658" />
-          <ConnectorPoint PointX="32.5" PointY="44.75" />
-          <ConnectorPoint PointX="30.583333333333332" PointY="44.75" />
-          <ConnectorPoint PointX="30.416666666666668" PointY="44.75" />
-          <ConnectorPoint PointX="25.958333333333332" PointY="44.75" />
-          <ConnectorPoint PointX="25.541666666666668" PointY="44.75" />
-          <ConnectorPoint PointX="25.5" PointY="44.75" />
-          <ConnectorPoint PointX="24.75" PointY="47.746520996093658" />
-          <ConnectorPoint PointX="24.75" PointY="42.75" />
-          <ConnectorPoint PointX="24.75" PointY="42.164042968749982" />
-        </AssociationConnector>
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMSize_BOM">
-          <ConnectorPoint PointX="43.75" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="43.542513506856288" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="43.375846840189617" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="43.282938680379232" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="43.11627201371256" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="43.026884006856285" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="42.860217340189614" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="42.708333333333336" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="42.541666666666664" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="42.4375" PointY="49.649073939460017" />
-          <ConnectorPoint PointX="42.4375" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="40.583333333333336" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="40.354166666666664" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="39.708333333333336" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="39.541666666666664" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="38.5" PointY="54.622294921874982" />
-          <ConnectorPoint PointX="38.5" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="36.208333333333336" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="36.041666666666664" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="35.833333333333336" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="35.666666666666664" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="35.625" PointY="57.474020182291724" />
-          <ConnectorPoint PointX="35.625" PointY="53.5" />
-          <ConnectorPoint PointX="35.346267575512236" PointY="53.5" />
-          <ConnectorPoint PointX="35.179600908845565" PointY="53.5" />
-          <ConnectorPoint PointX="35.171497482963325" PointY="53.5" />
-          <ConnectorPoint PointX="35.004830816296653" PointY="53.5" />
-          <ConnectorPoint PointX="34.994460644543246" PointY="53.5" />
-          <ConnectorPoint PointX="34.827793977876574" PointY="53.5" />
-          <ConnectorPoint PointX="34.75764448893829" PointY="53.5" />
-          <ConnectorPoint PointX="34.590977822271618" PointY="53.5" />
-          <ConnectorPoint PointX="34.583333333333336" PointY="53.5" />
-          <ConnectorPoint PointX="34.287080723731073" PointY="53.5" />
-          <ConnectorPoint PointX="34.269374558963541" PointY="53.5" />
-          <ConnectorPoint PointX="34.10270789229687" PointY="53.5" />
-          <ConnectorPoint PointX="34.083464298489709" PointY="53.5" />
-          <ConnectorPoint PointX="33.916797631823037" PointY="53.5" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="53.5" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="53.5" />
-          <ConnectorPoint PointX="25.895833333333332" PointY="53.5" />
-          <ConnectorPoint PointX="25.666666666666668" PointY="53.5" />
-          <ConnectorPoint PointX="24.661458333333332" PointY="53.5" />
-          <ConnectorPoint PointX="24.494791666666668" PointY="53.5" />
-          <ConnectorPoint PointX="24.442708333333332" PointY="53.5" />
-          <ConnectorPoint PointX="24.276041666666668" PointY="53.5" />
-          <ConnectorPoint PointX="24.239583333333332" PointY="53.5" />
-          <ConnectorPoint PointX="24.072916666666668" PointY="53.5" />
-          <ConnectorPoint PointX="23.583333333333332" PointY="53.5" />
-          <ConnectorPoint PointX="23.416666666666668" PointY="53.5" />
-          <ConnectorPoint PointX="23.395833333333332" PointY="53.5" />
-          <ConnectorPoint PointX="23.166666666666668" PointY="53.5" />
-          <ConnectorPoint PointX="22.052083333333332" PointY="53.5" />
-          <ConnectorPoint PointX="21.885416666666668" PointY="53.5" />
-          <ConnectorPoint PointX="21.875" PointY="53.5" />
-          <ConnectorPoint PointX="21.875" PointY="55.375" />
-          <ConnectorPoint PointX="21.427080833333331" PointY="55.375" />
-          <ConnectorPoint PointX="21.260414166666667" PointY="55.375" />
-          <ConnectorPoint PointX="20.927083333333332" PointY="55.375" />
-          <ConnectorPoint PointX="20.760416666666668" PointY="55.375" />
-          <ConnectorPoint PointX="19.958333333333332" PointY="55.375" />
-          <ConnectorPoint PointX="19.791666666666668" PointY="55.375" />
-          <ConnectorPoint PointX="18.8749995" PointY="55.375" />
-          <ConnectorPoint PointX="18.8749995" PointY="56" />
-        </AssociationConnector>
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM">
-          <ConnectorPoint PointX="44.567920543380737" PointY="52.450989583333332" />
-          <ConnectorPoint PointX="44.567920543380737" PointY="55.375" />
-          <ConnectorPoint PointX="43.908030055939996" PointY="55.375" />
-          <ConnectorPoint PointX="43.741363389273324" PointY="55.375" />
-          <ConnectorPoint PointX="43.542513506856288" PointY="55.375" />
-          <ConnectorPoint PointX="43.375846840189617" PointY="55.375" />
-          <ConnectorPoint PointX="43.282938680379232" PointY="55.375" />
-          <ConnectorPoint PointX="43.11627201371256" PointY="55.375" />
-          <ConnectorPoint PointX="43.026884006856285" PointY="55.375" />
-          <ConnectorPoint PointX="42.860217340189614" PointY="55.375" />
-          <ConnectorPoint PointX="40.583333333333336" PointY="55.375" />
-          <ConnectorPoint PointX="40.354166666666664" PointY="55.375" />
-          <ConnectorPoint PointX="39.708333333333336" PointY="55.375" />
-          <ConnectorPoint PointX="39.541666666666664" PointY="55.375" />
-          <ConnectorPoint PointX="38.75" PointY="55.375" />
-          <ConnectorPoint PointX="38.75" PointY="57.599020182291724" />
-          <ConnectorPoint PointX="36.208333333333336" PointY="57.599020182291724" />
-          <ConnectorPoint PointX="36.041666666666664" PointY="57.599020182291724" />
-          <ConnectorPoint PointX="35.75" PointY="57.599020182291724" />
-          <ConnectorPoint PointX="35.75" PointY="53.5625" />
-          <ConnectorPoint PointX="35.346267575512236" PointY="53.5625" />
-          <ConnectorPoint PointX="35.179600908845565" PointY="53.5625" />
-          <ConnectorPoint PointX="35.171497482963325" PointY="53.5625" />
-          <ConnectorPoint PointX="35.004830816296653" PointY="53.5625" />
-          <ConnectorPoint PointX="34.994460644543246" PointY="53.5625" />
-          <ConnectorPoint PointX="34.827793977876574" PointY="53.5625" />
-          <ConnectorPoint PointX="34.75764448893829" PointY="53.5625" />
-          <ConnectorPoint PointX="34.590977822271618" PointY="53.5625" />
-          <ConnectorPoint PointX="34.583333333333336" PointY="53.5625" />
-          <ConnectorPoint PointX="34.287080723731073" PointY="53.5625" />
-          <ConnectorPoint PointX="34.269374558963541" PointY="53.5625" />
-          <ConnectorPoint PointX="34.10270789229687" PointY="53.5625" />
-          <ConnectorPoint PointX="34.083464298489709" PointY="53.5625" />
-          <ConnectorPoint PointX="33.916797631823037" PointY="53.5625" />
-          <ConnectorPoint PointX="33.458333333333336" PointY="53.5625" />
-          <ConnectorPoint PointX="33.291666666666664" PointY="53.5625" />
-          <ConnectorPoint PointX="28.583333333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="28.416666666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="26.583333333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="26.416666666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="25.895833333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="25.666666666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="24.661458333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="24.494791666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="24.442708333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="24.276041666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="24.239583333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="24.072916666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="23.583333333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="23.416666666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="23.395833333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="23.166666666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="22.052083333333332" PointY="53.5625" />
-          <ConnectorPoint PointX="21.885416666666668" PointY="53.5625" />
-          <ConnectorPoint PointX="21.8125" PointY="53.5625" />
-          <ConnectorPoint PointX="21.8125" PointY="55.34375" />
-          <ConnectorPoint PointX="21.427080833333331" PointY="55.34375" />
-          <ConnectorPoint PointX="21.260414166666667" PointY="55.34375" />
-          <ConnectorPoint PointX="20.927083333333332" PointY="55.34375" />
-          <ConnectorPoint PointX="20.760416666666668" PointY="55.34375" />
-          <ConnectorPoint PointX="19.958333333333332" PointY="55.34375" />
-          <ConnectorPoint PointX="19.791666666666668" PointY="55.34375" />
-          <ConnectorPoint PointX="17.833333333333332" PointY="55.34375" />
-          <ConnectorPoint PointX="17.666666666666668" PointY="55.34375" />
-          <ConnectorPoint PointX="16.739582833333333" PointY="55.34375" />
-          <ConnectorPoint PointX="16.572916166666669" PointY="55.34375" />
-          <ConnectorPoint PointX="16.145833333333332" PointY="55.34375" />
-          <ConnectorPoint PointX="15.666666666666666" PointY="55.34375" />
-          <ConnectorPoint PointX="15.574876224531401" PointY="55.34375" />
-          <ConnectorPoint PointX="15.408209557864733" PointY="55.34375" />
-          <ConnectorPoint PointX="14.083333333333334" PointY="55.34375" />
-          <ConnectorPoint PointX="13.916666666666666" PointY="55.34375" />
-          <ConnectorPoint PointX="13.458333333333334" PointY="55.34375" />
-          <ConnectorPoint PointX="13.291666666666666" PointY="55.34375" />
-          <ConnectorPoint PointX="13.0625" PointY="55.34375" />
-          <ConnectorPoint PointX="13.0625" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="12.083333333333334" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="11.916666666666666" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="11.114583333333334" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="10.666666666666666" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="10.654315486852662" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="10.487648820185994" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="10.0625" PointY="57.523987630208467" />
-          <ConnectorPoint PointX="10.0625" PointY="55.625" />
-          <ConnectorPoint PointX="7.125" PointY="55.625" />
-          <ConnectorPoint PointX="7.125" PointY="55.9141951497395" />
-          <ConnectorPoint PointX="6.75" PointY="55.9141951497395" />
-        </AssociationConnector>
         <EntityTypeShape Height="4.0575162760417243" EntityType="WorkFlowManagerDBModel.TblStandardBOM" PointX="5.25" PointY="100.25" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStandardBOM_BOM_CalcMethod">
           <ConnectorPoint PointX="18" PointY="18.292674153645862" />
@@ -41159,9 +40893,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tbl_MarkerDetail_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tbl_MarkerDetail_TblColor1" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblColor_TblLkpColorGroup" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblColorLink_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblIssueJournalDetail_TblColor" />
@@ -41266,9 +40997,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardFabric_TblColor2" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.InspectionsFullDimention" PointX="42.75" PointY="0.75" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblPurchaseOrderDetailBreakDown" PointX="16.5" PointY="96.125" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMSize" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblPurchaseOrderDetailBreakDown" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.RouteCardDetail" PointX="5.25" PointY="105.875" Width="1.5" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblColor" />
@@ -41337,7 +41065,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNADetail_TblStyleTNA" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblSalesOrder" PointX="10.5" PointY="129.75" Width="1.5" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblStyle" PointX="6" PointY="147.875" Width="1.5" />
-        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrderBOMEstimated" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardDetails_TblSalesOrder" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardFabric_TblSalesOrder" />
@@ -41566,7 +41293,21 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardHeader_TblRouteGroup" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_RouteCardInvoiceDetail_RouteCardHeader" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.view_GetItemPrice" Width="1.5" PointX="49.375" PointY="17.75" />
-       
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.Vendor_new" Width="1.5" PointX="25.375" PointY="49.75" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblBOMSize" Width="1.5" PointX="10.375" PointY="50.75" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblBOMStyleColor" Width="1.5" PointX="5.25" PointY="58.25" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor1" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_TblColor2" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_TblBOMStyleColor" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.BOM" Width="1.5" PointX="16.75" PointY="113" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BOM_BOM_CalcMethod" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BOM_TblSalesOrder" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BomCost_BOM" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_BomFabricBom_BOM" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" />
+        <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" />
         </Diagram>
     </Diagrams>
   </Designer>

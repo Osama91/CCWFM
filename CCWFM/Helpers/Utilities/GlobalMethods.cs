@@ -156,7 +156,7 @@ namespace CCWFM.Helpers.Utilities
             foreach (var pathStep in path)
             {
                 if (obj == null)
-                    return null;
+                    return "";
 
                 var type = obj.GetType();
                 var property = type.GetProperty(pathStep);

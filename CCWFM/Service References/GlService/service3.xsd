@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
-  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CCWFM.Web.Service" />
   <xs:element name="GetTblJournal">
     <xs:complexType>
       <xs:sequence>
@@ -3858,6 +3858,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q350="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="PostTotalLedger1Result" nillable="true" type="q350:TblLedgerMainDetail1" />
+        <xs:element minOccurs="0" name="newTransactionIserial" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3912,6 +3913,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q354="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="UpdateOrInsertTblLedgerHeader1sResult" nillable="true" type="q354:TblLedgerHeader1" />
+        <xs:element minOccurs="0" name="newTransactionIserial" type="xs:int" />
         <xs:element minOccurs="0" name="outindex" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

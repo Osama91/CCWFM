@@ -1106,6 +1106,7 @@ namespace CCWFM.Web.Service.RouteCard
                 {
                     var result = context.RouteQuantities(headerObjToPost.Iserial.ToString());
 
+
                     var NewMsg = "";
                     foreach (var item in result)
                     {

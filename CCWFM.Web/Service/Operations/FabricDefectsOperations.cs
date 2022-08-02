@@ -115,6 +115,11 @@ namespace CCWFM.Web.Service
                 {
                     TransHeader.Notes = transactionHeader.Notes;
                 }
+
+                if (TransHeader.PostedToAx == true) 
+                {
+                    throw new Exception("you cannot Modify Posted Trasaction");
+                }
                
                 foreach (var item in details.ToList())
                 {
@@ -130,7 +135,7 @@ namespace CCWFM.Web.Service
                         OldRow.NetRollWMT = item.NetRollWMT;
                         OldRow.ConsPerPC = item.ConsPerPC;
                         OldRow.NoofPCs = item.NoofPCs;
-
+                        OldRow.StoreRollQty = item.StoreRollQty;
                         OldRow.RemainingMarkerRollQty = item.StoreRollQty - (item.Tbl_fabricInspectionDetailDefects.Sum(x => x.DefectValue)) * (item.ConsPerPC / item.NoofPCs);
                         OldRow.RemainingReservationRollQty = item.StoreRollQty - (item.Tbl_fabricInspectionDetailDefects.Sum(x => x.DefectValue)) * (item.ConsPerPC / item.NoofPCs);
                         OldRow.QtyInspected = item.StoreRollQty - (item.Tbl_fabricInspectionDetailDefects.Sum(x => x.DefectValue)) * (item.ConsPerPC / item.NoofPCs);
@@ -143,8 +148,9 @@ namespace CCWFM.Web.Service
                         }
                     }
                 }
-
+               
                 entities.SaveChanges();
+                CreateAxBarcode(transactionHeader.Iserial, 1, userIserial, transactionHeader.TransactionType);
             }
         }
 

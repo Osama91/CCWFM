@@ -907,7 +907,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                             throw new Exception("Entity Not Found Code:" + row.TblJournalAccountType2.Code + " With Type : " + row.TblJournalAccountType2.Code.ToLower());
                             }
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             throw new Exception("Something Wrong With Entity :" + row.TblJournalAccountType2.Code + " With Type : " + row.TblJournalAccountType2.Code.ToLower());
                         }

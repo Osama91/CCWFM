@@ -11,7 +11,7 @@ namespace CCWFM.UserControls.Search
 {
     public partial class SearchFabricAccChild
     {
-        private readonly SearchFabricAccViewModel _viewModel = new SearchFabricAccViewModel();
+        private readonly SearchFabricAccViewModel _viewModel;
         private readonly SearchFabricAcc _userControl;
 
         public CRUD_ManagerServiceClient Client = new CRUD_ManagerServiceClient();
@@ -19,8 +19,11 @@ namespace CCWFM.UserControls.Search
         public SearchFabricAccChild(SearchFabricAcc searchEmployeeUserControl)
         {
             InitializeComponent();
-            DataContext = _viewModel;
             _userControl = searchEmployeeUserControl;
+            _viewModel = new SearchFabricAccViewModel(_userControl);
+            DataContext = _viewModel;
+           
+            
             Client.FabricInventSumWithBatchesCompleted += (s, sv) =>
             {
                 AvaliableQtyGrid.ItemsSource = sv.Result;
@@ -50,7 +53,7 @@ namespace CCWFM.UserControls.Search
             }
             if (_viewModel.MainRowList.Count - 2 < e.Row.GetIndex() && !_viewModel.Loading && _viewModel.MainRowList.Count < _viewModel.FullCount)
             {
-                _viewModel.GetMaindata();
+                _viewModel.GetMaindata(_userControl);
             }
         }
 
@@ -62,7 +65,7 @@ namespace CCWFM.UserControls.Search
             GeneralFilter.GeneralFilterMethod(out filter, out valueObjecttemp, e);
             _viewModel.Filter = filter;
             _viewModel.ValuesObjects = valueObjecttemp;
-            _viewModel.GetMaindata();
+            _viewModel.GetMaindata(_userControl);
         }
 
         private void DoubleClickBehavior_DoubleClick(object sender, MouseButtonEventArgs e)

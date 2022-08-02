@@ -3707,7 +3707,7 @@
                                     <sdk:DataGridTemplateColumn.CellEditingTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Background="{Binding BackgroundColor,Mode=TwoWay}"   >
-                                                <search:SearchFabricAcc SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
+                                                <search:SearchFabricAcc  SalesOrderPerRow="{Binding TblSalesOrder,Mode=TwoWay}"   SearchPerRow="{Binding ItemPerRow,Mode=TwoWay}"></search:SearchFabricAcc>
                                                 <CheckBox Content="Local" IsChecked="{Binding Path=BOM_IsLocalProduction,Mode=TwoWay}" />
                                                 <CheckBox Content="Dyed" IsChecked="{Binding Path=Dyed,Mode=TwoWay}" />
                                                 <CheckBox Content="M Fabric"

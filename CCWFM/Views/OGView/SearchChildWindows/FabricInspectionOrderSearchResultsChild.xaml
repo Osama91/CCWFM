@@ -50,6 +50,9 @@
                 </sdk:DataGridTextColumn>
                 <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Notes, Source={StaticResource LocalizedStrings}}" Binding="{Binding Notes}" SortMemberPath="Notes">
                 </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Posted, Source={StaticResource LocalizedStrings}}" Binding="{Binding PostedToAx}" SortMemberPath="PostedToAx">
+                </sdk:DataGridTextColumn>
             </sdk:DataGrid.Columns>
         </dataGrid:OsGrid>       
         <Button x:Name="CancelButton" Content="{Binding Cancel, Source={StaticResource LocalizedStrings}}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />

@@ -2149,6 +2149,7 @@
   <xs:element name="GetItemWithUnitAndItemGroup">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="TblSalesOrder" type="xs:int" />
         <xs:element minOccurs="0" name="skip" type="xs:int" />
         <xs:element minOccurs="0" name="take" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
@@ -7282,6 +7283,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q703="http://schemas.datacontract.org/2004/07/CCWFM.Web.Model" minOccurs="0" name="newBomList" nillable="true" type="q703:ArrayOfBOM" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

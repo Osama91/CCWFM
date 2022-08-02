@@ -171,6 +171,12 @@ namespace CCWFM.Helpers.AuthenticationHelpers
                         para.Add(LoggedUserInfo.Iserial.ToString(CultureInfo.InvariantCulture));
                     }
 
+
+                    if (menuItem.Name == "Item List Format 1")
+                    {
+                        para.Add(LoggedUserInfo.Iserial.ToString(CultureInfo.InvariantCulture));
+                    }
+                   
                     if (menuItem.Name == "Styles In Production Not Retail Approved")
                     {
                         para.Add(LoggedUserInfo.Iserial.ToString(CultureInfo.InvariantCulture));

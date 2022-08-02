@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
 using System.Linq;
-using System.Linq.Dynamic;
 using System.ServiceModel;
 using CCWFM.Web.Model;
+using Omu.ValueInjecter;
 using CCWFM.Web.Service.Operations;
 using LinqKit;
-using Omu.ValueInjecter;
+using System.Linq.Dynamic;
+
 
 namespace CCWFM.Web.Service.Production
 {
@@ -44,7 +47,7 @@ namespace CCWFM.Web.Service.Production
                 {
                     var parameterCollection = SharedOperation.ConvertToParamters(valuesObjects);
                     fullCount = context.TblTradeAgreementTransactions.Where(filter, parameterCollection.ToArray()).Count();
-                    query = query.Where(filter, parameterCollection.ToArray()).OrderBy(sort).Skip(skip).Take(take);
+                    query = query.Where(filter, parameterCollection.ToArray()).OrderBy(sort);
                 }
                 else
                 {
