@@ -650,7 +650,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 {
                                     oldRow.Amount = (decimal)item.Amount;
                                 }
-                                item.Amount = (double)((Convert.ToDecimal(item.Amount) / oldRow.Amount) * newRow.Amount);
+                                if (item.Amount!=0&& oldRow.Amount!=0)
+                                {
+
+                                    item.Amount = (double)((Convert.ToDecimal(item.Amount) / oldRow.Amount) * newRow.Amount);
+                                }
                             }
                         }
                         //if (costCenters.Count(w => w.Calculated != true) == 1)

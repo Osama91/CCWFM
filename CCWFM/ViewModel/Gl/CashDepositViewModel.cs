@@ -1041,12 +1041,12 @@ namespace CCWFM.ViewModel.Gl
             CancelCashDeposit.RaiseCanExecuteChanged();
             //DeleteCashDepositDetail.RaiseCanExecuteChanged();
             IsNewChanged();
-            if (savedRow.Approved)
-            {
-                BankDepositClient.SendApproveMailAsync(savedRow.Iserial,
-                    savedRow.TblStore, savedRow.DocDate.Value, LoggedUserInfo.DatabasEname,
-                    savedRow.Sequance, LoggedUserInfo.Iserial);
-            }
+            //if (savedRow.Approved)
+            //{
+            //    BankDepositClient.SendApproveMailAsync(savedRow.Iserial,
+            //        savedRow.TblStore, savedRow.DocDate.Value, LoggedUserInfo.DatabasEname,
+            //        savedRow.Sequance, LoggedUserInfo.Iserial);
+            //}
             Loading = false;
         }
 

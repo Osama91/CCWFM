@@ -1233,11 +1233,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 #endregion Paramters                                    
 
                                 #region NetSales
-
+                                var customerIserials = list.GroupBy(x => x.CustIserial).Select(e=>e.Key).Distinct();
+                                var customers = entity.TBLCustomers.Where(r => r.CustomerGroup !=null&& customerIserials.Contains(r.Iserial)).ToList();
                                 foreach (var group in list.GroupBy(x => x.CustIserial))
                                 {
-                                    //revenue
-
+                             
                                     var groupAccount = 0;
                                     var tblInventPosting = entity.TblInventPostings.FirstOrDefault(
                                         x =>
@@ -1264,11 +1264,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                 foreach (var group in list.GroupBy(x => x.AccountTemp))
                                 {
-                                    var NetsalesAmount = @group.Sum(x => x.NetSales);
-                                    if (taxPercentage > 0)
-                                    {
-                                        NetsalesAmount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
-                                    }
+                                    decimal NetsalesAmount = 0;
+                                    NetsalesAmount = TotalSales(company, taxPercentage, list, customers, group, NetsalesAmount);
+
+                                  
 
                                     var newledgerDetailrow = new TblLedgerMainDetail
                                     {
@@ -1290,6 +1289,8 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                     foreach (var rr in list.Where(x => x.AccountTemp == @group.Key))
                                     {
+                                        //decimal NetsalesAmountPerStore = 0;
+                                        //NetsalesAmountPerStore = TotalSales(company, taxPercentage, rr, customers, group, NetsalesAmount);
                                         var storeCostcenter = new TblGlRuleDetail();
                                         storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
                                             company);
@@ -1298,12 +1299,32 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
                                         if (taxPercentage > 0)
                                         {
-                                            if(storeCostcenter != null)
+                                            var RemoveTax = false;
+                                            //revenue
+                                            if (company == "MAN")
                                             {
-                                                CreateTblLedgerDetailCostCenter(company, rr.NetSales / (decimal)taxPercentage,
+                                                var customerPerRow = customers.FirstOrDefault(w => w.Iserial == rr.CustIserial);
+                                                if (customerPerRow != null)
+                                                {
+                                                    if (customerPerRow.CustomerGroup == 2)
+                                                    {
+                                                        RemoveTax = true;
+                                                    }
+
+                                                }
+                                            }
+                                            var amount = rr.NetSales / (decimal)taxPercentage;
+                                            if (RemoveTax)
+                                            {
+                                                amount = rr.NetSales;
+                                            }
+
+                                            if (storeCostcenter != null)
+                                            {
+                                                CreateTblLedgerDetailCostCenter(company, amount,
                                                     newledgerDetailrow, storeCostcenter);
                                             }
-                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales / (decimal)taxPercentage,
+                                            CreateTblLedgerDetailCostCenter(company, amount,
                                                 newledgerDetailrow, costcenter);
                                         }
                                         else
@@ -1319,6 +1340,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                 foreach (var group in list.GroupBy(x => x.CustIserial))
                                 {
+                                  
                                     var temproww = entity.TblInventPostings.FirstOrDefault(
                                         x => x.ItemScopeRelation == @group.Key && x.TblInventAccountType == 101);
                                     var salesgroupAccount = 0;
@@ -1333,9 +1355,6 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                             x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 101).TblAccount;
                                     }
 
-                                    if (salesgroupAccount == 0)
-                                    {
-                                    }
 
                                     foreach (var variable in list.Where(x => x.CustIserial == group.Key))
                                     {
@@ -1347,10 +1366,12 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 {
                                     foreach (var group in list.GroupBy(x => x.AccountTemp))
                                     {
+                                        decimal NetsalesAmount = 0;
+                                        NetsalesAmount = TotalSalesTax(company, taxPercentage, list, customers, group, NetsalesAmount);
                                         //101 SalesTax Account
                                         var newledgerDetailrowtax = new TblLedgerMainDetail
                                         {
-                                            Amount = @group.Sum(x => x.NetSales) - @group.Sum(x => x.NetSales) / (decimal)taxPercentage,
+                                            Amount = NetsalesAmount,
                                             Description = "Tax",
                                             ExchangeRate = 1,
                                             TblCurrency = currency,
@@ -1374,12 +1395,34 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                             var costcenter = new TblGlRuleDetail();
 
                                             costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
+
+                                            var RemoveTax = false;
+                                            //revenue
+                                            if (company == "MAN")
+                                            {
+                                                var customerPerRow = customers.FirstOrDefault(w => w.Iserial == rr.CustIserial);
+                                                if (customerPerRow != null)
+                                                {
+                                                    if (customerPerRow.CustomerGroup == 2)
+                                                    {
+                                                        RemoveTax = true;
+                                                    }
+
+                                                }
+                                            }
+                                            var amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+                                            if (RemoveTax)
+                                            {
+                                                amount = 0;
+                                            }
+
+
                                             if (storeCostcenter != null)
                                             {
-                                                CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                                CreateTblLedgerDetailCostCenter(company, amount,
                                                 newledgerDetailrowtax, storeCostcenter);
                                             }
-                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                            CreateTblLedgerDetailCostCenter(company, amount,
                                                 newledgerDetailrowtax, costcenter);
                                         }
                                     }
@@ -1406,6 +1449,21 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                 }
                                 foreach (var group in list.GroupBy(x => x.StoreIserial))
                                 {
+                                    var RemoveTax = false;
+                                    //revenue
+                                    if (company == "MAN")
+                                    {
+                                        var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.FirstOrDefault().CustIserial);
+                                        if (customerPerRow != null)
+                                        {
+                                            if (customerPerRow.CustomerGroup == 2)
+                                            {
+                                                RemoveTax = true;
+                                            }
+
+                                        }
+                                    }
+
                                     var entityAccount = group.Key;
                                     var Amount = @group.Sum(w => w.NetSales);
 
@@ -1413,6 +1471,10 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                     {
                                         entityAccount = group.First().CustIserial;
                                         Amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                                        if (RemoveTax)
+                                        {
+                                            Amount = @group.Sum(x => x.NetSales);
+                                        }
                                     }
                                     var newledgerDetailrow = new TblLedgerMainDetail
                                     {
@@ -1446,6 +1508,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                             if (company == "MAN")
                                             {
                                                 amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+
+                                                if (RemoveTax)
+                                                {
+                                                    amount = rr.NetSales;
+                                                }
                                             }
 
                                             CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
@@ -1461,13 +1528,32 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                     foreach (var group in list.GroupBy(x => x.StoreIserial))
                                     {
+                                        var RemoveTax = false;
+                                        if (company == "MAN")
+                                        {
+                                            var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.FirstOrDefault().CustIserial);
+                                            if (customerPerRow != null)
+                                            {
+                                                if (customerPerRow.CustomerGroup == 2)
+                                                {
+                                                    RemoveTax = true;
+                                                }
+
+                                            }
+                                        }
                                         var entityAccount = group.First().CustIserial;
                                         var custIserial = @group.FirstOrDefault().CustIserial;
-                                   
+                                        var amount = @group.Sum(x => x.NetSales) - @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+
+                                        if (RemoveTax)
+                                        {
+                                            amount = 0;
+                                        }
+
                                         //101 SalesTax Account
                                         var newledgerDetailrowtax = new TblLedgerMainDetail
                                         {
-                                            Amount = @group.Sum(x => x.NetSales) - @group.Sum(x => x.NetSales) / (decimal)taxPercentage,
+                                            Amount = amount,
                                             Description = "Tax",
                                             ExchangeRate = 1,
                                             TblCurrency = currency,
@@ -1484,19 +1570,37 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                                         foreach (var rr in list.Where(x => x.AccountTemp == @group.FirstOrDefault().AccountTemp))
                                         {
+
+                                            if (company == "MAN")
+                                            {
+                                                var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.FirstOrDefault().CustIserial);
+                                                if (customerPerRow != null)
+                                                {
+                                                    if (customerPerRow.CustomerGroup == 2)
+                                                    {
+                                                        RemoveTax = true;
+                                                    }
+
+                                                }
+                                            }
+
                                             var storeCostcenter = new TblGlRuleDetail();
                                             storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
                                                 company);
 
                                             var costcenter = new TblGlRuleDetail();
-
+                                            var amountStore = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+                                            if (RemoveTax)
+                                            {
+                                                amountStore =0;
+                                            }
                                             costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
                                             if (storeCostcenter != null)
                                             {
-                                                CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                                CreateTblLedgerDetailCostCenter(company, amountStore,
                                                 newledgerDetailrowtax, storeCostcenter);
                                             }
-                                            CreateTblLedgerDetailCostCenter(company, rr.NetSales - rr.NetSales / (decimal)taxPercentage,
+                                            CreateTblLedgerDetailCostCenter(company, amountStore,
                                                 newledgerDetailrowtax, costcenter);
 
 
@@ -1560,7 +1664,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                     #endregion CostOfGoodSold
                                 }
 
-                                CorrectLedgerHeaderRouding(newLedgerHeaderRow.Iserial, company, user);
+                               CorrectLedgerHeaderRouding(newLedgerHeaderRow.Iserial, company, user);
                             }
 
                         }
@@ -1569,6 +1673,75 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                 #endregion Sales
             }
+        }
+
+        private static decimal TotalSales(string company, double taxPercentage, List<GlPosting> list, List<TBLCustomer> customers, IGrouping<int, GlPosting> group, decimal NetsalesAmount)
+        {
+            foreach (var CustIserial in list.GroupBy(x => x.CustIserial))
+            {
+                decimal amount = 0;
+                if (taxPercentage > 0)
+                {
+                    amount = CustIserial.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                }
+                var RemoveTax = false;
+                //revenue
+                if (company == "MAN")
+                {
+                    var customerPerRow = customers.FirstOrDefault(w => w.Iserial == CustIserial.Key);
+                    if (customerPerRow != null)
+                    {
+                        if (customerPerRow.CustomerGroup == 2)
+                        {
+                            RemoveTax = true;
+                        }
+
+                    }
+                }
+                if (RemoveTax)
+                {
+                    amount = CustIserial.Sum(x => x.NetSales);
+                }
+                NetsalesAmount = NetsalesAmount + amount;
+            }
+
+            return NetsalesAmount;
+        }
+
+        private static decimal TotalSalesTax(string company, double taxPercentage, List<GlPosting> list, List<TBLCustomer> customers, IGrouping<int, GlPosting> group, decimal NetsalesAmount)
+        {
+            foreach (var CustIserial in list.GroupBy(x => x.CustIserial))
+            {
+                decimal amount = 0;
+                if (taxPercentage > 0)
+                {
+                    //amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                    //amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                    amount = CustIserial.Sum(x => x.NetSales) - CustIserial.Sum(x => x.NetSales) / (decimal)taxPercentage;
+
+                }
+                var RemoveTax = false;
+                //revenue
+                if (company == "MAN")
+                {
+                    var customerPerRow = customers.FirstOrDefault(w => w.Iserial == CustIserial.Key);
+                    if (customerPerRow != null)
+                    {
+                        if (customerPerRow.CustomerGroup == 2)
+                        {
+                            RemoveTax = true;
+                        }
+
+                    }
+                }
+                if (RemoveTax)
+                {
+                    amount = 0;
+                }
+                NetsalesAmount = NetsalesAmount + amount;
+            }
+
+            return NetsalesAmount;
         }
 
         private void GlManPostSalesTransaction(DateTime fromDate, DateTime toDate, int user, string company, bool sales,

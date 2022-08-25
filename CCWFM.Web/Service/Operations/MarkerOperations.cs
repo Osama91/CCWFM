@@ -8,6 +8,9 @@ using System.ServiceModel;
 using CCWFM.Web.Model;
 using Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution;
 using System.Linq.Dynamic;
+using System.Data.Objects;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace CCWFM.Web.Service
 {
@@ -568,13 +571,39 @@ namespace CCWFM.Web.Service
                     {
                         var objectIndex = Guid.NewGuid().ToString("D");
 
-                        var rr = entities.markerPostToRouteProcedure(iserial, variable).ToList();
+                        //entities.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+                        //entities.markerPostToRouteProcedure
+                                entities.MarkerPostToRouteStructions.MergeOption = MergeOption.NoTracking;
+
+                        //var rr = entities.markerPostToRouteProcedure(iserial, variable).ToList();
+
+
+                        var sqlParam = new List<SqlParameter>
+            {
+                new SqlParameter
+                {
+                    ParameterName = "MarkerHeaderTransaction",
+                    Value = iserial,
+                    SqlDbType = SqlDbType.Int
+                },
+
+                new SqlParameter
+                {
+                    ParameterName = "ColorParatmer",
+                    Value = variable,
+                    SqlDbType = SqlDbType.Int
+                },
+              
+            };
+
+                        var list = entities.ExecuteStoreQuery<MarkerPostToRouteStruction>("exec markerPostToRouteProcedure  @MarkerHeaderTransaction,@ColorParatmer",
+                                sqlParam.ToArray()).ToList();
                         var warehousecode = GetChainSetupBycode("DefaultFPWarehouse1st");
 
                         var warehouseIserial = entities.TblWarehouses.FirstOrDefault(w => w.Code == warehousecode).Iserial;
-                        if (rr.Any())
+                        if (list.Any())
                         {
-                            foreach (var row in rr)
+                            foreach (var row in list)
                             {
                                 var newrow = new RouteCardDetail
                                 {

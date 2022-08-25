@@ -837,6 +837,35 @@
           <Property Name="TblCurrency" Type="int" />
           <Property Name="ExchRate" Type="real" />
         </EntityType>
+        <EntityType Name="TBLCustomer">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="AName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerGroup" Type="int" />
+          <Property Name="CustomerDisc" Type="real" />
+          <Property Name="PRICELIST" Type="tinyint" />
+          <Property Name="GLCODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="tblstaxflg" Type="int" />
+          <Property Name="tblstax1flg" Type="int" />
+          <Property Name="tblpricepolicy" Type="int" />
+          <Property Name="CustAccountingAuditing" Type="int" />
+          <Property Name="tblCustomerStatus" Type="int" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="custid" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="TblCustomerGroup">
+          <Key>
+            <PropertyRef Name="ISerial" />
+          </Key>
+          <Property Name="ISerial" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="10" />
+          <Property Name="Ename" Type="varchar" MaxLength="50" />
+          <Property Name="Aname" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="TblDepreciationMethod">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -6669,6 +6698,18 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TBLCustomer_TblCustomerGroup">
+          <End Role="TblCustomerGroup" Type="Self.TblCustomerGroup" Multiplicity="0..1" />
+          <End Role="TBLCustomer" Type="Self.TBLCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCustomerGroup">
+              <PropertyRef Name="ISerial" />
+            </Principal>
+            <Dependent Role="TBLCustomer">
+              <PropertyRef Name="CustomerGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblDepreciationTransactionDetail_TblDepreciationTransactionHeader">
           <End Role="TblDepreciationTransactionHeader" Type="Self.TblDepreciationTransactionHeader" Multiplicity="0..1" />
           <End Role="TblDepreciationTransactionDetail" Type="Self.TblDepreciationTransactionDetail" Multiplicity="*" />
@@ -8786,6 +8827,8 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <EntitySet Name="TblCostDimSetupHeader" EntityType="Self.TblCostDimSetupHeader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCurrency" EntityType="Self.TblCurrency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblcurrencydailyexchange" EntityType="Self.tblcurrencydailyexchange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCustomer" EntityType="Self.TBLCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCustomerGroup" EntityType="Self.TblCustomerGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDepreciationMethod" EntityType="Self.TblDepreciationMethod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDepreciationTransactionDetail" EntityType="Self.TblDepreciationTransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblDepreciationTransactionHeader" EntityType="Self.TblDepreciationTransactionHeader" Schema="dbo" store:Type="Tables" />
@@ -11619,6 +11662,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblCurrency" EntitySet="TblCurrency" />
             <End Role="tblcurrencydailyexchange" EntitySet="tblcurrencydailyexchange" />
           </AssociationSet>
+          <AssociationSet Name="FK_TBLCustomer_TblCustomerGroup" Association="Self.FK_TBLCustomer_TblCustomerGroup">
+            <End Role="TblCustomerGroup" EntitySet="TblCustomerGroup" />
+            <End Role="TBLCustomer" EntitySet="TBLCustomer" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblDepreciationTransactionDetail_TblDepreciationTransactionHeader" Association="Self.FK_TblDepreciationTransactionDetail_TblDepreciationTransactionHeader">
             <End Role="TblDepreciationTransactionHeader" EntitySet="TblDepreciationTransactionHeader" />
             <End Role="TblDepreciationTransactionDetail" EntitySet="TblDepreciationTransactionDetail" />
@@ -13596,6 +13643,12 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblMarkupTran" EntitySet="TblMarkupTrans" />
           </AssociationSet>
           <EntitySet Name="RecInvStyleColors" EntityType="ccnewModel.RecInvStyleColor" />
+          <EntitySet Name="TBLCustomers" EntityType="ccnewModel.TBLCustomer" />
+          <EntitySet Name="TblCustomerGroups" EntityType="ccnewModel.TblCustomerGroup" />
+          <AssociationSet Name="FK_TBLCustomer_TblCustomerGroup" Association="ccnewModel.FK_TBLCustomer_TblCustomerGroup">
+            <End Role="TblCustomerGroup" EntitySet="TblCustomerGroups" />
+            <End Role="TBLCustomer" EntitySet="TBLCustomers" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="TblPODetail">
           <Key>
@@ -22354,6 +22407,49 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="ContractQty" Type="Int32" Nullable="false" />
           <Property Name="ContractCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
+        <EntityType Name="TBLCustomer">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerGroup" Type="Int32" />
+          <Property Name="CustomerDisc" Type="Single" />
+          <Property Name="PRICELIST" Type="Byte" />
+          <Property Name="GLCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tblstaxflg" Type="Int32" />
+          <Property Name="tblstax1flg" Type="Int32" />
+          <Property Name="tblpricepolicy" Type="Int32" />
+          <Property Name="CustAccountingAuditing" Type="Int32" />
+          <Property Name="tblCustomerStatus" Type="Int32" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="custid" Type="Guid" />
+          <NavigationProperty Name="TblCustomerGroup" Relationship="ccnewModel.FK_TBLCustomer_TblCustomerGroup" FromRole="TBLCustomer" ToRole="TblCustomerGroup" />
+        </EntityType>
+        <EntityType Name="TblCustomerGroup">
+          <Key>
+            <PropertyRef Name="ISerial" />
+          </Key>
+          <Property Name="ISerial" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLCustomers" Relationship="ccnewModel.FK_TBLCustomer_TblCustomerGroup" FromRole="TblCustomerGroup" ToRole="TBLCustomer" />
+        </EntityType>
+        <Association Name="FK_TBLCustomer_TblCustomerGroup">
+          <End Type="ccnewModel.TblCustomerGroup" Role="TblCustomerGroup" Multiplicity="0..1" />
+          <End Type="ccnewModel.TBLCustomer" Role="TBLCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCustomerGroup">
+              <PropertyRef Name="ISerial" />
+            </Principal>
+            <Dependent Role="TBLCustomer">
+              <PropertyRef Name="CustomerGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -27881,6 +27977,37 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TBLCustomers">
+            <EntityTypeMapping TypeName="ccnewModel.TBLCustomer">
+              <MappingFragment StoreEntitySet="TBLCustomer">
+                <ScalarProperty Name="custid" ColumnName="custid" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="tblCustomerStatus" ColumnName="tblCustomerStatus" />
+                <ScalarProperty Name="CustAccountingAuditing" ColumnName="CustAccountingAuditing" />
+                <ScalarProperty Name="tblpricepolicy" ColumnName="tblpricepolicy" />
+                <ScalarProperty Name="tblstax1flg" ColumnName="tblstax1flg" />
+                <ScalarProperty Name="tblstaxflg" ColumnName="tblstaxflg" />
+                <ScalarProperty Name="GLCODE" ColumnName="GLCODE" />
+                <ScalarProperty Name="PRICELIST" ColumnName="PRICELIST" />
+                <ScalarProperty Name="CustomerDisc" ColumnName="CustomerDisc" />
+                <ScalarProperty Name="CustomerGroup" ColumnName="CustomerGroup" />
+                <ScalarProperty Name="EName" ColumnName="EName" />
+                <ScalarProperty Name="AName" ColumnName="AName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerGroups">
+            <EntityTypeMapping TypeName="ccnewModel.TblCustomerGroup">
+              <MappingFragment StoreEntitySet="TblCustomerGroup">
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="ISerial" ColumnName="ISerial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -29956,6 +30083,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <AssociationConnector Association="ccnewModel.FK_TblMarkupTrans_TblCurrency" />
         <AssociationConnector Association="ccnewModel.FK_TblMarkUpTrans_TblMarkup" />
         <EntityTypeShape EntityType="ccnewModel.RecInvStyleColor" Width="1.5" PointX="54.375" PointY="19.25" />
+        <EntityTypeShape EntityType="ccnewModel.TBLCustomer" Width="1.5" PointX="57.625" PointY="38.375" />
+        <EntityTypeShape EntityType="ccnewModel.TblCustomerGroup" Width="1.5" PointX="55.375" PointY="39.5" />
+        <AssociationConnector Association="ccnewModel.FK_TBLCustomer_TblCustomerGroup" />
         </Diagram>
     </Diagrams>
   </Designer>

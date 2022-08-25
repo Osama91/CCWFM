@@ -263,15 +263,15 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.dd' does not have a primary 
           <Property Name="WFM_DOMAINID" Type="int" />
           <Property Name="TBlWFCompany" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'WorkFlowManagerDB.dbo.MarkerPostToRouteStruction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MarkerPostToRouteStruction">
           <Key>
-            <PropertyRef Name="meterpersizecode" />
+            <PropertyRef Name="Iserial" />
           </Key>
           <Property Name="sizeQtyReal" Type="float" />
           <Property Name="stylecolorname" Type="nvarchar" MaxLength="50" />
           <Property Name="meterpersizecode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FabricColor" Type="int" Nullable="false" />
+          <Property Name="Iserial" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PrintingBarcodeProperties">
           <Key>
@@ -5883,7 +5883,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.Inspections' does not have a
           <Property Name="OrgLocation" Type="nvarchar" MaxLength="50" />
           <Property Name="qtyPerKilo" Type="real" />
           <Property Name="markerIserial" Type="int" Nullable="false" />
-          <Property Name="RollBatch" Type="nvarchar" MaxLength="25" />
+          <Property Name="RollBatch" Type="nvarchar" MaxLength="50" />
           <Property Name="MarkerTransactionHeader" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -6994,6 +6994,7 @@ warning 6002: The table/view 'WorkFlowManagerDB.dbo.view_GetItemPrice' does not 
           <Property Name="WarehouseCode" Type="nvarchar" MaxLength="50" />
           <Property Name="ColorCode" Type="nvarchar" MaxLength="100" />
           <Property Name="TblColor" Type="int" Nullable="false" />
+          <Property Name="ItemGroup" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WorkFlowManagerDB.dbo.ViewPurchaseOrderHeaderRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -12710,6 +12711,7 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
           <EntitySet Name="Fabric_new" EntityType="Self.Fabric_new" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FabricContentsComposition" EntityType="Self.FabricContentsComposition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FabricType" EntityType="Self.FabricType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarkerPostToRouteStruction" EntityType="Self.MarkerPostToRouteStruction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PrintingBarcodeProperties" EntityType="Self.PrintingBarcodeProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteCardDetailActualCost" EntityType="Self.RouteCardDetailActualCost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteCardDetailActualCostType" EntityType="Self.RouteCardDetailActualCostType" Schema="dbo" store:Type="Tables" />
@@ -13074,13 +13076,6 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
 [dd].[7] AS [7], 
 [dd].[TBlWFCompany] AS [TBlWFCompany]
 FROM [dbo].[dd] AS [dd]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="MarkerPostToRouteStruction" EntityType="Self.MarkerPostToRouteStruction" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[MarkerPostToRouteStruction].[sizeQtyReal] AS [sizeQtyReal], 
-[MarkerPostToRouteStruction].[stylecolorname] AS [stylecolorname], 
-[MarkerPostToRouteStruction].[meterpersizecode] AS [meterpersizecode]
-FROM [dbo].[MarkerPostToRouteStruction] AS [MarkerPostToRouteStruction]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ReportLabel" EntityType="Self.ReportLabel" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -14172,7 +14167,8 @@ FROM [dbo].[Vendor_CCR] AS [Vendor_CCR]</DefiningQuery>
 [view_GetItemPrice].[DocDate] AS [DocDate], 
 [view_GetItemPrice].[WarehouseCode] AS [WarehouseCode], 
 [view_GetItemPrice].[ColorCode] AS [ColorCode], 
-[view_GetItemPrice].[TblColor] AS [TblColor]
+[view_GetItemPrice].[TblColor] AS [TblColor], 
+[view_GetItemPrice].[ItemGroup] AS [ItemGroup]
 FROM [dbo].[view_GetItemPrice] AS [view_GetItemPrice]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewPurchaseOrderHeaderRequest" EntityType="Self.ViewPurchaseOrderHeaderRequest" store:Type="Views" store:Schema="dbo">
@@ -16006,10 +16002,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <Parameter Name="Season" Mode="In" Type="String" />
             <Parameter Name="fromDate" Mode="In" Type="DateTime" />
             <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="markerPostToRouteProcedure" EntitySet="MarkerPostToRouteStructions" ReturnType="Collection(WorkFlowManagerDBModel.MarkerPostToRouteStruction)">
-            <Parameter Name="MarkerHeaderTransaction" Mode="In" Type="Int32" />
-            <Parameter Name="ColorParatmer" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="BarcodeDisplaySettingsDetails" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsDetail" />
           <EntitySet Name="BarcodeDisplaySettingsHeaders" EntityType="WorkFlowManagerDBModel.BarcodeDisplaySettingsHeader" />
@@ -18051,7 +18043,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           </AssociationSet>
           <EntitySet Name="PurchlineInventDimWithoutRecs" EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" />
           <EntitySet Name="WF_FabricContentsComposition" EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" />
-          <EntitySet Name="MarkerPostToRouteStructions" EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" />
           <EntitySet Name="TblSeasonalMasterLists" EntityType="WorkFlowManagerDBModel.TblSeasonalMasterList" />
           <AssociationSet Name="FK_tblSeasonalMasterList_TblColor" Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblColor">
             <End Role="TblColor" EntitySet="TblColors" />
@@ -18296,6 +18287,11 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             <End Role="BOM" EntitySet="BOMs" />
             <End Role="TblPurchaseOrderDetailBreakDown" EntitySet="TblPurchaseOrderDetailBreakDowns" />
           </AssociationSet>
+          <EntitySet Name="MarkerPostToRouteStructions" EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" />
+          <FunctionImport Name="markerPostToRouteProcedure" EntitySet="MarkerPostToRouteStructions" ReturnType="Collection(WorkFlowManagerDBModel.MarkerPostToRouteStruction)">
+            <Parameter Name="MarkerHeaderTransaction" Mode="In" Type="Int32" />
+            <Parameter Name="ColorParatmer" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="FabricStorage_Result">
           <Property Type="String" Name="itemid" Nullable="false" MaxLength="50" />
@@ -25963,7 +25959,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="OrgLocation" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="qtyPerKilo" Type="Single" />
           <Property Name="markerIserial" Nullable="false" Type="Int32" />
-          <Property Name="RollBatch" MaxLength="25" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RollBatch" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="MarkerTransactionHeader" Nullable="false" Type="Int32" />
         </EntityType>
         <EntityType Name="TblPurchaseReceiveDetail">
@@ -30441,14 +30437,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="FabricCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TBlWFCompany" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="MarkerPostToRouteStruction">
-          <Key>
-            <PropertyRef Name="meterpersizecode" />
-          </Key>
-          <Property Name="sizeQtyReal" Type="Double" />
-          <Property Name="stylecolorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="meterpersizecode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="TblSeasonalMasterList">
           <Key>
             <PropertyRef Name="Iserial" />
@@ -31390,6 +31378,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Property Name="WarehouseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ColorCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TblColor" Type="Int32" Nullable="false" />
+          <Property Name="ItemGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Vendor_new">
           <Key>
@@ -31627,6 +31616,16 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MarkerPostToRouteStruction">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="sizeQtyReal" Type="Double" />
+          <Property Name="stylecolorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meterpersizecode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FabricColor" Type="Int32" Nullable="false" />
+          <Property Name="Iserial" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -31727,7 +31726,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="markerPostToRouteProcedure" FunctionName="WorkFlowManagerDBModel.Store.markerPostToRouteProcedure" />
           <EntitySetMapping Name="BarcodeDisplaySettingsDetails">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.BarcodeDisplaySettingsDetail">
               <MappingFragment StoreEntitySet="BarcodeDisplaySettingsDetails">
@@ -38301,15 +38299,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MarkerPostToRouteStructions">
-            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.MarkerPostToRouteStruction">
-              <MappingFragment StoreEntitySet="MarkerPostToRouteStruction">
-                <ScalarProperty Name="meterpersizecode" ColumnName="meterpersizecode" />
-                <ScalarProperty Name="stylecolorname" ColumnName="stylecolorname" />
-                <ScalarProperty Name="sizeQtyReal" ColumnName="sizeQtyReal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblSeasonalMasterLists">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.TblSeasonalMasterList">
               <MappingFragment StoreEntitySet="TblSeasonalMasterList">
@@ -38657,6 +38646,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <EntitySetMapping Name="view_GetItemPrice">
             <EntityTypeMapping TypeName="WorkFlowManagerDBModel.view_GetItemPrice">
               <MappingFragment StoreEntitySet="view_GetItemPrice">
+                <ScalarProperty Name="ItemGroup" ColumnName="ItemGroup" />
                 <ScalarProperty Name="TblColor" ColumnName="TblColor" />
                 <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
                 <ScalarProperty Name="WarehouseCode" ColumnName="WarehouseCode" />
@@ -38752,6 +38742,18 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="MarkerPostToRouteStructions">
+            <EntityTypeMapping TypeName="WorkFlowManagerDBModel.MarkerPostToRouteStruction">
+              <MappingFragment StoreEntitySet="MarkerPostToRouteStruction">
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+                <ScalarProperty Name="FabricColor" ColumnName="FabricColor" />
+                <ScalarProperty Name="meterpersizecode" ColumnName="meterpersizecode" />
+                <ScalarProperty Name="stylecolorname" ColumnName="stylecolorname" />
+                <ScalarProperty Name="sizeQtyReal" ColumnName="sizeQtyReal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="markerPostToRouteProcedure" FunctionName="WorkFlowManagerDBModel.Store.markerPostToRouteProcedure" />
         
           </EntityContainerMapping>
       </Mapping>
@@ -41233,7 +41235,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblStyleTNADetailAttachment_TblStyleTNADetail" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.PurchlineInventDimWithoutRec" Width="1.5" PointX="34.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.WF_FabricContentsComposition" Width="1.5" PointX="36.375" PointY="48.75" />
-        <EntityTypeShape EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" Width="1.5" PointX="38.375" PointY="48.75" />
         <EntityTypeShape EntityType="WorkFlowManagerDBModel.TblSeasonalMasterList" Width="1.5" PointX="23.25" PointY="139.75" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblColor" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_tblSeasonalMasterList_TblSalesOrderColorTheme" />
@@ -41308,6 +41309,7 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMSize_BOM" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblBOMStyleColor_BOM" />
         <AssociationConnector Association="WorkFlowManagerDBModel.FK_TblPurchaseOrderDetailBreakDown_BOM" />
+        <EntityTypeShape EntityType="WorkFlowManagerDBModel.MarkerPostToRouteStruction" Width="1.5" PointX="41.375" PointY="25.75" />
         </Diagram>
     </Diagrams>
   </Designer>

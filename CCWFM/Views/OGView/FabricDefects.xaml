@@ -45,7 +45,7 @@
 							  ToolTipService.ToolTip="Search" Cursor="Hand">
 				<Image Source="/CCWFM;component/Images/1371054421_old-edit-find.png" Stretch="Uniform"></Image>
 			</Button>
-			<Button Name="BtnDeleteOrder" Click="btnDeleteOrder_Click" IsEnabled="False" Visibility="Collapsed" ToolTipService.ToolTip="Delete">
+			<Button Name="BtnDeleteOrder" Click="btnDeleteOrder_Click"  ToolTipService.ToolTip="Delete">
 				<Image Source="/CCWFM;component/Assets/Images/1370888613_-trash.png" Stretch="Uniform">
 				</Image>
 			</Button>
