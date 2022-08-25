@@ -1684,6 +1684,11 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                 {
                     amount = CustIserial.Sum(x => x.NetSales) / (decimal)taxPercentage;
                 }
+                else
+                {
+                    amount = CustIserial.Sum(x => x.NetSales);
+                }
+
                 var RemoveTax = false;
                 //revenue
                 if (company == "MAN")
