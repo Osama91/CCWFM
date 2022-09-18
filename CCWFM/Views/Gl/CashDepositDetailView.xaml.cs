@@ -87,6 +87,11 @@ namespace CCWFM.Views.Gl
                 grid.Columns.FirstOrDefault(c =>
                     c.GetValue(FrameworkElement.NameProperty).ToString() == nameof(BankAccount)).Visibility = Visibility.Collapsed;
             }
+            else if (cashDepositType == CashDepositType.AmazonMarket)
+            {
+                grid.Columns.FirstOrDefault(c =>
+                    c.GetValue(FrameworkElement.NameProperty).ToString() == nameof(BankAccount)).Visibility = Visibility.Collapsed;
+            }
             else if (cashDepositType == CashDepositType.DsquaresLuckyWallet)
             {
                 grid.Columns.FirstOrDefault(c =>

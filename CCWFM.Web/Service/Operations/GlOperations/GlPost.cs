@@ -1118,7 +1118,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                         {
                             field = "ItemStoreGroup";
                         }
-
+                        var postByCustomer = false;
                         // sales
                         var Type = 2;
 
@@ -1252,10 +1252,7 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         groupAccount = entity.TblInventPostings.FirstOrDefault(
                                             x => x.ItemScopeRelation == -1 && x.TblInventAccountType == 74).TblAccount;
                                     }
-                                    
-
-                                    //int groupAccount = 0;
-                                    //GetAccountByEntity(@group.Key, 1, company, 0, out groupAccount);
+                             
                                     foreach (var variable in list.Where(x => x.CustIserial == group.Key))
                                     {
                                         variable.AccountTemp = groupAccount;
@@ -1338,6 +1335,9 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                     }
                                 }
 
+                                #region Tax
+
+                          
                                 foreach (var group in list.GroupBy(x => x.CustIserial))
                                 {
                                   
@@ -1427,101 +1427,204 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                                         }
                                     }
                                 }
+                                #endregion
 
                                 #endregion NetSales
 
-                                #region Payment
+                                #region CustomerSales
 
-                                foreach (var group in list.GroupBy(x => x.StoreIserial))
+                                if (postByCustomer)
                                 {
-                                    var groupAccount = 0;
-                                    GetAccountByEntity(@group.Key, 8, company, 0, out groupAccount);
-                                    foreach (var variable in list.Where(x => x.StoreIserial == group.Key))
+                                    foreach (var group in list.GroupBy(x => x.CustIserial))
                                     {
-                                        variable.AccountTemp = groupAccount;
+                                        var groupAccount = 0;
+                                        GetAccountByEntity(@group.Key, 1, company, 0, out groupAccount);
+                                        foreach (var variable in list.Where(x => x.CustIserial == group.Key))
+                                        {
+                                            variable.AccountTemp = groupAccount;
+                                        }
                                     }
                                 }
+                                else
+                                {
+                                    foreach (var group in list.GroupBy(x => x.StoreIserial))
+                                    {
+                                        var groupAccount = 0;
+                                        GetAccountByEntity(@group.Key, 8, company, 0, out groupAccount);
+                                        foreach (var variable in list.Where(x => x.StoreIserial == group.Key))
+                                        {
+                                            variable.AccountTemp = groupAccount;
+                                        }
+                                    }
+                                }
+                           
 
                                 var journalType = 8;
                                 if (company == "MAN")
                                 {
                                     journalType = 1;
                                 }
-                                foreach (var group in list.GroupBy(x => x.StoreIserial))
+
+                                if (postByCustomer)
                                 {
-                                    var RemoveTax = false;
-                                    //revenue
-                                    if (company == "MAN")
+                                    journalType = 1;
+                                    foreach (var group in list.GroupBy(x => x.CustIserial))
                                     {
-                                        var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.FirstOrDefault().CustIserial);
-                                        if (customerPerRow != null)
+                                        var RemoveTax = false;
+                                        //revenue
+                                        if (company == "MAN")
                                         {
-                                            if (customerPerRow.CustomerGroup == 2)
+                                            var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.Key);
+                                            if (customerPerRow != null)
                                             {
-                                                RemoveTax = true;
-                                            }
-
-                                        }
-                                    }
-
-                                    var entityAccount = group.Key;
-                                    var Amount = @group.Sum(w => w.NetSales);
-
-                                    if (company == "MAN")
-                                    {
-                                        entityAccount = group.First().CustIserial;
-                                        Amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
-                                        if (RemoveTax)
-                                        {
-                                            Amount = @group.Sum(x => x.NetSales);
-                                        }
-                                    }
-                                    var newledgerDetailrow = new TblLedgerMainDetail
-                                    {
-                                        Amount = Amount,
-                                        Description = "Sales",
-                                        ExchangeRate = 1,
-                                        TblCurrency = currency,
-                                        TransDate = day,
-                                        TblJournalAccountType = journalType,
-                                        EntityAccount = entityAccount,
-                                        GlAccount = group.First().AccountTemp,
-                                        TblLedgerHeader = newLedgerHeaderRow.Iserial,
-                                        PaymentRef = "",
-                                        DrOrCr = true
-                                    };
-                                    UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
-                                        user);
-
-                                    foreach (var rr in list.Where(x => x.StoreIserial == @group.Key))
-                                    {
-                                        var storeCostcenter = new TblGlRuleDetail();
-                                        storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
-                                            company);
-
-                                        var costcenter = new TblGlRuleDetail();
-                                        costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
-
-                                        if (group.Key != 0)
-                                        {
-                                            var amount = rr.NetSales;
-                                            if (company == "MAN")
-                                            {
-                                                amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
-
-                                                if (RemoveTax)
+                                                if (customerPerRow.CustomerGroup == 2)
                                                 {
-                                                    amount = rr.NetSales;
+                                                    RemoveTax = true;
                                                 }
-                                            }
 
-                                            CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
-                                                storeCostcenter);
-                                            CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
-                                                costcenter);
+                                            }
+                                        }
+
+                                        var entityAccount = group.Key;
+                                        var Amount = @group.Sum(w => w.NetSales);
+
+                                        if (company == "MAN")
+                                        {
+                                            entityAccount = group.First().CustIserial;
+                                            Amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                                            if (RemoveTax)
+                                            {
+                                                Amount = @group.Sum(x => x.NetSales);
+                                            }
+                                        }
+
+                                        var newledgerDetailrow = new TblLedgerMainDetail
+                                        {
+                                            Amount = Amount,
+                                            Description = "Sales",
+                                            ExchangeRate = 1,
+                                            TblCurrency = currency,
+                                            TransDate = day,
+                                            TblJournalAccountType = journalType,
+                                            EntityAccount = entityAccount,
+                                            GlAccount = group.First().AccountTemp,
+                                            TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                            PaymentRef = "",
+                                            DrOrCr = true
+                                        };
+                                        UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
+                                            user);
+
+                                        foreach (var rr in list.Where(x => x.CustIserial == @group.Key))
+                                        {
+                                            var storeCostcenter = new TblGlRuleDetail();
+                                            storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
+                                                company);
+
+                                            var costcenter = new TblGlRuleDetail();
+                                            costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
+
+                                            if (group.Key != 0)
+                                            {
+                                                var amount = rr.NetSales;
+                                                if (company == "MAN")
+                                                {
+                                                    amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+
+                                                    if (RemoveTax)
+                                                    {
+                                                        amount = rr.NetSales;
+                                                    }
+                                                }
+
+                                                CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
+                                                    storeCostcenter);
+                                                CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
+                                                    costcenter);
+                                            }
                                         }
                                     }
                                 }
+                                else
+                                {
+                                    foreach (var group in list.GroupBy(x => x.StoreIserial))
+                                    {
+                                        var RemoveTax = false;
+                                        //revenue
+                                        if (company == "MAN")
+                                        {
+                                            var customerPerRow = customers.FirstOrDefault(w => w.Iserial == group.FirstOrDefault().CustIserial);
+                                            if (customerPerRow != null)
+                                            {
+                                                if (customerPerRow.CustomerGroup == 2)
+                                                {
+                                                    RemoveTax = true;
+                                                }
+
+                                            }
+                                        }
+
+                                        var entityAccount = group.Key;
+                                        var Amount = @group.Sum(w => w.NetSales);
+
+                                        if (company == "MAN")
+                                        {
+                                            entityAccount = group.First().CustIserial;
+                                            Amount = @group.Sum(x => x.NetSales) / (decimal)taxPercentage;
+                                            if (RemoveTax)
+                                            {
+                                                Amount = @group.Sum(x => x.NetSales);
+                                            }
+                                        }
+                                        var newledgerDetailrow = new TblLedgerMainDetail
+                                        {
+                                            Amount = Amount,
+                                            Description = "Sales",
+                                            ExchangeRate = 1,
+                                            TblCurrency = currency,
+                                            TransDate = day,
+                                            TblJournalAccountType = journalType,
+                                            EntityAccount = entityAccount,
+                                            GlAccount = group.First().AccountTemp,
+                                            TblLedgerHeader = newLedgerHeaderRow.Iserial,
+                                            PaymentRef = "",
+                                            DrOrCr = true
+                                        };
+                                        UpdateOrInsertTblLedgerMainDetails(newledgerDetailrow, true, 000, out temp, company,
+                                            user);
+
+                                        foreach (var rr in list.Where(x => x.StoreIserial == @group.Key))
+                                        {
+                                            var storeCostcenter = new TblGlRuleDetail();
+                                            storeCostcenter = FindCostCenterByType(storeCostcenter, 8, rr.StoreIserial,
+                                                company);
+
+                                            var costcenter = new TblGlRuleDetail();
+                                            costcenter = FindCostCenterByType(costcenter, 0, rr.GroupIserial, company);
+
+                                            if (group.Key != 0)
+                                            {
+                                                var amount = rr.NetSales;
+                                                if (company == "MAN")
+                                                {
+                                                    amount = rr.NetSales - rr.NetSales / (decimal)taxPercentage;
+
+                                                    if (RemoveTax)
+                                                    {
+                                                        amount = rr.NetSales;
+                                                    }
+                                                }
+
+                                                CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
+                                                    storeCostcenter);
+                                                CreateTblLedgerDetailCostCenter(company, amount, newledgerDetailrow,
+                                                    costcenter);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                 
 
                                 if (company == "MAN")
                                 {

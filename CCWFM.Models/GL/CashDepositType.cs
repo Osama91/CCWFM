@@ -20,6 +20,7 @@ namespace CCWFM.Models.Gl
         PremiumCard2030 = 11,
         DsquaresLuckyWallet = 12,
         VALU = 13,
-        FORSA = 14
+        FORSA = 14,
+        AmazonMarket = 15
     }
 }

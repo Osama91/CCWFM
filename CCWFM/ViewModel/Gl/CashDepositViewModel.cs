@@ -514,7 +514,14 @@ namespace CCWFM.ViewModel.Gl
                                     SelectedDetailRow.EntityAccount = lastRow.EntityAccount;
                                     SelectedDetailRow.EntityPerRow = lastRow.EntityPerRow;
                                     break;
-
+                                case CashDepositType.AmazonMarket:
+                                    SelectedDetailRow.TblBank = null;
+                                    SelectedDetailRow.TblBank1 = null;
+                                    SelectedDetailRow.TblJournalAccountType = lastRow.TblJournalAccountType;
+                                    SelectedDetailRow.JournalAccountTypePerRow = lastRow.JournalAccountTypePerRow;
+                                    SelectedDetailRow.EntityAccount = lastRow.EntityAccount;
+                                    SelectedDetailRow.EntityPerRow = lastRow.EntityPerRow;
+                                    break;
                                 case CashDepositType.DsquaresLuckyWallet:
                                     SelectedDetailRow.TblBank = null;
                                     SelectedDetailRow.TblBank1 = null;
@@ -1389,6 +1396,30 @@ namespace CCWFM.ViewModel.Gl
                         SelectedDetailRow.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
                         SelectedDetailRow.DiscountPercent = CashDepositRow.DiscountPercent;
                     }
+                }
+                else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.AmazonMarket)
+                {
+                    var CashDeposit = CashDepositSetting.Where(w => w.TblTenderTypes == SelectedMainRow.TblTenderType && w.TblCashDepositType.Value == SelectedMainRow.TblCashDepositType);
+                    foreach (var CashDepositRow in CashDeposit)
+                    {
+                        if (CashDepositRow != null)
+                        {
+                            CashDepositDetail _detail = SelectedDetailRow;
+                            _detail.TblJournalAccountType = CashDepositRow.TblJournalAccountType;
+                            _detail.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType);
+                            //new gene().InjectFrom(
+                            // as TblJournalAccountType;
+                            //SelectedDetailRow.JournalAccountTypePerRow = new TblJournalAccountType().InjectFrom(JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType)) as TblJournalAccountType;
+                            _detail.EntityAccount = CashDepositRow.EntityAccount;
+                            _detail.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
+                            _detail.DiscountPercent = CashDepositRow.DiscountPercent;
+                            _detail.Amount = (SelectedDetailRow.Amount * CashDepositRow.DiscountPercent.Value) / 100;
+                            SelectedMainRow.TblCashDepositDetails.Add(_detail);
+                     
+                        }
+                    }
+
+                 
                 }
                 else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.DsquaresLuckyWallet)
                 {
