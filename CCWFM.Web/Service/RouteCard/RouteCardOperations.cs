@@ -198,6 +198,17 @@ namespace CCWFM.Web.Service.RouteCard
                 if (header.RouteCardFabrics.Any())
                 {
                     var MaxPackingTransid = context.RouteCardHeaders.Where(w => w.tblTransactionType == header.tblTransactionType).Max(w => w.PackingTransID);
+
+                    if (header.tblTransactionType==7|| header.tblTransactionType == 10)
+                    {
+                        
+                     var lastTransaction=   context.RouteCardHeaders.FirstOrDefault(e => e.PackingTransID == MaxPackingTransid).AxRouteCardFabricsJournalId;
+
+                        if (lastTransaction==null)
+                        {
+                            throw new Exception("this Transaction Should Be Posted First:" + MaxPackingTransid.ToString());
+                        }
+                    }
                     header.PackingTransID = MaxPackingTransid + 1;
                 }
                 if (header.tblTransactionType == 5)
@@ -251,6 +262,7 @@ namespace CCWFM.Web.Service.RouteCard
                             }
                         }
                     }
+
                     else if (header.tblTransactionType == 5)
                     {
                         foreach (var routeCardFabricRow in header.RouteCardFabrics.ToList())

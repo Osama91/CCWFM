@@ -108,6 +108,24 @@ namespace CCWFM.Views
                 PostOrNo = 1;
             }
 
+            if (MyViewModel.TransactionType== 10||MyViewModel.TransactionType==7)
+            {
+                if (MyViewModel.RouteCardFabricViewModelList.Any())
+                {
+                    foreach (var item in MyViewModel.RouteCardFabricViewModelList)
+                    {
+                        if (item.CostPerUnit==0|| item.CostPerUnit!=null)
+                        {
+                            MessageBox.Show("Cost Cannot Be 0");
+                            return;
+                        }
+
+                    }
+
+                }
+
+            }
+
             if (MyViewModel.Iserial == 0)
             {
 
