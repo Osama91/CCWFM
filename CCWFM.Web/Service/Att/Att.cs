@@ -1173,6 +1173,11 @@ namespace CCWFM.Web.Service.Att
                         //var periodline = db.CSPPERIODLINES.FirstOrDefault(x => x.FROMDATE <= fromDate && x.TODATE >= fromDate && x.CSPPERIODID == period);
 
                         var periodline = db.TblPeriodLines.FirstOrDefault(x => x.FromDate <= fromDate && x.ToDate >= fromDate && x.TblPeriod1.Code == period);
+                        if (periodline.Locked)
+                        {
+                            return false;
+                        }
+
                         string periodlineStr = Convert.ToString(Convert.ToInt32(periodline.LineNumber));
 
                         var periodlock = context.TblPeriodLocks.FirstOrDefault(w => w.CspPeriodLineID == periodlineStr && w.CspPeriodID == period);

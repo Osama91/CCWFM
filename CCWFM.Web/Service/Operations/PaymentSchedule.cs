@@ -117,22 +117,22 @@ namespace CCWFM.Web.Service
             }
         }
 
-        [OperationContract]
-        private List<VENDPAYMMODETABLE> GetVendPayMode(string dataArea)
-        {
-            using (var context = new ax2009_ccEntities())
-            {
-                return context.VENDPAYMMODETABLEs.Where(x => x.DATAAREAID == dataArea).ToList();
-            }
-        }
+        //[OperationContract]
+        //private List<VENDPAYMMODETABLE> GetVendPayMode(string dataArea)
+        //{
+        //    using (var context = new ax2009_ccEntities())
+        //    {
+        //        return context.VENDPAYMMODETABLEs.Where(x => x.DATAAREAID == dataArea).ToList();
+        //    }
+        //}
 
-        [OperationContract]
-        private List<PAYMTERM> GetAxPaymentTerm(string dataArea)
-        {
-            using (var context = new ax2009_ccEntities())
-            {
-                return context.PAYMTERMs.Where(x => x.DATAAREAID == dataArea).ToList();
-            }
-        }
+        //[OperationContract]
+        //private List<PAYMTERM> GetAxPaymentTerm(string dataArea)
+        //{
+        //    using (var context = new ax2009_ccEntities())
+        //    {
+        //        return context.PAYMTERMs.Where(x => x.DATAAREAID == dataArea).ToList();
+        //    }
+        //}
     }
 }

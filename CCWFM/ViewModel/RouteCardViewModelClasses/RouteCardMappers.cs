@@ -16,7 +16,13 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
        
             var row = new RouteCardFabricViewModel
             {
+                ItemPerRow = new ItemsDto()
+                {
+                    ItemGroup = item.ItemGroup,
+                    Code = item.ItemId,
+                    Unit = item.Unit,
 
+                },
                 TransID = item.RouteCardHeader.TransID,
                 DocDate = item.RouteCardHeader.DocDate,
                 RemainingQty = item.RemainingQty,
@@ -61,6 +67,13 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
         {
             return new RouteCardFabricViewModel
             {
+                ItemPerRow= new ItemsDto() {
+                    ItemGroup= item.BOM_FabricType,
+                   Code=item.ItemId,
+                   Unit=item.UnitID,
+                  
+                },
+                ItemGroup = item.BOM_FabricType,
                 ItemId = item.ItemId,
                 Warehouse = warehouse,
                 FabricColor = item.FabricColorIserial,
@@ -101,7 +114,7 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
                 Qty = item.Total,
                 Notes = item.Notes,
                 NewFabricColor = item.DyedColor,
-                ItemGroup = item.BOM_FabricType,
+       
             };
         }
 

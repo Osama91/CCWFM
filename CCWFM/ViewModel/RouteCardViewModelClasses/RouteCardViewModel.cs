@@ -1689,7 +1689,10 @@ namespace CCWFM.ViewModel.RouteCardViewModelClasses
                     {
                         warehouse = DefaultAccWarehouse;
                     }
-                    RouteCardFabricViewModelList.Add(RouteCardMappers.MapToViewModel(item, warehouse, WarehouseList));
+                    var TempRecord = RouteCardMappers.MapToViewModel(item, warehouse, WarehouseList);
+
+                   
+                    RouteCardFabricViewModelList.Add(TempRecord);
                 }
             };
 

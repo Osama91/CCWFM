@@ -596,7 +596,7 @@ namespace CCWFM.Web.Service
 
                     fullCount = entity.TblPurchaseReceiveHeaders.Where(filter, parameterCollection.ToArray()).Count();
                     query =
-                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
+                        entity.TblPurchaseReceiveHeaders.Include("TblPurchaseOrderHeaderRequest1").Include("TblWarehouse1").Include("TblInventType1")
                             .Where(filter, parameterCollection.ToArray())
                             .OrderBy(sort)
                             .Skip(skip)
@@ -608,9 +608,9 @@ namespace CCWFM.Web.Service
                         entity.TblPurchaseReceiveHeaders.Count(
                             x => !iserials.Contains(x.Iserial) && x.Vendor == supplier );
                     query =
-                        entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
+                        entity.TblPurchaseReceiveHeaders.Include("TblPurchaseOrderHeaderRequest1").Include("TblWarehouse1").Include("TblInventType1")
                             .OrderBy(sort)
-                            .Where(x => !iserials.Contains(x.Iserial) && x.Vendor == supplier )
+                            .Where(x =>  !iserials.Contains(x.Iserial) && x.Vendor == supplier )
                             .Skip(skip)
                             .Take(take);
                 }
@@ -630,7 +630,7 @@ namespace CCWFM.Web.Service
                 IQueryable<TblPurchaseReceiveHeader> query;
 
                 query =
-                    entity.TblPurchaseReceiveHeaders.Include("TblWarehouse1").Include("TblInventType1")
+                    entity.TblPurchaseReceiveHeaders.Include("TblPurchaseOrderHeaderRequest1").Include("TblWarehouse1").Include("TblInventType1")
                         .Where(x => !iserials.Contains(x.Iserial) && x.Vendor == supplier
                         && x.DocDate >= From && x.DocDate < To);
 

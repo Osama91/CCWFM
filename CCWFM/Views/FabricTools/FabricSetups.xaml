@@ -702,7 +702,38 @@
 				</ComboBox>
 			</toolkit:AccordionItem>
 
-			<toolkit:AccordionItem Name="YarnSourceAccItem"
+            <!--IsEnabled="{Binding ElementName=IsPartialCheckBox,Path=IsChecked,Converter={StaticResource ReversedConverter}}"	    
+								   Visibility="{Binding ElementName=FabCategoryCombo,Path=SelectedValue
+				,Converter={StaticResource FabricCategoryVisibilityConverter},ConverterParameter=4;5;2;3}"-->
+            <toolkit:AccordionItem Name="stitckFabric"
+									>
+                <toolkit:AccordionItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="0" Margin="5,0">
+						<Run Text="{Binding CustomerFabric, Source={StaticResource LocalizedStrings}}" FontWeight="Bold" />
+						<Run Text="{Binding ElementName=CustomerFabricCombo,Path=SelectedItem,Converter={StaticResource GetNameConverter}}" />
+                        </TextBlock>
+                        <Image MaxWidth="8"                        
+						   Margin="5"
+						   HorizontalAlignment="Right"
+						   VerticalAlignment="Center"
+						   Source="/CCWFM;component/Images/1383681826_star_red.png"
+							Stretch="Uniform" />
+                    </StackPanel>
+                </toolkit:AccordionItem.Header>
+                <ComboBox Name="CustomerFabricCombo" 
+					DisplayMemberPath="{Binding Converter={StaticResource DisplaypathByLang}}"
+					SelectedValuePath="Iserial"
+					ItemsSource="{Binding DyingClassList}"
+					SelectedValue="{Binding DyingClassificationID,Mode=TwoWay}"
+					SelectedItem="{Binding DyingClassProperty,Mode=TwoWay}"
+					Margin="5"
+					HorizontalAlignment="Stretch" MinWidth="150">
+                </ComboBox>
+            </toolkit:AccordionItem>
+
+
+            <toolkit:AccordionItem Name="YarnSourceAccItem"
 								   Visibility="{Binding ElementName=FabCategoryCombo,Path=SelectedValue
 				,Converter={StaticResource FabricCategoryVisibilityConverter},ConverterParameter=1}">
 				<toolkit:AccordionItem.Header>

@@ -35,6 +35,11 @@
                         LoadingRow="DetailGrid_LoadingRow"
                          OnFilter="DetailGrid_OnOnFilter">
                 <sdk:DataGrid.Columns>
+
+                    <sdk:DataGridTextColumn Binding="{Binding Path=TblPurchaseOrderHeaderRequest1.Code,Mode=TwoWay}"
+                                        dataGrid:DataGridColumnHelper.HeaderBinding="{Binding PurchaseOrder, Source={StaticResource LocalizedStrings}}"
+                                        Width="*" />
+                    
                     <sdk:DataGridTextColumn Binding="{Binding Path=DocCode,Mode=TwoWay}"
                                         dataGrid:DataGridColumnHelper.HeaderBinding="{Binding Code, Source={StaticResource LocalizedStrings}}"
                                         Width="*" />

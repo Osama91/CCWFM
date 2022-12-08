@@ -1362,6 +1362,14 @@
           <Property Name="TblAccount" Type="int" Nullable="false" />
           <Property Name="TblInventAccountType" Type="int" />
         </EntityType>
+        <EntityType Name="TblInventPostingOverride">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupId" Type="int" />
+          <Property Name="TblAccount" Type="int" />
+        </EntityType>
         <EntityType Name="TblItemDownLoadDef">
           <Key>
             <PropertyRef Name="iserial" />
@@ -2796,7 +2804,7 @@ warning 6002: The table/view 'ccnew.dbo.allstock' does not have a primary key de
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -3117,9 +3125,9 @@ warning 6002: The table/view 'ccnew.dbo.ccitemview_CCRAX' does not have a primar
           <Property Name="SizeGroupSerial" Type="int" Nullable="false" />
           <Property Name="SeasonCode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="iserial" Type="int" Nullable="false" />
-          <Property Name="ItemCode" Type="varchar" MaxLength="25" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="40" />
           <Property Name="Itemname" Type="varchar" MaxLength="50" />
-          <Property Name="TblColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TblColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="TblsizeCode" Type="varchar" MaxLength="10" />
           <Property Name="sizeSerial" Type="int" Nullable="false" />
           <Property Name="TblColorEname" Type="varchar" MaxLength="25" />
@@ -3142,9 +3150,9 @@ warning 6002: The table/view 'ccnew.dbo.ccitemviewnew' does not have a primary k
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
           <Property Name="iserial" Type="int" Nullable="false" />
-          <Property Name="ItemCode" Type="varchar" MaxLength="25" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="40" />
           <Property Name="Itemname" Type="varchar" MaxLength="50" />
-          <Property Name="TblColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TblColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="TblsizeCode" Type="varchar" MaxLength="10" />
           <Property Name="TblColorEname" Type="varchar" MaxLength="25" />
           <Property Name="ItemStoreGroup" Type="int" />
@@ -3188,7 +3196,7 @@ warning 6002: The table/view 'ccnew.dbo.ccnewReceive' does not have a primary ke
           <Key>
             <PropertyRef Name="Brand" />
           </Key>
-          <Property Name="Document" Type="varchar" MaxLength="10" />
+          <Property Name="Document" Type="nvarchar" MaxLength="15" />
           <Property Name="Brand" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="VoucherDate" Type="varchar" MaxLength="12" />
           <Property Name="Barcode" Type="nvarchar" MaxLength="12" />
@@ -3201,7 +3209,7 @@ warning 6002: The table/view 'ccnew.dbo.ccnewRetReceive' does not have a primary
           <Key>
             <PropertyRef Name="Brand" />
           </Key>
-          <Property Name="Document" Type="varchar" MaxLength="10" />
+          <Property Name="Document" Type="nvarchar" MaxLength="15" />
           <Property Name="Brand" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="VoucherDate" Type="varchar" MaxLength="12" />
           <Property Name="Barcode" Type="nvarchar" MaxLength="12" />
@@ -3242,7 +3250,7 @@ warning 6002: The table/view 'ccnew.dbo.CityStars_139' does not have a primary k
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="DayDate" Type="datetime" />
           <Property Name="NETSALES" Type="numeric" Precision="10" Scale="2" />
           <Property Name="TAX" Type="numeric" Precision="10" Scale="2" />
@@ -3272,7 +3280,7 @@ warning 6002: The table/view 'ccnew.dbo.CityStars_144' does not have a primary k
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="DayDate" Type="datetime" />
           <Property Name="NETSALES" Type="numeric" Precision="10" Scale="2" />
           <Property Name="TAX" Type="numeric" Precision="10" Scale="2" />
@@ -3324,7 +3332,7 @@ warning 6002: The table/view 'ccnew.dbo.customertransfix' does not have a primar
             <PropertyRef Name="glserial" />
           </Key>
           <Property Name="glserial" Type="int" Nullable="false" />
-          <Property Name="code" Type="varchar" MaxLength="10" />
+          <Property Name="code" Type="nvarchar" MaxLength="15" />
           <Property Name="votdate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -3382,7 +3390,7 @@ warning 6002: The table/view 'ccnew.dbo.dhmnewstock' does not have a primary key
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -3426,7 +3434,7 @@ warning 6002: The table/view 'ccnew.dbo.DHMstock' does not have a primary key de
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -3470,7 +3478,7 @@ warning 6002: The table/view 'ccnew.dbo.dhwstock' does not have a primary key de
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -3523,7 +3531,7 @@ warning 6002: The table/view 'ccnew.dbo.empsales' does not have a primary key de
           <Property Name="Total Sales_Retail" Type="float" Nullable="false" />
           <Property Name="Total disc" Type="float" />
           <Property Name="Net Sales" Type="float" Nullable="false" />
-          <Property Name="Voucher Serial" Type="varchar" MaxLength="10" />
+          <Property Name="Voucher Serial" Type="nvarchar" MaxLength="15" />
           <Property Name="Tender Type" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -3602,7 +3610,7 @@ warning 6002: The table/view 'ccnew.dbo.ItemBarCodeView' does not have a primary
             <PropertyRef Name="AName" />
           </Key>
           <Property Name="ISerial" Type="int" Nullable="false" />
-          <Property Name="Code" Type="varchar" MaxLength="25" />
+          <Property Name="Code" Type="nvarchar" MaxLength="40" />
           <Property Name="barcode" Type="varchar" MaxLength="50" />
           <Property Name="AName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EName" Type="varchar" MaxLength="50" />
@@ -3643,7 +3651,7 @@ warning 6002: The table/view 'ccnew.dbo.Jumiastock' does not have a primary key 
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -3678,9 +3686,9 @@ warning 6002: The table/view 'ccnew.dbo.LastReceivedate' does not have a primary
             <PropertyRef Name="Last Two Day Receive" />
             <PropertyRef Name="Season To Date Delivered" />
           </Key>
-          <Property Name="style" Type="varchar" MaxLength="36" />
+          <Property Name="style" Type="varchar" MaxLength="51" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Item Cost" Type="real" />
           <Property Name="Retail Price" Type="money" />
           <Property Name="Profit Margin" Type="decimal" Precision="8" Scale="2" />
@@ -3698,10 +3706,10 @@ warning 6002: The table/view 'ccnew.dbo.LastReceivedateORWomen' does not have a 
             <PropertyRef Name="Season To Date Delivered" />
             <PropertyRef Name="Sub Season" />
           </Key>
-          <Property Name="style" Type="varchar" MaxLength="36" />
+          <Property Name="style" Type="varchar" MaxLength="51" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Theme" Type="nvarchar" MaxLength="50" />
           <Property Name="Item Cost" Type="real" />
           <Property Name="Retail Price" Type="money" />
@@ -3720,9 +3728,9 @@ warning 6002: The table/view 'ccnew.dbo.LastReceivedatew' does not have a primar
             <PropertyRef Name="Last Two Day Receive" />
             <PropertyRef Name="Season To Date Delivered" />
           </Key>
-          <Property Name="style" Type="varchar" MaxLength="36" />
+          <Property Name="style" Type="varchar" MaxLength="51" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Item Cost" Type="real" />
           <Property Name="Retail Price" Type="money" />
           <Property Name="Profit Margin" Type="decimal" Precision="19" Scale="4" />
@@ -3761,7 +3769,7 @@ warning 6002: The table/view 'ccnew.dbo.MANReceiveSeason' does not have a primar
           </Key>
           <Property Name="Brand" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Style" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Receive Qty" Type="float" Nullable="false" />
           <Property Name="Stores" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
@@ -3777,7 +3785,7 @@ warning 6002: The table/view 'ccnew.dbo.MANReceivesize' does not have a primary 
           <Property Name="BrandName" Type="varchar" MaxLength="50" />
           <Property Name="Style" Type="varchar" MaxLength="25" />
           <Property Name="mansize" Type="varchar" MaxLength="10" />
-          <Property Name="mancolor" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="mancolor" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Year" Type="nvarchar" MaxLength="30" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Netrecqty" Type="float" Nullable="false" />
@@ -3867,7 +3875,7 @@ warning 6002: The table/view 'ccnew.dbo.masterdata' does not have a primary key 
           <Property Name="Barcode" Type="nvarchar" MaxLength="12" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="size" Type="varchar" MaxLength="10" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="dim1" Type="int" Nullable="false" />
           <Property Name="dim2" Type="int" Nullable="false" />
           <Property Name="ECost" Type="int" Nullable="false" />
@@ -3912,7 +3920,7 @@ warning 6002: The table/view 'ccnew.dbo.Negativestock' does not have a primary k
           <Property Name="storename" Type="nvarchar" MaxLength="50" />
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Group1" Type="varchar" MaxLength="40" />
           <Property Name="season" Type="varchar" MaxLength="50" />
           <Property Name="Group3" Type="nvarchar" MaxLength="200" />
@@ -3994,7 +4002,7 @@ warning 6002: The table/view 'ccnew.dbo.OnlineStock' does not have a primary key
           <Property Name="BrandSection" Type="varchar" MaxLength="50" />
           <Property Name="Model" Type="varchar" MaxLength="25" />
           <Property Name="ProdDesc" Type="varchar" MaxLength="50" />
-          <Property Name="ColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="SizeCode" Type="varchar" MaxLength="10" />
           <Property Name="Family" Type="varchar" MaxLength="50" />
           <Property Name="SubFamily" Type="varchar" MaxLength="50" />
@@ -4082,7 +4090,7 @@ warning 6002: The table/view 'ccnew.dbo.orMstock' does not have a primary key de
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -4106,7 +4114,7 @@ warning 6002: The table/view 'ccnew.dbo.orMstockwinter' does not have a primary 
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -4255,7 +4263,7 @@ warning 6002: The table/view 'ccnew.dbo.orwstock' does not have a primary key de
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -4278,7 +4286,7 @@ warning 6002: The table/view 'ccnew.dbo.orwstockwinter' does not have a primary 
           <Property Name="style" Type="varchar" MaxLength="25" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="size1" Type="varchar" MaxLength="10" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Fdate" Type="varchar" MaxLength="12" />
           <Property Name="Season" Type="varchar" MaxLength="40" />
           <Property Name="group" Type="varchar" MaxLength="50" />
@@ -4296,10 +4304,10 @@ warning 6002: The table/view 'ccnew.dbo.outletdoc' does not have a primary key d
           </Key>
           <Property Name="Store Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Document" Type="date" />
-          <Property Name="doc" Type="varchar" MaxLength="10" />
+          <Property Name="doc" Type="nvarchar" MaxLength="15" />
           <Property Name="Sold Qty" Type="float" />
           <Property Name="Sales Value" Type="float" Nullable="false" />
-          <Property Name="itemcode" Type="varchar" MaxLength="25" />
+          <Property Name="itemcode" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.outlettransfertosoldytd' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4381,7 +4389,7 @@ warning 6002: The table/view 'ccnew.dbo.POExtraRec' does not have a primary key 
             <PropertyRef Name="Cost Increase" />
           </Key>
           <Property Name="style" Type="varchar" MaxLength="25" />
-          <Property Name="color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="season" Type="varchar" MaxLength="50" />
           <Property Name="brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4435,11 +4443,11 @@ warning 6002: The table/view 'ccnew.dbo.POStatus' does not have a primary key de
             <PropertyRef Name="P.O QTY" />
             <PropertyRef Name="Receive QTY" />
             <PropertyRef Name="P.O Item Cost" />
-            <PropertyRef Name="%Receive Qty" />
             <PropertyRef Name="Day Remaining" />
+            <PropertyRef Name="%Receive Qty" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4467,7 +4475,7 @@ warning 6002: The table/view 'ccnew.dbo.POStatus1' does not have a primary key d
             <PropertyRef Name="%Receive Qty" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4496,7 +4504,7 @@ warning 6002: The table/view 'ccnew.dbo.POStatusbasic' does not have a primary k
             <PropertyRef Name="Day Remaining" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4552,7 +4560,7 @@ warning 6002: The table/view 'ccnew.dbo.POStatusnew' does not have a primary key
             <PropertyRef Name="Cost Increase" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4583,7 +4591,7 @@ warning 6002: The table/view 'ccnew.dbo.POStatusnew1' does not have a primary ke
             <PropertyRef Name="%Cost Increase" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Season" Type="varchar" MaxLength="50" />
           <Property Name="Brand" Type="varchar" MaxLength="50" />
           <Property Name="Supplier Name" Type="varchar" MaxLength="40" />
@@ -4703,7 +4711,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransCustomerSales' does not hav
           <Property Name="Tblitem" Type="int" />
           <Property Name="TblItemCode" Type="varchar" MaxLength="25" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="quantaty" Type="real" />
           <Property Name="Votglserial" Type="int" />
           <Property Name="Cost" Type="real" />
@@ -4727,7 +4735,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransGLPostSales' does not have 
           <Property Name="Exdate" Type="datetime" />
           <Property Name="Tblitem" Type="int" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="quantaty" Type="real" />
           <Property Name="Votglserial" Type="int" />
           <Property Name="Cost" Type="real" />
@@ -4756,7 +4764,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransHistory' does not have a pr
           <Property Name="Tblitem" Type="int" />
           <Property Name="TblItemCode" Type="varchar" MaxLength="25" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="quantaty" Type="real" />
           <Property Name="Votglserial" Type="int" />
           <Property Name="Cost" Type="real" />
@@ -4780,7 +4788,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSales' does not have a prim
           <Property Name="Tblitem" Type="int" />
           <Property Name="TblItemCode" Type="varchar" MaxLength="25" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="quantaty" Type="real" />
           <Property Name="Votglserial" Type="int" />
           <Property Name="Cost" Type="real" />
@@ -4805,7 +4813,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesperson' does not have 
           <Property Name="Tblitem" Type="int" />
           <Property Name="TblItemCode" Type="varchar" MaxLength="25" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="quantaty" Type="real" />
           <Property Name="Votglserial" Type="int" />
           <Property Name="Cost" Type="real" />
@@ -4871,6 +4879,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesPersonCustomerSales' d
           <Property Name="tblGtypeRef" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="LoyaltyCustomerIserial" Type="int" />
           <Property Name="loyaltyRef" Type="nvarchar" MaxLength="40" />
+          <Property Name="STsalesiserial" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesPersonCustomerSalesbag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4928,7 +4937,7 @@ warning 6002: The table/view 'ccnew.dbo.QRYStoreTransSalesSets' does not have a 
           <Property Name="TblVotype" Type="int" />
           <Property Name="Exdate" Type="datetime" />
           <Property Name="VotDate" Type="datetime" />
-          <Property Name="Votdoc" Type="varchar" MaxLength="10" />
+          <Property Name="Votdoc" Type="nvarchar" MaxLength="15" />
           <Property Name="cost" Type="float" />
           <Property Name="ItemDisc" Type="float" />
           <Property Name="InvDisc" Type="float" />
@@ -4958,11 +4967,11 @@ warning 6002: The table/view 'ccnew.dbo.ReceiveStatus' does not have a primary k
           <Property Name="Store Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Receive Quantity" Type="float" Nullable="false" />
           <Property Name="Receive Total Cost" Type="float" Nullable="false" />
-          <Property Name="Voucher Documents" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Voucher Documents" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Receive Date" Type="varchar" MaxLength="11" />
           <Property Name="Return Quantity" Type="float" Nullable="false" />
           <Property Name="Return Total Cost" Type="float" Nullable="false" />
-          <Property Name="Return Documents" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Return Documents" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Return Date" Type="varchar" MaxLength="11" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -5042,7 +5051,7 @@ warning 6002: The table/view 'ccnew.dbo.RecInvItem' does not have a primary key 
           </Key>
           <Property Name="iserial" Type="int" Nullable="false" />
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="ColorCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="ColorName" Type="varchar" MaxLength="25" />
           <Property Name="SizeCode" Type="varchar" MaxLength="10" />
         </EntityType>
@@ -5059,7 +5068,7 @@ warning 6002: The table/view 'ccnew.dbo.RecInvStyle' does not have a primary key
           <Property Name="Code" Type="nvarchar" MaxLength="25" />
           <Property Name="SupplierInv" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TransDate" Type="datetime" />
-          <Property Name="TblRecInvHeader" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TblRecInvHeader" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Style" Type="varchar" MaxLength="25" />
           <Property Name="Cost" Type="decimal" Precision="38" Scale="6" />
           <Property Name="Quantity" Type="decimal" Precision="38" Scale="4" />
@@ -5248,6 +5257,8 @@ warning 6002: The table/view 'ccnew.dbo.TblBrandStorePriority' does not have a p
           <Property Name="OrWActive" Type="int" />
           <Property Name="Active" Type="int" />
           <Property Name="Srqty" Type="int" />
+          <Property Name="Division" Type="nvarchar" MaxLength="50" />
+          <Property Name="Section" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.tblglobalsetting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5255,7 +5266,7 @@ warning 6002: The table/view 'ccnew.dbo.tblglobalsetting' does not have a primar
           <Key>
             <PropertyRef Name="glserial" />
           </Key>
-          <Property Name="glserial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="glserial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ItmPrice" Type="int" />
           <Property Name="AddExpensis" Type="int" />
           <Property Name="UnitVat" Type="int" />
@@ -5621,6 +5632,10 @@ warning 6002: The table/view 'ccnew.dbo.TblStoreView' does not have a primary ke
           <Property Name="tblcustomer" Type="int" />
           <Property Name="GlCode" Type="nvarchar" MaxLength="50" />
           <Property Name="issuestore" Type="int" />
+          <Property Name="TblSupplier" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="TblTfkWarehouse" Type="int" />
+          <Property Name="Online" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ccnew.dbo.VewQtyItemQty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5671,7 +5686,7 @@ warning 6002: The table/view 'ccnew.dbo.VIEW3' does not have a primary key defin
           <Property Name="PurchNum" Type="varchar" MaxLength="10" />
           <Property Name="VotNo" Type="varchar" MaxLength="10" />
           <Property Name="votdate" Type="datetime" />
-          <Property Name="itemcode" Type="varchar" MaxLength="25" />
+          <Property Name="itemcode" Type="nvarchar" MaxLength="40" />
           <Property Name="itemAname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="supplierinvno" Type="varchar" MaxLength="10" />
           <Property Name="itemEname" Type="varchar" MaxLength="50" />
@@ -5682,7 +5697,7 @@ warning 6002: The table/view 'ccnew.dbo.VIEW3' does not have a primary key defin
           <Property Name="Dserial" Type="int" />
           <Property Name="sizeaname" Type="varchar" MaxLength="25" />
           <Property Name="sizeename" Type="varchar" MaxLength="25" />
-          <Property Name="colorcode" Type="varchar" MaxLength="10" />
+          <Property Name="colorcode" Type="varchar" MaxLength="25" />
           <Property Name="coloraname" Type="varchar" MaxLength="25" />
           <Property Name="colorename" Type="varchar" MaxLength="25" />
           <Property Name="TotalTax" Type="money" />
@@ -5742,7 +5757,7 @@ warning 6002: The table/view 'ccnew.dbo.ViewShopAreaBrand' does not have a prima
           </Key>
           <Property Name="BrandCostCenterType" Type="int" />
           <Property Name="areab" Type="money" />
-          <Property Name="BrandCostCenter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandCostCenter" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BrandCode" Type="varchar" MaxLength="10" />
           <Property Name="BrandIserial" Type="int" Nullable="false" />
           <Property Name="AllowGeneralReDistribution" Type="bit" Nullable="false" />
@@ -5767,15 +5782,15 @@ warning 6002: The table/view 'ccnew.dbo.Vitemlist' does not have a primary key d
             <PropertyRef Name="ISerial" />
           </Key>
           <Property Name="Style" Type="varchar" MaxLength="25" />
-          <Property Name="ItemCode" Type="varchar" MaxLength="25" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="40" />
           <Property Name="Code" Type="varchar" MaxLength="10" />
-          <Property Name="TblColorCode" Type="varchar" MaxLength="10" />
+          <Property Name="TblColorCode" Type="varchar" MaxLength="25" />
           <Property Name="TblsizeCode" Type="varchar" MaxLength="10" />
           <Property Name="Tblclass2Code" Type="varchar" MaxLength="10" />
           <Property Name="Tblclass3Code" Type="varchar" MaxLength="10" />
           <Property Name="TblCLASS3Ename" Type="varchar" MaxLength="50" />
           <Property Name="TblCLASS2Ename" Type="varchar" MaxLength="50" />
-          <Property Name="TblCLASS4Code" Type="varchar" MaxLength="10" />
+          <Property Name="TblCLASS4Code" Type="nvarchar" MaxLength="25" />
           <Property Name="TblCLASS4Ename" Type="varchar" MaxLength="50" />
           <Property Name="TblSizeGroupEname" Type="varchar" MaxLength="25" />
           <Property Name="TblCLASS1Code" Type="varchar" MaxLength="10" />
@@ -8704,6 +8719,10 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <Parameter Name="Iserial" Type="int" Mode="In" />
           <Parameter Name="Validate" Type="bit" Mode="In" />
         </Function>
+        <Function Name="RecInvContractValidationInspection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Iserial" Type="int" Mode="In" />
+          <Parameter Name="Validate" Type="bit" Mode="In" />
+        </Function>
         <Function Name="ReverseLedgerTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tblJournlLink" Type="int" Mode="In" />
           <Parameter Name="TblTransactionType" Type="int" Mode="In" />
@@ -8866,6 +8885,7 @@ warning 6035: The relationship 'FK_shoparea_TblStore' has columns that are not p
           <EntitySet Name="TblIncomeTax" EntityType="Self.TblIncomeTax" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblInventAccountType" EntityType="Self.TblInventAccountType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblInventPosting" EntityType="Self.TblInventPosting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInventPostingOverride" EntityType="Self.TblInventPostingOverride" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblItemDownLoadDef" EntityType="Self.TblItemDownLoadDef" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLITEMprice" EntityType="Self.TBLITEMprice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblJournal" EntityType="Self.TblJournal" Schema="dbo" store:Type="Tables" />
@@ -10586,7 +10606,8 @@ FROM [dbo].[QRYStoreTransSalesperson] AS [QRYStoreTransSalesperson]</DefiningQue
 [QRYStoreTransSalesPersonCustomerSales].[tblGtype] AS [tblGtype], 
 [QRYStoreTransSalesPersonCustomerSales].[tblGtypeRef] AS [tblGtypeRef], 
 [QRYStoreTransSalesPersonCustomerSales].[LoyaltyCustomerIserial] AS [LoyaltyCustomerIserial], 
-[QRYStoreTransSalesPersonCustomerSales].[loyaltyRef] AS [loyaltyRef]
+[QRYStoreTransSalesPersonCustomerSales].[loyaltyRef] AS [loyaltyRef], 
+[QRYStoreTransSalesPersonCustomerSales].[STsalesiserial] AS [STsalesiserial]
 FROM [dbo].[QRYStoreTransSalesPersonCustomerSales] AS [QRYStoreTransSalesPersonCustomerSales]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="QRYStoreTransSalesPersonCustomerSalesbag" EntityType="Self.QRYStoreTransSalesPersonCustomerSalesbag" store:Type="Views" store:Schema="dbo">
@@ -10872,7 +10893,9 @@ FROM [dbo].[TblBranch] AS [TblBranch]</DefiningQuery>
 [TblBrandStorePriority].[Priority] AS [Priority], 
 [TblBrandStorePriority].[OrWActive] AS [OrWActive], 
 [TblBrandStorePriority].[Active] AS [Active], 
-[TblBrandStorePriority].[Srqty] AS [Srqty]
+[TblBrandStorePriority].[Srqty] AS [Srqty], 
+[TblBrandStorePriority].[Division] AS [Division], 
+[TblBrandStorePriority].[Section] AS [Section]
 FROM [dbo].[TblBrandStorePriority] AS [TblBrandStorePriority]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="tblglobalsetting" EntityType="Self.tblglobalsetting" store:Type="Views" store:Schema="dbo">
@@ -11228,7 +11251,11 @@ FROM [dbo].[TblStaxView] AS [TblStaxView]</DefiningQuery>
 [TblStoreView].[TblCompany] AS [TblCompany], 
 [TblStoreView].[tblcustomer] AS [tblcustomer], 
 [TblStoreView].[GlCode] AS [GlCode], 
-[TblStoreView].[issuestore] AS [issuestore]
+[TblStoreView].[issuestore] AS [issuestore], 
+[TblStoreView].[TblSupplier] AS [TblSupplier], 
+[TblStoreView].[Email] AS [Email], 
+[TblStoreView].[TblTfkWarehouse] AS [TblTfkWarehouse], 
+[TblStoreView].[Online] AS [Online]
 FROM [dbo].[TblStoreView] AS [TblStoreView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VewQtyItemQty" EntityType="Self.VewQtyItemQty" store:Type="Views" store:Schema="dbo">
@@ -13649,6 +13676,11 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <End Role="TblCustomerGroup" EntitySet="TblCustomerGroups" />
             <End Role="TBLCustomer" EntitySet="TBLCustomers" />
           </AssociationSet>
+          <EntitySet Name="TblInventPostingOverrides" EntityType="ccnewModel.TblInventPostingOverride" />
+          <FunctionImport Name="RecInvContractValidationInspection" EntitySet="RecInvStyleColors" ReturnType="Collection(ccnewModel.RecInvStyleColor)">
+            <Parameter Name="Iserial" Mode="In" Type="Int32" />
+            <Parameter Name="Validate" Mode="In" Type="Boolean" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="TblPODetail">
           <Key>
@@ -18543,7 +18575,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -18834,9 +18866,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="SizeGroupSerial" Type="Int32" Nullable="false" />
           <Property Name="SeasonCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="iserial" Type="Int32" Nullable="false" />
-          <Property Name="ItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Itemname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TblColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TblColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TblsizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="sizeSerial" Type="Int32" Nullable="false" />
           <Property Name="TblColorEname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
@@ -18857,9 +18889,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="iserial" Type="Int32" Nullable="false" />
-          <Property Name="ItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Itemname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TblColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TblColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TblsizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TblColorEname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ItemStoreGroup" Type="Int32" />
@@ -18899,7 +18931,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Key>
             <PropertyRef Name="Brand" />
           </Key>
-          <Property Name="Document" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Document" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Brand" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="VoucherDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Barcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
@@ -18910,7 +18942,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Key>
             <PropertyRef Name="Brand" />
           </Key>
-          <Property Name="Document" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Document" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Brand" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="VoucherDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Barcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
@@ -18945,7 +18977,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="DayDate" Type="DateTime" Precision="3" />
           <Property Name="NETSALES" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="TAX" Type="Decimal" Precision="10" Scale="2" />
@@ -18971,7 +19003,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="DISCOUNT" />
           </Key>
           <Property Name="STORE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="DayDate" Type="DateTime" Precision="3" />
           <Property Name="NETSALES" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="TAX" Type="Decimal" Precision="10" Scale="2" />
@@ -19015,7 +19047,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="glserial" />
           </Key>
           <Property Name="glserial" Type="Int32" Nullable="false" />
-          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="votdate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="DanielWatch">
@@ -19067,7 +19099,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19107,7 +19139,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19147,7 +19179,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19196,7 +19228,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Total_Sales_Retail" Type="Double" Nullable="false" />
           <Property Name="Total_disc" Type="Double" />
           <Property Name="Net_Sales" Type="Double" Nullable="false" />
-          <Property Name="Voucher_Serial" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Voucher_Serial" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Tender_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EmpSalesOsama">
@@ -19220,7 +19252,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="AName" />
           </Key>
           <Property Name="ISerial" Type="Int32" Nullable="false" />
-          <Property Name="Code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19257,7 +19289,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19288,9 +19320,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Last_Two_Day_Receive" />
             <PropertyRef Name="Season_To_Date_Delivered" />
           </Key>
-          <Property Name="style" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="style" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Item_Cost" Type="Single" />
           <Property Name="Retail_Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Profit_Margin" Type="Decimal" Precision="8" Scale="2" />
@@ -19306,10 +19338,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Season_To_Date_Delivered" />
             <PropertyRef Name="Sub_Season" />
           </Key>
-          <Property Name="style" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="style" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Theme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Item_Cost" Type="Single" />
           <Property Name="Retail_Price" Type="Decimal" Precision="19" Scale="4" />
@@ -19326,9 +19358,9 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Last_Two_Day_Receive" />
             <PropertyRef Name="Season_To_Date_Delivered" />
           </Key>
-          <Property Name="style" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="style" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Item_Cost" Type="Single" />
           <Property Name="Retail_Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Profit_Margin" Type="Decimal" Precision="19" Scale="4" />
@@ -19363,7 +19395,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Name="Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Style" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Receive_Qty" Type="Double" Nullable="false" />
           <Property Name="Stores" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -19377,7 +19409,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="mansize" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="mancolor" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mancolor" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Year" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Netrecqty" Type="Double" Nullable="false" />
@@ -19459,7 +19491,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Barcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="dim1" Type="Int32" Nullable="false" />
           <Property Name="dim2" Type="Int32" Nullable="false" />
           <Property Name="ECost" Type="Int32" Nullable="false" />
@@ -19500,7 +19532,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="storename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Group1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Group3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -19572,7 +19604,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="BrandSection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Model" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProdDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="SizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SubFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19648,7 +19680,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19670,7 +19702,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19807,7 +19839,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19828,7 +19860,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Fdate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -19844,10 +19876,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Name="Store_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Document" Type="DateTime" Precision="0" />
-          <Property Name="doc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="doc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Sold_Qty" Type="Double" />
           <Property Name="Sales_Value" Type="Double" Nullable="false" />
-          <Property Name="itemcode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="itemcode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="outlettransfertosoldytd">
           <Key>
@@ -19919,7 +19951,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Cost_Increase" />
           </Key>
           <Property Name="style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -19971,7 +20003,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Day_Remaining" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -19997,7 +20029,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="C_Receive_Qty" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -20024,7 +20056,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Day_Remaining" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -20076,7 +20108,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="Cost_Increase" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -20105,7 +20137,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="C_Cost_Increase" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Season" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -20215,7 +20247,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Tblitem" Type="Int32" />
           <Property Name="TblItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="quantaty" Type="Single" />
           <Property Name="Votglserial" Type="Int32" />
           <Property Name="Cost" Type="Single" />
@@ -20237,7 +20269,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Exdate" Type="DateTime" Precision="3" />
           <Property Name="Tblitem" Type="Int32" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="quantaty" Type="Single" />
           <Property Name="Votglserial" Type="Int32" />
           <Property Name="Cost" Type="Single" />
@@ -20264,7 +20296,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Tblitem" Type="Int32" />
           <Property Name="TblItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="quantaty" Type="Single" />
           <Property Name="Votglserial" Type="Int32" />
           <Property Name="Cost" Type="Single" />
@@ -20286,7 +20318,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Tblitem" Type="Int32" />
           <Property Name="TblItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="quantaty" Type="Single" />
           <Property Name="Votglserial" Type="Int32" />
           <Property Name="Cost" Type="Single" />
@@ -20309,7 +20341,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Tblitem" Type="Int32" />
           <Property Name="TblItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="quantaty" Type="Single" />
           <Property Name="Votglserial" Type="Int32" />
           <Property Name="Cost" Type="Single" />
@@ -20373,6 +20405,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="SalesheaderTotal" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="LoyaltyCustomerIserial" Type="Int32" />
           <Property Name="loyaltyRef" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="STsalesiserial" Type="Int32" />
         </EntityType>
         <EntityType Name="QRYStoreTransSalesPersonCustomerSalesbag">
           <Key>
@@ -20426,7 +20459,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="TblVotype" Type="Int32" />
           <Property Name="Exdate" Type="DateTime" Precision="3" />
           <Property Name="VotDate" Type="DateTime" Precision="3" />
-          <Property Name="Votdoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Votdoc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="cost" Type="Double" />
           <Property Name="ItemDisc" Type="Double" />
           <Property Name="InvDisc" Type="Double" />
@@ -20454,11 +20487,11 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Store_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Receive_Quantity" Type="Double" Nullable="false" />
           <Property Name="Receive_Total_Cost" Type="Double" Nullable="false" />
-          <Property Name="Voucher_Documents" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Voucher_Documents" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Receive_Date" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="Return_Quantity" Type="Double" Nullable="false" />
           <Property Name="Return_Total_Cost" Type="Double" Nullable="false" />
-          <Property Name="Return_Documents" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Return_Documents" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Return_Date" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ssss2">
@@ -20558,6 +20591,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="OrWActive" Type="Int32" />
           <Property Name="Active" Type="Int32" />
           <Property Name="Srqty" Type="Int32" />
+          <Property Name="Division" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblglobalsetting">
           <Key>
@@ -20842,6 +20877,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="tblcustomer" Type="Int32" />
           <Property Name="GlCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="issuestore" Type="Int32" />
+          <Property Name="TblSupplier" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TblTfkWarehouse" Type="Int32" />
+          <Property Name="Online" Type="Boolean" />
         </EntityType>
         <EntityType Name="VewQtyItemQty">
           <Key>
@@ -20884,7 +20923,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="PurchNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="VotNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="votdate" Type="DateTime" Precision="3" />
-          <Property Name="itemcode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="itemcode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="itemAname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="supplierinvno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="itemEname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -20895,7 +20934,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <Property Name="Dserial" Type="Int32" />
           <Property Name="sizeaname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="sizeename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="colorcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="colorcode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="coloraname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="colorename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TotalTax" Type="Decimal" Precision="19" Scale="4" />
@@ -20930,15 +20969,15 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             <PropertyRef Name="ISerial" />
           </Key>
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TblColorCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TblColorCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TblsizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Tblclass2Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Tblclass3Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TblCLASS3Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TblCLASS2Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TblCLASS4Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TblCLASS4Code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="TblCLASS4Ename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TblSizeGroupEname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TblCLASS1Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -21607,7 +21646,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           </Key>
           <Property Name="iserial" Type="Int32" Nullable="false" />
           <Property Name="Style" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ColorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="SizeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -22450,6 +22489,14 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TblInventPostingOverride">
+          <Key>
+            <PropertyRef Name="Iserial" />
+          </Key>
+          <Property Name="Iserial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupId" Type="Int32" />
+          <Property Name="TblAccount" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -26636,6 +26683,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="QRYStoreTransSalesPersonCustomerSales">
             <EntityTypeMapping TypeName="ccnewModel.QRYStoreTransSalesPersonCustomerSale">
               <MappingFragment StoreEntitySet="QRYStoreTransSalesPersonCustomerSales">
+                <ScalarProperty Name="STsalesiserial" ColumnName="STsalesiserial" />
                 <ScalarProperty Name="loyaltyRef" ColumnName="loyaltyRef" />
                 <ScalarProperty Name="LoyaltyCustomerIserial" ColumnName="LoyaltyCustomerIserial" />
                 <ScalarProperty Name="SalesheaderTotal" ColumnName="SalesheaderTotal" />
@@ -26853,6 +26901,8 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblBrandStorePriorities">
             <EntityTypeMapping TypeName="ccnewModel.TblBrandStorePriority">
               <MappingFragment StoreEntitySet="TblBrandStorePriority">
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
                 <ScalarProperty Name="Srqty" ColumnName="Srqty" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="OrWActive" ColumnName="OrWActive" />
@@ -27135,6 +27185,10 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
           <EntitySetMapping Name="TblStoreViews">
             <EntityTypeMapping TypeName="ccnewModel.TblStoreView">
               <MappingFragment StoreEntitySet="TblStoreView">
+                <ScalarProperty Name="Online" ColumnName="Online" />
+                <ScalarProperty Name="TblTfkWarehouse" ColumnName="TblTfkWarehouse" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TblSupplier" ColumnName="TblSupplier" />
                 <ScalarProperty Name="issuestore" ColumnName="issuestore" />
                 <ScalarProperty Name="GlCode" ColumnName="GlCode" />
                 <ScalarProperty Name="tblcustomer" ColumnName="tblcustomer" />
@@ -28008,6 +28062,16 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblInventPostingOverrides">
+            <EntityTypeMapping TypeName="ccnewModel.TblInventPostingOverride">
+              <MappingFragment StoreEntitySet="TblInventPostingOverride">
+                <ScalarProperty Name="TblAccount" ColumnName="TblAccount" />
+                <ScalarProperty Name="groupId" ColumnName="groupId" />
+                <ScalarProperty Name="Iserial" ColumnName="Iserial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RecInvContractValidationInspection" FunctionName="ccnewModel.Store.RecInvContractValidationInspection" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -30086,6 +30150,7 @@ FROM [dbo].[vwCustomerFacilities] AS [vwCustomerFacilities]</DefiningQuery>
         <EntityTypeShape EntityType="ccnewModel.TBLCustomer" Width="1.5" PointX="57.625" PointY="38.375" />
         <EntityTypeShape EntityType="ccnewModel.TblCustomerGroup" Width="1.5" PointX="55.375" PointY="39.5" />
         <AssociationConnector Association="ccnewModel.FK_TBLCustomer_TblCustomerGroup" />
+        <EntityTypeShape EntityType="ccnewModel.TblInventPostingOverride" Width="1.5" PointX="32.375" PointY="7.75" />
         </Diagram>
     </Diagrams>
   </Designer>

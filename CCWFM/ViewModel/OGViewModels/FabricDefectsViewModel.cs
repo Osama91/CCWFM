@@ -1243,19 +1243,7 @@ namespace CCWFM.ViewModel.OGViewModels
             set { _fabricToSearch = value; RaisePropertyChanged("FabricToSearch"); }
         }
 
-        private ObservableCollection<WMSLOCATION> _wmslocation;
-
-        public ObservableCollection<WMSLOCATION> WmsLocationList
-        {
-            get { return _wmslocation; }
-            set
-            {
-                if (_wmslocation != value)
-                {
-                    _wmslocation = value; RaisePropertyChanged("WmsLocationList");
-                }
-            }
-        }
+     
 
         private ObservableCollection<Degrees> _degreesList;
 
@@ -1472,17 +1460,7 @@ namespace CCWFM.ViewModel.OGViewModels
         public FabricDefectsViewModel()
         {
             GetItemPermissions(PermissionItemName.FabricInspectionForm.ToString());
-            WmsLocationList = new ObservableCollection<WMSLOCATION>();
-            _webService.GetWmsLocationCompleted += (s, v) =>
-            {
-                var row = v.Result;
-
-                if (!WmsLocationList.Contains(row))
-                {
-                    WmsLocationList.Add(row);
-                }
-            };
-
+        
             DefectsList = new ObservableCollection<tbl_WF_Defects>();
             TransactionHeader = new TblFabricInspectionHeaderViewModel { TransDate = DateTime.Now };
 

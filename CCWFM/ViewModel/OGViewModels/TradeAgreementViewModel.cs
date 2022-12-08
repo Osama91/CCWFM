@@ -568,8 +568,8 @@ namespace CCWFM.ViewModel.OGViewModels
                 VendorPurchaseGroupList = sv.Result;
             };
 
-            Client.GetAxCurrencyAsync("CCM");
-            Client.GetAxCurrencyCompleted += (s, sv) =>
+            Client.GetTblCurrencyAsync(0,int.MaxValue,"it.Iserial",null,null);
+            Client.GetTblCurrencyCompleted += (s, sv) =>
             {
                 AxCurrencyList = sv.Result;
             };
@@ -1084,8 +1084,8 @@ namespace CCWFM.ViewModel.OGViewModels
             }
         }
 
-        private ObservableCollection<CRUDManagerService.CURRENCY> _axCurrencyList;
-        public ObservableCollection<CRUDManagerService.CURRENCY> AxCurrencyList
+        private ObservableCollection<CRUDManagerService.TblCurrency> _axCurrencyList;
+        public ObservableCollection<CRUDManagerService.TblCurrency> AxCurrencyList
         {
             get { return _axCurrencyList; }
             set { _axCurrencyList = value; RaisePropertyChanged("AxCurrencyList"); }

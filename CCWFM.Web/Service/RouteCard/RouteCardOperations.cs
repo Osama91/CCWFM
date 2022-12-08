@@ -197,19 +197,41 @@ namespace CCWFM.Web.Service.RouteCard
             {
                 if (header.RouteCardFabrics.Any())
                 {
-                    var MaxPackingTransid = context.RouteCardHeaders.Where(w => w.tblTransactionType == header.tblTransactionType).Max(w => w.PackingTransID);
+                    //if (header.DocDate)
+                    //{
 
-                    if (header.tblTransactionType==7|| header.tblTransactionType == 10)
+                    //}
+
+
+                    if (header.DocDate.Value.Date < DateTime.Now.AddDays(-1).Date)
                     {
-                        
-                     var lastTransaction=   context.RouteCardHeaders.FirstOrDefault(e => e.PackingTransID == MaxPackingTransid).AxRouteCardFabricsJournalId;
-
-                        if (lastTransaction==null)
-                        {
-                            throw new Exception("this Transaction Should Be Posted First:" + MaxPackingTransid.ToString());
-                        }
+                        throw new Exception("DocDate max Should be"+ DateTime.Now.AddDays(-1).Date);
                     }
-                    header.PackingTransID = MaxPackingTransid + 1;
+
+                    var transactionExist = context.RouteCardHeaders.Any(w => w.tblTransactionType == header.tblTransactionType);
+                    if (transactionExist)
+                    {
+                        var MaxPackingTransid = context.RouteCardHeaders.Where(w => w.tblTransactionType == header.tblTransactionType).Max(w => w.PackingTransID);
+
+                        if (header.tblTransactionType == 7 || header.tblTransactionType == 10)
+                        {
+
+                            var lastTransaction = context.RouteCardHeaders.FirstOrDefault(e => e.PackingTransID == MaxPackingTransid && (e.tblTransactionType == 7 || e.tblTransactionType == 10)).AxRouteCardFabricsJournalId;
+
+                            if (lastTransaction == null)
+                            {
+                                throw new Exception("this Transaction Should Be Posted First:" + MaxPackingTransid.ToString());
+                            }
+                        }
+
+                        header.PackingTransID = MaxPackingTransid + 1;
+                    }
+                    else
+                    {
+                        header.PackingTransID = 1;
+
+                    }
+                 
                 }
                 if (header.tblTransactionType == 5)
                 {
@@ -319,6 +341,11 @@ namespace CCWFM.Web.Service.RouteCard
 
             //}
 
+            if (header.DocDate.Value.Date < DateTime.Now.AddDays(-1).Date)
+            {
+                throw new Exception("DocDate max Should be" + DateTime.Now.AddDays(-1).Date);
+            }
+
             header.UpdatedBy = userIserial;
             header.LastUpdatedDate = DateTime.Now;
             using (var context = new WorkFlowManagerDBEntities())
@@ -347,11 +374,11 @@ namespace CCWFM.Web.Service.RouteCard
                                select x).FirstOrDefault();
                     header.Createdby = rch.Createdby;
                     header.PackingTransID = rch.PackingTransID;
-                    var det = context.RouteCardDetails.Where(x => x.RouteCardHeaderIserial == header.Iserial);
-                    foreach (var item in det)
-                    {
-                        context.DeleteObject(item);
-                    }
+                    //var det = context.RouteCardDetails.Where(x => x.RouteCardHeaderIserial == header.Iserial);
+                    //foreach (var item in det)
+                    //{
+                    //    context.DeleteObject(item);
+                    //}
                     //try
                     //{
                     //    DeleteAXroute(rch, userIserial);

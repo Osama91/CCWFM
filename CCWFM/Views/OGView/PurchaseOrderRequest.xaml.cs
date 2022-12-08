@@ -38,7 +38,7 @@ namespace CCWFM.Views.OGView
             DataContext = _viewModel;
 
             _viewModel.PremCompleted += (s, sv)=> {
-                ckhApprove.Visibility = _viewModel.CustomePermissions.SingleOrDefault(x => x.Ename == "Approval") != null ? Visibility.Visible : Visibility.Collapsed;         
+                BtnApprove.Visibility = _viewModel.CustomePermissions.SingleOrDefault(x => x.Ename == "Approval") != null ? Visibility.Visible : Visibility.Collapsed;         
                 _viewModel.AllowAddFree= _viewModel.CustomePermissions.SingleOrDefault(x => x.Ename == "Allow Free Orders") != null ? true : false;
             };
 
@@ -361,9 +361,14 @@ namespace CCWFM.Views.OGView
      
         private void ckhApprove_Checked(object sender, RoutedEventArgs e)
         {
-          //  _viewModel.Approve();
+        
         }
 
+        
+  private void BtnApprove_Click(object sender, RoutedEventArgs e)
+        {
+              _viewModel.Approve();
+        }
         private void BtnPaymentOrder_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = (PurchaseOrderRequestViewModel)DataContext;            
@@ -396,5 +401,7 @@ namespace CCWFM.Views.OGView
         {
             _viewModel.GetPlanVendors();
         }
+
+     
     }
 }

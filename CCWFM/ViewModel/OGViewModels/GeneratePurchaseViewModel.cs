@@ -1528,13 +1528,13 @@ namespace CCWFM.ViewModel.OGViewModels
             {
                 MainRowList = new SortableCollectionView<TblGeneratePurchaseHeaderModel>();
                 MainRowList.CollectionChanged += MainRowList_CollectionChanged;
-                
-                Client.GetAxCurrencyAsync("CCM");
-                Client.GetAxCurrencyCompleted += (s, sv) =>
+
+                Client.GetTblCurrencyAsync(0, int.MaxValue, "it.Iserial", null, null);
+                Client.GetTblCurrencyCompleted += (s, sv) =>
                 {
                     AxCurrencyList = sv.Result;
                 };
-                
+
                 PurchasePlanClient.GetTblGeneratePurchaseHeaderCompleted += (s, sv) =>
                 {
                     foreach (var row in sv.Result)
@@ -1566,16 +1566,16 @@ namespace CCWFM.ViewModel.OGViewModels
                      WareHouseList= sv.Result;                    
                  };
                               
-                Client.GetVendPayModeAsync("CCR");
-                Client.GetVendPayModeCompleted += (s, sv) =>
-                {
-                    VendPayModeList = sv.Result;
-                };
-                Client.GetAxPaymentTermAsync("CCR");
-                Client.GetAxPaymentTermCompleted += (s, sv) =>
-                {
-                    PaymTerm = sv.Result;
-                };
+                //Client.GetVendPayModeAsync("CCR");
+                //Client.GetVendPayModeCompleted += (s, sv) =>
+                //{
+                //    VendPayModeList = sv.Result;
+                //};
+                //Client.GetAxPaymentTermAsync("CCR");
+                //Client.GetAxPaymentTermCompleted += (s, sv) =>
+                //{
+                //    PaymTerm = sv.Result;
+                //};
                 Client.GetAllWarehousesByCompanyNameAsync("CCm");
                 Client.GetGenericCompleted += (s, sv) =>
                 {
@@ -2189,9 +2189,9 @@ namespace CCWFM.ViewModel.OGViewModels
             set { _tblFactoryDeliveryList = value; RaisePropertyChanged("TblFactoryDeliveryList"); }
         }
 
-        private ObservableCollection<CURRENCY> _axCurrencyList;
+        private ObservableCollection<CRUDManagerService.TblCurrency> _axCurrencyList;
 
-        public ObservableCollection<CURRENCY> AxCurrencyList
+        public ObservableCollection<CRUDManagerService.TblCurrency> AxCurrencyList
         {
             get { return _axCurrencyList; }
             set { _axCurrencyList = value; RaisePropertyChanged("AxCurrencyList"); }

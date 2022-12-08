@@ -384,6 +384,15 @@ namespace CCWFM.Web.Service.Operations.GlOperations
                     Acc = query.TblAccount??0;
                 }
 
+                //try
+                //{
+                //    entity.TblInventPostingOverrides.Where(e)
+                //}
+                //catch (Exception)
+                //{
+                    
+                //}
+
                 var newledgerDetailrow = new TblLedgerMainDetail
                 {
                     Amount = (decimal?)rr.Sum(x => x.CostWithoutMisc),
@@ -921,8 +930,22 @@ namespace CCWFM.Web.Service.Operations.GlOperations
 
                 var RecInvStyle = entity.RecInvContractValidation(RecInvHeader,true).ToList();
                 if (RecInvStyle.Count == 0)
-                { 
-             var header=   entity.TblRecInvHeaders.FirstOrDefault(w => w.Iserial == RecInvHeader);
+                {
+                    var RecInspection = GetRetailChainSetupByCode("ValidateRecInvInspection", company);
+                    if (RecInspection != null)
+                    {
+                        if (RecInspection.sSetupValue == "1") 
+                        {
+                            var RecInvStyleInsp = entity.RecInvContractValidationInspection(RecInvHeader, true).ToList();
+                            if (RecInvStyleInsp.Count!=0)
+                            {
+                                return RecInvStyleInsp;
+                            }
+                        }
+
+                    }
+
+                    var header=   entity.TblRecInvHeaders.FirstOrDefault(w => w.Iserial == RecInvHeader);
                 header.Invoiced = true;
                     entity.SaveChanges();
 

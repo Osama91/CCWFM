@@ -1399,27 +1399,53 @@ namespace CCWFM.ViewModel.Gl
                 }
                 else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.AmazonMarket)
                 {
+                    /*
+
                     var CashDeposit = CashDepositSetting.Where(w => w.TblTenderTypes == SelectedMainRow.TblTenderType && w.TblCashDepositType.Value == SelectedMainRow.TblCashDepositType);
+                    int _counter = 0;
+
                     foreach (var CashDepositRow in CashDeposit)
                     {
                         if (CashDepositRow != null)
                         {
-                            CashDepositDetail _detail = SelectedDetailRow;
+                            CashDepositDetail _detail = new CashDepositDetail();
+                            if (_counter == 0)
+                            {
+                                _detail = SelectedDetailRow;
+                            }
                             _detail.TblJournalAccountType = CashDepositRow.TblJournalAccountType;
                             _detail.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType);
-                            //new gene().InjectFrom(
-                            // as TblJournalAccountType;
-                            //SelectedDetailRow.JournalAccountTypePerRow = new TblJournalAccountType().InjectFrom(JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType)) as TblJournalAccountType;
                             _detail.EntityAccount = CashDepositRow.EntityAccount;
-                            _detail.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
+                            if(CashDepositRow.TblJournalAccountType == 0) //Ledger
+                            {
+                                _detail.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount)) as GlService.Entity;
+                            }
+                            else
+                            {
+                                _detail.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
+                            }
+                            _detail.TblCashDepositHeader = SelectedMainRow.Iserial;
                             _detail.DiscountPercent = CashDepositRow.DiscountPercent;
-                            _detail.Amount = (SelectedDetailRow.Amount * CashDepositRow.DiscountPercent.Value) / 100;
+                            _detail.Amount = (SelectedMainRow.Amount * CashDepositRow.DiscountPercent.Value) / 100;
+                            if(_counter != 0)
                             SelectedMainRow.TblCashDepositDetails.Add(_detail);
-                     
+                            _counter++;
                         }
                     }
+                    */
+                    var CashDepositRow = CashDepositSetting.FirstOrDefault(w => w.TblTenderTypes == SelectedMainRow.TblTenderType && w.TblCashDepositType.Value == SelectedMainRow.TblCashDepositType);
+                    if (CashDepositRow != null)
+                    {
+                        SelectedDetailRow.TblJournalAccountType = CashDepositRow.TblJournalAccountType;
+                        SelectedDetailRow.JournalAccountTypePerRow = JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType);
+                        //new gene().InjectFrom(
+                        // as TblJournalAccountType;
+                        //SelectedDetailRow.JournalAccountTypePerRow = new TblJournalAccountType().InjectFrom(JournalAccountTypeList.FirstOrDefault(w => w.Iserial == CashDepositRow.TblJournalAccountType)) as TblJournalAccountType;
+                        SelectedDetailRow.EntityAccount = CashDepositRow.EntityAccount;
+                        SelectedDetailRow.EntityPerRow = new GlService.Entity().InjectFrom(EntityList.FirstOrDefault(w => w.Iserial == CashDepositRow.EntityAccount && w.TblJournalAccountType == CashDepositRow.TblJournalAccountType)) as GlService.Entity;
+                        SelectedDetailRow.DiscountPercent = CashDepositRow.DiscountPercent;
+                    }
 
-                 
                 }
                 else if (SelectedMainRow.TblCashDepositType == (int)CashDepositType.DsquaresLuckyWallet)
                 {

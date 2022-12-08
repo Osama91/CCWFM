@@ -234,7 +234,7 @@
 							<ComboBox ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=sdk:DataGrid}, Path=DataContext.AxCurrencyList}"
 										  Width="150" HorizontalAlignment="Left" Height="20"
 										  SelectedValue="{Binding CurrencyCode,Mode=TwoWay}" 
-										  DisplayMemberPath="CURRENCYCODE" SelectedValuePath="CURRENCYCODE">
+										  DisplayMemberPath="Code" SelectedValuePath="Code">
 							</ComboBox>
 						</DataTemplate>
 					</sdk:DataGridTemplateColumn.CellEditingTemplate>
@@ -252,7 +252,7 @@
                             <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=sdk:DataGrid}, Path=DataContext.AxCurrencyList}"
 										  Width="150" HorizontalAlignment="Left" Height="20"
 										  SelectedValue="{Binding VendorCurrencyCode,Mode=TwoWay}" 
-										  DisplayMemberPath="CURRENCYCODE" SelectedValuePath="CURRENCYCODE">
+										  DisplayMemberPath="Code" SelectedValuePath="Code">
                             </ComboBox>
                         </DataTemplate>
                     </sdk:DataGridTemplateColumn.CellEditingTemplate>

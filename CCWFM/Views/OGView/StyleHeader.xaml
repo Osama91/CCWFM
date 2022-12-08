@@ -4878,7 +4878,7 @@
 																		  Mode=TwoWay}"
 														dataGrid:DataGridColumnHelper.HeaderBinding="{Binding SalesOrderCode,
 																											  Source={StaticResource LocalizedStrings}}" />
-                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                        <!--<sdk:DataGridTemplateColumn Width="SizeToHeader"
 															CanUserSort="False"
 															SortMemberPath="AxTermOfPaymentCode"
 															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding TermOfPayment,
@@ -4910,9 +4910,9 @@
                                     </ComboBox>
                                 </DataTemplate>
                             </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                        </sdk:DataGridTemplateColumn>
+                        </sdk:DataGridTemplateColumn>-->
 
-                        <sdk:DataGridTemplateColumn Width="SizeToHeader"
+                        <!--<sdk:DataGridTemplateColumn Width="SizeToHeader"
 															CanUserSort="False"
 															SortMemberPath="AxMethodOfPaymentCode"
 															dataGrid:DataGridColumnHelper.HeaderBinding="{Binding MethodOfPayment,
@@ -4944,7 +4944,7 @@
                                     </ComboBox>
                                 </DataTemplate>
                             </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                        </sdk:DataGridTemplateColumn>
+                        </sdk:DataGridTemplateColumn>-->
                         <sdk:DataGridTemplateColumn Width="SizeToHeader"
 															SortMemberPath="ShippingDate"
 															utilities:GlobalMethods.FormatForExport="Date"

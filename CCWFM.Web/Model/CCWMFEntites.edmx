@@ -12490,13 +12490,6 @@ warning 6035: The relationship 'FK_TblFabricBom_tbl_FabricAttriputes' has column
         <Function Name="CreateRollBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FabricInsHeader" Type="int" Mode="In" />
         </Function>
-        <Function Name="CreateSAlesOrderFinalEstimated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="StyleColor" Type="int" Mode="In" />
-          <Parameter Name="SalesOrder" Type="int" Mode="In" />
-          <Parameter Name="Size" Type="nvarchar(max)" Mode="In" />
-          <Parameter Name="EstimatedDate" Type="datetime" Mode="In" />
-          <Parameter Name="ToDate" Type="datetime" Mode="In" />
-        </Function>
         <Function Name="DeleteItemsAndTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="DI_Tafquet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
           <Parameter Name="TheNo" Type="numeric" Mode="In" />
@@ -17622,13 +17615,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
           <Parameter Name="user" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="TblBrands" EntityType="WorkFlowManagerDBModel.TblBrand" />
-          <FunctionImport Name="CreateSAlesOrderFinalEstimated">
-            <Parameter Name="StyleColor" Mode="In" Type="Int32" />
-            <Parameter Name="SalesOrder" Mode="In" Type="Int32" />
-            <Parameter Name="Size" Mode="In" Type="String" />
-            <Parameter Name="EstimatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
           <FunctionImport Name="FIXAvgCostDyeingInventTrans" />
           <FunctionImport Name="FIXAvgCostInventTrans" />
           <FunctionImport Name="GetItemHistoryByItemDim">
@@ -37359,7 +37345,6 @@ FROM [dbo].[ViewPurchaseOrderHeaderRequest] AS [ViewPurchaseOrderHeaderRequest]<
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateSAlesOrderFinalEstimated" FunctionName="WorkFlowManagerDBModel.Store.CreateSAlesOrderFinalEstimated" />
           <FunctionImportMapping FunctionImportName="FIXAvgCostDyeingInventTrans" FunctionName="WorkFlowManagerDBModel.Store.FIXAvgCostDyeingInventTrans" />
           <FunctionImportMapping FunctionImportName="GetItemHistoryByItemDim" FunctionName="WorkFlowManagerDBModel.Store.GetItemHistoryByItemDim" />
           <FunctionImportMapping FunctionImportName="GetWarehouseQuantitiesByTransaction" FunctionName="WorkFlowManagerDBModel.Store.GetWarehouseQuantitiesByTransaction">

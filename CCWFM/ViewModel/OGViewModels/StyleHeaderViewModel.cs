@@ -6876,16 +6876,16 @@ namespace CCWFM.ViewModel.OGViewModels
                     StyleFabricCompositionList = sv.Result;
                 };
 
-                Client.GetVendPayModeAsync("CCR");
-                Client.GetVendPayModeCompleted += (s, sv) =>
-                {
-                    VendPayModeList = sv.Result;
-                };
-                Client.GetAxPaymentTermAsync("CCR");
-                Client.GetAxPaymentTermCompleted += (s, sv) =>
-                {
-                    PaymTerm = sv.Result;
-                };
+                //Client.GetVendPayModeAsync("CCR");
+                //Client.GetVendPayModeCompleted += (s, sv) =>
+                //{
+                //    VendPayModeList = sv.Result;
+                //};
+                //Client.GetAxPaymentTermAsync("CCR");
+                //Client.GetAxPaymentTermCompleted += (s, sv) =>
+                //{
+                //    PaymTerm = sv.Result;
+                //};
                 Client.ValidateBomCompleted += (s, sv) =>
                 {
                     Loading = false;

@@ -37,6 +37,22 @@ namespace CCWFM.ViewModel.OGViewModels
         {
             TotalPayments = PaymentList.Sum(w => w.Amount);
         }
+        private DateTime _ApprovalDate;
+
+        public DateTime ApprovalDate
+        {
+            get { return _ApprovalDate; }
+            set { _ApprovalDate = value; RaisePropertyChanged("ApprovalDate"); }
+        }
+
+        private int _ApprovedBy;
+
+        public int ApprovedBy
+        {
+            get { return _ApprovedBy; }
+            set { _ApprovedBy = value; RaisePropertyChanged("ApprovedBy"); }
+        }
+
         private DateTime _CreationDate;
 
         public DateTime CreationDate
@@ -52,6 +68,7 @@ namespace CCWFM.ViewModel.OGViewModels
             get { return _CreatedBy; }
             set { _CreatedBy = value; RaisePropertyChanged("CreatedBy"); }
         }
+
 
         private int? _TblGeneratePurchaseHeader;
 
@@ -1297,16 +1314,16 @@ namespace CCWFM.ViewModel.OGViewModels
                      WareHouseList = sv.Result;
                  };
 
-                Client.GetVendPayModeAsync("CCR");
-                Client.GetVendPayModeCompleted += (s, sv) =>
-                {
-                    VendPayModeList = sv.Result;
-                };
-                Client.GetAxPaymentTermAsync("CCR");
-                Client.GetAxPaymentTermCompleted += (s, sv) =>
-                {
-                    PaymTerm = sv.Result;
-                };
+                //Client.GetVendPayModeAsync("CCR");
+                //Client.GetVendPayModeCompleted += (s, sv) =>
+                //{
+                //    VendPayModeList = sv.Result;
+                //};
+                //Client.GetAxPaymentTermAsync("CCR");
+                //Client.GetAxPaymentTermCompleted += (s, sv) =>
+                //{
+                //    PaymTerm = sv.Result;
+                //};
                 Client.GetAllWarehousesByCompanyNameAsync("CCm");
                 Client.GetGenericCompleted += (s, sv) =>
                 {
@@ -1553,9 +1570,17 @@ namespace CCWFM.ViewModel.OGViewModels
                 {
                     newrow.AxTermOfPaymentCode = PaymTerm.FirstOrDefault().PAYMTERMID;
                 }
+                else
+                {
+                    newrow.AxTermOfPaymentCode = "60d";
+                }
                 if (VendPayModeList.Any())
                 {
                     newrow.AxMethodOfPaymentCode = VendPayModeList.FirstOrDefault().PAYMMODE;
+                }
+                else
+                {
+                    newrow.AxMethodOfPaymentCode = "cashMethod1";
                 }
                 if (CurrencyList.Any())
                 {
@@ -1947,6 +1972,9 @@ namespace CCWFM.ViewModel.OGViewModels
         }
         internal void Approve()
         {
+            SelectedMainRow.Status = true;
+            SelectedMainRow.ApprovalDate = DateTime.Now;
+            SelectedMainRow.ApprovedBy = LoggedUserInfo.Iserial;
             SaveMainRow();
         }
 

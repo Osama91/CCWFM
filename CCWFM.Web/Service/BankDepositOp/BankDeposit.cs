@@ -634,7 +634,7 @@ namespace CCWFM.Web.Service.BankDepositOp
 
                         #endregion
                     }
-                   
+
 
                     if (headerType.Iserial == (int)CashDepositType.VALU)
                     {
@@ -649,8 +649,6 @@ namespace CCWFM.Web.Service.BankDepositOp
                             var amountLedger = item.Amount * itemDiscountPercent;
 
                             var setting = CashDepositSetting.FirstOrDefault(w => w.TblJournalAccountType == item.TblJournalAccountType && w.EntityAccount == item.EntityAccount);
-
-
                             if (setting != null)
                             {
                                 var disquareEntity = context.Entities.FirstOrDefault(e => e.Iserial == setting.DiscountEntityAccount && e.TblJournalAccountType == setting.DiscountJournalAccountType && e.scope == 0);
@@ -670,13 +668,11 @@ namespace CCWFM.Web.Service.BankDepositOp
                             }
                             itemDiscountPercent = 1 - (itemDiscountPercent);
                         }
-                        var amount = item.Amount * itemDiscountPercent;
 
+                        var amount = item.Amount * itemDiscountPercent;
                         var bankLedgerDetail = getLedgerDetail(item.BatchDate, "", true,
                             newLedgerHeaderRow.Iserial, item, entity, item.TblJournalAccountType, amount);
                         service.UpdateOrInsertTblLedgerMainDetails(context, bankLedgerDetail, true, 0, out tmp, userIserial);
-
-
                         #endregion
                     }
 
@@ -727,45 +723,46 @@ namespace CCWFM.Web.Service.BankDepositOp
                     if (headerType.Iserial == (int)CashDepositType.AmazonMarket)
                     {
                         #region AmazonMarket
-                        // Bank Entity
+
+                        var sets = CashDepositSetting.Where(w => w.TblCashDepositType == (int)CashDepositType.AmazonMarket);
+                        decimal TotalAmount = 0;
                         var entity = context.Entities.FirstOrDefault(e => e.Iserial == item.EntityAccount && e.TblJournalAccountType == item.TblJournalAccountType && e.scope == 0);
-                        decimal itemDiscountPercent = 1;
-                        if (item.TblJournalAccountType == 6)
+                        foreach (var setting in sets)
                         {
-                            var discountpercentage = item.DiscountPercent ?? 0;
-                            itemDiscountPercent = (discountpercentage / 100);
-                            var amountLedger = item.Amount * itemDiscountPercent;
-
-                            var setting = CashDepositSetting.FirstOrDefault(w => w.TblJournalAccountType == item.TblJournalAccountType && w.EntityAccount == item.EntityAccount);
-
-
-                            if (setting != null)
+                            decimal itemDiscountPercent = 1;
+                            if (item.TblJournalAccountType == 6 || item.TblJournalAccountType == 0)
                             {
-                                var disquareEntity = context.Entities.FirstOrDefault(e => e.Iserial == setting.DiscountEntityAccount && e.TblJournalAccountType == setting.DiscountJournalAccountType && e.scope == 0);
-                                if (disquareEntity != null)
+                                var discountpercentage = setting.DiscountPercent ?? 0;
+                                itemDiscountPercent = (discountpercentage / 100);
+                                var amountLedger = item.Amount * itemDiscountPercent;
+
+
+                                if (setting != null)
                                 {
-                                    var LedgerDetailAccount = getLedgerDetail(item.BatchDate, "", true,
-                                                         newLedgerHeaderRow.Iserial, item, disquareEntity, disquareEntity.TblJournalAccountType, amountLedger);
+                                    var disquareEntity = context.Entities.FirstOrDefault(e => e.Iserial == setting.DiscountEntityAccount && e.TblJournalAccountType == setting.DiscountJournalAccountType && e.scope == 0);
+                                    if (disquareEntity != null)
+                                    {
+                                        TotalAmount += amountLedger;
+                                        var LedgerDetailAccount = getLedgerDetail(item.BatchDate, "", true,
+                                                             newLedgerHeaderRow.Iserial, item, disquareEntity, disquareEntity.TblJournalAccountType, amountLedger);
 
-                                    service.UpdateOrInsertTblLedgerMainDetails(context, LedgerDetailAccount, true, 0, out tmp, userIserial);
+                                        service.UpdateOrInsertTblLedgerMainDetails(context, LedgerDetailAccount, true, 0, out tmp, userIserial);
 
-                                    var storeCostcenter = new TblGlRuleDetail();
-                                    storeCostcenter = service.FindCostCenterByType(storeCostcenter, 8, newRow.TblStore,
-                                        context);
-                                    service.CreateTblLedgerDetailCostCenter(context, LedgerDetailAccount.Amount ?? 0,
-                                        LedgerDetailAccount, storeCostcenter);
+                                        var storeCostcenter = new TblGlRuleDetail();
+                                        storeCostcenter = service.FindCostCenterByType(storeCostcenter, 8, newRow.TblStore,
+                                            context);
+                                        service.CreateTblLedgerDetailCostCenter(context, LedgerDetailAccount.Amount ?? 0,
+                                            LedgerDetailAccount, storeCostcenter);
+                                    }
                                 }
                             }
-                            itemDiscountPercent = 1 - (itemDiscountPercent);
+
                         }
-                        var amount = item.Amount * itemDiscountPercent;
-
                         var bankLedgerDetail = getLedgerDetail(item.BatchDate, "", true,
-                            newLedgerHeaderRow.Iserial, item, entity, item.TblJournalAccountType, amount);
+                                 newLedgerHeaderRow.Iserial, item, entity, item.TblJournalAccountType, item.Amount - TotalAmount);
                         service.UpdateOrInsertTblLedgerMainDetails(context, bankLedgerDetail, true, 0, out tmp, userIserial);
-
-
                         #endregion
+
                     }
 
 

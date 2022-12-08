@@ -815,8 +815,8 @@ namespace CCWFM.ViewModel.Gl
 
                             if (Posted)
                             {
-                                Glclient.DeleteTblLedgerHeaderAsync((TblLedgerHeader)new TblLedgerHeader().InjectFrom(row),
-                     MainRowList.IndexOf(row), LoggedUserInfo.DatabasEname);
+                     //           Glclient.DeleteTblLedgerHeaderAsync((TblLedgerHeader)new TblLedgerHeader().InjectFrom(row),
+                     //MainRowList.IndexOf(row), LoggedUserInfo.DatabasEname);
                             }
                             else
                             {
@@ -940,8 +940,6 @@ namespace CCWFM.ViewModel.Gl
 
             if (posted)
             {
-
-
                 var currentRowIndex = (SelectedMainRow.DetailsList.IndexOf(SelectedDetailRow));
                 if (SelectedDetailRow == null)
                 {

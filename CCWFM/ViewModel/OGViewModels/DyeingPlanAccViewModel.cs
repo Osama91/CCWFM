@@ -226,23 +226,6 @@ namespace CCWFM.ViewModel.OGViewModels
             }
         }
 
-        private ObservableCollection<FabricsDyedGroup> _fabricList;
-
-        public ObservableCollection<FabricsDyedGroup> FabricList
-        {
-            get
-            {
-                return _fabricList;
-            }
-            set
-            {
-                if ((ReferenceEquals(_fabricList, value) != true))
-                {
-                    _fabricList = value;
-                    RaisePropertyChanged("FabricList");
-                }
-            }
-        }
 
         private ObservableCollection<WareHouseDto> _warehouseWithOnhandList;
 
@@ -490,7 +473,7 @@ namespace CCWFM.ViewModel.OGViewModels
 
             BrandsList = new ObservableCollection<Brand>();
             SeasonList = new ObservableCollection<TblLkpSeason>();
-            FabricList = new ObservableCollection<FabricsDyedGroup>();
+          
             VendorList = new ObservableCollection<Vendor>();
             HeaderViewModel = new TblDyeingPlanHeaderViewModel();
 

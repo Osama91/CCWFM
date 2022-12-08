@@ -575,7 +575,7 @@
 								</sdk:DataGridTextColumn.HeaderStyle>
 							</sdk:DataGridTextColumn>
 
-							<sdk:DataGridTemplateColumn IsReadOnly="True" SortMemberPath="TblColor1.Code" >
+							<sdk:DataGridTemplateColumn  SortMemberPath="TblColor1.Code" >
 								<sdk:DataGridTemplateColumn.HeaderStyle>
 								<Style TargetType="sdk:DataGridColumnHeader">
 									<Setter Property="ContentTemplate">
@@ -594,7 +594,7 @@
 								</sdk:DataGridTemplateColumn.CellTemplate>
 								<sdk:DataGridTemplateColumn.CellEditingTemplate>
 									<DataTemplate>
-										<ComboBox SelectedItem="{Binding FabricColorPerRow,Mode=TwoWay}"
+                                        <ComboBox  DisplayMemberPath="Code" SelectedItem="{Binding FabricColorPerRow,Mode=TwoWay}"
 													ItemsSource="{Binding ItemPerRow.AccConfigList,Mode=TwoWay}"
 												  Visibility="{Binding IsAcc,Converter={StaticResource VisibilityConverter}}"
 												  >

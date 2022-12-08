@@ -143,7 +143,9 @@ namespace CCWFM.Web.Service.RouteCard
                         //else
                         //{
                             routeHeaderRow.AxRouteCardJournalId = "1111";
-                            context.SaveChanges();
+                        routeHeaderRow.IsPosted = true;
+                        routeHeaderRow.PostedDate = DateTime.Now;
+                        context.SaveChanges();
 
                         //}
 
@@ -183,6 +185,8 @@ namespace CCWFM.Web.Service.RouteCard
                  //       else
                  //       {
                             routeHeaderRow.AxRouteCardJournalId = "1111";
+                        routeHeaderRow.PostedDate = DateTime.Now;
+                        routeHeaderRow.IsPosted = true;
                             context.SaveChanges();
 
                         //}
@@ -674,12 +678,13 @@ namespace CCWFM.Web.Service.RouteCard
                         //else
                         //{
                             routeHeaderRow.AxRouteCardFabricsJournalId = "111";
-
-                        //}
-                        entities.SaveChanges();
+                    routeHeaderRow.PostedDate = DateTime.Now;
+                    routeHeaderRow.IsPosted = true;
+                    //}
+                    entities.SaveChanges();
                     //}
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     var result= entities.RouteQuantities(routeHeaderRow.Iserial.ToString());
 
@@ -1094,7 +1099,8 @@ namespace CCWFM.Web.Service.RouteCard
                 }
 
                 headerObjToPost.AxRouteCardFabricsJournalId = "111";
-
+                headerObjToPost.IsPosted = true;
+                headerObjToPost.PostedDate = DateTime.Now;
                 try
                 {
 

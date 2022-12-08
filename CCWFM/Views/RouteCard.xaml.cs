@@ -114,7 +114,7 @@ namespace CCWFM.Views
                 {
                     foreach (var item in MyViewModel.RouteCardFabricViewModelList)
                     {
-                        if (item.CostPerUnit==0|| item.CostPerUnit!=null)
+                        if (item.CostPerUnit==0|| item.CostPerUnit==null)
                         {
                             MessageBox.Show("Cost Cannot Be 0");
                             return;
@@ -125,6 +125,8 @@ namespace CCWFM.Views
                 }
 
             }
+
+            
 
             if (MyViewModel.Iserial == 0)
             {
